@@ -41,12 +41,26 @@ export interface Sessao {
   dataHora: string;
 }
 
+export interface FaixaConversao {
+  min?: number;
+  max?: number;
+  classificacao?: string;
+  percentil?: number;
+  escoreT?: number;
+  qi?: number;
+  [outro: string]: number | string | undefined;
+}
+
+export type ResultadoCalculado =
+  | { modo: "soma"; escoreBrutoTotal: number; faixa: FaixaConversao | null }
+  | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number; faixa: FaixaConversao | null }> };
+
 export interface AplicacaoDeTeste {
   id: string;
   sessaoId: string;
   testeId: string;
   escoresBrutos: Record<string, number>;
-  resultadoCalculado: unknown;
+  resultadoCalculado: ResultadoCalculado | null;
   criadoEm: string;
   teste: Teste;
 }

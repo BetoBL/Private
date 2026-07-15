@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
+import { ResultadoResumo } from "../components/ResultadoResumo";
 import { api, type AplicacaoDeTeste, type Paciente, type Profissional, type Sessao, type Teste } from "../lib/api";
 
 export function LancamentoTeste() {
@@ -111,7 +112,7 @@ export function LancamentoTeste() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
       <h1 className="mb-1 font-serif text-2xl text-ink">Testes &amp; Correção</h1>
-      <p className="mb-8 text-sm text-ink/60">Lançamento de resultado de teste — próxima etapa (motor de cálculo) ainda não calcula percentil/classificação.</p>
+      <p className="mb-8 text-sm text-ink/60">Lançamento de resultado de teste, com cálculo automático de percentil/classificação a partir da norma do instrumento.</p>
 
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
 
@@ -244,7 +245,7 @@ export function LancamentoTeste() {
                   <span className="font-semibold">{a.teste.sigla}</span>
                   {a.teste.isPlaceholder && <PlaceholderBadge />}
                 </div>
-                <div className="mt-1 text-ink/60">{JSON.stringify(a.escoresBrutos)}</div>
+                <ResultadoResumo resultado={a.resultadoCalculado} />
               </li>
             ))}
           </ul>

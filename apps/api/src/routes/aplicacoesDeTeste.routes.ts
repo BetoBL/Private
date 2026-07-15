@@ -1,5 +1,7 @@
+import { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { z } from "zod";
+import { calcularResultado, type ConversaoNormativa } from "../lib/motorCalculo";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -11,14 +13,38 @@ const aplicacaoCreateSchema = z.object({
 
 export const aplicacoesDeTesteRouter = Router();
 
-// Cria o lançamento de escores brutos de um teste nesta sessão.
-// resultadoCalculado fica null aqui — o motor de cálculo (próxima etapa do MVP) é quem preenche.
+// Cria o lançamento de escores brutos de um teste nesta sessão e já calcula o resultado
+// (motor de cálculo puro em lib/motorCalculo.ts) usando a 1ª TabelaNormativa do teste.
+// Seleção de norma por critério do paciente (idade/escolaridade) é um refinamento futuro —
+// hoje cada teste do seed tem só uma tabela normativa, então a escolha é trivial.
 aplicacoesDeTesteRouter.post(
   "/",
   validateBody(aplicacaoCreateSchema),
   asyncHandler(async (req, res) => {
+    const { sessaoId, testeId, escoresBrutos } = req.body;
+
+    const teste = await prisma.teste.findUnique({
+      where: { id: testeId },
+      include: { tabelasNormativas: true },
+    });
+    if (!teste) {
+      res.status(404).json({ error: "Teste não encontrado" });
+      return;
+    }
+
+    const tabela = teste.tabelasNormativas[0];
+    const resultadoCalculado = tabela
+      ? calcularResultado(escoresBrutos, tabela.conversao as unknown as ConversaoNormativa)
+      : null;
+
     const aplicacao = await prisma.aplicacaoDeTeste.create({
-      data: req.body,
+      data: {
+        sessaoId,
+        testeId,
+        escoresBrutos,
+        resultadoCalculado: resultadoCalculado ? (resultadoCalculado as unknown as Prisma.InputJsonValue) : undefined,
+        calculadoEm: resultadoCalculado ? new Date() : null,
+      },
       include: { teste: true },
     });
     res.status(201).json(aplicacao);
