@@ -65,6 +65,33 @@ export interface AplicacaoDeTeste {
   teste: Teste;
 }
 
+export type StatusLaudo = "RASCUNHO_IA" | "EM_REVISAO" | "FINALIZADO" | "ENTREGUE";
+
+export interface Laudo {
+  id: string;
+  pacienteId: string;
+  profissionalId: string;
+  identificacao: Record<string, unknown>;
+  descricaoDemanda: string;
+  procedimento: string;
+  analise: string;
+  conclusao: string;
+  referencias: string;
+  status: StatusLaudo;
+  iaUtilizada: boolean;
+  iaRevisadaPeloProf: boolean;
+  criadoEm: string;
+  atualizadoEm: string;
+}
+
+export interface PerfilDeAtuacao {
+  profissionalId: string;
+  abordagemTeorica: string | null;
+  tomDeEscrita: string | null;
+  regrasDePrudencia: string | null;
+  vocabularioRecorrente: string | null;
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
     ...init,
@@ -92,6 +119,30 @@ export const api = {
     request<Sessao>("/sessoes", { method: "POST", body: JSON.stringify(data) }),
 
   listAplicacoes: (sessaoId: string) => request<AplicacaoDeTeste[]>(`/aplicacoes-teste?sessaoId=${sessaoId}`),
+  listAplicacoesPorPaciente: (pacienteId: string) =>
+    request<AplicacaoDeTeste[]>(`/aplicacoes-teste?pacienteId=${pacienteId}`),
   createAplicacao: (data: { sessaoId: string; testeId: string; escoresBrutos: Record<string, number> }) =>
     request<AplicacaoDeTeste>("/aplicacoes-teste", { method: "POST", body: JSON.stringify(data) }),
+
+  listLaudos: (pacienteId: string) => request<Laudo[]>(`/laudos?pacienteId=${pacienteId}`),
+  createLaudo: (data: {
+    pacienteId: string;
+    profissionalId: string;
+    identificacao: Record<string, unknown>;
+    descricaoDemanda: string;
+    procedimento: string;
+  }) => request<Laudo>("/laudos", { method: "POST", body: JSON.stringify(data) }),
+  updateLaudo: (id: string, data: Partial<Pick<Laudo, "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
+    request<Laudo>(`/laudos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
+
+  getPerfilDeAtuacao: (profissionalId: string) =>
+    request<PerfilDeAtuacao | null>(`/perfil-atuacao?profissionalId=${profissionalId}`),
+  salvarPerfilDeAtuacao: (data: {
+    profissionalId: string;
+    abordagemTeorica?: string;
+    tomDeEscrita?: string;
+    regrasDePrudencia?: string;
+    vocabularioRecorrente?: string;
+  }) => request<PerfilDeAtuacao>("/perfil-atuacao", { method: "PUT", body: JSON.stringify(data) }),
 };
