@@ -23,6 +23,12 @@ aplicacoesDeTesteRouter.post(
   asyncHandler(async (req, res) => {
     const { sessaoId, testeId, escoresBrutos } = req.body;
 
+    const sessao = await prisma.sessao.findUnique({ where: { id: sessaoId }, include: { paciente: true } });
+    if (!sessao || sessao.paciente.clinicaId !== req.profissional!.clinicaId) {
+      res.status(400).json({ error: "sessaoId inválido para esta clínica" });
+      return;
+    }
+
     const teste = await prisma.teste.findUnique({
       where: { id: testeId },
       include: { tabelasNormativas: true },
@@ -57,8 +63,11 @@ aplicacoesDeTesteRouter.get(
     const { sessaoId, pacienteId } = req.query;
     const aplicacoes = await prisma.aplicacaoDeTeste.findMany({
       where: {
+        sessao: {
+          paciente: { clinicaId: req.profissional!.clinicaId },
+          ...(typeof pacienteId === "string" ? { pacienteId } : {}),
+        },
         ...(typeof sessaoId === "string" ? { sessaoId } : {}),
-        ...(typeof pacienteId === "string" ? { sessao: { pacienteId } } : {}),
       },
       include: { teste: true },
       orderBy: { criadoEm: "desc" },
@@ -72,9 +81,9 @@ aplicacoesDeTesteRouter.get(
   asyncHandler(async (req, res) => {
     const aplicacao = await prisma.aplicacaoDeTeste.findUnique({
       where: { id: req.params.id },
-      include: { teste: true, sessao: true },
+      include: { teste: true, sessao: { include: { paciente: true } } },
     });
-    if (!aplicacao) {
+    if (!aplicacao || aplicacao.sessao.paciente.clinicaId !== req.profissional!.clinicaId) {
       res.status(404).json({ error: "Aplicação de teste não encontrada" });
       return;
     }

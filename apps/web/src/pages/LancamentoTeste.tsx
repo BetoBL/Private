@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
 import { ResultadoResumo } from "../components/ResultadoResumo";
-import { api, type AplicacaoDeTeste, type Paciente, type Profissional, type Sessao, type Teste } from "../lib/api";
+import { useAuth } from "../context/AuthContext";
+import { api, type AplicacaoDeTeste, type Paciente, type Sessao, type Teste } from "../lib/api";
 
 export function LancamentoTeste() {
-  const [profissionais, setProfissionais] = useState<Profissional[]>([]);
+  const { profissional } = useAuth();
+  const [searchParams] = useSearchParams();
   const [pacientes, setPacientes] = useState<Paciente[]>([]);
   const [testes, setTestes] = useState<Teste[]>([]);
   const [erro, setErro] = useState<string | null>(null);
 
-  const [pacienteId, setPacienteId] = useState<string>("");
+  const [pacienteId, setPacienteId] = useState<string>(searchParams.get("pacienteId") ?? "");
   const [novoPacienteNome, setNovoPacienteNome] = useState("");
   const [novoPacienteNascimento, setNovoPacienteNascimento] = useState("");
 
@@ -23,7 +26,6 @@ export function LancamentoTeste() {
   const [mensagem, setMensagem] = useState<string | null>(null);
 
   useEffect(() => {
-    api.listProfissionais().then(setProfissionais).catch((e) => setErro(e.message));
     api.listPacientes().then(setPacientes).catch((e) => setErro(e.message));
     api.listTestes().then(setTestes).catch((e) => setErro(e.message));
   }, []);
@@ -45,18 +47,16 @@ export function LancamentoTeste() {
     api.listAplicacoes(sessaoId).then(setAplicacoes).catch((e) => setErro(e.message));
   }, [sessaoId]);
 
-  const profissionalAtual = profissionais[0];
   const paciente = pacientes.find((p) => p.id === pacienteId);
   const teste = testes.find((t) => t.id === testeId);
   const campos = teste?.algoritmoCorrecao.campos ?? [];
 
   async function criarPaciente() {
-    if (!profissionalAtual || !novoPacienteNome || !novoPacienteNascimento) return;
+    if (!profissional || !novoPacienteNome || !novoPacienteNascimento) return;
     setErro(null);
     try {
       const criado = await api.createPaciente({
-        clinicaId: profissionalAtual.clinicaId,
-        profissionalId: profissionalAtual.id,
+        profissionalId: profissional.id,
         nome: novoPacienteNome,
         dataNascimento: novoPacienteNascimento,
       });
@@ -75,7 +75,6 @@ export function LancamentoTeste() {
     try {
       const criada = await api.createSessao({
         pacienteId: paciente.id,
-        profissionalId: paciente.profissionalId,
         dataHora: new Date().toISOString(),
       });
       setSessoes((prev) => [criada, ...prev]);

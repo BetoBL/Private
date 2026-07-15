@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
-import {
-  api,
-  type AplicacaoDeTeste,
-  type Laudo,
-  type Paciente,
-  type Profissional,
-} from "../lib/api";
+import { useAuth } from "../context/AuthContext";
+import { api, type AplicacaoDeTeste, type Laudo, type Paciente } from "../lib/api";
 
 const SECOES: Array<{ chave: keyof Pick<Laudo, "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias">; titulo: string }> = [
   { chave: "descricaoDemanda", titulo: "2. Descrição da demanda" },
@@ -17,13 +13,14 @@ const SECOES: Array<{ chave: keyof Pick<Laudo, "descricaoDemanda" | "procediment
 ];
 
 export function ComposicaoLaudo() {
-  const [profissionais, setProfissionais] = useState<Profissional[]>([]);
+  const { profissional } = useAuth();
+  const [searchParams] = useSearchParams();
   const [pacientes, setPacientes] = useState<Paciente[]>([]);
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useState<string | null>(null);
   const [gerando, setGerando] = useState(false);
 
-  const [pacienteId, setPacienteId] = useState("");
+  const [pacienteId, setPacienteId] = useState(searchParams.get("pacienteId") ?? "");
   const [aplicacoes, setAplicacoes] = useState<AplicacaoDeTeste[]>([]);
 
   const [laudos, setLaudos] = useState<Laudo[]>([]);
@@ -33,36 +30,9 @@ export function ComposicaoLaudo() {
   const [novaDemanda, setNovaDemanda] = useState("");
   const [novoProcedimento, setNovoProcedimento] = useState("");
 
-  const [perfilForm, setPerfilForm] = useState({
-    abordagemTeorica: "",
-    tomDeEscrita: "",
-    regrasDePrudencia: "",
-    vocabularioRecorrente: "",
-  });
-
   useEffect(() => {
-    api.listProfissionais().then(setProfissionais).catch((e) => setErro(e.message));
     api.listPacientes().then(setPacientes).catch((e) => setErro(e.message));
   }, []);
-
-  const profissionalAtual = profissionais[0];
-
-  useEffect(() => {
-    if (!profissionalAtual) return;
-    api
-      .getPerfilDeAtuacao(profissionalAtual.id)
-      .then((p) => {
-        if (p) {
-          setPerfilForm({
-            abordagemTeorica: p.abordagemTeorica ?? "",
-            tomDeEscrita: p.tomDeEscrita ?? "",
-            regrasDePrudencia: p.regrasDePrudencia ?? "",
-            vocabularioRecorrente: p.vocabularioRecorrente ?? "",
-          });
-        }
-      })
-      .catch((e) => setErro(e.message));
-  }, [profissionalAtual]);
 
   useEffect(() => {
     if (!pacienteId) {
@@ -88,13 +58,12 @@ export function ComposicaoLaudo() {
   const contemPlaceholder = aplicacoes.some((a) => a.teste.isPlaceholder);
 
   async function criarLaudo() {
-    if (!paciente || !profissionalAtual || !novaDemanda || !novoProcedimento) return;
+    if (!paciente || !profissional || !novaDemanda || !novoProcedimento) return;
     setErro(null);
     try {
       const criado = await api.createLaudo({
         pacienteId: paciente.id,
-        profissionalId: profissionalAtual.id,
-        identificacao: { paciente: paciente.nome, profissional: profissionalAtual.nome },
+        identificacao: { paciente: paciente.nome, profissional: profissional.nome },
         descricaoDemanda: novaDemanda,
         procedimento: novoProcedimento,
       });
@@ -179,17 +148,6 @@ export function ComposicaoLaudo() {
     }
   }
 
-  async function salvarPerfil() {
-    if (!profissionalAtual) return;
-    setErro(null);
-    try {
-      await api.salvarPerfilDeAtuacao({ profissionalId: profissionalAtual.id, ...perfilForm });
-      setMensagem("Perfil de Atuação salvo.");
-    } catch (e) {
-      setErro((e as Error).message);
-    }
-  }
-
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
       <h1 className="mb-1 font-serif text-2xl text-ink">Laudo Psicológico</h1>
@@ -197,50 +155,6 @@ export function ComposicaoLaudo() {
 
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {mensagem && <div className="mb-6 rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}
-
-      {/* Perfil de Atuação */}
-      <section className="mb-8 rounded-2xl border border-mist bg-white p-5">
-        <details>
-          <summary className="cursor-pointer text-xs font-bold uppercase tracking-wide text-sage-deep">Meu Perfil de Atuação</summary>
-          <div className="mt-3 flex flex-col gap-3 text-sm">
-            <label>
-              <span className="mb-1 block font-semibold text-ink/70">Abordagem teórica</span>
-              <textarea
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={perfilForm.abordagemTeorica}
-                onChange={(e) => setPerfilForm((p) => ({ ...p, abordagemTeorica: e.target.value }))}
-              />
-            </label>
-            <label>
-              <span className="mb-1 block font-semibold text-ink/70">Tom de escrita</span>
-              <textarea
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={perfilForm.tomDeEscrita}
-                onChange={(e) => setPerfilForm((p) => ({ ...p, tomDeEscrita: e.target.value }))}
-              />
-            </label>
-            <label>
-              <span className="mb-1 block font-semibold text-ink/70">Regras de prudência clínica</span>
-              <textarea
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={perfilForm.regrasDePrudencia}
-                onChange={(e) => setPerfilForm((p) => ({ ...p, regrasDePrudencia: e.target.value }))}
-              />
-            </label>
-            <label>
-              <span className="mb-1 block font-semibold text-ink/70">Vocabulário recorrente</span>
-              <textarea
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={perfilForm.vocabularioRecorrente}
-                onChange={(e) => setPerfilForm((p) => ({ ...p, vocabularioRecorrente: e.target.value }))}
-              />
-            </label>
-            <button className="self-start rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper" onClick={salvarPerfil}>
-              Salvar perfil
-            </button>
-          </div>
-        </details>
-      </section>
 
       {/* Paciente */}
       <section className="mb-8 rounded-2xl border border-mist bg-white p-5">
@@ -257,6 +171,11 @@ export function ComposicaoLaudo() {
             </option>
           ))}
         </select>
+        {paciente && (
+          <Link to={`/pacientes/${paciente.id}`} className="mt-2 inline-block text-xs text-sage-deep hover:underline">
+            Ver ficha de {paciente.nome}
+          </Link>
+        )}
         {pacienteId && contemPlaceholder && (
           <div className="mt-3">
             <PlaceholderBadge />

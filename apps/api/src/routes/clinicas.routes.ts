@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
+import { exigirAutenticacao } from "../middleware/auth";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -17,6 +18,7 @@ const clinicaUpdateSchema = clinicaCreateSchema.partial();
 
 export const clinicasRouter = Router();
 
+// Pública — passo 1 do fluxo de "criar minha conta" (clínica + primeiro profissional).
 clinicasRouter.post(
   "/",
   validateBody(clinicaCreateSchema),
@@ -26,10 +28,16 @@ clinicasRouter.post(
   })
 );
 
+// Daqui pra baixo exige login — e só enxerga/edita a própria clínica.
+clinicasRouter.use(exigirAutenticacao);
+
 clinicasRouter.get(
   "/",
-  asyncHandler(async (_req, res) => {
-    const clinicas = await prisma.clinica.findMany({ orderBy: { criadoEm: "desc" } });
+  asyncHandler(async (req, res) => {
+    const clinicas = await prisma.clinica.findMany({
+      where: { id: req.profissional!.clinicaId },
+      orderBy: { criadoEm: "desc" },
+    });
     res.json(clinicas);
   })
 );
@@ -37,6 +45,10 @@ clinicasRouter.get(
 clinicasRouter.get(
   "/:id",
   asyncHandler(async (req, res) => {
+    if (req.params.id !== req.profissional!.clinicaId) {
+      res.status(403).json({ error: "Sem acesso a esta clínica" });
+      return;
+    }
     const clinica = await prisma.clinica.findUnique({ where: { id: req.params.id } });
     if (!clinica) {
       res.status(404).json({ error: "Clínica não encontrada" });
@@ -50,6 +62,10 @@ clinicasRouter.patch(
   "/:id",
   validateBody(clinicaUpdateSchema),
   asyncHandler(async (req, res) => {
+    if (req.params.id !== req.profissional!.clinicaId) {
+      res.status(403).json({ error: "Sem acesso a esta clínica" });
+      return;
+    }
     const clinica = await prisma.clinica.update({ where: { id: req.params.id }, data: req.body });
     res.json(clinica);
   })
@@ -58,6 +74,10 @@ clinicasRouter.patch(
 clinicasRouter.delete(
   "/:id",
   asyncHandler(async (req, res) => {
+    if (req.params.id !== req.profissional!.clinicaId) {
+      res.status(403).json({ error: "Sem acesso a esta clínica" });
+      return;
+    }
     await prisma.clinica.delete({ where: { id: req.params.id } });
     res.status(204).send();
   })

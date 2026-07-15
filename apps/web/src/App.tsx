@@ -1,30 +1,39 @@
-import { useState } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { useAuth } from "./context/AuthContext";
+import { Agenda } from "./pages/Agenda";
+import { CadastroClinica } from "./pages/CadastroClinica";
+import { CadastroProfissional } from "./pages/CadastroProfissional";
 import { ComposicaoLaudo } from "./pages/ComposicaoLaudo";
+import { FichaPaciente } from "./pages/FichaPaciente";
 import { LancamentoTeste } from "./pages/LancamentoTeste";
-
-type Tela = "testes" | "laudo";
+import { Login } from "./pages/Login";
+import { PainelDoDia } from "./pages/PainelDoDia";
+import { PerfilAtuacao } from "./pages/PerfilAtuacao";
+import { Pacientes } from "./pages/Pacientes";
 
 function App() {
-  const [tela, setTela] = useState<Tela>("testes");
+  const { profissional } = useAuth();
+
+  if (!profissional) {
+    return <Login />;
+  }
 
   return (
-    <div>
-      <nav className="flex gap-2 border-b border-mist bg-white px-6 py-3">
-        <button
-          className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${tela === "testes" ? "bg-sage-deep text-paper" : "text-ink/60"}`}
-          onClick={() => setTela("testes")}
-        >
-          Testes & Correção
-        </button>
-        <button
-          className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${tela === "laudo" ? "bg-sage-deep text-paper" : "text-ink/60"}`}
-          onClick={() => setTela("laudo")}
-        >
-          Laudo
-        </button>
-      </nav>
-      {tela === "testes" ? <LancamentoTeste /> : <ComposicaoLaudo />}
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<PainelDoDia />} />
+        <Route path="/pacientes" element={<Pacientes />} />
+        <Route path="/pacientes/:id" element={<FichaPaciente />} />
+        <Route path="/testes" element={<LancamentoTeste />} />
+        <Route path="/laudo" element={<ComposicaoLaudo />} />
+        <Route path="/agenda" element={<Agenda />} />
+        <Route path="/perfil-atuacao" element={<PerfilAtuacao />} />
+        <Route path="/clinica" element={<CadastroClinica />} />
+        <Route path="/profissionais" element={<CadastroProfissional />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   );
 }
 

@@ -21,9 +21,15 @@ async function motivoBloqueioFinalizacao(laudo: Laudo, iaRevisadaOverride?: bool
   return null;
 }
 
+// Busca um laudo garantindo que pertence à clínica de quem está autenticado.
+async function buscarLaudoDaClinica(id: string, clinicaId: string) {
+  const laudo = await prisma.laudo.findUnique({ where: { id }, include: { paciente: true } });
+  if (!laudo || laudo.paciente.clinicaId !== clinicaId) return null;
+  return laudo;
+}
+
 const laudoCreateSchema = z.object({
   pacienteId: z.string().uuid(),
-  profissionalId: z.string().uuid(),
   identificacao: z.record(z.string(), z.unknown()),
   descricaoDemanda: z.string().min(1),
   procedimento: z.string().min(1),
@@ -50,7 +56,14 @@ laudosRouter.post(
   "/",
   validateBody(laudoCreateSchema),
   asyncHandler(async (req, res) => {
-    const laudo = await prisma.laudo.create({ data: req.body });
+    const paciente = await prisma.paciente.findUnique({ where: { id: req.body.pacienteId } });
+    if (!paciente || paciente.clinicaId !== req.profissional!.clinicaId) {
+      res.status(400).json({ error: "pacienteId inválido para esta clínica" });
+      return;
+    }
+    const laudo = await prisma.laudo.create({
+      data: { ...req.body, profissionalId: req.profissional!.sub },
+    });
     res.status(201).json(laudo);
   })
 );
@@ -60,7 +73,10 @@ laudosRouter.get(
   asyncHandler(async (req, res) => {
     const { pacienteId } = req.query;
     const laudos = await prisma.laudo.findMany({
-      where: typeof pacienteId === "string" ? { pacienteId } : undefined,
+      where: {
+        paciente: { clinicaId: req.profissional!.clinicaId },
+        ...(typeof pacienteId === "string" ? { pacienteId } : {}),
+      },
       orderBy: { criadoEm: "desc" },
     });
     res.json(laudos);
@@ -70,7 +86,7 @@ laudosRouter.get(
 laudosRouter.get(
   "/:id",
   asyncHandler(async (req, res) => {
-    const laudo = await prisma.laudo.findUnique({ where: { id: req.params.id } });
+    const laudo = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
     if (!laudo) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
@@ -86,7 +102,7 @@ laudosRouter.patch(
   "/:id",
   validateBody(laudoUpdateSchema),
   asyncHandler(async (req, res) => {
-    const existente = await prisma.laudo.findUnique({ where: { id: req.params.id } });
+    const existente = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
     if (!existente) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
@@ -110,17 +126,12 @@ laudosRouter.patch(
 laudosRouter.post(
   "/:id/gerar-rascunho",
   asyncHandler(async (req, res) => {
-    const laudo = await prisma.laudo.findUnique({ where: { id: req.params.id } });
+    const laudo = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
     if (!laudo) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
     }
-
-    const paciente = await prisma.paciente.findUnique({ where: { id: laudo.pacienteId } });
-    if (!paciente) {
-      res.status(404).json({ error: "Paciente não encontrado" });
-      return;
-    }
+    const paciente = laudo.paciente;
 
     const perfilDeAtuacao = await prisma.perfilDeAtuacao.findUnique({
       where: { profissionalId: laudo.profissionalId },
@@ -172,7 +183,7 @@ laudosRouter.post(
 laudosRouter.get(
   "/:id/exportar-docx",
   asyncHandler(async (req, res) => {
-    const laudo = await prisma.laudo.findUnique({ where: { id: req.params.id } });
+    const laudo = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
     if (!laudo) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
@@ -184,18 +195,16 @@ laudosRouter.get(
       return;
     }
 
-    const paciente = await prisma.paciente.findUnique({
-      where: { id: laudo.pacienteId },
-      include: { clinica: true },
-    });
+    const clinica = await prisma.clinica.findUnique({ where: { id: laudo.paciente.clinicaId } });
     const profissional = await prisma.profissional.findUnique({ where: { id: laudo.profissionalId } });
-    if (!paciente || !profissional) {
-      res.status(404).json({ error: "Paciente ou profissional não encontrado" });
+    if (!clinica || !profissional) {
+      res.status(404).json({ error: "Clínica ou profissional não encontrado" });
       return;
     }
+    const paciente = laudo.paciente;
 
     const buffer = await gerarDocxLaudo({
-      clinicaNome: paciente.clinica.razaoSocial,
+      clinicaNome: clinica.razaoSocial,
       profissionalNome: profissional.nome,
       profissionalCrp: profissional.crp,
       identificacao: laudo.identificacao as Record<string, unknown>,
