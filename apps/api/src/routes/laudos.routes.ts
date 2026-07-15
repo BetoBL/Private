@@ -1,10 +1,25 @@
-import { StatusLaudo } from "@prisma/client";
+import { Laudo, StatusLaudo } from "@prisma/client";
 import { Router } from "express";
 import { z } from "zod";
+import { gerarDocxLaudo } from "../lib/gerarDocxLaudo";
 import { gerarRascunhoLaudo } from "../lib/gerarRascunhoLaudo";
 import { pacienteTemTestePlaceholder } from "../lib/placeholderCheck";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
+
+// Trava compartilhada por PATCH (finalizar) e exportação DOCX: precisa de revisão humana
+// e nenhum teste placeholder na bateria (ver memória do projeto project_placeholder_tests_policy).
+async function motivoBloqueioFinalizacao(laudo: Laudo, iaRevisadaOverride?: boolean): Promise<string | null> {
+  const iaRevisada = iaRevisadaOverride ?? laudo.iaRevisadaPeloProf;
+  if (!iaRevisada) {
+    return "o rascunho de IA ainda não foi revisado pelo profissional";
+  }
+  const temPlaceholder = await pacienteTemTestePlaceholder(laudo.pacienteId);
+  if (temPlaceholder) {
+    return "a bateria usa teste(s) com dados provisórios (placeholder). Substitua pelos testes reais antes de continuar.";
+  }
+  return null;
+}
 
 const laudoCreateSchema = z.object({
   pacienteId: z.string().uuid(),
@@ -78,19 +93,9 @@ laudosRouter.patch(
     }
 
     if (req.body.status === StatusLaudo.FINALIZADO) {
-      const iaRevisada = req.body.iaRevisadaPeloProf ?? existente.iaRevisadaPeloProf;
-      if (!iaRevisada) {
-        res.status(409).json({
-          error: "Não é possível finalizar: o rascunho de IA ainda não foi revisado pelo profissional",
-        });
-        return;
-      }
-      const temPlaceholder = await pacienteTemTestePlaceholder(existente.pacienteId);
-      if (temPlaceholder) {
-        res.status(409).json({
-          error:
-            "Não é possível finalizar: a bateria usa teste(s) com dados provisórios (placeholder). Substitua pelos testes reais antes de finalizar.",
-        });
+      const motivo = await motivoBloqueioFinalizacao(existente, req.body.iaRevisadaPeloProf);
+      if (motivo) {
+        res.status(409).json({ error: `Não é possível finalizar: ${motivo}` });
         return;
       }
     }
@@ -157,5 +162,54 @@ laudosRouter.post(
     });
 
     res.json(atualizado);
+  })
+);
+
+// Exporta o laudo em DOCX. Mesma trava da finalização (revisão humana + sem
+// testes placeholder) — é o ponto real que impede um laudo de teste virar
+// documento de verdade por descuido. Gerado sob demanda; não persiste arquivo
+// (Laudo.arquivoUrl fica null — armazenamento de arquivo é V2).
+laudosRouter.get(
+  "/:id/exportar-docx",
+  asyncHandler(async (req, res) => {
+    const laudo = await prisma.laudo.findUnique({ where: { id: req.params.id } });
+    if (!laudo) {
+      res.status(404).json({ error: "Laudo não encontrado" });
+      return;
+    }
+
+    const motivo = await motivoBloqueioFinalizacao(laudo);
+    if (motivo) {
+      res.status(409).json({ error: `Não é possível exportar: ${motivo}` });
+      return;
+    }
+
+    const paciente = await prisma.paciente.findUnique({
+      where: { id: laudo.pacienteId },
+      include: { clinica: true },
+    });
+    const profissional = await prisma.profissional.findUnique({ where: { id: laudo.profissionalId } });
+    if (!paciente || !profissional) {
+      res.status(404).json({ error: "Paciente ou profissional não encontrado" });
+      return;
+    }
+
+    const buffer = await gerarDocxLaudo({
+      clinicaNome: paciente.clinica.razaoSocial,
+      profissionalNome: profissional.nome,
+      profissionalCrp: profissional.crp,
+      identificacao: laudo.identificacao as Record<string, unknown>,
+      descricaoDemanda: laudo.descricaoDemanda,
+      procedimento: laudo.procedimento,
+      analise: laudo.analise,
+      conclusao: laudo.conclusao,
+      referencias: laudo.referencias,
+      iaUtilizada: laudo.iaUtilizada,
+    });
+
+    const nomeArquivo = `laudo-${paciente.nome.replace(/\s+/g, "-").toLowerCase()}.docx`;
+    res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+    res.setHeader("Content-Disposition", `attachment; filename="${nomeArquivo}"`);
+    res.send(buffer);
   })
 );

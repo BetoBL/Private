@@ -92,6 +92,18 @@ export interface PerfilDeAtuacao {
   vocabularioRecorrente: string | null;
 }
 
+async function baixarArquivo(path: string): Promise<{ blob: Blob; filename: string }> {
+  const res = await fetch(`${API_URL}${path}`);
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(body.error ?? `Erro ${res.status}`);
+  }
+  const disposicao = res.headers.get("Content-Disposition") ?? "";
+  const filename = disposicao.match(/filename="?([^"]+)"?/)?.[1] ?? "laudo.docx";
+  const blob = await res.blob();
+  return { blob, filename };
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
     ...init,
@@ -135,6 +147,7 @@ export const api = {
   updateLaudo: (id: string, data: Partial<Pick<Laudo, "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
     request<Laudo>(`/laudos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
+  exportarLaudoDocx: (id: string) => baixarArquivo(`/laudos/${id}/exportar-docx`),
 
   getPerfilDeAtuacao: (profissionalId: string) =>
     request<PerfilDeAtuacao | null>(`/perfil-atuacao?profissionalId=${profissionalId}`),

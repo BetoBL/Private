@@ -162,6 +162,23 @@ export function ComposicaoLaudo() {
     }
   }
 
+  async function baixarDocx() {
+    if (!laudo) return;
+    setErro(null);
+    setMensagem(null);
+    try {
+      const { blob, filename } = await api.exportarLaudoDocx(laudo.id);
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      setErro((e as Error).message);
+    }
+  }
+
   async function salvarPerfil() {
     if (!profissionalAtual) return;
     setErro(null);
@@ -305,6 +322,9 @@ export function ComposicaoLaudo() {
                   onClick={gerarRascunho}
                 >
                   {gerando ? "Gerando..." : "✦ Gerar rascunho com IA"}
+                </button>
+                <button className="rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep" onClick={baixarDocx}>
+                  Baixar DOCX
                 </button>
                 <button className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper" onClick={finalizar}>
                   Finalizar
