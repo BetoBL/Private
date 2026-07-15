@@ -19,9 +19,12 @@ export interface Paciente {
   contato: string | null;
   escolaridade: string | null;
   anamnese: AnamneseData | null;
+  preferenciasAgenda: PreferenciasAgenda | null;
   consentimentoTDIC: boolean;
   criadoEm: string;
 }
+
+export type PapelProfissional = "ADMIN" | "PSICOLOGO";
 
 export interface Profissional {
   id: string;
@@ -29,11 +32,15 @@ export interface Profissional {
   nome: string;
   email: string;
   crp: string;
+  telefone: string | null;
+  enderecoParticular: string | null;
+  formacao: string | null;
+  especialidades: string[];
+  papel: PapelProfissional;
+  criadoEm: string;
 }
 
-export interface ProfissionalLogado extends Profissional {
-  crp: string;
-}
+export interface ProfissionalLogado extends Pick<Profissional, "id" | "clinicaId" | "nome" | "email" | "crp" | "papel"> {}
 
 export interface Clinica {
   id: string;
@@ -79,6 +86,33 @@ export interface Sessao {
   dataHora: string;
 }
 
+export interface EventoAgenda {
+  id: string;
+  profissionalId: string;
+  pacienteId: string | null;
+  paciente: { id: string; nome: string } | null;
+  titulo: string;
+  tipo: string;
+  inicio: string;
+  fim: string;
+  observacoes: string | null;
+  criadoEm: string;
+}
+
+export interface ConflitoAgenda {
+  id: string;
+  titulo: string;
+  inicio: string;
+  fim: string;
+  paciente: string | null;
+}
+
+export interface PreferenciasAgenda {
+  diasPreferidos?: string[];
+  horarioPreferido?: string;
+  observacoes?: string;
+}
+
 export interface FaixaConversao {
   min?: number;
   max?: number;
@@ -122,12 +156,18 @@ export interface Laudo {
   atualizadoEm: string;
 }
 
+export interface RespostaPerfil {
+  opcao: string;
+  complemento?: string;
+}
+
 export interface PerfilDeAtuacao {
   profissionalId: string;
   abordagemTeorica: string | null;
   tomDeEscrita: string | null;
   regrasDePrudencia: string | null;
   vocabularioRecorrente: string | null;
+  respostas: Record<string, RespostaPerfil> | null;
 }
 
 // --- Sessão de autenticação ---
@@ -195,6 +235,25 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return res.json();
 }
 
+export type ResultadoEventoAgenda = { conflito: false; evento: EventoAgenda } | { conflito: true; conflitos: ConflitoAgenda[] };
+
+async function enviarEventoAgenda(path: string, method: "POST" | "PATCH", data: unknown): Promise<ResultadoEventoAgenda> {
+  const res = await fetch(`${API_URL}${path}`, {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
+    },
+    body: JSON.stringify(data),
+  });
+  if (res.status === 409) {
+    const body = await res.json();
+    return { conflito: true, conflitos: body.conflitos as ConflitoAgenda[] };
+  }
+  if (!res.ok) await tratarRespostaSemOk(res);
+  return { conflito: false, evento: await res.json() };
+}
+
 export const api = {
   login: async (email: string, senha: string) => {
     const resposta = await request<{ token: string; profissional: ProfissionalLogado }>("/auth/login", {
@@ -207,7 +266,8 @@ export const api = {
   logout: () => limparSessao(),
   estaAutenticado: () => authToken !== null,
 
-  listPacientes: () => request<Paciente[]>("/pacientes"),
+  listPacientes: (profissionalId?: string) =>
+    request<Paciente[]>(`/pacientes${profissionalId ? `?profissionalId=${profissionalId}` : ""}`),
   getPaciente: (id: string) => request<Paciente>(`/pacientes/${id}`),
   createPaciente: (data: { profissionalId: string; nome: string; dataNascimento: string }) =>
     request<Paciente>("/pacientes", { method: "POST", body: JSON.stringify(data) }),
@@ -220,13 +280,30 @@ export const api = {
       contato: string;
       escolaridade: string;
       anamnese: AnamneseData;
+      preferenciasAgenda: PreferenciasAgenda;
       consentimentoTDIC: boolean;
+      profissionalId: string;
     }>
   ) => request<Paciente>(`/pacientes/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
 
   listProfissionais: () => request<Profissional[]>("/profissionais"),
-  updateProfissional: (id: string, data: Partial<{ nome: string; crp: string; telefone: string; formacao: string }>) =>
-    request<Profissional>(`/profissionais/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  getProfissional: (id: string) => request<Profissional>(`/profissionais/${id}`),
+  createProfissional: (data: { clinicaId: string; nome: string; crp: string; email: string; senha: string }) =>
+    request<Profissional>("/profissionais", { method: "POST", body: JSON.stringify(data) }),
+  updateProfissional: (
+    id: string,
+    data: Partial<{
+      nome: string;
+      crp: string;
+      telefone: string;
+      enderecoParticular: string;
+      formacao: string;
+      especialidades: string[];
+      papel: PapelProfissional;
+      senha: string;
+    }>
+  ) => request<Profissional>(`/profissionais/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  deleteProfissional: (id: string) => request<void>(`/profissionais/${id}`, { method: "DELETE" }),
 
   getClinica: (id: string) => request<Clinica>(`/clinicas/${id}`),
   updateClinica: (id: string, data: Partial<Pick<Clinica, "razaoSocial" | "cnpj" | "endereco" | "telefone" | "corPrimaria" | "corSecundaria">>) =>
@@ -249,6 +326,8 @@ export const api = {
     request<AplicacaoDeTeste[]>(`/aplicacoes-teste?pacienteId=${pacienteId}`),
   createAplicacao: (data: { sessaoId: string; testeId: string; escoresBrutos: Record<string, number> }) =>
     request<AplicacaoDeTeste>("/aplicacoes-teste", { method: "POST", body: JSON.stringify(data) }),
+  updateAplicacao: (id: string, escoresBrutos: Record<string, number>) =>
+    request<AplicacaoDeTeste>(`/aplicacoes-teste/${id}`, { method: "PATCH", body: JSON.stringify({ escoresBrutos }) }),
 
   listLaudos: (pacienteId: string) => request<Laudo[]>(`/laudos?pacienteId=${pacienteId}`),
   listTodosLaudos: () => request<Laudo[]>("/laudos"),
@@ -263,11 +342,44 @@ export const api = {
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
   exportarLaudoDocx: (id: string) => baixarArquivo(`/laudos/${id}/exportar-docx`),
 
+  listEventosAgenda: (params: { inicio?: string; fim?: string; profissionalId?: string; pacienteId?: string } = {}) => {
+    const query = new URLSearchParams(Object.entries(params).filter(([, v]) => v !== undefined) as [string, string][]);
+    const qs = query.toString();
+    return request<EventoAgenda[]>(`/eventos-agenda${qs ? `?${qs}` : ""}`);
+  },
+  criarEventoAgenda: (data: {
+    profissionalId?: string;
+    pacienteId?: string;
+    titulo: string;
+    tipo: string;
+    inicio: string;
+    fim: string;
+    observacoes?: string;
+    forcar?: boolean;
+  }) => enviarEventoAgenda("/eventos-agenda", "POST", data),
+  editarEventoAgenda: (
+    id: string,
+    data: Partial<{
+      pacienteId: string;
+      titulo: string;
+      tipo: string;
+      inicio: string;
+      fim: string;
+      observacoes: string;
+      forcar: boolean;
+    }>
+  ) => enviarEventoAgenda(`/eventos-agenda/${id}`, "PATCH", data),
+  deletarEventoAgenda: (id: string) => request<void>(`/eventos-agenda/${id}`, { method: "DELETE" }),
+
+  getResumoDoDia: () => request<{ resumo: string }>("/painel-do-dia/resumo"),
+  enviarHumor: (humor: string) => request<{ resposta: string }>("/painel-do-dia/humor", { method: "POST", body: JSON.stringify({ humor }) }),
+
   getPerfilDeAtuacao: () => request<PerfilDeAtuacao | null>("/perfil-atuacao"),
   salvarPerfilDeAtuacao: (data: {
     abordagemTeorica?: string;
     tomDeEscrita?: string;
     regrasDePrudencia?: string;
     vocabularioRecorrente?: string;
+    respostas?: Record<string, RespostaPerfil>;
   }) => request<PerfilDeAtuacao>("/perfil-atuacao", { method: "PUT", body: JSON.stringify(data) }),
 };

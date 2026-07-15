@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
+import { SeletorPaciente } from "../components/SeletorPaciente";
 import { useAuth } from "../context/AuthContext";
 import { api, type AplicacaoDeTeste, type Laudo, type Paciente } from "../lib/api";
 
@@ -24,8 +25,9 @@ export function ComposicaoLaudo() {
   const [aplicacoes, setAplicacoes] = useState<AplicacaoDeTeste[]>([]);
 
   const [laudos, setLaudos] = useState<Laudo[]>([]);
-  const [laudoId, setLaudoId] = useState("");
+  const [laudoId, setLaudoId] = useState(searchParams.get("laudoId") ?? "");
   const [laudo, setLaudo] = useState<Laudo | null>(null);
+  const primeiraCarga = useRef(true);
 
   const [novaDemanda, setNovaDemanda] = useState("");
   const [novoProcedimento, setNovoProcedimento] = useState("");
@@ -41,6 +43,12 @@ export function ComposicaoLaudo() {
       setAplicacoes([]);
       return;
     }
+    // Ao trocar de paciente manualmente, começa sem laudo selecionado — mas na primeira
+    // carga da página respeita o ?laudoId= vindo da URL (link direto a partir da ficha do paciente).
+    if (!primeiraCarga.current) {
+      setLaudoId("");
+    }
+    primeiraCarga.current = false;
     api.listLaudos(pacienteId).then(setLaudos).catch((e) => setErro(e.message));
     api.listAplicacoesPorPaciente(pacienteId).then(setAplicacoes).catch((e) => setErro(e.message));
   }, [pacienteId]);
@@ -159,18 +167,7 @@ export function ComposicaoLaudo() {
       {/* Paciente */}
       <section className="mb-8 rounded-2xl border border-mist bg-white p-5">
         <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">1. Paciente</div>
-        <select
-          className="w-full rounded-lg border border-mist bg-paper px-3 py-2 text-sm"
-          value={pacienteId}
-          onChange={(e) => setPacienteId(e.target.value)}
-        >
-          <option value="">Selecione um paciente...</option>
-          {pacientes.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.nome}
-            </option>
-          ))}
-        </select>
+        <SeletorPaciente pacientes={pacientes} value={pacienteId} onChange={setPacienteId} />
         {paciente && (
           <Link to={`/pacientes/${paciente.id}`} className="mt-2 inline-block text-xs text-sage-deep hover:underline">
             Ver ficha de {paciente.nome}

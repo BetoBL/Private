@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { api, type AnamneseData, type AplicacaoDeTeste, type Anexo, type Paciente, type Sessao } from "../lib/api";
+import {
+  api,
+  type AnamneseData,
+  type AplicacaoDeTeste,
+  type Anexo,
+  type EventoAgenda,
+  type Laudo,
+  type Paciente,
+  type PreferenciasAgenda,
+  type Sessao,
+} from "../lib/api";
 
-type Aba = "dados" | "anamnese" | "linha" | "anexos";
+type Aba = "dados" | "anamnese" | "linha" | "laudos" | "agenda" | "anexos";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
+const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 
 export function FichaPaciente() {
   const { id } = useParams<{ id: string }>();
@@ -17,12 +28,16 @@ export function FichaPaciente() {
 
   const [dadosForm, setDadosForm] = useState({ nome: "", dataNascimento: "", responsavelLegal: "", contato: "", escolaridade: "" });
   const [anamneseForm, setAnamneseForm] = useState<AnamneseData>({});
+  const [preferenciasForm, setPreferenciasForm] = useState<PreferenciasAgenda>({});
 
   const [sessoes, setSessoes] = useState<Sessao[]>([]);
   const [aplicacoes, setAplicacoes] = useState<AplicacaoDeTeste[]>([]);
 
   const [anexos, setAnexos] = useState<Anexo[]>([]);
   const [novoAnexo, setNovoAnexo] = useState({ tipo: TIPOS_ANEXO[0], url: "", descricao: "" });
+
+  const [laudos, setLaudos] = useState<Laudo[]>([]);
+  const [eventos, setEventos] = useState<EventoAgenda[]>([]);
 
   useEffect(() => {
     if (!id) return;
@@ -42,11 +57,14 @@ export function FichaPaciente() {
           escolaridade: p.escolaridade ?? "",
         });
         setAnamneseForm(p.anamnese ?? {});
+        setPreferenciasForm(p.preferenciasAgenda ?? {});
       })
       .catch((e) => !cancelado && setErro(e.message));
     api.listSessoes(id).then((s) => !cancelado && setSessoes(s)).catch((e) => !cancelado && setErro(e.message));
     api.listAplicacoesPorPaciente(id).then((a) => !cancelado && setAplicacoes(a)).catch((e) => !cancelado && setErro(e.message));
     api.listAnexos(id).then((a) => !cancelado && setAnexos(a)).catch((e) => !cancelado && setErro(e.message));
+    api.listLaudos(id).then((l) => !cancelado && setLaudos(l)).catch((e) => !cancelado && setErro(e.message));
+    api.listEventosAgenda({ pacienteId: id }).then((ev) => !cancelado && setEventos(ev)).catch((e) => !cancelado && setErro(e.message));
     return () => {
       cancelado = true;
     };
@@ -60,6 +78,27 @@ export function FichaPaciente() {
       const atualizado = await api.updatePaciente(id, dadosForm);
       setPaciente(atualizado);
       setMensagem("Dados salvos.");
+    } catch (e) {
+      setErro((e as Error).message);
+    }
+  }
+
+  function alternarDiaPreferido(dia: string) {
+    setPreferenciasForm((prev) => {
+      const dias = prev.diasPreferidos ?? [];
+      const jaTem = dias.includes(dia);
+      return { ...prev, diasPreferidos: jaTem ? dias.filter((d) => d !== dia) : [...dias, dia] };
+    });
+  }
+
+  async function salvarPreferencias() {
+    if (!id) return;
+    setErro(null);
+    setMensagem(null);
+    try {
+      const atualizado = await api.updatePaciente(id, { preferenciasAgenda: preferenciasForm });
+      setPaciente(atualizado);
+      setMensagem("Preferências de agenda salvas.");
     } catch (e) {
       setErro((e as Error).message);
     }
@@ -149,6 +188,8 @@ export function FichaPaciente() {
           ["dados", "Dados"],
           ["anamnese", "Anamnese"],
           ["linha", "Linha do tempo"],
+          ["laudos", "Laudos"],
+          ["agenda", "Agenda"],
           ["anexos", "Anexos"],
         ] as const).map(([valor, label]) => (
           <button
@@ -211,6 +252,47 @@ export function FichaPaciente() {
           <button className="mt-4 rounded-lg border border-mist px-4 py-2 text-sm font-semibold text-ink/70" onClick={salvarDados}>
             Salvar dados
           </button>
+
+          <div className="mt-8 rounded-2xl border border-mist bg-white p-5">
+            <div className="mb-1 text-xs font-bold uppercase tracking-wide text-sage-deep">Preferências de agenda</div>
+            <p className="mb-3 text-xs text-ink/50">Ajuda a encontrar o melhor horário na hora de marcar um evento para este paciente.</p>
+            <div className="mb-3 flex flex-wrap gap-1.5">
+              {DIAS_SEMANA.map((dia) => (
+                <button
+                  key={dia}
+                  className={`rounded-full border px-3 py-1 text-xs font-semibold ${
+                    (preferenciasForm.diasPreferidos ?? []).includes(dia)
+                      ? "border-sage-deep bg-sage-deep/10 text-sage-deep"
+                      : "border-mist text-ink/60 hover:border-sage-deep hover:text-sage-deep"
+                  }`}
+                  onClick={() => alternarDiaPreferido(dia)}
+                >
+                  {dia}
+                </button>
+              ))}
+            </div>
+            <label className="mb-3 block text-sm">
+              <span className="mb-1 block font-semibold text-ink/70">Horário preferido</span>
+              <input
+                className="w-full rounded-lg border border-mist px-3 py-2"
+                placeholder="Ex: manhãs, após 14h..."
+                value={preferenciasForm.horarioPreferido ?? ""}
+                onChange={(e) => setPreferenciasForm((f) => ({ ...f, horarioPreferido: e.target.value }))}
+              />
+            </label>
+            <label className="mb-3 block text-sm">
+              <span className="mb-1 block font-semibold text-ink/70">Observações</span>
+              <input
+                className="w-full rounded-lg border border-mist px-3 py-2"
+                placeholder="Ex: evitar sexta-feira, precisa de transporte escolar até 17h..."
+                value={preferenciasForm.observacoes ?? ""}
+                onChange={(e) => setPreferenciasForm((f) => ({ ...f, observacoes: e.target.value }))}
+              />
+            </label>
+            <button className="rounded-lg border border-mist px-4 py-2 text-sm font-semibold text-ink/70" onClick={salvarPreferencias}>
+              Salvar preferências
+            </button>
+          </div>
         </div>
       )}
 
@@ -258,6 +340,48 @@ export function FichaPaciente() {
               )}
             </div>
           ))}
+        </div>
+      )}
+
+      {aba === "laudos" && (
+        <div className="flex flex-col gap-2">
+          {laudos.length === 0 && <p className="text-sm text-ink/50">Nenhum laudo criado ainda para este paciente.</p>}
+          {laudos.map((l) => (
+            <button
+              key={l.id}
+              onClick={() => navigate(`/laudo?pacienteId=${id}&laudoId=${l.id}`)}
+              className="flex items-center justify-between rounded-lg border border-mist bg-white px-4 py-3 text-left text-sm hover:bg-paper/60"
+            >
+              <span>{new Date(l.criadoEm).toLocaleString("pt-BR")}</span>
+              <span className="rounded-full bg-mist px-2.5 py-1 text-[11px] font-bold text-sage-deep">{l.status}</span>
+            </button>
+          ))}
+          <button
+            className="mt-2 self-start rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep"
+            onClick={() => navigate(`/laudo?pacienteId=${id}`)}
+          >
+            + Novo laudo
+          </button>
+        </div>
+      )}
+
+      {aba === "agenda" && (
+        <div className="flex flex-col gap-2">
+          {eventos.length === 0 && <p className="text-sm text-ink/50">Nenhum evento de agenda para este paciente.</p>}
+          {[...eventos]
+            .sort((a, b) => new Date(b.inicio).getTime() - new Date(a.inicio).getTime())
+            .map((ev) => (
+              <div key={ev.id} className="rounded-lg border border-mist bg-white px-4 py-3 text-sm">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold">{ev.titulo}</span>
+                  <span className="text-xs text-ink/50">{new Date(ev.inicio).toLocaleString("pt-BR")}</span>
+                </div>
+                {ev.observacoes && <p className="mt-0.5 text-xs text-ink/60">{ev.observacoes}</p>}
+              </div>
+            ))}
+          <Link to="/agenda" className="mt-2 self-start text-sm font-semibold text-sage-deep hover:underline">
+            Ir para a agenda completa →
+          </Link>
         </div>
       )}
 

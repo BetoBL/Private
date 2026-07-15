@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
 import { ResultadoResumo } from "../components/ResultadoResumo";
+import { SeletorPaciente } from "../components/SeletorPaciente";
 import { useAuth } from "../context/AuthContext";
 import { api, type AplicacaoDeTeste, type Paciente, type Sessao, type Teste } from "../lib/api";
 
@@ -18,9 +19,12 @@ export function LancamentoTeste() {
 
   const [sessoes, setSessoes] = useState<Sessao[]>([]);
   const [sessaoId, setSessaoId] = useState<string>("");
+  const [buscaData, setBuscaData] = useState("");
+  const [listaSessoesAberta, setListaSessoesAberta] = useState(false);
 
   const [testeId, setTesteId] = useState<string>("");
   const [escores, setEscores] = useState<Record<string, string>>({});
+  const [editandoAplicacaoId, setEditandoAplicacaoId] = useState<string | null>(null);
 
   const [aplicacoes, setAplicacoes] = useState<AplicacaoDeTeste[]>([]);
   const [mensagem, setMensagem] = useState<string | null>(null);
@@ -30,13 +34,19 @@ export function LancamentoTeste() {
     api.listTestes().then(setTestes).catch((e) => setErro(e.message));
   }, []);
 
+  // Guarda contra corrida: uma resposta de uma sessão antiga pode chegar depois
+  // de o usuário já ter trocado de sessão, fazendo a lista "misturar" dados.
   useEffect(() => {
     if (!pacienteId) {
       setSessoes([]);
       setSessaoId("");
       return;
     }
-    api.listSessoes(pacienteId).then(setSessoes).catch((e) => setErro(e.message));
+    let cancelado = false;
+    api.listSessoes(pacienteId).then((s) => !cancelado && setSessoes(s)).catch((e) => !cancelado && setErro(e.message));
+    return () => {
+      cancelado = true;
+    };
   }, [pacienteId]);
 
   useEffect(() => {
@@ -44,12 +54,20 @@ export function LancamentoTeste() {
       setAplicacoes([]);
       return;
     }
-    api.listAplicacoes(sessaoId).then(setAplicacoes).catch((e) => setErro(e.message));
+    let cancelado = false;
+    api.listAplicacoes(sessaoId).then((a) => !cancelado && setAplicacoes(a)).catch((e) => !cancelado && setErro(e.message));
+    return () => {
+      cancelado = true;
+    };
   }, [sessaoId]);
 
   const paciente = pacientes.find((p) => p.id === pacienteId);
   const teste = testes.find((t) => t.id === testeId);
   const campos = teste?.algoritmoCorrecao.campos ?? [];
+
+  const sessoesFiltradas = buscaData
+    ? sessoes.filter((s) => new Date(s.dataHora).toLocaleDateString("pt-BR").includes(buscaData))
+    : sessoes;
 
   async function criarPaciente() {
     if (!profissional || !novoPacienteNome || !novoPacienteNascimento) return;
@@ -88,9 +106,21 @@ export function LancamentoTeste() {
     setTesteId(id);
     setEscores({});
     setMensagem(null);
+    setEditandoAplicacaoId(null);
   }
 
-  async function lancarResultado() {
+  function editarLancamento(aplicacao: AplicacaoDeTeste) {
+    setTesteId(aplicacao.testeId);
+    const valores: Record<string, string> = {};
+    for (const [chave, valor] of Object.entries(aplicacao.escoresBrutos)) {
+      valores[chave] = String(valor);
+    }
+    setEscores(valores);
+    setEditandoAplicacaoId(aplicacao.id);
+    setMensagem(null);
+  }
+
+  async function salvarLancamento() {
     if (!sessaoId || !testeId) return;
     setErro(null);
     setMensagem(null);
@@ -99,10 +129,17 @@ export function LancamentoTeste() {
       for (const campo of campos) {
         escoresBrutos[campo.chave] = Number(escores[campo.chave] ?? 0);
       }
-      const criada = await api.createAplicacao({ sessaoId, testeId, escoresBrutos });
-      setAplicacoes((prev) => [criada, ...prev]);
-      setMensagem(`${criada.teste.sigla} lançado com sucesso. Selecione outro teste ou revise os valores acima.`);
+      if (editandoAplicacaoId) {
+        const atualizada = await api.updateAplicacao(editandoAplicacaoId, escoresBrutos);
+        setAplicacoes((prev) => prev.map((a) => (a.id === atualizada.id ? atualizada : a)));
+        setMensagem(`${atualizada.teste.sigla} atualizado com sucesso.`);
+      } else {
+        const criada = await api.createAplicacao({ sessaoId, testeId, escoresBrutos });
+        setAplicacoes((prev) => [criada, ...prev]);
+        setMensagem(`${criada.teste.sigla} lançado com sucesso. Selecione outro teste ou revise os valores acima.`);
+      }
       setEscores({});
+      setEditandoAplicacaoId(null);
     } catch (e) {
       setErro((e as Error).message);
     }
@@ -118,18 +155,9 @@ export function LancamentoTeste() {
       {/* Paciente */}
       <section className="mb-8 rounded-2xl border border-mist bg-white p-5">
         <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">1. Paciente</div>
-        <select
-          className="mb-3 w-full rounded-lg border border-mist bg-paper px-3 py-2 text-sm"
-          value={pacienteId}
-          onChange={(e) => setPacienteId(e.target.value)}
-        >
-          <option value="">Selecione um paciente...</option>
-          {pacientes.map((p) => (
-            <option key={p.id} value={p.id}>
-              {p.nome}
-            </option>
-          ))}
-        </select>
+        <div className="mb-3">
+          <SeletorPaciente pacientes={pacientes} value={pacienteId} onChange={setPacienteId} />
+        </div>
         <details className="text-sm">
           <summary className="cursor-pointer text-sage-deep">+ Novo paciente</summary>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -159,7 +187,12 @@ export function LancamentoTeste() {
       {/* Sessão */}
       {pacienteId && (
         <section className="mb-8 rounded-2xl border border-mist bg-white p-5">
-          <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">2. Sessão</div>
+          <div className="mb-3 flex items-center justify-between">
+            <div className="text-xs font-bold uppercase tracking-wide text-sage-deep">2. Sessão</div>
+            <button className="text-xs font-semibold text-sage-deep" onClick={() => setListaSessoesAberta((v) => !v)}>
+              {listaSessoesAberta ? "Recolher lista ▲" : `Ver todas (${sessoes.length}) ▾`}
+            </button>
+          </div>
           <div className="flex flex-wrap items-center gap-2">
             <select
               className="flex-1 rounded-lg border border-mist bg-paper px-3 py-2 text-sm"
@@ -177,6 +210,55 @@ export function LancamentoTeste() {
               + Nova sessão agora
             </button>
           </div>
+
+          {listaSessoesAberta && (
+            <div className="mt-3 rounded-lg border border-mist p-3">
+              <input
+                className="mb-2 w-full rounded-lg border border-mist px-3 py-1.5 text-xs"
+                placeholder="Buscar por data (ex: 15/07)..."
+                value={buscaData}
+                onChange={(e) => setBuscaData(e.target.value)}
+              />
+              <div className="flex max-h-48 flex-col gap-1 overflow-y-auto">
+                {sessoesFiltradas.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setSessaoId(s.id)}
+                    className={`rounded-lg px-3 py-2 text-left text-xs ${
+                      sessaoId === s.id ? "bg-sage-deep/10 font-semibold text-sage-deep" : "hover:bg-paper"
+                    }`}
+                  >
+                    {new Date(s.dataHora).toLocaleString("pt-BR")}
+                  </button>
+                ))}
+                {sessoesFiltradas.length === 0 && <p className="px-3 py-2 text-xs text-ink/50">Nenhuma sessão encontrada.</p>}
+              </div>
+            </div>
+          )}
+
+          {/* Testes já lançados nesta sessão — fica logo abaixo da escolha da sessão (item 2),
+              para não parecer ligado ao teste escolhido no item 3 (bug relatado pelo usuário). */}
+          {sessaoId && aplicacoes.length > 0 && (
+            <div className="mt-4 border-t border-mist pt-4">
+              <div className="mb-2 text-[11px] font-bold uppercase tracking-wide text-ink/50">Testes lançados nesta sessão</div>
+              <ul className="flex flex-col gap-2">
+                {aplicacoes.map((a) => (
+                  <li key={a.id} className="rounded-lg border border-mist p-3 text-sm">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold">{a.teste.sigla}</span>
+                      <div className="flex items-center gap-2">
+                        {a.teste.isPlaceholder && <PlaceholderBadge />}
+                        <button className="text-xs font-semibold text-sage-deep" onClick={() => editarLancamento(a)}>
+                          editar
+                        </button>
+                      </div>
+                    </div>
+                    <ResultadoResumo resultado={a.resultadoCalculado} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </section>
       )}
 
@@ -206,7 +288,9 @@ export function LancamentoTeste() {
       {teste && (
         <section className="mb-8 rounded-2xl border border-mist bg-white p-5">
           <div className="mb-3 flex items-center justify-between">
-            <div className="text-xs font-bold uppercase tracking-wide text-sage-deep">4. Lançamento de escores — {teste.sigla}</div>
+            <div className="text-xs font-bold uppercase tracking-wide text-sage-deep">
+              4. {editandoAplicacaoId ? "Editar lançamento" : "Lançamento de escores"} — {teste.sigla}
+            </div>
             {teste.isPlaceholder && <PlaceholderBadge />}
           </div>
           {campos.length === 0 ? (
@@ -226,28 +310,24 @@ export function LancamentoTeste() {
               ))}
             </div>
           )}
-          <button className="mt-4 rounded-lg bg-sage-deep px-5 py-2.5 text-sm font-semibold text-paper" onClick={lancarResultado}>
-            Salvar lançamento
-          </button>
+          <div className="mt-4 flex items-center gap-3">
+            <button className="rounded-lg bg-sage-deep px-5 py-2.5 text-sm font-semibold text-paper" onClick={salvarLancamento}>
+              {editandoAplicacaoId ? "Salvar edição" : "Salvar lançamento"}
+            </button>
+            {editandoAplicacaoId && (
+              <button
+                className="text-sm text-ink/60"
+                onClick={() => {
+                  setEditandoAplicacaoId(null);
+                  setEscores({});
+                  setTesteId("");
+                }}
+              >
+                Cancelar edição
+              </button>
+            )}
+          </div>
           {mensagem && <p className="mt-3 text-sm font-semibold text-sage-deep">{mensagem}</p>}
-        </section>
-      )}
-
-      {/* Lançamentos desta sessão */}
-      {sessaoId && aplicacoes.length > 0 && (
-        <section className="rounded-2xl border border-mist bg-white p-5">
-          <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Testes lançados nesta sessão</div>
-          <ul className="flex flex-col gap-3">
-            {aplicacoes.map((a) => (
-              <li key={a.id} className="rounded-lg border border-mist p-3 text-sm">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold">{a.teste.sigla}</span>
-                  {a.teste.isPlaceholder && <PlaceholderBadge />}
-                </div>
-                <ResultadoResumo resultado={a.resultadoCalculado} />
-              </li>
-            ))}
-          </ul>
         </section>
       )}
     </div>

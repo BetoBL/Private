@@ -6,6 +6,7 @@ import { CadastroClinica } from "./pages/CadastroClinica";
 import { CadastroProfissional } from "./pages/CadastroProfissional";
 import { ComposicaoLaudo } from "./pages/ComposicaoLaudo";
 import { FichaPaciente } from "./pages/FichaPaciente";
+import { FichaProfissional } from "./pages/FichaProfissional";
 import { LancamentoTeste } from "./pages/LancamentoTeste";
 import { Login } from "./pages/Login";
 import { PainelDoDia } from "./pages/PainelDoDia";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/perfil-atuacao" element={<PerfilAtuacao />} />
         <Route path="/clinica" element={<CadastroClinica />} />
         <Route path="/profissionais" element={<CadastroProfissional />} />
+        <Route path="/profissionais/:id" element={<FichaProfissional />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
