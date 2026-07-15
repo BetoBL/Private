@@ -3,11 +3,17 @@ import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
+const respostaSchema = z.object({
+  opcao: z.string(),
+  complemento: z.string().optional(),
+});
+
 const perfilUpsertSchema = z.object({
   abordagemTeorica: z.string().optional(),
   tomDeEscrita: z.string().optional(),
   regrasDePrudencia: z.string().optional(),
   vocabularioRecorrente: z.string().optional(),
+  respostas: z.record(z.string(), respostaSchema).optional(),
 });
 
 export const perfisDeAtuacaoRouter = Router();
