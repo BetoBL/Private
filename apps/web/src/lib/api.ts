@@ -157,7 +157,7 @@ export interface Laudo {
 }
 
 export interface RespostaPerfil {
-  opcao: string;
+  opcoes: string[];
   complemento?: string;
 }
 
@@ -199,6 +199,12 @@ export function obterProfissionalLogado(): ProfissionalLogado | null {
   } catch {
     return null;
   }
+}
+
+// Atualiza só o profissional em cache (ex: depois de reconsultar a API para corrigir dados
+// obsoletos de uma sessão antiga — ver AuthContext). Não mexe no token.
+export function atualizarProfissionalLogadoEmCache(profissional: ProfissionalLogado) {
+  localStorage.setItem(PROFISSIONAL_STORAGE_KEY, JSON.stringify(profissional));
 }
 
 async function tratarRespostaSemOk(res: Response): Promise<never> {

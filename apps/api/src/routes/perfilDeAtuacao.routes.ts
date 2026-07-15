@@ -4,7 +4,7 @@ import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
 const respostaSchema = z.object({
-  opcao: z.string(),
+  opcoes: z.array(z.string()),
   complemento: z.string().optional(),
 });
 

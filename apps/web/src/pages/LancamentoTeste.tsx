@@ -72,6 +72,7 @@ export function LancamentoTeste() {
   async function criarPaciente() {
     if (!profissional || !novoPacienteNome || !novoPacienteNascimento) return;
     setErro(null);
+    setMensagem(null);
     try {
       const criado = await api.createPaciente({
         profissionalId: profissional.id,
@@ -82,6 +83,7 @@ export function LancamentoTeste() {
       setPacienteId(criado.id);
       setNovoPacienteNome("");
       setNovoPacienteNascimento("");
+      setMensagem(`Paciente ${criado.nome} criado.`);
     } catch (e) {
       setErro((e as Error).message);
     }
@@ -90,6 +92,7 @@ export function LancamentoTeste() {
   async function criarSessao() {
     if (!paciente) return;
     setErro(null);
+    setMensagem(null);
     try {
       const criada = await api.createSessao({
         pacienteId: paciente.id,
@@ -97,6 +100,7 @@ export function LancamentoTeste() {
       });
       setSessoes((prev) => [criada, ...prev]);
       setSessaoId(criada.id);
+      setMensagem("Sessão criada.");
     } catch (e) {
       setErro((e as Error).message);
     }
@@ -235,30 +239,31 @@ export function LancamentoTeste() {
               </div>
             </div>
           )}
+        </section>
+      )}
 
-          {/* Testes já lançados nesta sessão — fica logo abaixo da escolha da sessão (item 2),
-              para não parecer ligado ao teste escolhido no item 3 (bug relatado pelo usuário). */}
-          {sessaoId && aplicacoes.length > 0 && (
-            <div className="mt-4 border-t border-mist pt-4">
-              <div className="mb-2 text-[11px] font-bold uppercase tracking-wide text-ink/50">Testes lançados nesta sessão</div>
-              <ul className="flex flex-col gap-2">
-                {aplicacoes.map((a) => (
-                  <li key={a.id} className="rounded-lg border border-mist p-3 text-sm">
-                    <div className="flex items-center justify-between">
-                      <span className="font-semibold">{a.teste.sigla}</span>
-                      <div className="flex items-center gap-2">
-                        {a.teste.isPlaceholder && <PlaceholderBadge />}
-                        <button className="text-xs font-semibold text-sage-deep" onClick={() => editarLancamento(a)}>
-                          editar
-                        </button>
-                      </div>
-                    </div>
-                    <ResultadoResumo resultado={a.resultadoCalculado} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+      {/* Testes já lançados nesta sessão — cartão próprio, separado do card de sessão (item 2)
+          e do de teste (item 3), para não dar a impressão de que faz parte de um dos dois
+          (bug relatado pelo usuário: parecia que "Ver todas" não recolhia por causa disso). */}
+      {sessaoId && aplicacoes.length > 0 && (
+        <section className="mb-8 rounded-2xl border border-mist bg-paper/60 p-5">
+          <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Testes lançados nesta sessão</div>
+          <ul className="flex flex-col gap-2">
+            {aplicacoes.map((a) => (
+              <li key={a.id} className="rounded-lg border border-mist bg-white p-3 text-sm">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold">{a.teste.sigla}</span>
+                  <div className="flex items-center gap-2">
+                    {a.teste.isPlaceholder && <PlaceholderBadge />}
+                    <button className="text-xs font-semibold text-sage-deep" onClick={() => editarLancamento(a)}>
+                      editar
+                    </button>
+                  </div>
+                </div>
+                <ResultadoResumo resultado={a.resultadoCalculado} />
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 

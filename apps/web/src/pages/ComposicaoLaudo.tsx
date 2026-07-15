@@ -91,6 +91,7 @@ export function ComposicaoLaudo() {
       const atualizado = await api.updateLaudo(laudo.id, { [chave]: valor } as Partial<Laudo>);
       setLaudo(atualizado);
       setLaudos((prev) => prev.map((l) => (l.id === atualizado.id ? atualizado : l)));
+      setMensagem("Seção salva.");
     } catch (e) {
       setErro((e as Error).message);
     }
@@ -120,6 +121,7 @@ export function ComposicaoLaudo() {
       const atualizado = await api.updateLaudo(laudo.id, { iaRevisadaPeloProf: valor });
       setLaudo(atualizado);
       setLaudos((prev) => prev.map((l) => (l.id === atualizado.id ? atualizado : l)));
+      setMensagem(valor ? "Revisão marcada." : "Revisão desmarcada.");
     } catch (e) {
       setErro((e as Error).message);
     }

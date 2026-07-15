@@ -120,10 +120,12 @@ export function FichaPaciente() {
   async function adicionarAnexo() {
     if (!id || !novoAnexo.url) return;
     setErro(null);
+    setMensagem(null);
     try {
       const criado = await api.createAnexo({ pacienteId: id, ...novoAnexo });
       setAnexos((prev) => [criado, ...prev]);
       setNovoAnexo({ tipo: TIPOS_ANEXO[0], url: "", descricao: "" });
+      setMensagem("Anexo adicionado.");
     } catch (e) {
       setErro((e as Error).message);
     }

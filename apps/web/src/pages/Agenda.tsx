@@ -41,6 +41,7 @@ export function Agenda() {
   const [colegas, setColegas] = useState<Profissional[]>([]);
   const [profissionalFiltro, setProfissionalFiltro] = useState<string>("");
   const [erro, setErro] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useState<string | null>(null);
 
   const [mostrarForm, setMostrarForm] = useState(false);
   const [editandoId, setEditandoId] = useState<string | null>(null);
@@ -116,6 +117,7 @@ export function Agenda() {
   async function salvar(forcar = false) {
     if (!form.titulo || !form.inicio || !form.fim || salvando) return;
     setErro(null);
+    setMensagem(null);
     setSalvando(true);
     const payload = {
       titulo: form.titulo,
@@ -139,6 +141,7 @@ export function Agenda() {
       setMostrarForm(false);
       setEditandoId(null);
       setConflitos([]);
+      setMensagem(editandoId ? "Evento atualizado." : "Evento criado.");
     } catch (e) {
       setErro((e as Error).message);
     } finally {
@@ -149,10 +152,12 @@ export function Agenda() {
   async function excluir(id: string) {
     if (!confirm("Excluir este evento da agenda?")) return;
     setErro(null);
+    setMensagem(null);
     try {
       await api.deletarEventoAgenda(id);
       setEventos((prev) => prev.filter((e) => e.id !== id));
       if (editandoId === id) setMostrarForm(false);
+      setMensagem("Evento excluído.");
     } catch (e) {
       setErro((e as Error).message);
     }
@@ -208,6 +213,7 @@ export function Agenda() {
       </div>
 
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
+      {mensagem && <div className="mb-6 rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}
 
       {mostrarForm && (
         <div className="mb-6 rounded-2xl border border-mist bg-white p-5">

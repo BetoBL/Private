@@ -36,6 +36,8 @@ export function PainelDoDia() {
 
   const [humorAberto, setHumorAberto] = useState(true);
   const [humorEscolhido, setHumorEscolhido] = useState<string | null>(null);
+  const [perguntarSeContaMais, setPerguntarSeContaMais] = useState(false);
+  const [mostrarCampoTexto, setMostrarCampoTexto] = useState(false);
   const [humorTexto, setHumorTexto] = useState("");
   const [respostaHumor, setRespostaHumor] = useState<string | null>(null);
   const [enviandoHumor, setEnviandoHumor] = useState(false);
@@ -55,8 +57,13 @@ export function PainelDoDia() {
     };
   }, []);
 
-  async function enviarHumor() {
-    const humor = [humorEscolhido, humorTexto].filter(Boolean).join(" — ");
+  function escolherHumor(label: string) {
+    setHumorEscolhido(label);
+    setPerguntarSeContaMais(true);
+  }
+
+  async function enviarHumor(comTexto: string) {
+    const humor = [humorEscolhido, comTexto].filter(Boolean).join(" — ");
     if (!humor) return;
     setEnviandoHumor(true);
     try {
@@ -90,68 +97,98 @@ export function PainelDoDia() {
         </div>
       </div>
 
-      <section className="relative mb-6 overflow-hidden rounded-2xl bg-ink px-8 py-7 text-paper">
+      <section className="relative mb-10 overflow-hidden rounded-2xl bg-ink px-8 py-7 text-paper">
         <div className="mb-3 text-xs font-bold uppercase tracking-wide text-clay">Resumo do seu dia</div>
         {carregandoResumo ? (
-          <p className="max-w-xl font-serif text-lg leading-relaxed opacity-60">Preparando seu resumo...</p>
+          <p className="font-serif text-lg leading-relaxed opacity-60">Preparando seu resumo...</p>
         ) : (
-          <p className="max-w-xl font-serif text-lg leading-relaxed">
+          <p className="font-serif text-lg leading-relaxed">
             {resumo ??
               '"Cada laudo que você escreve é, para alguém, o início de ser compreendido. Hoje, como todos os dias, esse cuidado importa."'}
           </p>
         )}
-      </section>
 
-      <section className="mb-10 rounded-2xl border border-mist bg-white p-5">
-        {respostaHumor ? (
-          <p className="text-sm text-ink/80">
-            <span className="mr-1.5">💬</span>
-            {respostaHumor}
-          </p>
-        ) : humorAberto ? (
-          <>
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-sm font-semibold text-ink">Como você está se sentindo hoje? (opcional)</span>
-              <button className="text-xs text-ink/40 hover:text-ink/70" onClick={() => setHumorAberto(false)}>
-                pular
-              </button>
-            </div>
-            <div className="mb-3 flex flex-wrap gap-2">
-              {HUMORES.map((h) => (
-                <button
-                  key={h.label}
-                  className={`rounded-full border px-3 py-1.5 text-sm font-semibold ${
-                    humorEscolhido === h.label
-                      ? "border-sage-deep bg-sage-deep/10 text-sage-deep"
-                      : "border-mist text-ink/60 hover:border-sage-deep hover:text-sage-deep"
-                  }`}
-                  onClick={() => setHumorEscolhido(h.label)}
-                >
-                  {h.emoji} {h.label}
-                </button>
-              ))}
-            </div>
-            <div className="flex gap-2">
-              <input
-                className="flex-1 rounded-lg border border-mist px-3 py-2 text-sm"
-                placeholder="Quer contar mais? (opcional)"
-                value={humorTexto}
-                onChange={(e) => setHumorTexto(e.target.value)}
-              />
-              <button
-                className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper disabled:opacity-40"
-                disabled={(!humorEscolhido && !humorTexto) || enviandoHumor}
-                onClick={enviarHumor}
-              >
-                {enviandoHumor ? "Enviando..." : "Enviar"}
-              </button>
-            </div>
-          </>
-        ) : (
-          <button className="text-xs text-ink/40 hover:text-sage-deep" onClick={() => setHumorAberto(true)}>
-            + Como você está se sentindo hoje?
-          </button>
-        )}
+        <div className="mt-6 border-t border-paper/15 pt-5">
+          {respostaHumor ? (
+            <p className="text-sm text-paper/90">
+              <span className="mr-1.5">💬</span>
+              {respostaHumor}
+            </p>
+          ) : humorAberto ? (
+            <>
+              <div className="mb-3 flex items-center justify-between">
+                <span className="text-sm font-semibold text-paper/90">Como você está se sentindo hoje? (opcional)</span>
+                {!perguntarSeContaMais && !mostrarCampoTexto && (
+                  <button className="text-xs text-paper/40 hover:text-paper/70" onClick={() => setHumorAberto(false)}>
+                    pular
+                  </button>
+                )}
+              </div>
+
+              {!perguntarSeContaMais && !mostrarCampoTexto && (
+                <div className="flex flex-wrap gap-2">
+                  {HUMORES.map((h) => (
+                    <button
+                      key={h.label}
+                      className="rounded-full border border-paper/20 px-3 py-1.5 text-sm font-semibold text-paper/80 hover:border-paper/50 hover:text-paper"
+                      onClick={() => escolherHumor(h.label)}
+                    >
+                      {h.emoji} {h.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {perguntarSeContaMais && (
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-sm text-paper/80">
+                    {HUMORES.find((h) => h.label === humorEscolhido)?.emoji} Quer contar mais?
+                  </span>
+                  <button
+                    className="rounded-full border border-paper/30 px-3 py-1 text-xs font-semibold text-paper/80 hover:border-paper/60"
+                    onClick={() => {
+                      setPerguntarSeContaMais(false);
+                      setMostrarCampoTexto(true);
+                    }}
+                  >
+                    Sim
+                  </button>
+                  <button
+                    className="rounded-full border border-paper/30 px-3 py-1 text-xs font-semibold text-paper/80 hover:border-paper/60 disabled:opacity-40"
+                    disabled={enviandoHumor}
+                    onClick={() => {
+                      setPerguntarSeContaMais(false);
+                      enviarHumor("");
+                    }}
+                  >
+                    {enviandoHumor ? "Enviando..." : "Não, é só isso"}
+                  </button>
+                </div>
+              )}
+
+              {mostrarCampoTexto && (
+                <input
+                  autoFocus
+                  className="w-full rounded-lg border border-paper/20 bg-paper/10 px-3 py-2 text-sm text-paper placeholder:text-paper/40"
+                  placeholder="Conte mais... (pressione Enter para enviar)"
+                  value={humorTexto}
+                  disabled={enviandoHumor}
+                  onChange={(e) => setHumorTexto(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && humorTexto.trim()) {
+                      e.preventDefault();
+                      enviarHumor(humorTexto.trim());
+                    }
+                  }}
+                />
+              )}
+            </>
+          ) : (
+            <button className="text-xs text-paper/40 hover:text-paper/80" onClick={() => setHumorAberto(true)}>
+              + Como você está se sentindo hoje?
+            </button>
+          )}
+        </div>
       </section>
 
       <div className="mb-4 text-xs font-bold uppercase tracking-wide text-sage-deep">Visão geral</div>

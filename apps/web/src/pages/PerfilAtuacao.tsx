@@ -68,7 +68,12 @@ const PERGUNTAS_PESSOAIS: PerguntaPessoal[] = [
   {
     id: "energiza",
     texto: "O que mais te energiza no seu trabalho?",
-    opcoes: ["Investigação diagnóstica complexa", "Devolutiva e vínculo com a família", "Impacto direto na vida escolar/social do paciente", "Prefiro descrever com minhas palavras"],
+    opcoes: [
+      "Investigação diagnóstica complexa",
+      "Devolutiva e vínculo com a família",
+      "Impacto direto na vida escolar/social do paciente",
+      "Prefiro descrever com minhas palavras",
+    ],
   },
 ];
 
@@ -76,6 +81,7 @@ export function PerfilAtuacao() {
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useState<string | null>(null);
   const [form, setForm] = useState(CAMPO_INICIAL);
+  const [presetsAtivos, setPresetsAtivos] = useState<Record<string, string[]>>({});
   const [respostas, setRespostas] = useState<Record<string, RespostaPerfil>>({});
 
   useEffect(() => {
@@ -109,12 +115,23 @@ export function PerfilAtuacao() {
     }
   }
 
-  function escolherOpcao(perguntaId: string, opcao: string) {
-    setRespostas((prev) => ({ ...prev, [perguntaId]: { opcao, complemento: prev[perguntaId]?.complemento ?? "" } }));
+  function alternarPreset(chave: keyof typeof CAMPO_INICIAL, preset: string) {
+    const atuais = presetsAtivos[chave] ?? [];
+    const novos = atuais.includes(preset) ? atuais.filter((p) => p !== preset) : [...atuais, preset];
+    setPresetsAtivos((prev) => ({ ...prev, [chave]: novos }));
+    setForm((prev) => ({ ...prev, [chave]: novos.join("; ") }));
+  }
+
+  function alternarOpcao(perguntaId: string, opcao: string) {
+    setRespostas((prev) => {
+      const atuais = prev[perguntaId]?.opcoes ?? [];
+      const novas = atuais.includes(opcao) ? atuais.filter((o) => o !== opcao) : [...atuais, opcao];
+      return { ...prev, [perguntaId]: { opcoes: novas, complemento: prev[perguntaId]?.complemento ?? "" } };
+    });
   }
 
   function editarComplemento(perguntaId: string, complemento: string) {
-    setRespostas((prev) => ({ ...prev, [perguntaId]: { opcao: prev[perguntaId]?.opcao ?? "", complemento } }));
+    setRespostas((prev) => ({ ...prev, [perguntaId]: { opcoes: prev[perguntaId]?.opcoes ?? [], complemento } }));
   }
 
   return (
@@ -122,7 +139,7 @@ export function PerfilAtuacao() {
       <h1 className="mb-1 font-serif text-2xl text-ink">Meu Perfil de Atuação</h1>
       <p className="mb-8 max-w-xl text-sm text-ink/60">
         Orienta como a IA redige os rascunhos de laudo no seu estilo — abordagem teórica, tom, vocabulário e cuidados clínicos. Escolha uma
-        sugestão rápida ou escreva com suas próprias palavras.
+        ou mais sugestões rápidas (elas ficam marcadas) e complete com suas próprias palavras se quiser.
       </p>
 
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
@@ -138,8 +155,12 @@ export function PerfilAtuacao() {
               {campo.presets.map((preset) => (
                 <button
                   key={preset}
-                  className="rounded-full border border-mist px-3 py-1 text-xs font-semibold text-ink/60 hover:border-sage-deep hover:text-sage-deep"
-                  onClick={() => setForm((prev) => ({ ...prev, [campo.chave]: preset }))}
+                  className={`rounded-full border px-3 py-1 text-xs font-semibold ${
+                    (presetsAtivos[campo.chave] ?? []).includes(preset)
+                      ? "border-sage-deep bg-sage-deep/10 text-sage-deep"
+                      : "border-mist text-ink/60 hover:border-sage-deep hover:text-sage-deep"
+                  }`}
+                  onClick={() => alternarPreset(campo.chave, preset)}
                 >
                   {preset}
                 </button>
@@ -158,7 +179,8 @@ export function PerfilAtuacao() {
 
       <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Perfil pessoal (uso interno da clínica)</div>
       <p className="mb-4 max-w-xl text-xs text-ink/50">
-        Não entra no laudo. Ajuda a clínica a entender melhor seu jeito de trabalhar para futuras alocações de pacientes.
+        Não entra no laudo. Ajuda a clínica a entender melhor seu jeito de trabalhar para futuras alocações de pacientes. Pode marcar mais
+        de uma opção.
       </p>
       <div className="mb-8 flex flex-col gap-4">
         {PERGUNTAS_PESSOAIS.map((pergunta) => (
@@ -169,11 +191,11 @@ export function PerfilAtuacao() {
                 <button
                   key={opcao}
                   className={`rounded-full border px-3 py-1 text-xs font-semibold ${
-                    respostas[pergunta.id]?.opcao === opcao
+                    (respostas[pergunta.id]?.opcoes ?? []).includes(opcao)
                       ? "border-sage-deep bg-sage-deep/10 text-sage-deep"
                       : "border-mist text-ink/60 hover:border-sage-deep hover:text-sage-deep"
                   }`}
-                  onClick={() => escolherOpcao(pergunta.id, opcao)}
+                  onClick={() => alternarOpcao(pergunta.id, opcao)}
                 >
                   {opcao}
                 </button>
