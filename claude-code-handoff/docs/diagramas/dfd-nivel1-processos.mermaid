@@ -1,0 +1,60 @@
+flowchart TB
+    PAC([Paciente]):::entity
+    PROF([Profissional]):::entity
+    ADM([Admin da Clínica]):::entity
+    CONV([Operadora / Amil]):::entity
+
+    P1[["1.0\nGestão de Cadastros\n(paciente, profissional, clínica, convênio)"]]:::process
+    P2[["2.0\nAgenda e Sessões"]]:::process
+    P3[["3.0\nMotor de Correção de Testes\n(fixo + aberto/custom)"]]:::process
+    P4[["4.0\nMotor de Integração e Síntese IA\n(usa Perfil de Atuação do profissional)"]]:::process
+    P5[["5.0\nGeração e Gestão de Laudos"]]:::process
+    P6[["6.0\nFaturamento / Convênios (TISS)"]]:::process
+
+    D1[(D1 - Pacientes)]:::store
+    D2[(D2 - Profissionais/Clínicas)]:::store
+    D3[(D3 - Catálogo de Testes\n+ Tabelas Normativas)]:::store
+    D4[(D4 - Resultados de Testes\npor sessão/paciente)]:::store
+    D5[(D5 - Perfis de Atuação\ndo Profissional -- estilo, formação, linguagem)]:::store
+    D6[(D6 - Laudos gerados)]:::store
+    D7[(D7 - Convênios, tabelas\nde valores e guias TISS)]:::store
+    D8[(D8 - Agenda/Sessões)]:::store
+
+    PAC --> P1
+    ADM --> P1
+    P1 --> D1
+    P1 --> D2
+    P1 --> D7
+
+    PROF --> P2
+    P1 -.dados do paciente/profissional.-> P2
+    P2 --> D8
+    D8 --> P2
+
+    PROF -- "dados brutos do teste aplicado\nna sessão" --> P3
+    D3 --> P3
+    P3 --> D4
+    D4 --> P3
+
+    D4 --> P4
+    D1 --> P4
+    D5 --> P4
+    PROF -- "ajusta/treina o Perfil de Atuação\n(como analisa, referencial teórico, forma de escrever)" --> D5
+    P4 -- "rascunho de Análise/Conclusão" --> P5
+
+    D2 --> P5
+    D1 --> P5
+    P5 --> D6
+    P5 -- "laudo para revisão" --> PROF
+    PROF -- "valida e assina" --> P5
+    P5 -- "laudo final (PDF/DOCX)" --> PAC
+
+    D8 -- "atendimentos realizados" --> P6
+    D7 --> P6
+    P6 -- "guia TISS (XML)" --> CONV
+    CONV -- "autorização / pagamento / glosa" --> P6
+    P6 --> D7
+
+    classDef entity fill:#eef,stroke:#334,stroke-width:1px;
+    classDef process fill:#dff,stroke:#066,stroke-width:2px;
+    classDef store fill:#ffe,stroke:#663,stroke-width:1px;

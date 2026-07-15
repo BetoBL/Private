@@ -1,0 +1,36 @@
+flowchart TB
+    PROF([Profissional]):::entity
+
+    subgraph MOTOR["3.0 Motor de Correção de Testes -- template genérico\n(uma instância deste fluxo por TIPO de teste: WISC, RAVLT, ETDAH-2, teste custom, etc.)"]
+      direction TB
+      P31[["3.1\nSelecionar Teste\n(catálogo fixo ou cadastrado pelo profissional)"]]:::process
+      P32[["3.2\nRegistrar Respostas/Escores Brutos\npor item, subteste ou escala"]]:::process
+      P33[["3.3\nCalcular Escore Bruto Total\nsegundo algoritmo do manual do teste"]]:::process
+      P34[["3.4\nLocalizar Norma Aplicável\npor idade, escolaridade, sexo, região"]]:::process
+      P35[["3.5\nConverter em Percentil/\nEscore Padronizado/Escore T"]]:::process
+      P36[["3.6\nClassificar Resultado\n(ex: Muito Superior... Muito Inferior /\nClínico / Não Clínico)"]]:::process
+      P37[["3.7\nGerar Gráfico/Perfil\ndo domínio avaliado"]]:::process
+    end
+
+    D3A[(D3a - Definição do Teste\nitens, subtestes, algoritmo)]:::store
+    D3B[(D3b - Tabela Normativa\ndo teste, por faixa)]:::store
+    D4[(D4 - Resultado do Teste\ndo paciente, nesta sessão)]:::store
+
+    PROF -- "escolhe teste da bateria" --> P31
+    D3A --> P31
+    P31 --> P32
+    PROF -- "digita respostas/escores\ncoletados na aplicação manual" --> P32
+    P32 --> P33
+    D3A --> P33
+    P33 --> P34
+    D3B --> P34
+    P34 --> P35
+    P35 --> P36
+    D3A -. "critérios de classificação\ndo manual" .-> P36
+    P36 --> P37
+    P37 --> D4
+    D4 -- "resultado consolidado deste teste" --> INT[["para 4.0 Motor de Integração\ne Síntese IA"]]:::process
+
+    classDef entity fill:#eef,stroke:#334,stroke-width:1px;
+    classDef process fill:#dff,stroke:#066,stroke-width:2px;
+    classDef store fill:#ffe,stroke:#663,stroke-width:1px;

@@ -1,0 +1,259 @@
+// Schema inicial — ponto de partida, evoluído a partir do handoff em /claude-code-handoff/prisma/schema.prisma.
+// Foco no MVP: Clinica, Profissional, Paciente, Teste (fixo+custom), AplicacaoDeTeste, Laudo.
+// Módulos de Agenda/Convênio/Faturamento entram numa V2 (campos já deixados previstos onde fizer sentido).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EscopoTeste {
+  FIXO
+  CUSTOM
+}
+
+enum DominioCognitivo {
+  INTELIGENCIA
+  ATENCAO
+  MEMORIA
+  FUNCOES_EXECUTIVAS
+  LINGUAGEM_APRENDIZAGEM
+  PERSONALIDADE
+  SINTOMAS_EMOCIONAIS
+  RASTREIO_TDAH
+  RASTREIO_TEA
+  DESENVOLVIMENTO
+  OUTRO
+}
+
+enum StatusLaudo {
+  RASCUNHO_IA
+  EM_REVISAO
+  FINALIZADO
+  ENTREGUE
+}
+
+model Clinica {
+  id            String         @id @default(uuid())
+  razaoSocial   String
+  cnpj          String?
+  endereco      String?
+  telefone      String?
+  logoUrl       String?
+  corPrimaria   String?        // hex, para personalizar laudo/portal
+  corSecundaria String?
+  criadoEm      DateTime       @default(now())
+
+  profissionais Profissional[]
+  pacientes     Paciente[]
+  convenios     Convenio[]
+}
+
+model Profissional {
+  id                String            @id @default(uuid())
+  clinicaId         String
+  clinica           Clinica           @relation(fields: [clinicaId], references: [id])
+
+  nome              String
+  fotoUrl           String?
+  crp               String
+  telefone          String?
+  enderecoParticular String?
+  formacao          String?           // texto livre: pós-graduações, especializações
+  email             String            @unique
+  senhaHash         String
+
+  perfilDeAtuacao   PerfilDeAtuacao?
+  pacientes         Paciente[]
+  sessoes           Sessao[]
+  laudos            Laudo[]
+  testesCriados     Teste[]           @relation("TestesCriadosPeloProfissional")
+  convenios         ProfissionalConvenio[]
+
+  criadoEm          DateTime          @default(now())
+}
+
+// "System prompt" clínico do profissional, usado para orientar a IA na síntese do laudo
+model PerfilDeAtuacao {
+  id                    String       @id @default(uuid())
+  profissionalId        String       @unique
+  profissional          Profissional @relation(fields: [profissionalId], references: [id])
+
+  abordagemTeorica       String?     @db.Text
+  tomDeEscrita            String?    @db.Text  // ex: "técnico porém acessível ao leigo"
+  regrasDePrudencia       String?    @db.Text  // ex: "nunca fechar TEA sem encaminhar avaliação médica"
+  vocabularioRecorrente   String?    @db.Text
+  laudosExemplo           Json?      // array de textos de laudos anteriores, para few-shot
+  atualizadoEm            DateTime   @updatedAt
+}
+
+model Paciente {
+  id              String     @id @default(uuid())
+  clinicaId       String
+  clinica         Clinica    @relation(fields: [clinicaId], references: [id])
+  profissionalId  String
+  profissional    Profissional @relation(fields: [profissionalId], references: [id])
+
+  nome            String
+  dataNascimento  DateTime
+  fotoUrl         String?
+  responsavelLegal String?
+  contato         String?
+  escolaridade    String?
+
+  convenioId      String?
+  convenio        Convenio?  @relation(fields: [convenioId], references: [id])
+
+  anamnese        Json?      // estrutura livre: queixa, histórico escolar/médico/familiar
+  anexos          Anexo[]
+  sessoes         Sessao[]
+  laudos          Laudo[]
+
+  // Conformidade Resolução CFP nº 09/2024: paciente deve ser informado sobre
+  // recursos tecnológicos usados (incluindo IA) e, no caso de IA, idealmente consentir
+  consentimentoTDIC       Boolean   @default(false)
+  consentimentoTDICData   DateTime?
+
+  criadoEm        DateTime   @default(now())
+}
+
+model Anexo {
+  id          String    @id @default(uuid())
+  pacienteId  String
+  paciente    Paciente  @relation(fields: [pacienteId], references: [id])
+  tipo        String    // "foto" | "documento" | "laudo_externo" | "exame"
+  url         String
+  descricao   String?
+  criadoEm    DateTime  @default(now())
+}
+
+model Sessao {
+  id              String    @id @default(uuid())
+  pacienteId      String
+  paciente        Paciente  @relation(fields: [pacienteId], references: [id])
+  profissionalId  String
+  profissional    Profissional @relation(fields: [profissionalId], references: [id])
+
+  dataHora        DateTime
+  observacoes     String?   @db.Text
+  aplicacoesTeste AplicacaoDeTeste[]
+
+  criadoEm        DateTime  @default(now())
+}
+
+// Catálogo de testes — fixo (seed) ou custom (cadastrado por um profissional)
+model Teste {
+  id                        String            @id @default(uuid())
+  nome                      String
+  sigla                     String
+  dominio                   DominioCognitivo
+  escopo                    EscopoTeste
+  criadoPorProfissionalId   String?
+  criadoPorProfissional     Profissional?     @relation("TestesCriadosPeloProfissional", fields: [criadoPorProfissionalId], references: [id])
+
+  descricao                 String?           @db.Text
+  algoritmoCorrecao         Json              // definição estruturada: itens, subtestes, fórmula de escore bruto
+  referenciaBibliografica   String?           @db.Text
+
+  // Trava de dados provisórios (MVP): testes semeados antes da lista definitiva da psicóloga
+  // chegam com isPlaceholder=true. Nunca usar em laudo real — ver regras de bloqueio em Laudo.
+  isPlaceholder             Boolean           @default(false)
+  // Permite desativar/substituir um teste (ex: trocar placeholder pelo instrumento real)
+  // sem apagar histórico: AplicacaoDeTeste continua referenciando o testeId original.
+  ativo                     Boolean           @default(true)
+
+  tabelasNormativas         TabelaNormativa[]
+  aplicacoes                AplicacaoDeTeste[]
+
+  criadoEm                  DateTime          @default(now())
+}
+
+// Tabela normativa flexível: cada linha é uma faixa (ex: idade 8-9 anos) com o critério de conversão
+model TabelaNormativa {
+  id            String   @id @default(uuid())
+  testeId       String
+  teste         Teste    @relation(fields: [testeId], references: [id])
+
+  criterio      String   // ex: "idade", "idade+escolaridade", "sexo"
+  faixaMin      Float?
+  faixaMax      Float?
+  faixaLabel    String?  // ex: "6º ao 9º ano" quando não é numérico
+  conversao     Json     // mapeamento escore bruto -> percentil/escore padronizado/classificação
+}
+
+model AplicacaoDeTeste {
+  id                String    @id @default(uuid())
+  sessaoId          String
+  sessao            Sessao    @relation(fields: [sessaoId], references: [id])
+  testeId           String
+  teste             Teste     @relation(fields: [testeId], references: [id])
+
+  escoresBrutos     Json      // estrutura varia por teste
+  resultadoCalculado Json?    // percentil, escore padronizado, classificação, gráfico-ready
+  calculadoEm       DateTime?
+
+  criadoEm          DateTime  @default(now())
+}
+
+model Laudo {
+  id                String       @id @default(uuid())
+  pacienteId        String
+  paciente          Paciente     @relation(fields: [pacienteId], references: [id])
+  profissionalId    String
+  profissional      Profissional @relation(fields: [profissionalId], references: [id])
+
+  // 6 seções obrigatórias — Resolução CFP nº 06/2019
+  identificacao     Json         // dados do solicitante/paciente/profissional
+  descricaoDemanda  String       @db.Text
+  procedimento      String       @db.Text  // testes usados, nº de sessões, datas
+  analise           String       @db.Text  // gerado por IA como rascunho, depois editado
+  conclusao         String       @db.Text
+  referencias       String       @db.Text
+
+  status            StatusLaudo  @default(RASCUNHO_IA)
+  dataDevolutiva    DateTime?
+  arquivoUrl        String?      // DOCX/PDF final gerado
+
+  // Conformidade Resolução CFP nº 09/2024 (TDICs) + Cartilha CFP sobre IA (dez/2025):
+  // uso de IA precisa ser transparente ao paciente e registrado, responsabilidade sempre do profissional
+  iaUtilizada         Boolean    @default(false)
+  iaRevisadaPeloProf  Boolean    @default(false)  // trava de segurança: não finaliza sem revisão humana marcada
+
+  criadoEm          DateTime     @default(now())
+  atualizadoEm      DateTime     @updatedAt
+}
+
+// --- Módulo de convênio (V2/V3 — deixado previsto no schema, não implementar ainda) ---
+
+model Convenio {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  clinica        Clinica   @relation(fields: [clinicaId], references: [id])
+
+  nomeOperadora  String    // ex: "Amil"
+  codigoPrestador String?
+  pacientes      Paciente[]
+  profissionais  ProfissionalConvenio[]
+  tabelaValores  TabelaValorConvenio[]
+}
+
+model ProfissionalConvenio {
+  id              String       @id @default(uuid())
+  profissionalId  String
+  profissional    Profissional @relation(fields: [profissionalId], references: [id])
+  convenioId      String
+  convenio        Convenio     @relation(fields: [convenioId], references: [id])
+}
+
+model TabelaValorConvenio {
+  id            String    @id @default(uuid())
+  convenioId    String
+  convenio      Convenio  @relation(fields: [convenioId], references: [id])
+  codigoTUSS    String
+  descricao     String
+  valor         Decimal
+}

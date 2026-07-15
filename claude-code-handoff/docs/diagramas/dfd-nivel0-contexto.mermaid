@@ -1,0 +1,22 @@
+flowchart LR
+    PAC([Paciente / Responsável]):::entity
+    PROF([Profissional / Psicólogo]):::entity
+    ADM([Administrador da Clínica]):::entity
+    CONV([Operadora de Convênio\nex: Amil - via padrão TISS]):::entity
+
+    SIS[["0\nSISTEMA DE APOIO À\nAVALIAÇÃO NEUROPSICOLÓGICA"]]:::process
+
+    PAC -- "dados pessoais, histórico,\nrespostas de escalas de anamnese" --> SIS
+    SIS -- "laudo final, agendamento,\ndevolutiva" --> PAC
+
+    PROF -- "dados brutos dos testes aplicados,\nobservações clínicas, perfil de atuação" --> SIS
+    SIS -- "resultados calculados, rascunho de laudo\ngerado por IA, agenda, relatórios gerenciais" --> PROF
+
+    ADM -- "cadastro de profissionais, clínica,\ntabelas de convênio e valores" --> SIS
+    SIS -- "relatórios financeiros, medições,\nocupação de agenda" --> ADM
+
+    SIS -- "guia TISS (XML) de cobrança" --> CONV
+    CONV -- "autorização, demonstrativo de pagamento,\nglosas" --> SIS
+
+    classDef entity fill:#eef,stroke:#334,stroke-width:1px;
+    classDef process fill:#dff,stroke:#066,stroke-width:2px;

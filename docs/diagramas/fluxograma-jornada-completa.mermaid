@@ -1,0 +1,31 @@
+flowchart TD
+    A([Paciente/família procura a clínica]) --> B[Cadastro do paciente\nfoto, dados, responsável, convênio]
+    B --> C[Triagem inicial / anamnese\nqueixa, histórico escolar, médico, familiar]
+    C --> D{Profissional define\nhipótese de trabalho}
+    D --> E[Monta o Plano de Avaliação\nescolhe bateria de testes fixos e/ou próprios]
+    E --> F[Agenda as sessões semanais\nintegrado à agenda geral do profissional]
+
+    subgraph SESSOES["Sessões semanais (até ~4-8 semanas)"]
+      direction TB
+      F1[Sessão N: aplica teste manualmente\ncom o paciente, sem sistema na mesa]
+      F2[Ao final da sessão:\nprofissional alimenta o sistema\ncom os dados brutos coletados]
+      F3[Sistema corrige automaticamente\nusando fórmula/norma do teste]
+      F4[Resultado do teste fica salvo\nno perfil do paciente]
+      F1 --> F2 --> F3 --> F4
+      F4 -.próxima sessão.-> F1
+    end
+
+    F --> SESSOES
+    SESSOES --> G[Todas as sessões concluídas:\ntodos os testes da bateria corrigidos]
+    G --> H[Motor de Integração\ncruza resultados de todos os testes\n+ anamnese + observações clínicas]
+    H --> I[Motor de Síntese com IA\nusa o Perfil de Atuação do profissional\npara gerar RASCUNHO de Análise e Conclusão]
+    I --> J[Profissional revisa, edita e valida\no rascunho -- responsabilidade técnica é sempre dele/dela]
+    J --> K[Sistema monta o Laudo Psicológico\nformatado conforme Resolução CFP 06/2019\nIdentificação, Demanda, Procedimento,\nAnálise, Conclusão, Referências]
+    K --> L[Geração do documento final\nDOCX / PDF assinável ICP-Brasil]
+    L --> M[Entrevista devolutiva\ncom paciente/responsável -- obrigatória]
+    M --> N[Entrega do laudo + protocolo de recebimento assinado]
+    N --> O{Atendimento via convênio?}
+    O -- Sim --> P[Gera guia/medição\npadrão TISS -- envio à operadora, ex: Amil]
+    O -- Não --> Q[Fatura particular]
+    P --> R([Arquivo do caso\nguardado conforme prazo legal])
+    Q --> R
