@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
-import { exigirAutenticacao } from "../middleware/auth";
+import { exigirAdmin, exigirAutenticacao } from "../middleware/auth";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -60,6 +60,7 @@ clinicasRouter.get(
 
 clinicasRouter.patch(
   "/:id",
+  exigirAdmin,
   validateBody(clinicaUpdateSchema),
   asyncHandler(async (req, res) => {
     if (req.params.id !== req.profissional!.clinicaId) {
@@ -73,6 +74,7 @@ clinicasRouter.patch(
 
 clinicasRouter.delete(
   "/:id",
+  exigirAdmin,
   asyncHandler(async (req, res) => {
     if (req.params.id !== req.profissional!.clinicaId) {
       res.status(403).json({ error: "Sem acesso a esta clínica" });

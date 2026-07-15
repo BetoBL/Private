@@ -13,6 +13,10 @@ const anexoCreateSchema = z.object({
 
 export const anexosRouter = Router();
 
+function ehAdmin(req: { profissional?: { papel: string } }): boolean {
+  return req.profissional?.papel === "ADMIN";
+}
+
 anexosRouter.post(
   "/",
   validateBody(anexoCreateSchema),
@@ -20,6 +24,10 @@ anexosRouter.post(
     const paciente = await prisma.paciente.findUnique({ where: { id: req.body.pacienteId } });
     if (!paciente || paciente.clinicaId !== req.profissional!.clinicaId) {
       res.status(400).json({ error: "pacienteId inválido para esta clínica" });
+      return;
+    }
+    if (!ehAdmin(req) && paciente.profissionalId !== req.profissional!.sub) {
+      res.status(403).json({ error: "Você só pode adicionar anexos aos seus próprios pacientes" });
       return;
     }
     const anexo = await prisma.anexo.create({ data: req.body });
@@ -36,7 +44,13 @@ anexosRouter.get(
       return;
     }
     const anexos = await prisma.anexo.findMany({
-      where: { pacienteId, paciente: { clinicaId: req.profissional!.clinicaId } },
+      where: {
+        pacienteId,
+        paciente: {
+          clinicaId: req.profissional!.clinicaId,
+          ...(ehAdmin(req) ? {} : { profissionalId: req.profissional!.sub }),
+        },
+      },
       orderBy: { criadoEm: "desc" },
     });
     res.json(anexos);
@@ -48,6 +62,10 @@ anexosRouter.delete(
   asyncHandler(async (req, res) => {
     const anexo = await prisma.anexo.findUnique({ where: { id: req.params.id }, include: { paciente: true } });
     if (!anexo || anexo.paciente.clinicaId !== req.profissional!.clinicaId) {
+      res.status(404).json({ error: "Anexo não encontrado" });
+      return;
+    }
+    if (!ehAdmin(req) && anexo.paciente.profissionalId !== req.profissional!.sub) {
       res.status(404).json({ error: "Anexo não encontrado" });
       return;
     }

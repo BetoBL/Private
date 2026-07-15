@@ -1,7 +1,8 @@
+import { PapelProfissional } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { Router } from "express";
 import { z } from "zod";
-import { exigirAutenticacao } from "../middleware/auth";
+import { exigirAdmin, exigirAutenticacao } from "../middleware/auth";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -15,11 +16,23 @@ const profissionalCreateSchema = z.object({
   telefone: z.string().optional(),
   enderecoParticular: z.string().optional(),
   formacao: z.string().optional(),
+  especialidades: z.array(z.string()).optional(),
   email: z.string().email(),
   senha: z.string().min(8, "Senha precisa de pelo menos 8 caracteres"),
 });
 
-const profissionalUpdateSchema = profissionalCreateSchema.partial();
+const profissionalUpdateSchema = z.object({
+  nome: z.string().min(1).optional(),
+  fotoUrl: z.string().url().optional(),
+  crp: z.string().min(1).optional(),
+  telefone: z.string().optional(),
+  enderecoParticular: z.string().optional(),
+  formacao: z.string().optional(),
+  especialidades: z.array(z.string()).optional(),
+  email: z.string().email().optional(),
+  senha: z.string().min(8, "Senha precisa de pelo menos 8 caracteres").optional(),
+  papel: z.nativeEnum(PapelProfissional).optional(),
+});
 
 // nunca expor senhaHash nas respostas
 function serialize(profissional: { senhaHash: string; [key: string]: unknown }) {
@@ -30,21 +43,26 @@ function serialize(profissional: { senhaHash: string; [key: string]: unknown }) 
 export const profissionaisRouter = Router();
 
 // Pública — passo 2 do fluxo de "criar minha conta" (cadastra o profissional numa clínica já criada).
+// O primeiro profissional de uma clínica vira ADMIN automaticamente (não há mais ninguém pra promovê-lo);
+// os demais entram como PSICOLOGO — papel nunca é aceito do cliente aqui, só via PATCH por um admin.
 profissionaisRouter.post(
   "/",
   validateBody(profissionalCreateSchema),
   asyncHandler(async (req, res) => {
     const { senha, ...dados } = req.body;
     const senhaHash = await bcrypt.hash(senha, SALT_ROUNDS);
-    const profissional = await prisma.profissional.create({ data: { ...dados, senhaHash } });
+    const jaExisteAlguem = await prisma.profissional.count({ where: { clinicaId: dados.clinicaId } });
+    const profissional = await prisma.profissional.create({
+      data: { ...dados, senhaHash, papel: jaExisteAlguem === 0 ? PapelProfissional.ADMIN : PapelProfissional.PSICOLOGO },
+    });
     res.status(201).json(serialize(profissional));
   })
 );
 
-// Daqui pra baixo exige login — e só enxerga/edita colegas da própria clínica
-// (não há ainda papéis/permissões granulares — ver pendências do produto).
+// Daqui pra baixo exige login.
 profissionaisRouter.use(exigirAutenticacao);
 
+// Todo mundo da clínica pode ver a lista de colegas (não é dado sensível).
 profissionaisRouter.get(
   "/",
   asyncHandler(async (req, res) => {
@@ -68,6 +86,7 @@ profissionaisRouter.get(
   })
 );
 
+// Qualquer profissional edita os próprios dados; só admin edita colegas ou muda o campo `papel`.
 profissionaisRouter.patch(
   "/:id",
   validateBody(profissionalUpdateSchema),
@@ -77,8 +96,22 @@ profissionaisRouter.patch(
       res.status(404).json({ error: "Profissional não encontrado" });
       return;
     }
-    const { senha, ...dados } = req.body;
-    const data = senha ? { ...dados, senhaHash: await bcrypt.hash(senha, SALT_ROUNDS) } : dados;
+    const admin = req.profissional!.papel === "ADMIN";
+    const editandoSiMesmo = req.params.id === req.profissional!.sub;
+    if (!admin && !editandoSiMesmo) {
+      res.status(403).json({ error: "Você só pode editar seus próprios dados" });
+      return;
+    }
+    const { senha, papel, ...dados } = req.body;
+    if (papel !== undefined && !admin) {
+      res.status(403).json({ error: "Apenas administradores podem alterar o papel de um profissional" });
+      return;
+    }
+    const data = {
+      ...dados,
+      ...(admin && papel ? { papel } : {}),
+      ...(senha ? { senhaHash: await bcrypt.hash(senha, SALT_ROUNDS) } : {}),
+    };
     const profissional = await prisma.profissional.update({ where: { id: req.params.id }, data });
     res.json(serialize(profissional));
   })
@@ -86,6 +119,7 @@ profissionaisRouter.patch(
 
 profissionaisRouter.delete(
   "/:id",
+  exigirAdmin,
   asyncHandler(async (req, res) => {
     const existente = await prisma.profissional.findUnique({ where: { id: req.params.id } });
     if (!existente || existente.clinicaId !== req.profissional!.clinicaId) {

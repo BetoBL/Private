@@ -37,6 +37,11 @@ enum StatusLaudo {
   ENTREGUE
 }
 
+enum PapelProfissional {
+  ADMIN
+  PSICOLOGO
+}
+
 model Clinica {
   id            String         @id @default(uuid())
   razaoSocial   String
@@ -63,7 +68,9 @@ model Profissional {
   crp               String
   telefone          String?
   enderecoParticular String?
-  formacao          String?           // texto livre: pós-graduações, especializações
+  formacao          String?           // texto livre: pós-graduações (legado — ver `especialidades` para lista estruturada)
+  especialidades    String[]          @default([])
+  papel             PapelProfissional @default(PSICOLOGO)
   email             String            @unique
   senhaHash         String
 
@@ -73,6 +80,7 @@ model Profissional {
   laudos            Laudo[]
   testesCriados     Teste[]           @relation("TestesCriadosPeloProfissional")
   convenios         ProfissionalConvenio[]
+  eventosAgenda     EventoAgenda[]
 
   criadoEm          DateTime          @default(now())
 }
@@ -88,6 +96,12 @@ model PerfilDeAtuacao {
   regrasDePrudencia       String?    @db.Text  // ex: "nunca fechar TEA sem encaminhar avaliação médica"
   vocabularioRecorrente   String?    @db.Text
   laudosExemplo           Json?      // array de textos de laudos anteriores, para few-shot
+
+  // Respostas estruturadas (opção pré-definida + complemento livre) a um catálogo de perguntas
+  // definido em código (não no banco) — técnicas e pessoais (para uso interno de qualificação
+  // profissional↔paciente). Formato: { [perguntaId]: { opcao: string, complemento?: string } }
+  respostas               Json?
+
   atualizadoEm            DateTime   @updatedAt
 }
 
@@ -109,9 +123,11 @@ model Paciente {
   convenio        Convenio?  @relation(fields: [convenioId], references: [id])
 
   anamnese        Json?      // estrutura livre: queixa, histórico escolar/médico/familiar
+  preferenciasAgenda Json?   // melhores dias/horários do paciente para agendamento
   anexos          Anexo[]
   sessoes         Sessao[]
   laudos          Laudo[]
+  eventosAgenda   EventoAgenda[]
 
   // Conformidade Resolução CFP nº 09/2024: paciente deve ser informado sobre
   // recursos tecnológicos usados (incluindo IA) e, no caso de IA, idealmente consentir
@@ -143,6 +159,25 @@ model Sessao {
   aplicacoesTeste AplicacaoDeTeste[]
 
   criadoEm        DateTime  @default(now())
+}
+
+// Compromisso de agenda lançado manualmente (avaliação ou qualquer outro atendimento).
+// Distinto de Sessao: Sessao é o registro clínico de uma sessão de avaliação já realizada
+// (usada pelo motor de correção); EventoAgenda é o agendamento em si, passado ou futuro.
+model EventoAgenda {
+  id              String       @id @default(uuid())
+  profissionalId  String
+  profissional    Profissional @relation(fields: [profissionalId], references: [id])
+  pacienteId      String?
+  paciente        Paciente?    @relation(fields: [pacienteId], references: [id])
+
+  titulo          String
+  tipo            String       // "avaliacao" | "outro" — texto livre por enquanto
+  inicio          DateTime
+  fim             DateTime
+  observacoes     String?      @db.Text
+
+  criadoEm        DateTime     @default(now())
 }
 
 // Catálogo de testes — fixo (seed) ou custom (cadastrado por um profissional)

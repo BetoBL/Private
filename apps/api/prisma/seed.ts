@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { PrismaClient, DominioCognitivo, EscopoTeste, Prisma } from "@prisma/client";
+import { PrismaClient, DominioCognitivo, EscopoTeste, PapelProfissional, Prisma } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -288,6 +288,7 @@ async function main() {
         crp: "06/000000",
         email: DEV_PROFISSIONAL_EMAIL,
         senhaHash,
+        papel: PapelProfissional.ADMIN,
       },
     });
     console.log(`\nFixture de dev criada: clínica "${clinica.razaoSocial}" + profissional "${profissional.nome}" (${profissional.email}).`);

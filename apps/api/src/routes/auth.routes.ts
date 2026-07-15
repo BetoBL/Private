@@ -31,7 +31,12 @@ authRouter.post(
       return;
     }
 
-    const token = gerarToken({ sub: profissional.id, clinicaId: profissional.clinicaId, email: profissional.email });
+    const token = gerarToken({
+      sub: profissional.id,
+      clinicaId: profissional.clinicaId,
+      email: profissional.email,
+      papel: profissional.papel,
+    });
     res.json({
       token,
       profissional: {
@@ -40,6 +45,7 @@ authRouter.post(
         nome: profissional.nome,
         email: profissional.email,
         crp: profissional.crp,
+        papel: profissional.papel,
       },
     });
   })

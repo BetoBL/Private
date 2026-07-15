@@ -1,3 +1,4 @@
+import type { PapelProfissional } from "@prisma/client";
 import jwt from "jsonwebtoken";
 
 function obterSegredo(): string {
@@ -15,6 +16,7 @@ export interface TokenPayload {
   sub: string; // profissionalId
   clinicaId: string;
   email: string;
+  papel: PapelProfissional;
 }
 
 export function gerarToken(payload: TokenPayload): string {

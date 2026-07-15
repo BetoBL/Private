@@ -21,10 +21,16 @@ async function motivoBloqueioFinalizacao(laudo: Laudo, iaRevisadaOverride?: bool
   return null;
 }
 
-// Busca um laudo garantindo que pertence à clínica de quem está autenticado.
-async function buscarLaudoDaClinica(id: string, clinicaId: string) {
+function ehAdmin(req: { profissional?: { papel: string } }): boolean {
+  return req.profissional?.papel === "ADMIN";
+}
+
+// Busca um laudo garantindo que pertence à clínica de quem está autenticado — e, se não for
+// admin, que o paciente é do próprio profissional (psicólogo só vê o próprio trabalho).
+async function buscarLaudoDaClinica(id: string, req: { profissional?: { clinicaId: string; sub: string; papel: string } }) {
   const laudo = await prisma.laudo.findUnique({ where: { id }, include: { paciente: true } });
-  if (!laudo || laudo.paciente.clinicaId !== clinicaId) return null;
+  if (!laudo || laudo.paciente.clinicaId !== req.profissional!.clinicaId) return null;
+  if (!ehAdmin(req) && laudo.paciente.profissionalId !== req.profissional!.sub) return null;
   return laudo;
 }
 
@@ -61,6 +67,10 @@ laudosRouter.post(
       res.status(400).json({ error: "pacienteId inválido para esta clínica" });
       return;
     }
+    if (!ehAdmin(req) && paciente.profissionalId !== req.profissional!.sub) {
+      res.status(403).json({ error: "Você só pode criar laudos para seus próprios pacientes" });
+      return;
+    }
     const laudo = await prisma.laudo.create({
       data: { ...req.body, profissionalId: req.profissional!.sub },
     });
@@ -72,9 +82,13 @@ laudosRouter.get(
   "/",
   asyncHandler(async (req, res) => {
     const { pacienteId } = req.query;
+    const admin = ehAdmin(req);
     const laudos = await prisma.laudo.findMany({
       where: {
-        paciente: { clinicaId: req.profissional!.clinicaId },
+        paciente: {
+          clinicaId: req.profissional!.clinicaId,
+          ...(admin ? {} : { profissionalId: req.profissional!.sub }),
+        },
         ...(typeof pacienteId === "string" ? { pacienteId } : {}),
       },
       orderBy: { criadoEm: "desc" },
@@ -86,7 +100,7 @@ laudosRouter.get(
 laudosRouter.get(
   "/:id",
   asyncHandler(async (req, res) => {
-    const laudo = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
+    const laudo = await buscarLaudoDaClinica(req.params.id, req);
     if (!laudo) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
@@ -102,7 +116,7 @@ laudosRouter.patch(
   "/:id",
   validateBody(laudoUpdateSchema),
   asyncHandler(async (req, res) => {
-    const existente = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
+    const existente = await buscarLaudoDaClinica(req.params.id, req);
     if (!existente) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
@@ -126,7 +140,7 @@ laudosRouter.patch(
 laudosRouter.post(
   "/:id/gerar-rascunho",
   asyncHandler(async (req, res) => {
-    const laudo = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
+    const laudo = await buscarLaudoDaClinica(req.params.id, req);
     if (!laudo) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
@@ -183,7 +197,7 @@ laudosRouter.post(
 laudosRouter.get(
   "/:id/exportar-docx",
   asyncHandler(async (req, res) => {
-    const laudo = await buscarLaudoDaClinica(req.params.id, req.profissional!.clinicaId);
+    const laudo = await buscarLaudoDaClinica(req.params.id, req);
     if (!laudo) {
       res.status(404).json({ error: "Laudo não encontrado" });
       return;
