@@ -1,0 +1,47 @@
+# Blueprint de deploy do NeuroLogic no Render.
+#
+# Como usar:
+#   1. Faça push deste repositório (com este arquivo na raiz) para o GitHub/GitLab.
+#   2. No dashboard do Render: "New" -> "Blueprint" -> conecte o repositório.
+#   3. O Render vai propor os dois serviços abaixo. Antes de confirmar, preencha os
+#      envVars marcados como "sync: false" (ver comentários abaixo).
+#
+# Importante: este blueprint NÃO cria um banco de dados novo. Você já tem um Postgres
+# rodando no Render com os dados reais da clínica — aponte DATABASE_URL para ele (Internal
+# Database URL, copiado do dashboard do banco existente), não deixe o Render criar outro.
+
+services:
+  - type: web
+    name: neurologic-api
+    runtime: node
+    plan: starter # $7/mês, sempre ligado (o free sleepa após 15 min de inatividade)
+    region: oregon # mesma região do banco existente (dpg-...-a.oregon-postgres.render.com)
+    rootDir: .
+    buildCommand: npm install && npx prisma generate --schema=apps/api/prisma/schema.prisma && npm run build --workspace=apps/api
+    startCommand: node apps/api/dist/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3333"
+      - key: DATABASE_URL
+        sync: false # cole aqui a Internal Database URL do banco Postgres já existente
+      - key: JWT_SECRET
+        generateValue: true # o Render gera um valor aleatório forte sozinho
+      - key: ANTHROPIC_API_KEY
+        sync: false # cole aqui a chave da API da Anthropic
+
+  - type: web
+    name: neurologic-web
+    runtime: static
+    rootDir: .
+    buildCommand: npm install && npm run build --workspace=apps/web
+    staticPublishPath: apps/web/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://neurologic-api.onrender.com # ajuste se o nome do serviço da API mudar
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
