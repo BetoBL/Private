@@ -2,9 +2,12 @@ import cors from "cors";
 import "dotenv/config";
 import express from "express";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
+import { aplicacoesDeTesteRouter } from "./routes/aplicacoesDeTeste.routes";
 import { clinicasRouter } from "./routes/clinicas.routes";
 import { pacientesRouter } from "./routes/pacientes.routes";
 import { profissionaisRouter } from "./routes/profissionais.routes";
+import { sessoesRouter } from "./routes/sessoes.routes";
+import { testesRouter } from "./routes/testes.routes";
 
 const app = express();
 
@@ -18,6 +21,9 @@ app.get("/health", (_req, res) => {
 app.use("/clinicas", clinicasRouter);
 app.use("/profissionais", profissionaisRouter);
 app.use("/pacientes", pacientesRouter);
+app.use("/testes", testesRouter);
+app.use("/sessoes", sessoesRouter);
+app.use("/aplicacoes-teste", aplicacoesDeTesteRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

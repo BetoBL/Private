@@ -28,6 +28,13 @@ export function errorHandler(err: unknown, _req: Request, res: Response, _next: 
     }
   }
 
+  // Delete bloqueado por FK RESTRICT (ex: excluir Paciente com Sessao associada) chega como
+  // erro Postgres bruto (23001/23503), não mapeado para um P-code "conhecido" pelo Prisma.
+  if (err instanceof Prisma.PrismaClientUnknownRequestError && /foreign key constraint/i.test(err.message)) {
+    res.status(409).json({ error: "Não é possível excluir: existem registros dependentes deste item" });
+    return;
+  }
+
   console.error(err);
   res.status(500).json({ error: "Erro interno do servidor" });
 }

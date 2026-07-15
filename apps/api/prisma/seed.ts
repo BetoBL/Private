@@ -1,6 +1,9 @@
+import bcrypt from "bcryptjs";
 import { PrismaClient, DominioCognitivo, EscopoTeste, Prisma } from "@prisma/client";
 
 const prisma = new PrismaClient();
+
+const DEV_PROFISSIONAL_EMAIL = "dev@mentessence.local";
 
 const AVISO_PLACEHOLDER =
   "PLACEHOLDER — algoritmo/norma simplificados para validar o fluxo técnico. " +
@@ -35,6 +38,14 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       subtestesVerbais: ["Vocabulário", "Semelhanças", "Aritmética"],
       subtestesExecucao: ["Cubos", "Raciocínio Matricial", "Código"],
       formulaEscoreBruto: "soma dos escores ponderados de cada subteste, por domínio (verbal/execução)",
+      campos: [
+        { chave: "vocabulario", label: "Vocabulário (escore ponderado)" },
+        { chave: "semelhancas", label: "Semelhanças (escore ponderado)" },
+        { chave: "aritmetica", label: "Aritmética (escore ponderado)" },
+        { chave: "cubos", label: "Cubos (escore ponderado)" },
+        { chave: "raciocinioMatricial", label: "Raciocínio Matricial (escore ponderado)" },
+        { chave: "codigo", label: "Código (escore ponderado)" },
+      ],
     },
     referenciaBibliografica: "Wechsler, D. WAIS-III — Manual técnico. (referência a confirmar/editora oficial)",
     tabelasNormativas: [
@@ -65,6 +76,10 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       aviso: AVISO_PLACEHOLDER,
       etapas: ["A1 a A5 (aprendizagem)", "interferência (lista B)", "evocação tardia (A7)", "reconhecimento"],
       formulaEscoreBruto: "total de palavras corretas na tentativa A5 + total na evocação tardia A7",
+      campos: [
+        { chave: "a5", label: "Tentativa A5 — palavras corretas (0-15)" },
+        { chave: "evocacaoTardia", label: "Evocação tardia A7 — palavras corretas (0-15)" },
+      ],
     },
     referenciaBibliografica: "Rey, A. — adaptação brasileira (Malloy-Diniz et al.). (referência a confirmar)",
     tabelasNormativas: [
@@ -94,6 +109,11 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       aviso: AVISO_PLACEHOLDER,
       subtestes: ["AC", "AD", "AA"],
       formulaEscoreBruto: "acertos - erros, por subteste, dentro do tempo cronometrado",
+      campos: [
+        { chave: "ac", label: "AC — Atenção Concentrada (acertos - erros)" },
+        { chave: "ad", label: "AD — Atenção Dividida (acertos - erros)" },
+        { chave: "aa", label: "AA — Atenção Alternada (acertos - erros)" },
+      ],
     },
     referenciaBibliografica: "Rueda, F.J.M. — BPA-2 Manual técnico. (referência a confirmar)",
     tabelasNormativas: [
@@ -128,6 +148,13 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         "Maneirismos",
       ],
       formulaEscoreBruto: "soma dos itens de cada subescala + soma total",
+      campos: [
+        { chave: "conscienciaSocial", label: "Consciência social (bruto)" },
+        { chave: "cognicaoSocial", label: "Cognição social (bruto)" },
+        { chave: "comunicacaoSocial", label: "Comunicação social (bruto)" },
+        { chave: "motivacaoSocial", label: "Motivação social (bruto)" },
+        { chave: "maneirismos", label: "Maneirismos (bruto)" },
+      ],
     },
     referenciaBibliografica: "Constantino, J.N. & Gruber, C.P. — SRS-2. (referência a confirmar)",
     tabelasNormativas: [
@@ -156,6 +183,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       aviso: AVISO_PLACEHOLDER,
       subescalas: ["Habilidade social", "Troca de atenção", "Atenção a detalhes", "Comunicação", "Imaginação"],
       formulaEscoreBruto: "1 ponto por item respondido na direção 'concordo com o traço autístico', soma total 0-50",
+      campos: [{ chave: "escoreTotal", label: "Escore total (soma dos 50 itens, 0-50)" }],
     },
     referenciaBibliografica: "Baron-Cohen, S. et al. — Autism-Spectrum Quotient (AQ). (referência a confirmar)",
     tabelasNormativas: [
@@ -183,6 +211,11 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       aviso: AVISO_PLACEHOLDER,
       fatores: ["Desatenção", "Hiperatividade", "Impulsividade"],
       formulaEscoreBruto: "soma dos itens de cada fator, respondente pais/professor/autorrelato",
+      campos: [
+        { chave: "desatencao", label: "Desatenção (bruto)" },
+        { chave: "hiperatividade", label: "Hiperatividade (bruto)" },
+        { chave: "impulsividade", label: "Impulsividade (bruto)" },
+      ],
     },
     referenciaBibliografica: "Mattos, P. et al. — ETDAH-2. (referência a confirmar)",
     tabelasNormativas: [
@@ -235,6 +268,32 @@ async function main() {
   }
 
   console.log(`\n${TESTES_PLACEHOLDER.length} testes placeholder semeados.`);
+
+  // Fixture de desenvolvimento local: garante 1 Clínica + 1 Profissional para
+  // exercitar as telas sem precisar de UI de cadastro ainda. Idempotente.
+  const existente = await prisma.profissional.findUnique({ where: { email: DEV_PROFISSIONAL_EMAIL } });
+  if (!existente) {
+    const clinica = await prisma.clinica.create({
+      data: {
+        razaoSocial: "MentEssence Neuropsicologia e Avaliação (dev)",
+        corPrimaria: "#E66A1F",
+        corSecundaria: "#737373",
+      },
+    });
+    const senhaHash = await bcrypt.hash("dev12345", 10);
+    const profissional = await prisma.profissional.create({
+      data: {
+        clinicaId: clinica.id,
+        nome: "Dra. Exemplo (dev)",
+        crp: "06/000000",
+        email: DEV_PROFISSIONAL_EMAIL,
+        senhaHash,
+      },
+    });
+    console.log(`\nFixture de dev criada: clínica "${clinica.razaoSocial}" + profissional "${profissional.nome}" (${profissional.email}).`);
+  } else {
+    console.log("\nFixture de dev já existia — não recriada.");
+  }
 }
 
 main()
