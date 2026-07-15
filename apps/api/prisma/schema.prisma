@@ -45,8 +45,13 @@ enum PapelProfissional {
 model Clinica {
   id            String         @id @default(uuid())
   razaoSocial   String
+  nomeFantasia  String?        // nome usado em qualquer exibição no sistema, exceto NFS-e (que exige razão social)
   cnpj          String?
-  endereco      String?
+  endereco      String?        // logradouro + número
+  bairro        String?
+  cidade        String?
+  estado        String?        // UF, 2 letras
+  cep           String?
   telefone      String?
   logoUrl       String?
   corPrimaria   String?        // hex, para personalizar laudo/portal

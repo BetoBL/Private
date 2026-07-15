@@ -57,7 +57,7 @@ export function Layout() {
         </nav>
 
         <div className="mt-auto text-[11px] leading-relaxed opacity-45">
-          {clinica?.razaoSocial ?? "Clínica"}
+          {clinica?.nomeFantasia || clinica?.razaoSocial || "Clínica"}
           <br />
           CRP {profissional.crp}
         </div>

@@ -218,7 +218,9 @@ laudosRouter.get(
     const paciente = laudo.paciente;
 
     const buffer = await gerarDocxLaudo({
-      clinicaNome: clinica.razaoSocial,
+      // Nome fantasia é o nome de exibição padrão em todo o sistema; a exceção é NFS-e
+      // (nota fiscal), que não é emitida por este fluxo — aqui vale o nome fantasia.
+      clinicaNome: clinica.nomeFantasia || clinica.razaoSocial,
       profissionalNome: profissional.nome,
       profissionalCrp: profissional.crp,
       identificacao: laudo.identificacao as Record<string, unknown>,

@@ -45,8 +45,13 @@ export interface ProfissionalLogado extends Pick<Profissional, "id" | "clinicaId
 export interface Clinica {
   id: string;
   razaoSocial: string;
+  nomeFantasia: string | null;
   cnpj: string | null;
   endereco: string | null;
+  bairro: string | null;
+  cidade: string | null;
+  estado: string | null;
+  cep: string | null;
   telefone: string | null;
   corPrimaria: string | null;
   corSecundaria: string | null;
@@ -312,8 +317,15 @@ export const api = {
   deleteProfissional: (id: string) => request<void>(`/profissionais/${id}`, { method: "DELETE" }),
 
   getClinica: (id: string) => request<Clinica>(`/clinicas/${id}`),
-  updateClinica: (id: string, data: Partial<Pick<Clinica, "razaoSocial" | "cnpj" | "endereco" | "telefone" | "corPrimaria" | "corSecundaria">>) =>
-    request<Clinica>(`/clinicas/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  updateClinica: (
+    id: string,
+    data: Partial<
+      Pick<
+        Clinica,
+        "razaoSocial" | "nomeFantasia" | "cnpj" | "endereco" | "bairro" | "cidade" | "estado" | "cep" | "telefone" | "corPrimaria" | "corSecundaria"
+      >
+    >
+  ) => request<Clinica>(`/clinicas/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
 
   listAnexos: (pacienteId: string) => request<Anexo[]>(`/anexos?pacienteId=${pacienteId}`),
   createAnexo: (data: { pacienteId: string; tipo: string; url: string; descricao?: string }) =>

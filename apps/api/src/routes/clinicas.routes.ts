@@ -4,10 +4,25 @@ import { exigirAdmin, exigirAutenticacao } from "../middleware/auth";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
+// Aceita tanto o CNPJ numérico atual (14 dígitos) quanto o novo modelo alfanumérico da
+// Receita Federal (rollout previsto para o fim de julho/2026): os 12 primeiros caracteres
+// podem ser letra ou dígito, os 2 dígitos verificadores finais continuam numéricos. Valida
+// só o formato/máscara — o dígito verificador muda de algoritmo entre os dois modelos, então
+// não travamos nisso aqui.
+const CNPJ_REGEX = /^[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}\/[A-Z0-9]{4}-\d{2}$/;
+
 const clinicaCreateSchema = z.object({
   razaoSocial: z.string().min(1),
-  cnpj: z.string().optional(),
+  nomeFantasia: z.string().optional(),
+  cnpj: z
+    .string()
+    .refine((v) => v === "" || CNPJ_REGEX.test(v), "CNPJ em formato inválido (use XX.XXX.XXX/XXXX-XX)")
+    .optional(),
   endereco: z.string().optional(),
+  bairro: z.string().optional(),
+  cidade: z.string().optional(),
+  estado: z.string().optional(),
+  cep: z.string().optional(),
   telefone: z.string().optional(),
   logoUrl: z.string().url().optional(),
   corPrimaria: z.string().optional(),
