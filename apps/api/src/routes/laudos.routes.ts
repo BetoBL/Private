@@ -221,8 +221,10 @@ laudosRouter.get(
       // Nome fantasia é o nome de exibição padrão em todo o sistema; a exceção é NFS-e
       // (nota fiscal), que não é emitida por este fluxo — aqui vale o nome fantasia.
       clinicaNome: clinica.nomeFantasia || clinica.razaoSocial,
+      clinicaCidade: clinica.cidade,
       profissionalNome: profissional.nome,
       profissionalCrp: profissional.crp,
+      profissionalEspecialidades: profissional.especialidades,
       identificacao: laudo.identificacao as Record<string, unknown>,
       descricaoDemanda: laudo.descricaoDemanda,
       procedimento: laudo.procedimento,
