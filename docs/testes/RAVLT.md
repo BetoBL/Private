@@ -160,7 +160,7 @@ Cada tabela traz, para os percentis 5/25/50/75/95 + Média + DP: `A1 A2 A3 A4 A5
 | 5 | 4 | 5 | 5 | 6 | 7 | 3 | 5 | 5 | -3 | 29 | 5 | 0,71 | 0,40 | 0,54 |
 | 25 | 5 | 7 | 8 | 9 | 10 | 4 | 8 | 7 | 8 | 40 | 12 | 0,85 | 0,67 | 0,73 |
 | 50 | 6 | 8 | 11 | 11 | 12 | 5 | 10 | 10 | 12 | 49 | 16 | 1,00 | 0,80 | 0,86 |
-| 75 | 7 | 10 | 11 | 14 | 12 | 6 | 11 | 12 | 14 | 53 | 22 | 1,10 | 1,00 | 0,97 |
+| 75 | 7 | 10 | 11 | 14 | 12 | 6 | 11 | 14 | 14 | 53 | 22 | 1,10 | 1,00 | 0,97 |
 | 95 | 9 | 12 | 14 | 15 | 15 | 8 | 14 | 14 | 15 | 61 | 27 | 1,38 | 1,50 | 1,13 |
 | Média | 6,0 | 8,5 | 9,8 | 10,7 | 11,7 | 4,9 | 9,8 | 9,6 | 9,9 | 46,7 | 16,5 | 1,01 | 0,86 | 0,84 |
 | DP | 1,6 | 2,0 | 2,5 | 2,7 | 2,6 | 1,6 | 2,8 | 2,8 | 5,6 | 9,6 | 7,3 | 0,34 | 0,31 | 0,18 |
@@ -173,7 +173,7 @@ Cada tabela traz, para os percentis 5/25/50/75/95 + Média + DP: `A1 A2 A3 A4 A5
 | 25 | 5 | 6 | 8 | 9 | 10 | 4 | 7 | 8 | 10 | 37 | 12 | 0,90 | 0,63 | 0,67 |
 | 50 | 6 | 8 | 10 | 11 | 12 | 5 | 10 | 10 | 13 | 47 | 15 | 1,00 | 0,80 | 0,84 |
 | 75 | 7 | 10 | 11 | 12 | 13 | 6 | 12 | 12 | 14 | 53 | 19 | 1,11 | 1,00 | 1,00 |
-| 95 | 9 | 12 | 14 | 15 | 8 | 14 | 14 | 15 | 15 | 61 | 26 | 1,38 | 1,40 | 1,08 |
+| 95 | 9 | 12 | 14 | 15 | 15 | 8 | 14 | 14 | 15 | 61 | 26 | 1,38 | 1,40 | 1,08 |
 | Média | 6,0 | 8,2 | 9,6 | 10,6 | 11,3 | 4,8 | 9,4 | 9,5 | 10,9 | 45,7 | 15,6 | 1,02 | 0,82 | 0,82 |
 | DP | 1,9 | 2,3 | 2,5 | 2,4 | 2,3 | 1,7 | 3,1 | 3,2 | 5,2 | 9,7 | 7,4 | 0,19 | 0,29 | 0,19 |
 
@@ -237,6 +237,6 @@ Cada tabela traz, para os percentis 5/25/50/75/95 + Média + DP: `A1 A2 A3 A4 A5
 
 - [ ] **As listas de palavras reais (Lista A, Lista B, 20 distratores com suas categorias SA/SB/FA/FB) não estão neste volume** — este é só o "Livro de instruções" (Volume 1 da Coleção RAVLT); as palavras ficam na Folha de Aplicação (produto separado da Vetor Editora). Preciso obter esse material com a psicóloga antes de codificar a UI de aplicação do teste (ela pode digitar as respostas livremente sem a lista pré-cadastrada, mas isso limita validação/autocomplete).
 - [ ] Confirmar com a psicóloga quais faixas etárias específicas recebem o ajuste adicional por escolaridade (o manual menciona que existe, Tabela 14, mas não detalha quais faixas nem os valores da correção nas páginas normativas — as Tabelas 15–26 acima usam só o critério de idade).
-- [ ] Confirmar a célula "A5 percentil 95 = 8" na Tabela 23 (51-60 anos) — provável erro de digitação do manual (valor muito abaixo da progressão esperada).
+- [x] Duas células (Tabela 22 P75: A7; Tabela 23 P95: A5/B1) geraram leituras divergentes entre duas transcrições independentes da tabela fotografada — resolvidas por uma terceira releitura focada; valores acima já corrigidos e conferem com a progressão monotônica esperada em cada coluna.
 - [ ] Este documento já está pronto para virar seed de `TabelaNormativa` (`criterio: "idade"`, 12 faixas, sem estratificação por sexo) e de `algoritmoCorrecao` do `Teste` (as 6 fórmulas do quadro acima).
 - [ ] O catálogo atual (`apps/api/prisma/seed.ts`) hoje só computa A5+A7 para o RAVLT — [[project_laudo_real_referencia_isadora]] já apontava essa lacuna (o laudo real reporta A1, B1, A6, A7 + curva de aprendizagem separadamente). Este documento fecha a lacuna com os dados normativos reais.
