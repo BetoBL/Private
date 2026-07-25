@@ -448,12 +448,15 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
     sigla: "WAIS-III",
     dominio: DominioCognitivo.INTELIGENCIA,
-    descricao: `Avalia o funcionamento intelectual em 4 índices fatoriais (Compreensão Verbal, Organização Perceptual, Memória Operacional, Velocidade de Processamento) + QI Total. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Avalia o funcionamento intelectual em 4 índices fatoriais (Compreensão Verbal, Organização " +
+      "Perceptual, Memória Operacional, Velocidade de Processamento) + QI Total. Classificação real " +
+      "da Tabela 5.24 do manual brasileiro (amostra N=788).",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
       // Modelo de 4 índices fatoriais (o que a prática clínica real usa), não o antigo QI Verbal/Execução.
-      // O profissional lança os índices já convertidos pelas tabelas do manual oficial (proprietário) —
-      // este motor só converte índice -> percentil/classificação, não agrega subtestes.
+      // O profissional lança os índices já convertidos pelas tabelas do manual oficial (proprietário,
+      // 7 faixas etárias x 13 subtestes — ver docs/testes/WAIS-III.md) — este motor só converte
+      // índice -> percentil/classificação, não agrega subtestes brutos.
       indicesFatoriais: {
         ICV: ["Vocabulário", "Semelhanças", "Informação"],
         IOP: ["Cubos", "Raciocínio Matricial"],
@@ -469,22 +472,26 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       ],
     },
     referenciaBibliografica: "WECHSLER, D.; NASCIMENTO, E. Escala de Inteligência Wechsler para Adultos – WAIS-III: manual técnico. São Paulo: CasaPsi Livraria e Editora, 2004.",
+    isPlaceholder: false,
     tabelasNormativas: [
       {
-        criterio: "idade",
-        faixaMin: 18,
-        faixaMax: 90,
+        // Classificação é a mesma para QIT/QIV/QIE e para os 4 índices fatoriais, independente da
+        // idade exata dentro da faixa normatizada (16-89 anos) — por isso uma única tabela "geral"
+        // basta aqui, mesmo com escolherTabelaNormativa aceitando faixaMin/faixaMax.
+        criterio: "geral",
+        faixaMin: 16,
+        faixaMax: 89,
         conversao: {
-          aviso: AVISO_PLACEHOLDER,
-          tipo: "percentil_por_indice",
+          tipo: "percentil_por_campo",
+          fonte: "Tabela 5.24 do manual (WECHSLER & NASCIMENTO, 2004), amostra brasileira N=788 — percentil = ponto médio da faixa acumulada de cada classificação.",
           faixas: [
-            { min: 0, max: 69, percentil: 2, classificacao: "Deficitário" },
+            { max: 69, percentil: 2, classificacao: "Extremamente Baixo" },
             { min: 70, max: 79, percentil: 8, classificacao: "Limítrofe" },
-            { min: 80, max: 89, percentil: 20, classificacao: "Médio Inferior" },
-            { min: 90, max: 109, percentil: 50, classificacao: "Médio" },
-            { min: 110, max: 119, percentil: 82, classificacao: "Médio Superior" },
-            { min: 120, max: 129, percentil: 95, classificacao: "Superior" },
-            { min: 130, max: 999, percentil: 99, classificacao: "Muito Superior" },
+            { min: 80, max: 89, percentil: 20, classificacao: "Média Inferior" },
+            { min: 90, max: 109, percentil: 49, classificacao: "Média" },
+            { min: 110, max: 119, percentil: 82, classificacao: "Média Superior" },
+            { min: 120, max: 129, percentil: 97, classificacao: "Superior" },
+            { min: 130, percentil: 99.9, classificacao: "Muito Superior" },
           ],
         },
       },
