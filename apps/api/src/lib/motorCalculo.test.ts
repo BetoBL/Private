@@ -3,7 +3,7 @@ import { test } from "node:test";
 import {
   calcularIdadeEmAnos,
   calcularResultado,
-  escolherTabelaPorIdade,
+  escolherTabelaNormativa,
   localizarFaixa,
   type ConversaoNormativa,
 } from "./motorCalculo";
@@ -160,37 +160,61 @@ test("calcularResultado: faixasPorCampo sem entrada para o campo retorna faixa n
   assert.equal(resultado.porCampo.campoNaoMapeado.faixa, null);
 });
 
-// --- escolherTabelaPorIdade ---
+// --- escolherTabelaNormativa ---
 
-test("escolherTabelaPorIdade: escolhe a tabela cuja faixa etária cobre a idade", () => {
+test("escolherTabelaNormativa: escolhe a tabela cuja faixa etária cobre a idade", () => {
   const tabelas = [
     { id: "6-8", faixaMin: 6, faixaMax: 8 },
     { id: "9-11", faixaMin: 9, faixaMax: 11 },
     { id: "80+", faixaMin: 80, faixaMax: 150 },
   ];
-  assert.equal(escolherTabelaPorIdade(7, tabelas)?.id, "6-8");
-  assert.equal(escolherTabelaPorIdade(9, tabelas)?.id, "9-11");
-  assert.equal(escolherTabelaPorIdade(85, tabelas)?.id, "80+");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 7 }, tabelas)?.id, "6-8");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 9 }, tabelas)?.id, "9-11");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 85 }, tabelas)?.id, "80+");
 });
 
-test("escolherTabelaPorIdade: idade nos limites exatos das faixas é inclusiva", () => {
+test("escolherTabelaNormativa: idade nos limites exatos das faixas é inclusiva", () => {
   const tabelas = [
     { id: "6-8", faixaMin: 6, faixaMax: 8 },
     { id: "9-11", faixaMin: 9, faixaMax: 11 },
   ];
-  assert.equal(escolherTabelaPorIdade(8, tabelas)?.id, "6-8");
-  assert.equal(escolherTabelaPorIdade(9, tabelas)?.id, "9-11");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 8 }, tabelas)?.id, "6-8");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 9 }, tabelas)?.id, "9-11");
 });
 
-test("escolherTabelaPorIdade: sem faixa cobrindo a idade, cai para a 1ª tabela (compatibilidade com testes de tabela única)", () => {
+test("escolherTabelaNormativa: sem faixa cobrindo a idade, cai para a 1ª tabela (compatibilidade com testes de tabela única)", () => {
   const tabelas = [
     { id: "unica", faixaMin: null, faixaMax: null },
   ];
-  assert.equal(escolherTabelaPorIdade(150, tabelas)?.id, "unica");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 150 }, tabelas)?.id, "unica");
 });
 
-test("escolherTabelaPorIdade: lista vazia retorna undefined", () => {
-  assert.equal(escolherTabelaPorIdade(30, []), undefined);
+test("escolherTabelaNormativa: lista vazia retorna undefined", () => {
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 30 }, []), undefined);
+});
+
+test("escolherTabelaNormativa: tabelas com sexo definido só disputam se baterem com o sexo do paciente", () => {
+  const tabelas = [
+    { id: "5-7-M", faixaMin: 5, faixaMax: 7, sexo: "MASCULINO" as const },
+    { id: "5-7-F", faixaMin: 5, faixaMax: 7, sexo: "FEMININO" as const },
+  ];
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 6, sexo: "FEMININO" }, tabelas)?.id, "5-7-F");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 6, sexo: "MASCULINO" }, tabelas)?.id, "5-7-M");
+});
+
+test("escolherTabelaNormativa: tabelas sem sexo definido servem qualquer paciente (ex: RAVLT/BPA)", () => {
+  const tabelas = [{ id: "6-8", faixaMin: 6, faixaMax: 8, sexo: null }];
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 7, sexo: "FEMININO" }, tabelas)?.id, "6-8");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 7, sexo: null }, tabelas)?.id, "6-8");
+});
+
+test("escolherTabelaNormativa: sexo do paciente ausente ainda escolhe pela idade entre candidatas sem sexo", () => {
+  const tabelas = [
+    { id: "5-7-M", faixaMin: 5, faixaMax: 7, sexo: "MASCULINO" as const },
+    { id: "5-7-F", faixaMin: 5, faixaMax: 7, sexo: "FEMININO" as const },
+    { id: "5-7-geral", faixaMin: 5, faixaMax: 7, sexo: null },
+  ];
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 6, sexo: null }, tabelas)?.id, "5-7-geral");
 });
 
 // --- calcularIdadeEmAnos ---

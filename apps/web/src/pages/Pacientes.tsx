@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { api, type Paciente } from "../lib/api";
+import { api, type Paciente, type Sexo } from "../lib/api";
 
 function calcularIdade(dataNascimento: string): number {
   const nascimento = new Date(dataNascimento);
@@ -23,6 +23,7 @@ export function Pacientes() {
   const [mostrarForm, setMostrarForm] = useState(false);
   const [nome, setNome] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
+  const [sexo, setSexo] = useState<Sexo | "">("");
 
   useEffect(() => {
     api.listPacientes().then(setPacientes).catch((e) => setErro(e.message));
@@ -34,10 +35,16 @@ export function Pacientes() {
     if (!profissional || !nome || !dataNascimento) return;
     setErro(null);
     try {
-      const criado = await api.createPaciente({ profissionalId: profissional.id, nome, dataNascimento });
+      const criado = await api.createPaciente({
+        profissionalId: profissional.id,
+        nome,
+        dataNascimento,
+        ...(sexo ? { sexo } : {}),
+      });
       setPacientes((prev) => [criado, ...prev]);
       setNome("");
       setDataNascimento("");
+      setSexo("");
       setMostrarForm(false);
       navigate(`/pacientes/${criado.id}`);
     } catch (e) {
@@ -73,6 +80,18 @@ export function Pacientes() {
               value={dataNascimento}
               onChange={(e) => setDataNascimento(e.target.value)}
             />
+          </label>
+          <label className="text-sm">
+            <span className="mb-1 block font-semibold text-ink/70">Sexo</span>
+            <select
+              className="rounded-lg border border-mist px-3 py-2"
+              value={sexo}
+              onChange={(e) => setSexo(e.target.value as Sexo | "")}
+            >
+              <option value="">Não informado</option>
+              <option value="FEMININO">Feminino</option>
+              <option value="MASCULINO">Masculino</option>
+            </select>
           </label>
           <button
             className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper disabled:opacity-40"

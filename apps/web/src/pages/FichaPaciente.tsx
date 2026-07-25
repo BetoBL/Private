@@ -10,6 +10,7 @@ import {
   type Paciente,
   type PreferenciasAgenda,
   type Sessao,
+  type Sexo,
 } from "../lib/api";
 
 type Aba = "dados" | "anamnese" | "linha" | "laudos" | "agenda" | "anexos";
@@ -26,7 +27,14 @@ export function FichaPaciente() {
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useState<string | null>(null);
 
-  const [dadosForm, setDadosForm] = useState({ nome: "", dataNascimento: "", responsavelLegal: "", contato: "", escolaridade: "" });
+  const [dadosForm, setDadosForm] = useState<{
+    nome: string;
+    dataNascimento: string;
+    sexo: Sexo | "";
+    responsavelLegal: string;
+    contato: string;
+    escolaridade: string;
+  }>({ nome: "", dataNascimento: "", sexo: "", responsavelLegal: "", contato: "", escolaridade: "" });
   const [anamneseForm, setAnamneseForm] = useState<AnamneseData>({});
   const [preferenciasForm, setPreferenciasForm] = useState<PreferenciasAgenda>({});
 
@@ -52,6 +60,7 @@ export function FichaPaciente() {
         setDadosForm({
           nome: p.nome,
           dataNascimento: p.dataNascimento.slice(0, 10),
+          sexo: p.sexo ?? "",
           responsavelLegal: p.responsavelLegal ?? "",
           contato: p.contato ?? "",
           escolaridade: p.escolaridade ?? "",
@@ -75,7 +84,7 @@ export function FichaPaciente() {
     setErro(null);
     setMensagem(null);
     try {
-      const atualizado = await api.updatePaciente(id, dadosForm);
+      const atualizado = await api.updatePaciente(id, { ...dadosForm, sexo: dadosForm.sexo || undefined });
       setPaciente(atualizado);
       setMensagem("Dados salvos.");
     } catch (e) {
@@ -225,6 +234,18 @@ export function FichaPaciente() {
                 value={dadosForm.dataNascimento}
                 onChange={(e) => setDadosForm((f) => ({ ...f, dataNascimento: e.target.value }))}
               />
+            </label>
+            <label className="text-sm">
+              <span className="mb-1 block font-semibold text-ink/70">Sexo</span>
+              <select
+                className="w-full rounded-lg border border-mist px-3 py-2"
+                value={dadosForm.sexo}
+                onChange={(e) => setDadosForm((f) => ({ ...f, sexo: e.target.value as Sexo | "" }))}
+              >
+                <option value="">Não informado</option>
+                <option value="FEMININO">Feminino</option>
+                <option value="MASCULINO">Masculino</option>
+              </select>
             </label>
             <label className="text-sm">
               <span className="mb-1 block font-semibold text-ink/70">Responsável legal (se menor)</span>

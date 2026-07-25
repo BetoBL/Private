@@ -7,6 +7,7 @@ const pacienteCreateSchema = z.object({
   profissionalId: z.string().uuid(),
   nome: z.string().min(1),
   dataNascimento: z.coerce.date(),
+  sexo: z.enum(["MASCULINO", "FEMININO"]).optional(),
   fotoUrl: z.string().url().optional(),
   responsavelLegal: z.string().optional(),
   contato: z.string().optional(),

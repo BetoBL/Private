@@ -57,22 +57,35 @@ export function calcularResultado(
   return { modo: "por_campo", porCampo };
 }
 
+export type Sexo = "MASCULINO" | "FEMININO";
+
+export interface CriteriosSelecaoTabela {
+  idadeAnos: number;
+  sexo?: Sexo | null;
+}
+
 /**
- * Seleciona, entre as tabelas normativas de um teste, a que cobre a idade do paciente
- * (em anos, na data da sessão). Critérios sem faixaMin/faixaMax (ex: "sexo" isolado) não
- * são elegíveis aqui — a seleção por idade é o refinamento que faltava (ver comentário
- * antigo em aplicacoesDeTeste.routes.ts). Quando nenhuma faixa cobre a idade, cai para a
- * primeira tabela do teste (mesmo comportamento anterior), para não quebrar testes com
- * tabela única e sem faixaMin/faixaMax definidos.
+ * Seleciona, entre as tabelas normativas de um teste, a que cobre a idade (e, quando a
+ * tabela estratifica por sexo, o sexo) do paciente na data da sessão. Tabelas sem `sexo`
+ * definido servem qualquer paciente (ex: RAVLT/BPA, testados e sem efeito relevante de sexo);
+ * tabelas com `sexo` definido (ex: ETDAH-PAIS) só entram na disputa se baterem com o sexo do
+ * paciente. Quando nada bate perfeitamente, cai progressivamente para candidatas mais amplas
+ * em vez de retornar `undefined` — preferível reportar com a norma mais próxima disponível
+ * a não reportar nada, mesmo comportamento já assumido antes desta seleção existir.
  */
-export function escolherTabelaPorIdade<T extends { faixaMin: number | null; faixaMax: number | null }>(
-  idadeAnos: number,
-  tabelas: T[]
-): T | undefined {
-  const porIdade = tabelas.find(
-    (t) => t.faixaMin !== null && t.faixaMax !== null && idadeAnos >= t.faixaMin && idadeAnos <= t.faixaMax
+export function escolherTabelaNormativa<
+  T extends { faixaMin: number | null; faixaMax: number | null; sexo?: Sexo | null }
+>(criterios: CriteriosSelecaoTabela, tabelas: T[]): T | undefined {
+  const candidatasPorSexo = tabelas.filter((t) => !t.sexo || t.sexo === criterios.sexo);
+  const base = candidatasPorSexo.length > 0 ? candidatasPorSexo : tabelas;
+  const porIdade = base.find(
+    (t) =>
+      t.faixaMin !== null &&
+      t.faixaMax !== null &&
+      criterios.idadeAnos >= t.faixaMin &&
+      criterios.idadeAnos <= t.faixaMax
   );
-  return porIdade ?? tabelas[0];
+  return porIdade ?? base[0];
 }
 
 export function calcularIdadeEmAnos(dataNascimento: Date, dataReferencia: Date): number {

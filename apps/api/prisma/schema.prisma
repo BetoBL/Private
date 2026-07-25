@@ -16,6 +16,14 @@ enum EscopoTeste {
   CUSTOM
 }
 
+// Sexo biológico do paciente — necessário porque várias tabelas normativas (ex: ETDAH-PAIS,
+// SCARED, BFP) são estratificadas por sexo, não só por idade. Opcional: não travar o cadastro
+// de pacientes existentes nem obrigar preenchimento em testes que não precisam dele.
+enum Sexo {
+  MASCULINO
+  FEMININO
+}
+
 enum DominioCognitivo {
   INTELIGENCIA
   ATENCAO
@@ -119,6 +127,7 @@ model Paciente {
 
   nome            String
   dataNascimento  DateTime
+  sexo            Sexo?
   fotoUrl         String?
   responsavelLegal String?
   contato         String?
@@ -218,10 +227,11 @@ model TabelaNormativa {
   testeId       String
   teste         Teste    @relation(fields: [testeId], references: [id])
 
-  criterio      String   // ex: "idade", "idade+escolaridade", "sexo"
+  criterio      String   // ex: "idade", "idade+sexo", "idade+escolaridade"
   faixaMin      Float?
   faixaMax      Float?
   faixaLabel    String?  // ex: "6º ao 9º ano" quando não é numérico
+  sexo          Sexo?    // preenchido só quando o critério estratifica por sexo (ex: ETDAH-PAIS)
   conversao     Json     // mapeamento escore bruto -> percentil/escore padronizado/classificação
 }
 

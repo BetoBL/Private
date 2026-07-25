@@ -9,12 +9,15 @@ export interface AnamneseData {
   historicoFamiliar?: string;
 }
 
+export type Sexo = "MASCULINO" | "FEMININO";
+
 export interface Paciente {
   id: string;
   clinicaId: string;
   profissionalId: string;
   nome: string;
   dataNascimento: string;
+  sexo: Sexo | null;
   responsavelLegal: string | null;
   contato: string | null;
   escolaridade: string | null;
@@ -280,13 +283,14 @@ export const api = {
   listPacientes: (profissionalId?: string) =>
     request<Paciente[]>(`/pacientes${profissionalId ? `?profissionalId=${profissionalId}` : ""}`),
   getPaciente: (id: string) => request<Paciente>(`/pacientes/${id}`),
-  createPaciente: (data: { profissionalId: string; nome: string; dataNascimento: string }) =>
+  createPaciente: (data: { profissionalId: string; nome: string; dataNascimento: string; sexo?: Sexo }) =>
     request<Paciente>("/pacientes", { method: "POST", body: JSON.stringify(data) }),
   updatePaciente: (
     id: string,
     data: Partial<{
       nome: string;
       dataNascimento: string;
+      sexo: Sexo;
       responsavelLegal: string;
       contato: string;
       escolaridade: string;
