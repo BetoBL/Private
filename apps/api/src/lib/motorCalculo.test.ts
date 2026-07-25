@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { calcularResultado, localizarFaixa, type ConversaoNormativa } from "./motorCalculo";
+import {
+  calcularIdadeEmAnos,
+  calcularResultado,
+  escolherTabelaPorIdade,
+  localizarFaixa,
+  type ConversaoNormativa,
+} from "./motorCalculo";
 
 test("localizarFaixa: encontra a faixa correta, limites inclusivos", () => {
   const faixas = [
@@ -120,4 +126,89 @@ test("calcularResultado: valor fora de todas as faixas retorna faixa null sem la
   assert.equal(resultado.modo, "por_campo");
   if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
   assert.equal(resultado.porCampo.ac.faixa, null);
+});
+
+// --- faixasPorCampo: cada campo com sua própria tabela (ex: RAVLT — A1 e A7 têm cortes distintos) ---
+
+const RAVLT_CONVERSAO: ConversaoNormativa = {
+  tipo: "percentil_por_campo",
+  faixasPorCampo: {
+    a1: [
+      { min: 0, max: 3, percentil: "<5", classificacao: "Inferior" },
+      { min: 4, max: 6, percentil: "50", classificacao: "Típico" },
+    ],
+    a7: [
+      { min: 0, max: 5, percentil: "<5", classificacao: "Inferior" },
+      { min: 6, max: 10, percentil: "50", classificacao: "Típico" },
+    ],
+  },
+};
+
+test("calcularResultado: faixasPorCampo usa a tabela específica de cada campo, não uma compartilhada", () => {
+  const resultado = calcularResultado({ a1: 5, a7: 5 }, RAVLT_CONVERSAO);
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  // valor 5 é "Típico" para a1 (tabela de a1) mas "Inferior" para a7 (tabela de a7)
+  assert.equal(resultado.porCampo.a1.faixa?.classificacao, "Típico");
+  assert.equal(resultado.porCampo.a7.faixa?.classificacao, "Inferior");
+});
+
+test("calcularResultado: faixasPorCampo sem entrada para o campo retorna faixa null", () => {
+  const resultado = calcularResultado({ campoNaoMapeado: 10 }, RAVLT_CONVERSAO);
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  assert.equal(resultado.porCampo.campoNaoMapeado.faixa, null);
+});
+
+// --- escolherTabelaPorIdade ---
+
+test("escolherTabelaPorIdade: escolhe a tabela cuja faixa etária cobre a idade", () => {
+  const tabelas = [
+    { id: "6-8", faixaMin: 6, faixaMax: 8 },
+    { id: "9-11", faixaMin: 9, faixaMax: 11 },
+    { id: "80+", faixaMin: 80, faixaMax: 150 },
+  ];
+  assert.equal(escolherTabelaPorIdade(7, tabelas)?.id, "6-8");
+  assert.equal(escolherTabelaPorIdade(9, tabelas)?.id, "9-11");
+  assert.equal(escolherTabelaPorIdade(85, tabelas)?.id, "80+");
+});
+
+test("escolherTabelaPorIdade: idade nos limites exatos das faixas é inclusiva", () => {
+  const tabelas = [
+    { id: "6-8", faixaMin: 6, faixaMax: 8 },
+    { id: "9-11", faixaMin: 9, faixaMax: 11 },
+  ];
+  assert.equal(escolherTabelaPorIdade(8, tabelas)?.id, "6-8");
+  assert.equal(escolherTabelaPorIdade(9, tabelas)?.id, "9-11");
+});
+
+test("escolherTabelaPorIdade: sem faixa cobrindo a idade, cai para a 1ª tabela (compatibilidade com testes de tabela única)", () => {
+  const tabelas = [
+    { id: "unica", faixaMin: null, faixaMax: null },
+  ];
+  assert.equal(escolherTabelaPorIdade(150, tabelas)?.id, "unica");
+});
+
+test("escolherTabelaPorIdade: lista vazia retorna undefined", () => {
+  assert.equal(escolherTabelaPorIdade(30, []), undefined);
+});
+
+// --- calcularIdadeEmAnos ---
+
+test("calcularIdadeEmAnos: calcula idade completa quando o aniversário já passou no ano", () => {
+  const nascimento = new Date(2000, 5, 15); // 15/jun/2000
+  const referencia = new Date(2026, 6, 1); // 01/jul/2026 — aniversário já passou
+  assert.equal(calcularIdadeEmAnos(nascimento, referencia), 26);
+});
+
+test("calcularIdadeEmAnos: não soma o ano corrente se o aniversário ainda não chegou", () => {
+  const nascimento = new Date(2000, 11, 25); // 25/dez/2000
+  const referencia = new Date(2026, 6, 1); // 01/jul/2026 — aniversário ainda não chegou
+  assert.equal(calcularIdadeEmAnos(nascimento, referencia), 25);
+});
+
+test("calcularIdadeEmAnos: data de referência igual ao dia do aniversário já conta o ano novo", () => {
+  const nascimento = new Date(2000, 6, 1);
+  const referencia = new Date(2026, 6, 1);
+  assert.equal(calcularIdadeEmAnos(nascimento, referencia), 26);
 });

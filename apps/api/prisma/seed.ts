@@ -25,7 +25,193 @@ interface TesteSeed {
   algoritmoCorrecao: Prisma.InputJsonValue;
   referenciaBibliografica: string;
   tabelasNormativas: FaixaNormativaSeed[];
+  // false só quando a tabela normativa vem de um manual real conferido (ver docs/testes/*.md) —
+  // todo o resto do MVP continua isPlaceholder=true até a lista definitiva da psicóloga.
+  isPlaceholder?: boolean;
 }
+
+// --- RAVLT: normas reais (Paula & Malloy-Diniz, Vetor 2018, N=1458) — ver docs/testes/RAVLT.md ---
+// Cada campo tem sua própria tabela de pontos percentílicos (5/25/50/75/95) por faixa etária —
+// as 5 medidas derivadas (EscoreTotal, ALT, VelocidadeEsquecimento, InterferênciaProativa/Retroativa)
+// são calculadas pelo formulário de lançamento a partir dos 9 valores brutos (A1-A5, B1, A6, A7,
+// Reconhecimento) usando as fórmulas do algoritmoCorrecao, e chegam aqui já prontas para conversão —
+// o motor de cálculo só converte valor -> percentil/classificação, não agrega (mesmo princípio já
+// usado no WAIS-III para os índices fatoriais).
+const RAVLT_CAMPOS = [
+  "a1", "a2", "a3", "a4", "a5", "b1", "a6", "a7", "reconhecimento",
+  "escoreTotal", "alt", "velocidadeEsquecimento", "interferenciaProativa", "interferenciaRetroativa",
+] as const;
+
+type RavltCampo = (typeof RAVLT_CAMPOS)[number];
+
+const RAVLT_CAMPOS_CONTINUOS = new Set<RavltCampo>([
+  "velocidadeEsquecimento",
+  "interferenciaProativa",
+  "interferenciaRetroativa",
+]);
+
+type PontosPercentil = [p5: number, p25: number, p50: number, p75: number, p95: number];
+
+interface RavltFaixaEtaria {
+  faixaMin: number;
+  faixaMax: number;
+  faixaLabel: string;
+  n: number;
+  percentis: Record<RavltCampo, PontosPercentil>;
+}
+
+// Constrói as 6 faixas percentílicas (<5, 5-25, 25-50, 50-75, 75-95, >95) a partir dos 5 pontos
+// tabelados, replicando a mesma convenção do "Guia de interpretação dos percentis" do manual.
+// Nota: quando dois pontos consecutivos empatam (ex: p25==p50 em algumas células da tabela real),
+// o valor empatado cai na faixa seguinte (ex: "50-75" em vez de "25-50") — cosmético apenas, pois
+// "25-50" e "50-75" mapeiam para a mesma `classificacao` ("Típico") no guia de interpretação.
+function criarFaixasPercentilRAVLT(pontos: PontosPercentil, continuo: boolean): Prisma.InputJsonValue[] {
+  const [p5, p25, p50, p75, p95] = pontos;
+  const passo = continuo ? 0.001 : 1;
+  return [
+    { max: p5 - passo, percentil: "<5", classificacao: "Inferior" },
+    { min: p5, max: p25 - passo, percentil: "5-25", classificacao: "Média Inferior" },
+    { min: p25, max: p50 - passo, percentil: "25-50", classificacao: "Típico" },
+    { min: p50, max: p75 - passo, percentil: "50-75", classificacao: "Típico" },
+    { min: p75, max: p95 - passo, percentil: "75-95", classificacao: "Típico" },
+    { min: p95, percentil: ">95", classificacao: "Superior" },
+  ];
+}
+
+const RAVLT_NORMAS: RavltFaixaEtaria[] = [
+  {
+    faixaMin: 6, faixaMax: 8, faixaLabel: "6 a 8 anos", n: 96,
+    percentis: {
+      a1: [2, 3, 4, 5, 8], a2: [3, 5, 6, 7, 10], a3: [4, 5, 7, 9, 12], a4: [4, 6, 8, 10, 13], a5: [4, 7, 8, 10, 13],
+      b1: [2, 3, 4, 5, 7], a6: [3, 5, 7, 8, 13], a7: [3, 6, 7, 9, 13], reconhecimento: [-2, 8, 10, 15, 15],
+      escoreTotal: [19, 26, 33, 40, 52], alt: [-4, 6, 12, 16, 23],
+      velocidadeEsquecimento: [0.67, 0.89, 1.00, 1.20, 1.75],
+      interferenciaProativa: [0.50, 0.75, 1.00, 1.29, 2.00],
+      interferenciaRetroativa: [0.50, 0.71, 0.88, 1.00, 1.25],
+    },
+  },
+  {
+    faixaMin: 9, faixaMax: 11, faixaLabel: "9 a 11 anos", n: 119,
+    percentis: {
+      a1: [3, 4, 5, 7, 8], a2: [4, 6, 7, 9, 11], a3: [3, 6, 9, 11, 13], a4: [4, 8, 9, 11, 14], a5: [5, 8, 10, 12, 14],
+      b1: [3, 4, 5, 6, 8], a6: [4, 7, 9, 11, 12], a7: [4, 7, 9, 11, 13], reconhecimento: [2, 11, 14, 15, 15],
+      escoreTotal: [24, 32, 40, 46, 58], alt: [-1, 8, 13, 19, 26],
+      velocidadeEsquecimento: [0.75, 0.90, 1.00, 1.11, 1.33],
+      interferenciaProativa: [0.50, 0.71, 0.86, 1.20, 2.00],
+      interferenciaRetroativa: [0.56, 0.73, 0.85, 1.00, 1.38],
+    },
+  },
+  {
+    faixaMin: 12, faixaMax: 14, faixaLabel: "12 a 14 anos", n: 55,
+    percentis: {
+      a1: [4, 5, 6, 8, 9], a2: [4, 6, 8, 10, 12], a3: [4, 7, 10, 12, 14], a4: [3, 9, 10, 12, 15], a5: [6, 10, 11, 13, 14],
+      b1: [3, 4, 6, 7, 9], a6: [5, 9, 10, 11, 13], a7: [5, 7, 10, 12, 14], reconhecimento: [0, 12, 15, 15, 15],
+      escoreTotal: [28, 39, 46, 51, 59], alt: [-2, 7, 13, 20, 25],
+      velocidadeEsquecimento: [0.60, 0.89, 1.00, 1.11, 1.40],
+      interferenciaProativa: [0.50, 0.73, 0.88, 1.13, 1.50],
+      interferenciaRetroativa: [0.60, 0.80, 0.90, 1.00, 1.22],
+    },
+  },
+  {
+    faixaMin: 15, faixaMax: 17, faixaLabel: "15 a 17 anos", n: 40,
+    percentis: {
+      a1: [4, 5, 6, 7, 8], a2: [4, 7, 8, 9, 11], a3: [4, 8, 10, 11, 13], a4: [6, 10, 11, 13, 14], a5: [7, 10, 11, 14, 14],
+      b1: [3, 4, 5, 6, 9], a6: [5, 9, 10, 13, 14], a7: [6, 9, 11, 12, 14], reconhecimento: [4, 11, 13, 15, 15],
+      escoreTotal: [34, 41, 46, 53, 58], alt: [2, 13, 17, 21, 26],
+      velocidadeEsquecimento: [0.79, 0.90, 1.00, 1.11, 1.35],
+      interferenciaProativa: [0.54, 0.69, 0.86, 1.06, 1.42],
+      interferenciaRetroativa: [0.64, 0.82, 0.93, 1.00, 1.23],
+    },
+  },
+  {
+    faixaMin: 18, faixaMax: 20, faixaLabel: "18 a 20 anos", n: 157,
+    percentis: {
+      a1: [4, 6, 7, 8, 10], a2: [6, 8, 9, 11, 13], a3: [8, 10, 11, 13, 14], a4: [8, 10, 12, 14, 15], a5: [8, 11, 12, 14, 15],
+      b1: [4, 5, 6, 7, 9], a6: [6, 9, 12, 13, 15], a7: [6, 9, 11, 13, 15], reconhecimento: [-1, 5, 13, 15, 15],
+      escoreTotal: [36, 46, 52, 58, 65], alt: [6, 12, 18, 22, 29],
+      velocidadeEsquecimento: [0.75, 0.91, 1.00, 1.10, 1.33],
+      interferenciaProativa: [0.56, 0.73, 0.89, 1.10, 1.50],
+      interferenciaRetroativa: [0.63, 0.82, 0.92, 1.00, 1.18],
+    },
+  },
+  {
+    faixaMin: 21, faixaMax: 30, faixaLabel: "21 a 30 anos", n: 252,
+    percentis: {
+      a1: [4, 5, 7, 8, 9], a2: [5, 7, 9, 10, 12], a3: [6, 9, 11, 12, 14], a4: [7, 10, 12, 13, 15], a5: [8, 11, 13, 14, 15],
+      b1: [3, 4, 6, 7, 9], a6: [6, 9, 11, 13, 15], a7: [6, 9, 11, 13, 15], reconhecimento: [1, 11, 13, 14, 15],
+      escoreTotal: [34, 44, 50, 56, 63], alt: [5, 13, 17, 21, 27],
+      velocidadeEsquecimento: [0.75, 0.91, 1.00, 1.09, 1.33],
+      interferenciaProativa: [0.50, 0.68, 0.86, 1.00, 1.50],
+      interferenciaRetroativa: [0.63, 0.80, 0.91, 1.00, 1.10],
+    },
+  },
+  {
+    faixaMin: 31, faixaMax: 40, faixaLabel: "31 a 40 anos", n: 158,
+    percentis: {
+      a1: [4, 5, 6, 7, 9], a2: [5, 7, 9, 10, 12], a3: [6, 9, 10, 12, 14], a4: [7, 10, 11, 13, 15], a5: [8, 11, 12, 14, 15],
+      b1: [2, 4, 5, 6, 8], a6: [6, 9, 11, 12, 14], a7: [6, 9, 11, 12, 14], reconhecimento: [-2, 10, 13, 14, 15],
+      escoreTotal: [35, 43, 49, 54, 60], alt: [6, 14, 18, 23, 29],
+      velocidadeEsquecimento: [0.75, 0.86, 0.93, 1.08, 1.29],
+      interferenciaProativa: [0.50, 0.67, 0.86, 1.00, 1.50],
+      interferenciaRetroativa: [0.58, 0.80, 0.91, 0.93, 1.18],
+    },
+  },
+  {
+    faixaMin: 41, faixaMax: 50, faixaLabel: "41 a 50 anos", n: 116,
+    percentis: {
+      a1: [4, 5, 6, 7, 9], a2: [5, 7, 8, 10, 12], a3: [5, 8, 11, 11, 14], a4: [6, 9, 11, 14, 15], a5: [7, 10, 12, 12, 15],
+      b1: [3, 4, 5, 6, 8], a6: [5, 8, 10, 11, 14], a7: [5, 7, 10, 14, 14], reconhecimento: [-3, 8, 12, 14, 15],
+      escoreTotal: [29, 40, 49, 53, 61], alt: [5, 12, 16, 22, 27],
+      velocidadeEsquecimento: [0.71, 0.85, 1.00, 1.10, 1.38],
+      interferenciaProativa: [0.40, 0.67, 0.80, 1.00, 1.50],
+      interferenciaRetroativa: [0.54, 0.73, 0.86, 0.97, 1.13],
+    },
+  },
+  {
+    faixaMin: 51, faixaMax: 60, faixaLabel: "51 a 60 anos", n: 106,
+    percentis: {
+      a1: [3, 5, 6, 7, 9], a2: [5, 6, 8, 10, 12], a3: [5, 8, 10, 11, 14], a4: [7, 9, 11, 12, 15], a5: [8, 10, 12, 13, 15],
+      b1: [2, 4, 5, 6, 8], a6: [5, 7, 10, 12, 14], a7: [4, 8, 10, 12, 14], reconhecimento: [-2, 10, 13, 14, 15],
+      escoreTotal: [31, 37, 47, 53, 61], alt: [4, 12, 15, 19, 26],
+      velocidadeEsquecimento: [0.80, 0.90, 1.00, 1.11, 1.38],
+      interferenciaProativa: [0.40, 0.63, 0.80, 1.00, 1.40],
+      interferenciaRetroativa: [0.45, 0.67, 0.84, 1.00, 1.08],
+    },
+  },
+  {
+    faixaMin: 61, faixaMax: 70, faixaLabel: "61 a 70 anos", n: 180,
+    percentis: {
+      a1: [3, 5, 5, 6, 8], a2: [5, 6, 8, 9, 11], a3: [6, 8, 9, 10, 12], a4: [7, 9, 10, 12, 13], a5: [8, 10, 11, 13, 14],
+      b1: [2, 4, 5, 5, 7], a6: [4, 8, 10, 11, 13], a7: [5, 8, 10, 11, 14], reconhecimento: [3, 9, 11, 13, 15],
+      escoreTotal: [30, 40, 44, 49, 58], alt: [6, 13, 17, 20, 27],
+      velocidadeEsquecimento: [0.78, 0.90, 1.00, 1.10, 1.38],
+      interferenciaProativa: [0.50, 0.67, 0.83, 1.00, 1.40],
+      interferenciaRetroativa: [0.55, 0.74, 0.86, 0.93, 1.04],
+    },
+  },
+  {
+    faixaMin: 71, faixaMax: 79, faixaLabel: "71 a 79 anos", n: 110,
+    percentis: {
+      a1: [3, 4, 5, 6, 8], a2: [5, 6, 7, 8, 10], a3: [5, 7, 8, 9, 11], a4: [5, 8, 9, 11, 13], a5: [7, 9, 10, 12, 14],
+      b1: [1, 3, 4, 5, 7], a6: [3, 7, 8, 10, 12], a7: [4, 7, 8, 9, 12], reconhecimento: [1, 6, 7, 10, 14],
+      escoreTotal: [25, 35, 39, 44, 55], alt: [4, 10, 14, 18, 24],
+      velocidadeEsquecimento: [0.25, 0.60, 0.80, 1.00, 1.75],
+      interferenciaProativa: [0.46, 0.73, 0.80, 0.91, 1.11],
+      interferenciaRetroativa: [0.73, 0.88, 1.00, 1.11, 1.50],
+    },
+  },
+  {
+    faixaMin: 80, faixaMax: 150, faixaLabel: "80 anos ou mais", n: 69,
+    percentis: {
+      a1: [2, 3, 4, 5, 6], a2: [4, 5, 6, 7, 9], a3: [5, 6, 7, 7, 10], a4: [6, 7, 8, 9, 11], a5: [7, 8, 10, 11, 13],
+      b1: [0, 2, 3, 4, 6], a6: [4, 6, 8, 9, 11], a7: [4, 6, 7, 8, 10], reconhecimento: [-2, 3, 6, 9, 14],
+      escoreTotal: [24, 31, 34, 36, 47], alt: [5, 11, 13, 17, 22],
+      velocidadeEsquecimento: [0.64, 0.75, 0.89, 1.00, 1.20],
+      interferenciaProativa: [0.00, 0.57, 0.80, 1.00, 1.50],
+      interferenciaRetroativa: [0.45, 0.67, 0.78, 0.89, 1.13],
+    },
+  },
+];
 
 const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
@@ -78,38 +264,59 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Teste de Aprendizagem Auditivo-Verbal de Rey",
     sigla: "RAVLT",
     dominio: DominioCognitivo.MEMORIA,
-    descricao: `Memória episódica verbal — lista A (5 tentativas), lista de interferência B, evocação tardia. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Memória episódica verbal — 5 tentativas de aprendizagem da Lista A (A1-A5), lista de " +
+      "interferência B (B1), evocação imediata pós-interferência (A6), evocação tardia (A7) e " +
+      "reconhecimento. Normas brasileiras reais (Paula & Malloy-Diniz, Vetor 2018, N=1458, 12 " +
+      "faixas etárias de 6 a 80+ anos, sem estratificação por sexo).",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
-      etapas: ["A1 a A5 (aprendizagem)", "B1 (interferência)", "A6 (evocação imediata pós-interferência)", "A7 (evocação tardia)"],
-      // A prática real reporta percentil por tentativa (não só um total agregado) — cada campo
-      // é convertido de forma independente na mesma tabela de faixas (modo "por_campo").
+      etapas: [
+        "A1 a A5 (aprendizagem, mesma lista repetida 5x)",
+        "B1 (lista de interferência, 1 apresentação)",
+        "A6 (evocação imediata pós-interferência, sem reler a lista)",
+        "A7 (evocação tardia, após ~20min de intervalo)",
+        "Reconhecimento (lê-se 50 palavras: 15 da lista A + 15 da lista B + 20 distratores)",
+      ],
+      // 9 campos lançados diretamente pelo profissional; os 5 campos derivados são calculados
+      // pelo formulário de lançamento (fórmulas abaixo) e chegam ao motor já prontos para
+      // conversão em percentil — o motor de cálculo não agrega, só converte (ver docs/testes/RAVLT.md).
       campos: [
         { chave: "a1", label: "A1 — 1ª tentativa, palavras corretas (0-15)" },
+        { chave: "a2", label: "A2 — 2ª tentativa (0-15)" },
+        { chave: "a3", label: "A3 — 3ª tentativa (0-15)" },
+        { chave: "a4", label: "A4 — 4ª tentativa (0-15)" },
+        { chave: "a5", label: "A5 — 5ª tentativa (0-15)" },
         { chave: "b1", label: "B1 — lista de interferência, palavras corretas (0-15)" },
-        { chave: "aprendizagemTotal", label: "Escore total de aprendizagem (soma A1-A5, 0-75)" },
         { chave: "a6", label: "A6 — evocação imediata pós-interferência (0-15)" },
         { chave: "a7", label: "A7 — evocação tardia (0-15)" },
+        { chave: "reconhecimento", label: "Reconhecimento — (acertos entre as 50 palavras) - 35" },
+        { chave: "escoreTotal", label: "Escore Total = A1+A2+A3+A4+A5 (calculado)" },
+        { chave: "alt", label: "ALT (Aprendizagem ao Longo das Tentativas) = Escore Total - (5×A1) (calculado)" },
+        { chave: "velocidadeEsquecimento", label: "Velocidade de Esquecimento = A7/A6 (calculado)" },
+        { chave: "interferenciaProativa", label: "Interferência Proativa = B1/A1 (calculado)" },
+        { chave: "interferenciaRetroativa", label: "Interferência Retroativa = A6/A5 (calculado)" },
       ],
     },
-    referenciaBibliografica: "PAULA, J. J. RAVLT – Teste de Aprendizagem Auditivo-Verbal de Rey: manual. São Paulo: Vetor, 2018.",
-    tabelasNormativas: [
-      {
-        criterio: "idade",
-        faixaMin: 18,
-        faixaMax: 90,
-        conversao: {
-          aviso: AVISO_PLACEHOLDER,
-          tipo: "percentil_por_campo",
-          faixas: [
-            { min: 0, max: 5, percentil: 5, classificacao: "Inferior" },
-            { min: 6, max: 9, percentil: 25, classificacao: "Médio Inferior" },
-            { min: 10, max: 12, percentil: 50, classificacao: "Médio" },
-            { min: 13, max: 15, percentil: 75, classificacao: "Médio Superior" },
-          ],
-        },
+    referenciaBibliografica:
+      "PAULA, J. J. de; MALLOY-DINIZ, L. F. RAVLT: Teste de Aprendizagem Auditivo-Verbal de Rey " +
+      "— Livro de Instruções. 1. ed. São Paulo: Vetor Editora, 2018. Coleção RAVLT, v.1.",
+    isPlaceholder: false,
+    tabelasNormativas: RAVLT_NORMAS.map((faixa) => ({
+      criterio: "idade",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: faixa.faixaLabel,
+      conversao: {
+        tipo: "percentil_por_campo",
+        fonte: `Normas brasileiras RAVLT (Paula & Malloy-Diniz, 2018), faixa ${faixa.faixaLabel}, n=${faixa.n}.`,
+        faixasPorCampo: Object.fromEntries(
+          RAVLT_CAMPOS.map((campo) => [
+            campo,
+            criarFaixasPercentilRAVLT(faixa.percentis[campo], RAVLT_CAMPOS_CONTINUOS.has(campo)),
+          ])
+        ),
       },
-    ],
+    })),
   },
   {
     nome: "Bateria Psicológica para Avaliação da Atenção",
@@ -364,11 +571,15 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
 ];
 
 async function main() {
-  console.log("Removendo testes placeholder anteriores (se houver)...");
-  await prisma.tabelaNormativa.deleteMany({ where: { teste: { isPlaceholder: true } } });
-  await prisma.teste.deleteMany({ where: { isPlaceholder: true } });
+  console.log("Removendo catálogo fixo de testes anterior (se houver)...");
+  // Recria o catálogo fixo inteiro a cada seed (placeholders e testes já reais) — é um script
+  // de dev/fixture, não uma migração; AplicacaoDeTeste referencia testeId, então isso é seguro
+  // só em ambiente local sem dados de produção reais.
+  await prisma.tabelaNormativa.deleteMany({ where: { teste: { escopo: EscopoTeste.FIXO } } });
+  await prisma.teste.deleteMany({ where: { escopo: EscopoTeste.FIXO } });
 
   for (const t of TESTES_PLACEHOLDER) {
+    const isPlaceholder = t.isPlaceholder ?? true;
     const criado = await prisma.teste.create({
       data: {
         nome: t.nome,
@@ -378,7 +589,7 @@ async function main() {
         descricao: t.descricao,
         algoritmoCorrecao: t.algoritmoCorrecao,
         referenciaBibliografica: t.referenciaBibliografica,
-        isPlaceholder: true,
+        isPlaceholder,
         tabelasNormativas: {
           create: t.tabelasNormativas.map((f) => ({
             criterio: f.criterio,
@@ -390,10 +601,10 @@ async function main() {
         },
       },
     });
-    console.log(`  ✓ ${criado.sigla} — ${criado.nome} (isPlaceholder=true)`);
+    console.log(`  ✓ ${criado.sigla} — ${criado.nome} (isPlaceholder=${isPlaceholder})`);
   }
 
-  console.log(`\n${TESTES_PLACEHOLDER.length} testes placeholder semeados.`);
+  console.log(`\n${TESTES_PLACEHOLDER.length} testes semeados.`);
 
   // Fixture de desenvolvimento local: garante 1 Clínica + 1 Profissional para
   // exercitar as telas sem precisar de UI de cadastro ainda. Idempotente.

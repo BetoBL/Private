@@ -1,7 +1,12 @@
 import { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { z } from "zod";
-import { calcularResultado, type ConversaoNormativa } from "../lib/motorCalculo";
+import {
+  calcularIdadeEmAnos,
+  calcularResultado,
+  escolherTabelaPorIdade,
+  type ConversaoNormativa,
+} from "../lib/motorCalculo";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -21,16 +26,17 @@ function ehAdmin(req: { profissional?: { papel: string } }): boolean {
   return req.profissional?.papel === "ADMIN";
 }
 
-async function recalcular(testeId: string, escoresBrutos: Record<string, number>) {
+async function recalcular(testeId: string, escoresBrutos: Record<string, number>, idadeAnos: number) {
   const teste = await prisma.teste.findUnique({ where: { id: testeId }, include: { tabelasNormativas: true } });
-  const tabela = teste?.tabelasNormativas[0];
+  if (!teste) return null;
+  const tabela = escolherTabelaPorIdade(idadeAnos, teste.tabelasNormativas);
   return tabela ? calcularResultado(escoresBrutos, tabela.conversao as unknown as ConversaoNormativa) : null;
 }
 
 // Cria o lançamento de escores brutos de um teste nesta sessão e já calcula o resultado
-// (motor de cálculo puro em lib/motorCalculo.ts) usando a 1ª TabelaNormativa do teste.
-// Seleção de norma por critério do paciente (idade/escolaridade) é um refinamento futuro —
-// hoje cada teste do seed tem só uma tabela normativa, então a escolha é trivial.
+// (motor de cálculo puro em lib/motorCalculo.ts), escolhendo a TabelaNormativa cuja faixa
+// etária cobre a idade do paciente na data da sessão (ver escolherTabelaPorIdade). Testes
+// com uma única tabela (sem faixaMin/faixaMax) continuam funcionando normalmente.
 aplicacoesDeTesteRouter.post(
   "/",
   validateBody(aplicacaoCreateSchema),
@@ -53,7 +59,8 @@ aplicacoesDeTesteRouter.post(
       return;
     }
 
-    const resultadoCalculado = await recalcular(testeId, escoresBrutos);
+    const idadeAnos = calcularIdadeEmAnos(sessao.paciente.dataNascimento, sessao.dataHora);
+    const resultadoCalculado = await recalcular(testeId, escoresBrutos, idadeAnos);
 
     const aplicacao = await prisma.aplicacaoDeTeste.create({
       data: {
@@ -129,7 +136,8 @@ aplicacoesDeTesteRouter.patch(
       return;
     }
 
-    const resultadoCalculado = await recalcular(existente.testeId, req.body.escoresBrutos);
+    const idadeAnos = calcularIdadeEmAnos(existente.sessao.paciente.dataNascimento, existente.sessao.dataHora);
+    const resultadoCalculado = await recalcular(existente.testeId, req.body.escoresBrutos, idadeAnos);
 
     const aplicacao = await prisma.aplicacaoDeTeste.update({
       where: { id: req.params.id },
