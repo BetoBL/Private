@@ -457,6 +457,92 @@ const WECHSLER_CLASSIFICACAO_FAIXAS: Prisma.InputJsonValue[] = [
   { min: 130, percentil: 99.9, classificacao: "Muito Superior" },
 ];
 
+// --- BFP: normas reais (Nunes, Hutz & Nunes, Casa do Psicólogo 2010) — ver docs/testes/BFP.md ---
+// A norma é empírica (não uma fórmula fechada) e o manual recomenda interpolação linear entre
+// pontos percentílicos adjacentes; simplificamos para os 4 pontos de corte que reproduzem a
+// classificação de 5 faixas do próprio manual (Tabela 65): até 14 Muito Baixo, 15-29 Baixo,
+// 30-70 Médio, 71-85 Alto, >85 Muito Alto — usando os pontos exatos p15/p30/p70/p85 da tabela.
+const BFP_CAMPOS = [
+  "n1", "n2", "n3", "n4", "neuroticismo",
+  "e1", "e2", "e3", "e4", "extroversao",
+  "s1", "s2", "s3", "socializacao",
+  "r1", "r2", "r3", "realizacao",
+  "a1", "a2", "a3", "abertura",
+] as const;
+type BfpCampo = (typeof BFP_CAMPOS)[number];
+type PontosBFP = [p15: number, p30: number, p70: number, p85: number];
+
+function criarFaixasBFP(pontos: PontosBFP): Prisma.InputJsonValue[] {
+  const [p15, p30, p70, p85] = pontos;
+  const EPS = 0.01;
+  return [
+    { max: p15 - EPS, classificacao: "Muito Baixo" },
+    { min: p15, max: p30 - EPS, classificacao: "Baixo" },
+    { min: p30, max: p70 - EPS, classificacao: "Médio" },
+    { min: p70, max: p85 - EPS, classificacao: "Alto" },
+    { min: p85, classificacao: "Muito Alto" },
+  ];
+}
+
+interface BfpAmostra {
+  sexo: "MASCULINO" | "FEMININO" | null;
+  faixaLabel: string;
+  pontos: Record<BfpCampo, PontosBFP>;
+}
+
+// Ordem importa: sem faixaMin/faixaMax para desempatar por idade, escolherTabelaNormativa cai no
+// primeiro candidato compatível com o sexo do paciente (ver comentário na função) — por isso as
+// tabelas específicas de sexo vêm antes da "Amostra Geral" (usada só quando sexo é desconhecido).
+const BFP_NORMAS: BfpAmostra[] = [
+  {
+    sexo: "MASCULINO", faixaLabel: "Sexo Masculino",
+    pontos: {
+      n1: [2.00, 2.44, 3.86, 4.56], n2: [2.00, 2.50, 4.17, 4.83], n3: [2.17, 2.67, 4.17, 4.83], n4: [1.29, 1.63, 2.75, 3.61],
+      neuroticismo: [1.99, 2.45, 3.57, 4.10],
+      e1: [2.83, 3.67, 4.83, 5.50], e2: [2.67, 3.14, 4.14, 4.71], e3: [3.80, 4.20, 5.40, 5.80], e4: [3.57, 4.17, 5.33, 5.86],
+      extroversao: [3.40, 3.83, 4.72, 5.16],
+      s1: [4.35, 5.00, 5.91, 6.33], s2: [4.13, 4.75, 5.88, 6.38], s3: [3.50, 4.00, 5.13, 5.63],
+      socializacao: [4.25, 4.69, 5.49, 5.86],
+      r1: [4.30, 4.80, 5.70, 6.13], r2: [3.75, 4.50, 5.75, 6.25], r3: [3.57, 4.14, 5.29, 5.71],
+      realizacao: [4.08, 4.61, 5.41, 5.81],
+      a1: [3.49, 4.00, 5.13, 5.80], a2: [3.57, 4.14, 5.29, 5.86], a3: [3.50, 4.00, 5.17, 5.67],
+      abertura: [3.89, 4.24, 5.01, 5.51],
+    },
+  },
+  {
+    sexo: "FEMININO", faixaLabel: "Sexo Feminino",
+    pontos: {
+      n1: [2.29, 2.89, 4.29, 5.00], n2: [2.25, 3.00, 4.61, 5.50], n3: [2.17, 2.67, 4.17, 4.83], n4: [1.25, 1.63, 2.63, 3.50],
+      neuroticismo: [2.20, 2.66, 3.73, 4.32],
+      e1: [3.00, 3.67, 5.00, 5.67], e2: [2.57, 3.00, 4.14, 4.86], e3: [3.80, 4.20, 5.40, 6.00], e4: [3.71, 4.33, 5.57, 6.00],
+      extroversao: [3.47, 3.93, 4.84, 5.28],
+      s1: [4.92, 5.42, 6.25, 6.55], s2: [4.86, 5.43, 6.29, 6.63], s3: [3.75, 4.38, 5.38, 5.88],
+      socializacao: [4.75, 5.15, 5.83, 6.11],
+      r1: [4.20, 4.80, 5.70, 6.10], r2: [3.75, 4.25, 5.50, 6.25], r3: [3.71, 4.29, 5.43, 6.00],
+      realizacao: [4.11, 4.57, 5.43, 5.77],
+      a1: [3.58, 4.00, 5.10, 5.70], a2: [3.86, 4.43, 5.43, 6.00], a3: [3.50, 4.00, 5.17, 5.67],
+      abertura: [3.98, 4.33, 5.04, 5.45],
+    },
+  },
+  {
+    // Fallback para quando o paciente não tem sexo cadastrado — precisa vir por último (ver
+    // comentário acima do array) para não ser escolhida antes das tabelas específicas de sexo.
+    sexo: null, faixaLabel: "Amostra Geral",
+    pontos: {
+      n1: [2.14, 2.71, 4.11, 4.86], n2: [2.17, 2.83, 4.50, 5.25], n3: [2.17, 2.67, 4.17, 4.83], n4: [1.25, 1.63, 2.63, 3.50],
+      neuroticismo: [2.13, 2.59, 3.68, 4.25],
+      e1: [3.00, 3.67, 5.00, 5.67], e2: [2.57, 3.09, 4.14, 4.83], e3: [3.80, 4.20, 5.40, 5.80], e4: [3.67, 4.29, 5.50, 6.00],
+      extroversao: [3.44, 3.89, 4.80, 5.24],
+      s1: [4.73, 5.25, 6.17, 6.50], s2: [4.57, 5.19, 6.25, 6.57], s3: [3.63, 4.25, 5.25, 5.75],
+      socializacao: [4.57, 4.99, 5.75, 6.05],
+      r1: [4.20, 4.80, 5.70, 6.10], r2: [3.75, 4.25, 5.50, 6.25], r3: [3.57, 4.17, 5.43, 5.86],
+      realizacao: [4.11, 4.58, 5.43, 5.78],
+      a1: [3.50, 4.00, 5.10, 5.70], a2: [3.71, 4.29, 5.43, 6.00], a3: [3.50, 4.00, 5.17, 5.67],
+      abertura: [3.95, 4.30, 5.03, 5.47],
+    },
+  },
+];
+
 const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
@@ -854,32 +940,61 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Bateria Fatorial de Personalidade",
     sigla: "BFP",
     dominio: DominioCognitivo.PERSONALIDADE,
-    descricao: `Personalidade a partir do modelo dos Cinco Grandes Fatores: Extroversão, Socialização, Realização, Neuroticismo e Abertura. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Personalidade a partir do modelo dos Cinco Grandes Fatores (Neuroticismo, Extroversão, " +
+      "Socialização, Realização, Abertura), cada um com 3-4 facetas. Normas reais (Nunes, Hutz & " +
+      "Nunes, Casa do Psicólogo 2010), 3 amostras: Geral, Masculino, Feminino. O manual recomenda " +
+      "avaliar sempre as facetas, não só o fator geral — nenhuma faceta isolada deve ser usada " +
+      "como fonte única de conclusão diagnóstica.",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
+      // Escore de cada faceta/fator = média dos itens (Likert 1-7); o profissional lança a média
+      // já calculada. Percentil é por lookup empírico na tabela normativa (não fórmula fechada).
+      facetas: {
+        Neuroticismo: ["N1 Vulnerabilidade", "N2 Instabilidade emocional", "N3 Passividade/Falta de energia", "N4 Depressão"],
+        Extroversão: ["E1 Comunicação", "E2 Altivez", "E3 Dinamismo", "E4 Interações sociais"],
+        Socialização: ["S1 Amabilidade", "S2 Pró-sociabilidade", "S3 Confiança nas pessoas"],
+        Realização: ["R1 Competência", "R2 Ponderação/Prudência", "R3 Empenho/Comprometimento"],
+        Abertura: ["A1 Abertura a ideias", "A2 Liberalismo", "A3 Busca por novidades"],
+      },
       campos: [
-        { chave: "extroversao", label: "Extroversão (percentil)" },
-        { chave: "socializacao", label: "Socialização (percentil)" },
-        { chave: "realizacao", label: "Realização (percentil)" },
-        { chave: "neuroticismo", label: "Neuroticismo (percentil)" },
-        { chave: "abertura", label: "Abertura (percentil)" },
+        { chave: "n1", label: "N1 Vulnerabilidade (média 1-7)" },
+        { chave: "n2", label: "N2 Instabilidade emocional (média 1-7)" },
+        { chave: "n3", label: "N3 Passividade/Falta de energia (média 1-7)" },
+        { chave: "n4", label: "N4 Depressão (média 1-7)" },
+        { chave: "neuroticismo", label: "Neuroticismo (média dos 4 fatores, 1-7)" },
+        { chave: "e1", label: "E1 Comunicação (média 1-7)" },
+        { chave: "e2", label: "E2 Altivez (média 1-7)" },
+        { chave: "e3", label: "E3 Dinamismo (média 1-7)" },
+        { chave: "e4", label: "E4 Interações sociais (média 1-7)" },
+        { chave: "extroversao", label: "Extroversão (média dos 4 fatores, 1-7)" },
+        { chave: "s1", label: "S1 Amabilidade (média 1-7)" },
+        { chave: "s2", label: "S2 Pró-sociabilidade (média 1-7)" },
+        { chave: "s3", label: "S3 Confiança nas pessoas (média 1-7)" },
+        { chave: "socializacao", label: "Socialização (média dos 3 fatores, 1-7)" },
+        { chave: "r1", label: "R1 Competência (média 1-7)" },
+        { chave: "r2", label: "R2 Ponderação/Prudência (média 1-7)" },
+        { chave: "r3", label: "R3 Empenho/Comprometimento (média 1-7)" },
+        { chave: "realizacao", label: "Realização (média dos 3 fatores, 1-7)" },
+        { chave: "a1", label: "A1 Abertura a ideias (média 1-7)" },
+        { chave: "a2", label: "A2 Liberalismo (média 1-7)" },
+        { chave: "a3", label: "A3 Busca por novidades (média 1-7)" },
+        { chave: "abertura", label: "Abertura (média dos 3 fatores, 1-7)" },
       ],
     },
     referenciaBibliografica: "NUNES, C. H. S. S.; HUTZ, C. S.; NUNES, M. F. O. Bateria Fatorial de Personalidade (BFP): manual técnico. São Paulo: Casa do Psicólogo, 2010.",
-    tabelasNormativas: [
-      {
-        criterio: "geral",
-        conversao: {
-          aviso: AVISO_PLACEHOLDER,
-          tipo: "percentil_por_campo",
-          faixas: [
-            { min: 0, max: 24, classificacao: "Baixo" },
-            { min: 25, max: 74, classificacao: "Médio" },
-            { min: 75, max: 100, classificacao: "Alto" },
-          ],
-        },
+    isPlaceholder: false,
+    tabelasNormativas: BFP_NORMAS.map((amostra) => ({
+      criterio: "sexo",
+      faixaLabel: amostra.faixaLabel,
+      sexo: amostra.sexo,
+      conversao: {
+        tipo: "percentil_por_campo",
+        fonte: `BFP (Nunes, Hutz & Nunes, 2010), ${amostra.faixaLabel}. Faixas Muito Baixo/Baixo/Médio/Alto/Muito Alto a partir dos pontos p15/p30/p70/p85 da Tabela 65.`,
+        faixasPorCampo: Object.fromEntries(
+          BFP_CAMPOS.map((campo) => [campo, criarFaixasBFP(amostra.pontos[campo])])
+        ),
       },
-    ],
+    })),
   },
   {
     nome: "Screen for Child Anxiety Related Emotional Disorders — Versão Pais/Cuidadores",
