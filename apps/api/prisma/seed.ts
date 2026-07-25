@@ -14,6 +14,7 @@ interface FaixaNormativaSeed {
   faixaMin?: number;
   faixaMax?: number;
   faixaLabel?: string;
+  sexo?: "MASCULINO" | "FEMININO" | null;
   conversao: Prisma.InputJsonValue;
 }
 
@@ -213,16 +214,35 @@ const RAVLT_NORMAS: RavltFaixaEtaria[] = [
   },
 ];
 
+// Vários testes (BPA, ETDAH-PAIS) usam manuais com muitos pontos percentílicos por medida, mas o
+// próprio guia de interpretação de cada um colapsa isso em 5 faixas de classificação a partir de
+// só 4 pontos de corte (p20/p40/p60/p80): Inferior / Médio Inferior / Médio / Médio Superior /
+// Superior. Reaproveitamos essa simplificação em vez de modelar as ~13-21 bandas completas.
+// Limitação conhecida: como as tabelas originais têm pontos intermediários (p25, p75 etc.) que
+// às vezes empatam com p20/p80 (ex: ETDAH-PAIS, caso "Caio" do manual — Comportamento Adaptativo
+// = 60 é tabelado como percentil 75 "Média Superior", mas aqui cai em ">80 Superior" porque p80
+// também vale 60 nessa tabela), a classificação reportada pode ficar 1 faixa acima/abaixo do
+// manual perto dessas bordas. Resolver exigiria modelar todos os pontos percentílicos, não só 4.
+type PontosQuartis = [p20: number, p40: number, p60: number, p80: number];
+
+function criarFaixasQuartis(pontos: PontosQuartis, continuo: boolean): Prisma.InputJsonValue[] {
+  const [p20, p40, p60, p80] = pontos;
+  const passo = continuo ? 0.01 : 1;
+  return [
+    { max: p20 - passo, percentil: "<20", classificacao: "Inferior" },
+    { min: p20, max: p40 - passo, percentil: "20-40", classificacao: "Médio Inferior" },
+    { min: p40, max: p60 - passo, percentil: "40-60", classificacao: "Médio" },
+    { min: p60, max: p80 - passo, percentil: "60-80", classificacao: "Médio Superior" },
+    { min: p80, percentil: ">80", classificacao: "Superior" },
+  ];
+}
+
 // --- BPA: normas reais (Rueda, padronização 2011, N=1759) — ver docs/testes/BPA.md ---
-// O manual tabela 13 pontos percentílicos por medida; simplificamos para 4 pontos de corte
-// (p20/p40/p60/p80) que reproduzem a classificação de 5 faixas do próprio guia de interpretação
-// (Inferior / Médio Inferior / Médio / Médio Superior / Superior) sem precisar de 13 bandas.
 // Só o critério "idade" foi modelado aqui — o manual também oferece normas por escolaridade
 // (docs/testes/BPA.md, Tabelas 27-30), mas escolher entre os dois critérios por paciente é uma
 // seleção categórica (não numérica) que o motor ainda não suporta — ver pendência no doc.
 const BPA_CAMPOS = ["ac", "ad", "aa", "atencaoGeral"] as const;
 type BpaCampo = (typeof BPA_CAMPOS)[number];
-type PontosQuartis = [p20: number, p40: number, p60: number, p80: number];
 
 interface BpaFaixaEtaria {
   faixaMin: number;
@@ -230,17 +250,6 @@ interface BpaFaixaEtaria {
   faixaLabel: string;
   n: number;
   pontos: Record<BpaCampo, PontosQuartis>;
-}
-
-function criarFaixasBPA(pontos: PontosQuartis): Prisma.InputJsonValue[] {
-  const [p20, p40, p60, p80] = pontos;
-  return [
-    { max: p20 - 1, percentil: "<20", classificacao: "Inferior" },
-    { min: p20, max: p40 - 1, percentil: "20-40", classificacao: "Médio Inferior" },
-    { min: p40, max: p60 - 1, percentil: "40-60", classificacao: "Médio" },
-    { min: p60, max: p80 - 1, percentil: "60-80", classificacao: "Médio Superior" },
-    { min: p80, percentil: ">80", classificacao: "Superior" },
-  ];
 }
 
 const BPA_NORMAS: BpaFaixaEtaria[] = [
@@ -267,6 +276,99 @@ const BPA_NORMAS: BpaFaixaEtaria[] = [
   {
     faixaMin: 51, faixaMax: 150, faixaLabel: "51 anos ou mais", n: 264,
     pontos: { ac: [45, 61, 79, 94], ad: [12, 31, 46, 68], aa: [38, 56, 71, 88], atencaoGeral: [104, 153, 194, 244] },
+  },
+];
+
+// --- ETDAH-PAIS: normas reais (Benczik, Memnon 2018, N=203, coleta 2014) — ver docs/testes/ETDAH-PAIS.md ---
+// Estratificado por sexo + 4 faixas etárias (2-5, 6-9, 10-13, 14-17), mais uma tabela geral
+// (sexo indefinido) usada como fallback quando o paciente não tem sexo cadastrado.
+const ETDAH_PAIS_CAMPOS = ["escoreGeral", "regulacaoEmocional", "hiperatividadeImpulsividade", "comportamentoAdaptativo", "atencao"] as const;
+type EtdahPaisCampo = (typeof ETDAH_PAIS_CAMPOS)[number];
+
+interface EtdahPaisFaixa {
+  faixaMin: number;
+  faixaMax: number;
+  faixaLabel: string;
+  sexo: "MASCULINO" | "FEMININO" | null;
+  // N por subgrupo sexo×idade não está detalhado no manual (só o N=203 da amostra geral) —
+  // por isso é opcional aqui, ao contrário do RAVLT/BPA onde o N por faixa é conhecido.
+  n?: number;
+  pontos: Record<EtdahPaisCampo, PontosQuartis>;
+}
+
+const ETDAH_PAIS_NORMAS: EtdahPaisFaixa[] = [
+  {
+    faixaMin: 2, faixaMax: 5, faixaLabel: "Feminino, 2 a 5 anos", sexo: "FEMININO",
+    pontos: {
+      escoreGeral: [127.4, 139.6, 173.8, 209], regulacaoEmocional: [36, 41.8, 53, 57.6],
+      hiperatividadeImpulsividade: [25.4, 30.8, 35.2, 67.4], comportamentoAdaptativo: [37, 46, 51, 63.4],
+      atencao: [18.8, 23.4, 28.2, 35.6],
+    },
+  },
+  {
+    faixaMin: 6, faixaMax: 9, faixaLabel: "Feminino, 6 a 9 anos", sexo: "FEMININO",
+    pontos: {
+      escoreGeral: [124.4, 144, 176, 192.8], regulacaoEmocional: [34.8, 45, 49.4, 61],
+      hiperatividadeImpulsividade: [25, 29.2, 34, 50.6], comportamentoAdaptativo: [29, 47.2, 55.8, 60.2],
+      atencao: [22.8, 26, 29.6, 35],
+    },
+  },
+  {
+    faixaMin: 10, faixaMax: 13, faixaLabel: "Feminino, 10 a 13 anos", sexo: "FEMININO",
+    pontos: {
+      escoreGeral: [106, 134.8, 156, 194.6], regulacaoEmocional: [30, 39, 48.2, 55.8],
+      hiperatividadeImpulsividade: [20.2, 25, 28.6, 38.2], comportamentoAdaptativo: [33.2, 43.4, 49.6, 57],
+      atencao: [19.4, 23.4, 32.4, 38.6],
+    },
+  },
+  {
+    faixaMin: 14, faixaMax: 17, faixaLabel: "Feminino, 14 a 17 anos", sexo: "FEMININO",
+    pontos: {
+      escoreGeral: [95.2, 111.8, 122, 149.2], regulacaoEmocional: [26.4, 33, 36.2, 39.2],
+      hiperatividadeImpulsividade: [18.6, 23.6, 29, 33.6], comportamentoAdaptativo: [24.4, 36, 40.2, 46.6],
+      atencao: [14, 21, 24.4, 33.4],
+    },
+  },
+  {
+    faixaMin: 2, faixaMax: 5, faixaLabel: "Masculino, 2 a 5 anos", sexo: "MASCULINO",
+    pontos: {
+      escoreGeral: [151.4, 162.6, 168, 183], regulacaoEmocional: [33.4, 40, 47, 52.6],
+      hiperatividadeImpulsividade: [25.6, 36.6, 45, 52.8], comportamentoAdaptativo: [47, 52.4, 55.8, 61.6],
+      atencao: [21, 25.2, 31.6, 35.4],
+    },
+  },
+  {
+    faixaMin: 6, faixaMax: 9, faixaLabel: "Masculino, 6 a 9 anos", sexo: "MASCULINO",
+    pontos: {
+      escoreGeral: [129, 145.4, 165.2, 214.8], regulacaoEmocional: [30, 37, 45, 61.8],
+      hiperatividadeImpulsividade: [26, 30, 35.4, 46.8], comportamentoAdaptativo: [38.6, 48, 51, 60],
+      atencao: [20, 31, 34.4, 44],
+    },
+  },
+  {
+    faixaMin: 10, faixaMax: 13, faixaLabel: "Masculino, 10 a 13 anos", sexo: "MASCULINO",
+    pontos: {
+      escoreGeral: [134.2, 155.6, 175.6, 222.8], regulacaoEmocional: [30.9, 36.1, 47.6, 60],
+      hiperatividadeImpulsividade: [28, 35, 40, 51.2], comportamentoAdaptativo: [44.4, 51.4, 54.6, 60],
+      atencao: [22.6, 30, 37.2, 43],
+    },
+  },
+  {
+    faixaMin: 14, faixaMax: 17, faixaLabel: "Masculino, 14 a 17 anos", sexo: "MASCULINO",
+    pontos: {
+      escoreGeral: [112.4, 132.2, 143, 188.6], regulacaoEmocional: [25.8, 32.4, 39.6, 55.4],
+      hiperatividadeImpulsividade: [21.2, 28, 35.2, 38.6], comportamentoAdaptativo: [34, 43, 52.6, 53.8],
+      atencao: [17.4, 26, 31.8, 36.4],
+    },
+  },
+  {
+    // Amostra geral (N=203), sem separar sexo/idade — usada só quando o paciente não tem sexo cadastrado.
+    faixaMin: 2, faixaMax: 17, faixaLabel: "Amostra geral (2 a 17 anos)", sexo: null, n: 203,
+    pontos: {
+      escoreGeral: [121, 144, 166, 193], regulacaoEmocional: [31, 38, 47, 56],
+      hiperatividadeImpulsividade: [24.8, 29, 35, 44], comportamentoAdaptativo: [37, 46, 53, 60],
+      atencao: [21, 26, 32, 39],
+    },
   },
 ];
 
@@ -408,7 +510,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         tipo: "percentil_por_campo",
         fonte: `Normas brasileiras BPA (Rueda, 2011), faixa ${faixa.faixaLabel}, n=${faixa.n}.`,
         faixasPorCampo: Object.fromEntries(
-          BPA_CAMPOS.map((campo) => [campo, criarFaixasBPA(faixa.pontos[campo])])
+          BPA_CAMPOS.map((campo) => [campo, criarFaixasQuartis(faixa.pontos[campo], false)])
         ),
       },
     })),
@@ -479,37 +581,51 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     ],
   },
   {
-    nome: "Escala de Transtorno de Déficit de Atenção/Hiperatividade — 2ª ed.",
-    sigla: "ETDAH-2",
+    nome: "Escala de Avaliação de Comportamentos Infantojuvenis no TDAH em Ambiente Familiar — Versão para Pais",
+    sigla: "ETDAH-PAIS",
     dominio: DominioCognitivo.RASTREIO_TDAH,
-    descricao: `Rastreio de sintomas de desatenção, hiperatividade e impulsividade. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Rastreio (respondido pelos pais/cuidadores) de comportamentos relacionados ao TDAH no " +
+      "ambiente familiar, 2 a 17 anos, 58 itens em 4 fatores: Regulação Emocional, Hiperatividade/" +
+      "Impulsividade, Comportamento Adaptativo, Atenção. Normas brasileiras reais (Benczik, Memnon " +
+      "2018, N=203, coleta 2014), estratificadas por sexo + 4 faixas etárias.",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
-      fatores: ["Desatenção", "Hiperatividade", "Impulsividade"],
-      formulaEscoreBruto: "soma dos itens de cada fator, respondente pais/professor/autorrelato",
+      fatores: ["Regulação Emocional", "Hiperatividade/Impulsividade", "Comportamento Adaptativo", "Atenção"],
+      escalaResposta: "Likert 1-6 (Nunca a Muito Frequentemente), sobre os últimos 6 meses",
+      // Todos os itens do Fator 3 (Comportamento Adaptativo) + o item 1 do Fator 4 são de conteúdo
+      // protetivo e devem ter a pontuação invertida (7 - valor assinalado) ANTES de somar — feito
+      // pelo formulário de lançamento, não pelo motor de cálculo (mesmo princípio das demais provas).
+      inversaoDeEscore: "Fator 3 (todos os itens) + Fator 4 item 1: pontuação invertida = 7 - valor assinalado",
+      formulaEscoreBruto: "soma simples dos itens de cada fator (já com a inversão aplicada onde necessário)",
       campos: [
-        { chave: "desatencao", label: "Desatenção (bruto)" },
-        { chave: "hiperatividade", label: "Hiperatividade (bruto)" },
-        { chave: "impulsividade", label: "Impulsividade (bruto)" },
+        { chave: "regulacaoEmocional", label: "Fator 1 — Regulação Emocional (bruto, 19 itens)" },
+        { chave: "hiperatividadeImpulsividade", label: "Fator 2 — Hiperatividade/Impulsividade (bruto, 13 itens)" },
+        { chave: "comportamentoAdaptativo", label: "Fator 3 — Comportamento Adaptativo (bruto já invertido, 14 itens)" },
+        { chave: "atencao", label: "Fator 4 — Atenção (bruto já invertido no item 1, 12 itens)" },
+        { chave: "escoreGeral", label: "Escore Geral = soma dos 4 fatores (calculado)" },
       ],
     },
-    referenciaBibliografica: "Mattos, P. et al. — ETDAH-2. (referência a confirmar)",
-    tabelasNormativas: [
-      {
-        criterio: "idade",
-        faixaMin: 6,
-        faixaMax: 90,
-        conversao: {
-          aviso: AVISO_PLACEHOLDER,
-          tipo: "percentil_por_fator",
-          faixas: [
-            { min: 0, max: 30, percentil: 30, classificacao: "Não sugestivo" },
-            { min: 31, max: 60, percentil: 70, classificacao: "Sugestivo — investigar" },
-            { min: 61, max: 999, percentil: 95, classificacao: "Fortemente sugestivo" },
-          ],
-        },
+    referenciaBibliografica:
+      "BENCZIK, E. B. P. ETDAH-PAIS: Escala de Avaliação de Comportamentos Infantojuvenis no " +
+      "Transtorno de Déficit de Atenção/Hiperatividade em Ambiente Familiar — Versão para Pais: " +
+      "manual. São Paulo: Memnon, 2018.",
+    isPlaceholder: false,
+    tabelasNormativas: ETDAH_PAIS_NORMAS.map((faixa) => ({
+      criterio: "idade+sexo",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: faixa.faixaLabel,
+      sexo: faixa.sexo,
+      conversao: {
+        tipo: "percentil_por_campo",
+        fonte:
+          `Normas brasileiras ETDAH-PAIS (Benczik, 2018), faixa ${faixa.faixaLabel}` +
+          (faixa.n ? `, n=${faixa.n}.` : " (N do subgrupo não detalhado no manual)."),
+        faixasPorCampo: Object.fromEntries(
+          ETDAH_PAIS_CAMPOS.map((campo) => [campo, criarFaixasQuartis(faixa.pontos[campo], true)])
+        ),
       },
-    ],
+    })),
   },
   {
     nome: "Teste dos Cinco Dígitos",
@@ -658,6 +774,7 @@ async function main() {
             faixaMin: f.faixaMin,
             faixaMax: f.faixaMax,
             faixaLabel: f.faixaLabel,
+            sexo: f.sexo,
             conversao: f.conversao,
           })),
         },
