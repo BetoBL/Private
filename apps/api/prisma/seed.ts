@@ -543,6 +543,140 @@ const BFP_NORMAS: BfpAmostra[] = [
   },
 ];
 
+// --- SON-R 2½-7[a]: normas reais (Laros, Tellegen, Jesus & Karino, normatização brasileira 2008)
+// ver docs/testes/SON-R.md. 66 faixas etárias MENSAIS (2;6 a 7;11) — granularidade fina demais
+// para faixaMin/faixaMax em anos, por isso usa `criterio: "idade_meses"` (ver
+// escolherTabelaNormativa/calcularIdadeEmMeses em motorCalculo.ts). Cada subteste é já uma tabela
+// direta escore bruto (0-16) -> escore normatizado (1-19), sem necessidade de bandas/interpolação
+// — "." no dado de origem = nenhum escore bruto mapeia para esse valor nessa idade (raro, ignorado).
+const SON_R_CAMPOS = ["mosaicos", "categorias", "situacoes", "padroes"] as const;
+type SonRCampo = (typeof SON_R_CAMPOS)[number];
+
+// Converte uma linha compacta "6 9 12 14 ... ." (escore normatizado no índice = escore bruto)
+// em faixas de valor único (min=max=bruto) — mesmo princípio de docs/testes/SON-R.md.
+function parseTabelaSONR(linha: string): Prisma.InputJsonValue[] {
+  return linha
+    .trim()
+    .split(/\s+/)
+    .map((token, bruto) => (token === "." ? null : { min: bruto, max: bruto, escoreNormatizado: Number(token) }))
+    .filter((f): f is Prisma.InputJsonValue => f !== null);
+}
+
+// [idadeEmMeses, mosaicos, categorias, situacoes, padroes] — idadeEmMeses = anos*12+meses (ex:
+// 2;6 = 30). Todos os 66 meses de 2;6 a 7;11, lidos e conferidos em docs/testes/SON-R.md.
+const SON_R_MESES: [number, string, string, string, string][] = [
+  [30, "6 9 12 14 15 16 17 18 19 19 19 19 19 19 19 19 .", "9 12 12 13 14 15 15 16 17 18 19 19 19 19 19 19 .", "7 9 10 11 12 13 14 15 16 18 19 19 19 19 19 . .", "6 9 10 11 12 13 14 16 17 19 19 19 19 19 19 19 19"],
+  [31, "5 9 12 14 15 16 17 18 19 19 19 19 19 19 19 19 .", "8 11 12 13 13 14 15 16 17 18 19 19 19 19 19 19 .", "7 9 10 11 12 13 14 15 16 18 19 19 19 19 19 . .", "6 8 9 10 11 13 14 15 17 18 19 19 19 19 19 19 19"],
+  [32, "5 9 12 14 15 15 16 17 19 19 19 19 19 19 19 19 .", "8 11 12 12 13 14 15 16 17 18 18 19 19 19 19 19 .", "6 9 10 11 12 13 14 15 16 17 19 19 19 19 19 . .", "6 8 9 10 11 12 14 15 17 18 19 19 19 19 19 19 19"],
+  [33, "5 9 11 13 14 15 16 17 19 19 19 19 19 19 19 19 .", "8 11 11 12 13 14 15 16 16 17 18 19 19 19 19 19 .", "6 8 10 11 12 13 14 15 17 19 19 19 19 19 19 . .", "6 8 9 9 11 12 13 15 16 18 19 19 19 19 19 19 19"],
+  [34, "5 9 11 13 14 15 16 17 18 19 19 19 19 19 19 19 .", "8 10 11 12 13 13 14 15 16 17 18 19 19 19 19 19 .", "6 8 9 10 11 13 14 15 16 17 18 19 19 19 19 . .", "5 7 8 9 10 12 13 14 16 17 19 19 19 19 19 19 19"],
+  [35, "5 8 11 13 14 15 15 17 18 19 19 19 19 19 19 19 .", "7 10 11 11 12 13 14 15 16 17 18 19 19 19 19 19 .", "6 8 9 10 11 12 13 15 16 17 18 19 19 19 19 . .", "5 7 8 9 10 11 13 14 16 17 19 19 19 19 19 19 19"],
+  [36, "4 8 11 12 13 14 15 16 18 19 19 19 19 19 19 19 .", "7 10 10 11 12 13 14 15 16 17 18 19 19 19 19 19 .", "5 8 9 10 11 12 13 14 16 17 18 19 19 19 19 . .", "5 7 7 8 9 11 12 14 15 17 18 19 19 19 19 19 19"],
+  [37, "4 8 10 12 13 14 15 16 17 19 19 19 19 19 19 19 .", "7 9 10 11 12 13 14 15 16 17 17 18 19 19 19 19 .", "5 7 9 10 11 12 13 14 15 17 18 19 19 19 19 . .", "4 6 7 8 9 10 12 13 15 17 18 19 19 19 19 19 19"],
+  [38, "4 8 10 12 13 14 15 16 17 19 19 19 19 19 19 19 .", "7 9 10 10 11 12 13 14 15 16 17 18 19 19 19 19 .", "5 7 8 9 11 12 13 14 15 16 18 19 19 19 19 . .", "4 6 7 8 9 10 12 13 15 16 18 19 19 19 19 19 19"],
+  [39, "4 7 10 11 12 13 14 15 17 19 19 19 19 19 19 19 .", "7 9 9 10 11 12 13 14 15 16 17 18 19 19 19 19 .", "5 7 8 9 10 11 13 14 15 16 18 19 19 19 19 . .", "4 6 6 7 8 10 11 13 14 16 17 19 19 19 19 19 19"],
+  [40, "4 7 9 11 12 13 14 15 17 18 19 19 19 19 19 19 .", "6 8 9 10 11 12 13 14 15 16 17 18 19 19 19 19 .", "5 7 8 9 10 11 12 14 15 16 18 19 19 19 19 . .", "3 5 6 7 8 9 11 13 14 16 17 18 19 19 19 19 19"],
+  [41, "4 7 9 11 12 13 14 15 16 18 19 19 19 19 19 19 .", "6 8 9 10 11 12 13 14 15 16 17 18 19 19 19 19 .", "4 7 8 9 10 11 12 13 15 16 17 19 19 19 19 . .", "3 5 6 7 8 9 11 12 14 15 17 18 19 19 19 19 19"],
+  [42, "3 7 9 10 11 12 13 15 16 18 19 19 19 19 19 19 .", "6 8 8 9 10 11 12 13 15 16 16 17 19 19 19 19 .", "4 6 7 9 10 11 12 13 15 16 17 19 19 19 19 . .", "3 5 6 6 7 9 10 12 14 15 17 18 19 19 19 19 19"],
+  [43, "3 7 9 10 11 12 13 14 16 18 19 19 19 19 19 19 .", "6 7 8 9 10 11 12 13 14 15 16 17 18 19 19 19 .", "4 6 7 8 10 11 12 13 14 16 17 19 19 19 19 . .", "3 4 5 6 7 8 10 12 13 15 16 18 19 19 19 19 19"],
+  [44, "3 6 8 10 11 12 13 14 16 17 19 19 19 19 19 19 .", "5 7 8 9 10 11 12 13 14 15 16 17 18 19 19 19 .", "4 6 7 8 9 10 12 13 14 16 17 18 19 19 19 . .", "2 4 5 6 7 8 10 11 13 15 16 17 19 19 19 19 19"],
+  [45, "3 6 8 9 10 11 12 14 15 17 19 19 19 19 19 19 .", "5 7 8 8 9 10 12 13 14 15 16 17 18 19 19 19 .", "4 6 7 8 9 10 12 13 14 15 17 18 19 19 19 . .", "2 4 5 5 6 8 9 11 13 14 16 17 18 19 19 19 19"],
+  [46, "3 6 8 9 10 11 12 14 15 17 19 19 19 19 19 19 .", "5 7 7 8 9 10 11 13 14 15 16 17 18 19 19 19 .", "3 5 7 8 9 10 11 13 14 15 17 18 19 19 19 . .", "2 4 4 5 6 7 9 11 12 14 15 17 18 19 19 19 19"],
+  [47, "3 6 8 9 10 11 12 13 15 17 19 19 19 19 19 19 .", "5 6 7 8 9 10 11 12 13 14 15 17 18 19 19 19 .", "3 5 6 8 9 10 11 12 14 15 16 18 19 19 19 . .", "2 3 4 5 6 7 9 10 12 14 15 17 18 19 19 19 19"],
+  [48, "2 5 7 9 10 11 12 13 15 16 19 19 19 19 19 19 .", "4 6 7 8 9 10 11 12 13 14 15 16 17 19 19 19 .", "3 5 6 7 9 10 11 12 14 15 16 18 19 19 19 . .", "1 3 4 5 6 7 8 10 12 13 15 16 18 19 19 19 19"],
+  [49, "2 5 7 8 9 10 11 13 14 16 18 19 19 19 19 19 .", "4 6 7 7 8 9 11 12 13 14 15 16 17 19 19 19 .", "3 5 6 7 8 10 11 12 13 15 16 18 19 19 19 . .", "1 3 4 4 5 7 8 10 11 13 15 16 17 19 19 19 19"],
+  [50, "2 5 7 8 9 10 11 12 14 16 18 19 19 19 19 19 .", "4 6 6 7 8 9 10 12 13 14 15 16 17 18 19 19 .", "3 5 6 7 8 9 11 12 13 15 16 18 19 19 19 . .", "1 3 3 4 5 6 8 9 11 13 14 16 17 18 19 19 19"],
+  [51, "2 5 7 8 9 10 11 12 14 16 18 19 19 19 19 19 .", "4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 19 .", "3 5 6 7 8 9 10 12 13 14 16 17 19 19 19 . .", "1 2 3 4 5 6 7 9 11 12 14 16 17 18 19 19 19"],
+  [52, "2 5 6 8 8 9 11 12 14 16 18 19 19 19 19 19 .", "4 5 6 7 8 9 10 11 12 13 14 16 17 18 19 19 .", "2 4 5 7 8 9 10 12 13 14 16 17 19 19 19 . .", "1 2 3 4 5 6 7 9 10 12 14 15 17 18 19 19 19"],
+  [53, "2 5 6 7 8 9 10 12 13 15 17 19 19 19 19 19 .", "3 5 6 6 7 9 10 11 12 13 14 15 17 18 19 19 .", "2 4 5 6 8 9 10 11 13 14 16 17 19 19 19 . .", "1 2 3 3 4 5 7 8 10 12 14 15 16 18 19 19 19"],
+  [54, "2 4 6 7 8 9 10 11 13 15 17 19 19 19 19 19 .", "3 5 5 6 7 8 9 11 12 13 14 15 16 18 19 19 .", "2 4 5 6 7 9 10 11 13 14 15 17 19 19 19 . .", "1 2 2 3 4 5 7 8 10 12 13 15 16 17 19 19 19"],
+  [55, "2 4 6 7 8 9 10 13 15 17 19 19 19 19 19 19 .", "3 5 5 6 7 8 9 10 12 13 14 15 16 18 19 19 .", "2 4 5 6 7 8 10 11 12 14 15 17 18 19 19 . .", "1 1 2 3 4 5 6 8 10 11 13 14 16 17 18 19 19"],
+  [56, "1 4 6 7 7 8 9 11 13 15 17 19 19 19 19 19 .", "3 4 5 6 7 8 9 10 11 13 14 15 16 19 19 19 .", "2 4 5 6 7 8 10 11 12 13 15 17 18 19 19 . .", "1 1 2 3 4 5 6 8 9 11 13 14 16 17 18 19 19"],
+  [57, "1 4 5 6 7 8 9 11 12 14 16 19 19 19 19 19 .", "3 4 5 6 7 8 9 10 11 12 14 15 16 19 19 19 .", "2 3 5 6 7 8 9 11 12 14 15 17 18 19 19 . .", "1 1 2 2 3 4 6 7 9 11 12 14 15 17 18 19 19"],
+  [58, "1 4 5 6 7 8 9 10 12 14 16 18 19 19 19 19 .", "2 4 5 5 6 7 9 10 11 12 13 14 16 17 19 19 .", "1 3 4 6 7 8 9 11 12 13 15 16 18 19 19 . .", "1 1 1 2 3 4 6 7 9 11 12 14 15 16 18 19 19"],
+  [59, "1 4 5 6 7 8 9 10 12 14 16 18 19 19 19 19 .", "2 4 4 5 6 7 8 10 11 12 13 14 16 17 19 19 .", "1 3 4 5 7 8 9 10 12 13 15 16 18 19 19 . .", "1 1 1 2 3 4 5 7 9 10 12 13 15 16 18 19 19"],
+  [60, "1 3 5 6 6 7 8 10 12 14 16 18 19 19 19 19 .", "2 4 4 5 6 7 8 9 11 12 13 14 15 17 18 19 .", "1 3 4 5 6 8 9 10 12 13 15 16 18 19 19 . .", "1 1 1 2 3 4 5 7 8 10 12 13 15 16 17 19 19"],
+  [61, "1 3 5 5 6 7 8 10 12 13 16 18 19 19 19 19 .", "2 3 4 5 6 7 8 9 10 12 13 14 15 17 18 19 .", "1 3 4 5 6 7 9 10 11 13 14 16 18 19 19 . .", "1 1 1 2 2 4 5 6 8 10 11 13 14 16 17 19 19"],
+  [62, "1 3 4 5 6 7 8 9 11 13 15 17 19 19 19 19 .", "2 3 4 5 6 7 8 9 10 11 13 14 15 16 18 19 .", "1 3 4 5 6 7 8 10 11 13 14 16 17 19 19 . .", "1 1 1 1 2 3 5 6 8 10 11 13 14 16 17 19 19"],
+  [63, "1 3 4 5 6 7 8 9 11 13 15 17 19 19 19 19 .", "2 3 4 5 5 7 8 9 10 11 12 14 15 16 18 19 .", "1 3 4 5 6 7 8 10 11 13 14 16 17 19 19 . .", "1 1 1 1 2 3 4 6 8 9 11 13 14 15 17 18 19"],
+  [64, "1 3 4 5 6 6 8 9 11 13 15 17 19 19 19 19 .", "1 3 4 4 5 6 7 9 10 11 12 13 15 16 18 19 .", "1 2 4 5 6 7 8 10 11 12 14 16 17 19 19 . .", "1 1 1 1 2 3 4 6 7 9 11 12 14 15 17 18 19"],
+  [65, "1 3 4 5 5 6 7 9 11 13 15 17 19 19 19 19 .", "1 3 3 4 5 6 7 8 10 11 12 13 14 16 18 19 .", "1 2 3 5 6 7 8 9 11 12 14 15 17 19 19 . .", "1 1 1 1 2 3 4 5 7 9 10 12 13 15 16 18 19"],
+  [66, "1 2 4 4 5 6 7 9 10 12 14 16 18 19 19 19 .", "1 3 3 4 5 6 7 8 9 11 12 13 14 16 18 19 .", "1 2 3 4 5 7 8 9 11 12 14 15 17 19 19 . .", "1 1 1 1 1 3 4 5 7 9 10 12 13 15 16 18 19"],
+  [67, "1 2 4 4 5 6 7 8 10 12 14 16 18 19 19 19 .", "1 2 3 4 5 6 7 8 9 10 12 13 14 16 17 19 .", "1 2 3 4 5 6 8 9 10 12 14 15 17 18 19 . .", "1 1 1 1 1 2 4 5 7 8 10 12 13 14 16 18 19"],
+  [68, "1 2 3 4 5 6 7 8 10 12 14 16 18 19 19 19 .", "1 2 3 4 5 6 7 8 9 10 11 13 14 15 17 19 .", "1 2 3 4 5 6 8 9 10 12 13 15 17 18 19 . .", "1 1 1 1 1 2 3 5 6 8 10 11 13 14 16 17 19"],
+  [69, "1 2 3 4 5 5 7 8 10 12 14 16 18 19 19 19 .", "1 2 3 4 5 6 7 8 9 10 11 13 14 15 17 19 .", "1 2 3 4 5 6 7 9 10 12 13 15 16 18 19 . .", "1 1 1 1 1 2 3 5 6 8 10 11 13 14 16 17 19"],
+  [70, "1 2 3 4 4 5 6 8 10 12 14 16 18 19 19 19 .", "1 2 3 4 4 5 6 8 9 10 11 12 14 15 17 19 .", "1 2 3 4 5 6 7 9 10 12 13 15 16 18 19 . .", "1 1 1 1 1 2 3 4 6 8 9 11 12 14 15 17 19"],
+  [71, "1 2 3 4 4 5 6 8 9 11 13 15 17 19 19 19 .", "1 2 3 3 4 5 6 7 9 10 11 12 14 15 17 19 .", "1 1 3 4 5 6 7 8 10 11 13 15 16 18 19 . .", "1 1 1 1 1 2 3 4 6 7 9 11 12 14 15 17 19"],
+  [72, "1 2 3 3 4 5 6 7 9 11 13 15 17 19 19 19 .", "1 2 2 3 4 5 6 7 8 10 11 12 13 15 17 19 .", "1 1 2 4 5 6 7 8 10 11 13 14 16 18 19 . .", "1 1 1 1 1 1 3 4 6 7 9 10 12 13 15 17 19"],
+  [73, "1 2 3 3 4 5 6 7 9 11 13 15 17 19 19 19 .", "1 2 2 3 4 5 6 7 8 9 11 12 13 15 17 19 .", "1 1 2 3 5 6 7 8 10 11 13 14 16 18 19 . .", "1 1 1 1 1 1 2 4 5 7 9 10 12 13 15 16 19"],
+  [74, "1 2 2 3 4 5 6 7 9 11 13 15 17 18 19 19 .", "1 2 2 3 4 5 6 7 8 9 10 12 13 15 16 19 .", "1 1 2 3 4 6 7 8 9 11 13 14 16 17 19 . .", "1 1 1 1 1 1 2 4 5 7 8 10 12 13 15 16 19"],
+  [75, "1 1 2 3 4 4 5 7 9 11 13 15 16 18 19 19 .", "1 1 2 3 4 5 6 7 8 9 10 12 13 14 16 19 .", "1 1 2 3 4 5 7 8 9 11 12 14 16 17 19 . .", "1 1 1 1 1 1 2 4 5 7 8 10 11 13 14 16 19"],
+  [76, "1 1 2 3 3 4 5 7 9 10 12 14 16 18 19 19 .", "1 1 2 3 4 5 6 7 8 9 10 11 13 14 16 19 .", "1 1 2 3 4 5 6 8 9 11 12 14 16 17 19 . .", "1 1 1 1 1 1 2 3 5 6 8 10 11 13 14 16 19"],
+  [77, "1 1 2 3 3 4 5 7 8 10 12 14 16 18 19 19 .", "1 1 2 3 4 4 6 7 8 9 10 11 13 14 16 19 .", "1 1 2 3 4 5 6 8 9 10 12 14 15 17 19 . .", "1 1 1 1 1 1 2 3 5 6 8 9 11 12 14 16 18"],
+  [78, "1 1 2 3 3 4 5 6 8 10 12 14 16 17 19 19 .", "1 1 2 3 3 4 5 6 8 9 10 11 12 14 16 18 .", "1 1 2 3 4 5 6 8 9 10 11 12 14 15 17 19 .", "1 1 1 1 1 1 2 3 5 6 8 9 11 12 14 16 18"],
+  [79, "1 1 2 2 3 4 5 6 8 10 12 14 15 17 19 19 .", "1 1 2 2 3 4 5 6 7 9 10 11 12 14 16 18 .", "1 1 2 3 4 5 6 7 9 10 12 13 15 17 19 . .", "1 1 1 1 1 1 2 3 4 6 7 9 11 12 14 15 18"],
+  [80, "1 1 2 2 3 4 5 6 8 10 12 14 15 17 18 19 .", "1 1 2 2 3 4 5 6 7 8 10 11 12 14 16 18 .", "1 1 2 3 4 5 6 7 9 10 12 13 15 17 19 . .", "1 1 1 1 1 1 1 3 4 6 7 9 10 12 13 15 18"],
+  [81, "1 1 2 2 3 3 5 6 8 10 12 13 15 17 18 19 .", "1 1 1 2 3 4 5 6 7 8 9 11 12 14 16 18 .", "1 1 1 3 4 5 6 7 8 10 11 13 15 17 19 . .", "1 1 1 1 1 1 1 3 4 6 7 9 10 12 13 15 18"],
+  [82, "1 1 1 2 3 3 4 6 8 9 11 13 15 16 18 19 .", "1 1 1 2 3 4 5 6 7 8 9 11 12 14 15 18 .", "1 1 1 2 4 5 6 7 8 10 11 13 15 16 19 . .", "1 1 1 1 1 1 1 2 4 5 7 8 10 12 13 15 18"],
+  [83, "1 1 1 2 2 3 4 6 7 9 11 13 15 16 17 19 .", "1 1 1 2 3 4 5 6 7 8 9 10 12 13 15 18 .", "1 1 1 2 3 4 6 7 8 10 11 13 15 16 19 . .", "1 1 1 1 1 1 1 2 4 5 7 8 10 11 13 15 18"],
+  [84, "1 1 1 2 2 3 4 6 7 9 11 13 14 16 17 19 .", "1 1 1 2 3 4 5 6 7 8 9 10 12 13 15 18 .", "1 1 1 2 3 4 5 7 8 9 11 13 14 16 18 . .", "1 1 1 1 1 1 1 2 4 5 7 8 9 11 13 15 17"],
+  [85, "1 1 1 2 2 3 4 5 7 9 11 13 14 16 17 19 .", "1 1 1 2 3 4 5 6 7 8 9 10 12 13 15 18 .", "1 1 1 2 3 4 5 7 8 9 11 13 14 16 18 . .", "1 1 1 1 1 1 1 2 3 5 6 8 9 11 13 15 17"],
+  [86, "1 1 1 2 2 3 4 5 7 9 11 13 14 15 17 19 .", "1 1 1 2 3 4 5 6 7 8 9 10 11 13 15 18 .", "1 1 1 2 3 4 5 6 8 9 11 12 14 16 18 . .", "1 1 1 1 1 1 1 2 3 5 6 8 9 11 12 14 17"],
+  [87, "1 1 1 1 2 3 4 5 7 9 11 12 14 15 16 18 .", "1 1 1 2 3 4 4 5 7 8 9 10 11 13 15 18 .", "1 1 1 2 3 4 5 6 8 9 11 12 14 16 18 . .", "1 1 1 1 1 1 1 2 3 5 6 8 9 11 12 14 17"],
+  [88, "1 1 1 1 2 3 4 5 7 9 10 12 14 15 16 18 .", "1 1 1 2 3 3 4 5 6 7 9 10 11 13 15 17 .", "1 1 1 2 3 4 5 6 8 9 11 12 14 16 18 . .", "1 1 1 1 1 1 1 2 3 5 6 8 9 11 12 14 17"],
+  [89, "1 1 1 1 2 3 4 5 7 9 10 12 14 15 16 18 .", "1 1 1 2 2 3 4 5 6 7 9 10 11 13 15 17 .", "1 1 1 2 3 4 5 6 7 9 10 12 14 16 18 . .", "1 1 1 1 1 1 1 2 3 4 6 7 9 10 12 14 17"],
+  [90, "1 1 1 1 2 2 3 5 7 8 10 12 13 15 16 18 .", "1 1 1 2 2 3 4 5 6 7 8 10 11 13 15 17 .", "1 1 1 2 3 4 5 6 7 9 10 12 14 15 18 . .", "1 1 1 1 1 1 1 1 3 4 6 7 9 10 12 14 17"],
+  [91, "1 1 1 1 2 2 3 5 6 8 10 12 13 14 15 17 .", "1 1 1 1 2 3 4 5 6 7 8 9 11 13 15 17 .", "1 1 1 2 3 4 5 6 7 9 10 12 14 15 18 . .", "1 1 1 1 1 1 1 1 3 4 6 7 9 10 12 14 17"],
+  [92, "1 1 1 1 1 2 3 5 6 8 10 12 13 14 15 17 .", "1 1 1 1 2 3 4 5 6 7 8 9 11 12 14 17 .", "1 1 1 3 4 5 6 7 8 10 12 13 15 18 19 . .", "1 1 1 1 1 1 1 1 3 4 5 7 8 10 12 14 16"],
+  [93, "1 1 1 1 1 2 3 5 6 8 10 11 13 14 15 17 .", "1 1 1 1 2 3 4 5 6 7 8 9 11 12 14 17 .", "1 1 1 2 3 5 6 7 8 10 12 13 15 17 . . .", "1 1 1 1 1 1 1 1 2 4 5 7 8 10 11 13 16"],
+  [94, "1 1 1 1 1 2 3 4 6 8 10 11 13 14 15 17 .", "1 1 1 1 2 3 4 5 6 7 8 9 11 12 14 17 .", "1 1 1 1 2 3 4 6 7 8 10 11 13 15 17 . .", "1 1 1 1 1 1 1 1 2 4 5 7 8 10 11 13 16"],
+  [95, "1 1 1 1 1 2 3 4 6 8 10 11 13 14 14 16 .", "1 1 1 1 2 3 4 5 6 7 8 9 11 12 14 17 .", "1 1 1 1 2 3 4 6 7 8 10 11 13 15 17 . .", "1 1 1 1 1 1 1 1 2 4 5 7 8 10 11 13 16"],
+];
+
+// Tabela 76 (soma dos normatizados -> SON-EE/SON-ER/SON-QI, válida para toda a faixa etária) —
+// só os pontos-âncora capturados no doc (não os ~75 valores completos, ver nota lá) foram
+// modelados aqui como bandas aproximadas; suficiente para orientação clínica geral, mas menos
+// preciso que os subtestes acima perto das bordas. Classificação = Tabela 57 (QI).
+function classificacaoSONR(qi: number): string {
+  if (qi > 130) return "Muito alto";
+  if (qi >= 121) return "Alto";
+  if (qi >= 111) return "Acima da média";
+  if (qi >= 90) return "Médio";
+  if (qi >= 80) return "Abaixo da média";
+  if (qi >= 70) return "Baixo";
+  return "Muito baixo";
+}
+
+// [somaEEouER, escalaEEER, soma4subtestes, qi] pontos-âncora da Tabela 76.
+const SON_R_TABELA76_ANCORAS: [number, number, number, number][] = [
+  [2, 52, 4, 50], [6, 62, 10, 56], [10, 73, 16, 64], [14, 83, 22, 73], [18, 94, 28, 82],
+  [20, 100, 31, 86], [22, 105, 34, 91], [24, 111, 37, 95], [26, 117, 40, 100], [28, 122, 43, 104],
+  [30, 128, 46, 108], [32, 134, 49, 112], [34, 140, 52, 115], [36, 145, 55, 119], [38, 150, 58, 122],
+];
+// A partir daqui só a coluna QI tem âncoras (a de soma EE/ER para de ser reportada no doc):
+const SON_R_QI_ANCORAS_EXTRA: [number, number][] = [
+  [61, 126], [64, 129], [67, 132], [70, 137], [76, 150],
+];
+
+function criarFaixasSONR_EE_ER(): Prisma.InputJsonValue[] {
+  return SON_R_TABELA76_ANCORAS.map(([soma, escala], i, arr) => ({
+    min: soma,
+    max: i + 1 < arr.length ? arr[i + 1][0] - 1 : 999,
+    escoreEscala: escala,
+    classificacao: classificacaoSONR(escala),
+  }));
+}
+
+function criarFaixasSONR_QI(): Prisma.InputJsonValue[] {
+  const pontos = [...SON_R_TABELA76_ANCORAS.map(([, , soma4, qi]) => [soma4, qi] as [number, number]), ...SON_R_QI_ANCORAS_EXTRA];
+  return pontos.map(([soma, qi], i) => ({
+    min: soma,
+    max: i + 1 < pontos.length ? pontos[i + 1][0] - 1 : 999,
+    qi,
+    classificacao: classificacaoSONR(qi),
+  }));
+}
+
 const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
@@ -1109,6 +1243,66 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         faixasPorCampo: Object.fromEntries(
           SCARED_AUTORRELATO_CAMPOS.map((campo) => [campo, criarFaixasZScore(faixa.pontos[campo])])
         ),
+      },
+    })),
+  },
+  {
+    nome: "SON-R 2½-7[a] — Teste Não-Verbal de Inteligência",
+    sigla: "SON-R",
+    dominio: DominioCognitivo.INTELIGENCIA,
+    descricao:
+      "Teste não-verbal de inteligência (2;6 a 7;11 anos), 4 subtestes: Mosaicos e Padrões " +
+      "(Execução), Categorias e Situações (Raciocínio). Normas brasileiras reais (Laros, Tellegen, " +
+      "Jesus & Karino, 2008), 66 faixas etárias mensais, sem estratificação por sexo (testada e " +
+      "descartada pelo manual).",
+    algoritmoCorrecao: {
+      subtestes: {
+        Execução: ["Mosaicos", "Padrões"],
+        Raciocínio: ["Categorias", "Situações"],
+      },
+      procedimentoAdaptativo: "item de entrada: item 1 (2-3 anos), item 3 (4-5 anos), item 5 (6-7 anos)",
+      regrasDeInterrupcao: "3 erros no total, OU 2 erros consecutivos na Parte II de Mosaicos/Padrões, OU 2 recusas consecutivas (subteste não pontuado)",
+      formulaEscoreBruto: "nº de itens corretos + itens pulados no início (procedimento adaptativo)",
+      campos: [
+        { chave: "mosaicos", label: "Mosaicos (bruto, 0-16)" },
+        { chave: "categorias", label: "Categorias (bruto, 0-16)" },
+        { chave: "situacoes", label: "Situações (bruto, 0-16)" },
+        { chave: "padroes", label: "Padrões (bruto, 0-16)" },
+        { chave: "sonEE", label: "SON-EE (soma normatizado Mosaicos+Padrões, calculado)" },
+        { chave: "sonER", label: "SON-ER (soma normatizado Categorias+Situações, calculado)" },
+        { chave: "sonQI", label: "SON-QI (soma dos 4 normatizados, calculado)" },
+      ],
+    },
+    referenciaBibliografica:
+      "LAROS, J. A.; TELLEGEN, P. J.; JESUS, G. R. de; KARINO, C. A. SON-R 2½-7[a]: Teste " +
+      "Não-Verbal de Inteligência — Manual. Adaptação e normatização brasileira. São Paulo: " +
+      "Hogrefe, 2008.",
+    isPlaceholder: false,
+    // Nota de design: os campos compostos (sonEE/sonER/sonQI, Tabela 76) não variam por idade,
+    // mas precisam estar na MESMA TabelaNormativa que os subtestes brutos (mosaicos/categorias/
+    // situacoes/padroes) — o motor de cálculo escolhe uma única tabela por lançamento (ver
+    // escolherTabelaNormativa), não combina várias. Por isso as faixas da Tabela 76 são repetidas
+    // (mesma referência de array, sem custo real) dentro de cada uma das 66 tabelas mensais, em
+    // vez de ficarem numa tabela "geral" separada e inacessível junto com os subtestes.
+    tabelasNormativas: SON_R_MESES.map(([mes, mos, cat, sit, pad]) => ({
+      criterio: "idade_meses",
+      faixaMin: mes,
+      faixaMax: mes,
+      faixaLabel: `${Math.floor(mes / 12)};${mes % 12} anos`,
+      conversao: {
+        tipo: "escoreNormatizado_por_campo",
+        fonte:
+          "Normas brasileiras SON-R (Laros et al., 2008), tabela mensal + Tabela 76 (composto, " +
+          "só pontos-âncora — banda perto das bordas é aproximada, ver docs/testes/SON-R.md).",
+        faixasPorCampo: {
+          mosaicos: parseTabelaSONR(mos),
+          categorias: parseTabelaSONR(cat),
+          situacoes: parseTabelaSONR(sit),
+          padroes: parseTabelaSONR(pad),
+          sonEE: criarFaixasSONR_EE_ER(),
+          sonER: criarFaixasSONR_EE_ER(),
+          sonQI: criarFaixasSONR_QI(),
+        },
       },
     })),
   },
