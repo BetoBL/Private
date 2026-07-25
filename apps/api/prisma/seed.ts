@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import { PrismaClient, DominioCognitivo, EscopoTeste, PapelProfissional, Prisma } from "@prisma/client";
+import { BRIEF2_ESCALAS_PAIS_PROFESSORES, BRIEF2_PAIS_NORMAS, parseColunaBRIEF2 } from "./brief2-normas";
 
 const prisma = new PrismaClient();
 
@@ -1302,6 +1303,56 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
           sonEE: criarFaixasSONR_EE_ER(),
           sonER: criarFaixasSONR_EE_ER(),
           sonQI: criarFaixasSONR_QI(),
+        },
+      },
+    })),
+  },
+  {
+    // ⚠️ isPlaceholder=true DE PROPÓSITO, ao contrário dos outros 9 testes reais desta rodada.
+    // Escalas transcritas com cuidado do manual (Apêndice A, Tabelas A.1-A.4, só Meninos —
+    // Meninas/Professores/Autorrelato ainda faltam), mas SEM a confiança de validação cruzada
+    // que os outros testes tiveram (não há fixture de caso clínico no manual para conferir, e o
+    // layout denso das tabelas tem risco real de erro célula-a-célula — já encontrei e corrigi
+    // um erro concreto ao transcrever). Índices (BRI/ERI/CRI) não incluídos — ver
+    // docs/testes/BRIEF2.md. Reconferir contra o PDF original antes de qualquer uso clínico.
+    nome: "Behavior Rating Inventory of Executive Function — 2ª ed. (Formulário de Pais)",
+    sigla: "BRIEF2-PAIS",
+    dominio: DominioCognitivo.FUNCOES_EXECUTIVAS,
+    descricao:
+      "Avaliação de funções executivas no comportamento cotidiano, respondida pelos pais. 9 " +
+      "escalas + 3 índices (BRI/ERI/CRI) + Composto Executivo Geral. Normas americanas (Gioia et " +
+      "al., PAR 2015) — transcrição parcial e não verificada (só meninos, sem os 3 índices); " +
+      "tratar como placeholder até reconferência.",
+    algoritmoCorrecao: {
+      aviso: "Dados de Meninos (5-7/8-10/11-13/14-18) transcritos do manual mas não verificados por segunda leitura nem fixture — ver docs/testes/BRIEF2.md.",
+      escalas: BRIEF2_ESCALAS_PAIS_PROFESSORES,
+      indices: {
+        BRI: ["Inhibit", "Self-Monitor"],
+        ERI: ["Shift", "Emotional Control"],
+        CRI: ["Initiate", "Working Memory", "Plan/Organize", "Task-Monitor", "Organization of Materials"],
+      },
+      campos: [
+        ...BRIEF2_ESCALAS_PAIS_PROFESSORES.map((c) => ({ chave: c, label: `${c} (bruto)` })),
+        { chave: "gec", label: "GEC — Composto Executivo Geral = soma das 9 escalas (calculado)" },
+      ],
+    },
+    referenciaBibliografica:
+      "GIOIA, G. A.; ISQUITH, P. K.; GUY, S. C.; KENWORTHY, L. BRIEF2: Behavior Rating Inventory " +
+      "of Executive Function, Second Edition — Professional Manual. Lutz, FL: PAR, 2015.",
+    tabelasNormativas: BRIEF2_PAIS_NORMAS.map((faixa) => ({
+      criterio: "idade+sexo",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: faixa.faixaLabel,
+      sexo: faixa.sexo,
+      conversao: {
+        tipo: "escoreT_por_campo",
+        fonte: `BRIEF2 Formulário de Pais (Gioia et al., 2015), ${faixa.faixaLabel} — NÃO VERIFICADO, ver aviso.`,
+        faixasPorCampo: {
+          ...Object.fromEntries(
+            BRIEF2_ESCALAS_PAIS_PROFESSORES.map((campo) => [campo, parseColunaBRIEF2(faixa.escalas[campo])])
+          ),
+          gec: parseColunaBRIEF2(faixa.gec),
         },
       },
     })),
