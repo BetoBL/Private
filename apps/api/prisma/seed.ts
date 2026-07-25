@@ -372,6 +372,77 @@ const ETDAH_PAIS_NORMAS: EtdahPaisFaixa[] = [
   },
 ];
 
+// --- SCARED (versão Autorrelato): normas reais (Isolan et al. 2011, Porto Alegre-RS, N=2410) ---
+// ver docs/testes/SCARED.md. Diferente de RAVLT/BPA/ETDAH-PAIS, o protocolo só fornece
+// média±DP por grupo (não pontos percentílicos diretos) — convertemos para os mesmos limites de
+// escore bruto usando os z-scores padrão das bandas do próprio protocolo (<10, 10-25, 25-75,
+// 75-90, >90 percentil): z10=-1,2816, z25=-0,6745, z75=+0,6745, z90=+1,2816; limite = média + z×DP.
+// Isso evita ensinar o motor de cálculo a fazer estatística em tempo real — os limites já vêm
+// prontos como faixas normais, mesmo formato usado nos outros testes.
+const SCARED_AUTORRELATO_CAMPOS = [
+  "total", "panicoSomatico", "ansiedadeGeneralizada", "ansiedadeSeparacao", "fobiaSocial", "evitacaoEscolar",
+] as const;
+type ScaredCampo = (typeof SCARED_AUTORRELATO_CAMPOS)[number];
+type MediaDP = [media: number, dp: number];
+
+function criarFaixasZScore(mediaDp: MediaDP): Prisma.InputJsonValue[] {
+  const [media, dp] = mediaDp;
+  const Z10 = -1.2816, Z25 = -0.6745, Z75 = 0.6745, Z90 = 1.2816;
+  const p10 = media + Z10 * dp;
+  const p25 = media + Z25 * dp;
+  const p75 = media + Z75 * dp;
+  const p90 = media + Z90 * dp;
+  return [
+    { max: p10, percentil: "<10", classificacao: "Muito abaixo da média" },
+    { min: p10, max: p25, percentil: "10-25", classificacao: "Abaixo da média" },
+    { min: p25, max: p75, percentil: "25-75", classificacao: "Média" },
+    { min: p75, max: p90, percentil: "75-90", classificacao: "Acima da média" },
+    { min: p90, percentil: ">90", classificacao: "Muito acima da média — atenção clínica" },
+  ];
+}
+
+interface ScaredFaixa {
+  faixaMin: number;
+  faixaMax: number;
+  faixaLabel: string;
+  sexo: "MASCULINO" | "FEMININO";
+  pontos: Record<ScaredCampo, MediaDP>;
+}
+
+// ⚠️ O protocolo não define o corte etário exato "Criança" vs "Adolescente" (ver pendência no
+// doc) — usamos a convenção mais comum na literatura de origem (Birmaher et al.): 9-12 Criança,
+// 13-18 Adolescente. Confirmar com a psicóloga antes de uso clínico real.
+const SCARED_AUTORRELATO_NORMAS: ScaredFaixa[] = [
+  {
+    faixaMin: 9, faixaMax: 12, faixaLabel: "Menino, 9 a 12 anos (Criança)", sexo: "MASCULINO",
+    pontos: {
+      total: [22.60, 10.45], panicoSomatico: [4.16, 3.80], ansiedadeGeneralizada: [7.24, 3.57],
+      ansiedadeSeparacao: [4.98, 2.65], fobiaSocial: [4.98, 2.83], evitacaoEscolar: [1.24, 1.19],
+    },
+  },
+  {
+    faixaMin: 9, faixaMax: 12, faixaLabel: "Menina, 9 a 12 anos (Criança)", sexo: "FEMININO",
+    pontos: {
+      total: [26.55, 12.21], panicoSomatico: [5.36, 4.69], ansiedadeGeneralizada: [8.03, 3.70],
+      ansiedadeSeparacao: [6.03, 3.22], fobiaSocial: [5.74, 2.92], evitacaoEscolar: [1.39, 1.30],
+    },
+  },
+  {
+    faixaMin: 13, faixaMax: 18, faixaLabel: "Menino, 13 a 18 anos (Adolescente)", sexo: "MASCULINO",
+    pontos: {
+      total: [19.73, 10.41], panicoSomatico: [3.29, 3.40], ansiedadeGeneralizada: [7.51, 3.73],
+      ansiedadeSeparacao: [3.55, 2.36], fobiaSocial: [4.43, 2.95], evitacaoEscolar: [0.94, 1.14],
+    },
+  },
+  {
+    faixaMin: 13, faixaMax: 18, faixaLabel: "Menina, 13 a 18 anos (Adolescente)", sexo: "FEMININO",
+    pontos: {
+      total: [25.69, 12.17], panicoSomatico: [5.34, 4.58], ansiedadeGeneralizada: [8.87, 3.78],
+      ansiedadeSeparacao: [4.78, 2.86], fobiaSocial: [5.46, 3.20], evitacaoEscolar: [1.24, 1.21],
+    },
+  },
+];
+
 const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
@@ -745,6 +816,122 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         },
       },
     ],
+  },
+  {
+    nome: "Screen for Child Anxiety Related Emotional Disorders — Versão Pais/Cuidadores",
+    sigla: "SCARED-PAIS",
+    dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
+    descricao:
+      "Rastreio de ansiedade respondido pelos pais/cuidadores sobre a criança/adolescente, 41 " +
+      "itens em 5 subescalas (Pânico/Sintomas Somáticos, Ansiedade Generalizada, Ansiedade de " +
+      "Separação, Fobia Social, Evitação Escolar) + Total. Classificação por nota de corte fixa " +
+      "(Birmaher et al. 1999), sem estratificação por idade/sexo — diferente da versão Autorrelato.",
+    algoritmoCorrecao: {
+      subescalas: {
+        panicoSomatico: { itens: [1, 6, 9, 12, 15, 18, 19, 22, 24, 27, 30, 34, 38], maximo: 26 },
+        ansiedadeGeneralizada: { itens: [5, 7, 14, 21, 23, 28, 33, 35, 37], maximo: 18 },
+        ansiedadeSeparacao: { itens: [4, 8, 13, 16, 20, 25, 29, 31], maximo: 16 },
+        fobiaSocial: { itens: [3, 10, 26, 32, 39, 40, 41], maximo: 14 },
+        evitacaoEscolar: { itens: [2, 11, 17, 36], maximo: 8 },
+      },
+      formulaEscoreBruto: "soma simples dos itens (Likert 0-2) de cada subescala",
+      campos: [
+        { chave: "panicoSomatico", label: "Pânico/Sintomas Somáticos (bruto, 0-26)" },
+        { chave: "ansiedadeGeneralizada", label: "Ansiedade Generalizada (bruto, 0-18)" },
+        { chave: "ansiedadeSeparacao", label: "Ansiedade de Separação (bruto, 0-16)" },
+        { chave: "fobiaSocial", label: "Fobia Social (bruto, 0-14)" },
+        { chave: "evitacaoEscolar", label: "Evitação Escolar (bruto, 0-8)" },
+        { chave: "total", label: "Total = soma das 5 subescalas (calculado, 0-82)" },
+      ],
+    },
+    referenciaBibliografica:
+      "BIRMAHER, B. et al. Psychometric properties of the Screen for Child Anxiety Related " +
+      "Emotional Disorders (SCARED). J Am Acad Child Adolesc Psychiatry, 1999. Validação " +
+      "brasileira: ISOLAN, L. et al. Psychometric properties of the SCARED in Brazilian children " +
+      "and adolescents. Journal of Anxiety Disorders, 25, 741-748, 2011.",
+    isPlaceholder: false,
+    tabelasNormativas: [
+      {
+        criterio: "fixo",
+        conversao: {
+          tipo: "percentil_por_campo",
+          fonte: "Notas de corte fixas (Birmaher et al., 1999), sem estratificação por idade/sexo.",
+          faixasPorCampo: {
+            panicoSomatico: [
+              { max: 6, classificacao: "Não clínico" },
+              { min: 7, classificacao: "Clínico" },
+            ],
+            ansiedadeGeneralizada: [
+              { max: 8, classificacao: "Não clínico" },
+              { min: 9, classificacao: "Clínico" },
+            ],
+            ansiedadeSeparacao: [
+              { max: 4, classificacao: "Não clínico" },
+              { min: 5, classificacao: "Clínico" },
+            ],
+            fobiaSocial: [
+              { max: 7, classificacao: "Não clínico" },
+              { min: 8, classificacao: "Clínico" },
+            ],
+            evitacaoEscolar: [
+              { max: 2, classificacao: "Não clínico" },
+              { min: 3, classificacao: "Clínico" },
+            ],
+            total: [
+              { max: 24, classificacao: "Não clínico" },
+              { min: 25, classificacao: "Clínico" },
+            ],
+          },
+        },
+      },
+    ],
+  },
+  {
+    nome: "Screen for Child Anxiety Related Emotional Disorders — Versão Autorrelato",
+    sigla: "SCARED-AUTORRELATO",
+    dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
+    descricao:
+      "Rastreio de ansiedade respondido pela própria criança/adolescente (9-18 anos), mesmos 41 " +
+      "itens/5 subescalas do SCARED-PAIS, mas com correção por Z-score contra norma brasileira " +
+      "(Isolan et al. 2011, Porto Alegre-RS, N=2410) estratificada por idade (Criança/Adolescente) " +
+      "e sexo — diferente da versão Pais, que usa nota de corte fixa.",
+    algoritmoCorrecao: {
+      subescalas: {
+        panicoSomatico: { itens: [1, 6, 9, 12, 15, 18, 19, 22, 24, 27, 30, 34, 38], maximo: 26 },
+        ansiedadeGeneralizada: { itens: [5, 7, 14, 21, 23, 28, 33, 35, 37], maximo: 18 },
+        ansiedadeSeparacao: { itens: [4, 8, 13, 16, 20, 25, 29, 31], maximo: 16 },
+        fobiaSocial: { itens: [3, 10, 26, 32, 39, 40, 41], maximo: 14 },
+        evitacaoEscolar: { itens: [2, 11, 17, 36], maximo: 8 },
+      },
+      formulaEscoreBruto: "soma simples dos itens (Likert 0-2) de cada subescala",
+      campos: [
+        { chave: "panicoSomatico", label: "Pânico/Sintomas Somáticos (bruto, 0-26)" },
+        { chave: "ansiedadeGeneralizada", label: "Ansiedade Generalizada (bruto, 0-18)" },
+        { chave: "ansiedadeSeparacao", label: "Ansiedade de Separação (bruto, 0-16)" },
+        { chave: "fobiaSocial", label: "Fobia Social (bruto, 0-14)" },
+        { chave: "evitacaoEscolar", label: "Evitação Escolar (bruto, 0-8)" },
+        { chave: "total", label: "Total = soma das 5 subescalas (calculado, 0-82)" },
+      ],
+    },
+    referenciaBibliografica:
+      "ISOLAN, L.; SALUM, G. A.; OSOWSKI, A. T.; AMARO, E.; MANFRO, G. G. Psychometric properties " +
+      "of the Screen for Child Anxiety Related Emotional Disorders (SCARED) in Brazilian children " +
+      "and adolescents. Journal of Anxiety Disorders, 25, 741-748, 2011.",
+    isPlaceholder: false,
+    tabelasNormativas: SCARED_AUTORRELATO_NORMAS.map((faixa) => ({
+      criterio: "idade+sexo",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: faixa.faixaLabel,
+      sexo: faixa.sexo,
+      conversao: {
+        tipo: "percentil_por_campo",
+        fonte: `Norma brasileira SCARED-Autorrelato (Isolan et al., 2011), ${faixa.faixaLabel}. Corte etário Criança/Adolescente (9-12 / 13-18) é convenção da literatura, não confirmado no protocolo — ver pendência.`,
+        faixasPorCampo: Object.fromEntries(
+          SCARED_AUTORRELATO_CAMPOS.map((campo) => [campo, criarFaixasZScore(faixa.pontos[campo])])
+        ),
+      },
+    })),
   },
 ];
 
