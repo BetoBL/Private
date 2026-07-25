@@ -443,6 +443,20 @@ const SCARED_AUTORRELATO_NORMAS: ScaredFaixa[] = [
   },
 ];
 
+// Classificação qualitativa padrão Wechsler (Tabela 5.24 do manual WAIS-III, WECHSLER &
+// NASCIMENTO 2004, amostra brasileira N=788) — compartilhada entre WAIS-III e WASI, que remete
+// explicitamente à mesma tabela (docs/testes/WASI.md). Percentil = ponto médio da frequência
+// acumulada de cada faixa de classificação.
+const WECHSLER_CLASSIFICACAO_FAIXAS: Prisma.InputJsonValue[] = [
+  { max: 69, percentil: 2, classificacao: "Extremamente Baixo" },
+  { min: 70, max: 79, percentil: 8, classificacao: "Limítrofe" },
+  { min: 80, max: 89, percentil: 20, classificacao: "Média Inferior" },
+  { min: 90, max: 109, percentil: 49, classificacao: "Média" },
+  { min: 110, max: 119, percentil: 82, classificacao: "Média Superior" },
+  { min: 120, max: 129, percentil: 97, classificacao: "Superior" },
+  { min: 130, percentil: 99.9, classificacao: "Muito Superior" },
+];
+
 const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
@@ -484,15 +498,58 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         conversao: {
           tipo: "percentil_por_campo",
           fonte: "Tabela 5.24 do manual (WECHSLER & NASCIMENTO, 2004), amostra brasileira N=788 — percentil = ponto médio da faixa acumulada de cada classificação.",
-          faixas: [
-            { max: 69, percentil: 2, classificacao: "Extremamente Baixo" },
-            { min: 70, max: 79, percentil: 8, classificacao: "Limítrofe" },
-            { min: 80, max: 89, percentil: 20, classificacao: "Média Inferior" },
-            { min: 90, max: 109, percentil: 49, classificacao: "Média" },
-            { min: 110, max: 119, percentil: 82, classificacao: "Média Superior" },
-            { min: 120, max: 129, percentil: 97, classificacao: "Superior" },
-            { min: 130, percentil: 99.9, classificacao: "Muito Superior" },
-          ],
+          faixas: WECHSLER_CLASSIFICACAO_FAIXAS,
+        },
+      },
+    ],
+  },
+  {
+    nome: "Escala Wechsler Abreviada de Inteligência",
+    sigla: "WASI",
+    dominio: DominioCognitivo.INTELIGENCIA,
+    descricao:
+      "Versão abreviada do WAIS, 4 subtestes (Vocabulário, Semelhanças, Cubos, Raciocínio " +
+      "Matricial) ou 2 (versão rápida: Vocabulário + Raciocínio Matricial). Escore de subteste em " +
+      "Escore T (média 50, DP 10); QI Total/Verbal/Execução usam a mesma classificação Wechsler " +
+      "padrão do WAIS-III.",
+    algoritmoCorrecao: {
+      // Mesmo princípio do WAIS-III: o profissional lança os escores T dos subtestes e os QIs já
+      // convertidos pelas tabelas oficiais do manual (23 faixas etárias — ver docs/testes/WASI.md,
+      // Tabelas A.1.1-A.1.23 para escore T por subteste, A.3-A.6 para soma de T -> QI). Este motor
+      // só classifica o QI já calculado, não agrega subtestes.
+      subtestes: {
+        versaoCompleta: ["Vocabulário", "Semelhanças", "Cubos", "Raciocínio Matricial"],
+        versaoRapida: ["Vocabulário", "Raciocínio Matricial"],
+      },
+      campos: [
+        { chave: "vocabulario", label: "Vocabulário (Escore T, 20-80)" },
+        { chave: "semelhancas", label: "Semelhanças (Escore T, 20-80) — só na versão completa" },
+        { chave: "cubos", label: "Cubos (Escore T, 20-80) — só na versão completa" },
+        { chave: "raciocinioMatricial", label: "Raciocínio Matricial (Escore T, 20-80)" },
+        { chave: "qiVerbal", label: "QI Verbal (Tabela A.3, Vocabulário+Semelhanças) — só na versão completa" },
+        { chave: "qiExecucao", label: "QI Execução (Tabela A.4, Cubos+Rac.Matricial) — só na versão completa" },
+        { chave: "qiTotal", label: "QI Total (Tabela A.5 versão completa ou A.6 versão rápida)" },
+      ],
+    },
+    referenciaBibliografica:
+      "WECHSLER, D. WASI: Escala Wechsler Abreviada de Inteligência — manual profissional. " +
+      "Adaptação e normatização brasileira. São Paulo: Pearson/Casa do Psicólogo.",
+    isPlaceholder: false,
+    tabelasNormativas: [
+      {
+        criterio: "geral",
+        faixaMin: 6,
+        faixaMax: 89,
+        conversao: {
+          tipo: "percentil_por_campo",
+          fonte:
+            "Classificação Wechsler padrão (mesma Tabela 5.24 do WAIS-III — o manual WASI remete " +
+            "explicitamente a ela, ver docs/testes/WASI.md) aplicada a qiTotal/qiVerbal/qiExecucao.",
+          faixasPorCampo: {
+            qiTotal: WECHSLER_CLASSIFICACAO_FAIXAS,
+            qiVerbal: WECHSLER_CLASSIFICACAO_FAIXAS,
+            qiExecucao: WECHSLER_CLASSIFICACAO_FAIXAS,
+          },
         },
       },
     ],
