@@ -213,6 +213,63 @@ const RAVLT_NORMAS: RavltFaixaEtaria[] = [
   },
 ];
 
+// --- BPA: normas reais (Rueda, padronização 2011, N=1759) — ver docs/testes/BPA.md ---
+// O manual tabela 13 pontos percentílicos por medida; simplificamos para 4 pontos de corte
+// (p20/p40/p60/p80) que reproduzem a classificação de 5 faixas do próprio guia de interpretação
+// (Inferior / Médio Inferior / Médio / Médio Superior / Superior) sem precisar de 13 bandas.
+// Só o critério "idade" foi modelado aqui — o manual também oferece normas por escolaridade
+// (docs/testes/BPA.md, Tabelas 27-30), mas escolher entre os dois critérios por paciente é uma
+// seleção categórica (não numérica) que o motor ainda não suporta — ver pendência no doc.
+const BPA_CAMPOS = ["ac", "ad", "aa", "atencaoGeral"] as const;
+type BpaCampo = (typeof BPA_CAMPOS)[number];
+type PontosQuartis = [p20: number, p40: number, p60: number, p80: number];
+
+interface BpaFaixaEtaria {
+  faixaMin: number;
+  faixaMax: number;
+  faixaLabel: string;
+  n: number;
+  pontos: Record<BpaCampo, PontosQuartis>;
+}
+
+function criarFaixasBPA(pontos: PontosQuartis): Prisma.InputJsonValue[] {
+  const [p20, p40, p60, p80] = pontos;
+  return [
+    { max: p20 - 1, percentil: "<20", classificacao: "Inferior" },
+    { min: p20, max: p40 - 1, percentil: "20-40", classificacao: "Médio Inferior" },
+    { min: p40, max: p60 - 1, percentil: "40-60", classificacao: "Médio" },
+    { min: p60, max: p80 - 1, percentil: "60-80", classificacao: "Médio Superior" },
+    { min: p80, percentil: ">80", classificacao: "Superior" },
+  ];
+}
+
+const BPA_NORMAS: BpaFaixaEtaria[] = [
+  {
+    faixaMin: 6, faixaMax: 10, faixaLabel: "6 a 10 anos", n: 115,
+    pontos: { ac: [34, 41, 48, 59], ad: [19, 32, 42, 56], aa: [31, 40, 47, 58], atencaoGeral: [91, 120, 136, 160] },
+  },
+  {
+    faixaMin: 11, faixaMax: 17, faixaLabel: "11 a 17 anos", n: 235,
+    pontos: { ac: [50, 69, 80, 96], ad: [32, 47, 62, 80], aa: [48, 65, 83, 100], atencaoGeral: [146, 187, 225, 256] },
+  },
+  {
+    faixaMin: 18, faixaMax: 25, faixaLabel: "18 a 25 anos", n: 591,
+    pontos: { ac: [81, 92, 103, 114], ad: [70, 82, 94, 104], aa: [86, 103, 112, 118], atencaoGeral: [247, 276, 299, 322] },
+  },
+  {
+    faixaMin: 26, faixaMax: 30, faixaLabel: "26 a 30 anos", n: 196,
+    pontos: { ac: [77, 88, 99, 110], ad: [52, 68, 80, 94], aa: [72, 87, 98, 111], atencaoGeral: [211, 243, 274, 304] },
+  },
+  {
+    faixaMin: 31, faixaMax: 50, faixaLabel: "31 a 50 anos", n: 358,
+    pontos: { ac: [66, 84, 98, 109], ad: [38, 60, 74, 90], aa: [58, 80, 95, 108], atencaoGeral: [175, 231, 265, 297] },
+  },
+  {
+    faixaMin: 51, faixaMax: 150, faixaLabel: "51 anos ou mais", n: 264,
+    pontos: { ac: [45, 61, 79, 94], ad: [12, 31, 46, 68], aa: [38, 56, 71, 88], atencaoGeral: [104, 153, 194, 244] },
+  },
+];
+
 const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
@@ -320,36 +377,41 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
   },
   {
     nome: "Bateria Psicológica para Avaliação da Atenção",
-    sigla: "BPA-2",
+    sigla: "BPA",
     dominio: DominioCognitivo.ATENCAO,
-    descricao: `Atenção concentrada (AC), dividida (AD) e alternada (AA). ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Atenção Concentrada (AC), Dividida (AD) e Alternada (AA), mais a medida composta Atenção " +
+      "Geral. Normas brasileiras reais (Rueda, padronização 2011, N=1759, 6 faixas etárias de 6 a " +
+      "51+ anos, critério idade).",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
       subtestes: ["AC", "AD", "AA"],
-      formulaEscoreBruto: "acertos - erros, por subteste, dentro do tempo cronometrado",
+      formulaEscoreBruto: "P = A - (E + O), por subteste, dentro do tempo cronometrado (AC 2min, AD 4min, AA 2min30s)",
+      // Atenção Geral é calculada pelo formulário de lançamento (soma dos 3 subtestes) e chega
+      // ao motor já pronta para conversão, mesmo princípio já usado no RAVLT/WAIS-III.
       campos: [
-        { chave: "ac", label: "AC — Atenção Concentrada (acertos - erros)" },
-        { chave: "ad", label: "AD — Atenção Dividida (acertos - erros)" },
-        { chave: "aa", label: "AA — Atenção Alternada (acertos - erros)" },
+        { chave: "ac", label: "AC — Atenção Concentrada (P = A - (E+O))" },
+        { chave: "ad", label: "AD — Atenção Dividida (P = A - (E+O))" },
+        { chave: "aa", label: "AA — Atenção Alternada (P = A - (E+O))" },
+        { chave: "atencaoGeral", label: "Atenção Geral = AC + AD + AA (calculado)" },
       ],
     },
-    referenciaBibliografica: "Rueda, F.J.M. — BPA-2 Manual técnico. (referência a confirmar)",
-    tabelasNormativas: [
-      {
-        criterio: "idade+escolaridade",
-        faixaLabel: "6º ao 9º ano",
-        conversao: {
-          aviso: AVISO_PLACEHOLDER,
-          tipo: "percentil_por_subteste",
-          faixas: [
-            { min: 0, max: 20, percentil: 10, classificacao: "Inferior" },
-            { min: 21, max: 40, percentil: 40, classificacao: "Médio" },
-            { min: 41, max: 60, percentil: 70, classificacao: "Médio Superior" },
-            { min: 61, max: 999, percentil: 90, classificacao: "Superior" },
-          ],
-        },
+    referenciaBibliografica:
+      "RUEDA, F. J. M. Bateria Psicológica para Avaliação da Atenção (BPA): manual técnico. " +
+      "São Paulo: Vetor Editora, 2013.",
+    isPlaceholder: false,
+    tabelasNormativas: BPA_NORMAS.map((faixa) => ({
+      criterio: "idade",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: faixa.faixaLabel,
+      conversao: {
+        tipo: "percentil_por_campo",
+        fonte: `Normas brasileiras BPA (Rueda, 2011), faixa ${faixa.faixaLabel}, n=${faixa.n}.`,
+        faixasPorCampo: Object.fromEntries(
+          BPA_CAMPOS.map((campo) => [campo, criarFaixasBPA(faixa.pontos[campo])])
+        ),
       },
-    ],
+    })),
   },
   {
     nome: "Escala de Responsividade Social — 2ª ed.",
