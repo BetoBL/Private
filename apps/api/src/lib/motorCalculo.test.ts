@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   calcularIdadeEmAnos,
+  calcularIdadeEmMeses,
   calcularResultado,
   escolherTabelaNormativa,
   localizarFaixa,
@@ -164,9 +165,9 @@ test("calcularResultado: faixasPorCampo sem entrada para o campo retorna faixa n
 
 test("escolherTabelaNormativa: escolhe a tabela cuja faixa etária cobre a idade", () => {
   const tabelas = [
-    { id: "6-8", faixaMin: 6, faixaMax: 8 },
-    { id: "9-11", faixaMin: 9, faixaMax: 11 },
-    { id: "80+", faixaMin: 80, faixaMax: 150 },
+    { id: "6-8", criterio: "idade", faixaMin: 6, faixaMax: 8 },
+    { id: "9-11", criterio: "idade", faixaMin: 9, faixaMax: 11 },
+    { id: "80+", criterio: "idade", faixaMin: 80, faixaMax: 150 },
   ];
   assert.equal(escolherTabelaNormativa({ idadeAnos: 7 }, tabelas)?.id, "6-8");
   assert.equal(escolherTabelaNormativa({ idadeAnos: 9 }, tabelas)?.id, "9-11");
@@ -175,8 +176,8 @@ test("escolherTabelaNormativa: escolhe a tabela cuja faixa etária cobre a idade
 
 test("escolherTabelaNormativa: idade nos limites exatos das faixas é inclusiva", () => {
   const tabelas = [
-    { id: "6-8", faixaMin: 6, faixaMax: 8 },
-    { id: "9-11", faixaMin: 9, faixaMax: 11 },
+    { id: "6-8", criterio: "idade", faixaMin: 6, faixaMax: 8 },
+    { id: "9-11", criterio: "idade", faixaMin: 9, faixaMax: 11 },
   ];
   assert.equal(escolherTabelaNormativa({ idadeAnos: 8 }, tabelas)?.id, "6-8");
   assert.equal(escolherTabelaNormativa({ idadeAnos: 9 }, tabelas)?.id, "9-11");
@@ -184,7 +185,7 @@ test("escolherTabelaNormativa: idade nos limites exatos das faixas é inclusiva"
 
 test("escolherTabelaNormativa: sem faixa cobrindo a idade, cai para a 1ª tabela (compatibilidade com testes de tabela única)", () => {
   const tabelas = [
-    { id: "unica", faixaMin: null, faixaMax: null },
+    { id: "unica", criterio: "geral", faixaMin: null, faixaMax: null },
   ];
   assert.equal(escolherTabelaNormativa({ idadeAnos: 150 }, tabelas)?.id, "unica");
 });
@@ -195,26 +196,42 @@ test("escolherTabelaNormativa: lista vazia retorna undefined", () => {
 
 test("escolherTabelaNormativa: tabelas com sexo definido só disputam se baterem com o sexo do paciente", () => {
   const tabelas = [
-    { id: "5-7-M", faixaMin: 5, faixaMax: 7, sexo: "MASCULINO" as const },
-    { id: "5-7-F", faixaMin: 5, faixaMax: 7, sexo: "FEMININO" as const },
+    { id: "5-7-M", criterio: "idade+sexo", faixaMin: 5, faixaMax: 7, sexo: "MASCULINO" as const },
+    { id: "5-7-F", criterio: "idade+sexo", faixaMin: 5, faixaMax: 7, sexo: "FEMININO" as const },
   ];
   assert.equal(escolherTabelaNormativa({ idadeAnos: 6, sexo: "FEMININO" }, tabelas)?.id, "5-7-F");
   assert.equal(escolherTabelaNormativa({ idadeAnos: 6, sexo: "MASCULINO" }, tabelas)?.id, "5-7-M");
 });
 
 test("escolherTabelaNormativa: tabelas sem sexo definido servem qualquer paciente (ex: RAVLT/BPA)", () => {
-  const tabelas = [{ id: "6-8", faixaMin: 6, faixaMax: 8, sexo: null }];
+  const tabelas = [{ id: "6-8", criterio: "idade", faixaMin: 6, faixaMax: 8, sexo: null }];
   assert.equal(escolherTabelaNormativa({ idadeAnos: 7, sexo: "FEMININO" }, tabelas)?.id, "6-8");
   assert.equal(escolherTabelaNormativa({ idadeAnos: 7, sexo: null }, tabelas)?.id, "6-8");
 });
 
 test("escolherTabelaNormativa: sexo do paciente ausente ainda escolhe pela idade entre candidatas sem sexo", () => {
   const tabelas = [
-    { id: "5-7-M", faixaMin: 5, faixaMax: 7, sexo: "MASCULINO" as const },
-    { id: "5-7-F", faixaMin: 5, faixaMax: 7, sexo: "FEMININO" as const },
-    { id: "5-7-geral", faixaMin: 5, faixaMax: 7, sexo: null },
+    { id: "5-7-M", criterio: "idade+sexo", faixaMin: 5, faixaMax: 7, sexo: "MASCULINO" as const },
+    { id: "5-7-F", criterio: "idade+sexo", faixaMin: 5, faixaMax: 7, sexo: "FEMININO" as const },
+    { id: "5-7-geral", criterio: "idade", faixaMin: 5, faixaMax: 7, sexo: null },
   ];
   assert.equal(escolherTabelaNormativa({ idadeAnos: 6, sexo: null }, tabelas)?.id, "5-7-geral");
+});
+
+test("escolherTabelaNormativa: tabelas com criterio idade_meses comparam contra idadeMeses, não idadeAnos", () => {
+  const tabelas = [
+    { id: "2;6", criterio: "idade_meses", faixaMin: 30, faixaMax: 30 },
+    { id: "2;7", criterio: "idade_meses", faixaMin: 31, faixaMax: 31 },
+  ];
+  // idadeAnos=2 seria ambíguo entre as duas faixas se a comparação usasse anos — só faz
+  // sentido com idadeMeses precisa.
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 2, idadeMeses: 30 }, tabelas)?.id, "2;6");
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 2, idadeMeses: 31 }, tabelas)?.id, "2;7");
+});
+
+test("escolherTabelaNormativa: criterio idade_meses sem idadeMeses informado não bate nenhuma faixa (cai no fallback)", () => {
+  const tabelas = [{ id: "2;6", criterio: "idade_meses", faixaMin: 30, faixaMax: 30 }];
+  assert.equal(escolherTabelaNormativa({ idadeAnos: 2 }, tabelas)?.id, "2;6"); // fallback = base[0]
 });
 
 // --- calcularIdadeEmAnos ---
@@ -235,4 +252,24 @@ test("calcularIdadeEmAnos: data de referência igual ao dia do aniversário já 
   const nascimento = new Date(2000, 6, 1);
   const referencia = new Date(2026, 6, 1);
   assert.equal(calcularIdadeEmAnos(nascimento, referencia), 26);
+});
+
+// --- calcularIdadeEmMeses ---
+
+test("calcularIdadeEmMeses: conta meses completos entre nascimento e referência", () => {
+  const nascimento = new Date(2023, 0, 15); // 15/jan/2023
+  const referencia = new Date(2025, 7, 20); // 20/ago/2025 — 2 anos e 7 meses completos, dia já passou
+  assert.equal(calcularIdadeEmMeses(nascimento, referencia), 31); // 2*12 + 7
+});
+
+test("calcularIdadeEmMeses: não conta o mês corrente se o dia do aniversário mensal ainda não chegou", () => {
+  const nascimento = new Date(2023, 0, 25); // 25/jan/2023
+  const referencia = new Date(2025, 7, 20); // 20/ago/2025 — dia 20 < dia 25, mês ainda não completou
+  assert.equal(calcularIdadeEmMeses(nascimento, referencia), 30); // 31 - 1
+});
+
+test("calcularIdadeEmMeses: nascimento e referência no mesmo dia do mês resulta em meses exatos", () => {
+  const nascimento = new Date(2023, 5, 10); // 10/jun/2023
+  const referencia = new Date(2023, 11, 10); // 10/dez/2023
+  assert.equal(calcularIdadeEmMeses(nascimento, referencia), 6);
 });

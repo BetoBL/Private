@@ -61,6 +61,9 @@ export type Sexo = "MASCULINO" | "FEMININO";
 
 export interface CriteriosSelecaoTabela {
   idadeAnos: number;
+  // Só usado por testes com faixas etárias mais finas que 1 ano (ex: SON-R, faixas mensais de
+  // 2;6 a 7;11) — ver `criterio === "idade_meses"` abaixo. Os demais testes usam idadeAnos.
+  idadeMeses?: number;
   sexo?: Sexo | null;
 }
 
@@ -72,19 +75,21 @@ export interface CriteriosSelecaoTabela {
  * paciente. Quando nada bate perfeitamente, cai progressivamente para candidatas mais amplas
  * em vez de retornar `undefined` — preferível reportar com a norma mais próxima disponível
  * a não reportar nada, mesmo comportamento já assumido antes desta seleção existir.
+ *
+ * Tabelas com `criterio === "idade_meses"` (ex: SON-R) comparam contra `criterios.idadeMeses`
+ * em vez de `idadeAnos` — faixaMin/faixaMax dessas tabelas já vêm em meses no seed, então o
+ * restante da lógica (filtro por sexo, fallback) funciona igual, só a unidade da comparação muda.
  */
 export function escolherTabelaNormativa<
-  T extends { faixaMin: number | null; faixaMax: number | null; sexo?: Sexo | null }
+  T extends { criterio: string; faixaMin: number | null; faixaMax: number | null; sexo?: Sexo | null }
 >(criterios: CriteriosSelecaoTabela, tabelas: T[]): T | undefined {
   const candidatasPorSexo = tabelas.filter((t) => !t.sexo || t.sexo === criterios.sexo);
   const base = candidatasPorSexo.length > 0 ? candidatasPorSexo : tabelas;
-  const porIdade = base.find(
-    (t) =>
-      t.faixaMin !== null &&
-      t.faixaMax !== null &&
-      criterios.idadeAnos >= t.faixaMin &&
-      criterios.idadeAnos <= t.faixaMax
-  );
+  const porIdade = base.find((t) => {
+    if (t.faixaMin === null || t.faixaMax === null) return false;
+    const idade = t.criterio === "idade_meses" ? criterios.idadeMeses : criterios.idadeAnos;
+    return idade !== undefined && idade >= t.faixaMin && idade <= t.faixaMax;
+  });
   return porIdade ?? base[0];
 }
 
@@ -95,4 +100,14 @@ export function calcularIdadeEmAnos(dataNascimento: Date, dataReferencia: Date):
     (dataReferencia.getMonth() === dataNascimento.getMonth() && dataReferencia.getDate() >= dataNascimento.getDate());
   if (!aniversarioJaPassou) idade -= 1;
   return idade;
+}
+
+// Total de meses completos entre nascimento e a data de referência (ex: 2 anos e 7 meses = 31).
+// Usado só por testes com normas mensais (ex: SON-R, 2;6 a 7;11) — os demais usam calcularIdadeEmAnos.
+export function calcularIdadeEmMeses(dataNascimento: Date, dataReferencia: Date): number {
+  let meses =
+    (dataReferencia.getFullYear() - dataNascimento.getFullYear()) * 12 +
+    (dataReferencia.getMonth() - dataNascimento.getMonth());
+  if (dataReferencia.getDate() < dataNascimento.getDate()) meses -= 1;
+  return meses;
 }

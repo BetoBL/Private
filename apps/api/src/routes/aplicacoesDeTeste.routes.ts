@@ -3,6 +3,7 @@ import { Router } from "express";
 import { z } from "zod";
 import {
   calcularIdadeEmAnos,
+  calcularIdadeEmMeses,
   calcularResultado,
   escolherTabelaNormativa,
   type ConversaoNormativa,
@@ -29,7 +30,7 @@ function ehAdmin(req: { profissional?: { papel: string } }): boolean {
 async function recalcular(
   testeId: string,
   escoresBrutos: Record<string, number>,
-  criterios: { idadeAnos: number; sexo?: "MASCULINO" | "FEMININO" | null }
+  criterios: { idadeAnos: number; idadeMeses?: number; sexo?: "MASCULINO" | "FEMININO" | null }
 ) {
   const teste = await prisma.teste.findUnique({ where: { id: testeId }, include: { tabelasNormativas: true } });
   if (!teste) return null;
@@ -64,7 +65,12 @@ aplicacoesDeTesteRouter.post(
     }
 
     const idadeAnos = calcularIdadeEmAnos(sessao.paciente.dataNascimento, sessao.dataHora);
-    const resultadoCalculado = await recalcular(testeId, escoresBrutos, { idadeAnos, sexo: sessao.paciente.sexo });
+    const idadeMeses = calcularIdadeEmMeses(sessao.paciente.dataNascimento, sessao.dataHora);
+    const resultadoCalculado = await recalcular(testeId, escoresBrutos, {
+      idadeAnos,
+      idadeMeses,
+      sexo: sessao.paciente.sexo,
+    });
 
     const aplicacao = await prisma.aplicacaoDeTeste.create({
       data: {
@@ -141,8 +147,10 @@ aplicacoesDeTesteRouter.patch(
     }
 
     const idadeAnos = calcularIdadeEmAnos(existente.sessao.paciente.dataNascimento, existente.sessao.dataHora);
+    const idadeMeses = calcularIdadeEmMeses(existente.sessao.paciente.dataNascimento, existente.sessao.dataHora);
     const resultadoCalculado = await recalcular(existente.testeId, req.body.escoresBrutos, {
       idadeAnos,
+      idadeMeses,
       sexo: existente.sessao.paciente.sexo,
     });
 
