@@ -556,11 +556,14 @@ type SonRCampo = (typeof SON_R_CAMPOS)[number];
 // Converte uma linha compacta "6 9 12 14 ... ." (escore normatizado no índice = escore bruto)
 // em faixas de valor único (min=max=bruto) — mesmo princípio de docs/testes/SON-R.md.
 function parseTabelaSONR(linha: string): Prisma.InputJsonValue[] {
-  return linha
+  const faixas: Prisma.InputJsonValue[] = [];
+  linha
     .trim()
     .split(/\s+/)
-    .map((token, bruto) => (token === "." ? null : { min: bruto, max: bruto, escoreNormatizado: Number(token) }))
-    .filter((f): f is Prisma.InputJsonValue => f !== null);
+    .forEach((token, bruto) => {
+      if (token !== ".") faixas.push({ min: bruto, max: bruto, escoreNormatizado: Number(token) });
+    });
+  return faixas;
 }
 
 // [idadeEmMeses, mosaicos, categorias, situacoes, padroes] — idadeEmMeses = anos*12+meses (ex:
