@@ -24,6 +24,7 @@ export interface Paciente {
   anamnese: AnamneseData | null;
   preferenciasAgenda: PreferenciasAgenda | null;
   consentimentoTDIC: boolean;
+  consentimentoTDICData: string | null;
   criadoEm: string;
 }
 

@@ -34,7 +34,8 @@ export function FichaPaciente() {
     responsavelLegal: string;
     contato: string;
     escolaridade: string;
-  }>({ nome: "", dataNascimento: "", sexo: "", responsavelLegal: "", contato: "", escolaridade: "" });
+    consentimentoTDIC: boolean;
+  }>({ nome: "", dataNascimento: "", sexo: "", responsavelLegal: "", contato: "", escolaridade: "", consentimentoTDIC: false });
   const [anamneseForm, setAnamneseForm] = useState<AnamneseData>({});
   const [preferenciasForm, setPreferenciasForm] = useState<PreferenciasAgenda>({});
 
@@ -64,6 +65,7 @@ export function FichaPaciente() {
           responsavelLegal: p.responsavelLegal ?? "",
           contato: p.contato ?? "",
           escolaridade: p.escolaridade ?? "",
+          consentimentoTDIC: p.consentimentoTDIC,
         });
         setAnamneseForm(p.anamnese ?? {});
         setPreferenciasForm(p.preferenciasAgenda ?? {});
@@ -272,6 +274,28 @@ export function FichaPaciente() {
               />
             </label>
           </div>
+
+          <label className="mt-4 flex items-start gap-2.5 rounded-2xl border border-mist bg-white p-4 text-sm">
+            <input
+              type="checkbox"
+              className="mt-0.5"
+              checked={dadosForm.consentimentoTDIC}
+              onChange={(e) => setDadosForm((f) => ({ ...f, consentimentoTDIC: e.target.checked }))}
+            />
+            <span>
+              <span className="block font-semibold text-ink/70">
+                Paciente informado(a) sobre os recursos tecnológicos usados no atendimento (incluindo IA)
+              </span>
+              <span className="mt-0.5 block text-xs text-ink/50">
+                Conforme Resolução CFP nº 09/2024 — inclui o uso de Inteligência Artificial como apoio na redação do rascunho do laudo,
+                sempre revisado pelo profissional responsável antes de finalizado.
+                {paciente.consentimentoTDICData && (
+                  <> Consentimento registrado em {new Date(paciente.consentimentoTDICData).toLocaleDateString("pt-BR")}.</>
+                )}
+              </span>
+            </span>
+          </label>
+
           <button className="mt-4 rounded-lg border border-mist px-4 py-2 text-sm font-semibold text-ink/70" onClick={salvarDados}>
             Salvar dados
           </button>

@@ -15,8 +15,9 @@ const pacienteCreateSchema = z.object({
   convenioId: z.string().uuid().optional(),
   anamnese: z.record(z.string(), z.unknown()).optional(),
   preferenciasAgenda: z.record(z.string(), z.unknown()).optional(),
+  // Resolução CFP nº 09/2024: consentimentoTDICData registra QUANDO o consentimento foi dado —
+  // é sempre o servidor que carimba essa data (na transição para true), nunca o cliente.
   consentimentoTDIC: z.boolean().optional(),
-  consentimentoTDICData: z.coerce.date().optional(),
 });
 
 const pacienteUpdateSchema = pacienteCreateSchema.partial();
@@ -44,7 +45,11 @@ pacientesRouter.post(
       return;
     }
     const paciente = await prisma.paciente.create({
-      data: { ...req.body, clinicaId: req.profissional!.clinicaId },
+      data: {
+        ...req.body,
+        clinicaId: req.profissional!.clinicaId,
+        consentimentoTDICData: req.body.consentimentoTDIC ? new Date() : undefined,
+      },
     });
     res.status(201).json(paciente);
   })
@@ -109,7 +114,14 @@ pacientesRouter.patch(
         return;
       }
     }
-    const paciente = await prisma.paciente.update({ where: { id: req.params.id }, data: req.body });
+    // Carimba/limpa a data de consentimento só quando o valor realmente muda de estado —
+    // reenviar "true" sem alterar nada não deve resetar a data original do consentimento.
+    const dataAtualizacao: typeof req.body & { consentimentoTDICData?: Date | null } = { ...req.body };
+    if (req.body.consentimentoTDIC !== undefined && req.body.consentimentoTDIC !== existente.consentimentoTDIC) {
+      dataAtualizacao.consentimentoTDICData = req.body.consentimentoTDIC ? new Date() : null;
+    }
+
+    const paciente = await prisma.paciente.update({ where: { id: req.params.id }, data: dataAtualizacao });
     res.json(paciente);
   })
 );
