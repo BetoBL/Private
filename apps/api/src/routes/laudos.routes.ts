@@ -217,6 +217,10 @@ laudosRouter.get(
     }
     const paciente = laudo.paciente;
 
+    // Mais de uma convenção de classificação por percentil é usada na prática clínica — cada
+    // profissional escolhe a sua no Perfil de Atuação (ver classificacaoPercentil.ts).
+    const perfilDeAtuacao = await prisma.perfilDeAtuacao.findUnique({ where: { profissionalId: profissional.id } });
+
     const buffer = await gerarDocxLaudo({
       // Nome fantasia é o nome de exibição padrão em todo o sistema; a exceção é NFS-e
       // (nota fiscal), que não é emitida por este fluxo — aqui vale o nome fantasia.
@@ -232,6 +236,7 @@ laudosRouter.get(
       conclusao: laudo.conclusao,
       referencias: laudo.referencias,
       iaUtilizada: laudo.iaUtilizada,
+      sistemaClassificacaoPercentil: perfilDeAtuacao?.sistemaClassificacaoPercentil ?? "GUILMETTE_2020",
     });
 
     const nomeArquivo = `laudo-${paciente.nome.replace(/\s+/g, "-").toLowerCase()}.docx`;

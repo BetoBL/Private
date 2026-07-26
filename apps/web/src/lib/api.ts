@@ -169,6 +169,8 @@ export interface RespostaPerfil {
   complemento?: string;
 }
 
+export type SistemaClassificacaoPercentil = "GUILMETTE_2020" | "MIOTTO_2017";
+
 export interface PerfilDeAtuacao {
   profissionalId: string;
   abordagemTeorica: string | null;
@@ -176,6 +178,7 @@ export interface PerfilDeAtuacao {
   regrasDePrudencia: string | null;
   vocabularioRecorrente: string | null;
   respostas: Record<string, RespostaPerfil> | null;
+  sistemaClassificacaoPercentil: SistemaClassificacaoPercentil;
 }
 
 // --- Sessão de autenticação ---
@@ -403,5 +406,6 @@ export const api = {
     regrasDePrudencia?: string;
     vocabularioRecorrente?: string;
     respostas?: Record<string, RespostaPerfil>;
+    sistemaClassificacaoPercentil?: SistemaClassificacaoPercentil;
   }) => request<PerfilDeAtuacao>("/perfil-atuacao", { method: "PUT", body: JSON.stringify(data) }),
 };

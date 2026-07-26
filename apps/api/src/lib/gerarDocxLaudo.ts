@@ -1,4 +1,5 @@
 import { AlignmentType, Document, HeadingLevel, Packer, Paragraph, Table, TableCell, TableRow, TextRun, WidthType } from "docx";
+import { obterTabelaClassificacaoPercentil, type SistemaClassificacaoPercentil } from "./classificacaoPercentil";
 
 export interface DadosLaudoDocx {
   clinicaNome: string;
@@ -13,20 +14,10 @@ export interface DadosLaudoDocx {
   conclusao: string;
   referencias: string;
   iaUtilizada: boolean;
+  // Mais de uma convenção de classificação por percentil é usada na prática clínica (ver
+  // classificacaoPercentil.ts) — é uma escolha do profissional (PerfilDeAtuacao), não fixa.
+  sistemaClassificacaoPercentil: SistemaClassificacaoPercentil;
 }
-
-// Tabela de referência de classificação por percentil (adaptada de Miotto, 2017) — convenção
-// usada de forma uniforme em toda a "Análise dos Resultados" no modelo real de laudo desta
-// clínica, independente do teste. Fica fixa no template, não vem do banco.
-const TABELA_CLASSIFICACAO_PERCENTIL: Array<[string, string]> = [
-  ["Muito superior à média", "> 98"],
-  ["Superior à média", "97 a 91"],
-  ["Média superior", "90 a 75"],
-  ["Dentro da média", "74 a 25"],
-  ["Média inferior", "24 a 9"],
-  ["Limítrofe", "8 a 3"],
-  ["Deficitário", "< 2"],
-];
 
 /**
  * Converte um bloco de texto seguindo a convenção markdown leve usada pelo rascunho de IA
@@ -48,14 +39,15 @@ function paragrafosMarkdown(texto: string): Paragraph[] {
   });
 }
 
-function tabelaReferenciaClassificacao(): Table {
+function tabelaReferenciaClassificacao(sistema: SistemaClassificacaoPercentil): Table {
+  const { linhas: linhasClassificacao } = obterTabelaClassificacaoPercentil(sistema);
   const linhaCabecalho = new TableRow({
     children: [
       new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Classificação", bold: true })] })] }),
       new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: "Percentil %", bold: true })] })] }),
     ],
   });
-  const linhas = TABELA_CLASSIFICACAO_PERCENTIL.map(
+  const linhas = linhasClassificacao.map(
     ([classificacao, percentil]) =>
       new TableRow({
         children: [
@@ -68,6 +60,8 @@ function tabelaReferenciaClassificacao(): Table {
 }
 
 export async function gerarDocxLaudo(dados: DadosLaudoDocx): Promise<Buffer> {
+  const classificacao = obterTabelaClassificacaoPercentil(dados.sistemaClassificacaoPercentil);
+
   const paragrafosIdentificacao = Object.entries(dados.identificacao).map(
     ([chave, valor]) => new Paragraph({ text: `${chave}: ${String(valor)}`, spacing: { after: 80 } })
   );
@@ -105,8 +99,12 @@ export async function gerarDocxLaudo(dados: DadosLaudoDocx): Promise<Buffer> {
           new Paragraph({ text: "3. Procedimento", heading: HeadingLevel.HEADING_1 }),
           ...paragrafosDeTexto(dados.procedimento),
 
-          new Paragraph({ text: "Referencial de classificação por percentil (adaptado de Miotto, 2017)", heading: HeadingLevel.HEADING_2, spacing: { before: 200 } }),
-          tabelaReferenciaClassificacao(),
+          new Paragraph({ text: classificacao.titulo, heading: HeadingLevel.HEADING_2, spacing: { before: 200 } }),
+          tabelaReferenciaClassificacao(dados.sistemaClassificacaoPercentil),
+          new Paragraph({
+            spacing: { before: 80, after: 160 },
+            children: [new TextRun({ italics: true, size: 18, text: classificacao.citacao })],
+          }),
 
           new Paragraph({ text: "4. Análise dos Resultados", heading: HeadingLevel.HEADING_1, spacing: { before: 300 } }),
           ...paragrafosMarkdown(dados.analise),

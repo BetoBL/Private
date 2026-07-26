@@ -50,6 +50,15 @@ enum PapelProfissional {
   PSICOLOGO
 }
 
+// Sistema é usado por várias clínicas/profissionais, não só quem forneceu os laudos de
+// referência — quando existe mais de uma convenção reconhecida na área para o mesmo tipo de
+// classificação, o sistema oferece todas como opção ao invés de fixar uma como "a certa"
+// (ver memória do projeto feedback_multiplos_sistemas_classificacao_livre_escolha).
+enum SistemaClassificacaoPercentil {
+  GUILMETTE_2020
+  MIOTTO_2017
+}
+
 model Clinica {
   id            String         @id @default(uuid())
   razaoSocial   String
@@ -109,6 +118,11 @@ model PerfilDeAtuacao {
   regrasDePrudencia       String?    @db.Text  // ex: "nunca fechar TEA sem encaminhar avaliação médica"
   vocabularioRecorrente   String?    @db.Text
   laudosExemplo           Json?      // array de textos de laudos anteriores, para few-shot
+
+  // Qual referência usar para a tabela de classificação por percentil no laudo DOCX — mais de
+  // uma convenção é usada na prática por profissionais diferentes, então isto é uma escolha
+  // do profissional, não um padrão fixo do sistema.
+  sistemaClassificacaoPercentil SistemaClassificacaoPercentil @default(GUILMETTE_2020)
 
   // Respostas estruturadas (opção pré-definida + complemento livre) a um catálogo de perguntas
   // definido em código (não no banco) — técnicas e pessoais (para uso interno de qualificação

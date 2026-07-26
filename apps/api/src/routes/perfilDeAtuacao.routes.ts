@@ -14,6 +14,7 @@ const perfilUpsertSchema = z.object({
   regrasDePrudencia: z.string().optional(),
   vocabularioRecorrente: z.string().optional(),
   respostas: z.record(z.string(), respostaSchema).optional(),
+  sistemaClassificacaoPercentil: z.enum(["GUILMETTE_2020", "MIOTTO_2017"]).optional(),
 });
 
 export const perfisDeAtuacaoRouter = Router();

@@ -1,5 +1,18 @@
 import { useEffect, useState } from "react";
-import { api, type RespostaPerfil } from "../lib/api";
+import { api, type RespostaPerfil, type SistemaClassificacaoPercentil } from "../lib/api";
+
+const OPCOES_CLASSIFICACAO: Array<{ valor: SistemaClassificacaoPercentil; label: string; ajuda: string }> = [
+  {
+    valor: "GUILMETTE_2020",
+    label: "Guilmette et al. (2020) — consenso AACN",
+    ajuda: "Rótulos e cortes percentílicos do consenso da American Academy of Clinical Neuropsychology (padrão internacional).",
+  },
+  {
+    valor: "MIOTTO_2017",
+    label: "Miotto (2017)",
+    ajuda: "Adaptação usada em manuais de neuropsicologia no Brasil.",
+  },
+];
 
 const CAMPOS_TECNICOS: Array<{ chave: keyof typeof CAMPO_INICIAL; label: string; ajuda: string; presets: string[] }> = [
   {
@@ -83,6 +96,7 @@ export function PerfilAtuacao() {
   const [form, setForm] = useState(CAMPO_INICIAL);
   const [presetsAtivos, setPresetsAtivos] = useState<Record<string, string[]>>({});
   const [respostas, setRespostas] = useState<Record<string, RespostaPerfil>>({});
+  const [sistemaClassificacao, setSistemaClassificacao] = useState<SistemaClassificacaoPercentil>("GUILMETTE_2020");
 
   useEffect(() => {
     let cancelado = false;
@@ -97,6 +111,7 @@ export function PerfilAtuacao() {
           vocabularioRecorrente: p.vocabularioRecorrente ?? "",
         });
         setRespostas(p.respostas ?? {});
+        setSistemaClassificacao(p.sistemaClassificacaoPercentil ?? "GUILMETTE_2020");
       })
       .catch((e) => !cancelado && setErro(e.message));
     return () => {
@@ -108,7 +123,7 @@ export function PerfilAtuacao() {
     setErro(null);
     setMensagem(null);
     try {
-      await api.salvarPerfilDeAtuacao({ ...form, respostas });
+      await api.salvarPerfilDeAtuacao({ ...form, respostas, sistemaClassificacaoPercentil: sistemaClassificacao });
       setMensagem("Perfil de Atuação salvo.");
     } catch (e) {
       setErro((e as Error).message);
@@ -174,6 +189,33 @@ export function PerfilAtuacao() {
               onChange={(e) => setForm((prev) => ({ ...prev, [campo.chave]: e.target.value }))}
             />
           </div>
+        ))}
+      </div>
+
+      <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Classificação por percentil no laudo</div>
+      <p className="mb-2 max-w-xl text-xs text-ink/50">
+        Existe mais de uma convenção aceita na área — escolha a que você usa. Isso define a tabela de referência e a citação que aparecem
+        no DOCX exportado.
+      </p>
+      <div className="mb-8 flex flex-col gap-2">
+        {OPCOES_CLASSIFICACAO.map((opcao) => (
+          <label
+            key={opcao.valor}
+            className={`flex cursor-pointer flex-col gap-1 rounded-2xl border p-4 ${
+              sistemaClassificacao === opcao.valor ? "border-sage-deep bg-sage-deep/5" : "border-mist bg-white"
+            }`}
+          >
+            <span className="flex items-center gap-2 text-sm font-semibold text-ink">
+              <input
+                type="radio"
+                name="sistemaClassificacaoPercentil"
+                checked={sistemaClassificacao === opcao.valor}
+                onChange={() => setSistemaClassificacao(opcao.valor)}
+              />
+              {opcao.label}
+            </span>
+            <span className="text-xs text-ink/50">{opcao.ajuda}</span>
+          </label>
         ))}
       </div>
 
