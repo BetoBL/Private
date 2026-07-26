@@ -59,6 +59,13 @@ enum SistemaClassificacaoPercentil {
   MIOTTO_2017
 }
 
+// Ver comentário em Teste.direcao.
+enum DirecaoMelhorPior {
+  MAIOR_MELHOR
+  MENOR_MELHOR
+  NEUTRO
+}
+
 model Clinica {
   id            String         @id @default(uuid())
   razaoSocial   String
@@ -228,6 +235,12 @@ model Teste {
   // Permite desativar/substituir um teste (ex: trocar placeholder pelo instrumento real)
   // sem apagar histórico: AplicacaoDeTeste continua referenciando o testeId original.
   ativo                     Boolean           @default(true)
+
+  // Direção de "melhor resultado" — usado só para decidir a cor (verde/vermelho) no gráfico do
+  // resultado no frontend; nunca para alterar o cálculo em si. Default NEUTRO (sem julgamento de
+  // cor) é proposital: testes ainda não revisados não devem arriscar mostrar a cor errada (ex:
+  // um escore "alto" que na verdade indica sintoma clínico, não desempenho bom).
+  direcao                   DirecaoMelhorPior @default(NEUTRO)
 
   tabelasNormativas         TabelaNormativa[]
   aplicacoes                AplicacaoDeTeste[]

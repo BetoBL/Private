@@ -75,6 +75,8 @@ export interface CampoTeste {
   label: string;
 }
 
+export type DirecaoMelhorPior = "MAIOR_MELHOR" | "MENOR_MELHOR" | "NEUTRO";
+
 export interface Teste {
   id: string;
   nome: string;
@@ -82,6 +84,7 @@ export interface Teste {
   dominio: string;
   isPlaceholder: boolean;
   ativo: boolean;
+  direcao: DirecaoMelhorPior;
   algoritmoCorrecao: {
     campos?: CampoTeste[];
     [key: string]: unknown;

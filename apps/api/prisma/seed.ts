@@ -30,6 +30,9 @@ interface TesteSeed {
   // false só quando a tabela normativa vem de um manual real conferido (ver docs/testes/*.md) —
   // todo o resto do MVP continua isPlaceholder=true até a lista definitiva da psicóloga.
   isPlaceholder?: boolean;
+  // Direção de "melhor resultado", só para cor do gráfico no frontend — ver Teste.direcao no
+  // schema. Default NEUTRO (sem julgamento de cor) quando omitido.
+  direcao?: "MAIOR_MELHOR" | "MENOR_MELHOR" | "NEUTRO";
 }
 
 // --- RAVLT: normas reais (Paula & Malloy-Diniz, Vetor 2018, N=1458) — ver docs/testes/RAVLT.md ---
@@ -686,6 +689,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
     sigla: "WAIS-III",
     dominio: DominioCognitivo.INTELIGENCIA,
+    direcao: "MAIOR_MELHOR",
     descricao:
       "Avalia o funcionamento intelectual em 4 índices fatoriais (Compreensão Verbal, Organização " +
       "Perceptual, Memória Operacional, Velocidade de Processamento) + QI Total. Classificação real " +
@@ -731,6 +735,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Escala Wechsler Abreviada de Inteligência",
     sigla: "WASI",
     dominio: DominioCognitivo.INTELIGENCIA,
+    direcao: "MAIOR_MELHOR",
     descricao:
       "Versão abreviada do WAIS, 4 subtestes (Vocabulário, Semelhanças, Cubos, Raciocínio " +
       "Matricial) ou 2 (versão rápida: Vocabulário + Raciocínio Matricial). Escore de subteste em " +
@@ -782,6 +787,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Teste de Aprendizagem Auditivo-Verbal de Rey",
     sigla: "RAVLT",
     dominio: DominioCognitivo.MEMORIA,
+    direcao: "MAIOR_MELHOR",
     descricao:
       "Memória episódica verbal — 5 tentativas de aprendizagem da Lista A (A1-A5), lista de " +
       "interferência B (B1), evocação imediata pós-interferência (A6), evocação tardia (A7) e " +
@@ -840,6 +846,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Bateria Psicológica para Avaliação da Atenção",
     sigla: "BPA",
     dominio: DominioCognitivo.ATENCAO,
+    direcao: "MAIOR_MELHOR",
     descricao:
       "Atenção Concentrada (AC), Dividida (AD) e Alternada (AA), mais a medida composta Atenção " +
       "Geral. Normas brasileiras reais (Rueda, padronização 2011, N=1759, 6 faixas etárias de 6 a " +
@@ -878,6 +885,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Escala de Responsividade Social — 2ª ed.",
     sigla: "SRS-2",
     dominio: DominioCognitivo.RASTREIO_TEA,
+    direcao: "MENOR_MELHOR",
     descricao: `Rastreio quantitativo de traços do espectro autista em 5 subescalas + escore composto + escore T total. ${AVISO_PLACEHOLDER}`,
     algoritmoCorrecao: {
       aviso: AVISO_PLACEHOLDER,
@@ -915,6 +923,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Quociente do Espectro Autista",
     sigla: "AQ-50",
     dominio: DominioCognitivo.RASTREIO_TEA,
+    direcao: "MENOR_MELHOR",
     descricao: `Autorrelato de 50 itens em 5 subescalas de traços autísticos. ${AVISO_PLACEHOLDER}`,
     algoritmoCorrecao: {
       aviso: AVISO_PLACEHOLDER,
@@ -943,6 +952,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Escala de Avaliação de Comportamentos Infantojuvenis no TDAH em Ambiente Familiar — Versão para Pais",
     sigla: "ETDAH-PAIS",
     dominio: DominioCognitivo.RASTREIO_TDAH,
+    direcao: "MENOR_MELHOR",
     descricao:
       "Rastreio (respondido pelos pais/cuidadores) de comportamentos relacionados ao TDAH no " +
       "ambiente familiar, 2 a 17 anos, 58 itens em 4 fatores: Regulação Emocional, Hiperatividade/" +
@@ -990,6 +1000,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Teste dos Cinco Dígitos",
     sigla: "FDT",
     dominio: DominioCognitivo.FUNCOES_EXECUTIVAS,
+    direcao: "MAIOR_MELHOR",
     descricao: `Velocidade de processamento, controle inibitório e flexibilidade cognitiva a partir de 4 etapas com dígitos. ${AVISO_PLACEHOLDER}`,
     algoritmoCorrecao: {
       aviso: AVISO_PLACEHOLDER,
@@ -1023,6 +1034,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Inventário de Ansiedade de Beck",
     sigla: "BAI",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
+    direcao: "MENOR_MELHOR",
     descricao: `Autorrelato de 21 itens para severidade de sintomas de ansiedade. ${AVISO_PLACEHOLDER}`,
     algoritmoCorrecao: {
       aviso: AVISO_PLACEHOLDER,
@@ -1051,6 +1063,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Escala de Depressão de Beck — 2ª ed.",
     sigla: "BDI-II",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
+    direcao: "MENOR_MELHOR",
     descricao: `Autorrelato de 21 itens para severidade de sintomas depressivos. ${AVISO_PLACEHOLDER}`,
     algoritmoCorrecao: {
       aviso: AVISO_PLACEHOLDER,
@@ -1078,6 +1091,9 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Bateria Fatorial de Personalidade",
     sigla: "BFP",
     dominio: DominioCognitivo.PERSONALIDADE,
+    // NEUTRO de propósito: facetas de personalidade não têm uma direção "boa/ruim" única (ex:
+    // Neuroticismo alto é desadaptativo, mas Extroversão alta não é nem bom nem ruim em si).
+    direcao: "NEUTRO",
     descricao:
       "Personalidade a partir do modelo dos Cinco Grandes Fatores (Neuroticismo, Extroversão, " +
       "Socialização, Realização, Abertura), cada um com 3-4 facetas. Normas reais (Nunes, Hutz & " +
@@ -1138,6 +1154,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Screen for Child Anxiety Related Emotional Disorders — Versão Pais/Cuidadores",
     sigla: "SCARED-PAIS",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
+    direcao: "MENOR_MELHOR",
     descricao:
       "Rastreio de ansiedade respondido pelos pais/cuidadores sobre a criança/adolescente, 41 " +
       "itens em 5 subescalas (Pânico/Sintomas Somáticos, Ansiedade Generalizada, Ansiedade de " +
@@ -1207,6 +1224,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Screen for Child Anxiety Related Emotional Disorders — Versão Autorrelato",
     sigla: "SCARED-AUTORRELATO",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
+    direcao: "MENOR_MELHOR",
     descricao:
       "Rastreio de ansiedade respondido pela própria criança/adolescente (9-18 anos), mesmos 41 " +
       "itens/5 subescalas do SCARED-PAIS, mas com correção por Z-score contra norma brasileira " +
@@ -1254,6 +1272,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "SON-R 2½-7[a] — Teste Não-Verbal de Inteligência",
     sigla: "SON-R",
     dominio: DominioCognitivo.INTELIGENCIA,
+    direcao: "MAIOR_MELHOR",
     descricao:
       "Teste não-verbal de inteligência (2;6 a 7;11 anos), 4 subtestes: Mosaicos e Padrões " +
       "(Execução), Categorias e Situações (Raciocínio). Normas brasileiras reais (Laros, Tellegen, " +
@@ -1321,6 +1340,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     nome: "Behavior Rating Inventory of Executive Function — 2ª ed. (Formulário de Pais)",
     sigla: "BRIEF2-PAIS",
     dominio: DominioCognitivo.FUNCOES_EXECUTIVAS,
+    direcao: "MENOR_MELHOR",
     descricao:
       "Avaliação de funções executivas no comportamento cotidiano, respondida pelos pais. 9 " +
       "escalas + 3 índices (BRI/ERI/CRI) + Composto Executivo Geral. Normas americanas (Gioia et " +
@@ -1366,7 +1386,10 @@ async function main() {
   console.log("Removendo catálogo fixo de testes anterior (se houver)...");
   // Recria o catálogo fixo inteiro a cada seed (placeholders e testes já reais) — é um script
   // de dev/fixture, não uma migração; AplicacaoDeTeste referencia testeId, então isso é seguro
-  // só em ambiente local sem dados de produção reais.
+  // só em ambiente local sem dados de produção reais. Também limpa lançamentos de teste que
+  // referenciam o catálogo FIXO (ex: pacientes de teste criados durante verificação manual) —
+  // sem isso o deleteMany do Teste falha por FK.
+  await prisma.aplicacaoDeTeste.deleteMany({ where: { teste: { escopo: EscopoTeste.FIXO } } });
   await prisma.tabelaNormativa.deleteMany({ where: { teste: { escopo: EscopoTeste.FIXO } } });
   await prisma.teste.deleteMany({ where: { escopo: EscopoTeste.FIXO } });
 
@@ -1382,6 +1405,7 @@ async function main() {
         algoritmoCorrecao: t.algoritmoCorrecao,
         referenciaBibliografica: t.referenciaBibliografica,
         isPlaceholder,
+        direcao: t.direcao ?? "NEUTRO",
         tabelasNormativas: {
           create: t.tabelasNormativas.map((f) => ({
             criterio: f.criterio,

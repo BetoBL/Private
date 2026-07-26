@@ -260,7 +260,7 @@ export function LancamentoTeste() {
                     </button>
                   </div>
                 </div>
-                <ResultadoResumo resultado={a.resultadoCalculado} />
+                <ResultadoResumo resultado={a.resultadoCalculado} direcao={a.teste.direcao} />
               </li>
             ))}
           </ul>
