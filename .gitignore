@@ -5,3 +5,6 @@ build/
 .env.local
 *.log
 .DS_Store
+
+# Manuais de testes protegidos por direitos autorais (não commitar/redistribuir)
+Manuais/
