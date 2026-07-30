@@ -154,6 +154,49 @@ test("calcularResultado: faixasPorCampo usa a tabela específica de cada campo, 
   assert.equal(resultado.porCampo.a7.faixa?.classificacao, "Inferior");
 });
 
+// --- camposDerivados: campo cujo "bruto" é a soma de um valor extraído de outros campos já
+// convertidos (ex: ADL2 — Escore Padrão Global = EP(LC) + EP(LE)) ---
+
+const ADL2_CONVERSAO: ConversaoNormativa = {
+  tipo: "percentil_por_campo",
+  faixasPorCampo: {
+    lc: [
+      { min: 0, max: 10, escorePadrao: 70 },
+      { min: 11, max: 20, escorePadrao: 90 },
+    ],
+    le: [
+      { min: 0, max: 10, escorePadrao: 65 },
+      { min: 11, max: 20, escorePadrao: 88 },
+    ],
+    global: [
+      { min: 0, max: 140, classificacao: "Distúrbio moderado" },
+      { min: 141, max: 999, classificacao: "Faixa da normalidade" },
+    ],
+  },
+  camposDerivados: {
+    global: { somaDe: ["lc", "le"], campoValor: "escorePadrao" },
+  },
+};
+
+test("calcularResultado: camposDerivados soma o campoValor extraído de outros campos e localiza a própria faixa", () => {
+  const resultado = calcularResultado({ lc: 15, le: 15 }, ADL2_CONVERSAO);
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  assert.equal(resultado.porCampo.lc.faixa?.escorePadrao, 90);
+  assert.equal(resultado.porCampo.le.faixa?.escorePadrao, 88);
+  assert.equal(resultado.porCampo.global.valorBruto, 178); // 90 + 88
+  assert.equal(resultado.porCampo.global.faixa?.classificacao, "Faixa da normalidade");
+});
+
+test("calcularResultado: camposDerivados cujos campos-fonte não bateram nenhuma faixa soma 0", () => {
+  const resultado = calcularResultado({ lc: -5, le: -5 }, ADL2_CONVERSAO);
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  assert.equal(resultado.porCampo.lc.faixa, null);
+  assert.equal(resultado.porCampo.global.valorBruto, 0);
+  assert.equal(resultado.porCampo.global.faixa?.classificacao, "Distúrbio moderado");
+});
+
 test("calcularResultado: faixasPorCampo sem entrada para o campo retorna faixa null", () => {
   const resultado = calcularResultado({ campoNaoMapeado: 10 }, RAVLT_CONVERSAO);
   assert.equal(resultado.modo, "por_campo");

@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import { PrismaClient, DominioCognitivo, EscopoTeste, PapelProfissional, Prisma } from "@prisma/client";
 import { BRIEF2_ESCALAS_PAIS_PROFESSORES, BRIEF2_PAIS_NORMAS, parseColunaBRIEF2 } from "./brief2-normas";
+import { ADL2_FAIXAS_ETARIAS, faixasGlobal, faixasLC, faixasLE } from "./adl2-normas";
 
 const prisma = new PrismaClient();
 
@@ -1376,6 +1377,56 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
             BRIEF2_ESCALAS_PAIS_PROFESSORES.map((campo) => [campo, parseColunaBRIEF2(faixa.escalas[campo])])
           ),
           gec: parseColunaBRIEF2(faixa.gec),
+        },
+      },
+    })),
+  },
+  {
+    nome: "Avaliação do Desenvolvimento da Linguagem",
+    sigla: "ADL2",
+    dominio: DominioCognitivo.LINGUAGEM_APRENDIZAGEM,
+    // MAIOR_MELHOR: Escore Padrão Global mais alto = desenvolvimento de linguagem mais próximo/
+    // acima da média (mesma lógica de um QI) — EP baixo é que indica distúrbio (Figura 4).
+    direcao: "MAIOR_MELHOR",
+    descricao:
+      "Avalia o desenvolvimento da linguagem (Compreensiva e Expressiva) de crianças de 3;0 a " +
+      "6;11 anos (1 a 2;11 anos só avaliação qualitativa, sem tabela normativa — não coberto " +
+      "aqui). Escore Padrão por subescala via tabela da faixa etária + Escore Padrão Global " +
+      "(soma dos 2) → classificação (Faixa da normalidade/Distúrbio leve/moderado/grave, Figura " +
+      "4 do manual). Dados transcritos de apostila de curso, não do manual oficial da editora — " +
+      "ver docs/testes/ADL-2.md.",
+    algoritmoCorrecao: {
+      aviso:
+        "Tabelas Compreensiva/Expressiva completas (célula a célula); tabela Global (soma → EP " +
+        "Global) só está completa para as faixas 3;0-3;5 e 3;6-3;11 — a apostila de curso original " +
+        "abrevia as demais 6 faixas etárias, então somas fora do intervalo documentado não recebem " +
+        "classificação automática (faixa null) em vez de valor inventado. Ver docs/testes/ADL-2.md.",
+      basal: "3 acertos consecutivos (por subescala)",
+      teto: "5 erros/ausências de resposta consecutivos (por subescala)",
+      campos: [
+        { chave: "lc", label: "LC — Linguagem Compreensiva (Escore Bruto, soma de acertos)" },
+        { chave: "le", label: "LE — Linguagem Expressiva (Escore Bruto, soma de acertos)" },
+      ],
+    },
+    referenciaBibliografica:
+      "CURSO-ADL-2.pdf (apostila de curso/treinamento sobre a Escala de Avaliação do " +
+      "Desenvolvimento da Linguagem — ADL2), não o manual técnico oficial da editora.",
+    isPlaceholder: true,
+    tabelasNormativas: ADL2_FAIXAS_ETARIAS.map((faixa) => ({
+      criterio: "idade_meses",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: faixa.faixaLabel,
+      conversao: {
+        tipo: "escorePadrao_por_campo",
+        fonte: `ADL2 (apostila de curso), faixa ${faixa.faixaLabel} — NÃO VERIFICADO contra manual oficial, ver aviso.`,
+        faixasPorCampo: {
+          lc: faixasLC(faixa.lc),
+          le: faixasLE(faixa.le),
+          global: faixasGlobal(faixa.global),
+        },
+        camposDerivados: {
+          global: { somaDe: ["lc", "le"], campoValor: "escorePadrao" },
         },
       },
     })),

@@ -6,6 +6,12 @@
 //   - `faixasPorCampo` presente -> cada campo tem sua própria tabela de faixas (ex: RAVLT, onde
 //                                   A1 e A7 têm pontos de corte diferentes na mesma faixa etária)
 //   - caso contrário          -> localiza uma faixa por campo na mesma tabela `faixas` compartilhada
+//   - `camposDerivados` presente -> depois do passo acima, campos adicionais cujo valor de entrada
+//                                   é a SOMA de um campo numérico já extraído da faixa de outros
+//                                   campos (ex: ADL2 — Escore Padrão Global = EP(LC) + EP(LE), onde
+//                                   EP(LC)/EP(LE) são eles mesmos resultado de uma conversão
+//                                   anterior, não escores brutos de entrada). Só 1 nível de
+//                                   derivação — suficiente para os casos reais conhecidos.
 // Essa convenção é suficiente para os testes placeholder do MVP e para normas reais com tabela
 // única por campo; ao trocar por normas reais, o `tipo`/`faixasPorCampo` de cada TabelaNormativa
 // continua controlando o modo de cálculo.
@@ -16,10 +22,20 @@ export interface FaixaConversao {
   [saida: string]: number | string | undefined;
 }
 
+// Campo cujo valor de entrada não vem do formulário de lançamento, e sim da soma de um campo
+// numérico já extraído da faixa de outros campos (ex: ADL2 — Escore Padrão Global = EP(LC) +
+// EP(LE), cada EP já é resultado de uma conversão anterior). Suporta só 1 nível de derivação
+// (soma de campos "de base"), suficiente para os casos reais conhecidos até agora.
+export interface CampoDerivado {
+  somaDe: string[];
+  campoValor: string;
+}
+
 export interface ConversaoNormativa {
   tipo: string;
   faixas?: FaixaConversao[];
   faixasPorCampo?: Record<string, FaixaConversao[]>;
+  camposDerivados?: Record<string, CampoDerivado>;
   [meta: string]: unknown;
 }
 
@@ -53,6 +69,14 @@ export function calcularResultado(
   for (const [chave, valor] of Object.entries(escoresBrutos)) {
     const faixasDoCampo = conversao.faixasPorCampo?.[chave] ?? conversao.faixas ?? [];
     porCampo[chave] = { valorBruto: valor, faixa: localizarFaixa(valor, faixasDoCampo) };
+  }
+  for (const [chave, derivado] of Object.entries(conversao.camposDerivados ?? {})) {
+    const valorBruto = derivado.somaDe.reduce((acc, fonte) => {
+      const v = porCampo[fonte]?.faixa?.[derivado.campoValor];
+      return acc + (typeof v === "number" ? v : 0);
+    }, 0);
+    const faixasDoCampo = conversao.faixasPorCampo?.[chave] ?? conversao.faixas ?? [];
+    porCampo[chave] = { valorBruto, faixa: localizarFaixa(valorBruto, faixasDoCampo) };
   }
   return { modo: "por_campo", porCampo };
 }
