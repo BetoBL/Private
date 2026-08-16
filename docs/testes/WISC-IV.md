@@ -85,6 +85,24 @@ Texto OCR bruto (intermediário, não mais necessário para uso mas preservado p
 
 **Nível de confiança**: alto — leitura visual direta, não parse de OCR — mas por ser transcrição manual em volume alto, uma conferência amostral por um segundo revisor (idealmente a psicóloga responsável) é recomendada antes de uso em produção clínica real, mesma ressalva de praxe em `WASI-tabelas-brutas.json`.
 
+### Conferência estrutural das A.1.x — e 3 erros que ela encontrou
+
+As A.1.x não têm como ser validadas contra a distribuição normal (isso só vale para as A.2-A.7, cujos compostos são normalizados). O que elas têm é **geometria**: `scripts/validar-wisc-a1.mjs` checa que, em cada subteste × faixa etária, os intervalos de escore bruto **ladrilham a reta sem buraco nem sobreposição**, começando em 0; que o teto de escore bruto é o mesmo nas 33 faixas (é o número de itens do subteste, não muda com a idade); que os pontos ponderados ficam em 1–19 sem repetição; e que o corte de um mesmo ponderado não cai conforme a idade sobe (aviso, não erro — platôs perto do piso/teto são legítimos).
+
+**Rodar isso nos dados já commitados revelou 3 células erradas**, todas conferidas contra a imagem original do PDF e corrigidas:
+
+| Faixa | Subteste | Estava | Correto | Fonte |
+|---|---|---|---|---|
+| 8:0-8:3 | RM ponderado 7 | `8` | `8-9` | A.1.7, p.224 |
+| 15:4-15:7 | SNL ponderados 18/19 | `-` / `26-30` | `26` / `27-30` | A.1.29, p.246 |
+| 15:8-15:11 | SNL ponderados 18/19 | `-` / `26-30` | `26` / `27-30` | A.1.30, p.247 |
+
+O primeiro era um escore bruto que caía num buraco (bruto 9 em RM não convertia em nada). Os dois de SNL eram pior: **não quebravam o tiling**, então só a checagem de monotonicidade etária os pegou — um adolescente com SNL bruto 26 recebia ponderado 19 (o teto da escala) em vez de 18, inflando o IMO e o QI Total.
+
+Diferente de `validar-wisc-a2a7.mjs`, este validador **não tem teste de mutação** — ele não precisa provar que morde, já que encontrou 3 erros reais em dados de produção. O de A.2-A.7 passou de primeira, e é justamente por isso que precisou de mutações plantadas para valer algo.
+
+**Exceção real, não erro de transcrição**: Código e Procurar Símbolos trocam de forma em 8:0 (Forma A → Forma B), com número de itens diferente — CD vai de teto 65 para 119, PS de 45 para 60. Foi a checagem de teto que revelou isso nos dados; está declarado em `TROCA_DE_FORMA` no validador, com a página do manual que confirma.
+
 ## Extração das Tabelas A.2-A.7 — COMPLETA
 
 Páginas impressas 251-255 (páginas 272-276 do PDF), renderizadas a 200dpi e lidas visualmente:
@@ -132,6 +150,6 @@ Verificação ponta a ponta em `scripts/verificar-wisc4-motor.ts`: monta a mesma
 ## Pendências restantes
 
 - [ ] Ler Capítulo 2 (Orientações Gerais sobre a Aplicação, p.23–53) e Capítulo 3 completo (Procedimentos de Aplicação e Avaliação por subteste, p.55–200) — necessário se o objetivo incluir gerar roteiro de aplicação, não só corrigir.
-- [ ] **Conferência amostral por um segundo revisor** (idealmente a psicóloga responsável) das tabelas A.1.x antes de uso clínico real — o volume é alto (~9.400 valores) e a validação por script só cobre A.2-A.7, onde existe estrutura estatística para checar. As A.1.x não têm essa propriedade.
+- [ ] **Conferência amostral por um segundo revisor** (idealmente a psicóloga responsável) das tabelas A.1.x antes de uso clínico real. As checagens estruturais de `validar-wisc-a1.mjs` já rodam e passam, mas elas pegam só erro que quebra geometria — um dígito trocado no MEIO de um intervalo (`24-26` lido como `24-25` com o vizinho ajustado, ou `17` lido como `11`) preserva o tiling e passa batido. Que o script tenha achado 3 erros de primeira é motivo para desconfiar que existam outros desse tipo, não para relaxar.
 - [ ] Ler B.7-B.10 e B.2 por faixa de habilidade, se a análise de discrepância virar escopo.
 - [ ] Confirmar se existe tabela de classificação qualitativa (Muito Superior→Extremamente Baixo) na adaptação brasileira — checar Manual Técnico separado, citado no texto mas não incluído neste PDF. **Enquanto não houver, o catálogo não emite `classificacao` para os compostos**: inventar os rótulos Wechsler-padrão seria atribuir ao manual algo não conferido nele. A classificação sai do percentil, pelo sistema escolhido no Perfil de Atuação (`src/lib/classificacaoPercentil.ts`).
