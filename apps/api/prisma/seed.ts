@@ -2,6 +2,13 @@ import bcrypt from "bcryptjs";
 import { PrismaClient, DominioCognitivo, EscopoTeste, PapelProfissional, Prisma } from "@prisma/client";
 import { BRIEF2_ESCALAS_PAIS_PROFESSORES, BRIEF2_PAIS_NORMAS, parseColunaBRIEF2 } from "./brief2-normas";
 import { ADL2_FAIXAS_ETARIAS, faixasGlobal, faixasLC, faixasLE } from "./adl2-normas";
+import {
+  WISC4_FAIXAS_ETARIAS,
+  WISC4_INDICES,
+  WISC4_LABEL_SUBTESTE,
+  WISC4_PRINCIPAIS,
+  WISC4_SUPLEMENTARES,
+} from "./wisc4-normas";
 
 const prisma = new PrismaClient();
 
@@ -1428,6 +1435,82 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         camposDerivados: {
           global: { somaDe: ["lc", "le"], campoValor: "escorePadrao" },
         },
+      },
+    })),
+  },
+  {
+    nome: "WISC-IV — Escala Wechsler de Inteligência para Crianças (4ª edição)",
+    sigla: "WISC-IV",
+    dominio: DominioCognitivo.INTELIGENCIA,
+    direcao: "MAIOR_MELHOR",
+    descricao:
+      "Escala de inteligência para 6;0 a 16;11 anos. 15 subtestes (10 principais + 5 " +
+      "suplementares) em 4 Índices Fatoriais — ICV, IOP, IMO, IVP — mais o QI Total. Ao " +
+      "contrário do WAIS-III, não tem mais QI Verbal/Execução. Cálculo em 2 etapas: bruto → " +
+      "ponto ponderado pela tabela da faixa etária (Tabelas A.1.x, 33 faixas de 4 meses), " +
+      "depois soma dos ponderados → Ponto Composto + percentil + IC (Tabelas A.2-A.6). Normas " +
+      "da amostra brasileira. Ver docs/testes/WISC-IV.md.",
+    algoritmoCorrecao: {
+      aviso:
+        "Os 4 índices e o QI Total só são calculados quando TODOS os subtestes principais que os " +
+        "compõem forem lançados — um índice com subteste faltando volta 'não calculado' em vez de " +
+        "um número somando 0 no lugar do que falta. Substituição de subteste principal por " +
+        "suplementar (Tabela 5 do manual) e soma pró-rata (Tabela A.7) ainda NÃO são aplicadas " +
+        "automaticamente: nesses casos o índice fica sem valor e cabe ao profissional calcular à " +
+        "mão. O manual também não traz tabela de classificação qualitativa da adaptação " +
+        "brasileira (está no Manual Técnico, que não temos) — a classificação sai do percentil, " +
+        "pelo sistema escolhido no Perfil de Atuação.",
+      etapas: [
+        "1. Idade cronológica na data de aplicação (o manual usa mês = 30 dias, sem arredondar).",
+        "2. Bruto de cada subteste → ponto ponderado (1-19), pela Tabela A.1.x da faixa etária.",
+        "3. Soma dos ponderados dos principais de cada índice (ICV/IOP: 3; IMO/IVP: 2; QIT: os 10).",
+        "4. Soma → Ponto Composto + Rank Percentil + IC 90/95 (Tabelas A.2 a A.6).",
+      ],
+      invalidacao:
+        "Se a criança zerar 2 dos 3 subtestes de ICV/IOP, ou os 2 de IMO/IVP, aquele índice e o " +
+        "QI Total ficam invalidados pelo manual — não é 'habilidade zero', é 'não foi possível " +
+        "medir'. Essa regra não é detectada automaticamente; conferir no protocolo.",
+      campos: [
+        ...WISC4_PRINCIPAIS.map((chave) => ({
+          chave,
+          label: `${chave.toUpperCase()} — ${WISC4_LABEL_SUBTESTE[chave]} (principal, escore bruto)`,
+        })),
+        ...WISC4_SUPLEMENTARES.map((chave) => ({
+          chave,
+          label: `${chave.toUpperCase()} — ${WISC4_LABEL_SUBTESTE[chave]} (suplementar, escore bruto)`,
+        })),
+      ],
+    },
+    referenciaBibliografica:
+      "WECHSLER, D. WISC-IV: Escala Wechsler de Inteligência para Crianças — Manual de " +
+      "Instruções para Aplicação e Avaliação. Adaptação e padronização brasileira: Fabián " +
+      "Javier Marín Rueda, Ana Paula Porto Noronha, Fermino Fernandes Sisto, Acácia Aparecida " +
+      "Angeli dos Santos, Nelimar Ribeiro de Castro. 1. ed. São Paulo: Casa do Psicólogo, 2013.",
+    isPlaceholder: false,
+    // As Tabelas A.2-A.6 (soma → composto) não variam por faixa etária, mas uma AplicacaoDeTeste
+    // resolve UMA tabela normativa só (escolherTabelaNormativa). Por isso as faixas dos índices
+    // são repetidas dentro de cada uma das 33 tabelas etárias — mesmo padrão já usado no SON-R
+    // para a Tabela 76.
+    tabelasNormativas: WISC4_FAIXAS_ETARIAS.map((faixa) => ({
+      criterio: "idade_meses",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: `${faixa.faixaLabel} anos`,
+      conversao: {
+        tipo: "ponderado_e_composto_por_campo",
+        fonte:
+          `WISC-IV, normas brasileiras (Casa do Psicólogo, 2013): Tabela A.1.x da faixa ` +
+          `${faixa.faixaLabel} para bruto→ponderado, Tabelas A.2-A.6 para soma→composto.`,
+        faixasPorCampo: {
+          ...faixa.faixasPorSubteste,
+          ...Object.fromEntries(WISC4_INDICES.map((i) => [i.chave, i.faixas])),
+        },
+        camposDerivados: Object.fromEntries(
+          WISC4_INDICES.map((i) => [
+            i.chave,
+            { somaDe: i.fontes, campoValor: "ponderado", exigeTodasFontes: true },
+          ])
+        ),
       },
     })),
   },

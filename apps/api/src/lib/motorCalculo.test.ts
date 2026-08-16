@@ -197,6 +197,62 @@ test("calcularResultado: camposDerivados cujos campos-fonte não bateram nenhuma
   assert.equal(resultado.porCampo.global.faixa?.classificacao, "Distúrbio moderado");
 });
 
+// --- exigeTodasFontes: o oposto do caso acima — em vez de somar 0 no lugar do que falta, devolve
+// "não calculado". Modelado no WISC-IV, onde um QI Total somando 0 por um subteste não lançado
+// seria um número plausível e errado indo para um laudo. ---
+
+const WISC4_CONVERSAO: ConversaoNormativa = {
+  tipo: "ponderado_e_composto_por_campo",
+  faixasPorCampo: {
+    // 2 subtestes só, com tabelas bruto -> ponderado propositalmente diferentes entre si
+    dg: [
+      { min: 0, max: 9, ponderado: 8 },
+      { min: 10, max: 20, ponderado: 12 },
+    ],
+    snl: [
+      { min: 0, max: 5, ponderado: 7 },
+      { min: 6, max: 20, ponderado: 11 },
+    ],
+    imo: [
+      { min: 15, max: 15, composto: 85, percentil: "16" },
+      { min: 23, max: 23, composto: 109, percentil: "73" },
+    ],
+  },
+  camposDerivados: {
+    imo: { somaDe: ["dg", "snl"], campoValor: "ponderado", exigeTodasFontes: true },
+  },
+};
+
+test("calcularResultado: exigeTodasFontes calcula normalmente quando todas as fontes estão presentes", () => {
+  const resultado = calcularResultado({ dg: 12, snl: 8 }, WISC4_CONVERSAO);
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  assert.equal(resultado.porCampo.dg.faixa?.ponderado, 12);
+  assert.equal(resultado.porCampo.snl.faixa?.ponderado, 11);
+  assert.equal(resultado.porCampo.imo.valorBruto, 23); // 12 + 11
+  assert.equal(resultado.porCampo.imo.faixa?.composto, 109);
+  assert.equal(resultado.porCampo.imo.faixa?.percentil, "73");
+});
+
+test("calcularResultado: exigeTodasFontes com subteste não lançado devolve não-calculado, não soma 0", () => {
+  const resultado = calcularResultado({ dg: 12 }, WISC4_CONVERSAO); // snl ausente
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  assert.equal(resultado.porCampo.imo.valorBruto, null);
+  assert.equal(resultado.porCampo.imo.faixa, null);
+  // Sem a flag, o derivado somaria 12 + 0 = 12 e localizaria (ou não) uma faixa — o ponto do
+  // teste é justamente que 12 nunca chega a ser considerado.
+});
+
+test("calcularResultado: exigeTodasFontes com fonte lançada mas fora de qualquer faixa também não calcula", () => {
+  const resultado = calcularResultado({ dg: 12, snl: -1 }, WISC4_CONVERSAO);
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  assert.equal(resultado.porCampo.snl.faixa, null);
+  assert.equal(resultado.porCampo.imo.valorBruto, null);
+  assert.equal(resultado.porCampo.imo.faixa, null);
+});
+
 test("calcularResultado: faixasPorCampo sem entrada para o campo retorna faixa null", () => {
   const resultado = calcularResultado({ campoNaoMapeado: 10 }, RAVLT_CONVERSAO);
   assert.equal(resultado.modo, "por_campo");

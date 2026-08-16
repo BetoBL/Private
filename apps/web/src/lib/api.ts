@@ -137,7 +137,9 @@ export interface FaixaConversao {
 
 export type ResultadoCalculado =
   | { modo: "soma"; escoreBrutoTotal: number; faixa: FaixaConversao | null }
-  | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number; faixa: FaixaConversao | null }> };
+  // valorBruto null = campo derivado que não pôde ser calculado porque falta algum campo-fonte
+  // (ex: índice do WISC-IV com subteste principal não lançado) — ver motorCalculo.ts.
+  | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number | null; faixa: FaixaConversao | null }> };
 
 export interface AplicacaoDeTeste {
   id: string;

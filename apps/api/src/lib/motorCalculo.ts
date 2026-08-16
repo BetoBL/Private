@@ -29,6 +29,16 @@ export interface FaixaConversao {
 export interface CampoDerivado {
   somaDe: string[];
   campoValor: string;
+  // Quando `true`, o campo derivado só é calculado se TODAS as fontes tiverem valor numérico em
+  // `campoValor`; se qualquer uma faltar (subteste não lançado, ou lançado mas sem faixa
+  // correspondente), o resultado é `valorBruto: null` / `faixa: null` — "não calculado" — em vez
+  // de somar 0 no lugar do que falta.
+  //
+  // Existe por causa do WISC-IV: um QI Total que soma 0 no lugar de um subteste não lançado
+  // produz um número plausível e errado, que iria direto para um laudo sem nada denunciando o
+  // erro. É opt-in para não alterar o comportamento já estabelecido da ADL2 (ver o teste
+  // "camposDerivados cujos campos-fonte não bateram nenhuma faixa soma 0").
+  exigeTodasFontes?: boolean;
 }
 
 export interface ConversaoNormativa {
@@ -40,7 +50,9 @@ export interface ConversaoNormativa {
 }
 
 export interface ResultadoPorCampo {
-  valorBruto: number;
+  // `null` só acontece em campo derivado com `exigeTodasFontes` cuja alguma fonte faltou — é a
+  // diferença entre "não deu para calcular" e "calculou e deu zero".
+  valorBruto: number | null;
   faixa: FaixaConversao | null;
 }
 
@@ -71,11 +83,18 @@ export function calcularResultado(
     porCampo[chave] = { valorBruto: valor, faixa: localizarFaixa(valor, faixasDoCampo) };
   }
   for (const [chave, derivado] of Object.entries(conversao.camposDerivados ?? {})) {
-    const valorBruto = derivado.somaDe.reduce((acc, fonte) => {
+    const valoresDasFontes = derivado.somaDe.map((fonte) => {
       const v = porCampo[fonte]?.faixa?.[derivado.campoValor];
-      return acc + (typeof v === "number" ? v : 0);
-    }, 0);
+      return typeof v === "number" ? v : null;
+    });
     const faixasDoCampo = conversao.faixasPorCampo?.[chave] ?? conversao.faixas ?? [];
+
+    if (derivado.exigeTodasFontes && valoresDasFontes.some((v) => v === null)) {
+      porCampo[chave] = { valorBruto: null, faixa: null };
+      continue;
+    }
+
+    const valorBruto = valoresDasFontes.reduce<number>((acc, v) => acc + (v ?? 0), 0);
     porCampo[chave] = { valorBruto, faixa: localizarFaixa(valorBruto, faixasDoCampo) };
   }
   return { modo: "por_campo", porCampo };

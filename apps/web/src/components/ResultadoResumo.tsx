@@ -9,9 +9,14 @@ const LARGURA_POR_POSICAO: Record<-2 | -1 | 0 | 1 | 2, number> = { [-2]: 10, [-1
 function detalheFaixa(faixa: FaixaConversao | null): string {
   if (!faixa) return "";
   const partes: string[] = [];
+  // `ponderado` e `composto` vêm do WISC-IV (bruto→ponderado→composto); `ic90`/`ic95` também,
+  // e são o que o manual manda reportar junto do composto num laudo.
+  if (faixa.ponderado !== undefined) partes.push(`ponderado ${faixa.ponderado}`);
+  if (faixa.composto !== undefined) partes.push(`composto ${faixa.composto}`);
   if (faixa.percentil !== undefined) partes.push(`percentil ${faixa.percentil}`);
   if (faixa.escoreT !== undefined) partes.push(`escore T ${faixa.escoreT}`);
   if (faixa.qi !== undefined) partes.push(`QI ${faixa.qi}`);
+  if (faixa.ic95 !== undefined) partes.push(`IC95 ${faixa.ic95}`);
   return partes.join(" · ");
 }
 
@@ -22,7 +27,7 @@ function BarraResultado({
   direcao,
 }: {
   label: string;
-  valorBruto: number;
+  valorBruto: number | null;
   faixa: FaixaConversao | null;
   direcao: DirecaoMelhorPior;
 }) {
@@ -31,6 +36,24 @@ function BarraResultado({
   const severidade = inferirSeveridade(classificacao, direcao);
   const largura = posicao === null ? 50 : LARGURA_POR_POSICAO[posicao];
   const detalhe = detalheFaixa(faixa);
+  // valorBruto null = campo derivado sem todas as fontes lançadas (ex: índice do WISC-IV com
+  // subteste principal faltando). Não desenha barra: mostrar 50% aqui sugeriria "resultado médio"
+  // para algo que simplesmente não foi calculado.
+  const naoCalculado = valorBruto === null;
+
+  if (naoCalculado) {
+    return (
+      <div className="flex flex-col gap-1">
+        <div className="flex items-baseline justify-between text-xs">
+          <span className="font-semibold text-ink/70">{label}</span>
+          <span className="text-ink/40">não calculado</span>
+        </div>
+        <span className="text-[11px] text-ink/40">
+          falta lançar algum subteste que compõe este índice
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-1">
