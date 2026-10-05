@@ -65,6 +65,30 @@ Todas as 60 tabelas foram abertas e conferidas visualmente (estrutura, faixas de
 
 Âncoras conferidas (Tabela A.1, Meninos 5-7, escalas): bruto 24→T79/pctl>99 (Inhibit); bruto 4→T38/pctl27 (Initiate, mínimo da faixa mostrada). Tabela A.9 (GEC Meninos 5-7): bruto 180→T>90/pctl>99; bruto 60→T35/pctl1. Padrão idêntico se repete nas 22 tabelas restantes, só variando as constantes por idade/sexo/escala.
 
+#### Rodada de verificação (05/10/2026) — Tabelas A.1–A.4, escalas
+
+As 9 escalas das quatro tabelas de **Meninos** foram reconferidas célula a célula e os dados em `apps/api/prisma/brief2-normas.ts` foram **reescritos**. Isto encerra a pendência "transcrito mas não verificado" para essa fatia (só para ela).
+
+**Método.** `pdftoppm -r 400` sobre as páginas físicas 1–4 do PDF (= páginas impressas 184–187), dois recortes por página, leitura visual coluna a coluna. Células duvidosas foram reabertas a 600dpi. O PDF é escaneado, sem camada de texto — não há atalho via `pdftotext`.
+
+**O que estava errado.** A transcrição anterior tinha **desalinhamento de linha em 7 das 9 escalas**, quase sempre na metade inferior da coluna: um valor pulado ou repetido fazia todo o resto escorregar uma linha. Só `inhibit` (A.3 e A.4) e as colunas de T de A.1 saíram intactas. Além disso:
+
+- `taskMonitor` estava sem a linha do bruto 5 nas **quatro** faixas;
+- `selfMonitor` de 8–10 anos tinha duas linhas inventadas (brutos 2 e 3), abaixo do mínimo possível da escala (4 itens → bruto mínimo 4);
+- em A.2 e A.3 a coluna de **percentil** estava deslocada em relação à de T na mesma escala, o que é pior que um erro de dígito: o par (T, percentil) ficava internamente inconsistente.
+
+**Por que o validador não tinha visto isso.** `scripts/validar-brief2.mjs` só acusava 10 células. Três motivos, todos corrigidos agora:
+
+1. Um deslocamento de uma linha inteira **preserva a linearidade** — a coluna continua sendo uma reta crescente, só que ancorada no bruto errado. A checagem de resíduo é cega para isso. O que pega essa classe de erro é a nova **guarda de amplitude** (`BRIEF2_AMPLITUDE_BRUTO_PAIS_PROFESSORES`): o bruto de uma escala vai de *n* itens a 3*n* sem buraco, então linha faltando ou linha inventada aparece na hora.
+2. O T `">90"` no topo das colunas de Shift virava `NaN` em `Number(">90")`, o `NaN` contaminava o ajuste de mínimos quadrados e **toda** comparação com o resíduo virava `false` — quatro colunas de Shift passavam sem ser checadas, em silêncio. Agora `">"` é tratado como censurado, igual ao percentil `">99"`.
+3. O validador reportava só o **pior** resíduo por série, e o próprio ajuste estava puxado pela célula errada. Um ajuste *leave-one-out* (reta sem o ponto sob suspeita) mostrou o dobro de suspeitos.
+
+**Anomalia real do manual, não corrigir.** Em `workingMemory` das faixas 5–7 e 8–10, o manual imprime bruto 17→T 63 e 18→T 64 — um degrau de 1 ponto onde o resto da coluna anda ~2,6. Conferido a 600dpi nas duas páginas, e em A.1 confirmado duas vezes (a coluna aparece inteira nos dois recortes da página). Está registrado como exceção verificada em `EXCECOES_VERIFICADAS` no validador; o ponto sai do ajuste linear mas continua sujeito a monotonicidade e domínio, e o teste de mutação prova que um erro na linha vizinha da mesma coluna continua sendo pego.
+
+**Como reproduzir.** `npx tsx scripts/validar-brief2.mjs` (0 erros) e `node scripts/mutar-brief2.mjs` (6/6 mutações detectadas, mais o controle sem mutação passando).
+
+**Fora do escopo desta rodada:** GEC (Tabelas A.9–A.12, entram só como pontos-âncora e seguem não reconferidos), índices BRI/ERI/CRI (A.5–A.8, não implementados), Meninas (A.13–A.24), Professores e Autorrelato.
+
 ### Apêndice B — Formulário de Professores (Tabelas B.1–B.24, páginas 210–233)
 Mesma estrutura exata do Apêndice A (escalas/índices/GEC × 4 faixas × 2 sexos). Âncora conferida: Tabela B.1 (Meninos 5-7, escalas): bruto 24→T78/pctl>99 (Inhibit); bruto 4→T40/pctl29 (Working Memory, mínimo mostrado). Tabela B.9 (GEC Meninos 5-7): bruto 180→T88/pctl>99; bruto 60→T38/pctl4.
 
@@ -179,5 +203,6 @@ Usado para decidir se a diferença entre duas aplicações (ex. antes/depois de 
 - [ ] **Confirmar normas**: este manual é americano (PAR, sem tradução/normatização brasileira citada). Perguntar à psicóloga se ela usa mesmo as normas americanas ou se aplica com alguma adaptação/tradução brasileira publicada à parte.
 - [ ] O segundo arquivo enviado, **"BRIEF - P Apendices A and B.pdf"**, é do **BRIEF-P** (versão Pré-Escolar, 2-5 anos) — um instrumento irmão diferente do BRIEF2, com suas próprias escalas e tabelas normativas. Não processado nesta rodada; avaliar se a psicóloga usa o BRIEF-P também (para a faixa 2-5 anos, fora da cobertura do BRIEF2) e documentar separadamente se sim.
 - [ ] Os capítulos teóricos/de definição de cada escala (o que exatamente cada uma mede, itens de exemplo) **não estavam neste PDF** — o arquivo começa direto no Apêndice A. Só foi possível inferir a composição dos índices pelos cabeçalhos das tabelas. Se precisar do texto descritivo de cada escala (para tooltip/prompt de IA), será necessário conseguir os capítulos 1-3 do manual completo.
-- [ ] **Gerar o JSON de seed das 60 tabelas de conversão** (Apêndices A/B/C) é o próximo passo mecânico — cada tabela já está localizada por número e página exata acima; não precisa reler o PDF do zero, só reabrir a página citada e transcrever linha a linha no momento da implementação.
+- [ ] **Risco clínico aberto — paciente do sexo feminino.** Só existem as tabelas de Meninos. `escolherTabelaNormativa` (apps/api/src/lib/motorCalculo.ts) cai para uma tabela de outro sexo quando não acha a do sexo do paciente — comportamento proposital e correto para testes sem efeito de sexo (RAVLT, BPA), mas **errado para o BRIEF2**, cujas normas são estratificadas por sexo. Hoje uma menina seria pontuada pela norma de menino sem nada na tela denunciando. Duas saídas possíveis: transcrever A.13–A.24, ou fazer a tabela declarar que o fallback por sexo não é permitido para ela.
+- [ ] **Gerar o JSON de seed das tabelas de conversão restantes.** Feito: Apêndice A, Tabelas A.1–A.4, escalas (Pais, Meninos) — ver "Rodada de verificação" acima. Faltam: A.5–A.8 (índices BRI/ERI/CRI), A.9–A.12 (GEC completo, hoje só âncoras não reconferidas), A.13–A.24 (Meninas) e os Apêndices B e C inteiros. Cada tabela já está localizada por número e página exata acima; a página física do PDF = página impressa − 183. O caminho que funcionou está descrito na "Rodada de verificação" — vale repetir o `pdftoppm -r 400` + leitura em dois recortes em vez de tentar OCR.
 - [ ] Confirmar com a psicóloga quais formulários ela usa na prática (Pais/Professores/Autorrelato, ou só um/dois) — afeta que fluxo de lançamento priorizar na UI.

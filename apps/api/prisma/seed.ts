@@ -1338,13 +1338,21 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     })),
   },
   {
-    // ⚠️ isPlaceholder=true DE PROPÓSITO, ao contrário dos outros 9 testes reais desta rodada.
-    // Escalas transcritas com cuidado do manual (Apêndice A, Tabelas A.1-A.4, só Meninos —
-    // Meninas/Professores/Autorrelato ainda faltam), mas SEM a confiança de validação cruzada
-    // que os outros testes tiveram (não há fixture de caso clínico no manual para conferir, e o
-    // layout denso das tabelas tem risco real de erro célula-a-célula — já encontrei e corrigi
-    // um erro concreto ao transcrever). Índices (BRI/ERI/CRI) não incluídos — ver
-    // docs/testes/BRIEF2.md. Reconferir contra o PDF original antes de qualquer uso clínico.
+    // ⚠️ isPlaceholder=true DE PROPÓSITO, ao contrário dos outros 9 testes reais desta rodada —
+    // mas por um motivo diferente do que era antes de 05/10/2026.
+    //
+    // O que MUDOU: as 9 escalas das Tabelas A.1-A.4 (Pais, Meninos) foram reconferidas célula a
+    // célula contra as páginas do manual renderizadas a 400dpi, e passam na validação estrutural
+    // (scripts/validar-brief2.mjs, com teste de mutação em scripts/mutar-brief2.mjs). A
+    // transcrição anterior tinha desalinhamento de linha em 7 das 9 escalas.
+    //
+    // O que ainda FALTA, e é o motivo de seguir placeholder:
+    //   - Meninas (A.13-A.24), Professores (Apêndice B) e Autorrelato (Apêndice C) não existem.
+    //     Como `escolherTabelaNormativa` cai para uma tabela de outro sexo quando não acha a do
+    //     sexo do paciente, uma paciente MENINA hoje seria pontuada pela norma de MENINO sem
+    //     aviso na tela. Esse é o risco clínico concreto deste teste agora.
+    //   - Índices BRI/ERI/CRI (A.5-A.8) não incluídos — ver docs/testes/BRIEF2.md.
+    //   - GEC entra só como pontos-âncora de 10 em 10, e NÃO foi reconferido nesta rodada.
     nome: "Behavior Rating Inventory of Executive Function — 2ª ed. (Formulário de Pais)",
     sigla: "BRIEF2-PAIS",
     dominio: DominioCognitivo.FUNCOES_EXECUTIVAS,
@@ -1352,10 +1360,15 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     descricao:
       "Avaliação de funções executivas no comportamento cotidiano, respondida pelos pais. 9 " +
       "escalas + 3 índices (BRI/ERI/CRI) + Composto Executivo Geral. Normas americanas (Gioia et " +
-      "al., PAR 2015) — transcrição parcial e não verificada (só meninos, sem os 3 índices); " +
-      "tratar como placeholder até reconferência.",
+      "al., PAR 2015) — cobertura parcial: só o Formulário de Pais, só MENINOS, sem os 3 índices. " +
+      "As 9 escalas estão conferidas contra o manual; o resto ainda não existe.",
     algoritmoCorrecao: {
-      aviso: "Dados de Meninos (5-7/8-10/11-13/14-18) transcritos do manual mas não verificados por segunda leitura nem fixture — ver docs/testes/BRIEF2.md.",
+      aviso:
+        "Cobre só MENINOS (5-7/8-10/11-13/14-18) do Formulário de Pais. As 9 escalas foram " +
+        "conferidas célula a célula contra as Tabelas A.1-A.4 do manual em 05/10/2026. NÃO use " +
+        "em paciente do sexo feminino: não há tabela de Meninas, e o sistema cairia na norma de " +
+        "Meninos sem avisar. GEC é aproximado (pontos-âncora, não reconferido) e os índices " +
+        "BRI/ERI/CRI não estão implementados — ver docs/testes/BRIEF2.md.",
       escalas: BRIEF2_ESCALAS_PAIS_PROFESSORES,
       indices: {
         BRI: ["Inhibit", "Self-Monitor"],
@@ -1378,7 +1391,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       sexo: faixa.sexo,
       conversao: {
         tipo: "escoreT_por_campo",
-        fonte: `BRIEF2 Formulário de Pais (Gioia et al., 2015), ${faixa.faixaLabel} — NÃO VERIFICADO, ver aviso.`,
+        fonte: `BRIEF2 Formulário de Pais (Gioia et al., 2015), ${faixa.faixaLabel} — escalas conferidas contra as Tabelas A.1-A.4 do manual; GEC aproximado. Ver aviso.`,
         faixasPorCampo: {
           ...Object.fromEntries(
             BRIEF2_ESCALAS_PAIS_PROFESSORES.map((campo) => [campo, parseColunaBRIEF2(faixa.escalas[campo])])
