@@ -8,3 +8,18 @@ build/
 
 # Manuais de testes protegidos por direitos autorais (não commitar/redistribuir)
 Manuais/
+
+# Protocolos de paciente — dado clínico identificável. NUNCA versionar (LGPD + sigilo
+# profissional). Os .xlsm/.xlsx do sistema Excel da psicóloga trazem nome, data de nascimento e
+# resultado de pessoas reais nas abas de lançamento. Para trabalhar com as tabelas de NORMA
+# (que são dado factual do instrumento, não do paciente), use scripts/extrair-normas-excel.mjs,
+# que extrai só as abas de norma e grava fora do repositório.
+*.xlsm
+*.xlsx
+
+# Anotações locais de desenvolvimento (contém credencial do fixture de dev)
+Anotações.txt
+
+# Pacotes do handoff inicial — o conteúdo já está versionado em docs/ e na raiz
+claude-code-handoff.zip
+files.zip
