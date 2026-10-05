@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "TipoRespondente" AS ENUM ('PACIENTE', 'MAE', 'PAI', 'CUIDADOR', 'PROFESSOR', 'OUTRO');
+CREATE TYPE "TipoRespondente" AS ENUM ('PACIENTE', 'MAE', 'PAI', 'CONJUGE', 'FILHO', 'IRMAO', 'CUIDADOR', 'PROFESSOR', 'PROFISSIONAL', 'OUTRO');
 
 -- AlterTable
 ALTER TABLE "Teste" ADD COLUMN     "instrumento" TEXT;

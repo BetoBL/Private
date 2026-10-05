@@ -15,7 +15,9 @@ import { asyncHandler, validateBody } from "../lib/validate";
 // manda nada cai em PACIENTE, que é o comportamento de todo lançamento anterior a este campo
 // existir e o certo para teste de aplicação direta.
 const respondenteSchema = {
-  respondenteTipo: z.enum(["PACIENTE", "MAE", "PAI", "CUIDADOR", "PROFESSOR", "OUTRO"]).optional(),
+  respondenteTipo: z
+    .enum(["PACIENTE", "MAE", "PAI", "CONJUGE", "FILHO", "IRMAO", "CUIDADOR", "PROFESSOR", "PROFISSIONAL", "OUTRO"])
+    .optional(),
   // string vazia vinda de <input> vira null, para não gravar "" como se fosse nome preenchido
   respondenteNome: z.string().trim().max(200).optional().transform((v) => v || null),
   respondenteRelacao: z.string().trim().max(200).optional().transform((v) => v || null),

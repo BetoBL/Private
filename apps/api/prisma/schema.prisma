@@ -34,12 +34,22 @@ enum Sexo {
 //
 // PACIENTE é o default e cobre tanto autorrelato quanto teste de aplicação direta (WISC-IV,
 // RAVLT), onde não existe informante — o dado é do paciente, registrado pelo examinador.
+//
+// A lista cobre avaliação infantil, de adulto e de idoso de propósito. Mãe/pai/professor dão
+// conta da prática infantil, mas numa avaliação de adulto o informante padrão é o CÔNJUGE, e em
+// investigação de demência costuma ser um FILHO adulto — fixar só os papéis da clínica infantil
+// deixaria metade da neuropsicologia de fora. OUTRO + `respondenteRelacao` (texto livre) cobre
+// o que não couber aqui.
 enum TipoRespondente {
   PACIENTE
   MAE
   PAI
+  CONJUGE
+  FILHO
+  IRMAO
   CUIDADOR
   PROFESSOR
+  PROFISSIONAL
   OUTRO
 }
 

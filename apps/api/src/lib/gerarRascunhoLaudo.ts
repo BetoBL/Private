@@ -27,8 +27,12 @@ export const DESCRICAO_RESPONDENTE: Record<string, string> = {
   PACIENTE: "o próprio paciente",
   MAE: "a mãe",
   PAI: "o pai",
+  CONJUGE: "o cônjuge/parceiro(a)",
+  FILHO: "um(a) filho(a)",
+  IRMAO: "um(a) irmão/irmã",
   CUIDADOR: "um cuidador/responsável",
-  PROFESSOR: "um professor",
+  PROFESSOR: "um(a) professor(a)",
+  PROFISSIONAL: "outro profissional que acompanha o paciente",
   OUTRO: "outro informante",
 };
 

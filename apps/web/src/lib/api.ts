@@ -147,14 +147,28 @@ export type ResultadoCalculado =
 
 // Quem produziu os escores. PACIENTE cobre autorrelato e teste de aplicação direta (WISC-IV,
 // RAVLT), onde não existe informante. Ver enum TipoRespondente no schema.
-export type TipoRespondente = "PACIENTE" | "MAE" | "PAI" | "CUIDADOR" | "PROFESSOR" | "OUTRO";
+export type TipoRespondente =
+  | "PACIENTE"
+  | "MAE"
+  | "PAI"
+  | "CONJUGE"
+  | "FILHO"
+  | "IRMAO"
+  | "CUIDADOR"
+  | "PROFESSOR"
+  | "PROFISSIONAL"
+  | "OUTRO";
 
 export const ROTULO_RESPONDENTE: Record<TipoRespondente, string> = {
   PACIENTE: "O próprio paciente",
   MAE: "Mãe",
   PAI: "Pai",
+  CONJUGE: "Cônjuge/parceiro(a)",
+  FILHO: "Filho(a)",
+  IRMAO: "Irmão/irmã",
   CUIDADOR: "Cuidador/responsável",
-  PROFESSOR: "Professor",
+  PROFESSOR: "Professor(a)",
+  PROFISSIONAL: "Outro profissional",
   OUTRO: "Outro",
 };
 
