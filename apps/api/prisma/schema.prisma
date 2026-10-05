@@ -24,6 +24,25 @@ enum Sexo {
   FEMININO
 }
 
+// Quem produziu os escores de uma AplicacaoDeTeste.
+//
+// Boa parte dos instrumentos não é aplicada NO paciente: é um questionário que outra pessoa
+// responde SOBRE ele (BRIEF2, SCARED, SRS-2, Vineland, CBCL, ETDAH...). E o mesmo paciente pode
+// ser avaliado por várias pessoas ao mesmo tempo — mãe, pai, dois professores e, se tiver idade,
+// ele próprio. A diferença entre os respondentes é achado clínico, não ruído: mãe acusando
+// sintoma severo com professores achando normal aponta para algo específico do contexto familiar.
+//
+// PACIENTE é o default e cobre tanto autorrelato quanto teste de aplicação direta (WISC-IV,
+// RAVLT), onde não existe informante — o dado é do paciente, registrado pelo examinador.
+enum TipoRespondente {
+  PACIENTE
+  MAE
+  PAI
+  CUIDADOR
+  PROFESSOR
+  OUTRO
+}
+
 enum DominioCognitivo {
   INTELIGENCIA
   ATENCAO
@@ -229,6 +248,19 @@ model Teste {
   algoritmoCorrecao         Json              // definição estruturada: itens, subtestes, fórmula de escore bruto
   referenciaBibliografica   String?           @db.Text
 
+  // Chave do INSTRUMENTO ao qual este teste pertence (ex: "SCARED", "BRIEF2").
+  //
+  // Vários instrumentos têm mais de um formulário — Pais, Professores, Autorrelato — e cada
+  // formulário tem tabela normativa PRÓPRIA. Por isso cada formulário é um Teste separado no
+  // catálogo (SCARED-PAIS e SCARED-AUTORRELATO são duas linhas), o que mantém a seleção de norma
+  // simples: continua sendo idade + sexo, sem um terceiro eixo.
+  //
+  // O custo dessa escolha é que, sem mais nada, o sistema não sabe que as duas linhas são o mesmo
+  // instrumento sobre a mesma pessoa — e comparar mãe × professor fica impossível de fazer
+  // automaticamente. Este campo é o que amarra as duas de volta. Nulo em teste CUSTOM e em
+  // instrumento de formulário único.
+  instrumento               String?
+
   // Trava de dados provisórios (MVP): testes semeados antes da lista definitiva da psicóloga
   // chegam com isPlaceholder=true. Nunca usar em laudo real — ver regras de bloqueio em Laudo.
   isPlaceholder             Boolean           @default(false)
@@ -272,6 +304,19 @@ model AplicacaoDeTeste {
   escoresBrutos     Json      // estrutura varia por teste
   resultadoCalculado Json?    // percentil, escore padronizado, classificação, gráfico-ready
   calculadoEm       DateTime?
+
+  // Quem respondeu — ver enum TipoRespondente. Não há restrição de unicidade em
+  // (sessaoId, testeId) de propósito: a MESMA sessão pode ter o mesmo teste respondido por
+  // várias pessoas, e é justamente isso que permite a comparação entre informantes.
+  //
+  // Default PACIENTE mantém o comportamento de todo lançamento já existente e de todo teste de
+  // aplicação direta, onde não há informante.
+  respondenteTipo   TipoRespondente @default(PACIENTE)
+  // Nome de quem respondeu e o vínculo com o paciente, quando o respondente não é ele próprio.
+  // A relação é texto livre porque o enum não dá conta do que aparece na prática ("avó materna",
+  // "professora de matemática", "educadora do contraturno").
+  respondenteNome     String?
+  respondenteRelacao  String?
 
   criadoEm          DateTime  @default(now())
 }

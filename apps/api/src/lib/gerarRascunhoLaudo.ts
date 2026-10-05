@@ -20,10 +20,26 @@ interface RascunhoLaudo {
   conclusao: string;
 }
 
+// Como cada tipo de respondente é descrito para a IA. Só o PAPEL, nunca o nome: o nome do
+// informante é dado pessoal de um terceiro e não acrescenta nada à análise clínica — mesma regra
+// já aplicada a CPF/endereço do paciente (ver CLAUDE.md, "Fluxo da chamada de IA").
+export const DESCRICAO_RESPONDENTE: Record<string, string> = {
+  PACIENTE: "o próprio paciente",
+  MAE: "a mãe",
+  PAI: "o pai",
+  CUIDADOR: "um cuidador/responsável",
+  PROFESSOR: "um professor",
+  OUTRO: "outro informante",
+};
+
 export interface TesteAplicadoResumo {
   sigla: string;
   dominio: string;
   resultadoCalculado: unknown;
+  // Quem respondeu, quando NÃO foi o próprio paciente. Sem isto, dois lançamentos do mesmo
+  // instrumento por informantes diferentes chegam indistinguíveis na IA, que então os funde num
+  // único parágrafo — e some justamente a discrepância entre informantes, que é achado clínico.
+  respondente?: string;
 }
 
 export interface PerfilAtuacaoResumo {
@@ -62,6 +78,7 @@ Regras obrigatórias:
 Formato de "analise" (siga esta convenção — é o padrão real de laudo usado nesta clínica):
 - Organize por domínio cognitivo/emocional, um subtítulo markdown "## " por domínio, cobrindo apenas os domínios para os quais há teste na bateria informada (ex.: "## Funções Intelectuais", "## Linguagem", "## Memória", "## Funções Executivas", "## Funções Atencionais", "## Aspectos Emocionais", "## Aspectos Psicoafetivos/Personalidade", "## Outras Escalas" — adapte os títulos aos domínios realmente presentes).
 - Dentro de cada subtítulo, uma frase breve situando o construto avaliado, seguida de bullets ("- ") citando o(s) resultado(s) (percentil + classificação) de cada teste/subteste daquele domínio, e uma frase de síntese indicando se o resultado está dentro do esperado ou representa dificuldade.
+- Alguns resultados trazem o campo "respondente": são escalas respondidas por um informante SOBRE o paciente, não aplicadas nele. Nunca funda resultados de respondentes diferentes do mesmo instrumento numa afirmação só, nem tire média entre eles — atribua cada resultado a quem respondeu ("na percepção da mãe...", "segundo o professor..."). Quando o mesmo instrumento for respondido por mais de uma pessoa e os resultados divergirem, aponte a divergência explicitamente e trate-a como achado a ser interpretado (pode indicar que a dificuldade é específica de um contexto), nunca como erro de medida.
 
 Formato de "conclusao" (mesma convenção):
 - Parágrafo(s) de síntese integrando os achados de todos os domínios com a anamnese.

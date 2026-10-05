@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   api,
+  ROTULO_RESPONDENTE,
   type AnamneseData,
   type AplicacaoDeTeste,
   type Anexo,
@@ -381,7 +382,17 @@ export function FichaPaciente() {
               ) : (
                 testes.map((t) => (
                   <div key={t.id} className="text-sm text-ink/70">
-                    {t.teste.sigla} aplicado {t.teste.isPlaceholder && <span className="text-ember">(provisório)</span>}
+                    {t.teste.sigla} aplicado
+                    {/* Em escala de informante, "quem respondeu" é parte do resultado: o mesmo
+                        teste pode aparecer duas vezes na sessão, uma por respondente. */}
+                    {t.respondenteTipo !== "PACIENTE" && (
+                      <span className="text-ink/50">
+                        {" "}
+                        — respondido por {t.respondenteNome || ROTULO_RESPONDENTE[t.respondenteTipo]}
+                        {t.respondenteRelacao && ` (${t.respondenteRelacao})`}
+                      </span>
+                    )}{" "}
+                    {t.teste.isPlaceholder && <span className="text-ember">(provisório)</span>}
                   </div>
                 ))
               )}

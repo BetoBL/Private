@@ -2,7 +2,7 @@ import { Laudo, StatusLaudo } from "@prisma/client";
 import { Router } from "express";
 import { z } from "zod";
 import { gerarDocxLaudo } from "../lib/gerarDocxLaudo";
-import { gerarRascunhoLaudo } from "../lib/gerarRascunhoLaudo";
+import { DESCRICAO_RESPONDENTE, gerarRascunhoLaudo } from "../lib/gerarRascunhoLaudo";
 import { pacienteTemTestePlaceholder } from "../lib/placeholderCheck";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -165,6 +165,14 @@ laudosRouter.post(
         sigla: a.teste.sigla,
         dominio: a.teste.dominio,
         resultadoCalculado: a.resultadoCalculado,
+        // Só o papel do informante (e o vínculo, quando descrito) — nunca o nome dele.
+        ...(a.respondenteTipo === "PACIENTE"
+          ? {}
+          : {
+              respondente:
+                DESCRICAO_RESPONDENTE[a.respondenteTipo] +
+                (a.respondenteRelacao ? ` (${a.respondenteRelacao})` : ""),
+            }),
       })),
       perfilDeAtuacao: perfilDeAtuacao
         ? {

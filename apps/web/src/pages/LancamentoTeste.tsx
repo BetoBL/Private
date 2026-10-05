@@ -4,7 +4,15 @@ import { PlaceholderBadge } from "../components/PlaceholderBadge";
 import { ResultadoResumo } from "../components/ResultadoResumo";
 import { SeletorPaciente } from "../components/SeletorPaciente";
 import { useAuth } from "../context/AuthContext";
-import { api, type AplicacaoDeTeste, type Paciente, type Sessao, type Teste } from "../lib/api";
+import {
+  api,
+  ROTULO_RESPONDENTE,
+  type AplicacaoDeTeste,
+  type Paciente,
+  type Sessao,
+  type Teste,
+  type TipoRespondente,
+} from "../lib/api";
 
 export function LancamentoTeste() {
   const { profissional } = useAuth();
@@ -25,6 +33,10 @@ export function LancamentoTeste() {
   const [testeId, setTesteId] = useState<string>("");
   const [escores, setEscores] = useState<Record<string, string>>({});
   const [editandoAplicacaoId, setEditandoAplicacaoId] = useState<string | null>(null);
+
+  const [respondenteTipo, setRespondenteTipo] = useState<TipoRespondente>("PACIENTE");
+  const [respondenteNome, setRespondenteNome] = useState("");
+  const [respondenteRelacao, setRespondenteRelacao] = useState("");
 
   const [aplicacoes, setAplicacoes] = useState<AplicacaoDeTeste[]>([]);
   const [mensagem, setMensagem] = useState<string | null>(null);
@@ -106,11 +118,18 @@ export function LancamentoTeste() {
     }
   }
 
+  function limparRespondente() {
+    setRespondenteTipo("PACIENTE");
+    setRespondenteNome("");
+    setRespondenteRelacao("");
+  }
+
   function selecionarTeste(id: string) {
     setTesteId(id);
     setEscores({});
     setMensagem(null);
     setEditandoAplicacaoId(null);
+    limparRespondente();
   }
 
   function editarLancamento(aplicacao: AplicacaoDeTeste) {
@@ -121,6 +140,9 @@ export function LancamentoTeste() {
     }
     setEscores(valores);
     setEditandoAplicacaoId(aplicacao.id);
+    setRespondenteTipo(aplicacao.respondenteTipo);
+    setRespondenteNome(aplicacao.respondenteNome ?? "");
+    setRespondenteRelacao(aplicacao.respondenteRelacao ?? "");
     setMensagem(null);
   }
 
@@ -133,17 +155,27 @@ export function LancamentoTeste() {
       for (const campo of campos) {
         escoresBrutos[campo.chave] = Number(escores[campo.chave] ?? 0);
       }
+      // Nome e relação só fazem sentido quando o respondente não é o próprio paciente; mandar
+      // vazio evita deixar resíduo de um lançamento anterior gravado num PACIENTE.
+      const respondente = {
+        respondenteTipo,
+        respondenteNome: respondenteTipo === "PACIENTE" ? "" : respondenteNome,
+        respondenteRelacao: respondenteTipo === "PACIENTE" ? "" : respondenteRelacao,
+      };
       if (editandoAplicacaoId) {
-        const atualizada = await api.updateAplicacao(editandoAplicacaoId, escoresBrutos);
+        const atualizada = await api.updateAplicacao(editandoAplicacaoId, { escoresBrutos, ...respondente });
         setAplicacoes((prev) => prev.map((a) => (a.id === atualizada.id ? atualizada : a)));
         setMensagem(`${atualizada.teste.sigla} atualizado com sucesso.`);
       } else {
-        const criada = await api.createAplicacao({ sessaoId, testeId, escoresBrutos });
+        const criada = await api.createAplicacao({ sessaoId, testeId, escoresBrutos, ...respondente });
         setAplicacoes((prev) => [criada, ...prev]);
-        setMensagem(`${criada.teste.sigla} lançado com sucesso. Selecione outro teste ou revise os valores acima.`);
+        setMensagem(
+          `${criada.teste.sigla} lançado com sucesso. Para outro informante, lance o mesmo teste de novo trocando o respondente.`
+        );
       }
       setEscores({});
       setEditandoAplicacaoId(null);
+      limparRespondente();
     } catch (e) {
       setErro((e as Error).message);
     }
@@ -252,7 +284,17 @@ export function LancamentoTeste() {
             {aplicacoes.map((a) => (
               <li key={a.id} className="rounded-lg border border-mist bg-white p-3 text-sm">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold">{a.teste.sigla}</span>
+                  <span className="font-semibold">
+                    {a.teste.sigla}
+                    {/* Só mostra o respondente quando NÃO é o próprio paciente: em teste de
+                        aplicação direta (WISC-IV, RAVLT) a informação é ruído. */}
+                    {a.respondenteTipo !== "PACIENTE" && (
+                      <span className="ml-2 rounded-full bg-sage-deep/10 px-2 py-0.5 text-[11px] font-semibold text-sage-deep">
+                        {a.respondenteNome || ROTULO_RESPONDENTE[a.respondenteTipo]}
+                        {a.respondenteRelacao && ` · ${a.respondenteRelacao}`}
+                      </span>
+                    )}
+                  </span>
                   <div className="flex items-center gap-2">
                     {a.teste.isPlaceholder && <PlaceholderBadge />}
                     <button className="text-xs font-semibold text-sage-deep" onClick={() => editarLancamento(a)}>
@@ -298,6 +340,46 @@ export function LancamentoTeste() {
             </div>
             {teste.isPlaceholder && <PlaceholderBadge />}
           </div>
+          {/* Quem respondeu. Fica ANTES dos escores de propósito: em escala de informante, a
+              mesma criança pode ser avaliada por mãe, pai e professor, e cada protocolo é um
+              lançamento. Saber de quem são os números antes de digitá-los evita atribuir a
+              resposta à pessoa errada — e depois não há como descobrir. */}
+          <div className="mb-5 rounded-xl border border-mist bg-paper/50 p-4">
+            <span className="mb-2 block text-sm font-semibold text-ink/70">Quem respondeu?</span>
+            <div className="flex flex-wrap gap-2">
+              {(Object.keys(ROTULO_RESPONDENTE) as TipoRespondente[]).map((tipo) => (
+                <button
+                  key={tipo}
+                  type="button"
+                  onClick={() => setRespondenteTipo(tipo)}
+                  className={`rounded-lg border px-3 py-1.5 text-xs font-semibold ${
+                    respondenteTipo === tipo
+                      ? "border-sage-deep bg-sage-deep/10 text-sage-deep"
+                      : "border-mist bg-white text-ink/70"
+                  }`}
+                >
+                  {ROTULO_RESPONDENTE[tipo]}
+                </button>
+              ))}
+            </div>
+            {respondenteTipo !== "PACIENTE" && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                <input
+                  className="flex-1 rounded-lg border border-mist px-3 py-2 text-sm"
+                  placeholder="Nome de quem respondeu"
+                  value={respondenteNome}
+                  onChange={(e) => setRespondenteNome(e.target.value)}
+                />
+                <input
+                  className="flex-1 rounded-lg border border-mist px-3 py-2 text-sm"
+                  placeholder="Vínculo (ex: avó materna, professora de matemática)"
+                  value={respondenteRelacao}
+                  onChange={(e) => setRespondenteRelacao(e.target.value)}
+                />
+              </div>
+            )}
+          </div>
+
           {campos.length === 0 ? (
             <p className="text-sm text-ink/60">Este teste não tem campos de lançamento definidos.</p>
           ) : (

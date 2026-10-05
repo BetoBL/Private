@@ -11,14 +11,26 @@ import {
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
+// Campos de respondente — ver enum TipoRespondente no schema. Opcionais na entrada: quem não
+// manda nada cai em PACIENTE, que é o comportamento de todo lançamento anterior a este campo
+// existir e o certo para teste de aplicação direta.
+const respondenteSchema = {
+  respondenteTipo: z.enum(["PACIENTE", "MAE", "PAI", "CUIDADOR", "PROFESSOR", "OUTRO"]).optional(),
+  // string vazia vinda de <input> vira null, para não gravar "" como se fosse nome preenchido
+  respondenteNome: z.string().trim().max(200).optional().transform((v) => v || null),
+  respondenteRelacao: z.string().trim().max(200).optional().transform((v) => v || null),
+};
+
 const aplicacaoCreateSchema = z.object({
   sessaoId: z.string().uuid(),
   testeId: z.string().uuid(),
   escoresBrutos: z.record(z.string(), z.number()),
+  ...respondenteSchema,
 });
 
 const aplicacaoUpdateSchema = z.object({
   escoresBrutos: z.record(z.string(), z.number()),
+  ...respondenteSchema,
 });
 
 export const aplicacoesDeTesteRouter = Router();
@@ -46,7 +58,7 @@ aplicacoesDeTesteRouter.post(
   "/",
   validateBody(aplicacaoCreateSchema),
   asyncHandler(async (req, res) => {
-    const { sessaoId, testeId, escoresBrutos } = req.body;
+    const { sessaoId, testeId, escoresBrutos, respondenteTipo, respondenteNome, respondenteRelacao } = req.body;
 
     const sessao = await prisma.sessao.findUnique({ where: { id: sessaoId }, include: { paciente: true } });
     if (!sessao || sessao.paciente.clinicaId !== req.profissional!.clinicaId) {
@@ -77,6 +89,9 @@ aplicacoesDeTesteRouter.post(
         sessaoId,
         testeId,
         escoresBrutos,
+        respondenteTipo,
+        respondenteNome,
+        respondenteRelacao,
         resultadoCalculado: resultadoCalculado ? (resultadoCalculado as unknown as Prisma.InputJsonValue) : undefined,
         calculadoEm: resultadoCalculado ? new Date() : null,
       },
@@ -158,6 +173,9 @@ aplicacoesDeTesteRouter.patch(
       where: { id: req.params.id },
       data: {
         escoresBrutos: req.body.escoresBrutos,
+        respondenteTipo: req.body.respondenteTipo,
+        respondenteNome: req.body.respondenteNome,
+        respondenteRelacao: req.body.respondenteRelacao,
         resultadoCalculado: resultadoCalculado ? (resultadoCalculado as unknown as Prisma.InputJsonValue) : undefined,
         calculadoEm: resultadoCalculado ? new Date() : null,
       },

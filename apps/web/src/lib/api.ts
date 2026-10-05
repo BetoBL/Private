@@ -85,6 +85,10 @@ export interface Teste {
   isPlaceholder: boolean;
   ativo: boolean;
   direcao: DirecaoMelhorPior;
+  // Chave do instrumento quando este teste é um dos formulários dele (ex: SCARED-PAIS e
+  // SCARED-AUTORRELATO compartilham "SCARED"). É o que permite reconhecer que dois lançamentos
+  // de testes diferentes falam do mesmo instrumento sobre o mesmo paciente.
+  instrumento: string | null;
   algoritmoCorrecao: {
     campos?: CampoTeste[];
     [key: string]: unknown;
@@ -141,6 +145,25 @@ export type ResultadoCalculado =
   // (ex: índice do WISC-IV com subteste principal não lançado) — ver motorCalculo.ts.
   | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number | null; faixa: FaixaConversao | null }> };
 
+// Quem produziu os escores. PACIENTE cobre autorrelato e teste de aplicação direta (WISC-IV,
+// RAVLT), onde não existe informante. Ver enum TipoRespondente no schema.
+export type TipoRespondente = "PACIENTE" | "MAE" | "PAI" | "CUIDADOR" | "PROFESSOR" | "OUTRO";
+
+export const ROTULO_RESPONDENTE: Record<TipoRespondente, string> = {
+  PACIENTE: "O próprio paciente",
+  MAE: "Mãe",
+  PAI: "Pai",
+  CUIDADOR: "Cuidador/responsável",
+  PROFESSOR: "Professor",
+  OUTRO: "Outro",
+};
+
+export interface DadosRespondente {
+  respondenteTipo?: TipoRespondente;
+  respondenteNome?: string;
+  respondenteRelacao?: string;
+}
+
 export interface AplicacaoDeTeste {
   id: string;
   sessaoId: string;
@@ -149,6 +172,9 @@ export interface AplicacaoDeTeste {
   resultadoCalculado: ResultadoCalculado | null;
   criadoEm: string;
   teste: Teste;
+  respondenteTipo: TipoRespondente;
+  respondenteNome: string | null;
+  respondenteRelacao: string | null;
 }
 
 export type StatusLaudo = "RASCUNHO_IA" | "EM_REVISAO" | "FINALIZADO" | "ENTREGUE";
@@ -355,10 +381,11 @@ export const api = {
   listAplicacoes: (sessaoId: string) => request<AplicacaoDeTeste[]>(`/aplicacoes-teste?sessaoId=${sessaoId}`),
   listAplicacoesPorPaciente: (pacienteId: string) =>
     request<AplicacaoDeTeste[]>(`/aplicacoes-teste?pacienteId=${pacienteId}`),
-  createAplicacao: (data: { sessaoId: string; testeId: string; escoresBrutos: Record<string, number> }) =>
-    request<AplicacaoDeTeste>("/aplicacoes-teste", { method: "POST", body: JSON.stringify(data) }),
-  updateAplicacao: (id: string, escoresBrutos: Record<string, number>) =>
-    request<AplicacaoDeTeste>(`/aplicacoes-teste/${id}`, { method: "PATCH", body: JSON.stringify({ escoresBrutos }) }),
+  createAplicacao: (
+    data: { sessaoId: string; testeId: string; escoresBrutos: Record<string, number> } & DadosRespondente
+  ) => request<AplicacaoDeTeste>("/aplicacoes-teste", { method: "POST", body: JSON.stringify(data) }),
+  updateAplicacao: (id: string, data: { escoresBrutos: Record<string, number> } & DadosRespondente) =>
+    request<AplicacaoDeTeste>(`/aplicacoes-teste/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
 
   listLaudos: (pacienteId: string) => request<Laudo[]>(`/laudos?pacienteId=${pacienteId}`),
   listTodosLaudos: () => request<Laudo[]>("/laudos"),

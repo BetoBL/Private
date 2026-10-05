@@ -41,6 +41,11 @@ interface TesteSeed {
   // Direção de "melhor resultado", só para cor do gráfico no frontend — ver Teste.direcao no
   // schema. Default NEUTRO (sem julgamento de cor) quando omitido.
   direcao?: "MAIOR_MELHOR" | "MENOR_MELHOR" | "NEUTRO";
+  // Chave do instrumento, quando este teste é UM FORMULÁRIO de um instrumento que tem vários
+  // (Pais/Professores/Autorrelato) — ver Teste.instrumento no schema. É o que permite comparar
+  // as respostas de informantes diferentes sobre o mesmo paciente. Omitido em instrumento de
+  // formulário único.
+  instrumento?: string;
 }
 
 // --- RAVLT: normas reais (Paula & Malloy-Diniz, Vetor 2018, N=1458) — ver docs/testes/RAVLT.md ---
@@ -959,6 +964,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Escala de Avaliação de Comportamentos Infantojuvenis no TDAH em Ambiente Familiar — Versão para Pais",
     sigla: "ETDAH-PAIS",
+    instrumento: "ETDAH",
     dominio: DominioCognitivo.RASTREIO_TDAH,
     direcao: "MENOR_MELHOR",
     descricao:
@@ -1161,6 +1167,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Screen for Child Anxiety Related Emotional Disorders — Versão Pais/Cuidadores",
     sigla: "SCARED-PAIS",
+    instrumento: "SCARED",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
     direcao: "MENOR_MELHOR",
     descricao:
@@ -1231,6 +1238,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Screen for Child Anxiety Related Emotional Disorders — Versão Autorrelato",
     sigla: "SCARED-AUTORRELATO",
+    instrumento: "SCARED",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
     direcao: "MENOR_MELHOR",
     descricao:
@@ -1355,6 +1363,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     //   - GEC entra só como pontos-âncora de 10 em 10, e NÃO foi reconferido nesta rodada.
     nome: "Behavior Rating Inventory of Executive Function — 2ª ed. (Formulário de Pais)",
     sigla: "BRIEF2-PAIS",
+    instrumento: "BRIEF2",
     dominio: DominioCognitivo.FUNCOES_EXECUTIVAS,
     direcao: "MENOR_MELHOR",
     descricao:
@@ -1553,6 +1562,7 @@ async function main() {
         referenciaBibliografica: t.referenciaBibliografica,
         isPlaceholder,
         direcao: t.direcao ?? "NEUTRO",
+        instrumento: t.instrumento,
         tabelasNormativas: {
           create: t.tabelasNormativas.map((f) => ({
             criterio: f.criterio,
