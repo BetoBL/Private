@@ -59,6 +59,49 @@ function ehCensurado(textoOriginal) {
   return texto.startsWith(">") || SUFIXO_CENSURADO.test(texto);
 }
 
+/** minúsculas, sem acento, só alfanumérico — para comparar rótulos que variam em grafia/espaçamento. */
+function normalizar(s) {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+/** Extrai [min, max] de um texto de faixa etária, em qualquer grafia ("5 - 7 anos", "11-13 anos"). */
+function extrairFaixaNumerica(texto) {
+  const m = /(\d+)\D+(\d+)/.exec(texto ?? "");
+  return m ? [Number(m[1]), Number(m[2])] : null;
+}
+
+function chaveCruzamento(versao, sexo, faixaMin, faixaMax, escalaChave) {
+  if (!escalaChave || faixaMin == null || faixaMax == null) return null;
+  return `${normalizar(versao)}/${normalizar(sexo)}/${faixaMin}-${faixaMax}/${escalaChave}`;
+}
+
+// A nossa transcrição usa chave em inglês (workingMemory...); o Excel legado da psicóloga imprime
+// o nome em português (Memória operacional...). Sem esta tradução, o cruzamento (--comparar)
+// nunca casa nenhuma série, mesmo com sexo/faixa idênticos — foi o que fazia "--comparar" mostrar
+// "0 séries em comum" mesmo depois de consertado o bug de leitura do nome da coluna no CSV.
+// Cobre só as 9 escalas de PAIS/PROFESSORES + as variantes de Auto Relato que aparecem no Excel
+// dela: GEC e os índices (BRI/ERI/CRI) ficam de fora porque a nossa transcrição ainda não os tem
+// (ver BRIEF2_PAIS_NORMAS.gec e docs/testes/BRIEF2.md), então não haveria o que cruzar mesmo.
+const DICIONARIO_ESCALAS_PT_EN = new Map(
+  [
+    ["Inibição", "inhibit"],
+    ["Auto monitoramento", "selfMonitor"],
+    ["Auternância", "shift"], // grafia do Excel legado (falta o "l" de "Alternância")
+    ["controle emocional", "emotionalControl"],
+    ["Iniciativa", "initiate"],
+    ["Memória operacional", "workingMemory"],
+    ["Planejamento", "planOrganize"],
+    ["Monitoramento em tarefa", "taskMonitor"],
+    ["Organização de materiais", "organizationOfMaterials"],
+    ["Conclusão de tarefa", "taskCompletion"],
+    ["Conclusão de tarefas", "taskCompletion"], // o Excel dela varia singular/plural entre faixas
+  ].map(([pt, en]) => [normalizar(pt), en])
+);
+
 // Células que DESTOAM da reta mas estão CORRETAS — conferidas a 600dpi contra a página original
 // do manual em 05/10/2026. O Working Memory do Formulário de Pais tem um degrau real em bruto
 // 17-18 nas faixas 5-7 e 8-10 (17->63, 18->64, contra ~2,6 pontos de T por ponto bruto no resto
@@ -163,6 +206,7 @@ async function lerNossaTranscricao(caminhoNormas) {
   } = await import(pathToFileURL(caminhoNormas).href);
 
   const series = new Map();
+  const chaves = new Map();
   for (const faixa of BRIEF2_PAIS_NORMAS) {
     for (const escala of BRIEF2_ESCALAS_PAIS_PROFESSORES) {
       const coluna = faixa.escalas[escala];
@@ -178,9 +222,10 @@ async function lerNossaTranscricao(caminhoNormas) {
       const rotulo = `PAIS/${faixa.sexo}/${faixa.faixaLabel}/${escala}`;
       conferirAmplitude(rotulo, pontos, BRIEF2_AMPLITUDE_BRUTO_PAIS_PROFESSORES[escala]);
       series.set(rotulo, pontos);
+      chaves.set(rotulo, chaveCruzamento("PAIS", faixa.sexo, faixa.faixaMin, faixa.faixaMax, escala));
     }
   }
-  return series;
+  return { series, chaves };
 }
 
 /**
@@ -215,8 +260,9 @@ function conferirAmplitude(rotulo, pontos, amplitude) {
 //   VERTICAL — faixas empilhadas, cada uma iniciada por "Pontos Brutos" na coluna 0 e terminada
 //     por "CI 90%". Duas na aba: linhas 9-39 (bruto 0-30) são as 9 ESCALAS; linhas 50-134
 //     (bruto 12-96) são os ÍNDICES (BRI/ERI/CRI) + GEC, cujo bruto vai muito mais alto por somar
-//     várias escalas. O nome de cada coluna vem da linha imediatamente acima do "Pontos Brutos"
-//     daquela faixa, então é lido por faixa e não de uma linha fixa.
+//     várias escalas. O nome de cada coluna vem da MESMA linha do "Pontos Brutos" daquela faixa
+//     (coluna 0 tem o rótulo "Pontos Brutos", as colunas de dados ao lado já têm o nome da
+//     escala/índice), então é lido por faixa e não de uma linha fixa.
 //
 // Ler as duas faixas como uma série só é o erro óbvio aqui: mistura bruto 0-30 com bruto 12-96,
 // o mesmo bruto aparece com dois T diferentes, e a monotonicidade acusa centenas de falsos erros.
@@ -232,7 +278,7 @@ function acharFaixasVerticais(linhas) {
     while (inicio < linhas.length && !Number.isFinite(parseFloat(linhas[inicio]?.[0]))) inicio++;
     let fim = inicio;
     while (fim < linhas.length && Number.isFinite(parseFloat(linhas[fim]?.[0]))) fim++;
-    if (fim > inicio) faixas.push({ inicio, fim, linhaDoNome: i - 1 });
+    if (fim > inicio) faixas.push({ inicio, fim, linhaDoNome: i });
   }
   return faixas;
 }
@@ -240,6 +286,7 @@ function acharFaixasVerticais(linhas) {
 function lerCsvDaPsicologa(caminho) {
   const linhas = readFileSync(caminho, "utf8").split(/\r?\n/).map((l) => l.split(","));
   const series = new Map();
+  const chaves = new Map();
   const totalColunas = Math.max(...linhas.map((l) => l.length));
   const faixasVerticais = acharFaixasVerticais(linhas);
 
@@ -272,12 +319,16 @@ function lerCsvDaPsicologa(caminho) {
           });
         }
         if (pontos.length > 0) {
-          series.set(`${versao}/${sexo}/${faixaEtaria}/${nome}`, pontos.sort((a, b) => a.bruto - b.bruto));
+          const rotulo = `${versao}/${sexo}/${faixaEtaria}/${nome}`;
+          series.set(rotulo, pontos.sort((a, b) => a.bruto - b.bruto));
+          const [faixaMin, faixaMax] = extrairFaixaNumerica(faixaEtaria) ?? [];
+          const escalaChave = DICIONARIO_ESCALAS_PT_EN.get(normalizar(nome));
+          chaves.set(rotulo, chaveCruzamento(versao, sexo, faixaMin, faixaMax, escalaChave));
         }
       }
     }
   }
-  return series;
+  return { series, chaves };
 }
 
 // --- execução ---
@@ -291,16 +342,18 @@ const caminhoNormas = args.includes("--normas")
 
 let seriesNossas = null;
 let seriesDela = null;
+let chavesNossas = null;
+let chavesDela = null;
 
 if (!caminhoCsv || comparar) {
   try {
-    seriesNossas = await lerNossaTranscricao(caminhoNormas);
+    ({ series: seriesNossas, chaves: chavesNossas } = await lerNossaTranscricao(caminhoNormas));
   } catch (e) {
     if (caminhoCsv) avisos.push(`não foi possível ler a nossa transcrição (${e.message}) — só o CSV será validado`);
     else throw e;
   }
 }
-if (caminhoCsv) seriesDela = lerCsvDaPsicologa(caminhoCsv);
+if (caminhoCsv) ({ series: seriesDela, chaves: chavesDela } = lerCsvDaPsicologa(caminhoCsv));
 
 console.log("Validando BRIEF2 (bruto -> T-Score + percentil)\n");
 
@@ -325,37 +378,48 @@ if (censurados > 0) {
 
 // 4. cruzamento entre fontes
 if (comparar && seriesNossas && seriesDela) {
-  // A nossa transcrição rotula sexo como MASCULINO/FEMININO e faixa como "5 a 7 anos"; a dela usa
-  // Masculino/Feminino e "5 - 7 anos". Normaliza para casar.
-  const normalizar = (s) =>
-    s
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .replace(/[^a-z0-9]/g, "");
-
+  // Casar por CHAVE ESTRUTURADA (sexo + faixa numérica + escala traduzida), não pelo rótulo
+  // inteiro normalizado: os rótulos usam palavras diferentes entre as duas fontes (a nossa diz
+  // "Meninos, 5-7 anos" e "workingMemory"; a dela diz "5 - 7 anos" e "Memória operacional"), então
+  // esmagar a string toda nunca bate mesmo depois de tirar acento/espaço.
   const indiceDela = new Map();
-  for (const [rotulo, pontos] of seriesDela) indiceDela.set(normalizar(rotulo), { rotulo, pontos });
+  for (const [rotulo, pontos] of seriesDela) {
+    const chave = chavesDela.get(rotulo);
+    if (chave) indiceDela.set(chave, { rotulo, pontos });
+  }
 
+  let semTraducao = 0;
   let cruzadas = 0;
   let divergentes = 0;
   for (const [rotulo, nossos] of seriesNossas) {
-    const dela = indiceDela.get(normalizar(rotulo));
+    const chave = chavesNossas.get(rotulo);
+    if (!chave) {
+      semTraducao++;
+      continue;
+    }
+    const dela = indiceDela.get(chave);
     if (!dela) continue;
     cruzadas++;
     const mapaDela = new Map(dela.pontos.map((p) => [p.bruto, p]));
     for (const nosso of nossos) {
       const outro = mapaDela.get(nosso.bruto);
       if (!outro) continue;
+      // Censurado (">90" na nossa, "90.1" na dela) é teto, não medida — as duas notações marcam a
+      // mesma coisa, mas viram valores numéricos diferentes (NaN de ">90"; 90.1 do sufixo). Sem
+      // isso, divergem "por acidente" e mascaram as divergências de verdade na mesma lista.
+      if (nosso.censurado || outro.censurado) continue;
       if (nosso.t !== outro.t) {
         divergentes++;
         erros.push(
-          `DIVERGÊNCIA ${rotulo} bruto=${nosso.bruto}: nossa transcrição T=${nosso.t}, Excel dela T=${outro.t}`
+          `DIVERGÊNCIA ${rotulo} / ${dela.rotulo} bruto=${nosso.bruto}: nossa transcrição T=${nosso.t}, Excel dela T=${outro.t}`
         );
       }
     }
   }
   console.log(`\n  cruzamento: ${cruzadas} série(s) em comum, ${divergentes} célula(s) divergente(s)`);
+  if (semTraducao > 0) {
+    avisos.push(`${semTraducao} série(s) da nossa transcrição sem chave de cruzamento (escala fora de DICIONARIO_ESCALAS_PT_EN)`);
+  }
   if (cruzadas === 0) {
     avisos.push("nenhuma série casou entre as duas fontes — conferir os rótulos de sexo/faixa antes de confiar no cruzamento");
   }
