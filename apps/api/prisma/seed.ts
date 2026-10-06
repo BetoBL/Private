@@ -10,6 +10,7 @@ import {
   WISC4_SUPLEMENTARES,
 } from "./wisc4-normas";
 import { FDT_CAMPOS_DERIVADOS, FDT_FAIXAS_ETARIAS, FDT_FONTE, campoErros, campoTempo } from "./fdt-normas";
+import { SRS2_CAMPOS_DERIVADOS, SRS2_FONTE, SRS2_FORMULARIOS } from "./srs2-normas";
 
 const prisma = new PrismaClient();
 
@@ -895,44 +896,46 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       },
     })),
   },
-  {
-    nome: "Escala de Responsividade Social — 2ª ed.",
-    sigla: "SRS-2",
+  ...SRS2_FORMULARIOS.map((form) => ({
+    nome: `Escala de Responsividade Social — 2ª ed. (${form.label})`,
+    sigla: form.sigla,
+    instrumento: "SRS-2",
     dominio: DominioCognitivo.RASTREIO_TEA,
-    direcao: "MENOR_MELHOR",
-    descricao: `Rastreio quantitativo de traços do espectro autista em 5 subescalas + escore composto + escore T total. ${AVISO_PLACEHOLDER}`,
+    direcao: "MENOR_MELHOR" as const,
+    descricao:
+      `Rastreio quantitativo de traços do espectro autista — formulário ${form.label}. 5 brutos ` +
+      "de entrada (4 subescalas de intervenção + Padrões Restritos e Repetitivos); Comunicação e " +
+      "Interação Social e Pontuação SRS-2 Total são calculadas (soma). Normas reais (Constantino " +
+      "& Gruber, 2012) — SEM conferência cruzada contra o manual impresso (não temos o PDF no " +
+      "acervo; fonte única é o Excel legado da psicóloga, ver referência).",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
-      // A prática real reporta escore T por fator (não soma tudo em 1 total) — modo "por_campo".
       campos: [
-        { chave: "percepcaoSocial", label: "Percepção Social (escore T)" },
-        { chave: "cognicaoSocial", label: "Cognição Social (escore T)" },
-        { chave: "comunicacaoSocial", label: "Comunicação Social (escore T)" },
-        { chave: "motivacaoSocial", label: "Motivação Social (escore T)" },
-        { chave: "padroesRestritosRepetitivos", label: "Padrões Restritos e Repetitivos (escore T)" },
-        { chave: "comunicacaoEInteracaoSocial", label: "Comunicação e Interação Social — composto (escore T)" },
-        { chave: "escoreTotal", label: "Pontuação SRS-2 Total (escore T)" },
+        { chave: "percepcaoSocial", label: "Percepção Social (bruto)" },
+        { chave: "cognicaoSocial", label: "Cognição Social (bruto)" },
+        { chave: "comunicacaoSocial", label: "Comunicação Social (bruto)" },
+        { chave: "motivacaoSocial", label: "Motivação Social (bruto)" },
+        { chave: "restritosRepetitivos", label: "Padrões Restritos e Repetitivos (bruto)" },
       ],
+      formula:
+        "Comunicação e Interação Social = soma das 4 subescalas de intervenção; " +
+        "Pontuação SRS-2 Total = soma das 4 subescalas + Padrões Restritos e Repetitivos",
     },
-    referenciaBibliografica: "CONSTANTINO, J. N.; GRUBER, C. P. Escala de Responsividade Social – Segunda Edição (SRS-2). Torrance, CA: Western Psychological Services, 2012.",
+    referenciaBibliografica:
+      "CONSTANTINO, J. N.; GRUBER, C. P. Escala de Responsividade Social – Segunda Edição " +
+      "(SRS-2). Torrance, CA: Western Psychological Services, 2012. " + SRS2_FONTE,
+    isPlaceholder: false,
     tabelasNormativas: [
       {
-        criterio: "idade",
-        faixaMin: 18,
-        faixaMax: 90,
+        criterio: "unico", // 1 tabela só por formulário — não estratifica por idade dentro dele
         conversao: {
-          aviso: AVISO_PLACEHOLDER,
-          tipo: "escoreT_por_campo",
-          faixas: [
-            { min: 0, max: 59, classificacao: "Dentro dos limites normais" },
-            { min: 60, max: 65, classificacao: "Nível Leve" },
-            { min: 66, max: 75, classificacao: "Nível Moderado" },
-            { min: 76, max: 999, classificacao: "Nível Severo" },
-          ],
+          tipo: "percentil_por_campo",
+          fonte: `Formulário ${form.label}`,
+          faixasPorCampo: form.faixasPorCampo,
+          camposDerivados: SRS2_CAMPOS_DERIVADOS,
         },
       },
     ],
-  },
+  })),
   {
     nome: "Quociente do Espectro Autista",
     sigla: "AQ-50",
