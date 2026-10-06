@@ -29,7 +29,7 @@ function conversaoDaFaixa(faixa: (typeof WISC4_FAIXAS_ETARIAS)[number]): Convers
       ...Object.fromEntries(WISC4_INDICES.map((i) => [i.chave, i.faixas])),
     },
     camposDerivados: Object.fromEntries(
-      WISC4_INDICES.map((i) => [i.chave, { somaDe: i.fontes, campoValor: "ponderado", exigeTodasFontes: true }])
+      WISC4_INDICES.map((i) => [i.chave, { fontes: i.fontes, campoValor: "ponderado", exigeTodasFontes: true }])
     ),
   } as unknown as ConversaoNormativa;
 }

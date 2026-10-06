@@ -174,7 +174,7 @@ const ADL2_CONVERSAO: ConversaoNormativa = {
     ],
   },
   camposDerivados: {
-    global: { somaDe: ["lc", "le"], campoValor: "escorePadrao" },
+    global: { fontes: ["lc", "le"], campoValor: "escorePadrao" },
   },
 };
 
@@ -219,7 +219,7 @@ const WISC4_CONVERSAO: ConversaoNormativa = {
     ],
   },
   camposDerivados: {
-    imo: { somaDe: ["dg", "snl"], campoValor: "ponderado", exigeTodasFontes: true },
+    imo: { fontes: ["dg", "snl"], campoValor: "ponderado", exigeTodasFontes: true },
   },
 };
 
@@ -251,6 +251,44 @@ test("calcularResultado: exigeTodasFontes com fonte lançada mas fora de qualque
   assert.equal(resultado.porCampo.snl.faixa, null);
   assert.equal(resultado.porCampo.imo.valorBruto, null);
   assert.equal(resultado.porCampo.imo.faixa, null);
+});
+
+// --- operacao: "subtracao" — ex.: FDT, Inibição = tempo(Escolha) - tempo(Contagem) ---
+
+const FDT_CONVERSAO: ConversaoNormativa = {
+  tipo: "percentil_por_campo",
+  faixasPorCampo: {
+    // Tempo bruto (segundos) de Escolha e Contagem — cada um com sua própria tabela de percentil,
+    // mas o que importa para Inibição é o segundo exato de entrada, não o rótulo de percentil.
+    tempoEscolha: [{ min: 0, max: 999, percentil: ">95" }],
+    tempoContagem: [{ min: 0, max: 999, percentil: ">95" }],
+    inibicao: [
+      { min: 0, max: 20, percentil: ">75" },
+      { min: 21, max: 999, percentil: "<=75" },
+    ],
+  },
+  camposDerivados: {
+    inibicao: { fontes: ["tempoEscolha", "tempoContagem"], campoValor: "valorBruto", operacao: "subtracao" },
+  },
+};
+
+test("calcularResultado: operacao subtracao com campoValor 'valorBruto' subtrai os BRUTOS de entrada, não um campo da faixa", () => {
+  const resultado = calcularResultado({ tempoEscolha: 42, tempoContagem: 27 }, FDT_CONVERSAO);
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  // Se lesse da faixa (como "ponderado"/"escorePadrao"), o valor seria o rótulo ">95" (não numérico)
+  // e a subtração falharia; "valorBruto" pega 42 e 27 de entrada direto.
+  assert.equal(resultado.porCampo.inibicao.valorBruto, 15); // 42 - 27
+  assert.equal(resultado.porCampo.inibicao.faixa?.percentil, ">75");
+});
+
+test("calcularResultado: operacao subtracao com subteste-fonte não lançado devolve não-calculado, nunca subtrai 0", () => {
+  const resultado = calcularResultado({ tempoEscolha: 42 }, FDT_CONVERSAO); // tempoContagem ausente
+  assert.equal(resultado.modo, "por_campo");
+  if (resultado.modo !== "por_campo") throw new Error("esperado modo por_campo");
+  assert.equal(resultado.porCampo.inibicao.valorBruto, null);
+  assert.equal(resultado.porCampo.inibicao.faixa, null);
+  // Sem essa trava, o derivado subtrairia 42 - 0 = 42 e localizaria uma faixa plausível e errada.
 });
 
 test("calcularResultado: faixasPorCampo sem entrada para o campo retorna faixa null", () => {

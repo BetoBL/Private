@@ -9,6 +9,7 @@ import {
   WISC4_PRINCIPAIS,
   WISC4_SUPLEMENTARES,
 } from "./wisc4-normas";
+import { FDT_CAMPOS_DERIVADOS, FDT_FAIXAS_ETARIAS, FDT_FONTE, campoErros, campoTempo } from "./fdt-normas";
 
 const prisma = new PrismaClient();
 
@@ -1015,34 +1016,43 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     sigla: "FDT",
     dominio: DominioCognitivo.FUNCOES_EXECUTIVAS,
     direcao: "MAIOR_MELHOR",
-    descricao: `Velocidade de processamento, controle inibitório e flexibilidade cognitiva a partir de 4 etapas com dígitos. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Velocidade de processamento, controle inibitório e flexibilidade cognitiva a partir de 4 " +
+      "etapas com dígitos (Leitura, Contagem, Escolha, Alternância). Normas brasileiras (Sedó, " +
+      "2007), 9 faixas etárias de 6 a 76+ anos — SEM conferência cruzada contra o manual impresso " +
+      "(não temos o PDF no acervo; fonte única é o Excel legado da psicóloga, ver referência).",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
       etapas: ["Leitura", "Contagem", "Escolha (inibição)", "Alternância (flexibilidade)"],
+      // Inibição e Flexibilidade NÃO são lançadas — são calculadas por subtração do tempo bruto de
+      // outras 2 etapas (ver FDT_CAMPOS_DERIVADOS em fdt-normas.ts) e classificadas na própria
+      // tabela de percentil delas, diferente da de Escolha/Contagem/Alternância.
+      formula: "Inibição = tempo(Escolha) - tempo(Contagem); Flexibilidade = tempo(Alternância) - tempo(Escolha)",
       campos: [
-        { chave: "inibicao", label: "FDT Inibição (percentil)" },
-        { chave: "flexibilidade", label: "FDT Flexibilidade (percentil)" },
+        { chave: campoTempo("leitura"), label: "Leitura — tempo (segundos)" },
+        { chave: campoTempo("contagem"), label: "Contagem — tempo (segundos)" },
+        { chave: campoTempo("escolha"), label: "Escolha — tempo (segundos)" },
+        { chave: campoTempo("alternancia"), label: "Alternância — tempo (segundos)" },
+        { chave: campoErros("leitura"), label: "Leitura — nº de erros" },
+        { chave: campoErros("contagem"), label: "Contagem — nº de erros" },
+        { chave: campoErros("escolha"), label: "Escolha — nº de erros" },
+        { chave: campoErros("alternancia"), label: "Alternância — nº de erros" },
       ],
     },
-    referenciaBibliografica: "SEDÓ, M. A. Five Digit Test (FDT): manual. Madrid: TEA Ediciones, 2007.",
-    tabelasNormativas: [
-      {
-        criterio: "idade+escolaridade",
-        conversao: {
-          aviso: AVISO_PLACEHOLDER,
-          tipo: "percentil_por_campo",
-          faixas: [
-            { min: 0, max: 2, classificacao: "Deficitário" },
-            { min: 3, max: 8, classificacao: "Limítrofe" },
-            { min: 9, max: 24, classificacao: "Médio Inferior" },
-            { min: 25, max: 74, classificacao: "Médio" },
-            { min: 75, max: 90, classificacao: "Médio Superior" },
-            { min: 91, max: 97, classificacao: "Superior" },
-            { min: 98, max: 100, classificacao: "Muito Superior" },
-          ],
-        },
+    referenciaBibliografica:
+      "SEDÓ, M. A. Five Digit Test (FDT): manual. Madrid: TEA Ediciones, 2007. " + FDT_FONTE,
+    isPlaceholder: false,
+    tabelasNormativas: FDT_FAIXAS_ETARIAS.map((faixa) => ({
+      criterio: "idade",
+      faixaMin: faixa.faixaMin,
+      faixaMax: faixa.faixaMax,
+      faixaLabel: faixa.faixaLabel,
+      conversao: {
+        tipo: "percentil_por_campo",
+        fonte: `Tabelas 6.3-6.11 do Excel legado da psicóloga, faixa ${faixa.faixaLabel}` + (faixa.n ? `, n=${faixa.n}.` : "."),
+        faixasPorCampo: faixa.faixasPorCampo,
+        camposDerivados: FDT_CAMPOS_DERIVADOS,
       },
-    ],
+    })),
   },
   {
     nome: "Inventário de Ansiedade de Beck",
@@ -1455,7 +1465,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
           global: faixasGlobal(faixa.global),
         },
         camposDerivados: {
-          global: { somaDe: ["lc", "le"], campoValor: "escorePadrao" },
+          global: { fontes: ["lc", "le"], campoValor: "escorePadrao" },
         },
       },
     })),
@@ -1530,7 +1540,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         camposDerivados: Object.fromEntries(
           WISC4_INDICES.map((i) => [
             i.chave,
-            { somaDe: i.fontes, campoValor: "ponderado", exigeTodasFontes: true },
+            { fontes: i.fontes, campoValor: "ponderado", exigeTodasFontes: true },
           ])
         ),
       },

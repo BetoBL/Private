@@ -7,10 +7,11 @@
 //                                   A1 e A7 têm pontos de corte diferentes na mesma faixa etária)
 //   - caso contrário          -> localiza uma faixa por campo na mesma tabela `faixas` compartilhada
 //   - `camposDerivados` presente -> depois do passo acima, campos adicionais cujo valor de entrada
-//                                   é a SOMA de um campo numérico já extraído da faixa de outros
-//                                   campos (ex: ADL2 — Escore Padrão Global = EP(LC) + EP(LE), onde
-//                                   EP(LC)/EP(LE) são eles mesmos resultado de uma conversão
-//                                   anterior, não escores brutos de entrada). Só 1 nível de
+//                                   vem de uma SOMA ou SUBTRAÇÃO de um campo numérico já extraído
+//                                   da faixa de outros campos (ex: ADL2 — Escore Padrão Global =
+//                                   EP(LC) + EP(LE); FDT — Inibição = tempo(Escolha) -
+//                                   tempo(Contagem)), onde cada fonte já é resultado de uma
+//                                   conversão anterior, não escore bruto de entrada. Só 1 nível de
 //                                   derivação — suficiente para os casos reais conhecidos.
 // Essa convenção é suficiente para os testes placeholder do MVP e para normas reais com tabela
 // única por campo; ao trocar por normas reais, o `tipo`/`faixasPorCampo` de cada TabelaNormativa
@@ -22,13 +23,21 @@ export interface FaixaConversao {
   [saida: string]: number | string | undefined;
 }
 
-// Campo cujo valor de entrada não vem do formulário de lançamento, e sim da soma de um campo
-// numérico já extraído da faixa de outros campos (ex: ADL2 — Escore Padrão Global = EP(LC) +
-// EP(LE), cada EP já é resultado de uma conversão anterior). Suporta só 1 nível de derivação
-// (soma de campos "de base"), suficiente para os casos reais conhecidos até agora.
+// Campo cujo valor de entrada não vem do formulário de lançamento, e sim de uma soma/subtração de
+// um campo numérico já extraído da faixa de outros campos (ex: ADL2 — Escore Padrão Global =
+// EP(LC) + EP(LE); FDT — Inibição = tempo(Escolha) - tempo(Contagem)), cada fonte já resultado de
+// uma conversão anterior. Suporta só 1 nível de derivação (soma/subtração de campos "de base"),
+// suficiente para os casos reais conhecidos até agora.
 export interface CampoDerivado {
-  somaDe: string[];
+  fontes: string[];
+  // Nome do campo de SAÍDA a extrair da faixa de cada fonte (ex.: "ponderado", "escorePadrao").
+  // Valor reservado "valorBruto": em vez de ler a faixa, lê o BRUTO DE ENTRADA da fonte direto —
+  // para quando a derivação precisa do valor fino (ex.: segundos) e não do rótulo grosso que a
+  // faixa devolve (ex.: FDT, Inibição = tempo(Escolha) - tempo(Contagem)).
   campoValor: string;
+  // "soma" (default) soma todas as fontes; "subtracao" é fontes[0] menos a soma das demais (ex.:
+  // FDT: fontes: ["escolha", "contagem"] -> escolha - contagem).
+  operacao?: "soma" | "subtracao";
   // Quando `true`, o campo derivado só é calculado se TODAS as fontes tiverem valor numérico em
   // `campoValor`; se qualquer uma faltar (subteste não lançado, ou lançado mas sem faixa
   // correspondente), o resultado é `valorBruto: null` / `faixa: null` — "não calculado" — em vez
@@ -37,7 +46,9 @@ export interface CampoDerivado {
   // Existe por causa do WISC-IV: um QI Total que soma 0 no lugar de um subteste não lançado
   // produz um número plausível e errado, que iria direto para um laudo sem nada denunciando o
   // erro. É opt-in para não alterar o comportamento já estabelecido da ADL2 (ver o teste
-  // "camposDerivados cujos campos-fonte não bateram nenhuma faixa soma 0").
+  // "camposDerivados cujos campos-fonte não bateram nenhuma faixa soma 0") — mas em "subtracao" é
+  // sempre tratado como `true`, implícito: 0 no lugar do que falta dá uma subtração plausível e
+  // errada (ex.: Inibição = Escolha - 0), o mesmo risco que o WISC-IV tinha com soma.
   exigeTodasFontes?: boolean;
 }
 
@@ -83,18 +94,28 @@ export function calcularResultado(
     porCampo[chave] = { valorBruto: valor, faixa: localizarFaixa(valor, faixasDoCampo) };
   }
   for (const [chave, derivado] of Object.entries(conversao.camposDerivados ?? {})) {
-    const valoresDasFontes = derivado.somaDe.map((fonte) => {
-      const v = porCampo[fonte]?.faixa?.[derivado.campoValor];
+    const valoresDasFontes = derivado.fontes.map((fonte) => {
+      // "valorBruto" é um nome reservado: em vez de ler um campo de saída já convertido da faixa
+      // (ex.: "ponderado", "escorePadrao"), lê o bruto de ENTRADA da fonte direto. Existe para o
+      // FDT: Inibição = tempo(Escolha) - tempo(Contagem) subtrai os tempos brutos em segundos, não
+      // um valor já classificado — não há "campo de saída" que sirva aqui, a faixa só devolve o
+      // rótulo de percentil (coisa grossa), nunca o segundo exato (coisa fina) de volta.
+      const v = derivado.campoValor === "valorBruto" ? porCampo[fonte]?.valorBruto : porCampo[fonte]?.faixa?.[derivado.campoValor];
       return typeof v === "number" ? v : null;
     });
     const faixasDoCampo = conversao.faixasPorCampo?.[chave] ?? conversao.faixas ?? [];
+    const subtracao = derivado.operacao === "subtracao";
 
-    if (derivado.exigeTodasFontes && valoresDasFontes.some((v) => v === null)) {
+    // "subtracao" exige todas as fontes sempre, flag ou não: 0 no lugar da que falta dá uma
+    // subtração plausível e errada (ver comentário de `exigeTodasFontes` em CampoDerivado).
+    if ((derivado.exigeTodasFontes || subtracao) && valoresDasFontes.some((v) => v === null)) {
       porCampo[chave] = { valorBruto: null, faixa: null };
       continue;
     }
 
-    const valorBruto = valoresDasFontes.reduce<number>((acc, v) => acc + (v ?? 0), 0);
+    const valorBruto = subtracao
+      ? (valoresDasFontes[0] ?? 0) - valoresDasFontes.slice(1).reduce<number>((acc, v) => acc + (v ?? 0), 0)
+      : valoresDasFontes.reduce<number>((acc, v) => acc + (v ?? 0), 0);
     porCampo[chave] = { valorBruto, faixa: localizarFaixa(valorBruto, faixasDoCampo) };
   }
   return { modo: "por_campo", porCampo };

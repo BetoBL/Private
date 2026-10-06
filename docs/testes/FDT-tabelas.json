@@ -1,0 +1,4007 @@
+{
+  "_fonte": "Sedó, M. A. Five Digit Test (FDT): manual. Madrid: TEA Ediciones, 2007. Transcrito em 05/10/2026 da aba 'FDT - NORMAS' do Excel legado da psicóloga (arquivo 'Diego de Melo.xlsm', Tabelas 6.3 a 6.11 — a 6.2, amostra inteira, não tem matriz de classificação). SEM CONFERÊNCIA CONTRA O MANUAL IMPRESSO — não temos o PDF do FDT no acervo; esta é fonte única (ver project_neurologic_riscos_normas na memória).",
+  "_rotulos_percentil": [
+    ">95",
+    "95",
+    "> 75 < 95",
+    "75",
+    "> 50 < 75",
+    "50",
+    "> 25 < 50",
+    "25",
+    "> 5 < 25",
+    "5",
+    "< 5"
+  ],
+  "faixasEtarias": [
+    {
+      "tabela": "6.3",
+      "faixaMin": 6,
+      "faixaMax": 8,
+      "n": 44,
+      "descricao": "Dados normativos para crianças de 6 a 8 anos (N=44)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 24,
+            "percentil": ">95"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "95"
+          },
+          {
+            "min": 26,
+            "max": 28,
+            "percentil": ">75 < 95"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "75"
+          },
+          {
+            "min": 30,
+            "max": 33,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "50"
+          },
+          {
+            "min": 35,
+            "max": 38,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "25"
+          },
+          {
+            "min": 40,
+            "max": 47,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 48,
+            "max": 48,
+            "percentil": "5"
+          },
+          {
+            "min": 49,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 31,
+            "percentil": ">95"
+          },
+          {
+            "min": 32,
+            "max": 32,
+            "percentil": "95"
+          },
+          {
+            "min": 33,
+            "max": 39,
+            "percentil": ">75 < 95"
+          },
+          {
+            "min": 40,
+            "max": 40,
+            "percentil": "75"
+          },
+          {
+            "min": 41,
+            "max": 47,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 48,
+            "max": 48,
+            "percentil": "50"
+          },
+          {
+            "min": 49,
+            "max": 55,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 56,
+            "max": 56,
+            "percentil": "25"
+          },
+          {
+            "min": 57,
+            "max": 82,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 83,
+            "max": 83,
+            "percentil": "5"
+          },
+          {
+            "min": 84,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 40,
+            "percentil": ">95"
+          },
+          {
+            "min": 41,
+            "max": 41,
+            "percentil": "95"
+          },
+          {
+            "min": 42,
+            "max": 65,
+            "percentil": ">75 < 95"
+          },
+          {
+            "min": 66,
+            "max": 66,
+            "percentil": "75"
+          },
+          {
+            "min": 67,
+            "max": 78,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 79,
+            "max": 79,
+            "percentil": "50"
+          },
+          {
+            "min": 80,
+            "max": 93,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 94,
+            "max": 94,
+            "percentil": "25"
+          },
+          {
+            "min": 95,
+            "max": 108,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 109,
+            "max": 109,
+            "percentil": "5"
+          },
+          {
+            "min": 110,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 57,
+            "percentil": ">95"
+          },
+          {
+            "min": 58,
+            "max": 58,
+            "percentil": "95"
+          },
+          {
+            "min": 59,
+            "max": 74,
+            "percentil": ">75 < 95"
+          },
+          {
+            "min": 75,
+            "max": 75,
+            "percentil": "75"
+          },
+          {
+            "min": 76,
+            "max": 90,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 91,
+            "max": 91,
+            "percentil": "50"
+          },
+          {
+            "min": 92,
+            "max": 112,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 113,
+            "max": 113,
+            "percentil": "25"
+          },
+          {
+            "min": 114,
+            "max": 132,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 133,
+            "max": 133,
+            "percentil": "5"
+          },
+          {
+            "min": 134,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 16,
+            "percentil": ">95"
+          },
+          {
+            "min": 17,
+            "max": 17,
+            "percentil": "95"
+          },
+          {
+            "min": 18,
+            "max": 30,
+            "percentil": ">75 < 95"
+          },
+          {
+            "min": 31,
+            "max": 31,
+            "percentil": "75"
+          },
+          {
+            "min": 32,
+            "max": 42,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 43,
+            "max": 43,
+            "percentil": "50"
+          },
+          {
+            "min": 44,
+            "max": 54,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 55,
+            "max": 55,
+            "percentil": "25"
+          },
+          {
+            "min": 56,
+            "max": 75,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 76,
+            "max": 76,
+            "percentil": "5"
+          },
+          {
+            "min": 77,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 25,
+            "percentil": ">95"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "95"
+          },
+          {
+            "min": 27,
+            "max": 40,
+            "percentil": ">75 < 95"
+          },
+          {
+            "min": 41,
+            "max": 41,
+            "percentil": "75"
+          },
+          {
+            "min": 42,
+            "max": 54,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 55,
+            "max": 55,
+            "percentil": "50"
+          },
+          {
+            "min": 56,
+            "max": 74,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 75,
+            "max": 75,
+            "percentil": "25"
+          },
+          {
+            "min": 76,
+            "max": 91,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 92,
+            "max": 92,
+            "percentil": "5"
+          },
+          {
+            "min": 93,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 3,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 4,
+            "max": 4,
+            "percentil": "5"
+          },
+          {
+            "min": 5,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "> 50 e < 75"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "50"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 4,
+            "max": 4,
+            "percentil": "25"
+          },
+          {
+            "min": 5,
+            "max": 8,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 9,
+            "max": 9,
+            "percentil": "5"
+          },
+          {
+            "min": 10,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "75"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "50"
+          },
+          {
+            "min": 3,
+            "max": 4,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 5,
+            "max": 5,
+            "percentil": "25"
+          },
+          {
+            "min": 6,
+            "max": 9,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 10,
+            "max": 10,
+            "percentil": "5"
+          },
+          {
+            "min": 11,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.4",
+      "faixaMin": 9,
+      "faixaMax": 10,
+      "n": 129,
+      "descricao": "Dados normativos para crianças de 9 a 10 anos (N=129)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 21,
+            "percentil": ">95"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "95"
+          },
+          {
+            "min": 23,
+            "max": 25,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "75"
+          },
+          {
+            "min": 27,
+            "max": 28,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "50"
+          },
+          {
+            "min": 30,
+            "max": 31,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 32,
+            "max": 32,
+            "percentil": "25"
+          },
+          {
+            "min": 33,
+            "max": 37,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 38,
+            "max": 38,
+            "percentil": "5"
+          },
+          {
+            "min": 39,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 27,
+            "percentil": ">95"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "95"
+          },
+          {
+            "min": 29,
+            "max": 33,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "75"
+          },
+          {
+            "min": 35,
+            "max": 38,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "50"
+          },
+          {
+            "min": 40,
+            "max": 42,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 43,
+            "max": 43,
+            "percentil": "25"
+          },
+          {
+            "min": 44,
+            "max": 51,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 52,
+            "max": 52,
+            "percentil": "5"
+          },
+          {
+            "min": 53,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 45,
+            "percentil": ">95"
+          },
+          {
+            "min": 46,
+            "max": 46,
+            "percentil": "95"
+          },
+          {
+            "min": 47,
+            "max": 55,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 56,
+            "max": 56,
+            "percentil": "75"
+          },
+          {
+            "min": 57,
+            "max": 62,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 63,
+            "max": 63,
+            "percentil": "50"
+          },
+          {
+            "min": 64,
+            "max": 72,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 73,
+            "max": 73,
+            "percentil": "25"
+          },
+          {
+            "min": 74,
+            "max": 87,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 88,
+            "max": 88,
+            "percentil": "5"
+          },
+          {
+            "min": 89,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 53,
+            "percentil": ">95"
+          },
+          {
+            "min": 54,
+            "max": 54,
+            "percentil": "95"
+          },
+          {
+            "min": 55,
+            "max": 66,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 67,
+            "max": 67,
+            "percentil": "75"
+          },
+          {
+            "min": 68,
+            "max": 74,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 75,
+            "max": 75,
+            "percentil": "50"
+          },
+          {
+            "min": 76,
+            "max": 86,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 87,
+            "max": 87,
+            "percentil": "25"
+          },
+          {
+            "min": 88,
+            "max": 100,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 101,
+            "max": 101,
+            "percentil": "5"
+          },
+          {
+            "min": 102,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 18,
+            "percentil": ">95"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "95"
+          },
+          {
+            "min": 20,
+            "max": 27,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "75"
+          },
+          {
+            "min": 29,
+            "max": 34,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 35,
+            "max": 35,
+            "percentil": "50"
+          },
+          {
+            "min": 36,
+            "max": 41,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 42,
+            "max": 42,
+            "percentil": "25"
+          },
+          {
+            "min": 43,
+            "max": 56,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 57,
+            "max": 57,
+            "percentil": "5"
+          },
+          {
+            "min": 58,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 27,
+            "percentil": ">95"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "95"
+          },
+          {
+            "min": 29,
+            "max": 38,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "75"
+          },
+          {
+            "min": 40,
+            "max": 45,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 46,
+            "max": 46,
+            "percentil": "50"
+          },
+          {
+            "min": 47,
+            "max": 56,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 57,
+            "max": 57,
+            "percentil": "25"
+          },
+          {
+            "min": 58,
+            "max": 72,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 73,
+            "max": 73,
+            "percentil": "5"
+          },
+          {
+            "min": 74,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "5"
+          },
+          {
+            "min": 3,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "25"
+          },
+          {
+            "min": 4,
+            "max": 5,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 6,
+            "max": 6,
+            "percentil": "5"
+          },
+          {
+            "min": 7,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "75"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "50"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 4,
+            "max": 4,
+            "percentil": "25"
+          },
+          {
+            "min": 5,
+            "max": 7,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 8,
+            "max": 8,
+            "percentil": "5"
+          },
+          {
+            "min": 9,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.5",
+      "faixaMin": 11,
+      "faixaMax": 12,
+      "n": 59,
+      "descricao": "Dados normativos para crianças de 11 a 12 anos (N=59)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": ">95"
+          },
+          {
+            "min": 1,
+            "max": 19,
+            "percentil": "> 95"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "95"
+          },
+          {
+            "min": 21,
+            "max": 23,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 24,
+            "max": 24,
+            "percentil": "75"
+          },
+          {
+            "min": 25,
+            "max": 26,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 27,
+            "max": 27,
+            "percentil": "50"
+          },
+          {
+            "min": 28,
+            "max": 31,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 32,
+            "max": 32,
+            "percentil": "25"
+          },
+          {
+            "min": 33,
+            "max": 46,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 47,
+            "max": 47,
+            "percentil": "5"
+          },
+          {
+            "min": 48,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": ">95"
+          },
+          {
+            "min": 1,
+            "max": 24,
+            "percentil": "> 95"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "95"
+          },
+          {
+            "min": 26,
+            "max": 31,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 32,
+            "max": 32,
+            "percentil": "75"
+          },
+          {
+            "min": 33,
+            "max": 35,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 36,
+            "max": 36,
+            "percentil": "50"
+          },
+          {
+            "min": 37,
+            "max": 43,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 44,
+            "max": 44,
+            "percentil": "25"
+          },
+          {
+            "min": 45,
+            "max": 53,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 54,
+            "max": 54,
+            "percentil": "5"
+          },
+          {
+            "min": 55,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": ">95"
+          },
+          {
+            "min": 1,
+            "max": 37,
+            "percentil": "> 95"
+          },
+          {
+            "min": 38,
+            "max": 38,
+            "percentil": "95"
+          },
+          {
+            "min": 39,
+            "max": 47,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 48,
+            "max": 48,
+            "percentil": "75"
+          },
+          {
+            "min": 49,
+            "max": 55,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 56,
+            "max": 56,
+            "percentil": "50"
+          },
+          {
+            "min": 57,
+            "max": 61,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 62,
+            "max": 62,
+            "percentil": "25"
+          },
+          {
+            "min": 63,
+            "max": 92,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 93,
+            "max": 93,
+            "percentil": "5"
+          },
+          {
+            "min": 94,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": ">95"
+          },
+          {
+            "min": 1,
+            "max": 45,
+            "percentil": "> 95"
+          },
+          {
+            "min": 46,
+            "max": 46,
+            "percentil": "95"
+          },
+          {
+            "min": 47,
+            "max": 54,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 55,
+            "max": 55,
+            "percentil": "75"
+          },
+          {
+            "min": 56,
+            "max": 65,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 66,
+            "max": 66,
+            "percentil": "50"
+          },
+          {
+            "min": 67,
+            "max": 72,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 73,
+            "max": 73,
+            "percentil": "25"
+          },
+          {
+            "min": 74,
+            "max": 95,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 96,
+            "max": 96,
+            "percentil": "5"
+          },
+          {
+            "min": 97,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": ">95"
+          },
+          {
+            "min": 1,
+            "max": 11,
+            "percentil": "> 95"
+          },
+          {
+            "min": 12,
+            "max": 12,
+            "percentil": "95"
+          },
+          {
+            "min": 13,
+            "max": 19,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "75"
+          },
+          {
+            "min": 21,
+            "max": 27,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "50"
+          },
+          {
+            "min": 29,
+            "max": 34,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 35,
+            "max": 35,
+            "percentil": "25"
+          },
+          {
+            "min": 36,
+            "max": 50,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 51,
+            "max": 51,
+            "percentil": "5"
+          },
+          {
+            "min": 52,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": ">95"
+          },
+          {
+            "min": 1,
+            "max": 15,
+            "percentil": "> 95"
+          },
+          {
+            "min": 16,
+            "max": 16,
+            "percentil": "95"
+          },
+          {
+            "min": 17,
+            "max": 29,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 30,
+            "max": 30,
+            "percentil": "75"
+          },
+          {
+            "min": 31,
+            "max": 38,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "50"
+          },
+          {
+            "min": 40,
+            "max": 43,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 44,
+            "max": 44,
+            "percentil": "25"
+          },
+          {
+            "min": 45,
+            "max": 67,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 68,
+            "max": 68,
+            "percentil": "5"
+          },
+          {
+            "min": 69,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "5"
+          },
+          {
+            "min": 2,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 2,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "5"
+          },
+          {
+            "min": 4,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "25"
+          },
+          {
+            "min": 3,
+            "max": 9,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 10,
+            "max": 10,
+            "percentil": "5"
+          },
+          {
+            "min": 11,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "> 50 e < 75"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "50"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "25"
+          },
+          {
+            "min": 4,
+            "max": 9,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 10,
+            "max": 10,
+            "percentil": "5"
+          },
+          {
+            "min": 11,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.6",
+      "faixaMin": 13,
+      "faixaMax": 15,
+      "n": 46,
+      "descricao": "Dados normativos para adolescentes de 13 a 15 anos (N=46)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 16,
+            "percentil": ">95"
+          },
+          {
+            "min": 17,
+            "max": 17,
+            "percentil": "95"
+          },
+          {
+            "min": 18,
+            "max": 19,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "75"
+          },
+          {
+            "min": 21,
+            "max": 22,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 23,
+            "max": 23,
+            "percentil": "50"
+          },
+          {
+            "min": 24,
+            "max": 25,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "25"
+          },
+          {
+            "min": 27,
+            "max": 33,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "5"
+          },
+          {
+            "min": 35,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 20,
+            "percentil": ">95"
+          },
+          {
+            "min": 21,
+            "max": 21,
+            "percentil": "95"
+          },
+          {
+            "min": 22,
+            "max": 23,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 24,
+            "max": 24,
+            "percentil": "75"
+          },
+          {
+            "min": 25,
+            "max": 27,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "50"
+          },
+          {
+            "min": 29,
+            "max": 34,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 35,
+            "max": 35,
+            "percentil": "25"
+          },
+          {
+            "min": 36,
+            "max": 43,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 44,
+            "max": 44,
+            "percentil": "5"
+          },
+          {
+            "min": 45,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 32,
+            "percentil": ">95"
+          },
+          {
+            "min": 33,
+            "max": 33,
+            "percentil": "95"
+          },
+          {
+            "min": 34,
+            "max": 39,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 40,
+            "max": 40,
+            "percentil": "75"
+          },
+          {
+            "min": 41,
+            "max": 44,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 45,
+            "max": 45,
+            "percentil": "50"
+          },
+          {
+            "min": 46,
+            "max": 52,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 53,
+            "max": 53,
+            "percentil": "25"
+          },
+          {
+            "min": 54,
+            "max": 67,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 68,
+            "max": 68,
+            "percentil": "5"
+          },
+          {
+            "min": 69,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 35,
+            "percentil": ">95"
+          },
+          {
+            "min": 36,
+            "max": 36,
+            "percentil": "95"
+          },
+          {
+            "min": 37,
+            "max": 45,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 46,
+            "max": 46,
+            "percentil": "75"
+          },
+          {
+            "min": 47,
+            "max": 52,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 53,
+            "max": 53,
+            "percentil": "50"
+          },
+          {
+            "min": 54,
+            "max": 66,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 67,
+            "max": 67,
+            "percentil": "25"
+          },
+          {
+            "min": 68,
+            "max": 80,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 81,
+            "max": 81,
+            "percentil": "5"
+          },
+          {
+            "min": 82,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 7,
+            "percentil": ">95"
+          },
+          {
+            "min": 8,
+            "max": 8,
+            "percentil": "95"
+          },
+          {
+            "min": 9,
+            "max": 18,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "75"
+          },
+          {
+            "min": 20,
+            "max": 22,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 23,
+            "max": 23,
+            "percentil": "50"
+          },
+          {
+            "min": 24,
+            "max": 28,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "25"
+          },
+          {
+            "min": 30,
+            "max": 41,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 42,
+            "max": 42,
+            "percentil": "5"
+          },
+          {
+            "min": 43,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 13,
+            "percentil": ">95"
+          },
+          {
+            "min": 14,
+            "max": 14,
+            "percentil": "95"
+          },
+          {
+            "min": 15,
+            "max": 24,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "75"
+          },
+          {
+            "min": 26,
+            "max": 31,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 32,
+            "max": 32,
+            "percentil": "50"
+          },
+          {
+            "min": 33,
+            "max": 42,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 43,
+            "max": 43,
+            "percentil": "25"
+          },
+          {
+            "min": 44,
+            "max": 52,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 53,
+            "max": 53,
+            "percentil": "5"
+          },
+          {
+            "min": 54,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "5"
+          },
+          {
+            "min": 3,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "25"
+          },
+          {
+            "min": 3,
+            "max": 6,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 7,
+            "max": 7,
+            "percentil": "5"
+          },
+          {
+            "min": 8,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "25"
+          },
+          {
+            "min": 4,
+            "max": 4,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 5,
+            "max": 5,
+            "percentil": "5"
+          },
+          {
+            "min": 6,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.7",
+      "faixaMin": 16,
+      "faixaMax": 18,
+      "n": 44,
+      "descricao": "Dados normativos para adolescentes de 16 a 18 anos (N=44)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 15,
+            "percentil": ">95"
+          },
+          {
+            "min": 16,
+            "max": 16,
+            "percentil": "95"
+          },
+          {
+            "min": 17,
+            "max": 17,
+            "percentil": "75"
+          },
+          {
+            "min": 18,
+            "max": 19,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "50"
+          },
+          {
+            "min": 21,
+            "max": 22,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 23,
+            "max": 23,
+            "percentil": "25"
+          },
+          {
+            "min": 24,
+            "max": 28,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "5"
+          },
+          {
+            "min": 30,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 18,
+            "percentil": ">95"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "95"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 21,
+            "max": 21,
+            "percentil": "75"
+          },
+          {
+            "min": 22,
+            "max": 23,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 24,
+            "max": 24,
+            "percentil": "50"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "25"
+          },
+          {
+            "min": 27,
+            "max": 29,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 30,
+            "max": 30,
+            "percentil": "5"
+          },
+          {
+            "min": 31,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 24,
+            "percentil": ">95"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "95"
+          },
+          {
+            "min": 26,
+            "max": 28,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "75"
+          },
+          {
+            "min": 30,
+            "max": 32,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 33,
+            "max": 33,
+            "percentil": "50"
+          },
+          {
+            "min": 34,
+            "max": 38,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "25"
+          },
+          {
+            "min": 40,
+            "max": 43,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 44,
+            "max": 44,
+            "percentil": "5"
+          },
+          {
+            "min": 45,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 33,
+            "percentil": ">95"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "95"
+          },
+          {
+            "min": 35,
+            "max": 37,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 38,
+            "max": 38,
+            "percentil": "75"
+          },
+          {
+            "min": 39,
+            "max": 41,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 42,
+            "max": 42,
+            "percentil": "50"
+          },
+          {
+            "min": 43,
+            "max": 50,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 51,
+            "max": 51,
+            "percentil": "25"
+          },
+          {
+            "min": 52,
+            "max": 62,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 63,
+            "max": 63,
+            "percentil": "5"
+          },
+          {
+            "min": 64,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 5,
+            "percentil": ">95"
+          },
+          {
+            "min": 6,
+            "max": 6,
+            "percentil": "95"
+          },
+          {
+            "min": 7,
+            "max": 9,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 10,
+            "max": 10,
+            "percentil": "75"
+          },
+          {
+            "min": 11,
+            "max": 12,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 13,
+            "max": 13,
+            "percentil": "50"
+          },
+          {
+            "min": 14,
+            "max": 15,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 16,
+            "max": 16,
+            "percentil": "25"
+          },
+          {
+            "min": 17,
+            "max": 21,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "5"
+          },
+          {
+            "min": 23,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 15,
+            "percentil": ">95"
+          },
+          {
+            "min": 16,
+            "max": 16,
+            "percentil": "95"
+          },
+          {
+            "min": 17,
+            "max": 18,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "75"
+          },
+          {
+            "min": 20,
+            "max": 21,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "50"
+          },
+          {
+            "min": 23,
+            "max": 26,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 27,
+            "max": 27,
+            "percentil": "25"
+          },
+          {
+            "min": 28,
+            "max": 43,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 44,
+            "max": 44,
+            "percentil": "5"
+          },
+          {
+            "min": 45,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 2,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "5"
+          },
+          {
+            "min": 4,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "25"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 4,
+            "max": 4,
+            "percentil": "5"
+          },
+          {
+            "min": 5,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.8",
+      "faixaMin": 19,
+      "faixaMax": 34,
+      "n": 349,
+      "descricao": "Dados normativos para adultos de 19 a 34 anos (N=349)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 15,
+            "percentil": ">95"
+          },
+          {
+            "min": 16,
+            "max": 16,
+            "percentil": "95"
+          },
+          {
+            "min": 17,
+            "max": 18,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "75"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 21,
+            "max": 21,
+            "percentil": "50"
+          },
+          {
+            "min": 22,
+            "max": 24,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "25"
+          },
+          {
+            "min": 26,
+            "max": 30,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 31,
+            "max": 31,
+            "percentil": "5"
+          },
+          {
+            "min": 32,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 18,
+            "percentil": ">95"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "95"
+          },
+          {
+            "min": 20,
+            "max": 21,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "75"
+          },
+          {
+            "min": 23,
+            "max": 23,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 24,
+            "max": 24,
+            "percentil": "50"
+          },
+          {
+            "min": 25,
+            "max": 26,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 27,
+            "max": 27,
+            "percentil": "25"
+          },
+          {
+            "min": 28,
+            "max": 33,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "5"
+          },
+          {
+            "min": 35,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 26,
+            "percentil": ">95"
+          },
+          {
+            "min": 27,
+            "max": 27,
+            "percentil": "95"
+          },
+          {
+            "min": 28,
+            "max": 30,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 31,
+            "max": 31,
+            "percentil": "75"
+          },
+          {
+            "min": 32,
+            "max": 34,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 35,
+            "max": 35,
+            "percentil": "50"
+          },
+          {
+            "min": 36,
+            "max": 39,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 40,
+            "max": 40,
+            "percentil": "25"
+          },
+          {
+            "min": 41,
+            "max": 51,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 52,
+            "max": 52,
+            "percentil": "5"
+          },
+          {
+            "min": 53,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 32,
+            "percentil": ">95"
+          },
+          {
+            "min": 33,
+            "max": 33,
+            "percentil": "95"
+          },
+          {
+            "min": 34,
+            "max": 37,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 38,
+            "max": 38,
+            "percentil": "75"
+          },
+          {
+            "min": 39,
+            "max": 43,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 44,
+            "max": 44,
+            "percentil": "50"
+          },
+          {
+            "min": 45,
+            "max": 49,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 50,
+            "max": 50,
+            "percentil": "25"
+          },
+          {
+            "min": 51,
+            "max": 63,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 64,
+            "max": 64,
+            "percentil": "5"
+          },
+          {
+            "min": 65,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 4,
+            "percentil": ">95"
+          },
+          {
+            "min": 5,
+            "max": 5,
+            "percentil": "95"
+          },
+          {
+            "min": 6,
+            "max": 10,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 11,
+            "max": 11,
+            "percentil": "75"
+          },
+          {
+            "min": 12,
+            "max": 13,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 14,
+            "max": 14,
+            "percentil": "50"
+          },
+          {
+            "min": 15,
+            "max": 17,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 18,
+            "max": 18,
+            "percentil": "25"
+          },
+          {
+            "min": 19,
+            "max": 27,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "5"
+          },
+          {
+            "min": 29,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 9,
+            "percentil": ">95"
+          },
+          {
+            "min": 10,
+            "max": 10,
+            "percentil": "95"
+          },
+          {
+            "min": 11,
+            "max": 16,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 17,
+            "max": 17,
+            "percentil": "75"
+          },
+          {
+            "min": 18,
+            "max": 21,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "50"
+          },
+          {
+            "min": 23,
+            "max": 28,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "25"
+          },
+          {
+            "min": 30,
+            "max": 41,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 42,
+            "max": 42,
+            "percentil": "5"
+          },
+          {
+            "min": 43,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "5"
+          },
+          {
+            "min": 2,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "25"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "5"
+          },
+          {
+            "min": 3,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "25"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "5"
+          },
+          {
+            "min": 4,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.9",
+      "faixaMin": 35,
+      "faixaMax": 59,
+      "n": 261,
+      "descricao": "Dados normativos para adultos de 35 a 59 anos (N=261)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 16,
+            "percentil": ">95"
+          },
+          {
+            "min": 17,
+            "max": 17,
+            "percentil": "95"
+          },
+          {
+            "min": 18,
+            "max": 19,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "75"
+          },
+          {
+            "min": 21,
+            "max": 22,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 23,
+            "max": 23,
+            "percentil": "50"
+          },
+          {
+            "min": 24,
+            "max": 25,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "25"
+          },
+          {
+            "min": 27,
+            "max": 36,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 37,
+            "max": 37,
+            "percentil": "5"
+          },
+          {
+            "min": 38,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 18,
+            "percentil": ">95"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "95"
+          },
+          {
+            "min": 20,
+            "max": 21,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "75"
+          },
+          {
+            "min": 23,
+            "max": 25,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "50"
+          },
+          {
+            "min": 27,
+            "max": 29,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 30,
+            "max": 30,
+            "percentil": "25"
+          },
+          {
+            "min": 31,
+            "max": 39,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 40,
+            "max": 40,
+            "percentil": "5"
+          },
+          {
+            "min": 41,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 27,
+            "percentil": ">95"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "95"
+          },
+          {
+            "min": 29,
+            "max": 31,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 32,
+            "max": 32,
+            "percentil": "75"
+          },
+          {
+            "min": 33,
+            "max": 38,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "50"
+          },
+          {
+            "min": 40,
+            "max": 45,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 46,
+            "max": 46,
+            "percentil": "25"
+          },
+          {
+            "min": 47,
+            "max": 64,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 65,
+            "max": 65,
+            "percentil": "5"
+          },
+          {
+            "min": 66,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 33,
+            "percentil": ">95"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "95"
+          },
+          {
+            "min": 35,
+            "max": 42,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 43,
+            "max": 43,
+            "percentil": "75"
+          },
+          {
+            "min": 44,
+            "max": 47,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 48,
+            "max": 48,
+            "percentil": "50"
+          },
+          {
+            "min": 49,
+            "max": 59,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 60,
+            "max": 60,
+            "percentil": "25"
+          },
+          {
+            "min": 61,
+            "max": 88,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 89,
+            "max": 89,
+            "percentil": "5"
+          },
+          {
+            "min": 90,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 4,
+            "percentil": ">95"
+          },
+          {
+            "min": 5,
+            "max": 5,
+            "percentil": "95"
+          },
+          {
+            "min": 6,
+            "max": 10,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 11,
+            "max": 11,
+            "percentil": "75"
+          },
+          {
+            "min": 12,
+            "max": 14,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 15,
+            "max": 15,
+            "percentil": "50"
+          },
+          {
+            "min": 16,
+            "max": 20,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 21,
+            "max": 21,
+            "percentil": "25"
+          },
+          {
+            "min": 22,
+            "max": 37,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 38,
+            "max": 38,
+            "percentil": "5"
+          },
+          {
+            "min": 39,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 13,
+            "percentil": ">95"
+          },
+          {
+            "min": 14,
+            "max": 14,
+            "percentil": "95"
+          },
+          {
+            "min": 15,
+            "max": 19,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "75"
+          },
+          {
+            "min": 21,
+            "max": 25,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "50"
+          },
+          {
+            "min": 27,
+            "max": 33,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "25"
+          },
+          {
+            "min": 35,
+            "max": 54,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 55,
+            "max": 55,
+            "percentil": "5"
+          },
+          {
+            "min": 56,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "25"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "5"
+          },
+          {
+            "min": 4,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "25"
+          },
+          {
+            "min": 3,
+            "max": 5,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 6,
+            "max": 6,
+            "percentil": "5"
+          },
+          {
+            "min": 7,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.10",
+      "faixaMin": 60,
+      "faixaMax": 75,
+      "n": 146,
+      "descricao": "Dados normativos para idosos de 60 a 75 anos (N=146)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 17,
+            "percentil": ">95"
+          },
+          {
+            "min": 18,
+            "max": 18,
+            "percentil": "95"
+          },
+          {
+            "min": 19,
+            "max": 21,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "75"
+          },
+          {
+            "min": 23,
+            "max": 24,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "50"
+          },
+          {
+            "min": 26,
+            "max": 29,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 30,
+            "max": 30,
+            "percentil": "25"
+          },
+          {
+            "min": 31,
+            "max": 36,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 37,
+            "max": 37,
+            "percentil": "5"
+          },
+          {
+            "min": 38,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 20,
+            "percentil": ">95"
+          },
+          {
+            "min": 21,
+            "max": 21,
+            "percentil": "95"
+          },
+          {
+            "min": 22,
+            "max": 24,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "75"
+          },
+          {
+            "min": 26,
+            "max": 27,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "50"
+          },
+          {
+            "min": 29,
+            "max": 32,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 33,
+            "max": 33,
+            "percentil": "25"
+          },
+          {
+            "min": 34,
+            "max": 40,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 41,
+            "max": 41,
+            "percentil": "5"
+          },
+          {
+            "min": 42,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 29,
+            "percentil": ">95"
+          },
+          {
+            "min": 30,
+            "max": 30,
+            "percentil": "95"
+          },
+          {
+            "min": 31,
+            "max": 38,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "75"
+          },
+          {
+            "min": 40,
+            "max": 45,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 46,
+            "max": 46,
+            "percentil": "50"
+          },
+          {
+            "min": 47,
+            "max": 52,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 53,
+            "max": 53,
+            "percentil": "25"
+          },
+          {
+            "min": 54,
+            "max": 67,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 68,
+            "max": 68,
+            "percentil": "5"
+          },
+          {
+            "min": 69,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 40,
+            "percentil": ">95"
+          },
+          {
+            "min": 41,
+            "max": 41,
+            "percentil": "95"
+          },
+          {
+            "min": 42,
+            "max": 51,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 52,
+            "max": 52,
+            "percentil": "75"
+          },
+          {
+            "min": 53,
+            "max": 61,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 62,
+            "max": 62,
+            "percentil": "50"
+          },
+          {
+            "min": 63,
+            "max": 77,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 78,
+            "max": 78,
+            "percentil": "25"
+          },
+          {
+            "min": 79,
+            "max": 92,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 93,
+            "max": 93,
+            "percentil": "5"
+          },
+          {
+            "min": 94,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 8,
+            "percentil": ">95"
+          },
+          {
+            "min": 9,
+            "max": 9,
+            "percentil": "95"
+          },
+          {
+            "min": 10,
+            "max": 14,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 15,
+            "max": 15,
+            "percentil": "75"
+          },
+          {
+            "min": 16,
+            "max": 18,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 19,
+            "max": 19,
+            "percentil": "50"
+          },
+          {
+            "min": 20,
+            "max": 25,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "25"
+          },
+          {
+            "min": 27,
+            "max": 38,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 39,
+            "max": 39,
+            "percentil": "5"
+          },
+          {
+            "min": 40,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 17,
+            "percentil": ">95"
+          },
+          {
+            "min": 18,
+            "max": 18,
+            "percentil": "95"
+          },
+          {
+            "min": 19,
+            "max": 27,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 28,
+            "max": 28,
+            "percentil": "75"
+          },
+          {
+            "min": 29,
+            "max": 34,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 35,
+            "max": 35,
+            "percentil": "50"
+          },
+          {
+            "min": 36,
+            "max": 48,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 49,
+            "max": 49,
+            "percentil": "25"
+          },
+          {
+            "min": 50,
+            "max": 62,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 63,
+            "max": 63,
+            "percentil": "5"
+          },
+          {
+            "min": 64,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "5"
+          },
+          {
+            "min": 2,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "25"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "5"
+          },
+          {
+            "min": 4,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "25"
+          },
+          {
+            "min": 4,
+            "max": 5,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 6,
+            "max": 6,
+            "percentil": "5"
+          },
+          {
+            "min": 7,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    },
+    {
+      "tabela": "6.11",
+      "faixaMin": 76,
+      "faixaMax": null,
+      "n": 55,
+      "descricao": "Dados normativos para idosos de 76 ou mais anos (N=55)",
+      "tempo": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 19,
+            "percentil": ">95"
+          },
+          {
+            "min": 20,
+            "max": 20,
+            "percentil": "95"
+          },
+          {
+            "min": 21,
+            "max": 24,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 25,
+            "max": 25,
+            "percentil": "75"
+          },
+          {
+            "min": 26,
+            "max": 28,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "50"
+          },
+          {
+            "min": 30,
+            "max": 33,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 34,
+            "max": 34,
+            "percentil": "25"
+          },
+          {
+            "min": 35,
+            "max": 37,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 38,
+            "max": 38,
+            "percentil": "5"
+          },
+          {
+            "min": 39,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 20,
+            "percentil": ">95"
+          },
+          {
+            "min": 21,
+            "max": 21,
+            "percentil": "95"
+          },
+          {
+            "min": 22,
+            "max": 25,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 26,
+            "max": 26,
+            "percentil": "75"
+          },
+          {
+            "min": 27,
+            "max": 30,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 31,
+            "max": 31,
+            "percentil": "50"
+          },
+          {
+            "min": 32,
+            "max": 35,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 36,
+            "max": 36,
+            "percentil": "25"
+          },
+          {
+            "min": 37,
+            "max": 45,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 46,
+            "max": 46,
+            "percentil": "5"
+          },
+          {
+            "min": 47,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 32,
+            "percentil": ">95"
+          },
+          {
+            "min": 33,
+            "max": 33,
+            "percentil": "95"
+          },
+          {
+            "min": 34,
+            "max": 43,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 44,
+            "max": 44,
+            "percentil": "75"
+          },
+          {
+            "min": 45,
+            "max": 48,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 49,
+            "max": 49,
+            "percentil": "50"
+          },
+          {
+            "min": 50,
+            "max": 61,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 62,
+            "max": 62,
+            "percentil": "25"
+          },
+          {
+            "min": 63,
+            "max": 95,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 96,
+            "max": 96,
+            "percentil": "5"
+          },
+          {
+            "min": 97,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 47,
+            "percentil": ">95"
+          },
+          {
+            "min": 48,
+            "max": 48,
+            "percentil": "95"
+          },
+          {
+            "min": 49,
+            "max": 60,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 61,
+            "max": 61,
+            "percentil": "75"
+          },
+          {
+            "min": 62,
+            "max": 73,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 74,
+            "max": 74,
+            "percentil": "50"
+          },
+          {
+            "min": 75,
+            "max": 88,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 89,
+            "max": 89,
+            "percentil": "25"
+          },
+          {
+            "min": 90,
+            "max": 107,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 108,
+            "max": 108,
+            "percentil": "5"
+          },
+          {
+            "min": 109,
+            "percentil": "< 5"
+          }
+        ],
+        "inibicao": [
+          {
+            "min": 0,
+            "max": 6,
+            "percentil": ">95"
+          },
+          {
+            "min": 7,
+            "max": 7,
+            "percentil": "95"
+          },
+          {
+            "min": 8,
+            "max": 15,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 16,
+            "max": 16,
+            "percentil": "75"
+          },
+          {
+            "min": 17,
+            "max": 20,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 21,
+            "max": 21,
+            "percentil": "50"
+          },
+          {
+            "min": 22,
+            "max": 28,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 29,
+            "max": 29,
+            "percentil": "25"
+          },
+          {
+            "min": 30,
+            "max": 62,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 63,
+            "max": 63,
+            "percentil": "5"
+          },
+          {
+            "min": 64,
+            "percentil": "< 5"
+          }
+        ],
+        "flexibilidade": [
+          {
+            "min": 0,
+            "max": 21,
+            "percentil": ">95"
+          },
+          {
+            "min": 22,
+            "max": 22,
+            "percentil": "95"
+          },
+          {
+            "min": 23,
+            "max": 34,
+            "percentil": "> 75 < 95"
+          },
+          {
+            "min": 35,
+            "max": 35,
+            "percentil": "75"
+          },
+          {
+            "min": 36,
+            "max": 42,
+            "percentil": "> 50 < 75"
+          },
+          {
+            "min": 43,
+            "max": 43,
+            "percentil": "50"
+          },
+          {
+            "min": 44,
+            "max": 55,
+            "percentil": "> 25 < 50"
+          },
+          {
+            "min": 56,
+            "max": 56,
+            "percentil": "25"
+          },
+          {
+            "min": 57,
+            "max": 70,
+            "percentil": "> 5 < 25"
+          },
+          {
+            "min": 71,
+            "max": 71,
+            "percentil": "5"
+          },
+          {
+            "min": 72,
+            "percentil": "< 5"
+          }
+        ]
+      },
+      "erros": {
+        "leitura": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "contagem": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "percentil": "< 5"
+          }
+        ],
+        "escolha": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "50"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 3,
+            "max": 3,
+            "percentil": "25"
+          },
+          {
+            "min": 4,
+            "max": 7,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 8,
+            "max": 8,
+            "percentil": "5"
+          },
+          {
+            "min": 9,
+            "percentil": "< 5"
+          }
+        ],
+        "alternancia": [
+          {
+            "min": 0,
+            "max": 0,
+            "percentil": "> 95"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "percentil": "75"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "percentil": "50"
+          },
+          {
+            "min": 3,
+            "max": 4,
+            "percentil": "> 25 e < 50"
+          },
+          {
+            "min": 5,
+            "max": 5,
+            "percentil": "25"
+          },
+          {
+            "min": 6,
+            "max": 13,
+            "percentil": "> 5 e < 25"
+          },
+          {
+            "min": 14,
+            "max": 14,
+            "percentil": "5"
+          },
+          {
+            "min": 15,
+            "percentil": "< 5"
+          }
+        ]
+      }
+    }
+  ]
+}
