@@ -9,6 +9,12 @@
   --color-mist: #e7e4dd;
   --color-ember: #a83232;
 
+  /* Biblioteca de Instrumentos: ambiente claro próprio (nova aba), acento salmão —
+     ver docs do protótipo aprovado. Não usado no resto do app. */
+  --color-salmon: #e8a690;
+  --color-salmon-tint: #fbece5;
+  --color-salmon-deep: #a8503d;
+
   --font-serif: "Fraunces", serif;
   --font-sans: "Inter", sans-serif;
 }

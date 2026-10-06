@@ -46,6 +46,16 @@ export function LancamentoTeste() {
     api.listTestes().then(setTestes).catch((e) => setErro(e.message));
   }, []);
 
+  // Vindo da Biblioteca de Instrumentos (?teste=SIGLA): pré-seleciona assim que a lista carrega,
+  // sem exigir que o usuário clique de novo no mesmo teste que já escolheu lá.
+  useEffect(() => {
+    const siglaAlvo = searchParams.get("teste");
+    if (!siglaAlvo || testeId) return;
+    const alvo = testes.find((t) => t.sigla === siglaAlvo);
+    if (alvo) selecionarTeste(alvo.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [testes, searchParams]);
+
   // Guarda contra corrida: uma resposta de uma sessão antiga pode chegar depois
   // de o usuário já ter trocado de sessão, fazendo a lista "misturar" dados.
   useEffect(() => {

@@ -6,7 +6,9 @@ import { api, type Clinica } from "../lib/api";
 const LINKS = [
   { to: "/", label: "Painel do dia", end: true },
   { to: "/pacientes", label: "Pacientes" },
-  { to: "/testes", label: "Testes & Correção" },
+  // Abre em aba nova, de propósito: a Biblioteca de Instrumentos é um ambiente visual próprio
+  // (ver pages/BibliotecaDeTestes.tsx), não uma rota dentro desta casca de sidebar escura.
+  { to: "/biblioteca", label: "Testes & Correção", novaAba: true },
   { to: "/laudo", label: "Laudo" },
   { to: "/agenda", label: "Agenda" },
   { to: "/perfil-atuacao", label: "Meu Perfil de Atuação" },
@@ -39,21 +41,35 @@ export function Layout() {
         </div>
 
         <nav className="flex flex-col gap-1">
-          {LINKS.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.end}
-              className={({ isActive }) =>
-                `flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm transition-opacity ${
-                  isActive ? "bg-sage-deep opacity-100" : "opacity-75 hover:opacity-100 hover:bg-paper/10"
-                }`
-              }
-            >
-              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
-              {link.label}
-            </NavLink>
-          ))}
+          {LINKS.map((link) =>
+            link.novaAba ? (
+              <a
+                key={link.to}
+                href={link.to}
+                target="_blank"
+                rel="noopener"
+                className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm opacity-75 transition-opacity hover:bg-paper/10 hover:opacity-100"
+              >
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+                {link.label}
+                <span className="ml-auto text-[10px] opacity-60">↗</span>
+              </a>
+            ) : (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={link.end}
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm transition-opacity ${
+                    isActive ? "bg-sage-deep opacity-100" : "opacity-75 hover:opacity-100 hover:bg-paper/10"
+                  }`
+                }
+              >
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+                {link.label}
+              </NavLink>
+            )
+          )}
         </nav>
 
         <div className="mt-auto text-[11px] leading-relaxed opacity-45">

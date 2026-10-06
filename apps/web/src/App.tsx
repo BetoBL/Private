@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { useAuth } from "./context/AuthContext";
 import { Agenda } from "./pages/Agenda";
+import { BibliotecaDeTestes } from "./pages/BibliotecaDeTestes";
 import { CadastroClinica } from "./pages/CadastroClinica";
 import { CadastroProfissional } from "./pages/CadastroProfissional";
 import { ComposicaoLaudo } from "./pages/ComposicaoLaudo";
@@ -22,6 +23,9 @@ function App() {
 
   return (
     <Routes>
+      {/* Fora do <Layout/> de propósito: ambiente visual próprio, sem a sidebar escura da
+          gestão da clínica (ver pages/BibliotecaDeTestes.tsx). */}
+      <Route path="/biblioteca" element={<BibliotecaDeTestes />} />
       <Route element={<Layout />}>
         <Route path="/" element={<PainelDoDia />} />
         <Route path="/pacientes" element={<Pacientes />} />
