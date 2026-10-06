@@ -1402,15 +1402,15 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     descricao:
       "Avaliação de funções executivas no comportamento cotidiano, respondida pelos pais. 9 " +
       "escalas + 3 índices (BRI/ERI/CRI) + Composto Executivo Geral. Normas americanas (Gioia et " +
-      "al., PAR 2015) — cobertura parcial: só o Formulário de Pais, só MENINOS, sem os 3 índices. " +
-      "As 9 escalas estão conferidas contra o manual; o resto ainda não existe.",
+      "al., PAR 2015) — cobertura parcial: Formulário de Pais (Meninos E Meninas, 5-18 anos), sem " +
+      "os 3 índices BRI/ERI/CRI. As escalas de Meninos (A.1-A.4) e Meninas (A.13-A.16) foram " +
+      "conferidas contra o manual; GEC foi adicionado em 06/10/2026.",
     algoritmoCorrecao: {
       aviso:
-        "Cobre só MENINOS (5-7/8-10/11-13/14-18) do Formulário de Pais. As 9 escalas foram " +
-        "conferidas célula a célula contra as Tabelas A.1-A.4 do manual em 05/10/2026. NÃO use " +
-        "em paciente do sexo feminino: não há tabela de Meninas, e o sistema cairia na norma de " +
-        "Meninos sem avisar. GEC é aproximado (pontos-âncora, não reconferido) e os índices " +
-        "BRI/ERI/CRI não estão implementados — ver docs/testes/BRIEF2.md.",
+        "Cobre MENINOS e MENINAS (5-7/8-10/11-13/14-18) do Formulário de Pais. As 9 escalas foram " +
+        "conferidas célula a célula: Meninos (Tabelas A.1-A.4) em 05/10/2026, Meninas (Tabelas A.13-A.16) " +
+        "em 06/10/2026. GEC (Tabelas A.9-A.12 para Meninos, A.21-A.24 para Meninas) também " +
+        "completo em 06/10/2026. Os índices BRI/ERI/CRI não estão implementados — ver docs/testes/BRIEF2.md.",
       escalas: BRIEF2_ESCALAS_PAIS_PROFESSORES,
       indices: {
         BRI: ["Inhibit", "Self-Monitor"],
@@ -1433,7 +1433,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       sexo: faixa.sexo,
       conversao: {
         tipo: "escoreT_por_campo",
-        fonte: `BRIEF2 Formulário de Pais (Gioia et al., 2015), ${faixa.faixaLabel} — escalas conferidas contra as Tabelas A.1-A.4 do manual; GEC aproximado. Ver aviso.`,
+        fonte: `BRIEF2 Formulário de Pais (Gioia et al., 2015), ${faixa.faixaLabel} — escalas e GEC conferidos contra o manual. Ver aviso.`,
         faixasPorCampo: {
           ...Object.fromEntries(
             BRIEF2_ESCALAS_PAIS_PROFESSORES.map((campo) => [campo, parseColunaBRIEF2(faixa.escalas[campo])])
