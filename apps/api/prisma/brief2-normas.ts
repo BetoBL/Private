@@ -15,6 +15,7 @@
 import type { Prisma } from "@prisma/client";
 
 export function parseColunaBRIEF2(coluna: string): Prisma.InputJsonValue[] {
+  if (!coluna || coluna.trim() === "") return [];
   return coluna.split(",").map((par) => {
     const [raw, t, pct] = par.split(":");
     return {
