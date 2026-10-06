@@ -1,4 +1,4 @@
-import type { DirecaoMelhorPior, FaixaConversao, ResultadoCalculado } from "../lib/api";
+import type { CampoTeste, DirecaoMelhorPior, FaixaConversao, ResultadoCalculado } from "../lib/api";
 import { inferirSeveridade, posicaoTextoClassificacao } from "../lib/severidadeClassificacao";
 
 // Largura da barra reflete a posição do escore na distribuição normativa (fato estatístico,
@@ -78,10 +78,23 @@ function BarraResultado({
   );
 }
 
-export function ResultadoResumo({ resultado, direcao }: { resultado: ResultadoCalculado | null; direcao: DirecaoMelhorPior }) {
+export function ResultadoResumo({
+  resultado,
+  direcao,
+  campos,
+}: {
+  resultado: ResultadoCalculado | null;
+  direcao: DirecaoMelhorPior;
+  // Rótulos legíveis por chave técnica (ex.: "tempoInibicao" -> "Inibição") — union de
+  // `algoritmoCorrecao.campos` (lançados) + `camposCalculados` (derivados pelo motor). Opcional e
+  // com fallback para a própria chave, pra não quebrar quem ainda não passa essa prop.
+  campos?: CampoTeste[];
+}) {
   if (!resultado) {
     return <p className="mt-1 text-ink/50">Resultado ainda não calculado.</p>;
   }
+
+  const labelPorChave = new Map((campos ?? []).map((c) => [c.chave, c.label]));
 
   if (resultado.modo === "soma") {
     return (
@@ -94,7 +107,7 @@ export function ResultadoResumo({ resultado, direcao }: { resultado: ResultadoCa
   return (
     <div className="mt-2 flex flex-col gap-3">
       {Object.entries(resultado.porCampo).map(([chave, r]) => (
-        <BarraResultado key={chave} label={chave} valorBruto={r.valorBruto} faixa={r.faixa} direcao={direcao} />
+        <BarraResultado key={chave} label={labelPorChave.get(chave) ?? chave} valorBruto={r.valorBruto} faixa={r.faixa} direcao={direcao} />
       ))}
     </div>
   );

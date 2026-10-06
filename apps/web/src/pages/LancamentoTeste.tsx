@@ -302,7 +302,11 @@ export function LancamentoTeste() {
                     </button>
                   </div>
                 </div>
-                <ResultadoResumo resultado={a.resultadoCalculado} direcao={a.teste.direcao} />
+                <ResultadoResumo
+                  resultado={a.resultadoCalculado}
+                  direcao={a.teste.direcao}
+                  campos={[...(a.teste.algoritmoCorrecao.campos ?? []), ...(a.teste.algoritmoCorrecao.camposCalculados ?? [])]}
+                />
               </li>
             ))}
           </ul>

@@ -915,10 +915,12 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
       formula:
         "Comunicação e Interação Social = soma das 4 subescalas de intervenção; " +
         "Pontuação SRS-2 Total = soma das 4 subescalas + Padrões Restritos e Repetitivos",
+      camposCalculados: [
+        { chave: "comunicacaoInteracaoSocial", label: "Comunicação e Interação Social (calculado)" },
+        { chave: "escoreTotal", label: "Pontuação SRS-2 Total (calculado)" },
+      ],
     },
-    referenciaBibliografica:
-      "CONSTANTINO, J. N.; GRUBER, C. P. Escala de Responsividade Social – Segunda Edição " +
-      "(SRS-2). Torrance, CA: Western Psychological Services, 2012. " + SRS2_FONTE,
+    referenciaBibliografica: SRS2_FONTE,
     isPlaceholder: false,
     tabelasNormativas: [
       {
@@ -927,7 +929,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
           tipo: "percentil_por_campo",
           fonte: `Formulário ${form.label}`,
           faixasPorCampo: form.faixasPorCampo,
-          camposDerivados: SRS2_CAMPOS_DERIVADOS,
+          camposDerivados: SRS2_CAMPOS_DERIVADOS as unknown as Prisma.InputJsonValue,
         },
       },
     ],
@@ -1044,9 +1046,12 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         { chave: campoErros("escolha"), label: "Escolha — nº de erros" },
         { chave: campoErros("alternancia"), label: "Alternância — nº de erros" },
       ],
+      camposCalculados: [
+        { chave: campoTempo("inibicao"), label: "Inibição (calculado: tempo Escolha − tempo Contagem)" },
+        { chave: campoTempo("flexibilidade"), label: "Flexibilidade (calculado: tempo Alternância − tempo Escolha)" },
+      ],
     },
-    referenciaBibliografica:
-      "SEDÓ, M. A. Five Digit Test (FDT): manual. Madrid: TEA Ediciones, 2007. " + FDT_FONTE,
+    referenciaBibliografica: FDT_FONTE,
     isPlaceholder: false,
     tabelasNormativas: FDT_FAIXAS_ETARIAS.map((faixa) => ({
       criterio: "idade",
@@ -1057,7 +1062,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
         tipo: "percentil_por_campo",
         fonte: `Tabelas 6.3-6.11 do Excel legado da psicóloga, faixa ${faixa.faixaLabel}` + (faixa.n ? `, n=${faixa.n}.` : "."),
         faixasPorCampo: faixa.faixasPorCampo,
-        camposDerivados: FDT_CAMPOS_DERIVADOS,
+        camposDerivados: FDT_CAMPOS_DERIVADOS as unknown as Prisma.InputJsonValue,
       },
     })),
   },
@@ -1530,6 +1535,7 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
           label: `${chave.toUpperCase()} — ${WISC4_LABEL_SUBTESTE[chave]} (suplementar, escore bruto)`,
         })),
       ],
+      camposCalculados: WISC4_INDICES.map((i) => ({ chave: i.chave, label: i.label })),
     },
     referenciaBibliografica:
       "WECHSLER, D. WISC-IV: Escala Wechsler de Inteligência para Crianças — Manual de " +

@@ -91,6 +91,11 @@ export interface Teste {
   instrumento: string | null;
   algoritmoCorrecao: {
     campos?: CampoTeste[];
+    // Campos que NÃO entram no formulário de lançamento (o motor calcula a partir de outros —
+    // ex.: índices do WISC-IV, Inibição/Flexibilidade do FDT) mas aparecem no resultado. Só para
+    // dar rótulo legível a eles em ResultadoResumo — sem isso o resultado mostra a chave técnica
+    // crua (ex.: "tempoInibicao" em vez de "Inibição").
+    camposCalculados?: CampoTeste[];
     [key: string]: unknown;
   };
 }
