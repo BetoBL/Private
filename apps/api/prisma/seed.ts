@@ -16,10 +16,6 @@ const prisma = new PrismaClient();
 
 const DEV_PROFISSIONAL_EMAIL = "dev@mentessence.local";
 
-const AVISO_PLACEHOLDER =
-  "PLACEHOLDER — algoritmo/norma simplificados para validar o fluxo técnico. " +
-  "Não reproduz o manual oficial do instrumento. Substituir antes de qualquer uso clínico.";
-
 interface FaixaNormativaSeed {
   criterio: string;
   faixaMin?: number;
@@ -941,25 +937,33 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     sigla: "AQ-50",
     dominio: DominioCognitivo.RASTREIO_TEA,
     direcao: "MENOR_MELHOR",
-    descricao: `Autorrelato de 50 itens em 5 subescalas de traços autísticos. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Autorrelato de 50 itens em 5 subescalas de traços autísticos (16 anos ou mais). Ponto de " +
+      "corte de pesquisa (Baron-Cohen et al., 2001) — não é tabela normativa por idade/sexo como " +
+      "BRIEF2/WISC-IV/FDT/SRS-2, é só a soma total classificada por 3 faixas fixas.",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
       subescalas: ["Habilidade social", "Troca de atenção", "Atenção a detalhes", "Comunicação", "Imaginação"],
       formulaEscoreBruto: "1 ponto por item respondido na direção 'concordo com o traço autístico', soma total 0-50",
       campos: [{ chave: "escoreTotal", label: "Escore total (soma dos 50 itens, 0-50)" }],
     },
-    referenciaBibliografica: "Baron-Cohen, S. et al. — Autism-Spectrum Quotient (AQ). (referência a confirmar)",
+    referenciaBibliografica:
+      "BARON-COHEN, S.; WHEELWRIGHT, S.; SKINNER, R.; MARTIN, J.; CLUBLEY, E. The Autism-Spectrum " +
+      "Quotient (AQ): evidence from Asperger syndrome/high-functioning autism, males and females, " +
+      "scientists and mathematicians. Journal of Autism and Developmental Disorders, v. 31, n. 1, " +
+      "p. 5-17, 2001. Corte ≥32 é o único com fonte primária (79,3% do grupo com diagnóstico " +
+      "confirmado pontuou ≥32, contra 2% dos controles); o corte intermediário (26-31) é " +
+      "convenção clínica amplamente usada, sem fonte primária própria — ver docs/testes/ se " +
+      "precisar da distinção na hora de redigir o laudo.",
+    isPlaceholder: false,
     tabelasNormativas: [
       {
-        criterio: "idade",
-        faixaMin: 16,
-        faixaMax: 90,
+        criterio: "geral",
         conversao: {
-          aviso: AVISO_PLACEHOLDER,
           tipo: "ponto_de_corte_por_soma_total",
           faixas: [
-            { min: 0, max: 25, classificacao: "Abaixo do ponto de corte" },
-            { min: 26, max: 999, classificacao: "Acima do ponto de corte — traços significativos" },
+            { min: 0, max: 25, classificacao: "Dentro da média" },
+            { min: 26, max: 31, classificacao: "Acima do Ponto de Corte" },
+            { min: 32, max: 50, classificacao: "Traços Significativos" },
           ],
         },
       },
@@ -1062,25 +1066,30 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     sigla: "BAI",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
     direcao: "MENOR_MELHOR",
-    descricao: `Autorrelato de 21 itens para severidade de sintomas de ansiedade. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Autorrelato de 21 itens para severidade de sintomas de ansiedade. Pontos de corte da " +
+      "adaptação brasileira (Cunha, 2001, Casa do Psicólogo) — idênticos aos do manual original. " +
+      "Não é tabela normativa por idade/sexo, é a soma total classificada por 4 faixas fixas.",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
       formulaEscoreBruto: "soma dos 21 itens (0-3 cada), total 0-63",
       campos: [{ chave: "escoreTotal", label: "Escore total BAI (soma dos 21 itens, 0-63)" }],
     },
     referenciaBibliografica:
-      "BECK, A. T.; EPSTEIN, N.; BROWN, G.; STEER, R. A. An inventory for measuring clinical anxiety: Psychometric properties. Journal of Consulting and Clinical Psychology, v. 56, n. 6, p. 893–897, 1988.",
+      "BECK, A. T.; EPSTEIN, N.; BROWN, G.; STEER, R. A. An inventory for measuring clinical " +
+      "anxiety: Psychometric properties. Journal of Consulting and Clinical Psychology, v. 56, " +
+      "n. 6, p. 893–897, 1988. Pontos de corte: CUNHA, J. A. Manual da versão em português das " +
+      "escalas Beck. São Paulo: Casa do Psicólogo, 2001.",
+    isPlaceholder: false,
     tabelasNormativas: [
       {
         criterio: "geral",
         conversao: {
-          aviso: AVISO_PLACEHOLDER,
           tipo: "ponto_de_corte_por_soma_total",
           faixas: [
-            { min: 0, max: 10, classificacao: "Sintomas Mínimos" },
-            { min: 11, max: 19, classificacao: "Sintomas Leves" },
-            { min: 20, max: 30, classificacao: "Sintomas Moderados" },
-            { min: 31, max: 63, classificacao: "Sintomas Graves" },
+            { min: 0, max: 7, classificacao: "Sintomas Mínimos" },
+            { min: 8, max: 15, classificacao: "Sintomas Leves" },
+            { min: 16, max: 25, classificacao: "Sintomas Moderados" },
+            { min: 26, max: 63, classificacao: "Sintomas Graves" },
           ],
         },
       },
@@ -1091,24 +1100,30 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     sigla: "BDI-II",
     dominio: DominioCognitivo.SINTOMAS_EMOCIONAIS,
     direcao: "MENOR_MELHOR",
-    descricao: `Autorrelato de 21 itens para severidade de sintomas depressivos. ${AVISO_PLACEHOLDER}`,
+    descricao:
+      "Autorrelato de 21 itens para severidade de sintomas depressivos. Pontos de corte da " +
+      "adaptação brasileira (Cunha, 2001, Casa do Psicólogo) — DIFERENTES do manual americano " +
+      "original (lá: 0-13/14-19/20-28/29-63; aqui: 0-11/12-19/20-35/36-63). Não é tabela " +
+      "normativa por idade/sexo, é a soma total classificada por 4 faixas fixas.",
     algoritmoCorrecao: {
-      aviso: AVISO_PLACEHOLDER,
       formulaEscoreBruto: "soma dos 21 itens (0-3 cada), total 0-63",
       campos: [{ chave: "escoreTotal", label: "Escore total BDI-II (soma dos 21 itens, 0-63)" }],
     },
-    referenciaBibliografica: "BECK, A. T.; STEER, R. A.; BROWN, G. K. Manual for the Beck Depression Inventory-II. San Antonio, TX: Psychological Corporation, 1996.",
+    referenciaBibliografica:
+      "BECK, A. T.; STEER, R. A.; BROWN, G. K. Manual for the Beck Depression Inventory-II. San " +
+      "Antonio, TX: Psychological Corporation, 1996. Pontos de corte: CUNHA, J. A. Manual da " +
+      "versão em português das escalas Beck. São Paulo: Casa do Psicólogo, 2001.",
+    isPlaceholder: false,
     tabelasNormativas: [
       {
         criterio: "geral",
         conversao: {
-          aviso: AVISO_PLACEHOLDER,
           tipo: "ponto_de_corte_por_soma_total",
           faixas: [
-            { min: 0, max: 13, classificacao: "Sintomas Mínimos" },
-            { min: 14, max: 19, classificacao: "Sintomas Leves" },
-            { min: 20, max: 28, classificacao: "Sintomas Moderados" },
-            { min: 29, max: 63, classificacao: "Sintomas Graves" },
+            { min: 0, max: 11, classificacao: "Sintomas Mínimos" },
+            { min: 12, max: 19, classificacao: "Sintomas Leves" },
+            { min: 20, max: 35, classificacao: "Sintomas Moderados" },
+            { min: 36, max: 63, classificacao: "Sintomas Graves" },
           ],
         },
       },
