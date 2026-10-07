@@ -62,7 +62,7 @@ async function main() {
       await tx.tabelaNormativa.createMany({
         data: novo.tabelasNormativas.map((f) => ({ testeId: atual.id, criterio: f.criterio, faixaMin: f.faixaMin, faixaMax: f.faixaMax, faixaLabel: f.faixaLabel, sexo: f.sexo, conversao: f.conversao as never })),
       });
-    });
+    }, { timeout: 180000, maxWait: 30000 }); // definições grandes (NEPSY-II ~7 MB) passam dos 5 s padrão em banco remoto
     console.log(`  ✓ ${sigla} atualizado.`);
   }
   if (!aplicar) console.log("\nSimulação concluída. Para gravar: npx tsx prisma/atualizar-wechsler.ts --aplicar");
