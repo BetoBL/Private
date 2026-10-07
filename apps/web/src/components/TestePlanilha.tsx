@@ -8,7 +8,8 @@ import { Tabela, Titulo, Vazio } from "./TesteWiscIV";
 // Tela genérica dos testes do "motor de planilha": o servidor roda as fórmulas da planilha da psicóloga e esta tela só
 // mostra as entradas (por grupo), as opções (ex.: tabela normativa) e as tabelas de resultado descritas no layout do teste.
 interface Layout {
-  entradas: Array<{ chave: string; rotulo: string; grupo?: string; min?: number; max?: number }>;
+  entradas: Array<{ chave: string; rotulo: string; grupo?: string; min?: number; max?: number; letras?: string[] }>;
+  cabecalhos?: Record<string, string>; // letra da coluna da planilha → nome (ex.: informante)
   opcoes: Array<{ chave: string; rotulo: string; valores: string[]; padrao?: number }>;
   tabelas: Array<{ titulo: string; colunas: string[]; linhas: Array<{ rotulo: string; valores: Array<string | null> }> }>;
 }
@@ -30,6 +31,33 @@ const formatar = (v: string | number | boolean | null | undefined) => {
   if (typeof v === "number") return v.toLocaleString("pt-BR", { maximumFractionDigits: 3 });
   return String(v);
 };
+
+type Entrada = Layout["entradas"][number];
+// Linha da tela: várias células da planilha com o MESMO rótulo e na MESMA linha (ex.: o mesmo item respondido por 3 informantes) viram uma linha com um campo por célula.
+interface Linha { rotulo: string; campos: Entrada[] }
+const linhaDaChave = (chave: string) => /(\d+)$/.exec(chave)?.[1] ?? chave;
+
+function agruparLinhas(itens: Entrada[]): Linha[] {
+  const out: Linha[] = [];
+  for (const e of itens) {
+    const ult = out[out.length - 1];
+    if (ult && ult.rotulo === e.rotulo && linhaDaChave(ult.campos[0].chave) === linhaDaChave(e.chave)) ult.campos.push(e);
+    else out.push({ rotulo: e.rotulo, campos: [e] });
+  }
+  return out;
+}
+
+// Rótulos numerados ("001. …", "A) …") viram o título do bloco: do primeiro ao último item.
+function tituloDoBloco(linhas: Linha[], n: number) {
+  const num = (r: string) => /^\s*(\d{1,3})[.)]/.exec(r)?.[1];
+  const a = num(linhas[0].rotulo), b = num(linhas[linhas.length - 1].rotulo);
+  return a && b && a !== b ? "Itens " + a + " a " + b : "Bloco " + n;
+}
+
+const POR_BLOCO = 30;
+
+// coluna de resultado sem nenhum valor (ex.: informante que não respondeu) não aparece
+const colunaTemValor = (t: Layout["tabelas"][number], i: number, saidas: Record<string, unknown>) => t.linhas.some((l) => { const k = l.valores[i]; return !!k && formatar(saidas[k] as string | number | null) !== ""; });
 
 export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange, onSalvar, sessaoId, testeId, erro, salvando = false }: Props) {
   const layout = (teste.algoritmoCorrecao as unknown as { layout?: Layout }).layout;
@@ -121,14 +149,7 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
           {grupos.map(([grupo, itens]) => (
             <section key={grupo}>
               <div className="mb-2 text-[11px] font-bold uppercase tracking-wide text-ink/45">{grupo}</div>
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                {itens.map((e) => (
-                  <label key={e.chave} className="flex items-center gap-2 rounded-xl border border-mist px-3 py-2 focus-within:border-sage-deep focus-within:ring-2 focus-within:ring-sage-deep/15">
-                    <span className="min-w-0 flex-1 truncate text-sm text-ink/80" title={e.rotulo}>{e.rotulo}</span>
-                    <input type="number" step="any" inputMode="decimal" min={e.min ?? 0} max={e.max} className="w-16 rounded-lg border border-mist bg-paper px-2 py-1 text-right text-sm tabular-nums outline-none focus:border-sage-deep" value={escoresBrutos[e.chave] ?? ""} onChange={(ev) => onEscoresChange({ ...escoresBrutos, [e.chave]: ev.target.value })} placeholder="—" />
-                  </label>
-                ))}
-              </div>
+              <BlocosDeCampos itens={itens} cabecalhos={layout.cabecalhos} valores={escoresBrutos} onChange={(chave, v) => onEscoresChange({ ...escoresBrutos, [chave]: v })} />
             </section>
           ))}
         </div>
@@ -143,11 +164,12 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
           {layout.tabelas.map((t) => (
             <section key={t.titulo}>
               <Titulo>{t.titulo}</Titulo>
-              <Tabela cabecalho={["", ...t.colunas]}>
-                {t.linhas.map((l) => (
+              <Tabela cabecalho={["", ...t.colunas.filter((_, i) => colunaTemValor(t, i, saidas))]}>
+                {t.linhas.filter((l) => l.valores.some((k) => k && formatar(saidas[k]) !== "")).map((l) => (
                   <tr key={l.valores.join("|") + l.rotulo} className="border-t border-mist/60">
                     <td className="px-3 py-2 text-left text-ink/70">{l.rotulo.startsWith("=") ? formatar(saidas[l.rotulo.slice(1)]) : l.rotulo}</td>
                     {l.valores.map((chave, i) => {
+                      if (!colunaTemValor(t, i, saidas)) return null;
                       const v = chave ? saidas[chave] : null;
                       const cor = typeof v === "string" ? COR_CLASSIFICACAO[v] : undefined;
                       return (
@@ -163,6 +185,96 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+function CampoNumero({ e, valor, onChange, rotulo }: { e: Entrada; valor: string; onChange: (v: string) => void; rotulo?: string }) {
+  if (e.letras) {
+    // resposta por letra (ex.: N/A/F): o valor guardado é o número da letra (1, 2, 3)
+    return (
+      <select aria-label={rotulo ?? e.rotulo} title={rotulo ?? e.rotulo} className="w-14 rounded-lg border border-mist bg-paper px-1.5 py-1 text-center text-sm outline-none focus:border-sage-deep" value={valor} onChange={(ev) => onChange(ev.target.value)}>
+        <option value="">—</option>
+        {e.letras.map((l, i) => <option key={l} value={String(i + 1)}>{l}</option>)}
+      </select>
+    );
+  }
+  return <input type="number" step="any" inputMode="decimal" min={e.min ?? 0} max={e.max} aria-label={rotulo ?? e.rotulo} title={rotulo ?? e.rotulo} className="w-16 rounded-lg border border-mist bg-paper px-2 py-1 text-right text-sm tabular-nums outline-none focus:border-sage-deep" value={valor} onChange={(ev) => onChange(ev.target.value)} placeholder="—" />;
+}
+
+// Campos de um grupo: poucos (≤ POR_BLOCO linhas) ficam em grade; muitos viram blocos recolhíveis que abrem sozinhos quando têm algo lançado.
+function BlocosDeCampos({ itens, valores, onChange, cabecalhos }: { itens: Entrada[]; valores: Record<string, string>; onChange: (chave: string, v: string) => void; cabecalhos?: Record<string, string> }) {
+  // Formulários diferentes na mesma aba (ex.: CBCL / autorrelato / professor) ocupam colunas diferentes da planilha: cada conjunto de colunas vira uma seção própria.
+  const secoes = useMemo(() => {
+    const num = (c: string) => [...c].reduce((n, ch) => n * 26 + ch.charCodeAt(0) - 64, 0);
+    const colDe = (e: Entrada) => /^in_([A-Z]+)\d+$/.exec(e.chave)?.[1];
+    const cols = [...new Set(itens.map(colDe).filter((c): c is string => !!c).map(num))].sort((x, y) => x - y);
+    // colunas vizinhas (ex.: E, F, G) pertencem ao mesmo formulário; um salto de coluna abre outro
+    const faixa = new Map<number, number>();
+    cols.forEach((c, i) => faixa.set(c, i > 0 && c - cols[i - 1] <= 1 ? faixa.get(cols[i - 1])! : c));
+    const m = new Map<number, Entrada[]>();
+    for (const e of itens) {
+      const c = colDe(e);
+      const k = c ? faixa.get(num(c)) ?? 0 : 0;
+      m.set(k, [...(m.get(k) ?? []), e]);
+    }
+    return [...m.values()];
+  }, [itens]);
+  if (secoes.length > 1 && secoes.every((es) => es.length > 3)) {
+    return (
+      <div className="space-y-4">
+        {secoes.map((es, i) => (
+          <div key={es[0].chave}>
+            <div className="mb-1 text-xs font-semibold text-ink/60">Formulário {i + 1}</div>
+            <LinhasEmBlocos itens={es} valores={valores} onChange={onChange} cabecalhos={cabecalhos} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return <LinhasEmBlocos itens={itens} valores={valores} onChange={onChange} cabecalhos={cabecalhos} />;
+}
+
+function LinhasEmBlocos({ itens, valores, onChange, cabecalhos }: { itens: Entrada[]; valores: Record<string, string>; onChange: (chave: string, v: string) => void; cabecalhos?: Record<string, string> }) {
+  const linhas = useMemo(() => agruparLinhas(itens), [itens]);
+  const largura = Math.max(...linhas.map((l) => l.campos.length));
+  const colunaDe = (e: Entrada) => /^in_([A-Z]+)d+$/.exec(e.chave)?.[1] ?? "";
+  const nomes = cabecalhos && largura > 1 ? linhas.find((l) => l.campos.length === largura)?.campos.map((e) => cabecalhos[colunaDe(e)] ?? "") : undefined;
+  const desenha = (ls: Linha[]) => (
+    <div className={largura > 1 ? "divide-y divide-mist/70 rounded-xl border border-mist" : "grid gap-2 sm:grid-cols-2 lg:grid-cols-3"}>
+      {nomes && (
+        <div className="flex items-end gap-3 bg-paper px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-ink/50">
+          <span className="flex-1">Item</span>
+          <span className="flex shrink-0 gap-1.5">{nomes.map((n, i) => <span key={i} className="w-14 text-center leading-tight">{n}</span>)}</span>
+        </div>
+      )}
+      {ls.map((l) => (
+        <div key={l.campos[0].chave} className={largura > 1 ? "flex items-center gap-3 px-3 py-1.5 focus-within:bg-sage-deep/5" : "flex items-center gap-2 rounded-xl border border-mist px-3 py-2 focus-within:border-sage-deep focus-within:ring-2 focus-within:ring-sage-deep/15"}>
+          <span className="min-w-0 flex-1 text-sm leading-snug text-ink/80">{l.rotulo}</span>
+          <span className="flex shrink-0 gap-1.5">
+            {l.campos.map((e, i) => <CampoNumero key={e.chave} e={e} valor={valores[e.chave] ?? ""} onChange={(v) => onChange(e.chave, v)} rotulo={l.campos.length > 1 ? l.rotulo + " (campo " + (i + 1) + ")" : l.rotulo} />)}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+  if (linhas.length <= POR_BLOCO) return desenha(linhas);
+  const blocos: Linha[][] = [];
+  for (let i = 0; i < linhas.length; i += POR_BLOCO) blocos.push(linhas.slice(i, i + POR_BLOCO));
+  return (
+    <div className="space-y-2">
+      {blocos.map((b, n) => {
+        const preenchidos = b.reduce((s, l) => s + l.campos.filter((e) => (valores[e.chave] ?? "").trim() !== "").length, 0);
+        return (
+          <details key={b[0].campos[0].chave} open={preenchidos > 0 && preenchidos < b.length * b[0].campos.length} className="group rounded-xl border border-mist">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3 py-2 text-sm font-semibold text-ink/80 hover:bg-paper">
+              <span>{tituloDoBloco(b, n + 1)}</span>
+              <span className="text-xs font-normal tabular-nums text-ink/50">{preenchidos} lançado(s)</span>
+            </summary>
+            <div className="p-2">{desenha(b)}</div>
+          </details>
+        );
+      })}
     </div>
   );
 }

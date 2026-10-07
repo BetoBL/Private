@@ -1520,6 +1520,11 @@ for (const p of carregarTestesPlanilha()) {
   if (i >= 0) TESTES_PLACEHOLDER[i] = p as unknown as TesteSeed;
   else TESTES_PLACEHOLDER.push(p as unknown as TesteSeed);
 }
+// o BRIEF-2 completo (pais, professores e auto-relato, pela planilha) substitui o BRIEF2-PAIS antigo (só pais, sem índices)
+if (TESTES_PLACEHOLDER.some((x) => x.sigla === "BRIEF2")) {
+  const j = TESTES_PLACEHOLDER.findIndex((x) => x.sigla === "BRIEF2-PAIS");
+  if (j >= 0) TESTES_PLACEHOLDER.splice(j, 1);
+}
 
 async function main() {
   console.log("Removendo catálogo fixo de testes anterior (se houver)...");

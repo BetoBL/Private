@@ -16,6 +16,8 @@ export interface EntradaPlanilha {
   celula: string; // na aba do teste
   rotulo: string;
   grupo?: string;
+  // resposta por letra (ex.: N/A/F): o sistema envia o número (1 = primeira letra) e a célula recebe a letra
+  letras?: string[];
   min?: number;
   max?: number;
 }
@@ -47,6 +49,10 @@ export interface DefinicaoPlanilha {
   // células da planilha preenchidas pelo sistema: "aba!A1"
   contexto: { dataAplicacao?: string; dataNascimento?: string; escolaridade?: string; sexo?: string; nome?: string; anoSerie?: string };
   entradas: EntradaPlanilha[];
+  // coluna da planilha → célula "porta" (ex.: nome/grau do informante) que precisa estar preenchida para a coluna ser calculada
+  portas?: Record<string, string>;
+  // rótulos das colunas dos campos de entrada (letra da coluna → nome), só para a tela
+  cabecalhos?: Record<string, string>;
   opcoes: OpcaoPlanilha[];
   saidas: SaidaPlanilha[];
   tabelas: TabelaPlanilha[];
@@ -131,10 +137,17 @@ export function calcularPlanilha(def: DefinicaoPlanilha, escores: Record<string,
     const idx = escores[o.chave] ?? o.padrao; // sem escolha e sem padrão: a célula fica em branco
     if (idx !== undefined && o.valores[idx] !== undefined) por(`${def.aba}!${o.celula}`, o.valores[idx]);
   }
+  const colunasUsadas = new Set<string>();
   for (const e of def.entradas) {
     const v = escores[e.chave];
-    if (v !== undefined && Number.isFinite(v)) por(`${def.aba}!${e.celula}`, v);
+    if (v === undefined || !Number.isFinite(v)) continue;
+    if (e.letras) {
+      if (e.letras[v - 1] === undefined) continue;
+      por(`${def.aba}!${e.celula}`, e.letras[v - 1]);
+    } else por(`${def.aba}!${e.celula}`, v);
+    colunasUsadas.add(/^[A-Z]+/.exec(e.celula)![0]);
   }
+  for (const [col, cel] of Object.entries(def.portas ?? {})) if (colunasUsadas.has(col)) por(`${def.aba}!${cel}`, "x");
 
   const saidas: Record<string, ValorSaida> = {};
   const erros: string[] = [];

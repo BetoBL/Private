@@ -16,13 +16,11 @@ import { Login } from "./pages/Login";
 import { PainelDoDia } from "./pages/PainelDoDia";
 import { PerfilAtuacao } from "./pages/PerfilAtuacao";
 import { Pacientes } from "./pages/Pacientes";
-import { PreviewWais3 } from "./pages/PreviewWais3";
 import { TesteCompleto } from "./pages/TesteCompleto";
 
 function App() {
   const { profissional } = useAuth();
 
-  if (import.meta.env.DEV && window.location.pathname === "/preview-wais3") return <PreviewWais3 />;
 
   if (!profissional) {
     return <Login />;

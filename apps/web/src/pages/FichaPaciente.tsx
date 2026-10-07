@@ -1,3 +1,4 @@
+import { ComparacaoReavaliacao } from "../components/ComparacaoReavaliacao";
 import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -65,6 +66,7 @@ export function FichaPaciente() {
 
   const [sessoes, setSessoes] = useState<Sessao[]>([]);
   const [aplicacoes, setAplicacoes] = useState<AplicacaoDeTeste[]>([]);
+  const [comparandoId, setComparandoId] = useState<string | null>(null); // lançamento cuja reavaliação (comparação com a aplicação anterior) está aberta
 
   const [anexos, setAnexos] = useState<Anexo[]>([]);
   const [novoAnexo, setNovoAnexo] = useState({ tipo: TIPOS_ANEXO[0], url: "", descricao: "" });
@@ -623,8 +625,16 @@ export function FichaPaciente() {
               {testes.length === 0 ? (
                 <div className="text-sm text-ink/60">Sessão sem testes lançados.</div>
               ) : (
-                testes.map((t) => (
-                  <div key={t.id} className="flex flex-wrap items-center gap-x-3 text-sm text-ink/70">
+                testes.map((t) => {
+                  // reavaliação: aplicação anterior do mesmo teste (e do mesmo informante) em sessão mais antiga
+                  const anterior = aplicacoes
+                    .filter((x) => x.testeId === t.testeId && x.id !== t.id && x.respondenteTipo === t.respondenteTipo && (x.respondenteNome ?? "") === (t.respondenteNome ?? ""))
+                    .map((x) => ({ x, d: sessoes.find((s) => s.id === x.sessaoId)?.dataHora ?? "" }))
+                    .filter((y) => y.d && new Date(y.d) < new Date(sessao.dataHora))
+                    .sort((a, b) => new Date(b.d).getTime() - new Date(a.d).getTime())[0];
+                  return (
+                  <div key={t.id}>
+                  <div className="flex flex-wrap items-center gap-x-3 text-sm text-ink/70">
                     <span>
                     {t.teste.sigla} aplicado
                     {/* Em escala de informante, "quem respondeu" é parte do resultado: o mesmo
@@ -646,8 +656,16 @@ export function FichaPaciente() {
                       Abrir tela completa
                     </button>
                     <button className="text-xs font-semibold text-ink/50 hover:text-ember" onClick={() => excluirLancamento(t.id, t.teste.sigla)}>excluir lançamento</button>
+                    {anterior && (
+                      <button className="text-xs font-semibold text-sage-deep" onClick={() => setComparandoId(comparandoId === t.id ? null : t.id)}>
+                        {comparandoId === t.id ? "fechar comparação" : "comparar com " + new Date(anterior.d).toLocaleDateString("pt-BR") + " (reavaliação)"}
+                      </button>
+                    )}
                   </div>
-                ))
+                  {anterior && comparandoId === t.id && <ComparacaoReavaliacao anterior={anterior.x} atual={t} dataAnterior={anterior.d} dataAtual={sessao.dataHora} />}
+                  </div>
+                  );
+                })
               )}
               <button
                 className="mt-1 text-xs font-semibold text-sage-deep underline-offset-2 hover:underline"

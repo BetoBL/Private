@@ -119,7 +119,7 @@ for (const [nome, m] of mantidasExt) planilhas[nome] = { colunas: compactar([...
 
 const def: DefinicaoPlanilha = {
   tipo: "planilha", versao: new Date().toISOString().slice(0, 10), sigla: spec.sigla, aba: spec.aba, planilhas,
-  contexto: spec.contexto ?? {}, entradas: spec.entradas, opcoes: spec.opcoes ?? [], saidas: spec.saidas, tabelas: spec.tabelas ?? [],
+  contexto: spec.contexto ?? {}, ...(spec.portas ? { portas: spec.portas } : {}), ...(spec.cabecalhos ? { cabecalhos: spec.cabecalhos } : {}), entradas: spec.entradas, opcoes: spec.opcoes ?? [], saidas: spec.saidas, tabelas: spec.tabelas ?? [],
 };
 mkdirSync(dirname(saida), { recursive: true });
 writeFileSync(saida, JSON.stringify({ _fonte: `Planilha da psicóloga (aba ${spec.aba}) — extraído por scripts/construir-teste-planilha.ts. Referência de RESULTADO.`, nome: spec.nome, dominio: spec.dominio, descricao: spec.descricao, referencia: spec.referencia, idade: spec.idade, ...def }));
@@ -135,7 +135,7 @@ if (n > 0) {
   const exemplos = new Set<string>();
   for (let i = 0; i < n; i++) {
     const escores: Record<string, number> = {};
-    for (const e of def.entradas) if (rnd() < 0.85) escores[e.chave] = Math.floor((e.min ?? 0) + rnd() * ((e.max ?? 60) - (e.min ?? 0) + 1));
+    for (const e of def.entradas) if (rnd() < 0.85) escores[e.chave] = e.letras ? 1 + Math.floor(rnd() * e.letras.length) : Math.floor((e.min ?? 0) + rnd() * ((e.max ?? 60) - (e.min ?? 0) + 1));
     for (const o of def.opcoes) if (o.padrao !== undefined || rnd() < 0.7) escores[o.chave] = Math.floor(rnd() * o.valores.length);
     const anos = spec.idade ? spec.idade[0] + Math.floor(rnd() * (spec.idade[1] - spec.idade[0] + 1)) : 30;
     const ref = new Date(Date.UTC(2026, 6, 28));

@@ -1,0 +1,10885 @@
+{
+ "sigla": "BRIEF2",
+ "nome": "BRIEF-2 — Inventário de Avaliação Comportamental das Funções Executivas",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "BRIEF-2: escalas clínicas, índices (regulação comportamental, emocional, cognitiva) e Índice Executivo Global por informante (até 3 cuidadores, 4 professores e auto-relato a partir dos 11 anos), em T-score, percentil, intervalo de confiança e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "GIOIA, G. A.; ISQUITH, P. K.; GUY, S. C.; KENWORTHY, L. BRIEF-2 — Behavior Rating Inventory of Executive Function, 2nd ed. PAR, 2015 (normas conforme planilha da psicóloga).",
+ "aba": "BRIEF-2",
+ "idade": [
+  5,
+  18
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "M3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_C21",
+   "celula": "C21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D21",
+   "celula": "D21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E21",
+   "celula": "E21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F21",
+   "celula": "F21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G21",
+   "celula": "G21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H21",
+   "celula": "H21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I21",
+   "celula": "I21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J21",
+   "celula": "J21",
+   "rotulo": "01. É inquieto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C22",
+   "celula": "C22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D22",
+   "celula": "D22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E22",
+   "celula": "E22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F22",
+   "celula": "F22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G22",
+   "celula": "G22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H22",
+   "celula": "H22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I22",
+   "celula": "I22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J22",
+   "celula": "J22",
+   "rotulo": "02. Problema com diferentes formas de resolver problemas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C23",
+   "celula": "C23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D23",
+   "celula": "D23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E23",
+   "celula": "E23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F23",
+   "celula": "F23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G23",
+   "celula": "G23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H23",
+   "celula": "H23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I23",
+   "celula": "I23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J23",
+   "celula": "J23",
+   "rotulo": "03. Em três tarefa dadas, só lembra da primeira ou última",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C24",
+   "celula": "C24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D24",
+   "celula": "D24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E24",
+   "celula": "E24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F24",
+   "celula": "F24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G24",
+   "celula": "G24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H24",
+   "celula": "H24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I24",
+   "celula": "I24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J24",
+   "celula": "J24",
+   "rotulo": "04. Não é consciente... seu compto incomoda",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C25",
+   "celula": "C25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D25",
+   "celula": "D25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E25",
+   "celula": "E25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F25",
+   "celula": "F25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G25",
+   "celula": "G25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H25",
+   "celula": "H25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I25",
+   "celula": "I25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J25",
+   "celula": "J25",
+   "rotulo": "05. O trabalho é desleixado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C26",
+   "celula": "C26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D26",
+   "celula": "D26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E26",
+   "celula": "E26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F26",
+   "celula": "F26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G26",
+   "celula": "G26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H26",
+   "celula": "H26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I26",
+   "celula": "I26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J26",
+   "celula": "J26",
+   "rotulo": "06. Reações explosivas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C27",
+   "celula": "C27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D27",
+   "celula": "D27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E27",
+   "celula": "E27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F27",
+   "celula": "F27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G27",
+   "celula": "G27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H27",
+   "celula": "H27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I27",
+   "celula": "I27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J27",
+   "celula": "J27",
+   "rotulo": "07. Não se planeja com antecedência...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C28",
+   "celula": "C28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D28",
+   "celula": "D28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E28",
+   "celula": "E28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F28",
+   "celula": "F28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G28",
+   "celula": "G28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H28",
+   "celula": "H28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I28",
+   "celula": "I28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J28",
+   "celula": "J28",
+   "rotulo": "08. Não acha coisas na sala ou na carteira escolar",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C29",
+   "celula": "C29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D29",
+   "celula": "D29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E29",
+   "celula": "E29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F29",
+   "celula": "F29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G29",
+   "celula": "G29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H29",
+   "celula": "H29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I29",
+   "celula": "I29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J29",
+   "celula": "J29",
+   "rotulo": "09. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C30",
+   "celula": "C30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D30",
+   "celula": "D30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E30",
+   "celula": "E30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F30",
+   "celula": "F30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G30",
+   "celula": "G30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H30",
+   "celula": "H30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I30",
+   "celula": "I30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J30",
+   "celula": "J30",
+   "rotulo": "10. É impulsivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C31",
+   "celula": "C31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D31",
+   "celula": "D31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E31",
+   "celula": "E31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F31",
+   "celula": "F31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G31",
+   "celula": "G31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H31",
+   "celula": "H31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I31",
+   "celula": "I31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J31",
+   "celula": "J31",
+   "rotulo": "11. Problemas para se costumar com novas situações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C32",
+   "celula": "C32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D32",
+   "celula": "D32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E32",
+   "celula": "E32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F32",
+   "celula": "F32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G32",
+   "celula": "G32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H32",
+   "celula": "H32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I32",
+   "celula": "I32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J32",
+   "celula": "J32",
+   "rotulo": "12. Tem período curto de atenção",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C33",
+   "celula": "C33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D33",
+   "celula": "D33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E33",
+   "celula": "E33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F33",
+   "celula": "F33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G33",
+   "celula": "G33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H33",
+   "celula": "H33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I33",
+   "celula": "I33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J33",
+   "celula": "J33",
+   "rotulo": "13. Problemas de compreensão de suas forças / fraquezas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C34",
+   "celula": "C34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D34",
+   "celula": "D34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E34",
+   "celula": "E34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F34",
+   "celula": "F34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G34",
+   "celula": "G34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H34",
+   "celula": "H34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I34",
+   "celula": "I34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J34",
+   "celula": "J34",
+   "rotulo": "14. Explosões por pequenos motivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C35",
+   "celula": "C35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D35",
+   "celula": "D35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E35",
+   "celula": "E35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F35",
+   "celula": "F35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G35",
+   "celula": "G35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H35",
+   "celula": "H35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I35",
+   "celula": "I35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J35",
+   "celula": "J35",
+   "rotulo": "15. Apega-se a detalhes e perde visão geral",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C36",
+   "celula": "C36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D36",
+   "celula": "D36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E36",
+   "celula": "E36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F36",
+   "celula": "F36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G36",
+   "celula": "G36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H36",
+   "celula": "H36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I36",
+   "celula": "I36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J36",
+   "celula": "J36",
+   "rotulo": "16. Perde o controle com mais frequência.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C37",
+   "celula": "C37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D37",
+   "celula": "D37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E37",
+   "celula": "E37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F37",
+   "celula": "F37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G37",
+   "celula": "G37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H37",
+   "celula": "H37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I37",
+   "celula": "I37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J37",
+   "celula": "J37",
+   "rotulo": "17. Fica preso em um tópico ou atividade",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C38",
+   "celula": "C38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D38",
+   "celula": "D38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E38",
+   "celula": "E38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F38",
+   "celula": "F38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G38",
+   "celula": "G38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H38",
+   "celula": "H38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I38",
+   "celula": "I38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J38",
+   "celula": "J38",
+   "rotulo": "18. item 18",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C39",
+   "celula": "C39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D39",
+   "celula": "D39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E39",
+   "celula": "E39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F39",
+   "celula": "F39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G39",
+   "celula": "G39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H39",
+   "celula": "H39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I39",
+   "celula": "I39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J39",
+   "celula": "J39",
+   "rotulo": "19. Problemas com tarefas que têm mais de um passo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C40",
+   "celula": "C40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D40",
+   "celula": "D40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E40",
+   "celula": "E40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F40",
+   "celula": "F40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G40",
+   "celula": "G40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H40",
+   "celula": "H40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I40",
+   "celula": "I40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J40",
+   "celula": "J40",
+   "rotulo": "20. Não percebe que certas ações incomodam",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C41",
+   "celula": "C41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D41",
+   "celula": "D41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E41",
+   "celula": "E41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F41",
+   "celula": "F41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G41",
+   "celula": "G41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H41",
+   "celula": "H41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I41",
+   "celula": "I41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J41",
+   "celula": "J41",
+   "rotulo": "21. Trabalho escrito é mal organizado",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C42",
+   "celula": "C42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D42",
+   "celula": "D42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E42",
+   "celula": "E42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F42",
+   "celula": "F42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G42",
+   "celula": "G42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H42",
+   "celula": "H42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I42",
+   "celula": "I42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J42",
+   "celula": "J42",
+   "rotulo": "22. Pequenos eventos geram grandes reações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C43",
+   "celula": "C43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D43",
+   "celula": "D43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E43",
+   "celula": "E43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F43",
+   "celula": "F43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G43",
+   "celula": "G43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H43",
+   "celula": "H43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I43",
+   "celula": "I43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J43",
+   "celula": "J43",
+   "rotulo": "23. Tem boas idéias mas não termina os trabalhos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C44",
+   "celula": "C44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D44",
+   "celula": "D44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E44",
+   "celula": "E44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F44",
+   "celula": "F44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G44",
+   "celula": "G44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H44",
+   "celula": "H44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I44",
+   "celula": "I44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J44",
+   "celula": "J44",
+   "rotulo": "24. Fala em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C45",
+   "celula": "C45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D45",
+   "celula": "D45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E45",
+   "celula": "E45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F45",
+   "celula": "F45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G45",
+   "celula": "G45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H45",
+   "celula": "H45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I45",
+   "celula": "I45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J45",
+   "celula": "J45",
+   "rotulo": "25. Problemas em terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C46",
+   "celula": "C46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D46",
+   "celula": "D46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E46",
+   "celula": "E46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F46",
+   "celula": "F46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G46",
+   "celula": "G46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H46",
+   "celula": "H46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I46",
+   "celula": "I46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J46",
+   "celula": "J46",
+   "rotulo": "26. Não percebe ... Seus comptos ... Reações negativas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C47",
+   "celula": "C47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D47",
+   "celula": "D47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E47",
+   "celula": "E47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F47",
+   "celula": "F47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G47",
+   "celula": "G47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H47",
+   "celula": "H47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I47",
+   "celula": "I47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J47",
+   "celula": "J47",
+   "rotulo": "27. Reage mais fortemente a situações que outras crianças",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C48",
+   "celula": "C48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D48",
+   "celula": "D48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E48",
+   "celula": "E48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F48",
+   "celula": "F48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G48",
+   "celula": "G48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H48",
+   "celula": "H48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I48",
+   "celula": "I48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J48",
+   "celula": "J48",
+   "rotulo": "28. Problemas para lembrar fatos, mesmo imediatos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C49",
+   "celula": "C49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D49",
+   "celula": "D49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E49",
+   "celula": "E49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F49",
+   "celula": "F49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G49",
+   "celula": "G49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H49",
+   "celula": "H49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I49",
+   "celula": "I49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J49",
+   "celula": "J49",
+   "rotulo": "29. Comete erros por descuido",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C50",
+   "celula": "C50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D50",
+   "celula": "D50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E50",
+   "celula": "E50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F50",
+   "celula": "F50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G50",
+   "celula": "G50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H50",
+   "celula": "H50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I50",
+   "celula": "I50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J50",
+   "celula": "J50",
+   "rotulo": "30. Fica fora do lugar em hora errada",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C51",
+   "celula": "C51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D51",
+   "celula": "D51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E51",
+   "celula": "E51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F51",
+   "celula": "F51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G51",
+   "celula": "G51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H51",
+   "celula": "H51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I51",
+   "celula": "I51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J51",
+   "celula": "J51",
+   "rotulo": "31. Preocupado com situações novas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C52",
+   "celula": "C52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D52",
+   "celula": "D52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E52",
+   "celula": "E52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F52",
+   "celula": "F52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G52",
+   "celula": "G52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H52",
+   "celula": "H52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I52",
+   "celula": "I52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J52",
+   "celula": "J52",
+   "rotulo": "32. Probelamas em concentrar na lição.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C53",
+   "celula": "C53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D53",
+   "celula": "D53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E53",
+   "celula": "E53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F53",
+   "celula": "F53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G53",
+   "celula": "G53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H53",
+   "celula": "H53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I53",
+   "celula": "I53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J53",
+   "celula": "J53",
+   "rotulo": "33. Tem escrita manual ruim",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C54",
+   "celula": "C54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D54",
+   "celula": "D54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E54",
+   "celula": "E54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F54",
+   "celula": "F54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G54",
+   "celula": "G54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H54",
+   "celula": "H54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I54",
+   "celula": "I54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J54",
+   "celula": "J54",
+   "rotulo": "34. Muda de humor frequentemente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C55",
+   "celula": "C55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D55",
+   "celula": "D55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E55",
+   "celula": "E55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F55",
+   "celula": "F55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G55",
+   "celula": "G55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H55",
+   "celula": "H55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I55",
+   "celula": "I55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J55",
+   "celula": "J55",
+   "rotulo": "35. Tem boas idéias mas não as coloca no papel",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C56",
+   "celula": "C56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D56",
+   "celula": "D56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E56",
+   "celula": "E56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F56",
+   "celula": "F56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G56",
+   "celula": "G56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H56",
+   "celula": "H56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I56",
+   "celula": "I56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J56",
+   "celula": "J56",
+   "rotulo": "36. item 36",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C57",
+   "celula": "C57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D57",
+   "celula": "D57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E57",
+   "celula": "E57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F57",
+   "celula": "F57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G57",
+   "celula": "G57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H57",
+   "celula": "H57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I57",
+   "celula": "I57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J57",
+   "celula": "J57",
+   "rotulo": "37. Deixa bagunça que outros tem que limpar.",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C58",
+   "celula": "C58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D58",
+   "celula": "D58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E58",
+   "celula": "E58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F58",
+   "celula": "F58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G58",
+   "celula": "G58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H58",
+   "celula": "H58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I58",
+   "celula": "I58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J58",
+   "celula": "J58",
+   "rotulo": "38. Precisa receber ordem para iniciar tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C59",
+   "celula": "C59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D59",
+   "celula": "D59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E59",
+   "celula": "E59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F59",
+   "celula": "F59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G59",
+   "celula": "G59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H59",
+   "celula": "H59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I59",
+   "celula": "I59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J59",
+   "celula": "J59",
+   "rotulo": "39. Age muito agressivo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C60",
+   "celula": "C60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D60",
+   "celula": "D60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E60",
+   "celula": "E60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F60",
+   "celula": "F60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G60",
+   "celula": "G60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H60",
+   "celula": "H60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I60",
+   "celula": "I60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J60",
+   "celula": "J60",
+   "rotulo": "40. Pensa muito sobre o mesmo tópico",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C61",
+   "celula": "C61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D61",
+   "celula": "D61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E61",
+   "celula": "E61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F61",
+   "celula": "F61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G61",
+   "celula": "G61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H61",
+   "celula": "H61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I61",
+   "celula": "I61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J61",
+   "celula": "J61",
+   "rotulo": "41. Esquece o que estava fazendo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C62",
+   "celula": "C62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D62",
+   "celula": "D62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E62",
+   "celula": "E62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F62",
+   "celula": "F62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G62",
+   "celula": "G62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H62",
+   "celula": "H62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I62",
+   "celula": "I62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J62",
+   "celula": "J62",
+   "rotulo": "42. Não verifica erros no trabalho",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C63",
+   "celula": "C63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D63",
+   "celula": "D63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E63",
+   "celula": "E63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F63",
+   "celula": "F63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G63",
+   "celula": "G63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H63",
+   "celula": "H63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I63",
+   "celula": "I63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J63",
+   "celula": "J63",
+   "rotulo": "43. Explosões de bravura intesas ... terminam rapidamente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C64",
+   "celula": "C64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D64",
+   "celula": "D64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E64",
+   "celula": "E64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F64",
+   "celula": "F64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G64",
+   "celula": "G64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H64",
+   "celula": "H64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I64",
+   "celula": "I64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J64",
+   "celula": "J64",
+   "rotulo": "44. Torna-se oprimido por grandes atribulações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C65",
+   "celula": "C65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D65",
+   "celula": "D65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E65",
+   "celula": "E65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F65",
+   "celula": "F65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G65",
+   "celula": "G65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H65",
+   "celula": "H65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I65",
+   "celula": "I65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J65",
+   "celula": "J65",
+   "rotulo": "45. Perde lancheira, dinheiro do lanche, bilhetes, autorização...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C66",
+   "celula": "C66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D66",
+   "celula": "D66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E66",
+   "celula": "E66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F66",
+   "celula": "F66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G66",
+   "celula": "G66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H66",
+   "celula": "H66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I66",
+   "celula": "I66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J66",
+   "celula": "J66",
+   "rotulo": "46. Precisa de ajuda ... para permanecer em uma tarefa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C67",
+   "celula": "C67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D67",
+   "celula": "D67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E67",
+   "celula": "E67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F67",
+   "celula": "F67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G67",
+   "celula": "G67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H67",
+   "celula": "H67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I67",
+   "celula": "I67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J67",
+   "celula": "J67",
+   "rotulo": "47. Esquece de entregar a lição de casa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C68",
+   "celula": "C68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D68",
+   "celula": "D68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E68",
+   "celula": "E68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F68",
+   "celula": "F68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G68",
+   "celula": "G68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H68",
+   "celula": "H68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I68",
+   "celula": "I68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J68",
+   "celula": "J68",
+   "rotulo": "48. Problemas com freio nas ações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C69",
+   "celula": "C69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D69",
+   "celula": "D69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E69",
+   "celula": "E69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F69",
+   "celula": "F69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G69",
+   "celula": "G69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H69",
+   "celula": "H69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I69",
+   "celula": "I69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J69",
+   "celula": "J69",
+   "rotulo": "49. Resiste à mudanças de rotina",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C70",
+   "celula": "C70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D70",
+   "celula": "D70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E70",
+   "celula": "E70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F70",
+   "celula": "F70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G70",
+   "celula": "G70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H70",
+   "celula": "H70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I70",
+   "celula": "I70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J70",
+   "celula": "J70",
+   "rotulo": "50. Problemas para iniciar lição de casa/obrigações",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C71",
+   "celula": "C71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D71",
+   "celula": "D71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E71",
+   "celula": "E71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F71",
+   "celula": "F71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G71",
+   "celula": "G71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H71",
+   "celula": "H71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I71",
+   "celula": "I71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J71",
+   "celula": "J71",
+   "rotulo": "51. Temperamento... Influenciado pela situação",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C72",
+   "celula": "C72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D72",
+   "celula": "D72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E72",
+   "celula": "E72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F72",
+   "celula": "F72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G72",
+   "celula": "G72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H72",
+   "celula": "H72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I72",
+   "celula": "I72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J72",
+   "celula": "J72",
+   "rotulo": "52. Subestima o tempo necessário para terminar tarefas",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C73",
+   "celula": "C73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D73",
+   "celula": "D73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E73",
+   "celula": "E73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F73",
+   "celula": "F73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G73",
+   "celula": "G73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H73",
+   "celula": "H73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I73",
+   "celula": "I73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J73",
+   "celula": "J73",
+   "rotulo": "53. Não trás para casa lição de casa, folha de anotações, ...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C74",
+   "celula": "C74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D74",
+   "celula": "D74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E74",
+   "celula": "E74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F74",
+   "celula": "F74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G74",
+   "celula": "G74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H74",
+   "celula": "H74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I74",
+   "celula": "I74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J74",
+   "celula": "J74",
+   "rotulo": "54. item 54",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C75",
+   "celula": "C75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D75",
+   "celula": "D75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E75",
+   "celula": "E75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F75",
+   "celula": "F75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G75",
+   "celula": "G75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H75",
+   "celula": "H75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I75",
+   "celula": "I75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J75",
+   "celula": "J75",
+   "rotulo": "55. Não toma iniciativa",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C76",
+   "celula": "C76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D76",
+   "celula": "D76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E76",
+   "celula": "E76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F76",
+   "celula": "F76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G76",
+   "celula": "G76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H76",
+   "celula": "H76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I76",
+   "celula": "I76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J76",
+   "celula": "J76",
+   "rotulo": "56. Torna-se angustiado facilmente",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C77",
+   "celula": "C77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D77",
+   "celula": "D77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E77",
+   "celula": "E77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F77",
+   "celula": "F77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G77",
+   "celula": "G77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H77",
+   "celula": "H77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I77",
+   "celula": "I77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J77",
+   "celula": "J77",
+   "rotulo": "57. Começa tarefas no último minuto",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C78",
+   "celula": "C78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D78",
+   "celula": "D78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E78",
+   "celula": "E78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F78",
+   "celula": "F78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G78",
+   "celula": "G78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H78",
+   "celula": "H78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I78",
+   "celula": "I78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J78",
+   "celula": "J78",
+   "rotulo": "58. Problemas em mudar de atividades...",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C79",
+   "celula": "C79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D79",
+   "celula": "D79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E79",
+   "celula": "E79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F79",
+   "celula": "F79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G79",
+   "celula": "G79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H79",
+   "celula": "H79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I79",
+   "celula": "I79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J79",
+   "celula": "J79",
+   "rotulo": "59. Problemas ... Ações necessárias ... alcançar objetivos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C80",
+   "celula": "C80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D80",
+   "celula": "D80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E80",
+   "celula": "E80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F80",
+   "celula": "F80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G80",
+   "celula": "G80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H80",
+   "celula": "H80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I80",
+   "celula": "I80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J80",
+   "celula": "J80",
+   "rotulo": "60. Perturbado com mudança de professor / Sala",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C81",
+   "celula": "C81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D81",
+   "celula": "D81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E81",
+   "celula": "E81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F81",
+   "celula": "F81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G81",
+   "celula": "G81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H81",
+   "celula": "H81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I81",
+   "celula": "I81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J81",
+   "celula": "J81",
+   "rotulo": "61. Problemas para organizar atividades com amigos",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C82",
+   "celula": "C82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D82",
+   "celula": "D82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E82",
+   "celula": "E82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F82",
+   "celula": "F82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G82",
+   "celula": "G82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H82",
+   "celula": "H82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I82",
+   "celula": "I82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J82",
+   "celula": "J82",
+   "rotulo": "62. Torna-se muito bobo",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_C83",
+   "celula": "C83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_D83",
+   "celula": "D83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_E83",
+   "celula": "E83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_F83",
+   "celula": "F83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_G83",
+   "celula": "G83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_H83",
+   "celula": "H83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_I83",
+   "celula": "I83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  },
+  {
+   "chave": "in_J83",
+   "celula": "J83",
+   "rotulo": "63. Deixa trilha de pertences onde quer que vá",
+   "letras": [
+    "N",
+    "A",
+    "F"
+   ],
+   "min": 1,
+   "max": 3
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_R29",
+   "celula": "R29",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S29",
+   "celula": "S29",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T29",
+   "celula": "T29",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X29",
+   "celula": "X29",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y29",
+   "celula": "Y29",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z29",
+   "celula": "Z29",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA29",
+   "celula": "AA29",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE29",
+   "celula": "AE29",
+   "rotulo": "Total Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R30",
+   "celula": "R30",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S30",
+   "celula": "S30",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T30",
+   "celula": "T30",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X30",
+   "celula": "X30",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y30",
+   "celula": "Y30",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z30",
+   "celula": "Z30",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA30",
+   "celula": "AA30",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE30",
+   "celula": "AE30",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_R31",
+   "celula": "R31",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S31",
+   "celula": "S31",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T31",
+   "celula": "T31",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X31",
+   "celula": "X31",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y31",
+   "celula": "Y31",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z31",
+   "celula": "Z31",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA31",
+   "celula": "AA31",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE31",
+   "celula": "AE31",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_R32",
+   "celula": "R32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_S32",
+   "celula": "S32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T32",
+   "celula": "T32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X32",
+   "celula": "X32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Y32",
+   "celula": "Y32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z32",
+   "celula": "Z32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA32",
+   "celula": "AA32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AE32",
+   "celula": "AE32",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_R33",
+   "celula": "R33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S33",
+   "celula": "S33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T33",
+   "celula": "T33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X33",
+   "celula": "X33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y33",
+   "celula": "Y33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z33",
+   "celula": "Z33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA33",
+   "celula": "AA33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE33",
+   "celula": "AE33",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R34",
+   "celula": "R34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S34",
+   "celula": "S34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T34",
+   "celula": "T34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X34",
+   "celula": "X34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y34",
+   "celula": "Y34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z34",
+   "celula": "Z34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA34",
+   "celula": "AA34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE34",
+   "celula": "AE34",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R47",
+   "celula": "R47",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S47",
+   "celula": "S47",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T47",
+   "celula": "T47",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X47",
+   "celula": "X47",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y47",
+   "celula": "Y47",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z47",
+   "celula": "Z47",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA47",
+   "celula": "AA47",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE47",
+   "celula": "AE47",
+   "rotulo": "Total Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R48",
+   "celula": "R48",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S48",
+   "celula": "S48",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T48",
+   "celula": "T48",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X48",
+   "celula": "X48",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y48",
+   "celula": "Y48",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z48",
+   "celula": "Z48",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA48",
+   "celula": "AA48",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE48",
+   "celula": "AE48",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_R49",
+   "celula": "R49",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S49",
+   "celula": "S49",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T49",
+   "celula": "T49",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X49",
+   "celula": "X49",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y49",
+   "celula": "Y49",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z49",
+   "celula": "Z49",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA49",
+   "celula": "AA49",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE49",
+   "celula": "AE49",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_R50",
+   "celula": "R50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Cuidadores"
+  },
+  {
+   "chave": "out_S50",
+   "celula": "S50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T50",
+   "celula": "T50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X50",
+   "celula": "X50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Professores"
+  },
+  {
+   "chave": "out_Y50",
+   "celula": "Y50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z50",
+   "celula": "Z50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA50",
+   "celula": "AA50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AE50",
+   "celula": "AE50",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Auto relato"
+  },
+  {
+   "chave": "out_R51",
+   "celula": "R51",
+   "rotulo": "Classificação: — Cuidadores"
+  },
+  {
+   "chave": "out_S51",
+   "celula": "S51",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T51",
+   "celula": "T51",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X51",
+   "celula": "X51",
+   "rotulo": "Classificação: — Professores"
+  },
+  {
+   "chave": "out_Y51",
+   "celula": "Y51",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z51",
+   "celula": "Z51",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA51",
+   "celula": "AA51",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE51",
+   "celula": "AE51",
+   "rotulo": "Classificação: — Auto relato"
+  },
+  {
+   "chave": "out_R52",
+   "celula": "R52",
+   "rotulo": "Obs: — Cuidadores"
+  },
+  {
+   "chave": "out_S52",
+   "celula": "S52",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T52",
+   "celula": "T52",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X52",
+   "celula": "X52",
+   "rotulo": "Obs: — Professores"
+  },
+  {
+   "chave": "out_Y52",
+   "celula": "Y52",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z52",
+   "celula": "Z52",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA52",
+   "celula": "AA52",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE52",
+   "celula": "AE52",
+   "rotulo": "Obs: — Auto relato"
+  },
+  {
+   "chave": "out_R68",
+   "celula": "R68",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S68",
+   "celula": "S68",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T68",
+   "celula": "T68",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X68",
+   "celula": "X68",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y68",
+   "celula": "Y68",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z68",
+   "celula": "Z68",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA68",
+   "celula": "AA68",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE68",
+   "celula": "AE68",
+   "rotulo": "Total Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R69",
+   "celula": "R69",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S69",
+   "celula": "S69",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T69",
+   "celula": "T69",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X69",
+   "celula": "X69",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y69",
+   "celula": "Y69",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z69",
+   "celula": "Z69",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA69",
+   "celula": "AA69",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE69",
+   "celula": "AE69",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_R70",
+   "celula": "R70",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S70",
+   "celula": "S70",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T70",
+   "celula": "T70",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X70",
+   "celula": "X70",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y70",
+   "celula": "Y70",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z70",
+   "celula": "Z70",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA70",
+   "celula": "AA70",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE70",
+   "celula": "AE70",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_R71",
+   "celula": "R71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_S71",
+   "celula": "S71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T71",
+   "celula": "T71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X71",
+   "celula": "X71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Y71",
+   "celula": "Y71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z71",
+   "celula": "Z71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA71",
+   "celula": "AA71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AE71",
+   "celula": "AE71",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_R72",
+   "celula": "R72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S72",
+   "celula": "S72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T72",
+   "celula": "T72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X72",
+   "celula": "X72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y72",
+   "celula": "Y72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z72",
+   "celula": "Z72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA72",
+   "celula": "AA72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE72",
+   "celula": "AE72",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R73",
+   "celula": "R73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S73",
+   "celula": "S73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T73",
+   "celula": "T73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X73",
+   "celula": "X73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y73",
+   "celula": "Y73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z73",
+   "celula": "Z73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA73",
+   "celula": "AA73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE73",
+   "celula": "AE73",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R89",
+   "celula": "R89",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S89",
+   "celula": "S89",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T89",
+   "celula": "T89",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X89",
+   "celula": "X89",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y89",
+   "celula": "Y89",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z89",
+   "celula": "Z89",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA89",
+   "celula": "AA89",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE89",
+   "celula": "AE89",
+   "rotulo": "Total Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R90",
+   "celula": "R90",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S90",
+   "celula": "S90",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T90",
+   "celula": "T90",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X90",
+   "celula": "X90",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y90",
+   "celula": "Y90",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z90",
+   "celula": "Z90",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA90",
+   "celula": "AA90",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE90",
+   "celula": "AE90",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_R91",
+   "celula": "R91",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S91",
+   "celula": "S91",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T91",
+   "celula": "T91",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X91",
+   "celula": "X91",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y91",
+   "celula": "Y91",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z91",
+   "celula": "Z91",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA91",
+   "celula": "AA91",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE91",
+   "celula": "AE91",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_R92",
+   "celula": "R92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_S92",
+   "celula": "S92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T92",
+   "celula": "T92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X92",
+   "celula": "X92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Y92",
+   "celula": "Y92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z92",
+   "celula": "Z92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA92",
+   "celula": "AA92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AE92",
+   "celula": "AE92",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_R93",
+   "celula": "R93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S93",
+   "celula": "S93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T93",
+   "celula": "T93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X93",
+   "celula": "X93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y93",
+   "celula": "Y93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z93",
+   "celula": "Z93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA93",
+   "celula": "AA93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE93",
+   "celula": "AE93",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R94",
+   "celula": "R94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S94",
+   "celula": "S94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T94",
+   "celula": "T94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X94",
+   "celula": "X94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y94",
+   "celula": "Y94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z94",
+   "celula": "Z94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA94",
+   "celula": "AA94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE94",
+   "celula": "AE94",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_C99",
+   "celula": "C99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_D99",
+   "celula": "D99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_E99",
+   "celula": "E99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_G99",
+   "celula": "G99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_H99",
+   "celula": "H99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_I99",
+   "celula": "I99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_J99",
+   "celula": "J99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_L99",
+   "celula": "L99",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_C100",
+   "celula": "C100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_D100",
+   "celula": "D100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_E100",
+   "celula": "E100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_G100",
+   "celula": "G100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_H100",
+   "celula": "H100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_I100",
+   "celula": "I100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_J100",
+   "celula": "J100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_L100",
+   "celula": "L100",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_C101",
+   "celula": "C101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_D101",
+   "celula": "D101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_E101",
+   "celula": "E101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_G101",
+   "celula": "G101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_H101",
+   "celula": "H101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_I101",
+   "celula": "I101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_J101",
+   "celula": "J101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_L101",
+   "celula": "L101",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R107",
+   "celula": "R107",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S107",
+   "celula": "S107",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T107",
+   "celula": "T107",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X107",
+   "celula": "X107",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y107",
+   "celula": "Y107",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z107",
+   "celula": "Z107",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA107",
+   "celula": "AA107",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_R108",
+   "celula": "R108",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S108",
+   "celula": "S108",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T108",
+   "celula": "T108",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X108",
+   "celula": "X108",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y108",
+   "celula": "Y108",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z108",
+   "celula": "Z108",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA108",
+   "celula": "AA108",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_R109",
+   "celula": "R109",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S109",
+   "celula": "S109",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T109",
+   "celula": "T109",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X109",
+   "celula": "X109",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y109",
+   "celula": "Y109",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z109",
+   "celula": "Z109",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA109",
+   "celula": "AA109",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_R110",
+   "celula": "R110",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Cuidadores"
+  },
+  {
+   "chave": "out_S110",
+   "celula": "S110",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T110",
+   "celula": "T110",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X110",
+   "celula": "X110",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Professores"
+  },
+  {
+   "chave": "out_Y110",
+   "celula": "Y110",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z110",
+   "celula": "Z110",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA110",
+   "celula": "AA110",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_R111",
+   "celula": "R111",
+   "rotulo": "Classificação: — Cuidadores"
+  },
+  {
+   "chave": "out_S111",
+   "celula": "S111",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T111",
+   "celula": "T111",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X111",
+   "celula": "X111",
+   "rotulo": "Classificação: — Professores"
+  },
+  {
+   "chave": "out_Y111",
+   "celula": "Y111",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z111",
+   "celula": "Z111",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA111",
+   "celula": "AA111",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_C112",
+   "celula": "C112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_D112",
+   "celula": "D112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_E112",
+   "celula": "E112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_G112",
+   "celula": "G112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_H112",
+   "celula": "H112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_I112",
+   "celula": "I112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_J112",
+   "celula": "J112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_L112",
+   "celula": "L112",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_R112",
+   "celula": "R112",
+   "rotulo": "Obs: — Cuidadores"
+  },
+  {
+   "chave": "out_S112",
+   "celula": "S112",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T112",
+   "celula": "T112",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X112",
+   "celula": "X112",
+   "rotulo": "Obs: — Professores"
+  },
+  {
+   "chave": "out_Y112",
+   "celula": "Y112",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z112",
+   "celula": "Z112",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA112",
+   "celula": "AA112",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_C113",
+   "celula": "C113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_D113",
+   "celula": "D113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_E113",
+   "celula": "E113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_G113",
+   "celula": "G113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_H113",
+   "celula": "H113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_I113",
+   "celula": "I113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_J113",
+   "celula": "J113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_L113",
+   "celula": "L113",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_C114",
+   "celula": "C114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_D114",
+   "celula": "D114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_E114",
+   "celula": "E114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_G114",
+   "celula": "G114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_H114",
+   "celula": "H114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_I114",
+   "celula": "I114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_J114",
+   "celula": "J114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_L114",
+   "celula": "L114",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R128",
+   "celula": "R128",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S128",
+   "celula": "S128",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T128",
+   "celula": "T128",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X128",
+   "celula": "X128",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y128",
+   "celula": "Y128",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z128",
+   "celula": "Z128",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA128",
+   "celula": "AA128",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE128",
+   "celula": "AE128",
+   "rotulo": "Total Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R129",
+   "celula": "R129",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S129",
+   "celula": "S129",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T129",
+   "celula": "T129",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X129",
+   "celula": "X129",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y129",
+   "celula": "Y129",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z129",
+   "celula": "Z129",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA129",
+   "celula": "AA129",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE129",
+   "celula": "AE129",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_C130",
+   "celula": "C130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_D130",
+   "celula": "D130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_E130",
+   "celula": "E130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_G130",
+   "celula": "G130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_H130",
+   "celula": "H130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_I130",
+   "celula": "I130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_J130",
+   "celula": "J130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_L130",
+   "celula": "L130",
+   "rotulo": "TOTAL:"
+  },
+  {
+   "chave": "out_R130",
+   "celula": "R130",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S130",
+   "celula": "S130",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T130",
+   "celula": "T130",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X130",
+   "celula": "X130",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y130",
+   "celula": "Y130",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z130",
+   "celula": "Z130",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA130",
+   "celula": "AA130",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE130",
+   "celula": "AE130",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_C131",
+   "celula": "C131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_D131",
+   "celula": "D131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_E131",
+   "celula": "E131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_G131",
+   "celula": "G131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_H131",
+   "celula": "H131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_I131",
+   "celula": "I131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_J131",
+   "celula": "J131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_L131",
+   "celula": "L131",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_R131",
+   "celula": "R131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_S131",
+   "celula": "S131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T131",
+   "celula": "T131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X131",
+   "celula": "X131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Y131",
+   "celula": "Y131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z131",
+   "celula": "Z131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA131",
+   "celula": "AA131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AE131",
+   "celula": "AE131",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_C132",
+   "celula": "C132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_D132",
+   "celula": "D132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_E132",
+   "celula": "E132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_G132",
+   "celula": "G132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_H132",
+   "celula": "H132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_I132",
+   "celula": "I132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_J132",
+   "celula": "J132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_L132",
+   "celula": "L132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R132",
+   "celula": "R132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S132",
+   "celula": "S132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T132",
+   "celula": "T132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X132",
+   "celula": "X132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y132",
+   "celula": "Y132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z132",
+   "celula": "Z132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA132",
+   "celula": "AA132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE132",
+   "celula": "AE132",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R133",
+   "celula": "R133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S133",
+   "celula": "S133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T133",
+   "celula": "T133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X133",
+   "celula": "X133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y133",
+   "celula": "Y133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z133",
+   "celula": "Z133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA133",
+   "celula": "AA133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE133",
+   "celula": "AE133",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R151",
+   "celula": "R151",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S151",
+   "celula": "S151",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T151",
+   "celula": "T151",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X151",
+   "celula": "X151",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y151",
+   "celula": "Y151",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z151",
+   "celula": "Z151",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA151",
+   "celula": "AA151",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE151",
+   "celula": "AE151",
+   "rotulo": "Total Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R152",
+   "celula": "R152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_S152",
+   "celula": "S152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T152",
+   "celula": "T152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X152",
+   "celula": "X152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Y152",
+   "celula": "Y152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z152",
+   "celula": "Z152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA152",
+   "celula": "AA152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE152",
+   "celula": "AE152",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_R153",
+   "celula": "R153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_S153",
+   "celula": "S153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T153",
+   "celula": "T153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X153",
+   "celula": "X153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Y153",
+   "celula": "Y153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z153",
+   "celula": "Z153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA153",
+   "celula": "AA153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE153",
+   "celula": "AE153",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_R154",
+   "celula": "R154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_S154",
+   "celula": "S154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T154",
+   "celula": "T154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X154",
+   "celula": "X154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Y154",
+   "celula": "Y154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z154",
+   "celula": "Z154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA154",
+   "celula": "AA154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AE154",
+   "celula": "AE154",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_R155",
+   "celula": "R155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S155",
+   "celula": "S155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T155",
+   "celula": "T155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X155",
+   "celula": "X155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y155",
+   "celula": "Y155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z155",
+   "celula": "Z155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA155",
+   "celula": "AA155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE155",
+   "celula": "AE155",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R156",
+   "celula": "R156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S156",
+   "celula": "S156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T156",
+   "celula": "T156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X156",
+   "celula": "X156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y156",
+   "celula": "Y156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z156",
+   "celula": "Z156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA156",
+   "celula": "AA156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE156",
+   "celula": "AE156",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R171",
+   "celula": "R171",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S171",
+   "celula": "S171",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T171",
+   "celula": "T171",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X171",
+   "celula": "X171",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y171",
+   "celula": "Y171",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z171",
+   "celula": "Z171",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA171",
+   "celula": "AA171",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE171",
+   "celula": "AE171",
+   "rotulo": "Total Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R172",
+   "celula": "R172",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S172",
+   "celula": "S172",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T172",
+   "celula": "T172",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X172",
+   "celula": "X172",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y172",
+   "celula": "Y172",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z172",
+   "celula": "Z172",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA172",
+   "celula": "AA172",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE172",
+   "celula": "AE172",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_R173",
+   "celula": "R173",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S173",
+   "celula": "S173",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T173",
+   "celula": "T173",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X173",
+   "celula": "X173",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y173",
+   "celula": "Y173",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z173",
+   "celula": "Z173",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA173",
+   "celula": "AA173",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE173",
+   "celula": "AE173",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_R174",
+   "celula": "R174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Cuidadores"
+  },
+  {
+   "chave": "out_S174",
+   "celula": "S174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T174",
+   "celula": "T174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X174",
+   "celula": "X174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Professores"
+  },
+  {
+   "chave": "out_Y174",
+   "celula": "Y174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z174",
+   "celula": "Z174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA174",
+   "celula": "AA174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AE174",
+   "celula": "AE174",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Auto relato"
+  },
+  {
+   "chave": "out_R175",
+   "celula": "R175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S175",
+   "celula": "S175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T175",
+   "celula": "T175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X175",
+   "celula": "X175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y175",
+   "celula": "Y175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z175",
+   "celula": "Z175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA175",
+   "celula": "AA175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE175",
+   "celula": "AE175",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R176",
+   "celula": "R176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S176",
+   "celula": "S176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T176",
+   "celula": "T176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X176",
+   "celula": "X176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y176",
+   "celula": "Y176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z176",
+   "celula": "Z176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA176",
+   "celula": "AA176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE176",
+   "celula": "AE176",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R190",
+   "celula": "R190",
+   "rotulo": "Total Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S190",
+   "celula": "S190",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_T190",
+   "celula": "T190",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_X190",
+   "celula": "X190",
+   "rotulo": "Total Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y190",
+   "celula": "Y190",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z190",
+   "celula": "Z190",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA190",
+   "celula": "AA190",
+   "rotulo": "Total Pontos Brutos:"
+  },
+  {
+   "chave": "out_R191",
+   "celula": "R191",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S191",
+   "celula": "S191",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T191",
+   "celula": "T191",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X191",
+   "celula": "X191",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y191",
+   "celula": "Y191",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z191",
+   "celula": "Z191",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA191",
+   "celula": "AA191",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_R192",
+   "celula": "R192",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S192",
+   "celula": "S192",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T192",
+   "celula": "T192",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X192",
+   "celula": "X192",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y192",
+   "celula": "Y192",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z192",
+   "celula": "Z192",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA192",
+   "celula": "AA192",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_R193",
+   "celula": "R193",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Cuidadores"
+  },
+  {
+   "chave": "out_S193",
+   "celula": "S193",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_T193",
+   "celula": "T193",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_X193",
+   "celula": "X193",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9 — Professores"
+  },
+  {
+   "chave": "out_Y193",
+   "celula": "Y193",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_Z193",
+   "celula": "Z193",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_AA193",
+   "celula": "AA193",
+   "rotulo": "Intervalo confiança ( I.C.) - T-Score (9"
+  },
+  {
+   "chave": "out_R194",
+   "celula": "R194",
+   "rotulo": "Classificação: — Cuidadores"
+  },
+  {
+   "chave": "out_S194",
+   "celula": "S194",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T194",
+   "celula": "T194",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X194",
+   "celula": "X194",
+   "rotulo": "Classificação: — Professores"
+  },
+  {
+   "chave": "out_Y194",
+   "celula": "Y194",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z194",
+   "celula": "Z194",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA194",
+   "celula": "AA194",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R195",
+   "celula": "R195",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S195",
+   "celula": "S195",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T195",
+   "celula": "T195",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X195",
+   "celula": "X195",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y195",
+   "celula": "Y195",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z195",
+   "celula": "Z195",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA195",
+   "celula": "AA195",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R202",
+   "celula": "R202",
+   "rotulo": "Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S202",
+   "celula": "S202",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_T202",
+   "celula": "T202",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_X202",
+   "celula": "X202",
+   "rotulo": "Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y202",
+   "celula": "Y202",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z202",
+   "celula": "Z202",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA202",
+   "celula": "AA202",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE202",
+   "celula": "AE202",
+   "rotulo": "Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R203",
+   "celula": "R203",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S203",
+   "celula": "S203",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T203",
+   "celula": "T203",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X203",
+   "celula": "X203",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y203",
+   "celula": "Y203",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z203",
+   "celula": "Z203",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA203",
+   "celula": "AA203",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE203",
+   "celula": "AE203",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_R204",
+   "celula": "R204",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S204",
+   "celula": "S204",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T204",
+   "celula": "T204",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X204",
+   "celula": "X204",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y204",
+   "celula": "Y204",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z204",
+   "celula": "Z204",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA204",
+   "celula": "AA204",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE204",
+   "celula": "AE204",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_R205",
+   "celula": "R205",
+   "rotulo": "Intervalo confiança (T): — Cuidadores"
+  },
+  {
+   "chave": "out_S205",
+   "celula": "S205",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_T205",
+   "celula": "T205",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_X205",
+   "celula": "X205",
+   "rotulo": "Intervalo confiança (T): — Professores"
+  },
+  {
+   "chave": "out_Y205",
+   "celula": "Y205",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_Z205",
+   "celula": "Z205",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AA205",
+   "celula": "AA205",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AE205",
+   "celula": "AE205",
+   "rotulo": "Intervalo confiança (T): — Auto relato"
+  },
+  {
+   "chave": "out_R206",
+   "celula": "R206",
+   "rotulo": "Classificação: — Cuidadores"
+  },
+  {
+   "chave": "out_S206",
+   "celula": "S206",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T206",
+   "celula": "T206",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X206",
+   "celula": "X206",
+   "rotulo": "Classificação: — Professores"
+  },
+  {
+   "chave": "out_Y206",
+   "celula": "Y206",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z206",
+   "celula": "Z206",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA206",
+   "celula": "AA206",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE206",
+   "celula": "AE206",
+   "rotulo": "Classificação: — Auto relato"
+  },
+  {
+   "chave": "out_R207",
+   "celula": "R207",
+   "rotulo": "Obs: — Cuidadores"
+  },
+  {
+   "chave": "out_S207",
+   "celula": "S207",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T207",
+   "celula": "T207",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X207",
+   "celula": "X207",
+   "rotulo": "Obs: — Professores"
+  },
+  {
+   "chave": "out_Y207",
+   "celula": "Y207",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z207",
+   "celula": "Z207",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA207",
+   "celula": "AA207",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE207",
+   "celula": "AE207",
+   "rotulo": "Obs: — Auto relato"
+  },
+  {
+   "chave": "out_R210",
+   "celula": "R210",
+   "rotulo": "Pontos Brutos: — Cuidadores"
+  },
+  {
+   "chave": "out_S210",
+   "celula": "S210",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_T210",
+   "celula": "T210",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_X210",
+   "celula": "X210",
+   "rotulo": "Pontos Brutos: — Professores"
+  },
+  {
+   "chave": "out_Y210",
+   "celula": "Y210",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z210",
+   "celula": "Z210",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA210",
+   "celula": "AA210",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE210",
+   "celula": "AE210",
+   "rotulo": "Pontos Brutos: — Auto relato"
+  },
+  {
+   "chave": "out_R211",
+   "celula": "R211",
+   "rotulo": "Percentil: — Cuidadores"
+  },
+  {
+   "chave": "out_S211",
+   "celula": "S211",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T211",
+   "celula": "T211",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X211",
+   "celula": "X211",
+   "rotulo": "Percentil: — Professores"
+  },
+  {
+   "chave": "out_Y211",
+   "celula": "Y211",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z211",
+   "celula": "Z211",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA211",
+   "celula": "AA211",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE211",
+   "celula": "AE211",
+   "rotulo": "Percentil: — Auto relato"
+  },
+  {
+   "chave": "out_R212",
+   "celula": "R212",
+   "rotulo": "T-Score: — Cuidadores"
+  },
+  {
+   "chave": "out_S212",
+   "celula": "S212",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T212",
+   "celula": "T212",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X212",
+   "celula": "X212",
+   "rotulo": "T-Score: — Professores"
+  },
+  {
+   "chave": "out_Y212",
+   "celula": "Y212",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z212",
+   "celula": "Z212",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA212",
+   "celula": "AA212",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE212",
+   "celula": "AE212",
+   "rotulo": "T-Score: — Auto relato"
+  },
+  {
+   "chave": "out_R213",
+   "celula": "R213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_S213",
+   "celula": "S213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_T213",
+   "celula": "T213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_X213",
+   "celula": "X213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_Y213",
+   "celula": "Y213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_Z213",
+   "celula": "Z213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AA213",
+   "celula": "AA213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AE213",
+   "celula": "AE213",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_R214",
+   "celula": "R214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S214",
+   "celula": "S214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T214",
+   "celula": "T214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X214",
+   "celula": "X214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y214",
+   "celula": "Y214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z214",
+   "celula": "Z214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA214",
+   "celula": "AA214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE214",
+   "celula": "AE214",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R215",
+   "celula": "R215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S215",
+   "celula": "S215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T215",
+   "celula": "T215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X215",
+   "celula": "X215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y215",
+   "celula": "Y215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z215",
+   "celula": "Z215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA215",
+   "celula": "AA215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE215",
+   "celula": "AE215",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R218",
+   "celula": "R218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_S218",
+   "celula": "S218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_T218",
+   "celula": "T218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_X218",
+   "celula": "X218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_Y218",
+   "celula": "Y218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z218",
+   "celula": "Z218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA218",
+   "celula": "AA218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE218",
+   "celula": "AE218",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_R219",
+   "celula": "R219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_S219",
+   "celula": "S219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T219",
+   "celula": "T219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X219",
+   "celula": "X219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Y219",
+   "celula": "Y219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z219",
+   "celula": "Z219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA219",
+   "celula": "AA219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE219",
+   "celula": "AE219",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_R220",
+   "celula": "R220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_S220",
+   "celula": "S220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T220",
+   "celula": "T220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X220",
+   "celula": "X220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Y220",
+   "celula": "Y220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z220",
+   "celula": "Z220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA220",
+   "celula": "AA220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE220",
+   "celula": "AE220",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_R221",
+   "celula": "R221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_S221",
+   "celula": "S221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_T221",
+   "celula": "T221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_X221",
+   "celula": "X221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_Y221",
+   "celula": "Y221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_Z221",
+   "celula": "Z221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AA221",
+   "celula": "AA221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AE221",
+   "celula": "AE221",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_R222",
+   "celula": "R222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S222",
+   "celula": "S222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T222",
+   "celula": "T222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X222",
+   "celula": "X222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y222",
+   "celula": "Y222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z222",
+   "celula": "Z222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA222",
+   "celula": "AA222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE222",
+   "celula": "AE222",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R223",
+   "celula": "R223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S223",
+   "celula": "S223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T223",
+   "celula": "T223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X223",
+   "celula": "X223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y223",
+   "celula": "Y223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z223",
+   "celula": "Z223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA223",
+   "celula": "AA223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE223",
+   "celula": "AE223",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_R226",
+   "celula": "R226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_S226",
+   "celula": "S226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_T226",
+   "celula": "T226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_X226",
+   "celula": "X226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_Y226",
+   "celula": "Y226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_Z226",
+   "celula": "Z226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AA226",
+   "celula": "AA226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_AE226",
+   "celula": "AE226",
+   "rotulo": "Pontos Brutos:"
+  },
+  {
+   "chave": "out_R227",
+   "celula": "R227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_S227",
+   "celula": "S227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_T227",
+   "celula": "T227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_X227",
+   "celula": "X227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Y227",
+   "celula": "Y227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_Z227",
+   "celula": "Z227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AA227",
+   "celula": "AA227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_AE227",
+   "celula": "AE227",
+   "rotulo": "Percentil:"
+  },
+  {
+   "chave": "out_R228",
+   "celula": "R228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_S228",
+   "celula": "S228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_T228",
+   "celula": "T228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_X228",
+   "celula": "X228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Y228",
+   "celula": "Y228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_Z228",
+   "celula": "Z228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AA228",
+   "celula": "AA228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_AE228",
+   "celula": "AE228",
+   "rotulo": "T-Score:"
+  },
+  {
+   "chave": "out_R229",
+   "celula": "R229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_S229",
+   "celula": "S229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_T229",
+   "celula": "T229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_X229",
+   "celula": "X229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_Y229",
+   "celula": "Y229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_Z229",
+   "celula": "Z229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AA229",
+   "celula": "AA229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_AE229",
+   "celula": "AE229",
+   "rotulo": "Intervalo confiança (T):"
+  },
+  {
+   "chave": "out_R230",
+   "celula": "R230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_S230",
+   "celula": "S230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_T230",
+   "celula": "T230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_X230",
+   "celula": "X230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Y230",
+   "celula": "Y230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_Z230",
+   "celula": "Z230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AA230",
+   "celula": "AA230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_AE230",
+   "celula": "AE230",
+   "rotulo": "Classificação:"
+  },
+  {
+   "chave": "out_R231",
+   "celula": "R231",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_S231",
+   "celula": "S231",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_T231",
+   "celula": "T231",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_X231",
+   "celula": "X231",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Y231",
+   "celula": "Y231",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_Z231",
+   "celula": "Z231",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AA231",
+   "celula": "AA231",
+   "rotulo": "Obs:"
+  },
+  {
+   "chave": "out_AE231",
+   "celula": "AE231",
+   "rotulo": "Obs:"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Inibição",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R29",
+      "out_S29",
+      "out_T29",
+      "out_X29",
+      "out_Y29",
+      "out_Z29",
+      "out_AA29",
+      "out_AE29"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R30",
+      "out_S30",
+      "out_T30",
+      "out_X30",
+      "out_Y30",
+      "out_Z30",
+      "out_AA30",
+      "out_AE30"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R31",
+      "out_S31",
+      "out_T31",
+      "out_X31",
+      "out_Y31",
+      "out_Z31",
+      "out_AA31",
+      "out_AE31"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R32",
+      "out_S32",
+      "out_T32",
+      "out_X32",
+      "out_Y32",
+      "out_Z32",
+      "out_AA32",
+      "out_AE32"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R33",
+      "out_S33",
+      "out_T33",
+      "out_X33",
+      "out_Y33",
+      "out_Z33",
+      "out_AA33",
+      "out_AE33"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R34",
+      "out_S34",
+      "out_T34",
+      "out_X34",
+      "out_Y34",
+      "out_Z34",
+      "out_AA34",
+      "out_AE34"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Auto Monitoramento",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R47",
+      "out_S47",
+      "out_T47",
+      "out_X47",
+      "out_Y47",
+      "out_Z47",
+      "out_AA47",
+      "out_AE47"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R48",
+      "out_S48",
+      "out_T48",
+      "out_X48",
+      "out_Y48",
+      "out_Z48",
+      "out_AA48",
+      "out_AE48"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R49",
+      "out_S49",
+      "out_T49",
+      "out_X49",
+      "out_Y49",
+      "out_Z49",
+      "out_AA49",
+      "out_AE49"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R50",
+      "out_S50",
+      "out_T50",
+      "out_X50",
+      "out_Y50",
+      "out_Z50",
+      "out_AA50",
+      "out_AE50"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R51",
+      "out_S51",
+      "out_T51",
+      "out_X51",
+      "out_Y51",
+      "out_Z51",
+      "out_AA51",
+      "out_AE51"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R52",
+      "out_S52",
+      "out_T52",
+      "out_X52",
+      "out_Y52",
+      "out_Z52",
+      "out_AA52",
+      "out_AE52"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Flexibilidade para mudanças (Alternância)",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R68",
+      "out_S68",
+      "out_T68",
+      "out_X68",
+      "out_Y68",
+      "out_Z68",
+      "out_AA68",
+      "out_AE68"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R69",
+      "out_S69",
+      "out_T69",
+      "out_X69",
+      "out_Y69",
+      "out_Z69",
+      "out_AA69",
+      "out_AE69"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R70",
+      "out_S70",
+      "out_T70",
+      "out_X70",
+      "out_Y70",
+      "out_Z70",
+      "out_AA70",
+      "out_AE70"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R71",
+      "out_S71",
+      "out_T71",
+      "out_X71",
+      "out_Y71",
+      "out_Z71",
+      "out_AA71",
+      "out_AE71"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R72",
+      "out_S72",
+      "out_T72",
+      "out_X72",
+      "out_Y72",
+      "out_Z72",
+      "out_AA72",
+      "out_AE72"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R73",
+      "out_S73",
+      "out_T73",
+      "out_X73",
+      "out_Y73",
+      "out_Z73",
+      "out_AA73",
+      "out_AE73"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Controle Emocional",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R89",
+      "out_S89",
+      "out_T89",
+      "out_X89",
+      "out_Y89",
+      "out_Z89",
+      "out_AA89",
+      "out_AE89"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R90",
+      "out_S90",
+      "out_T90",
+      "out_X90",
+      "out_Y90",
+      "out_Z90",
+      "out_AA90",
+      "out_AE90"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R91",
+      "out_S91",
+      "out_T91",
+      "out_X91",
+      "out_Y91",
+      "out_Z91",
+      "out_AA91",
+      "out_AE91"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R92",
+      "out_S92",
+      "out_T92",
+      "out_X92",
+      "out_Y92",
+      "out_Z92",
+      "out_AA92",
+      "out_AE92"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R93",
+      "out_S93",
+      "out_T93",
+      "out_X93",
+      "out_Y93",
+      "out_Z93",
+      "out_AA93",
+      "out_AE93"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R94",
+      "out_S94",
+      "out_T94",
+      "out_X94",
+      "out_Y94",
+      "out_Z94",
+      "out_AA94",
+      "out_AE94"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Iniciativa",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R107",
+      "out_S107",
+      "out_T107",
+      "out_X107",
+      "out_Y107",
+      "out_Z107",
+      "out_AA107",
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R108",
+      "out_S108",
+      "out_T108",
+      "out_X108",
+      "out_Y108",
+      "out_Z108",
+      "out_AA108",
+      null
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R109",
+      "out_S109",
+      "out_T109",
+      "out_X109",
+      "out_Y109",
+      "out_Z109",
+      "out_AA109",
+      null
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R110",
+      "out_S110",
+      "out_T110",
+      "out_X110",
+      "out_Y110",
+      "out_Z110",
+      "out_AA110",
+      null
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R111",
+      "out_S111",
+      "out_T111",
+      "out_X111",
+      "out_Y111",
+      "out_Z111",
+      "out_AA111",
+      null
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R112",
+      "out_S112",
+      "out_T112",
+      "out_X112",
+      "out_Y112",
+      "out_Z112",
+      "out_AA112",
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Memória Operacional",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R128",
+      "out_S128",
+      "out_T128",
+      "out_X128",
+      "out_Y128",
+      "out_Z128",
+      "out_AA128",
+      "out_AE128"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R129",
+      "out_S129",
+      "out_T129",
+      "out_X129",
+      "out_Y129",
+      "out_Z129",
+      "out_AA129",
+      "out_AE129"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R130",
+      "out_S130",
+      "out_T130",
+      "out_X130",
+      "out_Y130",
+      "out_Z130",
+      "out_AA130",
+      "out_AE130"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R131",
+      "out_S131",
+      "out_T131",
+      "out_X131",
+      "out_Y131",
+      "out_Z131",
+      "out_AA131",
+      "out_AE131"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R132",
+      "out_S132",
+      "out_T132",
+      "out_X132",
+      "out_Y132",
+      "out_Z132",
+      "out_AA132",
+      "out_AE132"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R133",
+      "out_S133",
+      "out_T133",
+      "out_X133",
+      "out_Y133",
+      "out_Z133",
+      "out_AA133",
+      "out_AE133"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Planejamento / Organização",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R151",
+      "out_S151",
+      "out_T151",
+      "out_X151",
+      "out_Y151",
+      "out_Z151",
+      "out_AA151",
+      "out_AE151"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R152",
+      "out_S152",
+      "out_T152",
+      "out_X152",
+      "out_Y152",
+      "out_Z152",
+      "out_AA152",
+      "out_AE152"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R153",
+      "out_S153",
+      "out_T153",
+      "out_X153",
+      "out_Y153",
+      "out_Z153",
+      "out_AA153",
+      "out_AE153"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R154",
+      "out_S154",
+      "out_T154",
+      "out_X154",
+      "out_Y154",
+      "out_Z154",
+      "out_AA154",
+      "out_AE154"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R155",
+      "out_S155",
+      "out_T155",
+      "out_X155",
+      "out_Y155",
+      "out_Z155",
+      "out_AA155",
+      "out_AE155"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R156",
+      "out_S156",
+      "out_T156",
+      "out_X156",
+      "out_Y156",
+      "out_Z156",
+      "out_AA156",
+      "out_AE156"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Monitoração em tarefas",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R171",
+      "out_S171",
+      "out_T171",
+      "out_X171",
+      "out_Y171",
+      "out_Z171",
+      "out_AA171",
+      "out_AE171"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R172",
+      "out_S172",
+      "out_T172",
+      "out_X172",
+      "out_Y172",
+      "out_Z172",
+      "out_AA172",
+      "out_AE172"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R173",
+      "out_S173",
+      "out_T173",
+      "out_X173",
+      "out_Y173",
+      "out_Z173",
+      "out_AA173",
+      "out_AE173"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R174",
+      "out_S174",
+      "out_T174",
+      "out_X174",
+      "out_Y174",
+      "out_Z174",
+      "out_AA174",
+      "out_AE174"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R175",
+      "out_S175",
+      "out_T175",
+      "out_X175",
+      "out_Y175",
+      "out_Z175",
+      "out_AA175",
+      "out_AE175"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R176",
+      "out_S176",
+      "out_T176",
+      "out_X176",
+      "out_Y176",
+      "out_Z176",
+      "out_AA176",
+      "out_AE176"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Organização de Materiais",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R190",
+      "out_S190",
+      "out_T190",
+      "out_X190",
+      "out_Y190",
+      "out_Z190",
+      "out_AA190",
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R191",
+      "out_S191",
+      "out_T191",
+      "out_X191",
+      "out_Y191",
+      "out_Z191",
+      "out_AA191",
+      null
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R192",
+      "out_S192",
+      "out_T192",
+      "out_X192",
+      "out_Y192",
+      "out_Z192",
+      "out_AA192",
+      null
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R193",
+      "out_S193",
+      "out_T193",
+      "out_X193",
+      "out_Y193",
+      "out_Z193",
+      "out_AA193",
+      null
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R194",
+      "out_S194",
+      "out_T194",
+      "out_X194",
+      "out_Y194",
+      "out_Z194",
+      "out_AA194",
+      null
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R195",
+      "out_S195",
+      "out_T195",
+      "out_X195",
+      "out_Y195",
+      "out_Z195",
+      "out_AA195",
+      null
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Índice de Regulação Comportamental IRC",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R202",
+      "out_S202",
+      "out_T202",
+      "out_X202",
+      "out_Y202",
+      "out_Z202",
+      "out_AA202",
+      "out_AE202"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R203",
+      "out_S203",
+      "out_T203",
+      "out_X203",
+      "out_Y203",
+      "out_Z203",
+      "out_AA203",
+      "out_AE203"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R204",
+      "out_S204",
+      "out_T204",
+      "out_X204",
+      "out_Y204",
+      "out_Z204",
+      "out_AA204",
+      "out_AE204"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R205",
+      "out_S205",
+      "out_T205",
+      "out_X205",
+      "out_Y205",
+      "out_Z205",
+      "out_AA205",
+      "out_AE205"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R206",
+      "out_S206",
+      "out_T206",
+      "out_X206",
+      "out_Y206",
+      "out_Z206",
+      "out_AA206",
+      "out_AE206"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R207",
+      "out_S207",
+      "out_T207",
+      "out_X207",
+      "out_Y207",
+      "out_Z207",
+      "out_AA207",
+      "out_AE207"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Índice de Regulação Emocional IRE",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R210",
+      "out_S210",
+      "out_T210",
+      "out_X210",
+      "out_Y210",
+      "out_Z210",
+      "out_AA210",
+      "out_AE210"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R211",
+      "out_S211",
+      "out_T211",
+      "out_X211",
+      "out_Y211",
+      "out_Z211",
+      "out_AA211",
+      "out_AE211"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R212",
+      "out_S212",
+      "out_T212",
+      "out_X212",
+      "out_Y212",
+      "out_Z212",
+      "out_AA212",
+      "out_AE212"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R213",
+      "out_S213",
+      "out_T213",
+      "out_X213",
+      "out_Y213",
+      "out_Z213",
+      "out_AA213",
+      "out_AE213"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R214",
+      "out_S214",
+      "out_T214",
+      "out_X214",
+      "out_Y214",
+      "out_Z214",
+      "out_AA214",
+      "out_AE214"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R215",
+      "out_S215",
+      "out_T215",
+      "out_X215",
+      "out_Y215",
+      "out_Z215",
+      "out_AA215",
+      "out_AE215"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Índice de Regulação Cognitiva IRCog",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R218",
+      "out_S218",
+      "out_T218",
+      "out_X218",
+      "out_Y218",
+      "out_Z218",
+      "out_AA218",
+      "out_AE218"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R219",
+      "out_S219",
+      "out_T219",
+      "out_X219",
+      "out_Y219",
+      "out_Z219",
+      "out_AA219",
+      "out_AE219"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R220",
+      "out_S220",
+      "out_T220",
+      "out_X220",
+      "out_Y220",
+      "out_Z220",
+      "out_AA220",
+      "out_AE220"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R221",
+      "out_S221",
+      "out_T221",
+      "out_X221",
+      "out_Y221",
+      "out_Z221",
+      "out_AA221",
+      "out_AE221"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R222",
+      "out_S222",
+      "out_T222",
+      "out_X222",
+      "out_Y222",
+      "out_Z222",
+      "out_AA222",
+      "out_AE222"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R223",
+      "out_S223",
+      "out_T223",
+      "out_X223",
+      "out_Y223",
+      "out_Z223",
+      "out_AA223",
+      "out_AE223"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Índice Executivo Global IEG",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Pontos brutos",
+     "valores": [
+      "out_R226",
+      "out_S226",
+      "out_T226",
+      "out_X226",
+      "out_Y226",
+      "out_Z226",
+      "out_AA226",
+      "out_AE226"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_R227",
+      "out_S227",
+      "out_T227",
+      "out_X227",
+      "out_Y227",
+      "out_Z227",
+      "out_AA227",
+      "out_AE227"
+     ]
+    },
+    {
+     "rotulo": "T-score",
+     "valores": [
+      "out_R228",
+      "out_S228",
+      "out_T228",
+      "out_X228",
+      "out_Y228",
+      "out_Z228",
+      "out_AA228",
+      "out_AE228"
+     ]
+    },
+    {
+     "rotulo": "Intervalo de confiança",
+     "valores": [
+      "out_R229",
+      "out_S229",
+      "out_T229",
+      "out_X229",
+      "out_Y229",
+      "out_Z229",
+      "out_AA229",
+      "out_AE229"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_R230",
+      "out_S230",
+      "out_T230",
+      "out_X230",
+      "out_Y230",
+      "out_Z230",
+      "out_AA230",
+      "out_AE230"
+     ]
+    },
+    {
+     "rotulo": "Observação",
+     "valores": [
+      "out_R231",
+      "out_S231",
+      "out_T231",
+      "out_X231",
+      "out_Y231",
+      "out_Z231",
+      "out_AA231",
+      "out_AE231"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Escala de Negatividade",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Total",
+     "valores": [
+      "out_C99",
+      "out_D99",
+      "out_E99",
+      "out_G99",
+      "out_H99",
+      "out_I99",
+      "out_J99",
+      "out_L99"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_C100",
+      "out_D100",
+      "out_E100",
+      "out_G100",
+      "out_H100",
+      "out_I100",
+      "out_J100",
+      "out_L100"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_C101",
+      "out_D101",
+      "out_E101",
+      "out_G101",
+      "out_H101",
+      "out_I101",
+      "out_J101",
+      "out_L101"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Escala de Inconstância",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Total",
+     "valores": [
+      "out_C112",
+      "out_D112",
+      "out_E112",
+      "out_G112",
+      "out_H112",
+      "out_I112",
+      "out_J112",
+      "out_L112"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_C113",
+      "out_D113",
+      "out_E113",
+      "out_G113",
+      "out_H113",
+      "out_I113",
+      "out_J113",
+      "out_L113"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_C114",
+      "out_D114",
+      "out_E114",
+      "out_G114",
+      "out_H114",
+      "out_I114",
+      "out_J114",
+      "out_L114"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Escala de Inconsistência",
+   "colunas": [
+    "Cuidador 1",
+    "Cuidador 2",
+    "Cuidador 3",
+    "Professor 1",
+    "Professor 2",
+    "Professor 3",
+    "Professor 4",
+    "Auto-relato"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Total",
+     "valores": [
+      "out_C130",
+      "out_D130",
+      "out_E130",
+      "out_G130",
+      "out_H130",
+      "out_I130",
+      "out_J130",
+      "out_L130"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "out_C131",
+      "out_D131",
+      "out_E131",
+      "out_G131",
+      "out_H131",
+      "out_I131",
+      "out_J131",
+      "out_L131"
+     ]
+    },
+    {
+     "rotulo": "Classificação",
+     "valores": [
+      "out_C132",
+      "out_D132",
+      "out_E132",
+      "out_G132",
+      "out_H132",
+      "out_I132",
+      "out_J132",
+      "out_L132"
+     ]
+    }
+   ]
+  }
+ ],
+ "portas": {
+  "C": "H9",
+  "D": "H10",
+  "E": "H11",
+  "F": "N9",
+  "G": "N10",
+  "H": "N11",
+  "I": "N12"
+ },
+ "cabecalhos": {
+  "C": "Cuidador 1",
+  "D": "Cuidador 2",
+  "E": "Cuidador 3",
+  "F": "Professor 1",
+  "G": "Professor 2",
+  "H": "Professor 3",
+  "I": "Professor 4",
+  "J": "Auto-relato"
+ }
+}
