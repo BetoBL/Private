@@ -1,0 +1,2533 @@
+{
+ "sigla": "HAYLING",
+ "nome": "Hayling — Teste de Completar Sentenças",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "Hayling (inibição/iniciação): tempos e erros das partes A e B convertidos em escores ponderados e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "BURGESS, P. W.; SHALLICE, T. Hayling and Brixton Tests (normas conforme planilha da psicóloga).",
+ "aba": "Hayling",
+ "idade": [
+  18,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "P3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_P7",
+   "celula": "P7",
+   "rotulo": "P7",
+   "min": 0
+  },
+  {
+   "chave": "in_I10",
+   "celula": "I10",
+   "rotulo": "1) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I11",
+   "celula": "I11",
+   "rotulo": "2) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I12",
+   "celula": "I12",
+   "rotulo": "3) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I13",
+   "celula": "I13",
+   "rotulo": "4) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I14",
+   "celula": "I14",
+   "rotulo": "5) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I15",
+   "celula": "I15",
+   "rotulo": "6) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I16",
+   "celula": "I16",
+   "rotulo": "7) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I17",
+   "celula": "I17",
+   "rotulo": "8) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I18",
+   "celula": "I18",
+   "rotulo": "9) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I19",
+   "celula": "I19",
+   "rotulo": "10) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I20",
+   "celula": "I20",
+   "rotulo": "11) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I21",
+   "celula": "I21",
+   "rotulo": "12) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I22",
+   "celula": "I22",
+   "rotulo": "13)",
+   "min": 0
+  },
+  {
+   "chave": "in_I23",
+   "celula": "I23",
+   "rotulo": "14)",
+   "min": 0
+  },
+  {
+   "chave": "in_I24",
+   "celula": "I24",
+   "rotulo": "15)",
+   "min": 0
+  },
+  {
+   "chave": "in_I29",
+   "celula": "I29",
+   "rotulo": "1) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I30",
+   "celula": "I30",
+   "rotulo": "2) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I31",
+   "celula": "I31",
+   "rotulo": "3) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I32",
+   "celula": "I32",
+   "rotulo": "4) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I33",
+   "celula": "I33",
+   "rotulo": "5) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I34",
+   "celula": "I34",
+   "rotulo": "6) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I35",
+   "celula": "I35",
+   "rotulo": "7) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I36",
+   "celula": "I36",
+   "rotulo": "8) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I37",
+   "celula": "I37",
+   "rotulo": "9) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I38",
+   "celula": "I38",
+   "rotulo": "10) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I39",
+   "celula": "I39",
+   "rotulo": "11) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I40",
+   "celula": "I40",
+   "rotulo": "12) — Tempo (s)",
+   "min": 0
+  },
+  {
+   "chave": "in_I41",
+   "celula": "I41",
+   "rotulo": "13)",
+   "min": 0
+  },
+  {
+   "chave": "in_I42",
+   "celula": "I42",
+   "rotulo": "14)",
+   "min": 0
+  },
+  {
+   "chave": "in_I43",
+   "celula": "I43",
+   "rotulo": "15)",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_K3",
+   "celula": "K3",
+   "rotulo": "Amostra:",
+   "valores": [
+    "Infantil",
+    "infantil",
+    "Adulto",
+    "Adulto-Idade Geral",
+    "Adulto-Escolaridade Geral",
+    "Adulto-Idade e Escolaridade"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J10",
+   "celula": "J10",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J11",
+   "celula": "J11",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J12",
+   "celula": "J12",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J13",
+   "celula": "J13",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J14",
+   "celula": "J14",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J15",
+   "celula": "J15",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J16",
+   "celula": "J16",
+   "rotulo": "J16",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J17",
+   "celula": "J17",
+   "rotulo": "J17",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J18",
+   "celula": "J18",
+   "rotulo": "J18",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J19",
+   "celula": "J19",
+   "rotulo": "J19",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J20",
+   "celula": "J20",
+   "rotulo": "J20",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J21",
+   "celula": "J21",
+   "rotulo": "J21",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J22",
+   "celula": "J22",
+   "rotulo": "J22",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J23",
+   "celula": "J23",
+   "rotulo": "J23",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J24",
+   "celula": "J24",
+   "rotulo": "J24",
+   "valores": [
+    "C",
+    "PC",
+    "N",
+    "O",
+    "PE",
+    "UL",
+    "E",
+    "MM",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J29",
+   "celula": "J29",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J30",
+   "celula": "J30",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J31",
+   "celula": "J31",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J32",
+   "celula": "J32",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J33",
+   "celula": "J33",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J34",
+   "celula": "J34",
+   "rotulo": "Tipo de Acerto / Erro",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ]
+  },
+  {
+   "chave": "opcao_J35",
+   "celula": "J35",
+   "rotulo": "J35",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J36",
+   "celula": "J36",
+   "rotulo": "J36",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J37",
+   "celula": "J37",
+   "rotulo": "J37",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J38",
+   "celula": "J38",
+   "rotulo": "J38",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J39",
+   "celula": "J39",
+   "rotulo": "J39",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J40",
+   "celula": "J40",
+   "rotulo": "J40",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J41",
+   "celula": "J41",
+   "rotulo": "J41",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J42",
+   "celula": "J42",
+   "rotulo": "J42",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J43",
+   "celula": "J43",
+   "rotulo": "J43",
+   "valores": [
+    "C",
+    "PC",
+    "PCR",
+    "PUR",
+    "N",
+    "O",
+    "PU",
+    "SO",
+    "SA ",
+    "SB",
+    "SC",
+    "U",
+    "UR",
+    "UL",
+    "URL",
+    "URLMM",
+    "URLE",
+    "E",
+    "MM",
+    "PCRE",
+    "PURMM",
+    "UMM",
+    "UE ",
+    "EMM",
+    "PI"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_K4",
+   "celula": "K4",
+   "rotulo": "Tipo de Escola",
+   "valores": [
+    "Privada",
+    "Pública"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_B7",
+   "celula": "B7",
+   "rotulo": "Sexo:"
+  },
+  {
+   "chave": "out_B8",
+   "celula": "B8",
+   "rotulo": "Sexo:"
+  },
+  {
+   "chave": "out_C10",
+   "celula": "C10",
+   "rotulo": "1)"
+  },
+  {
+   "chave": "out_K10",
+   "celula": "K10",
+   "rotulo": "1) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L10",
+   "celula": "L10",
+   "rotulo": "1) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C11",
+   "celula": "C11",
+   "rotulo": "2)"
+  },
+  {
+   "chave": "out_K11",
+   "celula": "K11",
+   "rotulo": "2) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L11",
+   "celula": "L11",
+   "rotulo": "2) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C12",
+   "celula": "C12",
+   "rotulo": "3)"
+  },
+  {
+   "chave": "out_K12",
+   "celula": "K12",
+   "rotulo": "3) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L12",
+   "celula": "L12",
+   "rotulo": "3) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C13",
+   "celula": "C13",
+   "rotulo": "4)"
+  },
+  {
+   "chave": "out_K13",
+   "celula": "K13",
+   "rotulo": "4) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L13",
+   "celula": "L13",
+   "rotulo": "4) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C14",
+   "celula": "C14",
+   "rotulo": "5)"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "5) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "5) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C15",
+   "celula": "C15",
+   "rotulo": "6)"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "6) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L15",
+   "celula": "L15",
+   "rotulo": "6) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C16",
+   "celula": "C16",
+   "rotulo": "7)"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "7) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "7) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C17",
+   "celula": "C17",
+   "rotulo": "8)"
+  },
+  {
+   "chave": "out_K17",
+   "celula": "K17",
+   "rotulo": "8) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "8) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C18",
+   "celula": "C18",
+   "rotulo": "9)"
+  },
+  {
+   "chave": "out_K18",
+   "celula": "K18",
+   "rotulo": "9) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L18",
+   "celula": "L18",
+   "rotulo": "9) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C19",
+   "celula": "C19",
+   "rotulo": "10)"
+  },
+  {
+   "chave": "out_K19",
+   "celula": "K19",
+   "rotulo": "10) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L19",
+   "celula": "L19",
+   "rotulo": "10) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C20",
+   "celula": "C20",
+   "rotulo": "11)"
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "11) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "11) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C21",
+   "celula": "C21",
+   "rotulo": "12)"
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "12) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "12) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C22",
+   "celula": "C22",
+   "rotulo": "13)"
+  },
+  {
+   "chave": "out_K22",
+   "celula": "K22",
+   "rotulo": "13)"
+  },
+  {
+   "chave": "out_L22",
+   "celula": "L22",
+   "rotulo": "13)"
+  },
+  {
+   "chave": "out_C23",
+   "celula": "C23",
+   "rotulo": "14)"
+  },
+  {
+   "chave": "out_K23",
+   "celula": "K23",
+   "rotulo": "14)"
+  },
+  {
+   "chave": "out_L23",
+   "celula": "L23",
+   "rotulo": "14)"
+  },
+  {
+   "chave": "out_C24",
+   "celula": "C24",
+   "rotulo": "15)"
+  },
+  {
+   "chave": "out_K24",
+   "celula": "K24",
+   "rotulo": "15)"
+  },
+  {
+   "chave": "out_L24",
+   "celula": "L24",
+   "rotulo": "15)"
+  },
+  {
+   "chave": "out_I25",
+   "celula": "I25",
+   "rotulo": "Total Tempo A"
+  },
+  {
+   "chave": "out_J25",
+   "celula": "J25",
+   "rotulo": "Total Tempo A"
+  },
+  {
+   "chave": "out_K25",
+   "celula": "K25",
+   "rotulo": "Total Tempo A"
+  },
+  {
+   "chave": "out_M25",
+   "celula": "M25",
+   "rotulo": "Total Erros A"
+  },
+  {
+   "chave": "out_B27",
+   "celula": "B27",
+   "rotulo": "15)"
+  },
+  {
+   "chave": "out_C29",
+   "celula": "C29",
+   "rotulo": "1)"
+  },
+  {
+   "chave": "out_K29",
+   "celula": "K29",
+   "rotulo": "1) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L29",
+   "celula": "L29",
+   "rotulo": "1) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C30",
+   "celula": "C30",
+   "rotulo": "2)"
+  },
+  {
+   "chave": "out_K30",
+   "celula": "K30",
+   "rotulo": "2) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L30",
+   "celula": "L30",
+   "rotulo": "2) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C31",
+   "celula": "C31",
+   "rotulo": "3)"
+  },
+  {
+   "chave": "out_K31",
+   "celula": "K31",
+   "rotulo": "3) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L31",
+   "celula": "L31",
+   "rotulo": "3) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C32",
+   "celula": "C32",
+   "rotulo": "4)"
+  },
+  {
+   "chave": "out_K32",
+   "celula": "K32",
+   "rotulo": "4) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L32",
+   "celula": "L32",
+   "rotulo": "4) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C33",
+   "celula": "C33",
+   "rotulo": "5)"
+  },
+  {
+   "chave": "out_K33",
+   "celula": "K33",
+   "rotulo": "5) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L33",
+   "celula": "L33",
+   "rotulo": "5) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C34",
+   "celula": "C34",
+   "rotulo": "6)"
+  },
+  {
+   "chave": "out_K34",
+   "celula": "K34",
+   "rotulo": "6) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L34",
+   "celula": "L34",
+   "rotulo": "6) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C35",
+   "celula": "C35",
+   "rotulo": "7)"
+  },
+  {
+   "chave": "out_K35",
+   "celula": "K35",
+   "rotulo": "7) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L35",
+   "celula": "L35",
+   "rotulo": "7) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C36",
+   "celula": "C36",
+   "rotulo": "8)"
+  },
+  {
+   "chave": "out_K36",
+   "celula": "K36",
+   "rotulo": "8) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L36",
+   "celula": "L36",
+   "rotulo": "8) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C37",
+   "celula": "C37",
+   "rotulo": "9)"
+  },
+  {
+   "chave": "out_K37",
+   "celula": "K37",
+   "rotulo": "9) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L37",
+   "celula": "L37",
+   "rotulo": "9) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C38",
+   "celula": "C38",
+   "rotulo": "10)"
+  },
+  {
+   "chave": "out_K38",
+   "celula": "K38",
+   "rotulo": "10) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L38",
+   "celula": "L38",
+   "rotulo": "10) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C39",
+   "celula": "C39",
+   "rotulo": "11)"
+  },
+  {
+   "chave": "out_K39",
+   "celula": "K39",
+   "rotulo": "11) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L39",
+   "celula": "L39",
+   "rotulo": "11) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C40",
+   "celula": "C40",
+   "rotulo": "12)"
+  },
+  {
+   "chave": "out_K40",
+   "celula": "K40",
+   "rotulo": "12) — Pontos Brutos"
+  },
+  {
+   "chave": "out_L40",
+   "celula": "L40",
+   "rotulo": "12) — Descrição do tipo de Acerto / Erro"
+  },
+  {
+   "chave": "out_C41",
+   "celula": "C41",
+   "rotulo": "13)"
+  },
+  {
+   "chave": "out_K41",
+   "celula": "K41",
+   "rotulo": "13)"
+  },
+  {
+   "chave": "out_L41",
+   "celula": "L41",
+   "rotulo": "13)"
+  },
+  {
+   "chave": "out_C42",
+   "celula": "C42",
+   "rotulo": "14)"
+  },
+  {
+   "chave": "out_K42",
+   "celula": "K42",
+   "rotulo": "14)"
+  },
+  {
+   "chave": "out_L42",
+   "celula": "L42",
+   "rotulo": "14)"
+  },
+  {
+   "chave": "out_C43",
+   "celula": "C43",
+   "rotulo": "15)"
+  },
+  {
+   "chave": "out_K43",
+   "celula": "K43",
+   "rotulo": "15)"
+  },
+  {
+   "chave": "out_L43",
+   "celula": "L43",
+   "rotulo": "15)"
+  },
+  {
+   "chave": "out_I44",
+   "celula": "I44",
+   "rotulo": "Total Tempo B"
+  },
+  {
+   "chave": "out_J44",
+   "celula": "J44",
+   "rotulo": "Total Tempo B"
+  },
+  {
+   "chave": "out_K44",
+   "celula": "K44",
+   "rotulo": "Total Tempo B"
+  },
+  {
+   "chave": "out_M44",
+   "celula": "M44",
+   "rotulo": "Total Erros B"
+  },
+  {
+   "chave": "out_F48",
+   "celula": "F48",
+   "rotulo": "Tempo — Pontos Brutos"
+  },
+  {
+   "chave": "out_G48",
+   "celula": "G48",
+   "rotulo": "Tempo — Média"
+  },
+  {
+   "chave": "out_H48",
+   "celula": "H48",
+   "rotulo": "Tempo — Dv. Pd."
+  },
+  {
+   "chave": "out_I48",
+   "celula": "I48",
+   "rotulo": "Tempo — Z-Score"
+  },
+  {
+   "chave": "out_J48",
+   "celula": "J48",
+   "rotulo": "Tempo — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K48",
+   "celula": "K48",
+   "rotulo": "Tempo — Percentil"
+  },
+  {
+   "chave": "out_L48",
+   "celula": "L48",
+   "rotulo": "Tempo — Classificação"
+  },
+  {
+   "chave": "out_F49",
+   "celula": "F49",
+   "rotulo": "Erros — Pontos Brutos"
+  },
+  {
+   "chave": "out_G49",
+   "celula": "G49",
+   "rotulo": "Erros — Média"
+  },
+  {
+   "chave": "out_H49",
+   "celula": "H49",
+   "rotulo": "Erros — Dv. Pd."
+  },
+  {
+   "chave": "out_I49",
+   "celula": "I49",
+   "rotulo": "Erros — Z-Score"
+  },
+  {
+   "chave": "out_J49",
+   "celula": "J49",
+   "rotulo": "Erros — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K49",
+   "celula": "K49",
+   "rotulo": "Erros — Percentil"
+  },
+  {
+   "chave": "out_L49",
+   "celula": "L49",
+   "rotulo": "Erros — Classificação"
+  },
+  {
+   "chave": "out_F50",
+   "celula": "F50",
+   "rotulo": "Tempo — Pontos Brutos"
+  },
+  {
+   "chave": "out_G50",
+   "celula": "G50",
+   "rotulo": "Tempo — Média"
+  },
+  {
+   "chave": "out_H50",
+   "celula": "H50",
+   "rotulo": "Tempo — Dv. Pd."
+  },
+  {
+   "chave": "out_I50",
+   "celula": "I50",
+   "rotulo": "Tempo — Z-Score"
+  },
+  {
+   "chave": "out_J50",
+   "celula": "J50",
+   "rotulo": "Tempo — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K50",
+   "celula": "K50",
+   "rotulo": "Tempo — Percentil"
+  },
+  {
+   "chave": "out_L50",
+   "celula": "L50",
+   "rotulo": "Tempo — Classificação"
+  },
+  {
+   "chave": "out_F51",
+   "celula": "F51",
+   "rotulo": "Erros — Pontos Brutos"
+  },
+  {
+   "chave": "out_G51",
+   "celula": "G51",
+   "rotulo": "Erros — Média"
+  },
+  {
+   "chave": "out_H51",
+   "celula": "H51",
+   "rotulo": "Erros — Dv. Pd."
+  },
+  {
+   "chave": "out_I51",
+   "celula": "I51",
+   "rotulo": "Erros — Z-Score"
+  },
+  {
+   "chave": "out_J51",
+   "celula": "J51",
+   "rotulo": "Erros — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K51",
+   "celula": "K51",
+   "rotulo": "Erros — Percentil"
+  },
+  {
+   "chave": "out_L51",
+   "celula": "L51",
+   "rotulo": "Erros — Classificação"
+  },
+  {
+   "chave": "out_B52",
+   "celula": "B52",
+   "rotulo": "PARTE B"
+  },
+  {
+   "chave": "out_F52",
+   "celula": "F52",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G52",
+   "celula": "G52",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_H52",
+   "celula": "H52",
+   "rotulo": "Dv. Pd."
+  },
+  {
+   "chave": "out_I52",
+   "celula": "I52",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J52",
+   "celula": "J52",
+   "rotulo": "Pontos Ponderados"
+  },
+  {
+   "chave": "out_K52",
+   "celula": "K52",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L52",
+   "celula": "L52",
+   "rotulo": "Classificação"
+  },
+  {
+   "chave": "out_F53",
+   "celula": "F53",
+   "rotulo": "Total Tempo B ( - ) Total Tempo A — Pontos Brutos"
+  },
+  {
+   "chave": "out_G53",
+   "celula": "G53",
+   "rotulo": "Total Tempo B ( - ) Total Tempo A — Média"
+  },
+  {
+   "chave": "out_H53",
+   "celula": "H53",
+   "rotulo": "Total Tempo B ( - ) Total Tempo A — Dv. Pd."
+  },
+  {
+   "chave": "out_I53",
+   "celula": "I53",
+   "rotulo": "Total Tempo B ( - ) Total Tempo A — Z-Score"
+  },
+  {
+   "chave": "out_J53",
+   "celula": "J53",
+   "rotulo": "Total Tempo B ( - ) Total Tempo A — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K53",
+   "celula": "K53",
+   "rotulo": "Total Tempo B ( - ) Total Tempo A — Percentil"
+  },
+  {
+   "chave": "out_L53",
+   "celula": "L53",
+   "rotulo": "Total Tempo B ( - ) Total Tempo A — Classificação"
+  },
+  {
+   "chave": "out_F54",
+   "celula": "F54",
+   "rotulo": "Total Tempo B ( / ) Total Tempo A — Pontos Brutos"
+  },
+  {
+   "chave": "out_G54",
+   "celula": "G54",
+   "rotulo": "Total Tempo B ( / ) Total Tempo A — Média"
+  },
+  {
+   "chave": "out_H54",
+   "celula": "H54",
+   "rotulo": "Total Tempo B ( / ) Total Tempo A — Dv. Pd."
+  },
+  {
+   "chave": "out_I54",
+   "celula": "I54",
+   "rotulo": "Total Tempo B ( / ) Total Tempo A — Z-Score"
+  },
+  {
+   "chave": "out_J54",
+   "celula": "J54",
+   "rotulo": "Total Tempo B ( / ) Total Tempo A — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K54",
+   "celula": "K54",
+   "rotulo": "Total Tempo B ( / ) Total Tempo A — Percentil"
+  },
+  {
+   "chave": "out_L54",
+   "celula": "L54",
+   "rotulo": "Total Tempo B ( / ) Total Tempo A — Classificação"
+  },
+  {
+   "chave": "out_F58",
+   "celula": "F58",
+   "rotulo": "Tempo — Pontos Brutos"
+  },
+  {
+   "chave": "out_F59",
+   "celula": "F59",
+   "rotulo": "Erros — Pontos Brutos"
+  },
+  {
+   "chave": "out_F60",
+   "celula": "F60",
+   "rotulo": "Tempo"
+  },
+  {
+   "chave": "out_F61",
+   "celula": "F61",
+   "rotulo": "Erros"
+  },
+  {
+   "chave": "out_F62",
+   "celula": "F62",
+   "rotulo": "Cat. Erros"
+  },
+  {
+   "chave": "out_F63",
+   "celula": "F63",
+   "rotulo": "B-A"
+  },
+  {
+   "chave": "out_F64",
+   "celula": "F64",
+   "rotulo": "B/A"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Sexo:",
+    "C",
+    "Pontos Brutos",
+    "Média",
+    "Dv. Pd.",
+    "I",
+    "J",
+    "Pontos Brutos",
+    "Descrição do tipo de Acerto / Erro",
+    "M"
+   ],
+   "linhas": [
+    {
+     "rotulo": "7",
+     "valores": [
+      "out_B7",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "8",
+     "valores": [
+      "out_B8",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "1)",
+     "valores": [
+      null,
+      "out_C10",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K10",
+      "out_L10",
+      null
+     ]
+    },
+    {
+     "rotulo": "2)",
+     "valores": [
+      null,
+      "out_C11",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K11",
+      "out_L11",
+      null
+     ]
+    },
+    {
+     "rotulo": "3)",
+     "valores": [
+      null,
+      "out_C12",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K12",
+      "out_L12",
+      null
+     ]
+    },
+    {
+     "rotulo": "4)",
+     "valores": [
+      null,
+      "out_C13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K13",
+      "out_L13",
+      null
+     ]
+    },
+    {
+     "rotulo": "5)",
+     "valores": [
+      null,
+      "out_C14",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K14",
+      "out_L14",
+      null
+     ]
+    },
+    {
+     "rotulo": "6)",
+     "valores": [
+      null,
+      "out_C15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K15",
+      "out_L15",
+      null
+     ]
+    },
+    {
+     "rotulo": "7)",
+     "valores": [
+      null,
+      "out_C16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K16",
+      "out_L16",
+      null
+     ]
+    },
+    {
+     "rotulo": "8)",
+     "valores": [
+      null,
+      "out_C17",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K17",
+      "out_L17",
+      null
+     ]
+    },
+    {
+     "rotulo": "9)",
+     "valores": [
+      null,
+      "out_C18",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K18",
+      "out_L18",
+      null
+     ]
+    },
+    {
+     "rotulo": "10)",
+     "valores": [
+      null,
+      "out_C19",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K19",
+      "out_L19",
+      null
+     ]
+    },
+    {
+     "rotulo": "11)",
+     "valores": [
+      null,
+      "out_C20",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K20",
+      "out_L20",
+      null
+     ]
+    },
+    {
+     "rotulo": "12)",
+     "valores": [
+      null,
+      "out_C21",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K21",
+      "out_L21",
+      null
+     ]
+    },
+    {
+     "rotulo": "13)",
+     "valores": [
+      null,
+      "out_C22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K22",
+      "out_L22",
+      null
+     ]
+    },
+    {
+     "rotulo": "14)",
+     "valores": [
+      null,
+      "out_C23",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K23",
+      "out_L23",
+      null
+     ]
+    },
+    {
+     "rotulo": "15)",
+     "valores": [
+      null,
+      "out_C24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K24",
+      "out_L24",
+      null
+     ]
+    },
+    {
+     "rotulo": "Total Tempo A",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I25",
+      "out_J25",
+      "out_K25",
+      null,
+      "out_M25"
+     ]
+    },
+    {
+     "rotulo": "27",
+     "valores": [
+      "out_B27",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "1)",
+     "valores": [
+      null,
+      "out_C29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K29",
+      "out_L29",
+      null
+     ]
+    },
+    {
+     "rotulo": "2)",
+     "valores": [
+      null,
+      "out_C30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K30",
+      "out_L30",
+      null
+     ]
+    },
+    {
+     "rotulo": "3)",
+     "valores": [
+      null,
+      "out_C31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K31",
+      "out_L31",
+      null
+     ]
+    },
+    {
+     "rotulo": "4)",
+     "valores": [
+      null,
+      "out_C32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K32",
+      "out_L32",
+      null
+     ]
+    },
+    {
+     "rotulo": "5)",
+     "valores": [
+      null,
+      "out_C33",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K33",
+      "out_L33",
+      null
+     ]
+    },
+    {
+     "rotulo": "6)",
+     "valores": [
+      null,
+      "out_C34",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K34",
+      "out_L34",
+      null
+     ]
+    },
+    {
+     "rotulo": "7)",
+     "valores": [
+      null,
+      "out_C35",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K35",
+      "out_L35",
+      null
+     ]
+    },
+    {
+     "rotulo": "8)",
+     "valores": [
+      null,
+      "out_C36",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K36",
+      "out_L36",
+      null
+     ]
+    },
+    {
+     "rotulo": "9)",
+     "valores": [
+      null,
+      "out_C37",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K37",
+      "out_L37",
+      null
+     ]
+    },
+    {
+     "rotulo": "10)",
+     "valores": [
+      null,
+      "out_C38",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K38",
+      "out_L38",
+      null
+     ]
+    },
+    {
+     "rotulo": "11)",
+     "valores": [
+      null,
+      "out_C39",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K39",
+      "out_L39",
+      null
+     ]
+    },
+    {
+     "rotulo": "12)",
+     "valores": [
+      null,
+      "out_C40",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K40",
+      "out_L40",
+      null
+     ]
+    },
+    {
+     "rotulo": "13)",
+     "valores": [
+      null,
+      "out_C41",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K41",
+      "out_L41",
+      null
+     ]
+    },
+    {
+     "rotulo": "14)",
+     "valores": [
+      null,
+      "out_C42",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K42",
+      "out_L42",
+      null
+     ]
+    },
+    {
+     "rotulo": "15)",
+     "valores": [
+      null,
+      "out_C43",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K43",
+      "out_L43",
+      null
+     ]
+    },
+    {
+     "rotulo": "Total Tempo B",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I44",
+      "out_J44",
+      "out_K44",
+      null,
+      "out_M44"
+     ]
+    },
+    {
+     "rotulo": "Tempo",
+     "valores": [
+      null,
+      null,
+      "out_F48",
+      "out_G48",
+      "out_H48",
+      "out_I48",
+      "out_J48",
+      "out_K48",
+      "out_L48",
+      null
+     ]
+    },
+    {
+     "rotulo": "Erros",
+     "valores": [
+      null,
+      null,
+      "out_F49",
+      "out_G49",
+      "out_H49",
+      "out_I49",
+      "out_J49",
+      "out_K49",
+      "out_L49",
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo",
+     "valores": [
+      null,
+      null,
+      "out_F50",
+      "out_G50",
+      "out_H50",
+      "out_I50",
+      "out_J50",
+      "out_K50",
+      "out_L50",
+      null
+     ]
+    },
+    {
+     "rotulo": "Erros",
+     "valores": [
+      null,
+      null,
+      "out_F51",
+      "out_G51",
+      "out_H51",
+      "out_I51",
+      "out_J51",
+      "out_K51",
+      "out_L51",
+      null
+     ]
+    },
+    {
+     "rotulo": "52",
+     "valores": [
+      "out_B52",
+      null,
+      "out_F52",
+      "out_G52",
+      "out_H52",
+      "out_I52",
+      "out_J52",
+      "out_K52",
+      "out_L52",
+      null
+     ]
+    },
+    {
+     "rotulo": "Total Tempo B ( - ) Total Tempo A",
+     "valores": [
+      null,
+      null,
+      "out_F53",
+      "out_G53",
+      "out_H53",
+      "out_I53",
+      "out_J53",
+      "out_K53",
+      "out_L53",
+      null
+     ]
+    },
+    {
+     "rotulo": "Total Tempo B ( / ) Total Tempo A",
+     "valores": [
+      null,
+      null,
+      "out_F54",
+      "out_G54",
+      "out_H54",
+      "out_I54",
+      "out_J54",
+      "out_K54",
+      "out_L54",
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo",
+     "valores": [
+      null,
+      null,
+      "out_F58",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Erros",
+     "valores": [
+      null,
+      null,
+      "out_F59",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo",
+     "valores": [
+      null,
+      null,
+      "out_F60",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Erros",
+     "valores": [
+      null,
+      null,
+      "out_F61",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Cat. Erros",
+     "valores": [
+      null,
+      null,
+      "out_F62",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B-A",
+     "valores": [
+      null,
+      null,
+      "out_F63",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B/A",
+     "valores": [
+      null,
+      null,
+      "out_F64",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -90,14 +90,294 @@
  ],
  "saidas": [
   {
+   "chave": "out_E12",
+   "celula": "E12",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
+   "chave": "out_F12",
+   "celula": "F12",
+   "rotulo": "Cópia — Classificação"
+  },
+  {
+   "chave": "out_G12",
+   "celula": "G12",
+   "rotulo": "Cópia — Média"
+  },
+  {
+   "chave": "out_H12",
+   "celula": "H12",
+   "rotulo": "Cópia — D.P."
+  },
+  {
+   "chave": "out_I12",
+   "celula": "I12",
+   "rotulo": "Cópia — Z-Score"
+  },
+  {
+   "chave": "out_J12",
+   "celula": "J12",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
+   "chave": "out_K12",
+   "celula": "K12",
+   "rotulo": "Cópia — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_L12",
+   "celula": "L12",
+   "rotulo": "Cópia — Retenção"
+  },
+  {
+   "chave": "out_Q12",
+   "celula": "Q12",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
    "chave": "out_R12",
    "celula": "R12",
    "rotulo": "Cópia — Classificação"
   },
   {
+   "chave": "out_S12",
+   "celula": "S12",
+   "rotulo": "Cópia — Média"
+  },
+  {
+   "chave": "out_T12",
+   "celula": "T12",
+   "rotulo": "Cópia — D.P."
+  },
+  {
+   "chave": "out_U12",
+   "celula": "U12",
+   "rotulo": "Cópia — Z-Score"
+  },
+  {
+   "chave": "out_V12",
+   "celula": "V12",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
+   "chave": "out_W12",
+   "celula": "W12",
+   "rotulo": "Cópia — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_X12",
+   "celula": "X12",
+   "rotulo": "Cópia — Retenção"
+  },
+  {
+   "chave": "out_E13",
+   "celula": "E13",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
+   "chave": "out_F13",
+   "celula": "F13",
+   "rotulo": "Evocação — Classificação"
+  },
+  {
+   "chave": "out_G13",
+   "celula": "G13",
+   "rotulo": "Evocação — Média"
+  },
+  {
+   "chave": "out_H13",
+   "celula": "H13",
+   "rotulo": "Evocação — D.P."
+  },
+  {
+   "chave": "out_I13",
+   "celula": "I13",
+   "rotulo": "Evocação — Z-Score"
+  },
+  {
+   "chave": "out_J13",
+   "celula": "J13",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
+   "chave": "out_K13",
+   "celula": "K13",
+   "rotulo": "Evocação — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_Q13",
+   "celula": "Q13",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
    "chave": "out_R13",
    "celula": "R13",
    "rotulo": "Evocação — Classificação"
+  },
+  {
+   "chave": "out_S13",
+   "celula": "S13",
+   "rotulo": "Evocação — Média"
+  },
+  {
+   "chave": "out_T13",
+   "celula": "T13",
+   "rotulo": "Evocação — D.P."
+  },
+  {
+   "chave": "out_U13",
+   "celula": "U13",
+   "rotulo": "Evocação — Z-Score"
+  },
+  {
+   "chave": "out_V13",
+   "celula": "V13",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
+   "chave": "out_W13",
+   "celula": "W13",
+   "rotulo": "Evocação — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E14",
+   "celula": "E14",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
+   "chave": "out_F14",
+   "celula": "F14",
+   "rotulo": "Cópia — Classificação"
+  },
+  {
+   "chave": "out_G14",
+   "celula": "G14",
+   "rotulo": "Cópia — Média"
+  },
+  {
+   "chave": "out_H14",
+   "celula": "H14",
+   "rotulo": "Cópia — D.P."
+  },
+  {
+   "chave": "out_I14",
+   "celula": "I14",
+   "rotulo": "Cópia — Z-Score"
+  },
+  {
+   "chave": "out_J14",
+   "celula": "J14",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "Cópia — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_Q14",
+   "celula": "Q14",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
+   "chave": "out_R14",
+   "celula": "R14",
+   "rotulo": "Cópia — Classificação"
+  },
+  {
+   "chave": "out_S14",
+   "celula": "S14",
+   "rotulo": "Cópia — Média"
+  },
+  {
+   "chave": "out_T14",
+   "celula": "T14",
+   "rotulo": "Cópia — D.P."
+  },
+  {
+   "chave": "out_U14",
+   "celula": "U14",
+   "rotulo": "Cópia — Z-Score"
+  },
+  {
+   "chave": "out_V14",
+   "celula": "V14",
+   "rotulo": "Cópia — Percentil"
+  },
+  {
+   "chave": "out_W14",
+   "celula": "W14",
+   "rotulo": "Cópia — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E15",
+   "celula": "E15",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
+   "chave": "out_F15",
+   "celula": "F15",
+   "rotulo": "Evocação — Classificação"
+  },
+  {
+   "chave": "out_G15",
+   "celula": "G15",
+   "rotulo": "Evocação — Média"
+  },
+  {
+   "chave": "out_H15",
+   "celula": "H15",
+   "rotulo": "Evocação — D.P."
+  },
+  {
+   "chave": "out_I15",
+   "celula": "I15",
+   "rotulo": "Evocação — Z-Score"
+  },
+  {
+   "chave": "out_J15",
+   "celula": "J15",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "Evocação — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_Q15",
+   "celula": "Q15",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
+   "chave": "out_R15",
+   "celula": "R15",
+   "rotulo": "Evocação — Classificação"
+  },
+  {
+   "chave": "out_S15",
+   "celula": "S15",
+   "rotulo": "Evocação — Média"
+  },
+  {
+   "chave": "out_T15",
+   "celula": "T15",
+   "rotulo": "Evocação — D.P."
+  },
+  {
+   "chave": "out_U15",
+   "celula": "U15",
+   "rotulo": "Evocação — Z-Score"
+  },
+  {
+   "chave": "out_V15",
+   "celula": "V15",
+   "rotulo": "Evocação — Percentil"
+  },
+  {
+   "chave": "out_W15",
+   "celula": "W15",
+   "rotulo": "Evocação — * Classificação (Guilmette)"
   },
   {
    "chave": "out_D16",
@@ -156,35 +436,127 @@
    "colunas": [
     "Pts Brutos",
     "Percentil",
+    "Classificação",
+    "Média",
+    "D.P.",
+    "Z-Score",
     "Percentil",
-    "Q",
-    "Classificação"
+    "* Classificação (Guilmette)",
+    "Retenção",
+    "Percentil",
+    "Classificação",
+    "Média",
+    "D.P.",
+    "Z-Score",
+    "Percentil",
+    "* Classificação (Guilmette)",
+    "Retenção"
    ],
    "linhas": [
     {
      "rotulo": "Cópia",
      "valores": [
       null,
-      null,
-      null,
-      null,
-      "out_R12"
+      "out_E12",
+      "out_F12",
+      "out_G12",
+      "out_H12",
+      "out_I12",
+      "out_J12",
+      "out_K12",
+      "out_L12",
+      "out_Q12",
+      "out_R12",
+      "out_S12",
+      "out_T12",
+      "out_U12",
+      "out_V12",
+      "out_W12",
+      "out_X12"
      ]
     },
     {
      "rotulo": "Evocação",
      "valores": [
       null,
+      "out_E13",
+      "out_F13",
+      "out_G13",
+      "out_H13",
+      "out_I13",
+      "out_J13",
+      "out_K13",
       null,
+      "out_Q13",
+      "out_R13",
+      "out_S13",
+      "out_T13",
+      "out_U13",
+      "out_V13",
+      "out_W13",
+      null
+     ]
+    },
+    {
+     "rotulo": "Cópia",
+     "valores": [
       null,
+      "out_E14",
+      "out_F14",
+      "out_G14",
+      "out_H14",
+      "out_I14",
+      "out_J14",
+      "out_K14",
       null,
-      "out_R13"
+      "out_Q14",
+      "out_R14",
+      "out_S14",
+      "out_T14",
+      "out_U14",
+      "out_V14",
+      "out_W14",
+      null
+     ]
+    },
+    {
+     "rotulo": "Evocação",
+     "valores": [
+      null,
+      "out_E15",
+      "out_F15",
+      "out_G15",
+      "out_H15",
+      "out_I15",
+      "out_J15",
+      "out_K15",
+      null,
+      "out_Q15",
+      "out_R15",
+      "out_S15",
+      "out_T15",
+      "out_U15",
+      "out_V15",
+      "out_W15",
+      null
      ]
     },
     {
      "rotulo": "Classificação referente tempo, consultar",
      "valores": [
       "out_D16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null,
       null,
       null,
@@ -198,6 +570,18 @@
       "out_E17",
       null,
       null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null
      ]
     },
@@ -207,7 +591,19 @@
       null,
       null,
       "out_F28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       "out_Q28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null
      ]
     },
@@ -217,7 +613,19 @@
       null,
       null,
       "out_F29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       "out_Q29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null
      ]
     },
@@ -227,7 +635,19 @@
       null,
       null,
       "out_F30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       "out_Q30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null
      ]
     },
@@ -237,7 +657,19 @@
       null,
       null,
       "out_F31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       "out_Q31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null
      ]
     }

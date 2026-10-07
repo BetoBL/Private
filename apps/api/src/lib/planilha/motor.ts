@@ -128,8 +128,8 @@ export function calcularPlanilha(def: DefinicaoPlanilha, escores: Record<string,
   por(def.contexto.nome, ctx.nome ?? undefined);
 
   for (const o of def.opcoes) {
-    const idx = escores[o.chave] ?? o.padrao ?? 0;
-    por(`${def.aba}!${o.celula}`, o.valores[idx] ?? o.valores[0]);
+    const idx = escores[o.chave] ?? o.padrao; // sem escolha e sem padrão: a célula fica em branco
+    if (idx !== undefined && o.valores[idx] !== undefined) por(`${def.aba}!${o.celula}`, o.valores[idx]);
   }
   for (const e of def.entradas) {
     const v = escores[e.chave];

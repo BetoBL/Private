@@ -1,0 +1,5939 @@
+{
+ "sigla": "VINELAND3-DOM-ENT",
+ "nome": "Vineland-3 — Domínio (Entrevista)",
+ "dominio": "DESENVOLVIMENTO",
+ "descricao": "Vineland-3, forma Domínio (entrevista): itens por domínio de comportamento adaptativo convertidos em escore padrão/percentil/nível. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "SPARROW, S. S. et al. Vineland Adaptive Behavior Scales, Third Edition (normas conforme planilha da psicóloga).",
+ "aba": "Vin_3_Dom_Ent",
+ "idade": [
+  0,
+  90
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N12",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_R3",
+   "celula": "R3",
+   "rotulo": "Entrevista 1:",
+   "min": 0
+  },
+  {
+   "chave": "in_Z3",
+   "celula": "Z3",
+   "rotulo": "Data de aplicação 1:",
+   "min": 0
+  },
+  {
+   "chave": "in_R4",
+   "celula": "R4",
+   "rotulo": "Entrevista 2:",
+   "min": 0
+  },
+  {
+   "chave": "in_Z4",
+   "celula": "Z4",
+   "rotulo": "Data de aplicação 2:",
+   "min": 0
+  },
+  {
+   "chave": "in_R5",
+   "celula": "R5",
+   "rotulo": "Entrevista 3:",
+   "min": 0
+  },
+  {
+   "chave": "in_Z5",
+   "celula": "Z5",
+   "rotulo": "Data de aplicação 3:",
+   "min": 0
+  },
+  {
+   "chave": "in_R6",
+   "celula": "R6",
+   "rotulo": "Entrevista 4:",
+   "min": 0
+  },
+  {
+   "chave": "in_Z6",
+   "celula": "Z6",
+   "rotulo": "Data de aplicação 4:",
+   "min": 0
+  },
+  {
+   "chave": "in_L19",
+   "celula": "L19",
+   "rotulo": "Int. Conf.",
+   "min": 0
+  },
+  {
+   "chave": "in_AB19",
+   "celula": "AB19",
+   "rotulo": "Int. Conf.",
+   "min": 0
+  },
+  {
+   "chave": "in_AR19",
+   "celula": "AR19",
+   "rotulo": "Int. Conf.",
+   "min": 0
+  },
+  {
+   "chave": "in_BH19",
+   "celula": "BH19",
+   "rotulo": "Int. Conf.",
+   "min": 0
+  },
+  {
+   "chave": "in_H20",
+   "celula": "H20",
+   "rotulo": "Comunicação (COM) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_X20",
+   "celula": "X20",
+   "rotulo": "Comunicação (COM) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_AN20",
+   "celula": "AN20",
+   "rotulo": "Comunicação (COM) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_BD20",
+   "celula": "BD20",
+   "rotulo": "Comunicação (COM) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_J21",
+   "celula": "J21",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_Z21",
+   "celula": "Z21",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_AP21",
+   "celula": "AP21",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_BF21",
+   "celula": "BF21",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_J22",
+   "celula": "J22",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_Z22",
+   "celula": "Z22",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_AP22",
+   "celula": "AP22",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_BF22",
+   "celula": "BF22",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_H23",
+   "celula": "H23",
+   "rotulo": "Atividades da Vida Diária (AVD) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_X23",
+   "celula": "X23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_AN23",
+   "celula": "AN23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_BD23",
+   "celula": "BD23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_J24",
+   "celula": "J24",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_Z24",
+   "celula": "Z24",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_AP24",
+   "celula": "AP24",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_BF24",
+   "celula": "BF24",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_J25",
+   "celula": "J25",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_Z25",
+   "celula": "Z25",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_AP25",
+   "celula": "AP25",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_BF25",
+   "celula": "BF25",
+   "rotulo": "Pontuação Padrão",
+   "min": 0
+  },
+  {
+   "chave": "in_H26",
+   "celula": "H26",
+   "rotulo": "Socialização (SOC) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_X26",
+   "celula": "X26",
+   "rotulo": "Socialização (SOC) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_AN26",
+   "celula": "AN26",
+   "rotulo": "Socialização (SOC) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_BD26",
+   "celula": "BD26",
+   "rotulo": "Socialização (SOC) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_H33",
+   "celula": "H33",
+   "rotulo": "Habilidades Motoras (HMOT)",
+   "min": 0
+  },
+  {
+   "chave": "in_X33",
+   "celula": "X33",
+   "rotulo": "HABIL. MOT.(HMOT)",
+   "min": 0
+  },
+  {
+   "chave": "in_AN33",
+   "celula": "AN33",
+   "rotulo": "HABIL. MOT.(HMOT)",
+   "min": 0
+  },
+  {
+   "chave": "in_BD33",
+   "celula": "BD33",
+   "rotulo": "HABIL. MOT.(HMOT)",
+   "min": 0
+  },
+  {
+   "chave": "in_L67",
+   "celula": "L67",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
+   "chave": "in_AB67",
+   "celula": "AB67",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
+   "chave": "in_AR67",
+   "celula": "AR67",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
+   "chave": "in_BH67",
+   "celula": "BH67",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
+   "chave": "in_I68",
+   "celula": "I68",
+   "rotulo": "COM",
+   "min": 0
+  },
+  {
+   "chave": "in_Y68",
+   "celula": "Y68",
+   "rotulo": "COM",
+   "min": 0
+  },
+  {
+   "chave": "in_AO68",
+   "celula": "AO68",
+   "rotulo": "COM",
+   "min": 0
+  },
+  {
+   "chave": "in_BE68",
+   "celula": "BE68",
+   "rotulo": "COM",
+   "min": 0
+  },
+  {
+   "chave": "in_I69",
+   "celula": "I69",
+   "rotulo": "AVD",
+   "min": 0
+  },
+  {
+   "chave": "in_Y69",
+   "celula": "Y69",
+   "rotulo": "AVD",
+   "min": 0
+  },
+  {
+   "chave": "in_AO69",
+   "celula": "AO69",
+   "rotulo": "AVD",
+   "min": 0
+  },
+  {
+   "chave": "in_BE69",
+   "celula": "BE69",
+   "rotulo": "AVD",
+   "min": 0
+  },
+  {
+   "chave": "in_I70",
+   "celula": "I70",
+   "rotulo": "SOC",
+   "min": 0
+  },
+  {
+   "chave": "in_Y70",
+   "celula": "Y70",
+   "rotulo": "SOC",
+   "min": 0
+  },
+  {
+   "chave": "in_AO70",
+   "celula": "AO70",
+   "rotulo": "SOC",
+   "min": 0
+  },
+  {
+   "chave": "in_BE70",
+   "celula": "BE70",
+   "rotulo": "SOC",
+   "min": 0
+  },
+  {
+   "chave": "in_I71",
+   "celula": "I71",
+   "rotulo": "HMOT",
+   "min": 0
+  },
+  {
+   "chave": "in_Y71",
+   "celula": "Y71",
+   "rotulo": "HMOT",
+   "min": 0
+  },
+  {
+   "chave": "in_AO71",
+   "celula": "AO71",
+   "rotulo": "HMOT",
+   "min": 0
+  },
+  {
+   "chave": "in_BE71",
+   "celula": "BE71",
+   "rotulo": "HMOT",
+   "min": 0
+  },
+  {
+   "chave": "in_L80",
+   "celula": "L80",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
+   "chave": "in_AB80",
+   "celula": "AB80",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
+   "chave": "in_AR80",
+   "celula": "AR80",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
+   "chave": "in_BH80",
+   "celula": "BH80",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_AE3",
+   "celula": "AE3",
+   "rotulo": "Idade 1:"
+  },
+  {
+   "chave": "out_AE4",
+   "celula": "AE4",
+   "rotulo": "Idade 2:"
+  },
+  {
+   "chave": "out_AE5",
+   "celula": "AE5",
+   "rotulo": "Idade 3:"
+  },
+  {
+   "chave": "out_AE6",
+   "celula": "AE6",
+   "rotulo": "Idade 4:"
+  },
+  {
+   "chave": "out_B7",
+   "celula": "B7",
+   "rotulo": "Profissional Responsável:"
+  },
+  {
+   "chave": "out_C7",
+   "celula": "C7",
+   "rotulo": "C7"
+  },
+  {
+   "chave": "out_D12",
+   "celula": "D12",
+   "rotulo": "D12"
+  },
+  {
+   "chave": "out_F12",
+   "celula": "F12",
+   "rotulo": "F12"
+  },
+  {
+   "chave": "out_N12",
+   "celula": "N12",
+   "rotulo": "Data de aplicação 1: — Respondente"
+  },
+  {
+   "chave": "out_T12",
+   "celula": "T12",
+   "rotulo": "Data de aplicação 1: — Formulário N. de Domínio ENTREVISTA"
+  },
+  {
+   "chave": "out_V12",
+   "celula": "V12",
+   "rotulo": "Data de aplicação 1: — Data de aplicação 4:"
+  },
+  {
+   "chave": "out_AD12",
+   "celula": "AD12",
+   "rotulo": "Data de aplicação 2:"
+  },
+  {
+   "chave": "out_AJ12",
+   "celula": "AJ12",
+   "rotulo": "Data de aplicação 2:"
+  },
+  {
+   "chave": "out_AL12",
+   "celula": "AL12",
+   "rotulo": "Data de aplicação 2:"
+  },
+  {
+   "chave": "out_AT12",
+   "celula": "AT12",
+   "rotulo": "Data de aplicação 3:"
+  },
+  {
+   "chave": "out_AZ12",
+   "celula": "AZ12",
+   "rotulo": "Data de aplicação 3:"
+  },
+  {
+   "chave": "out_BB12",
+   "celula": "BB12",
+   "rotulo": "Data de aplicação 3:"
+  },
+  {
+   "chave": "out_BJ12",
+   "celula": "BJ12",
+   "rotulo": "Data de aplicação 4:"
+  },
+  {
+   "chave": "out_D13",
+   "celula": "D13",
+   "rotulo": "D13"
+  },
+  {
+   "chave": "out_F13",
+   "celula": "F13",
+   "rotulo": "F13"
+  },
+  {
+   "chave": "out_T13",
+   "celula": "T13",
+   "rotulo": "Data de Nascimento: — Formulário N. de Domínio ENTREVISTA"
+  },
+  {
+   "chave": "out_V13",
+   "celula": "V13",
+   "rotulo": "Data de Nascimento: — Data de aplicação 4:"
+  },
+  {
+   "chave": "out_AJ13",
+   "celula": "AJ13",
+   "rotulo": "Data de Nascimento:"
+  },
+  {
+   "chave": "out_AL13",
+   "celula": "AL13",
+   "rotulo": "Data de Nascimento:"
+  },
+  {
+   "chave": "out_AZ13",
+   "celula": "AZ13",
+   "rotulo": "Data de Nascimento:"
+  },
+  {
+   "chave": "out_BB13",
+   "celula": "BB13",
+   "rotulo": "Data de Nascimento:"
+  },
+  {
+   "chave": "out_D14",
+   "celula": "D14",
+   "rotulo": "D14"
+  },
+  {
+   "chave": "out_F14",
+   "celula": "F14",
+   "rotulo": "F14"
+  },
+  {
+   "chave": "out_N14",
+   "celula": "N14",
+   "rotulo": "Idade Cronológica 1: — Respondente"
+  },
+  {
+   "chave": "out_T14",
+   "celula": "T14",
+   "rotulo": "Idade Cronológica 1:"
+  },
+  {
+   "chave": "out_V14",
+   "celula": "V14",
+   "rotulo": "Idade Cronológica 1: — Data de aplicação 4:"
+  },
+  {
+   "chave": "out_AD14",
+   "celula": "AD14",
+   "rotulo": "Idade Cronológica 2:"
+  },
+  {
+   "chave": "out_AJ14",
+   "celula": "AJ14",
+   "rotulo": "Idade Cronológica 2:"
+  },
+  {
+   "chave": "out_AL14",
+   "celula": "AL14",
+   "rotulo": "Idade Cronológica 2:"
+  },
+  {
+   "chave": "out_AT14",
+   "celula": "AT14",
+   "rotulo": "Idade Cronológica 3:"
+  },
+  {
+   "chave": "out_AZ14",
+   "celula": "AZ14",
+   "rotulo": "Idade Cronológica 3:"
+  },
+  {
+   "chave": "out_BB14",
+   "celula": "BB14",
+   "rotulo": "Idade Cronológica 3:"
+  },
+  {
+   "chave": "out_BJ14",
+   "celula": "BJ14",
+   "rotulo": "Idade Cronológica 4:"
+  },
+  {
+   "chave": "out_D15",
+   "celula": "D15",
+   "rotulo": "D15"
+  },
+  {
+   "chave": "out_T15",
+   "celula": "T15",
+   "rotulo": "ENTREVISTA 1"
+  },
+  {
+   "chave": "out_AJ15",
+   "celula": "AJ15",
+   "rotulo": "ENTREVISTA 2"
+  },
+  {
+   "chave": "out_AZ15",
+   "celula": "AZ15",
+   "rotulo": "ENTREVISTA 3"
+  },
+  {
+   "chave": "out_H16",
+   "celula": "H16",
+   "rotulo": "DOMÍNIOS — ENTREVISTA 1"
+  },
+  {
+   "chave": "out_X16",
+   "celula": "X16",
+   "rotulo": "DOMÍNIOS — ENTREVISTA 2"
+  },
+  {
+   "chave": "out_AN16",
+   "celula": "AN16",
+   "rotulo": "DOMÍNIOS — ENTREVISTA 3"
+  },
+  {
+   "chave": "out_BD16",
+   "celula": "BD16",
+   "rotulo": "DOMÍNIOS — ENTREVISTA 4"
+  },
+  {
+   "chave": "out_J20",
+   "celula": "J20",
+   "rotulo": "Comunicação (COM) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Comunicação (COM) — Int. Conf."
+  },
+  {
+   "chave": "out_N20",
+   "celula": "N20",
+   "rotulo": "Comunicação (COM) — Percentl"
+  },
+  {
+   "chave": "out_Z20",
+   "celula": "Z20",
+   "rotulo": "Comunicação (COM) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB20",
+   "celula": "AB20",
+   "rotulo": "Comunicação (COM) — Int. Conf."
+  },
+  {
+   "chave": "out_AD20",
+   "celula": "AD20",
+   "rotulo": "Comunicação (COM) — Percentl"
+  },
+  {
+   "chave": "out_AP20",
+   "celula": "AP20",
+   "rotulo": "Comunicação (COM) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR20",
+   "celula": "AR20",
+   "rotulo": "Comunicação (COM) — Int. Conf."
+  },
+  {
+   "chave": "out_AT20",
+   "celula": "AT20",
+   "rotulo": "Comunicação (COM) — Percentl"
+  },
+  {
+   "chave": "out_BF20",
+   "celula": "BF20",
+   "rotulo": "Comunicação (COM) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH20",
+   "celula": "BH20",
+   "rotulo": "Comunicação (COM) — Int. Conf."
+  },
+  {
+   "chave": "out_BJ20",
+   "celula": "BJ20",
+   "rotulo": "Comunicação (COM) — Percentl"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AB21",
+   "celula": "AB21",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AR21",
+   "celula": "AR21",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_BH21",
+   "celula": "BH21",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_L22",
+   "celula": "L22",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AB22",
+   "celula": "AB22",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AR22",
+   "celula": "AR22",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_BH22",
+   "celula": "BH22",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_J23",
+   "celula": "J23",
+   "rotulo": "Atividades da Vida Diária (AVD) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_L23",
+   "celula": "L23",
+   "rotulo": "Atividades da Vida Diária (AVD) — Int. Conf."
+  },
+  {
+   "chave": "out_N23",
+   "celula": "N23",
+   "rotulo": "Atividades da Vida Diária (AVD) — Percentl"
+  },
+  {
+   "chave": "out_Z23",
+   "celula": "Z23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB23",
+   "celula": "AB23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Int. Conf."
+  },
+  {
+   "chave": "out_AD23",
+   "celula": "AD23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Percentl"
+  },
+  {
+   "chave": "out_AP23",
+   "celula": "AP23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR23",
+   "celula": "AR23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Int. Conf."
+  },
+  {
+   "chave": "out_AT23",
+   "celula": "AT23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Percentl"
+  },
+  {
+   "chave": "out_BF23",
+   "celula": "BF23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH23",
+   "celula": "BH23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Int. Conf."
+  },
+  {
+   "chave": "out_BJ23",
+   "celula": "BJ23",
+   "rotulo": "Ativ. da Vida Diária (AVD) — Percentl"
+  },
+  {
+   "chave": "out_L24",
+   "celula": "L24",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AB24",
+   "celula": "AB24",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AR24",
+   "celula": "AR24",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_BH24",
+   "celula": "BH24",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_L25",
+   "celula": "L25",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AB25",
+   "celula": "AB25",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AR25",
+   "celula": "AR25",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_BH25",
+   "celula": "BH25",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_J26",
+   "celula": "J26",
+   "rotulo": "Socialização (SOC) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_L26",
+   "celula": "L26",
+   "rotulo": "Socialização (SOC) — Int. Conf."
+  },
+  {
+   "chave": "out_N26",
+   "celula": "N26",
+   "rotulo": "Socialização (SOC) — Percentl"
+  },
+  {
+   "chave": "out_Z26",
+   "celula": "Z26",
+   "rotulo": "Socialização (SOC) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB26",
+   "celula": "AB26",
+   "rotulo": "Socialização (SOC) — Int. Conf."
+  },
+  {
+   "chave": "out_AD26",
+   "celula": "AD26",
+   "rotulo": "Socialização (SOC) — Percentl"
+  },
+  {
+   "chave": "out_AP26",
+   "celula": "AP26",
+   "rotulo": "Socialização (SOC) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR26",
+   "celula": "AR26",
+   "rotulo": "Socialização (SOC) — Int. Conf."
+  },
+  {
+   "chave": "out_AT26",
+   "celula": "AT26",
+   "rotulo": "Socialização (SOC) — Percentl"
+  },
+  {
+   "chave": "out_BF26",
+   "celula": "BF26",
+   "rotulo": "Socialização (SOC) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH26",
+   "celula": "BH26",
+   "rotulo": "Socialização (SOC) — Int. Conf."
+  },
+  {
+   "chave": "out_BJ26",
+   "celula": "BJ26",
+   "rotulo": "Socialização (SOC) — Percentl"
+  },
+  {
+   "chave": "out_L27",
+   "celula": "L27",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AB27",
+   "celula": "AB27",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AR27",
+   "celula": "AR27",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_BH27",
+   "celula": "BH27",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_L28",
+   "celula": "L28",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AB28",
+   "celula": "AB28",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_AR28",
+   "celula": "AR28",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_BH28",
+   "celula": "BH28",
+   "rotulo": "Int. Conf."
+  },
+  {
+   "chave": "out_J29",
+   "celula": "J29",
+   "rotulo": "Soma da Pontuação Padrão dos Domínios: — Pontuação Padrão"
+  },
+  {
+   "chave": "out_Z29",
+   "celula": "Z29",
+   "rotulo": "Soma Pontuação Padrão Domínios — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AP29",
+   "celula": "AP29",
+   "rotulo": "Soma Pontuação Padrão Domínios — Pontuação Padrão"
+  },
+  {
+   "chave": "out_BF29",
+   "celula": "BF29",
+   "rotulo": "Soma Pontuação Padrão Domínios — Pontuação Padrão"
+  },
+  {
+   "chave": "out_J30",
+   "celula": "J30",
+   "rotulo": "Compostos de Comportamento Adaptativo (C — Pontuação Padrão"
+  },
+  {
+   "chave": "out_L30",
+   "celula": "L30",
+   "rotulo": "Compostos de Comportamento Adaptativo (C — Int. Conf."
+  },
+  {
+   "chave": "out_N30",
+   "celula": "N30",
+   "rotulo": "Compostos de Comportamento Adaptativo (C — Percentl"
+  },
+  {
+   "chave": "out_Z30",
+   "celula": "Z30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB30",
+   "celula": "AB30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Int. Conf."
+  },
+  {
+   "chave": "out_AD30",
+   "celula": "AD30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Percentl"
+  },
+  {
+   "chave": "out_AP30",
+   "celula": "AP30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR30",
+   "celula": "AR30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Int. Conf."
+  },
+  {
+   "chave": "out_AT30",
+   "celula": "AT30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Percentl"
+  },
+  {
+   "chave": "out_BF30",
+   "celula": "BF30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH30",
+   "celula": "BH30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Int. Conf."
+  },
+  {
+   "chave": "out_BJ30",
+   "celula": "BJ30",
+   "rotulo": "Compost. Compto. Adapt. (CCA) — Percentl"
+  },
+  {
+   "chave": "out_L31",
+   "celula": "L31",
+   "rotulo": "L31"
+  },
+  {
+   "chave": "out_AB31",
+   "celula": "AB31",
+   "rotulo": "AB31"
+  },
+  {
+   "chave": "out_AR31",
+   "celula": "AR31",
+   "rotulo": "AR31"
+  },
+  {
+   "chave": "out_BH31",
+   "celula": "BH31",
+   "rotulo": "BH31"
+  },
+  {
+   "chave": "out_L32",
+   "celula": "L32",
+   "rotulo": "L32"
+  },
+  {
+   "chave": "out_AB32",
+   "celula": "AB32",
+   "rotulo": "AB32"
+  },
+  {
+   "chave": "out_AR32",
+   "celula": "AR32",
+   "rotulo": "AR32"
+  },
+  {
+   "chave": "out_BH32",
+   "celula": "BH32",
+   "rotulo": "BH32"
+  },
+  {
+   "chave": "out_J33",
+   "celula": "J33",
+   "rotulo": "Habilidades Motoras (HMOT)"
+  },
+  {
+   "chave": "out_L33",
+   "celula": "L33",
+   "rotulo": "Habilidades Motoras (HMOT)"
+  },
+  {
+   "chave": "out_N33",
+   "celula": "N33",
+   "rotulo": "Habilidades Motoras (HMOT)"
+  },
+  {
+   "chave": "out_Z33",
+   "celula": "Z33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_AB33",
+   "celula": "AB33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_AD33",
+   "celula": "AD33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_AP33",
+   "celula": "AP33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_AR33",
+   "celula": "AR33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_AT33",
+   "celula": "AT33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_BF33",
+   "celula": "BF33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_BH33",
+   "celula": "BH33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_BJ33",
+   "celula": "BJ33",
+   "rotulo": "HABIL. MOT.(HMOT)"
+  },
+  {
+   "chave": "out_G37",
+   "celula": "G37",
+   "rotulo": "Entrev. 1"
+  },
+  {
+   "chave": "out_I37",
+   "celula": "I37",
+   "rotulo": "Entrev. 2"
+  },
+  {
+   "chave": "out_O37",
+   "celula": "O37",
+   "rotulo": "Entrev. 1"
+  },
+  {
+   "chave": "out_Q37",
+   "celula": "Q37",
+   "rotulo": "Entrev. 3"
+  },
+  {
+   "chave": "out_W37",
+   "celula": "W37",
+   "rotulo": "Entrev. 1"
+  },
+  {
+   "chave": "out_Y37",
+   "celula": "Y37",
+   "rotulo": "Entrev. 4"
+  },
+  {
+   "chave": "out_AE37",
+   "celula": "AE37",
+   "rotulo": "Entrev. 2"
+  },
+  {
+   "chave": "out_AG37",
+   "celula": "AG37",
+   "rotulo": "Entrev. 3"
+  },
+  {
+   "chave": "out_AM37",
+   "celula": "AM37",
+   "rotulo": "Entrev. 2"
+  },
+  {
+   "chave": "out_AO37",
+   "celula": "AO37",
+   "rotulo": "Entrev. 4"
+  },
+  {
+   "chave": "out_AU37",
+   "celula": "AU37",
+   "rotulo": "Entrev. 3"
+  },
+  {
+   "chave": "out_AW37",
+   "celula": "AW37",
+   "rotulo": "Entrev. 4"
+  },
+  {
+   "chave": "out_G38",
+   "celula": "G38",
+   "rotulo": "COM — Entrev. 1"
+  },
+  {
+   "chave": "out_I38",
+   "celula": "I38",
+   "rotulo": "COM — Entrev. 2"
+  },
+  {
+   "chave": "out_K38",
+   "celula": "K38",
+   "rotulo": "COM — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_O38",
+   "celula": "O38",
+   "rotulo": "COM — Entrev. 1"
+  },
+  {
+   "chave": "out_Q38",
+   "celula": "Q38",
+   "rotulo": "COM — Entrev. 3"
+  },
+  {
+   "chave": "out_S38",
+   "celula": "S38",
+   "rotulo": "COM — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_W38",
+   "celula": "W38",
+   "rotulo": "COM — Entrev. 1"
+  },
+  {
+   "chave": "out_Y38",
+   "celula": "Y38",
+   "rotulo": "COM — Entrev. 4"
+  },
+  {
+   "chave": "out_AA38",
+   "celula": "AA38",
+   "rotulo": "COM — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AE38",
+   "celula": "AE38",
+   "rotulo": "COM — Entrev. 2"
+  },
+  {
+   "chave": "out_AG38",
+   "celula": "AG38",
+   "rotulo": "COM — Entrev. 3"
+  },
+  {
+   "chave": "out_AI38",
+   "celula": "AI38",
+   "rotulo": "COM — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AM38",
+   "celula": "AM38",
+   "rotulo": "COM — Entrev. 2"
+  },
+  {
+   "chave": "out_AO38",
+   "celula": "AO38",
+   "rotulo": "COM — Entrev. 4"
+  },
+  {
+   "chave": "out_AQ38",
+   "celula": "AQ38",
+   "rotulo": "COM — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AU38",
+   "celula": "AU38",
+   "rotulo": "COM — Entrev. 3"
+  },
+  {
+   "chave": "out_AW38",
+   "celula": "AW38",
+   "rotulo": "COM — Entrev. 4"
+  },
+  {
+   "chave": "out_AY38",
+   "celula": "AY38",
+   "rotulo": "COM — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_G39",
+   "celula": "G39",
+   "rotulo": "AVD — Entrev. 1"
+  },
+  {
+   "chave": "out_I39",
+   "celula": "I39",
+   "rotulo": "AVD — Entrev. 2"
+  },
+  {
+   "chave": "out_K39",
+   "celula": "K39",
+   "rotulo": "AVD — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_O39",
+   "celula": "O39",
+   "rotulo": "AVD — Entrev. 1"
+  },
+  {
+   "chave": "out_Q39",
+   "celula": "Q39",
+   "rotulo": "AVD — Entrev. 3"
+  },
+  {
+   "chave": "out_S39",
+   "celula": "S39",
+   "rotulo": "AVD — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_W39",
+   "celula": "W39",
+   "rotulo": "AVD — Entrev. 1"
+  },
+  {
+   "chave": "out_Y39",
+   "celula": "Y39",
+   "rotulo": "AVD — Entrev. 4"
+  },
+  {
+   "chave": "out_AA39",
+   "celula": "AA39",
+   "rotulo": "AVD — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AE39",
+   "celula": "AE39",
+   "rotulo": "AVD — Entrev. 2"
+  },
+  {
+   "chave": "out_AG39",
+   "celula": "AG39",
+   "rotulo": "AVD — Entrev. 3"
+  },
+  {
+   "chave": "out_AI39",
+   "celula": "AI39",
+   "rotulo": "AVD — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AM39",
+   "celula": "AM39",
+   "rotulo": "AVD — Entrev. 2"
+  },
+  {
+   "chave": "out_AO39",
+   "celula": "AO39",
+   "rotulo": "AVD — Entrev. 4"
+  },
+  {
+   "chave": "out_AQ39",
+   "celula": "AQ39",
+   "rotulo": "AVD — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AU39",
+   "celula": "AU39",
+   "rotulo": "AVD — Entrev. 3"
+  },
+  {
+   "chave": "out_AW39",
+   "celula": "AW39",
+   "rotulo": "AVD — Entrev. 4"
+  },
+  {
+   "chave": "out_AY39",
+   "celula": "AY39",
+   "rotulo": "AVD — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_G40",
+   "celula": "G40",
+   "rotulo": "SOC — Entrev. 1"
+  },
+  {
+   "chave": "out_I40",
+   "celula": "I40",
+   "rotulo": "SOC — Entrev. 2"
+  },
+  {
+   "chave": "out_K40",
+   "celula": "K40",
+   "rotulo": "SOC — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_O40",
+   "celula": "O40",
+   "rotulo": "SOC — Entrev. 1"
+  },
+  {
+   "chave": "out_Q40",
+   "celula": "Q40",
+   "rotulo": "SOC — Entrev. 3"
+  },
+  {
+   "chave": "out_S40",
+   "celula": "S40",
+   "rotulo": "SOC — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_W40",
+   "celula": "W40",
+   "rotulo": "SOC — Entrev. 1"
+  },
+  {
+   "chave": "out_Y40",
+   "celula": "Y40",
+   "rotulo": "SOC — Entrev. 4"
+  },
+  {
+   "chave": "out_AA40",
+   "celula": "AA40",
+   "rotulo": "SOC — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AE40",
+   "celula": "AE40",
+   "rotulo": "SOC — Entrev. 2"
+  },
+  {
+   "chave": "out_AG40",
+   "celula": "AG40",
+   "rotulo": "SOC — Entrev. 3"
+  },
+  {
+   "chave": "out_AI40",
+   "celula": "AI40",
+   "rotulo": "SOC — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AM40",
+   "celula": "AM40",
+   "rotulo": "SOC — Entrev. 2"
+  },
+  {
+   "chave": "out_AO40",
+   "celula": "AO40",
+   "rotulo": "SOC — Entrev. 4"
+  },
+  {
+   "chave": "out_AQ40",
+   "celula": "AQ40",
+   "rotulo": "SOC — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AU40",
+   "celula": "AU40",
+   "rotulo": "SOC — Entrev. 3"
+  },
+  {
+   "chave": "out_AW40",
+   "celula": "AW40",
+   "rotulo": "SOC — Entrev. 4"
+  },
+  {
+   "chave": "out_AY40",
+   "celula": "AY40",
+   "rotulo": "SOC — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_G41",
+   "celula": "G41",
+   "rotulo": "CCA — Entrev. 1"
+  },
+  {
+   "chave": "out_I41",
+   "celula": "I41",
+   "rotulo": "CCA — Entrev. 2"
+  },
+  {
+   "chave": "out_K41",
+   "celula": "K41",
+   "rotulo": "CCA — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_O41",
+   "celula": "O41",
+   "rotulo": "CCA — Entrev. 1"
+  },
+  {
+   "chave": "out_Q41",
+   "celula": "Q41",
+   "rotulo": "CCA — Entrev. 3"
+  },
+  {
+   "chave": "out_S41",
+   "celula": "S41",
+   "rotulo": "CCA — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_W41",
+   "celula": "W41",
+   "rotulo": "CCA — Entrev. 1"
+  },
+  {
+   "chave": "out_Y41",
+   "celula": "Y41",
+   "rotulo": "CCA — Entrev. 4"
+  },
+  {
+   "chave": "out_AA41",
+   "celula": "AA41",
+   "rotulo": "CCA — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AE41",
+   "celula": "AE41",
+   "rotulo": "CCA — Entrev. 2"
+  },
+  {
+   "chave": "out_AG41",
+   "celula": "AG41",
+   "rotulo": "CCA — Entrev. 3"
+  },
+  {
+   "chave": "out_AI41",
+   "celula": "AI41",
+   "rotulo": "CCA — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AM41",
+   "celula": "AM41",
+   "rotulo": "CCA — Entrev. 2"
+  },
+  {
+   "chave": "out_AO41",
+   "celula": "AO41",
+   "rotulo": "CCA — Entrev. 4"
+  },
+  {
+   "chave": "out_AQ41",
+   "celula": "AQ41",
+   "rotulo": "CCA — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AU41",
+   "celula": "AU41",
+   "rotulo": "CCA — Entrev. 3"
+  },
+  {
+   "chave": "out_AW41",
+   "celula": "AW41",
+   "rotulo": "CCA — Entrev. 4"
+  },
+  {
+   "chave": "out_AY41",
+   "celula": "AY41",
+   "rotulo": "CCA — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_G42",
+   "celula": "G42",
+   "rotulo": "HMOT — Entrev. 1"
+  },
+  {
+   "chave": "out_I42",
+   "celula": "I42",
+   "rotulo": "HMOT — Entrev. 2"
+  },
+  {
+   "chave": "out_K42",
+   "celula": "K42",
+   "rotulo": "HMOT — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_O42",
+   "celula": "O42",
+   "rotulo": "HMOT — Entrev. 1"
+  },
+  {
+   "chave": "out_Q42",
+   "celula": "Q42",
+   "rotulo": "HMOT — Entrev. 3"
+  },
+  {
+   "chave": "out_S42",
+   "celula": "S42",
+   "rotulo": "HMOT — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_W42",
+   "celula": "W42",
+   "rotulo": "HMOT — Entrev. 1"
+  },
+  {
+   "chave": "out_Y42",
+   "celula": "Y42",
+   "rotulo": "HMOT — Entrev. 4"
+  },
+  {
+   "chave": "out_AA42",
+   "celula": "AA42",
+   "rotulo": "HMOT — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AE42",
+   "celula": "AE42",
+   "rotulo": "HMOT — Entrev. 2"
+  },
+  {
+   "chave": "out_AG42",
+   "celula": "AG42",
+   "rotulo": "HMOT — Entrev. 3"
+  },
+  {
+   "chave": "out_AI42",
+   "celula": "AI42",
+   "rotulo": "HMOT — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AM42",
+   "celula": "AM42",
+   "rotulo": "HMOT — Entrev. 2"
+  },
+  {
+   "chave": "out_AO42",
+   "celula": "AO42",
+   "rotulo": "HMOT — Entrev. 4"
+  },
+  {
+   "chave": "out_AQ42",
+   "celula": "AQ42",
+   "rotulo": "HMOT — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_AU42",
+   "celula": "AU42",
+   "rotulo": "HMOT — Entrev. 3"
+  },
+  {
+   "chave": "out_AW42",
+   "celula": "AW42",
+   "rotulo": "HMOT — Entrev. 4"
+  },
+  {
+   "chave": "out_AY42",
+   "celula": "AY42",
+   "rotulo": "HMOT — Tem discrepância (Diferença ≥7)"
+  },
+  {
+   "chave": "out_J46",
+   "celula": "J46",
+   "rotulo": "Internalizante (Seção A) — v-escala"
+  },
+  {
+   "chave": "out_Z46",
+   "celula": "Z46",
+   "rotulo": "Internalizante (Seção A) — v-escala"
+  },
+  {
+   "chave": "out_AP46",
+   "celula": "AP46",
+   "rotulo": "Internalizante (Seção A) — v-escala"
+  },
+  {
+   "chave": "out_BF46",
+   "celula": "BF46",
+   "rotulo": "Internalizante (Seção A) — v-escala"
+  },
+  {
+   "chave": "out_J48",
+   "celula": "J48",
+   "rotulo": "Externalizante (Seção B) — v-escala"
+  },
+  {
+   "chave": "out_Z48",
+   "celula": "Z48",
+   "rotulo": "Externalizante (Seção B) — v-escala"
+  },
+  {
+   "chave": "out_AP48",
+   "celula": "AP48",
+   "rotulo": "Externalizante (Seção B) — v-escala"
+  },
+  {
+   "chave": "out_BF48",
+   "celula": "BF48",
+   "rotulo": "Externalizante (Seção B) — v-escala"
+  },
+  {
+   "chave": "out_H68",
+   "celula": "H68",
+   "rotulo": "COM — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_J68",
+   "celula": "J68",
+   "rotulo": "COM — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_L68",
+   "celula": "L68",
+   "rotulo": "COM — Valor Crítico"
+  },
+  {
+   "chave": "out_N68",
+   "celula": "N68",
+   "rotulo": "COM — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_P68",
+   "celula": "P68",
+   "rotulo": "COM — Taxa de Base"
+  },
+  {
+   "chave": "out_X68",
+   "celula": "X68",
+   "rotulo": "COM — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_Z68",
+   "celula": "Z68",
+   "rotulo": "COM — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AB68",
+   "celula": "AB68",
+   "rotulo": "COM — Valor Crítico"
+  },
+  {
+   "chave": "out_AD68",
+   "celula": "AD68",
+   "rotulo": "COM — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AF68",
+   "celula": "AF68",
+   "rotulo": "COM — Taxa de Base"
+  },
+  {
+   "chave": "out_AN68",
+   "celula": "AN68",
+   "rotulo": "COM — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_AP68",
+   "celula": "AP68",
+   "rotulo": "COM — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AR68",
+   "celula": "AR68",
+   "rotulo": "COM — Valor Crítico"
+  },
+  {
+   "chave": "out_AT68",
+   "celula": "AT68",
+   "rotulo": "COM — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AV68",
+   "celula": "AV68",
+   "rotulo": "COM — Taxa de Base"
+  },
+  {
+   "chave": "out_BD68",
+   "celula": "BD68",
+   "rotulo": "COM — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_BF68",
+   "celula": "BF68",
+   "rotulo": "COM — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_BH68",
+   "celula": "BH68",
+   "rotulo": "COM — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ68",
+   "celula": "BJ68",
+   "rotulo": "COM — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_BL68",
+   "celula": "BL68",
+   "rotulo": "COM — Taxa de Base"
+  },
+  {
+   "chave": "out_H69",
+   "celula": "H69",
+   "rotulo": "AVD — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_J69",
+   "celula": "J69",
+   "rotulo": "AVD — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_L69",
+   "celula": "L69",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_N69",
+   "celula": "N69",
+   "rotulo": "AVD — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_P69",
+   "celula": "P69",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_X69",
+   "celula": "X69",
+   "rotulo": "AVD — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_Z69",
+   "celula": "Z69",
+   "rotulo": "AVD — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AB69",
+   "celula": "AB69",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_AD69",
+   "celula": "AD69",
+   "rotulo": "AVD — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AF69",
+   "celula": "AF69",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_AN69",
+   "celula": "AN69",
+   "rotulo": "AVD — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_AP69",
+   "celula": "AP69",
+   "rotulo": "AVD — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AR69",
+   "celula": "AR69",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_AT69",
+   "celula": "AT69",
+   "rotulo": "AVD — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AV69",
+   "celula": "AV69",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_BD69",
+   "celula": "BD69",
+   "rotulo": "AVD — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_BF69",
+   "celula": "BF69",
+   "rotulo": "AVD — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_BH69",
+   "celula": "BH69",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ69",
+   "celula": "BJ69",
+   "rotulo": "AVD — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_BL69",
+   "celula": "BL69",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_H70",
+   "celula": "H70",
+   "rotulo": "SOC — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_J70",
+   "celula": "J70",
+   "rotulo": "SOC — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_L70",
+   "celula": "L70",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_N70",
+   "celula": "N70",
+   "rotulo": "SOC — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_P70",
+   "celula": "P70",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_X70",
+   "celula": "X70",
+   "rotulo": "SOC — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_Z70",
+   "celula": "Z70",
+   "rotulo": "SOC — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AB70",
+   "celula": "AB70",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_AD70",
+   "celula": "AD70",
+   "rotulo": "SOC — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AF70",
+   "celula": "AF70",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_AN70",
+   "celula": "AN70",
+   "rotulo": "SOC — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_AP70",
+   "celula": "AP70",
+   "rotulo": "SOC — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AR70",
+   "celula": "AR70",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_AT70",
+   "celula": "AT70",
+   "rotulo": "SOC — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AV70",
+   "celula": "AV70",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_BD70",
+   "celula": "BD70",
+   "rotulo": "SOC — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_BF70",
+   "celula": "BF70",
+   "rotulo": "SOC — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_BH70",
+   "celula": "BH70",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ70",
+   "celula": "BJ70",
+   "rotulo": "SOC — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_BL70",
+   "celula": "BL70",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_H71",
+   "celula": "H71",
+   "rotulo": "HMOT — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_J71",
+   "celula": "J71",
+   "rotulo": "HMOT — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_L71",
+   "celula": "L71",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_N71",
+   "celula": "N71",
+   "rotulo": "HMOT — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_P71",
+   "celula": "P71",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_X71",
+   "celula": "X71",
+   "rotulo": "HMOT — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_Z71",
+   "celula": "Z71",
+   "rotulo": "HMOT — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AB71",
+   "celula": "AB71",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AD71",
+   "celula": "AD71",
+   "rotulo": "HMOT — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AF71",
+   "celula": "AF71",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_AN71",
+   "celula": "AN71",
+   "rotulo": "HMOT — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_AP71",
+   "celula": "AP71",
+   "rotulo": "HMOT — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AR71",
+   "celula": "AR71",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AT71",
+   "celula": "AT71",
+   "rotulo": "HMOT — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_AV71",
+   "celula": "AV71",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_BD71",
+   "celula": "BD71",
+   "rotulo": "HMOT — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_BF71",
+   "celula": "BF71",
+   "rotulo": "HMOT — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_BH71",
+   "celula": "BH71",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ71",
+   "celula": "BJ71",
+   "rotulo": "HMOT — Força ou Fraqueza"
+  },
+  {
+   "chave": "out_BL71",
+   "celula": "BL71",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_H72",
+   "celula": "H72",
+   "rotulo": "Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_J72",
+   "celula": "J72",
+   "rotulo": "PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_L72",
+   "celula": "L72",
+   "rotulo": "Valor Crítico"
+  },
+  {
+   "chave": "out_X72",
+   "celula": "X72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_Z72",
+   "celula": "Z72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AB72",
+   "celula": "AB72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — Valor Crítico"
+  },
+  {
+   "chave": "out_AN72",
+   "celula": "AN72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_AP72",
+   "celula": "AP72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_AR72",
+   "celula": "AR72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — Valor Crítico"
+  },
+  {
+   "chave": "out_BD72",
+   "celula": "BD72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — Pontuação Padrão (PP)"
+  },
+  {
+   "chave": "out_BF72",
+   "celula": "BF72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — PP Menos (-) Méida PP"
+  },
+  {
+   "chave": "out_BH72",
+   "celula": "BH72",
+   "rotulo": "Cálculo da média da Pontuação Padrão (PP — Valor Crítico"
+  },
+  {
+   "chave": "out_E81",
+   "celula": "E81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_F81",
+   "celula": "F81",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_G81",
+   "celula": "G81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_J81",
+   "celula": "J81",
+   "rotulo": "AVD — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_L81",
+   "celula": "L81",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_N81",
+   "celula": "N81",
+   "rotulo": "AVD — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_P81",
+   "celula": "P81",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_U81",
+   "celula": "U81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_V81",
+   "celula": "V81",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_W81",
+   "celula": "W81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_Z81",
+   "celula": "Z81",
+   "rotulo": "AVD — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB81",
+   "celula": "AB81",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_AD81",
+   "celula": "AD81",
+   "rotulo": "AVD — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AF81",
+   "celula": "AF81",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_AK81",
+   "celula": "AK81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_AL81",
+   "celula": "AL81",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_AM81",
+   "celula": "AM81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_AP81",
+   "celula": "AP81",
+   "rotulo": "AVD — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR81",
+   "celula": "AR81",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_AT81",
+   "celula": "AT81",
+   "rotulo": "AVD — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AV81",
+   "celula": "AV81",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_BA81",
+   "celula": "BA81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_BB81",
+   "celula": "BB81",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_BC81",
+   "celula": "BC81",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_BF81",
+   "celula": "BF81",
+   "rotulo": "AVD — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH81",
+   "celula": "BH81",
+   "rotulo": "AVD — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ81",
+   "celula": "BJ81",
+   "rotulo": "AVD — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_BL81",
+   "celula": "BL81",
+   "rotulo": "AVD — Taxa de Base"
+  },
+  {
+   "chave": "out_E82",
+   "celula": "E82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_F82",
+   "celula": "F82",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_G82",
+   "celula": "G82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_J82",
+   "celula": "J82",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_L82",
+   "celula": "L82",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_N82",
+   "celula": "N82",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_P82",
+   "celula": "P82",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_U82",
+   "celula": "U82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_V82",
+   "celula": "V82",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_W82",
+   "celula": "W82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_Z82",
+   "celula": "Z82",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB82",
+   "celula": "AB82",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_AD82",
+   "celula": "AD82",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AF82",
+   "celula": "AF82",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_AK82",
+   "celula": "AK82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_AL82",
+   "celula": "AL82",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_AM82",
+   "celula": "AM82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_AP82",
+   "celula": "AP82",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR82",
+   "celula": "AR82",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_AT82",
+   "celula": "AT82",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AV82",
+   "celula": "AV82",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_BA82",
+   "celula": "BA82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_BB82",
+   "celula": "BB82",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_BC82",
+   "celula": "BC82",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_BF82",
+   "celula": "BF82",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH82",
+   "celula": "BH82",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ82",
+   "celula": "BJ82",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_BL82",
+   "celula": "BL82",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_E83",
+   "celula": "E83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_F83",
+   "celula": "F83",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_G83",
+   "celula": "G83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_J83",
+   "celula": "J83",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_L83",
+   "celula": "L83",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_N83",
+   "celula": "N83",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_P83",
+   "celula": "P83",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_U83",
+   "celula": "U83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_V83",
+   "celula": "V83",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_W83",
+   "celula": "W83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_Z83",
+   "celula": "Z83",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB83",
+   "celula": "AB83",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_AD83",
+   "celula": "AD83",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AF83",
+   "celula": "AF83",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_AK83",
+   "celula": "AK83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_AL83",
+   "celula": "AL83",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_AM83",
+   "celula": "AM83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_AP83",
+   "celula": "AP83",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR83",
+   "celula": "AR83",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_AT83",
+   "celula": "AT83",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AV83",
+   "celula": "AV83",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_BA83",
+   "celula": "BA83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_BB83",
+   "celula": "BB83",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_BC83",
+   "celula": "BC83",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_BF83",
+   "celula": "BF83",
+   "rotulo": "SOC — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH83",
+   "celula": "BH83",
+   "rotulo": "SOC — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ83",
+   "celula": "BJ83",
+   "rotulo": "SOC — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_BL83",
+   "celula": "BL83",
+   "rotulo": "SOC — Taxa de Base"
+  },
+  {
+   "chave": "out_E84",
+   "celula": "E84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_F84",
+   "celula": "F84",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_G84",
+   "celula": "G84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_J84",
+   "celula": "J84",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_L84",
+   "celula": "L84",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_N84",
+   "celula": "N84",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_P84",
+   "celula": "P84",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_U84",
+   "celula": "U84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_V84",
+   "celula": "V84",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_W84",
+   "celula": "W84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_Z84",
+   "celula": "Z84",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB84",
+   "celula": "AB84",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AD84",
+   "celula": "AD84",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AF84",
+   "celula": "AF84",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_AK84",
+   "celula": "AK84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_AL84",
+   "celula": "AL84",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_AM84",
+   "celula": "AM84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_AP84",
+   "celula": "AP84",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR84",
+   "celula": "AR84",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AT84",
+   "celula": "AT84",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AV84",
+   "celula": "AV84",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_BA84",
+   "celula": "BA84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_BB84",
+   "celula": "BB84",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_BC84",
+   "celula": "BC84",
+   "rotulo": "COM — PP"
+  },
+  {
+   "chave": "out_BF84",
+   "celula": "BF84",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH84",
+   "celula": "BH84",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ84",
+   "celula": "BJ84",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_BL84",
+   "celula": "BL84",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_E85",
+   "celula": "E85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_F85",
+   "celula": "F85",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_G85",
+   "celula": "G85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_J85",
+   "celula": "J85",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_L85",
+   "celula": "L85",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_N85",
+   "celula": "N85",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_P85",
+   "celula": "P85",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_U85",
+   "celula": "U85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_V85",
+   "celula": "V85",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_W85",
+   "celula": "W85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_Z85",
+   "celula": "Z85",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB85",
+   "celula": "AB85",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AD85",
+   "celula": "AD85",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AF85",
+   "celula": "AF85",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_AK85",
+   "celula": "AK85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_AL85",
+   "celula": "AL85",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_AM85",
+   "celula": "AM85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_AP85",
+   "celula": "AP85",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR85",
+   "celula": "AR85",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AT85",
+   "celula": "AT85",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AV85",
+   "celula": "AV85",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_BA85",
+   "celula": "BA85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_BB85",
+   "celula": "BB85",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_BC85",
+   "celula": "BC85",
+   "rotulo": "AVD — PP"
+  },
+  {
+   "chave": "out_BF85",
+   "celula": "BF85",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH85",
+   "celula": "BH85",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ85",
+   "celula": "BJ85",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_BL85",
+   "celula": "BL85",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_E86",
+   "celula": "E86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_F86",
+   "celula": "F86",
+   "rotulo": "SOC — > , < ou ="
+  },
+  {
+   "chave": "out_G86",
+   "celula": "G86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_J86",
+   "celula": "J86",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_L86",
+   "celula": "L86",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_N86",
+   "celula": "N86",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_P86",
+   "celula": "P86",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_U86",
+   "celula": "U86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_V86",
+   "celula": "V86",
+   "rotulo": "SOC — > , < ou ="
+  },
+  {
+   "chave": "out_W86",
+   "celula": "W86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_Z86",
+   "celula": "Z86",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AB86",
+   "celula": "AB86",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AD86",
+   "celula": "AD86",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AF86",
+   "celula": "AF86",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_AK86",
+   "celula": "AK86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_AL86",
+   "celula": "AL86",
+   "rotulo": "SOC — > , < ou ="
+  },
+  {
+   "chave": "out_AM86",
+   "celula": "AM86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_AP86",
+   "celula": "AP86",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_AR86",
+   "celula": "AR86",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_AT86",
+   "celula": "AT86",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_AV86",
+   "celula": "AV86",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_BA86",
+   "celula": "BA86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_BB86",
+   "celula": "BB86",
+   "rotulo": "SOC — > , < ou ="
+  },
+  {
+   "chave": "out_BC86",
+   "celula": "BC86",
+   "rotulo": "SOC — PP"
+  },
+  {
+   "chave": "out_BF86",
+   "celula": "BF86",
+   "rotulo": "HMOT — Diferença Pontuação Padrão"
+  },
+  {
+   "chave": "out_BH86",
+   "celula": "BH86",
+   "rotulo": "HMOT — Valor Crítico"
+  },
+  {
+   "chave": "out_BJ86",
+   "celula": "BJ86",
+   "rotulo": "HMOT — Estatística- mente Significativo"
+  },
+  {
+   "chave": "out_BL86",
+   "celula": "BL86",
+   "rotulo": "HMOT — Taxa de Base"
+  },
+  {
+   "chave": "out_H89",
+   "celula": "H89",
+   "rotulo": "COM — HMOT"
+  },
+  {
+   "chave": "out_V89",
+   "celula": "V89",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_AL89",
+   "celula": "AL89",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_BB89",
+   "celula": "BB89",
+   "rotulo": "COM — > , < ou ="
+  },
+  {
+   "chave": "out_H90",
+   "celula": "H90",
+   "rotulo": "AVD — HMOT"
+  },
+  {
+   "chave": "out_V90",
+   "celula": "V90",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_AL90",
+   "celula": "AL90",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_BB90",
+   "celula": "BB90",
+   "rotulo": "AVD — > , < ou ="
+  },
+  {
+   "chave": "out_H91",
+   "celula": "H91",
+   "rotulo": "SOC — HMOT"
+  },
+  {
+   "chave": "out_V91",
+   "celula": "V91",
+   "rotulo": "SOC"
+  },
+  {
+   "chave": "out_AL91",
+   "celula": "AL91",
+   "rotulo": "SOC"
+  },
+  {
+   "chave": "out_BB91",
+   "celula": "BB91",
+   "rotulo": "SOC"
+  },
+  {
+   "chave": "out_H92",
+   "celula": "H92",
+   "rotulo": "CCA — HMOT"
+  },
+  {
+   "chave": "out_V92",
+   "celula": "V92",
+   "rotulo": "CCA"
+  },
+  {
+   "chave": "out_AL92",
+   "celula": "AL92",
+   "rotulo": "CCA"
+  },
+  {
+   "chave": "out_BB92",
+   "celula": "BB92",
+   "rotulo": "CCA"
+  },
+  {
+   "chave": "out_H93",
+   "celula": "H93",
+   "rotulo": "HMOT — HMOT"
+  },
+  {
+   "chave": "out_V93",
+   "celula": "V93",
+   "rotulo": "HMOT"
+  },
+  {
+   "chave": "out_AL93",
+   "celula": "AL93",
+   "rotulo": "HMOT"
+  },
+  {
+   "chave": "out_BB93",
+   "celula": "BB93",
+   "rotulo": "HMOT"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Profissional Responsável:",
+    "C",
+    "D",
+    "PP",
+    "F",
+    "Entrev. 1",
+    "ENTREVISTA 1",
+    "Entrev. 2",
+    "Pontuação Padrão",
+    "Tem discrepância (Diferença ≥7)",
+    "Int. Conf.",
+    "Respondente",
+    "Entrev. 1",
+    "Taxa de Base",
+    "Entrev. 3",
+    "Tem discrepância (Diferença ≥7)",
+    "Formulário N. de Domínio ENTREVISTA",
+    "PP",
+    "Data de aplicação 4:",
+    "Entrev. 1",
+    "ENTREVISTA 2",
+    "Entrev. 4",
+    "Pontuação Padrão",
+    "Tem discrepância (Diferença ≥7)",
+    "Int. Conf.",
+    "AD",
+    "AE",
+    "Taxa de Base",
+    "Entrev. 3",
+    "Tem discrepância (Diferença ≥7)",
+    "AJ",
+    "PP",
+    "AL",
+    "Entrev. 2",
+    "ENTREVISTA 3",
+    "Entrev. 4",
+    "Pontuação Padrão",
+    "Tem discrepância (Diferença ≥7)",
+    "Int. Conf.",
+    "AT",
+    "Entrev. 3",
+    "Taxa de Base",
+    "Entrev. 4",
+    "Tem discrepância (Diferença ≥7)",
+    "AZ",
+    "PP",
+    "BB",
+    "PP",
+    "ENTREVISTA 4",
+    "Pontuação Padrão",
+    "Int. Conf.",
+    "BJ",
+    "Taxa de Base"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Idade 1:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE3",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Idade 2:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE4",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Idade 3:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE5",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Idade 4:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE6",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "7",
+     "valores": [
+      "out_B7",
+      "out_C7",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "12",
+     "valores": [
+      null,
+      null,
+      "out_D12",
+      null,
+      "out_F12",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_N12",
+      null,
+      null,
+      null,
+      null,
+      "out_T12",
+      null,
+      "out_V12",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AD12",
+      null,
+      null,
+      null,
+      null,
+      "out_AJ12",
+      null,
+      "out_AL12",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AT12",
+      null,
+      null,
+      null,
+      null,
+      "out_AZ12",
+      null,
+      "out_BB12",
+      null,
+      null,
+      null,
+      null,
+      "out_BJ12",
+      null
+     ]
+    },
+    {
+     "rotulo": "13",
+     "valores": [
+      null,
+      null,
+      "out_D13",
+      null,
+      "out_F13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_T13",
+      null,
+      "out_V13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AJ13",
+      null,
+      "out_AL13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AZ13",
+      null,
+      "out_BB13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "14",
+     "valores": [
+      null,
+      null,
+      "out_D14",
+      null,
+      "out_F14",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_N14",
+      null,
+      null,
+      null,
+      null,
+      "out_T14",
+      null,
+      "out_V14",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AD14",
+      null,
+      null,
+      null,
+      null,
+      "out_AJ14",
+      null,
+      "out_AL14",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AT14",
+      null,
+      null,
+      null,
+      null,
+      "out_AZ14",
+      null,
+      "out_BB14",
+      null,
+      null,
+      null,
+      null,
+      "out_BJ14",
+      null
+     ]
+    },
+    {
+     "rotulo": "15",
+     "valores": [
+      null,
+      null,
+      "out_D15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_T15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AJ15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AZ15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "DOMÍNIOS",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AN16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BD16",
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Comunicação (COM)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J20",
+      null,
+      "out_L20",
+      "out_N20",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z20",
+      null,
+      "out_AB20",
+      "out_AD20",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP20",
+      null,
+      "out_AR20",
+      "out_AT20",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF20",
+      "out_BH20",
+      "out_BJ20",
+      null
+     ]
+    },
+    {
+     "rotulo": "21",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L21",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB21",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR21",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH21",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "22",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH22",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Atividades da Vida Diária (AVD)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J23",
+      null,
+      "out_L23",
+      "out_N23",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z23",
+      null,
+      "out_AB23",
+      "out_AD23",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP23",
+      null,
+      "out_AR23",
+      "out_AT23",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF23",
+      "out_BH23",
+      "out_BJ23",
+      null
+     ]
+    },
+    {
+     "rotulo": "24",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH24",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "25",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L25",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB25",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR25",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH25",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Socialização (SOC)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J26",
+      null,
+      "out_L26",
+      "out_N26",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z26",
+      null,
+      "out_AB26",
+      "out_AD26",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP26",
+      null,
+      "out_AR26",
+      "out_AT26",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF26",
+      "out_BH26",
+      "out_BJ26",
+      null
+     ]
+    },
+    {
+     "rotulo": "27",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L27",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB27",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR27",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH27",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "28",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH28",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Soma da Pontuação Padrão dos Domínios:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF29",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Compostos de Comportamento Adaptativo (C",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J30",
+      null,
+      "out_L30",
+      "out_N30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z30",
+      null,
+      "out_AB30",
+      "out_AD30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP30",
+      null,
+      "out_AR30",
+      "out_AT30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF30",
+      "out_BH30",
+      "out_BJ30",
+      null
+     ]
+    },
+    {
+     "rotulo": "31",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH31",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "32",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AR32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BH32",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Habilidades Motoras (HMOT)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J33",
+      null,
+      "out_L33",
+      "out_N33",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z33",
+      null,
+      "out_AB33",
+      "out_AD33",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP33",
+      null,
+      "out_AR33",
+      "out_AT33",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF33",
+      "out_BH33",
+      "out_BJ33",
+      null
+     ]
+    },
+    {
+     "rotulo": "37",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_G37",
+      null,
+      "out_I37",
+      null,
+      null,
+      null,
+      null,
+      "out_O37",
+      null,
+      "out_Q37",
+      null,
+      null,
+      null,
+      null,
+      "out_W37",
+      null,
+      "out_Y37",
+      null,
+      null,
+      null,
+      null,
+      "out_AE37",
+      null,
+      "out_AG37",
+      null,
+      null,
+      null,
+      null,
+      "out_AM37",
+      null,
+      "out_AO37",
+      null,
+      null,
+      null,
+      null,
+      "out_AU37",
+      null,
+      "out_AW37",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "COM",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_G38",
+      null,
+      "out_I38",
+      null,
+      "out_K38",
+      null,
+      null,
+      "out_O38",
+      null,
+      "out_Q38",
+      "out_S38",
+      null,
+      null,
+      null,
+      "out_W38",
+      null,
+      "out_Y38",
+      null,
+      "out_AA38",
+      null,
+      null,
+      "out_AE38",
+      null,
+      "out_AG38",
+      "out_AI38",
+      null,
+      null,
+      null,
+      "out_AM38",
+      null,
+      "out_AO38",
+      null,
+      "out_AQ38",
+      null,
+      null,
+      "out_AU38",
+      null,
+      "out_AW38",
+      "out_AY38",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "AVD",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_G39",
+      null,
+      "out_I39",
+      null,
+      "out_K39",
+      null,
+      null,
+      "out_O39",
+      null,
+      "out_Q39",
+      "out_S39",
+      null,
+      null,
+      null,
+      "out_W39",
+      null,
+      "out_Y39",
+      null,
+      "out_AA39",
+      null,
+      null,
+      "out_AE39",
+      null,
+      "out_AG39",
+      "out_AI39",
+      null,
+      null,
+      null,
+      "out_AM39",
+      null,
+      "out_AO39",
+      null,
+      "out_AQ39",
+      null,
+      null,
+      "out_AU39",
+      null,
+      "out_AW39",
+      "out_AY39",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "SOC",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_G40",
+      null,
+      "out_I40",
+      null,
+      "out_K40",
+      null,
+      null,
+      "out_O40",
+      null,
+      "out_Q40",
+      "out_S40",
+      null,
+      null,
+      null,
+      "out_W40",
+      null,
+      "out_Y40",
+      null,
+      "out_AA40",
+      null,
+      null,
+      "out_AE40",
+      null,
+      "out_AG40",
+      "out_AI40",
+      null,
+      null,
+      null,
+      "out_AM40",
+      null,
+      "out_AO40",
+      null,
+      "out_AQ40",
+      null,
+      null,
+      "out_AU40",
+      null,
+      "out_AW40",
+      "out_AY40",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "CCA",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_G41",
+      null,
+      "out_I41",
+      null,
+      "out_K41",
+      null,
+      null,
+      "out_O41",
+      null,
+      "out_Q41",
+      "out_S41",
+      null,
+      null,
+      null,
+      "out_W41",
+      null,
+      "out_Y41",
+      null,
+      "out_AA41",
+      null,
+      null,
+      "out_AE41",
+      null,
+      "out_AG41",
+      "out_AI41",
+      null,
+      null,
+      null,
+      "out_AM41",
+      null,
+      "out_AO41",
+      null,
+      "out_AQ41",
+      null,
+      null,
+      "out_AU41",
+      null,
+      "out_AW41",
+      "out_AY41",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "HMOT",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_G42",
+      null,
+      "out_I42",
+      null,
+      "out_K42",
+      null,
+      null,
+      "out_O42",
+      null,
+      "out_Q42",
+      "out_S42",
+      null,
+      null,
+      null,
+      "out_W42",
+      null,
+      "out_Y42",
+      null,
+      "out_AA42",
+      null,
+      null,
+      "out_AE42",
+      null,
+      "out_AG42",
+      "out_AI42",
+      null,
+      null,
+      null,
+      "out_AM42",
+      null,
+      "out_AO42",
+      null,
+      "out_AQ42",
+      null,
+      null,
+      "out_AU42",
+      null,
+      "out_AW42",
+      "out_AY42",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Internalizante (Seção A)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J46",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z46",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP46",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF46",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Externalizante (Seção B)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J48",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z48",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AP48",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BF48",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "COM",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H68",
+      null,
+      "out_J68",
+      null,
+      "out_L68",
+      "out_N68",
+      null,
+      "out_P68",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X68",
+      null,
+      "out_Z68",
+      null,
+      "out_AB68",
+      "out_AD68",
+      null,
+      "out_AF68",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AN68",
+      null,
+      "out_AP68",
+      null,
+      "out_AR68",
+      "out_AT68",
+      null,
+      "out_AV68",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BD68",
+      "out_BF68",
+      "out_BH68",
+      "out_BJ68",
+      "out_BL68"
+     ]
+    },
+    {
+     "rotulo": "AVD",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H69",
+      null,
+      "out_J69",
+      null,
+      "out_L69",
+      "out_N69",
+      null,
+      "out_P69",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X69",
+      null,
+      "out_Z69",
+      null,
+      "out_AB69",
+      "out_AD69",
+      null,
+      "out_AF69",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AN69",
+      null,
+      "out_AP69",
+      null,
+      "out_AR69",
+      "out_AT69",
+      null,
+      "out_AV69",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BD69",
+      "out_BF69",
+      "out_BH69",
+      "out_BJ69",
+      "out_BL69"
+     ]
+    },
+    {
+     "rotulo": "SOC",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H70",
+      null,
+      "out_J70",
+      null,
+      "out_L70",
+      "out_N70",
+      null,
+      "out_P70",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X70",
+      null,
+      "out_Z70",
+      null,
+      "out_AB70",
+      "out_AD70",
+      null,
+      "out_AF70",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AN70",
+      null,
+      "out_AP70",
+      null,
+      "out_AR70",
+      "out_AT70",
+      null,
+      "out_AV70",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BD70",
+      "out_BF70",
+      "out_BH70",
+      "out_BJ70",
+      "out_BL70"
+     ]
+    },
+    {
+     "rotulo": "HMOT",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H71",
+      null,
+      "out_J71",
+      null,
+      "out_L71",
+      "out_N71",
+      null,
+      "out_P71",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X71",
+      null,
+      "out_Z71",
+      null,
+      "out_AB71",
+      "out_AD71",
+      null,
+      "out_AF71",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AN71",
+      null,
+      "out_AP71",
+      null,
+      "out_AR71",
+      "out_AT71",
+      null,
+      "out_AV71",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BD71",
+      "out_BF71",
+      "out_BH71",
+      "out_BJ71",
+      "out_BL71"
+     ]
+    },
+    {
+     "rotulo": "72",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H72",
+      null,
+      "out_J72",
+      null,
+      "out_L72",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X72",
+      null,
+      "out_Z72",
+      null,
+      "out_AB72",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AN72",
+      null,
+      "out_AP72",
+      null,
+      "out_AR72",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BD72",
+      "out_BF72",
+      "out_BH72",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "COM",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E81",
+      "out_F81",
+      "out_G81",
+      null,
+      null,
+      "out_J81",
+      null,
+      "out_L81",
+      "out_N81",
+      null,
+      "out_P81",
+      null,
+      null,
+      null,
+      "out_U81",
+      "out_V81",
+      "out_W81",
+      null,
+      null,
+      "out_Z81",
+      null,
+      "out_AB81",
+      "out_AD81",
+      null,
+      "out_AF81",
+      null,
+      null,
+      null,
+      "out_AK81",
+      "out_AL81",
+      "out_AM81",
+      null,
+      null,
+      "out_AP81",
+      null,
+      "out_AR81",
+      "out_AT81",
+      null,
+      "out_AV81",
+      null,
+      null,
+      null,
+      "out_BA81",
+      "out_BB81",
+      "out_BC81",
+      null,
+      "out_BF81",
+      "out_BH81",
+      "out_BJ81",
+      "out_BL81"
+     ]
+    },
+    {
+     "rotulo": "COM",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E82",
+      "out_F82",
+      "out_G82",
+      null,
+      null,
+      "out_J82",
+      null,
+      "out_L82",
+      "out_N82",
+      null,
+      "out_P82",
+      null,
+      null,
+      null,
+      "out_U82",
+      "out_V82",
+      "out_W82",
+      null,
+      null,
+      "out_Z82",
+      null,
+      "out_AB82",
+      "out_AD82",
+      null,
+      "out_AF82",
+      null,
+      null,
+      null,
+      "out_AK82",
+      "out_AL82",
+      "out_AM82",
+      null,
+      null,
+      "out_AP82",
+      null,
+      "out_AR82",
+      "out_AT82",
+      null,
+      "out_AV82",
+      null,
+      null,
+      null,
+      "out_BA82",
+      "out_BB82",
+      "out_BC82",
+      null,
+      "out_BF82",
+      "out_BH82",
+      "out_BJ82",
+      "out_BL82"
+     ]
+    },
+    {
+     "rotulo": "AVD",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E83",
+      "out_F83",
+      "out_G83",
+      null,
+      null,
+      "out_J83",
+      null,
+      "out_L83",
+      "out_N83",
+      null,
+      "out_P83",
+      null,
+      null,
+      null,
+      "out_U83",
+      "out_V83",
+      "out_W83",
+      null,
+      null,
+      "out_Z83",
+      null,
+      "out_AB83",
+      "out_AD83",
+      null,
+      "out_AF83",
+      null,
+      null,
+      null,
+      "out_AK83",
+      "out_AL83",
+      "out_AM83",
+      null,
+      null,
+      "out_AP83",
+      null,
+      "out_AR83",
+      "out_AT83",
+      null,
+      "out_AV83",
+      null,
+      null,
+      null,
+      "out_BA83",
+      "out_BB83",
+      "out_BC83",
+      null,
+      "out_BF83",
+      "out_BH83",
+      "out_BJ83",
+      "out_BL83"
+     ]
+    },
+    {
+     "rotulo": "COM",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E84",
+      "out_F84",
+      "out_G84",
+      null,
+      null,
+      "out_J84",
+      null,
+      "out_L84",
+      "out_N84",
+      null,
+      "out_P84",
+      null,
+      null,
+      null,
+      "out_U84",
+      "out_V84",
+      "out_W84",
+      null,
+      null,
+      "out_Z84",
+      null,
+      "out_AB84",
+      "out_AD84",
+      null,
+      "out_AF84",
+      null,
+      null,
+      null,
+      "out_AK84",
+      "out_AL84",
+      "out_AM84",
+      null,
+      null,
+      "out_AP84",
+      null,
+      "out_AR84",
+      "out_AT84",
+      null,
+      "out_AV84",
+      null,
+      null,
+      null,
+      "out_BA84",
+      "out_BB84",
+      "out_BC84",
+      null,
+      "out_BF84",
+      "out_BH84",
+      "out_BJ84",
+      "out_BL84"
+     ]
+    },
+    {
+     "rotulo": "AVD",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E85",
+      "out_F85",
+      "out_G85",
+      null,
+      null,
+      "out_J85",
+      null,
+      "out_L85",
+      "out_N85",
+      null,
+      "out_P85",
+      null,
+      null,
+      null,
+      "out_U85",
+      "out_V85",
+      "out_W85",
+      null,
+      null,
+      "out_Z85",
+      null,
+      "out_AB85",
+      "out_AD85",
+      null,
+      "out_AF85",
+      null,
+      null,
+      null,
+      "out_AK85",
+      "out_AL85",
+      "out_AM85",
+      null,
+      null,
+      "out_AP85",
+      null,
+      "out_AR85",
+      "out_AT85",
+      null,
+      "out_AV85",
+      null,
+      null,
+      null,
+      "out_BA85",
+      "out_BB85",
+      "out_BC85",
+      null,
+      "out_BF85",
+      "out_BH85",
+      "out_BJ85",
+      "out_BL85"
+     ]
+    },
+    {
+     "rotulo": "SOC",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E86",
+      "out_F86",
+      "out_G86",
+      null,
+      null,
+      "out_J86",
+      null,
+      "out_L86",
+      "out_N86",
+      null,
+      "out_P86",
+      null,
+      null,
+      null,
+      "out_U86",
+      "out_V86",
+      "out_W86",
+      null,
+      null,
+      "out_Z86",
+      null,
+      "out_AB86",
+      "out_AD86",
+      null,
+      "out_AF86",
+      null,
+      null,
+      null,
+      "out_AK86",
+      "out_AL86",
+      "out_AM86",
+      null,
+      null,
+      "out_AP86",
+      null,
+      "out_AR86",
+      "out_AT86",
+      null,
+      "out_AV86",
+      null,
+      null,
+      null,
+      "out_BA86",
+      "out_BB86",
+      "out_BC86",
+      null,
+      "out_BF86",
+      "out_BH86",
+      "out_BJ86",
+      "out_BL86"
+     ]
+    },
+    {
+     "rotulo": "COM",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H89",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_V89",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AL89",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BB89",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "AVD",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H90",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_V90",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AL90",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BB90",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "SOC",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H91",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_V91",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AL91",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BB91",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "CCA",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H92",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_V92",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AL92",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BB92",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "HMOT",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H93",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_V93",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AL93",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_BB93",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2667 @@
+{
+ "sigla": "HVLT-R",
+ "nome": "HVLT-R — Teste de Aprendizagem Verbal de Hopkins Revisado",
+ "dominio": "MEMORIA",
+ "descricao": "Memória verbal (HVLT-R): tentativas, evocação tardia, reconhecimento e índices derivados convertidos por faixa etária. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "BRANDT, J.; BENEDICT, R. H. B. Hopkins Verbal Learning Test – Revised (normas conforme planilha da psicóloga).",
+ "aba": "HVLT-R",
+ "idade": [
+  18,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "AD3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_E16",
+   "celula": "E16",
+   "rotulo": "Leão — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H16",
+   "celula": "H16",
+   "rotulo": "Leão — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K16",
+   "celula": "K16",
+   "rotulo": "Leão — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N16",
+   "celula": "N16",
+   "rotulo": "Leão — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E17",
+   "celula": "E17",
+   "rotulo": "Esmeralda — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H17",
+   "celula": "H17",
+   "rotulo": "Esmeralda — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K17",
+   "celula": "K17",
+   "rotulo": "Esmeralda — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N17",
+   "celula": "N17",
+   "rotulo": "Esmeralda — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E18",
+   "celula": "E18",
+   "rotulo": "Cavalo — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H18",
+   "celula": "H18",
+   "rotulo": "Cavalo — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K18",
+   "celula": "K18",
+   "rotulo": "Cavalo — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N18",
+   "celula": "N18",
+   "rotulo": "Cavalo — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E19",
+   "celula": "E19",
+   "rotulo": "Cabana — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H19",
+   "celula": "H19",
+   "rotulo": "Cabana — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K19",
+   "celula": "K19",
+   "rotulo": "Cabana — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N19",
+   "celula": "N19",
+   "rotulo": "Cabana — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E20",
+   "celula": "E20",
+   "rotulo": "Safira — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H20",
+   "celula": "H20",
+   "rotulo": "Safira — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K20",
+   "celula": "K20",
+   "rotulo": "Safira — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N20",
+   "celula": "N20",
+   "rotulo": "Safira — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E21",
+   "celula": "E21",
+   "rotulo": "Hotel — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H21",
+   "celula": "H21",
+   "rotulo": "Hotel — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K21",
+   "celula": "K21",
+   "rotulo": "Hotel — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N21",
+   "celula": "N21",
+   "rotulo": "Hotel — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E22",
+   "celula": "E22",
+   "rotulo": "Caverna — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H22",
+   "celula": "H22",
+   "rotulo": "Caverna — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K22",
+   "celula": "K22",
+   "rotulo": "Caverna — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N22",
+   "celula": "N22",
+   "rotulo": "Caverna — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E23",
+   "celula": "E23",
+   "rotulo": "Rubi — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H23",
+   "celula": "H23",
+   "rotulo": "Rubi — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K23",
+   "celula": "K23",
+   "rotulo": "Rubi — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N23",
+   "celula": "N23",
+   "rotulo": "Rubi — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E24",
+   "celula": "E24",
+   "rotulo": "Tigre — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H24",
+   "celula": "H24",
+   "rotulo": "Tigre — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K24",
+   "celula": "K24",
+   "rotulo": "Tigre — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N24",
+   "celula": "N24",
+   "rotulo": "Tigre — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E25",
+   "celula": "E25",
+   "rotulo": "Pérola — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H25",
+   "celula": "H25",
+   "rotulo": "Pérola — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K25",
+   "celula": "K25",
+   "rotulo": "Pérola — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N25",
+   "celula": "N25",
+   "rotulo": "Pérola — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E26",
+   "celula": "E26",
+   "rotulo": "Vaca — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H26",
+   "celula": "H26",
+   "rotulo": "Vaca — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K26",
+   "celula": "K26",
+   "rotulo": "Vaca — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N26",
+   "celula": "N26",
+   "rotulo": "Vaca — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_E27",
+   "celula": "E27",
+   "rotulo": "Chalé — A1",
+   "min": 0
+  },
+  {
+   "chave": "in_H27",
+   "celula": "H27",
+   "rotulo": "Chalé — A2",
+   "min": 0
+  },
+  {
+   "chave": "in_K27",
+   "celula": "K27",
+   "rotulo": "Chalé — A3",
+   "min": 0
+  },
+  {
+   "chave": "in_N27",
+   "celula": "N27",
+   "rotulo": "Chalé — A4",
+   "min": 0
+  },
+  {
+   "chave": "in_F28",
+   "celula": "F28",
+   "rotulo": "TOTAL",
+   "min": 0
+  },
+  {
+   "chave": "in_G28",
+   "celula": "G28",
+   "rotulo": "TOTAL",
+   "min": 0
+  },
+  {
+   "chave": "in_I28",
+   "celula": "I28",
+   "rotulo": "TOTAL",
+   "min": 0
+  },
+  {
+   "chave": "in_J28",
+   "celula": "J28",
+   "rotulo": "TOTAL",
+   "min": 0
+  },
+  {
+   "chave": "in_L28",
+   "celula": "L28",
+   "rotulo": "TOTAL",
+   "min": 0
+  },
+  {
+   "chave": "in_M28",
+   "celula": "M28",
+   "rotulo": "TOTAL",
+   "min": 0
+  },
+  {
+   "chave": "in_E29",
+   "celula": "E29",
+   "rotulo": "E29",
+   "min": 0
+  },
+  {
+   "chave": "in_F29",
+   "celula": "F29",
+   "rotulo": "F29",
+   "min": 0
+  },
+  {
+   "chave": "in_G29",
+   "celula": "G29",
+   "rotulo": "G29",
+   "min": 0
+  },
+  {
+   "chave": "in_H29",
+   "celula": "H29",
+   "rotulo": "H29",
+   "min": 0
+  },
+  {
+   "chave": "in_I29",
+   "celula": "I29",
+   "rotulo": "I29",
+   "min": 0
+  },
+  {
+   "chave": "in_J29",
+   "celula": "J29",
+   "rotulo": "J29",
+   "min": 0
+  },
+  {
+   "chave": "in_K29",
+   "celula": "K29",
+   "rotulo": "K29",
+   "min": 0
+  },
+  {
+   "chave": "in_L29",
+   "celula": "L29",
+   "rotulo": "L29",
+   "min": 0
+  },
+  {
+   "chave": "in_M29",
+   "celula": "M29",
+   "rotulo": "M29",
+   "min": 0
+  },
+  {
+   "chave": "in_E32",
+   "celula": "E32",
+   "rotulo": "INTRUSÕES",
+   "min": 0
+  },
+  {
+   "chave": "in_H32",
+   "celula": "H32",
+   "rotulo": "INTRUSÕES",
+   "min": 0
+  },
+  {
+   "chave": "in_K32",
+   "celula": "K32",
+   "rotulo": "INTRUSÕES",
+   "min": 0
+  },
+  {
+   "chave": "in_N32",
+   "celula": "N32",
+   "rotulo": "INTRUSÕES",
+   "min": 0
+  },
+  {
+   "chave": "in_E33",
+   "celula": "E33",
+   "rotulo": "E33",
+   "min": 0
+  },
+  {
+   "chave": "in_H33",
+   "celula": "H33",
+   "rotulo": "H33",
+   "min": 0
+  },
+  {
+   "chave": "in_K33",
+   "celula": "K33",
+   "rotulo": "K33",
+   "min": 0
+  },
+  {
+   "chave": "in_N33",
+   "celula": "N33",
+   "rotulo": "N33",
+   "min": 0
+  },
+  {
+   "chave": "in_E34",
+   "celula": "E34",
+   "rotulo": "E34",
+   "min": 0
+  },
+  {
+   "chave": "in_H34",
+   "celula": "H34",
+   "rotulo": "H34",
+   "min": 0
+  },
+  {
+   "chave": "in_K34",
+   "celula": "K34",
+   "rotulo": "K34",
+   "min": 0
+  },
+  {
+   "chave": "in_N34",
+   "celula": "N34",
+   "rotulo": "N34",
+   "min": 0
+  },
+  {
+   "chave": "in_E35",
+   "celula": "E35",
+   "rotulo": "E35",
+   "min": 0
+  },
+  {
+   "chave": "in_H35",
+   "celula": "H35",
+   "rotulo": "H35",
+   "min": 0
+  },
+  {
+   "chave": "in_K35",
+   "celula": "K35",
+   "rotulo": "K35",
+   "min": 0
+  },
+  {
+   "chave": "in_N35",
+   "celula": "N35",
+   "rotulo": "N35",
+   "min": 0
+  },
+  {
+   "chave": "in_E36",
+   "celula": "E36",
+   "rotulo": "E36",
+   "min": 0
+  },
+  {
+   "chave": "in_H36",
+   "celula": "H36",
+   "rotulo": "H36",
+   "min": 0
+  },
+  {
+   "chave": "in_K36",
+   "celula": "K36",
+   "rotulo": "K36",
+   "min": 0
+  },
+  {
+   "chave": "in_N36",
+   "celula": "N36",
+   "rotulo": "N36",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_R4",
+   "celula": "R4",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "1 - 4",
+    "5 - 8",
+    "9 - 11",
+    "≥ 12"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S16",
+   "celula": "S16",
+   "rotulo": "LISTA PARA RECONHECIMENTO",
+   "valores": [
+    "S",
+    "N"
+   ]
+  },
+  {
+   "chave": "opcao_X16",
+   "celula": "X16",
+   "rotulo": "01. Cavalo",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC16",
+   "celula": "AC16",
+   "rotulo": "09. Tigre",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S17",
+   "celula": "S17",
+   "rotulo": "LISTA PARA RECONHECIMENTO",
+   "valores": [
+    "S",
+    "N"
+   ]
+  },
+  {
+   "chave": "opcao_X17",
+   "celula": "X17",
+   "rotulo": "02. Topázio",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC17",
+   "celula": "AC17",
+   "rotulo": "10. Barco",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S18",
+   "celula": "S18",
+   "rotulo": "LISTA PARA RECONHECIMENTO",
+   "valores": [
+    "S",
+    "N"
+   ]
+  },
+  {
+   "chave": "opcao_X18",
+   "celula": "X18",
+   "rotulo": "03. Caverna",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC18",
+   "celula": "AC18",
+   "rotulo": "11. Lenço",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S19",
+   "celula": "S19",
+   "rotulo": "LISTA PARA RECONHECIMENTO",
+   "valores": [
+    "S",
+    "N"
+   ]
+  },
+  {
+   "chave": "opcao_X19",
+   "celula": "X19",
+   "rotulo": "04. Balão",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC19",
+   "celula": "AC19",
+   "rotulo": "12. Pérola",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S20",
+   "celula": "S20",
+   "rotulo": "LISTA PARA RECONHECIMENTO",
+   "valores": [
+    "S",
+    "N"
+   ]
+  },
+  {
+   "chave": "opcao_X20",
+   "celula": "X20",
+   "rotulo": "05. Café",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC20",
+   "celula": "AC20",
+   "rotulo": "13. Chalé",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S21",
+   "celula": "S21",
+   "rotulo": "LISTA PARA RECONHECIMENTO",
+   "valores": [
+    "S",
+    "N"
+   ]
+  },
+  {
+   "chave": "opcao_X21",
+   "celula": "X21",
+   "rotulo": "06. Leão",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC21",
+   "celula": "AC21",
+   "rotulo": "14. Esmeralda",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S22",
+   "celula": "S22",
+   "rotulo": "S22",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_X22",
+   "celula": "X22",
+   "rotulo": "07. Casa",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC22",
+   "celula": "AC22",
+   "rotulo": "15. Safira",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_S23",
+   "celula": "S23",
+   "rotulo": "S23",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_X23",
+   "celula": "X23",
+   "rotulo": "08. Rubi",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC23",
+   "celula": "AC23",
+   "rotulo": "16. Cahorro",
+   "valores": [
+    "S",
+    "N"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_AH16",
+   "celula": "AH16",
+   "rotulo": "17. Apartmento — ≥ 12"
+  },
+  {
+   "chave": "out_AI16",
+   "celula": "AI16",
+   "rotulo": "17. Apartmento"
+  },
+  {
+   "chave": "out_AJ16",
+   "celula": "AJ16",
+   "rotulo": "17. Apartmento"
+  },
+  {
+   "chave": "out_AH17",
+   "celula": "AH17",
+   "rotulo": "18. Centavo — ≥ 12"
+  },
+  {
+   "chave": "out_AI17",
+   "celula": "AI17",
+   "rotulo": "18. Centavo"
+  },
+  {
+   "chave": "out_AJ17",
+   "celula": "AJ17",
+   "rotulo": "18. Centavo"
+  },
+  {
+   "chave": "out_AH18",
+   "celula": "AH18",
+   "rotulo": "19. Cabana — ≥ 12"
+  },
+  {
+   "chave": "out_AI18",
+   "celula": "AI18",
+   "rotulo": "19. Cabana"
+  },
+  {
+   "chave": "out_AJ18",
+   "celula": "AJ18",
+   "rotulo": "19. Cabana"
+  },
+  {
+   "chave": "out_AH19",
+   "celula": "AH19",
+   "rotulo": "20. Montanha"
+  },
+  {
+   "chave": "out_AI19",
+   "celula": "AI19",
+   "rotulo": "20. Montanha"
+  },
+  {
+   "chave": "out_AJ19",
+   "celula": "AJ19",
+   "rotulo": "20. Montanha"
+  },
+  {
+   "chave": "out_AH20",
+   "celula": "AH20",
+   "rotulo": "21. Gato"
+  },
+  {
+   "chave": "out_AI20",
+   "celula": "AI20",
+   "rotulo": "21. Gato"
+  },
+  {
+   "chave": "out_AJ20",
+   "celula": "AJ20",
+   "rotulo": "21. Gato"
+  },
+  {
+   "chave": "out_AH21",
+   "celula": "AH21",
+   "rotulo": "22. Hotal"
+  },
+  {
+   "chave": "out_AI21",
+   "celula": "AI21",
+   "rotulo": "22. Hotal"
+  },
+  {
+   "chave": "out_AJ21",
+   "celula": "AJ21",
+   "rotulo": "22. Hotal"
+  },
+  {
+   "chave": "out_AH22",
+   "celula": "AH22",
+   "rotulo": "23. Vaca"
+  },
+  {
+   "chave": "out_AI22",
+   "celula": "AI22",
+   "rotulo": "23. Vaca"
+  },
+  {
+   "chave": "out_AJ22",
+   "celula": "AJ22",
+   "rotulo": "23. Vaca"
+  },
+  {
+   "chave": "out_AH23",
+   "celula": "AH23",
+   "rotulo": "24. Diamante"
+  },
+  {
+   "chave": "out_AI23",
+   "celula": "AI23",
+   "rotulo": "24. Diamante"
+  },
+  {
+   "chave": "out_AJ23",
+   "celula": "AJ23",
+   "rotulo": "24. Diamante"
+  },
+  {
+   "chave": "out_Y24",
+   "celula": "Y24",
+   "rotulo": "Total Reconhecimento: — 16. Cahorro"
+  },
+  {
+   "chave": "out_AH24",
+   "celula": "AH24",
+   "rotulo": "Palavras identificadas corretamente"
+  },
+  {
+   "chave": "out_Y26",
+   "celula": "Y26",
+   "rotulo": "Total de Falso Positivo: — 16. Cahorro"
+  },
+  {
+   "chave": "out_E28",
+   "celula": "E28",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_H28",
+   "celula": "H28",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_K28",
+   "celula": "K28",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_N28",
+   "celula": "N28",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_Y28",
+   "celula": "Y28",
+   "rotulo": "Erros: — 16. Cahorro"
+  },
+  {
+   "chave": "out_E30",
+   "celula": "E30",
+   "rotulo": "EFEITO"
+  },
+  {
+   "chave": "out_H30",
+   "celula": "H30",
+   "rotulo": "EFEITO"
+  },
+  {
+   "chave": "out_K30",
+   "celula": "K30",
+   "rotulo": "EFEITO"
+  },
+  {
+   "chave": "out_N30",
+   "celula": "N30",
+   "rotulo": "EFEITO"
+  },
+  {
+   "chave": "out_Y30",
+   "celula": "Y30",
+   "rotulo": "Total de Erros: — 16. Cahorro"
+  },
+  {
+   "chave": "out_Y32",
+   "celula": "Y32",
+   "rotulo": "Total de acertos: — 16. Cahorro"
+  },
+  {
+   "chave": "out_Y35",
+   "celula": "Y35",
+   "rotulo": "Curva de Aprendizagem — 16. Cahorro"
+  },
+  {
+   "chave": "out_AA35",
+   "celula": "AA35",
+   "rotulo": "Curva de Aprendizagem — Total de Reconhecimentos (-) Total de Er"
+  },
+  {
+   "chave": "out_E37",
+   "celula": "E37",
+   "rotulo": "Total de Intrusões"
+  },
+  {
+   "chave": "out_H37",
+   "celula": "H37",
+   "rotulo": "Total de Intrusões"
+  },
+  {
+   "chave": "out_K37",
+   "celula": "K37",
+   "rotulo": "Total de Intrusões"
+  },
+  {
+   "chave": "out_N37",
+   "celula": "N37",
+   "rotulo": "Total de Intrusões"
+  },
+  {
+   "chave": "out_Y37",
+   "celula": "Y37",
+   "rotulo": "Índice de retenção:"
+  },
+  {
+   "chave": "out_E39",
+   "celula": "E39",
+   "rotulo": "TOTAL GERAL (Total + Intrusões)"
+  },
+  {
+   "chave": "out_H39",
+   "celula": "H39",
+   "rotulo": "TOTAL GERAL (Total + Intrusões)"
+  },
+  {
+   "chave": "out_K39",
+   "celula": "K39",
+   "rotulo": "TOTAL GERAL (Total + Intrusões)"
+  },
+  {
+   "chave": "out_N39",
+   "celula": "N39",
+   "rotulo": "TOTAL GERAL (Total + Intrusões)"
+  },
+  {
+   "chave": "out_W43",
+   "celula": "W43",
+   "rotulo": "A1 — Paciente"
+  },
+  {
+   "chave": "out_B44",
+   "celula": "B44",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_D44",
+   "celula": "D44",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_F44",
+   "celula": "F44",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_H44",
+   "celula": "H44",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J44",
+   "celula": "J44",
+   "rotulo": "Pts Ponder."
+  },
+  {
+   "chave": "out_L44",
+   "celula": "L44",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_N44",
+   "celula": "N44",
+   "rotulo": "* Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_R44",
+   "celula": "R44",
+   "rotulo": "Amostra (n)"
+  },
+  {
+   "chave": "out_W44",
+   "celula": "W44",
+   "rotulo": "A2 — Paciente"
+  },
+  {
+   "chave": "out_W45",
+   "celula": "W45",
+   "rotulo": "A3 — Paciente"
+  },
+  {
+   "chave": "out_W46",
+   "celula": "W46",
+   "rotulo": "A4 — Paciente"
+  },
+  {
+   "chave": "out_X46",
+   "celula": "X46",
+   "rotulo": "A4 — Média"
+  },
+  {
+   "chave": "out_Y46",
+   "celula": "Y46",
+   "rotulo": "A4 — +1 D.P."
+  },
+  {
+   "chave": "out_Z46",
+   "celula": "Z46",
+   "rotulo": "A4 — -1 D.P."
+  },
+  {
+   "chave": "out_AA46",
+   "celula": "AA46",
+   "rotulo": "A4 — +2 D.P."
+  },
+  {
+   "chave": "out_AB46",
+   "celula": "AB46",
+   "rotulo": "A4 — -2 D.P."
+  },
+  {
+   "chave": "out_B48",
+   "celula": "B48",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_D48",
+   "celula": "D48",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_F48",
+   "celula": "F48",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_H48",
+   "celula": "H48",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J48",
+   "celula": "J48",
+   "rotulo": "Pts Ponder."
+  },
+  {
+   "chave": "out_L48",
+   "celula": "L48",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_N48",
+   "celula": "N48",
+   "rotulo": "* Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_R48",
+   "celula": "R48",
+   "rotulo": "Amostra (n)"
+  },
+  {
+   "chave": "out_Y49",
+   "celula": "Y49",
+   "rotulo": "Evocação Imediata — +1 D.P."
+  },
+  {
+   "chave": "out_Y50",
+   "celula": "Y50",
+   "rotulo": "Evocação tardia — +1 D.P."
+  },
+  {
+   "chave": "out_Y51",
+   "celula": "Y51",
+   "rotulo": "Reconhecimento — +1 D.P."
+  },
+  {
+   "chave": "out_B52",
+   "celula": "B52",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_D52",
+   "celula": "D52",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_F52",
+   "celula": "F52",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_H52",
+   "celula": "H52",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J52",
+   "celula": "J52",
+   "rotulo": "Pts Ponder."
+  },
+  {
+   "chave": "out_L52",
+   "celula": "L52",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_N52",
+   "celula": "N52",
+   "rotulo": "* Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_R52",
+   "celula": "R52",
+   "rotulo": "Amostra (n)"
+  },
+  {
+   "chave": "out_E62",
+   "celula": "E62",
+   "rotulo": "Primazia — qtde"
+  },
+  {
+   "chave": "out_F62",
+   "celula": "F62",
+   "rotulo": "Primazia — %"
+  },
+  {
+   "chave": "out_H62",
+   "celula": "H62",
+   "rotulo": "Primazia — qtde"
+  },
+  {
+   "chave": "out_I62",
+   "celula": "I62",
+   "rotulo": "Primazia — %"
+  },
+  {
+   "chave": "out_K62",
+   "celula": "K62",
+   "rotulo": "Primazia — qtde"
+  },
+  {
+   "chave": "out_L62",
+   "celula": "L62",
+   "rotulo": "Primazia — %"
+  },
+  {
+   "chave": "out_N62",
+   "celula": "N62",
+   "rotulo": "Primazia — qtde"
+  },
+  {
+   "chave": "out_O62",
+   "celula": "O62",
+   "rotulo": "Primazia — %"
+  },
+  {
+   "chave": "out_E63",
+   "celula": "E63",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_F63",
+   "celula": "F63",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_H63",
+   "celula": "H63",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_I63",
+   "celula": "I63",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_K63",
+   "celula": "K63",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_L63",
+   "celula": "L63",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_N63",
+   "celula": "N63",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_O63",
+   "celula": "O63",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_E64",
+   "celula": "E64",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_F64",
+   "celula": "F64",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_H64",
+   "celula": "H64",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_I64",
+   "celula": "I64",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_K64",
+   "celula": "K64",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_L64",
+   "celula": "L64",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_N64",
+   "celula": "N64",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_O64",
+   "celula": "O64",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_E65",
+   "celula": "E65",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_F65",
+   "celula": "F65",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_H65",
+   "celula": "H65",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_I65",
+   "celula": "I65",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_K65",
+   "celula": "K65",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_L65",
+   "celula": "L65",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_N65",
+   "celula": "N65",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_O65",
+   "celula": "O65",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_E66",
+   "celula": "E66",
+   "rotulo": "Intermed. — qtde"
+  },
+  {
+   "chave": "out_F66",
+   "celula": "F66",
+   "rotulo": "Intermed. — %"
+  },
+  {
+   "chave": "out_H66",
+   "celula": "H66",
+   "rotulo": "Intermed. — qtde"
+  },
+  {
+   "chave": "out_I66",
+   "celula": "I66",
+   "rotulo": "Intermed. — %"
+  },
+  {
+   "chave": "out_K66",
+   "celula": "K66",
+   "rotulo": "Intermed. — qtde"
+  },
+  {
+   "chave": "out_L66",
+   "celula": "L66",
+   "rotulo": "Intermed. — %"
+  },
+  {
+   "chave": "out_N66",
+   "celula": "N66",
+   "rotulo": "Intermed. — qtde"
+  },
+  {
+   "chave": "out_O66",
+   "celula": "O66",
+   "rotulo": "Intermed. — %"
+  },
+  {
+   "chave": "out_E67",
+   "celula": "E67",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_F67",
+   "celula": "F67",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_H67",
+   "celula": "H67",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_I67",
+   "celula": "I67",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_K67",
+   "celula": "K67",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_L67",
+   "celula": "L67",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_N67",
+   "celula": "N67",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_O67",
+   "celula": "O67",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_E68",
+   "celula": "E68",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_F68",
+   "celula": "F68",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_H68",
+   "celula": "H68",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_I68",
+   "celula": "I68",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_K68",
+   "celula": "K68",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_L68",
+   "celula": "L68",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_N68",
+   "celula": "N68",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_O68",
+   "celula": "O68",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_E69",
+   "celula": "E69",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_F69",
+   "celula": "F69",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_H69",
+   "celula": "H69",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_I69",
+   "celula": "I69",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_K69",
+   "celula": "K69",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_L69",
+   "celula": "L69",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_N69",
+   "celula": "N69",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_O69",
+   "celula": "O69",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_E70",
+   "celula": "E70",
+   "rotulo": "Recência — qtde"
+  },
+  {
+   "chave": "out_F70",
+   "celula": "F70",
+   "rotulo": "Recência — %"
+  },
+  {
+   "chave": "out_H70",
+   "celula": "H70",
+   "rotulo": "Recência — qtde"
+  },
+  {
+   "chave": "out_I70",
+   "celula": "I70",
+   "rotulo": "Recência — %"
+  },
+  {
+   "chave": "out_K70",
+   "celula": "K70",
+   "rotulo": "Recência — qtde"
+  },
+  {
+   "chave": "out_L70",
+   "celula": "L70",
+   "rotulo": "Recência — %"
+  },
+  {
+   "chave": "out_N70",
+   "celula": "N70",
+   "rotulo": "Recência — qtde"
+  },
+  {
+   "chave": "out_O70",
+   "celula": "O70",
+   "rotulo": "Recência — %"
+  },
+  {
+   "chave": "out_E71",
+   "celula": "E71",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_F71",
+   "celula": "F71",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_H71",
+   "celula": "H71",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_I71",
+   "celula": "I71",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_K71",
+   "celula": "K71",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_L71",
+   "celula": "L71",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_N71",
+   "celula": "N71",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_O71",
+   "celula": "O71",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_E72",
+   "celula": "E72",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_F72",
+   "celula": "F72",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_H72",
+   "celula": "H72",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_I72",
+   "celula": "I72",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_K72",
+   "celula": "K72",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_L72",
+   "celula": "L72",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_N72",
+   "celula": "N72",
+   "rotulo": "qtde"
+  },
+  {
+   "chave": "out_O72",
+   "celula": "O72",
+   "rotulo": "%"
+  },
+  {
+   "chave": "out_E73",
+   "celula": "E73",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_F73",
+   "celula": "F73",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_H73",
+   "celula": "H73",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_I73",
+   "celula": "I73",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_K73",
+   "celula": "K73",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_L73",
+   "celula": "L73",
+   "rotulo": "Total — %"
+  },
+  {
+   "chave": "out_N73",
+   "celula": "N73",
+   "rotulo": "Total — qtde"
+  },
+  {
+   "chave": "out_O73",
+   "celula": "O73",
+   "rotulo": "Total — %"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "TOTAL",
+    "Média",
+    "E",
+    "Desvio Padrão",
+    "H",
+    "%",
+    "Pts Ponder.",
+    "K",
+    "Percentil",
+    "N",
+    "%",
+    "Amostra (n)",
+    "Paciente",
+    "Média",
+    "16. Cahorro",
+    "-1 D.P.",
+    "Total de Reconhecimentos (-) Total de Er",
+    "-2 D.P.",
+    "≥ 12",
+    "AI",
+    "AJ"
+   ],
+   "linhas": [
+    {
+     "rotulo": "17. Apartmento",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH16",
+      "out_AI16",
+      "out_AJ16"
+     ]
+    },
+    {
+     "rotulo": "18. Centavo",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH17",
+      "out_AI17",
+      "out_AJ17"
+     ]
+    },
+    {
+     "rotulo": "19. Cabana",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH18",
+      "out_AI18",
+      "out_AJ18"
+     ]
+    },
+    {
+     "rotulo": "20. Montanha",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH19",
+      "out_AI19",
+      "out_AJ19"
+     ]
+    },
+    {
+     "rotulo": "21. Gato",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH20",
+      "out_AI20",
+      "out_AJ20"
+     ]
+    },
+    {
+     "rotulo": "22. Hotal",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH21",
+      "out_AI21",
+      "out_AJ21"
+     ]
+    },
+    {
+     "rotulo": "23. Vaca",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH22",
+      "out_AI22",
+      "out_AJ22"
+     ]
+    },
+    {
+     "rotulo": "24. Diamante",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AH23",
+      "out_AI23",
+      "out_AJ23"
+     ]
+    },
+    {
+     "rotulo": "Total Reconhecimento:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y24",
+      null,
+      null,
+      null,
+      "out_AH24",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total de Falso Positivo:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y26",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "TOTAL",
+     "valores": [
+      null,
+      null,
+      "out_E28",
+      null,
+      "out_H28",
+      null,
+      null,
+      "out_K28",
+      null,
+      "out_N28",
+      null,
+      null,
+      null,
+      null,
+      "out_Y28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "EFEITO",
+     "valores": [
+      null,
+      null,
+      "out_E30",
+      null,
+      "out_H30",
+      null,
+      null,
+      "out_K30",
+      null,
+      "out_N30",
+      null,
+      null,
+      null,
+      null,
+      "out_Y30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total de acertos:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Curva de Aprendizagem",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y35",
+      null,
+      "out_AA35",
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total de Intrusões",
+     "valores": [
+      null,
+      null,
+      "out_E37",
+      null,
+      "out_H37",
+      null,
+      null,
+      "out_K37",
+      null,
+      "out_N37",
+      null,
+      null,
+      null,
+      null,
+      "out_Y37",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "TOTAL GERAL (Total + Intrusões)",
+     "valores": [
+      null,
+      null,
+      "out_E39",
+      null,
+      "out_H39",
+      null,
+      null,
+      "out_K39",
+      null,
+      "out_N39",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A1",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_W43",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "44",
+     "valores": [
+      "out_B44",
+      "out_D44",
+      null,
+      "out_F44",
+      "out_H44",
+      null,
+      "out_J44",
+      null,
+      "out_L44",
+      "out_N44",
+      null,
+      "out_R44",
+      "out_W44",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A3",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_W45",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A4",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_W46",
+      "out_X46",
+      "out_Y46",
+      "out_Z46",
+      "out_AA46",
+      "out_AB46",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "48",
+     "valores": [
+      "out_B48",
+      "out_D48",
+      null,
+      "out_F48",
+      "out_H48",
+      null,
+      "out_J48",
+      null,
+      "out_L48",
+      "out_N48",
+      null,
+      "out_R48",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Evocação Imediata",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y49",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Evocação tardia",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y50",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Reconhecimento",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y51",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "52",
+     "valores": [
+      "out_B52",
+      "out_D52",
+      null,
+      "out_F52",
+      "out_H52",
+      null,
+      "out_J52",
+      null,
+      "out_L52",
+      "out_N52",
+      null,
+      "out_R52",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Primazia",
+     "valores": [
+      null,
+      null,
+      "out_E62",
+      "out_F62",
+      "out_H62",
+      "out_I62",
+      null,
+      "out_K62",
+      "out_L62",
+      "out_N62",
+      "out_O62",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "63",
+     "valores": [
+      null,
+      null,
+      "out_E63",
+      "out_F63",
+      "out_H63",
+      "out_I63",
+      null,
+      "out_K63",
+      "out_L63",
+      "out_N63",
+      "out_O63",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "64",
+     "valores": [
+      null,
+      null,
+      "out_E64",
+      "out_F64",
+      "out_H64",
+      "out_I64",
+      null,
+      "out_K64",
+      "out_L64",
+      "out_N64",
+      "out_O64",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      null,
+      "out_E65",
+      "out_F65",
+      "out_H65",
+      "out_I65",
+      null,
+      "out_K65",
+      "out_L65",
+      "out_N65",
+      "out_O65",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Intermed.",
+     "valores": [
+      null,
+      null,
+      "out_E66",
+      "out_F66",
+      "out_H66",
+      "out_I66",
+      null,
+      "out_K66",
+      "out_L66",
+      "out_N66",
+      "out_O66",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "67",
+     "valores": [
+      null,
+      null,
+      "out_E67",
+      "out_F67",
+      "out_H67",
+      "out_I67",
+      null,
+      "out_K67",
+      "out_L67",
+      "out_N67",
+      "out_O67",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "68",
+     "valores": [
+      null,
+      null,
+      "out_E68",
+      "out_F68",
+      "out_H68",
+      "out_I68",
+      null,
+      "out_K68",
+      "out_L68",
+      "out_N68",
+      "out_O68",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      null,
+      "out_E69",
+      "out_F69",
+      "out_H69",
+      "out_I69",
+      null,
+      "out_K69",
+      "out_L69",
+      "out_N69",
+      "out_O69",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Recência",
+     "valores": [
+      null,
+      null,
+      "out_E70",
+      "out_F70",
+      "out_H70",
+      "out_I70",
+      null,
+      "out_K70",
+      "out_L70",
+      "out_N70",
+      "out_O70",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "71",
+     "valores": [
+      null,
+      null,
+      "out_E71",
+      "out_F71",
+      "out_H71",
+      "out_I71",
+      null,
+      "out_K71",
+      "out_L71",
+      "out_N71",
+      "out_O71",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "72",
+     "valores": [
+      null,
+      null,
+      "out_E72",
+      "out_F72",
+      "out_H72",
+      "out_I72",
+      null,
+      "out_K72",
+      "out_L72",
+      "out_N72",
+      "out_O72",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      null,
+      "out_E73",
+      "out_F73",
+      "out_H73",
+      "out_I73",
+      null,
+      "out_K73",
+      "out_L73",
+      "out_N73",
+      "out_O73",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

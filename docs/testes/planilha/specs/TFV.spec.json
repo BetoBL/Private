@@ -246,6 +246,16 @@
     "Adultos (>18 anos) - Alta escolaridade"
    ],
    "padrao": 0
+  },
+  {
+   "chave": "opcao_J5",
+   "celula": "J5",
+   "rotulo": "Tipo de Escola",
+   "valores": [
+    "Privada",
+    "Pública"
+   ],
+   "padrao": 0
   }
  ],
  "saidas": [

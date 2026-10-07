@@ -1,0 +1,10430 @@
+{
+ "sigla": "CBCL-PRE",
+ "nome": "CBCL — Child Behavior Checklist (1,5 a 5 anos)",
+ "dominio": "SINTOMAS_EMOCIONAIS",
+ "descricao": "CBCL 1,5-5: itens somados por síndrome e escalas DSM, convertidos em escore T/percentil/classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "ACHENBACH, T. M. Child Behavior Checklist 1.5-5 (normas conforme planilha da psicóloga).",
+ "aba": "CBCL-Pre",
+ "idade": [
+  1,
+  5
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "L3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_H10",
+   "celula": "H10",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_N10",
+   "celula": "N10",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_H11",
+   "celula": "H11",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_N11",
+   "celula": "N11",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_H12",
+   "celula": "H12",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_N12",
+   "celula": "N12",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_H13",
+   "celula": "H13",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_N13",
+   "celula": "N13",
+   "rotulo": "Grau de relacionamento:",
+   "min": 0
+  },
+  {
+   "chave": "in_O20",
+   "celula": "O20",
+   "rotulo": "001. Sente dores (sem causa médica, ...)",
+   "min": 0
+  },
+  {
+   "chave": "in_Q20",
+   "celula": "Q20",
+   "rotulo": "001. Sente dores (sem causa médica, ...)",
+   "min": 0
+  },
+  {
+   "chave": "in_U20",
+   "celula": "U20",
+   "rotulo": "001. Sente dores (sem causa médica, ...)",
+   "min": 0
+  },
+  {
+   "chave": "in_V20",
+   "celula": "V20",
+   "rotulo": "001. Sente dores (sem causa médica, ...)",
+   "min": 0
+  },
+  {
+   "chave": "in_W20",
+   "celula": "W20",
+   "rotulo": "001. Sente dores (sem causa médica, ...)",
+   "min": 0
+  },
+  {
+   "chave": "in_X20",
+   "celula": "X20",
+   "rotulo": "001. Sente dores (sem causa médica, ...)",
+   "min": 0
+  },
+  {
+   "chave": "in_O21",
+   "celula": "O21",
+   "rotulo": "002. Comporta-se de de maneira muito inf",
+   "min": 0
+  },
+  {
+   "chave": "in_Q21",
+   "celula": "Q21",
+   "rotulo": "002. Comporta-se de de maneira muito inf",
+   "min": 0
+  },
+  {
+   "chave": "in_U21",
+   "celula": "U21",
+   "rotulo": "002. Comporta-se de de maneira muito inf",
+   "min": 0
+  },
+  {
+   "chave": "in_V21",
+   "celula": "V21",
+   "rotulo": "002. Comporta-se de de maneira muito inf",
+   "min": 0
+  },
+  {
+   "chave": "in_W21",
+   "celula": "W21",
+   "rotulo": "002. Comporta-se de de maneira muito inf",
+   "min": 0
+  },
+  {
+   "chave": "in_X21",
+   "celula": "X21",
+   "rotulo": "002. Comporta-se de de maneira muito inf",
+   "min": 0
+  },
+  {
+   "chave": "in_O22",
+   "celula": "O22",
+   "rotulo": "003. Tem medo de experimentar coisas nov",
+   "min": 0
+  },
+  {
+   "chave": "in_Q22",
+   "celula": "Q22",
+   "rotulo": "003. Tem medo de experimentar coisas nov",
+   "min": 0
+  },
+  {
+   "chave": "in_U22",
+   "celula": "U22",
+   "rotulo": "003. Tem medo de experimentar coisas nov",
+   "min": 0
+  },
+  {
+   "chave": "in_V22",
+   "celula": "V22",
+   "rotulo": "003. Tem medo de experimentar coisas nov",
+   "min": 0
+  },
+  {
+   "chave": "in_W22",
+   "celula": "W22",
+   "rotulo": "003. Tem medo de experimentar coisas nov",
+   "min": 0
+  },
+  {
+   "chave": "in_X22",
+   "celula": "X22",
+   "rotulo": "003. Tem medo de experimentar coisas nov",
+   "min": 0
+  },
+  {
+   "chave": "in_O23",
+   "celula": "O23",
+   "rotulo": "004. Evita olhar os outros nos olhos",
+   "min": 0
+  },
+  {
+   "chave": "in_Q23",
+   "celula": "Q23",
+   "rotulo": "004. Evita olhar os outros nos olhos",
+   "min": 0
+  },
+  {
+   "chave": "in_U23",
+   "celula": "U23",
+   "rotulo": "004. Evita olhar os outros nos olhos",
+   "min": 0
+  },
+  {
+   "chave": "in_V23",
+   "celula": "V23",
+   "rotulo": "004. Evita olhar os outros nos olhos",
+   "min": 0
+  },
+  {
+   "chave": "in_W23",
+   "celula": "W23",
+   "rotulo": "004. Evita olhar os outros nos olhos",
+   "min": 0
+  },
+  {
+   "chave": "in_X23",
+   "celula": "X23",
+   "rotulo": "004. Evita olhar os outros nos olhos",
+   "min": 0
+  },
+  {
+   "chave": "in_O24",
+   "celula": "O24",
+   "rotulo": "005. Não consegue se concentrar, não con",
+   "min": 0
+  },
+  {
+   "chave": "in_Q24",
+   "celula": "Q24",
+   "rotulo": "005. Não consegue se concentrar, não con",
+   "min": 0
+  },
+  {
+   "chave": "in_U24",
+   "celula": "U24",
+   "rotulo": "005. Não consegue se concentrar, não con",
+   "min": 0
+  },
+  {
+   "chave": "in_V24",
+   "celula": "V24",
+   "rotulo": "005. Não consegue se concentrar, não con",
+   "min": 0
+  },
+  {
+   "chave": "in_W24",
+   "celula": "W24",
+   "rotulo": "005. Não consegue se concentrar, não con",
+   "min": 0
+  },
+  {
+   "chave": "in_X24",
+   "celula": "X24",
+   "rotulo": "005. Não consegue se concentrar, não con",
+   "min": 0
+  },
+  {
+   "chave": "in_O25",
+   "celula": "O25",
+   "rotulo": "006. Não consegue parar sentado(a) por m",
+   "min": 0
+  },
+  {
+   "chave": "in_P25",
+   "celula": "P25",
+   "rotulo": "006. Não consegue parar sentado(a) por m",
+   "min": 0
+  },
+  {
+   "chave": "in_Q25",
+   "celula": "Q25",
+   "rotulo": "006. Não consegue parar sentado(a) por m",
+   "min": 0
+  },
+  {
+   "chave": "in_U25",
+   "celula": "U25",
+   "rotulo": "006. Não consegue parar sentado(a) por m",
+   "min": 0
+  },
+  {
+   "chave": "in_V25",
+   "celula": "V25",
+   "rotulo": "006. Não consegue parar sentado(a) por m",
+   "min": 0
+  },
+  {
+   "chave": "in_W25",
+   "celula": "W25",
+   "rotulo": "006. Não consegue parar sentado(a) por m",
+   "min": 0
+  },
+  {
+   "chave": "in_X25",
+   "celula": "X25",
+   "rotulo": "006. Não consegue parar sentado(a) por m",
+   "min": 0
+  },
+  {
+   "chave": "in_O26",
+   "celula": "O26",
+   "rotulo": "007. Não suporta ter as coisas fora de l",
+   "min": 0
+  },
+  {
+   "chave": "in_P26",
+   "celula": "P26",
+   "rotulo": "007. Não suporta ter as coisas fora de l",
+   "min": 0
+  },
+  {
+   "chave": "in_Q26",
+   "celula": "Q26",
+   "rotulo": "007. Não suporta ter as coisas fora de l",
+   "min": 0
+  },
+  {
+   "chave": "in_U26",
+   "celula": "U26",
+   "rotulo": "007. Não suporta ter as coisas fora de l",
+   "min": 0
+  },
+  {
+   "chave": "in_V26",
+   "celula": "V26",
+   "rotulo": "007. Não suporta ter as coisas fora de l",
+   "min": 0
+  },
+  {
+   "chave": "in_W26",
+   "celula": "W26",
+   "rotulo": "007. Não suporta ter as coisas fora de l",
+   "min": 0
+  },
+  {
+   "chave": "in_X26",
+   "celula": "X26",
+   "rotulo": "007. Não suporta ter as coisas fora de l",
+   "min": 0
+  },
+  {
+   "chave": "in_O27",
+   "celula": "O27",
+   "rotulo": "008. Não suporta esperar; quer tudo imed",
+   "min": 0
+  },
+  {
+   "chave": "in_P27",
+   "celula": "P27",
+   "rotulo": "008. Não suporta esperar; quer tudo imed",
+   "min": 0
+  },
+  {
+   "chave": "in_Q27",
+   "celula": "Q27",
+   "rotulo": "008. Não suporta esperar; quer tudo imed",
+   "min": 0
+  },
+  {
+   "chave": "in_U27",
+   "celula": "U27",
+   "rotulo": "008. Não suporta esperar; quer tudo imed",
+   "min": 0
+  },
+  {
+   "chave": "in_V27",
+   "celula": "V27",
+   "rotulo": "008. Não suporta esperar; quer tudo imed",
+   "min": 0
+  },
+  {
+   "chave": "in_W27",
+   "celula": "W27",
+   "rotulo": "008. Não suporta esperar; quer tudo imed",
+   "min": 0
+  },
+  {
+   "chave": "in_X27",
+   "celula": "X27",
+   "rotulo": "008. Não suporta esperar; quer tudo imed",
+   "min": 0
+  },
+  {
+   "chave": "in_O28",
+   "celula": "O28",
+   "rotulo": "009. Mastigua coisas que não se deve com",
+   "min": 0
+  },
+  {
+   "chave": "in_P28",
+   "celula": "P28",
+   "rotulo": "009. Mastigua coisas que não se deve com",
+   "min": 0
+  },
+  {
+   "chave": "in_Q28",
+   "celula": "Q28",
+   "rotulo": "009. Mastigua coisas que não se deve com",
+   "min": 0
+  },
+  {
+   "chave": "in_U28",
+   "celula": "U28",
+   "rotulo": "009. Mastigua coisas que não se deve com",
+   "min": 0
+  },
+  {
+   "chave": "in_V28",
+   "celula": "V28",
+   "rotulo": "009. Mastigua coisas que não se deve com",
+   "min": 0
+  },
+  {
+   "chave": "in_W28",
+   "celula": "W28",
+   "rotulo": "009. Mastigua coisas que não se deve com",
+   "min": 0
+  },
+  {
+   "chave": "in_X28",
+   "celula": "X28",
+   "rotulo": "009. Mastigua coisas que não se deve com",
+   "min": 0
+  },
+  {
+   "chave": "in_O29",
+   "celula": "O29",
+   "rotulo": "010. Fica grudado(a) nos adultos ou é mu",
+   "min": 0
+  },
+  {
+   "chave": "in_P29",
+   "celula": "P29",
+   "rotulo": "010. Fica grudado(a) nos adultos ou é mu",
+   "min": 0
+  },
+  {
+   "chave": "in_Q29",
+   "celula": "Q29",
+   "rotulo": "010. Fica grudado(a) nos adultos ou é mu",
+   "min": 0
+  },
+  {
+   "chave": "in_U29",
+   "celula": "U29",
+   "rotulo": "010. Fica grudado(a) nos adultos ou é mu",
+   "min": 0
+  },
+  {
+   "chave": "in_V29",
+   "celula": "V29",
+   "rotulo": "010. Fica grudado(a) nos adultos ou é mu",
+   "min": 0
+  },
+  {
+   "chave": "in_W29",
+   "celula": "W29",
+   "rotulo": "010. Fica grudado(a) nos adultos ou é mu",
+   "min": 0
+  },
+  {
+   "chave": "in_X29",
+   "celula": "X29",
+   "rotulo": "010. Fica grudado(a) nos adultos ou é mu",
+   "min": 0
+  },
+  {
+   "chave": "in_O30",
+   "celula": "O30",
+   "rotulo": "011. Procura ajuda constantemente.",
+   "min": 0
+  },
+  {
+   "chave": "in_P30",
+   "celula": "P30",
+   "rotulo": "011. Procura ajuda constantemente.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q30",
+   "celula": "Q30",
+   "rotulo": "011. Procura ajuda constantemente.",
+   "min": 0
+  },
+  {
+   "chave": "in_U30",
+   "celula": "U30",
+   "rotulo": "011. Procura ajuda constantemente.",
+   "min": 0
+  },
+  {
+   "chave": "in_V30",
+   "celula": "V30",
+   "rotulo": "011. Procura ajuda constantemente.",
+   "min": 0
+  },
+  {
+   "chave": "in_W30",
+   "celula": "W30",
+   "rotulo": "011. Procura ajuda constantemente.",
+   "min": 0
+  },
+  {
+   "chave": "in_X30",
+   "celula": "X30",
+   "rotulo": "011. Procura ajuda constantemente.",
+   "min": 0
+  },
+  {
+   "chave": "in_O31",
+   "celula": "O31",
+   "rotulo": "012. Tem prisão de ventre, intestino pre",
+   "min": 0
+  },
+  {
+   "chave": "in_P31",
+   "celula": "P31",
+   "rotulo": "012. Tem prisão de ventre, intestino pre",
+   "min": 0
+  },
+  {
+   "chave": "in_Q31",
+   "celula": "Q31",
+   "rotulo": "012. Tem prisão de ventre, intestino pre",
+   "min": 0
+  },
+  {
+   "chave": "in_U31",
+   "celula": "U31",
+   "rotulo": "012. Tem prisão de ventre, intestino pre",
+   "min": 0
+  },
+  {
+   "chave": "in_V31",
+   "celula": "V31",
+   "rotulo": "012. Tem prisão de ventre, intestino pre",
+   "min": 0
+  },
+  {
+   "chave": "in_W31",
+   "celula": "W31",
+   "rotulo": "012. Tem prisão de ventre, intestino pre",
+   "min": 0
+  },
+  {
+   "chave": "in_X31",
+   "celula": "X31",
+   "rotulo": "012. Tem prisão de ventre, intestino pre",
+   "min": 0
+  },
+  {
+   "chave": "in_O32",
+   "celula": "O32",
+   "rotulo": "013. Chora muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_P32",
+   "celula": "P32",
+   "rotulo": "013. Chora muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q32",
+   "celula": "Q32",
+   "rotulo": "013. Chora muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_U32",
+   "celula": "U32",
+   "rotulo": "013. Chora muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_V32",
+   "celula": "V32",
+   "rotulo": "013. Chora muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_W32",
+   "celula": "W32",
+   "rotulo": "013. Chora muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_X32",
+   "celula": "X32",
+   "rotulo": "013. Chora muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_O33",
+   "celula": "O33",
+   "rotulo": "014. É cruel com os animais.",
+   "min": 0
+  },
+  {
+   "chave": "in_P33",
+   "celula": "P33",
+   "rotulo": "014. É cruel com os animais.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q33",
+   "celula": "Q33",
+   "rotulo": "014. É cruel com os animais.",
+   "min": 0
+  },
+  {
+   "chave": "in_U33",
+   "celula": "U33",
+   "rotulo": "014. É cruel com os animais.",
+   "min": 0
+  },
+  {
+   "chave": "in_V33",
+   "celula": "V33",
+   "rotulo": "014. É cruel com os animais.",
+   "min": 0
+  },
+  {
+   "chave": "in_W33",
+   "celula": "W33",
+   "rotulo": "014. É cruel com os animais.",
+   "min": 0
+  },
+  {
+   "chave": "in_X33",
+   "celula": "X33",
+   "rotulo": "014. É cruel com os animais.",
+   "min": 0
+  },
+  {
+   "chave": "in_O34",
+   "celula": "O34",
+   "rotulo": "015. É desafiador.",
+   "min": 0
+  },
+  {
+   "chave": "in_P34",
+   "celula": "P34",
+   "rotulo": "015. É desafiador.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q34",
+   "celula": "Q34",
+   "rotulo": "015. É desafiador.",
+   "min": 0
+  },
+  {
+   "chave": "in_U34",
+   "celula": "U34",
+   "rotulo": "015. É desafiador.",
+   "min": 0
+  },
+  {
+   "chave": "in_V34",
+   "celula": "V34",
+   "rotulo": "015. É desafiador.",
+   "min": 0
+  },
+  {
+   "chave": "in_W34",
+   "celula": "W34",
+   "rotulo": "015. É desafiador.",
+   "min": 0
+  },
+  {
+   "chave": "in_X34",
+   "celula": "X34",
+   "rotulo": "015. É desafiador.",
+   "min": 0
+  },
+  {
+   "chave": "in_O35",
+   "celula": "O35",
+   "rotulo": "016. Quer ter suas vontades atendidas na",
+   "min": 0
+  },
+  {
+   "chave": "in_P35",
+   "celula": "P35",
+   "rotulo": "016. Quer ter suas vontades atendidas na",
+   "min": 0
+  },
+  {
+   "chave": "in_Q35",
+   "celula": "Q35",
+   "rotulo": "016. Quer ter suas vontades atendidas na",
+   "min": 0
+  },
+  {
+   "chave": "in_U35",
+   "celula": "U35",
+   "rotulo": "016. Quer ter suas vontades atendidas na",
+   "min": 0
+  },
+  {
+   "chave": "in_V35",
+   "celula": "V35",
+   "rotulo": "016. Quer ter suas vontades atendidas na",
+   "min": 0
+  },
+  {
+   "chave": "in_W35",
+   "celula": "W35",
+   "rotulo": "016. Quer ter suas vontades atendidas na",
+   "min": 0
+  },
+  {
+   "chave": "in_X35",
+   "celula": "X35",
+   "rotulo": "016. Quer ter suas vontades atendidas na",
+   "min": 0
+  },
+  {
+   "chave": "in_O36",
+   "celula": "O36",
+   "rotulo": "017. Destrói suas próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_P36",
+   "celula": "P36",
+   "rotulo": "017. Destrói suas próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q36",
+   "celula": "Q36",
+   "rotulo": "017. Destrói suas próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_U36",
+   "celula": "U36",
+   "rotulo": "017. Destrói suas próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_V36",
+   "celula": "V36",
+   "rotulo": "017. Destrói suas próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_W36",
+   "celula": "W36",
+   "rotulo": "017. Destrói suas próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_X36",
+   "celula": "X36",
+   "rotulo": "017. Destrói suas próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_O37",
+   "celula": "O37",
+   "rotulo": "018. Destrói as coisas de sua família ou",
+   "min": 0
+  },
+  {
+   "chave": "in_P37",
+   "celula": "P37",
+   "rotulo": "018. Destrói as coisas de sua família ou",
+   "min": 0
+  },
+  {
+   "chave": "in_Q37",
+   "celula": "Q37",
+   "rotulo": "018. Destrói as coisas de sua família ou",
+   "min": 0
+  },
+  {
+   "chave": "in_U37",
+   "celula": "U37",
+   "rotulo": "018. Destrói as coisas de sua família ou",
+   "min": 0
+  },
+  {
+   "chave": "in_V37",
+   "celula": "V37",
+   "rotulo": "018. Destrói as coisas de sua família ou",
+   "min": 0
+  },
+  {
+   "chave": "in_W37",
+   "celula": "W37",
+   "rotulo": "018. Destrói as coisas de sua família ou",
+   "min": 0
+  },
+  {
+   "chave": "in_X37",
+   "celula": "X37",
+   "rotulo": "018. Destrói as coisas de sua família ou",
+   "min": 0
+  },
+  {
+   "chave": "in_O38",
+   "celula": "O38",
+   "rotulo": "019. Tem diarréia ou intestino solto (me",
+   "min": 0
+  },
+  {
+   "chave": "in_P38",
+   "celula": "P38",
+   "rotulo": "019. Tem diarréia ou intestino solto (me",
+   "min": 0
+  },
+  {
+   "chave": "in_Q38",
+   "celula": "Q38",
+   "rotulo": "019. Tem diarréia ou intestino solto (me",
+   "min": 0
+  },
+  {
+   "chave": "in_U38",
+   "celula": "U38",
+   "rotulo": "019. Tem diarréia ou intestino solto (me",
+   "min": 0
+  },
+  {
+   "chave": "in_V38",
+   "celula": "V38",
+   "rotulo": "019. Tem diarréia ou intestino solto (me",
+   "min": 0
+  },
+  {
+   "chave": "in_W38",
+   "celula": "W38",
+   "rotulo": "019. Tem diarréia ou intestino solto (me",
+   "min": 0
+  },
+  {
+   "chave": "in_X38",
+   "celula": "X38",
+   "rotulo": "019. Tem diarréia ou intestino solto (me",
+   "min": 0
+  },
+  {
+   "chave": "in_O39",
+   "celula": "O39",
+   "rotulo": "020. Destrói as próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_P39",
+   "celula": "P39",
+   "rotulo": "020. Destrói as próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q39",
+   "celula": "Q39",
+   "rotulo": "020. Destrói as próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_U39",
+   "celula": "U39",
+   "rotulo": "020. Destrói as próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_V39",
+   "celula": "V39",
+   "rotulo": "020. Destrói as próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_W39",
+   "celula": "W39",
+   "rotulo": "020. Destrói as próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_X39",
+   "celula": "X39",
+   "rotulo": "020. Destrói as próprias coisas.",
+   "min": 0
+  },
+  {
+   "chave": "in_O40",
+   "celula": "O40",
+   "rotulo": "021. É desobediente.",
+   "min": 0
+  },
+  {
+   "chave": "in_P40",
+   "celula": "P40",
+   "rotulo": "021. É desobediente.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q40",
+   "celula": "Q40",
+   "rotulo": "021. É desobediente.",
+   "min": 0
+  },
+  {
+   "chave": "in_U40",
+   "celula": "U40",
+   "rotulo": "021. É desobediente.",
+   "min": 0
+  },
+  {
+   "chave": "in_V40",
+   "celula": "V40",
+   "rotulo": "021. É desobediente.",
+   "min": 0
+  },
+  {
+   "chave": "in_W40",
+   "celula": "W40",
+   "rotulo": "021. É desobediente.",
+   "min": 0
+  },
+  {
+   "chave": "in_X40",
+   "celula": "X40",
+   "rotulo": "021. É desobediente.",
+   "min": 0
+  },
+  {
+   "chave": "in_O41",
+   "celula": "O41",
+   "rotulo": "022. Não quer dormir sozinho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P41",
+   "celula": "P41",
+   "rotulo": "022. Não quer dormir sozinho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q41",
+   "celula": "Q41",
+   "rotulo": "022. Não quer dormir sozinho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U41",
+   "celula": "U41",
+   "rotulo": "022. Não quer dormir sozinho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V41",
+   "celula": "V41",
+   "rotulo": "022. Não quer dormir sozinho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W41",
+   "celula": "W41",
+   "rotulo": "022. Não quer dormir sozinho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X41",
+   "celula": "X41",
+   "rotulo": "022. Não quer dormir sozinho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O42",
+   "celula": "O42",
+   "rotulo": "023. Não responde quando pessoas falam c",
+   "min": 0
+  },
+  {
+   "chave": "in_P42",
+   "celula": "P42",
+   "rotulo": "023. Não responde quando pessoas falam c",
+   "min": 0
+  },
+  {
+   "chave": "in_Q42",
+   "celula": "Q42",
+   "rotulo": "023. Não responde quando pessoas falam c",
+   "min": 0
+  },
+  {
+   "chave": "in_U42",
+   "celula": "U42",
+   "rotulo": "023. Não responde quando pessoas falam c",
+   "min": 0
+  },
+  {
+   "chave": "in_V42",
+   "celula": "V42",
+   "rotulo": "023. Não responde quando pessoas falam c",
+   "min": 0
+  },
+  {
+   "chave": "in_W42",
+   "celula": "W42",
+   "rotulo": "023. Não responde quando pessoas falam c",
+   "min": 0
+  },
+  {
+   "chave": "in_X42",
+   "celula": "X42",
+   "rotulo": "023. Não responde quando pessoas falam c",
+   "min": 0
+  },
+  {
+   "chave": "in_O43",
+   "celula": "O43",
+   "rotulo": "024. Não come bem.",
+   "min": 0
+  },
+  {
+   "chave": "in_P43",
+   "celula": "P43",
+   "rotulo": "024. Não come bem.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q43",
+   "celula": "Q43",
+   "rotulo": "024. Não come bem.",
+   "min": 0
+  },
+  {
+   "chave": "in_U43",
+   "celula": "U43",
+   "rotulo": "024. Não come bem.",
+   "min": 0
+  },
+  {
+   "chave": "in_V43",
+   "celula": "V43",
+   "rotulo": "024. Não come bem.",
+   "min": 0
+  },
+  {
+   "chave": "in_W43",
+   "celula": "W43",
+   "rotulo": "024. Não come bem.",
+   "min": 0
+  },
+  {
+   "chave": "in_X43",
+   "celula": "X43",
+   "rotulo": "024. Não come bem.",
+   "min": 0
+  },
+  {
+   "chave": "in_O44",
+   "celula": "O44",
+   "rotulo": "025. Não se dá bem com outras crianças",
+   "min": 0
+  },
+  {
+   "chave": "in_P44",
+   "celula": "P44",
+   "rotulo": "025. Não se dá bem com outras crianças",
+   "min": 0
+  },
+  {
+   "chave": "in_Q44",
+   "celula": "Q44",
+   "rotulo": "025. Não se dá bem com outras crianças",
+   "min": 0
+  },
+  {
+   "chave": "in_U44",
+   "celula": "U44",
+   "rotulo": "025. Não se dá bem com outras crianças",
+   "min": 0
+  },
+  {
+   "chave": "in_V44",
+   "celula": "V44",
+   "rotulo": "025. Não se dá bem com outras crianças",
+   "min": 0
+  },
+  {
+   "chave": "in_W44",
+   "celula": "W44",
+   "rotulo": "025. Não se dá bem com outras crianças",
+   "min": 0
+  },
+  {
+   "chave": "in_X44",
+   "celula": "X44",
+   "rotulo": "025. Não se dá bem com outras crianças",
+   "min": 0
+  },
+  {
+   "chave": "in_O45",
+   "celula": "O45",
+   "rotulo": "026. Não sabe como se divertir; age como",
+   "min": 0
+  },
+  {
+   "chave": "in_P45",
+   "celula": "P45",
+   "rotulo": "026. Não sabe como se divertir; age como",
+   "min": 0
+  },
+  {
+   "chave": "in_Q45",
+   "celula": "Q45",
+   "rotulo": "026. Não sabe como se divertir; age como",
+   "min": 0
+  },
+  {
+   "chave": "in_U45",
+   "celula": "U45",
+   "rotulo": "026. Não sabe como se divertir; age como",
+   "min": 0
+  },
+  {
+   "chave": "in_V45",
+   "celula": "V45",
+   "rotulo": "026. Não sabe como se divertir; age como",
+   "min": 0
+  },
+  {
+   "chave": "in_W45",
+   "celula": "W45",
+   "rotulo": "026. Não sabe como se divertir; age como",
+   "min": 0
+  },
+  {
+   "chave": "in_X45",
+   "celula": "X45",
+   "rotulo": "026. Não sabe como se divertir; age como",
+   "min": 0
+  },
+  {
+   "chave": "in_O46",
+   "celula": "O46",
+   "rotulo": "027. Não parece sentir-se culpado(a) dep",
+   "min": 0
+  },
+  {
+   "chave": "in_P46",
+   "celula": "P46",
+   "rotulo": "027. Não parece sentir-se culpado(a) dep",
+   "min": 0
+  },
+  {
+   "chave": "in_Q46",
+   "celula": "Q46",
+   "rotulo": "027. Não parece sentir-se culpado(a) dep",
+   "min": 0
+  },
+  {
+   "chave": "in_U46",
+   "celula": "U46",
+   "rotulo": "027. Não parece sentir-se culpado(a) dep",
+   "min": 0
+  },
+  {
+   "chave": "in_V46",
+   "celula": "V46",
+   "rotulo": "027. Não parece sentir-se culpado(a) dep",
+   "min": 0
+  },
+  {
+   "chave": "in_W46",
+   "celula": "W46",
+   "rotulo": "027. Não parece sentir-se culpado(a) dep",
+   "min": 0
+  },
+  {
+   "chave": "in_X46",
+   "celula": "X46",
+   "rotulo": "027. Não parece sentir-se culpado(a) dep",
+   "min": 0
+  },
+  {
+   "chave": "in_O47",
+   "celula": "O47",
+   "rotulo": "028. Não quer sair de casa.",
+   "min": 0
+  },
+  {
+   "chave": "in_P47",
+   "celula": "P47",
+   "rotulo": "028. Não quer sair de casa.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q47",
+   "celula": "Q47",
+   "rotulo": "028. Não quer sair de casa.",
+   "min": 0
+  },
+  {
+   "chave": "in_U47",
+   "celula": "U47",
+   "rotulo": "028. Não quer sair de casa.",
+   "min": 0
+  },
+  {
+   "chave": "in_V47",
+   "celula": "V47",
+   "rotulo": "028. Não quer sair de casa.",
+   "min": 0
+  },
+  {
+   "chave": "in_W47",
+   "celula": "W47",
+   "rotulo": "028. Não quer sair de casa.",
+   "min": 0
+  },
+  {
+   "chave": "in_X47",
+   "celula": "X47",
+   "rotulo": "028. Não quer sair de casa.",
+   "min": 0
+  },
+  {
+   "chave": "in_O48",
+   "celula": "O48",
+   "rotulo": "029. Fica frustrado(a) com facilidade.",
+   "min": 0
+  },
+  {
+   "chave": "in_P48",
+   "celula": "P48",
+   "rotulo": "029. Fica frustrado(a) com facilidade.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q48",
+   "celula": "Q48",
+   "rotulo": "029. Fica frustrado(a) com facilidade.",
+   "min": 0
+  },
+  {
+   "chave": "in_U48",
+   "celula": "U48",
+   "rotulo": "029. Fica frustrado(a) com facilidade.",
+   "min": 0
+  },
+  {
+   "chave": "in_V48",
+   "celula": "V48",
+   "rotulo": "029. Fica frustrado(a) com facilidade.",
+   "min": 0
+  },
+  {
+   "chave": "in_W48",
+   "celula": "W48",
+   "rotulo": "029. Fica frustrado(a) com facilidade.",
+   "min": 0
+  },
+  {
+   "chave": "in_X48",
+   "celula": "X48",
+   "rotulo": "029. Fica frustrado(a) com facilidade.",
+   "min": 0
+  },
+  {
+   "chave": "in_O49",
+   "celula": "O49",
+   "rotulo": "030. Sente ciúmes ou inveja com facilida",
+   "min": 0
+  },
+  {
+   "chave": "in_P49",
+   "celula": "P49",
+   "rotulo": "030. Sente ciúmes ou inveja com facilida",
+   "min": 0
+  },
+  {
+   "chave": "in_Q49",
+   "celula": "Q49",
+   "rotulo": "030. Sente ciúmes ou inveja com facilida",
+   "min": 0
+  },
+  {
+   "chave": "in_U49",
+   "celula": "U49",
+   "rotulo": "030. Sente ciúmes ou inveja com facilida",
+   "min": 0
+  },
+  {
+   "chave": "in_V49",
+   "celula": "V49",
+   "rotulo": "030. Sente ciúmes ou inveja com facilida",
+   "min": 0
+  },
+  {
+   "chave": "in_W49",
+   "celula": "W49",
+   "rotulo": "030. Sente ciúmes ou inveja com facilida",
+   "min": 0
+  },
+  {
+   "chave": "in_X49",
+   "celula": "X49",
+   "rotulo": "030. Sente ciúmes ou inveja com facilida",
+   "min": 0
+  },
+  {
+   "chave": "in_O50",
+   "celula": "O50",
+   "rotulo": "031. Come ou bebe coisas que não são ali",
+   "min": 0
+  },
+  {
+   "chave": "in_P50",
+   "celula": "P50",
+   "rotulo": "031. Come ou bebe coisas que não são ali",
+   "min": 0
+  },
+  {
+   "chave": "in_Q50",
+   "celula": "Q50",
+   "rotulo": "031. Come ou bebe coisas que não são ali",
+   "min": 0
+  },
+  {
+   "chave": "in_U50",
+   "celula": "U50",
+   "rotulo": "031. Come ou bebe coisas que não são ali",
+   "min": 0
+  },
+  {
+   "chave": "in_V50",
+   "celula": "V50",
+   "rotulo": "031. Come ou bebe coisas que não são ali",
+   "min": 0
+  },
+  {
+   "chave": "in_W50",
+   "celula": "W50",
+   "rotulo": "031. Come ou bebe coisas que não são ali",
+   "min": 0
+  },
+  {
+   "chave": "in_X50",
+   "celula": "X50",
+   "rotulo": "031. Come ou bebe coisas que não são ali",
+   "min": 0
+  },
+  {
+   "chave": "in_O51",
+   "celula": "O51",
+   "rotulo": "032. Tem medo de certos animais, situaçõ",
+   "min": 0
+  },
+  {
+   "chave": "in_P51",
+   "celula": "P51",
+   "rotulo": "032. Tem medo de certos animais, situaçõ",
+   "min": 0
+  },
+  {
+   "chave": "in_Q51",
+   "celula": "Q51",
+   "rotulo": "032. Tem medo de certos animais, situaçõ",
+   "min": 0
+  },
+  {
+   "chave": "in_U51",
+   "celula": "U51",
+   "rotulo": "032. Tem medo de certos animais, situaçõ",
+   "min": 0
+  },
+  {
+   "chave": "in_V51",
+   "celula": "V51",
+   "rotulo": "032. Tem medo de certos animais, situaçõ",
+   "min": 0
+  },
+  {
+   "chave": "in_W51",
+   "celula": "W51",
+   "rotulo": "032. Tem medo de certos animais, situaçõ",
+   "min": 0
+  },
+  {
+   "chave": "in_X51",
+   "celula": "X51",
+   "rotulo": "032. Tem medo de certos animais, situaçõ",
+   "min": 0
+  },
+  {
+   "chave": "in_O52",
+   "celula": "O52",
+   "rotulo": "033. Fica magoado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_P52",
+   "celula": "P52",
+   "rotulo": "033. Fica magoado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q52",
+   "celula": "Q52",
+   "rotulo": "033. Fica magoado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_U52",
+   "celula": "U52",
+   "rotulo": "033. Fica magoado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_V52",
+   "celula": "V52",
+   "rotulo": "033. Fica magoado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_W52",
+   "celula": "W52",
+   "rotulo": "033. Fica magoado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_X52",
+   "celula": "X52",
+   "rotulo": "033. Fica magoado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_O53",
+   "celula": "O53",
+   "rotulo": "034. Machuca-se com frequência, tem tend",
+   "min": 0
+  },
+  {
+   "chave": "in_P53",
+   "celula": "P53",
+   "rotulo": "034. Machuca-se com frequência, tem tend",
+   "min": 0
+  },
+  {
+   "chave": "in_Q53",
+   "celula": "Q53",
+   "rotulo": "034. Machuca-se com frequência, tem tend",
+   "min": 0
+  },
+  {
+   "chave": "in_U53",
+   "celula": "U53",
+   "rotulo": "034. Machuca-se com frequência, tem tend",
+   "min": 0
+  },
+  {
+   "chave": "in_V53",
+   "celula": "V53",
+   "rotulo": "034. Machuca-se com frequência, tem tend",
+   "min": 0
+  },
+  {
+   "chave": "in_W53",
+   "celula": "W53",
+   "rotulo": "034. Machuca-se com frequência, tem tend",
+   "min": 0
+  },
+  {
+   "chave": "in_X53",
+   "celula": "X53",
+   "rotulo": "034. Machuca-se com frequência, tem tend",
+   "min": 0
+  },
+  {
+   "chave": "in_O54",
+   "celula": "O54",
+   "rotulo": "035. Mete-se em muitas brigas.",
+   "min": 0
+  },
+  {
+   "chave": "in_P54",
+   "celula": "P54",
+   "rotulo": "035. Mete-se em muitas brigas.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q54",
+   "celula": "Q54",
+   "rotulo": "035. Mete-se em muitas brigas.",
+   "min": 0
+  },
+  {
+   "chave": "in_U54",
+   "celula": "U54",
+   "rotulo": "035. Mete-se em muitas brigas.",
+   "min": 0
+  },
+  {
+   "chave": "in_V54",
+   "celula": "V54",
+   "rotulo": "035. Mete-se em muitas brigas.",
+   "min": 0
+  },
+  {
+   "chave": "in_W54",
+   "celula": "W54",
+   "rotulo": "035. Mete-se em muitas brigas.",
+   "min": 0
+  },
+  {
+   "chave": "in_X54",
+   "celula": "X54",
+   "rotulo": "035. Mete-se em muitas brigas.",
+   "min": 0
+  },
+  {
+   "chave": "in_O55",
+   "celula": "O55",
+   "rotulo": "036. Mete-se em tudo.",
+   "min": 0
+  },
+  {
+   "chave": "in_P55",
+   "celula": "P55",
+   "rotulo": "036. Mete-se em tudo.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q55",
+   "celula": "Q55",
+   "rotulo": "036. Mete-se em tudo.",
+   "min": 0
+  },
+  {
+   "chave": "in_U55",
+   "celula": "U55",
+   "rotulo": "036. Mete-se em tudo.",
+   "min": 0
+  },
+  {
+   "chave": "in_V55",
+   "celula": "V55",
+   "rotulo": "036. Mete-se em tudo.",
+   "min": 0
+  },
+  {
+   "chave": "in_W55",
+   "celula": "W55",
+   "rotulo": "036. Mete-se em tudo.",
+   "min": 0
+  },
+  {
+   "chave": "in_X55",
+   "celula": "X55",
+   "rotulo": "036. Mete-se em tudo.",
+   "min": 0
+  },
+  {
+   "chave": "in_O56",
+   "celula": "O56",
+   "rotulo": "037. Fica muito nervoso(a) quando separa",
+   "min": 0
+  },
+  {
+   "chave": "in_P56",
+   "celula": "P56",
+   "rotulo": "037. Fica muito nervoso(a) quando separa",
+   "min": 0
+  },
+  {
+   "chave": "in_Q56",
+   "celula": "Q56",
+   "rotulo": "037. Fica muito nervoso(a) quando separa",
+   "min": 0
+  },
+  {
+   "chave": "in_U56",
+   "celula": "U56",
+   "rotulo": "037. Fica muito nervoso(a) quando separa",
+   "min": 0
+  },
+  {
+   "chave": "in_V56",
+   "celula": "V56",
+   "rotulo": "037. Fica muito nervoso(a) quando separa",
+   "min": 0
+  },
+  {
+   "chave": "in_W56",
+   "celula": "W56",
+   "rotulo": "037. Fica muito nervoso(a) quando separa",
+   "min": 0
+  },
+  {
+   "chave": "in_X56",
+   "celula": "X56",
+   "rotulo": "037. Fica muito nervoso(a) quando separa",
+   "min": 0
+  },
+  {
+   "chave": "in_O57",
+   "celula": "O57",
+   "rotulo": "038. Tem dificuldades pra pegar no sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_P57",
+   "celula": "P57",
+   "rotulo": "038. Tem dificuldades pra pegar no sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q57",
+   "celula": "Q57",
+   "rotulo": "038. Tem dificuldades pra pegar no sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_U57",
+   "celula": "U57",
+   "rotulo": "038. Tem dificuldades pra pegar no sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_V57",
+   "celula": "V57",
+   "rotulo": "038. Tem dificuldades pra pegar no sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_W57",
+   "celula": "W57",
+   "rotulo": "038. Tem dificuldades pra pegar no sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_X57",
+   "celula": "X57",
+   "rotulo": "038. Tem dificuldades pra pegar no sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_O58",
+   "celula": "O58",
+   "rotulo": "039. tem dores de cabeça (sem causa médi",
+   "min": 0
+  },
+  {
+   "chave": "in_P58",
+   "celula": "P58",
+   "rotulo": "039. tem dores de cabeça (sem causa médi",
+   "min": 0
+  },
+  {
+   "chave": "in_Q58",
+   "celula": "Q58",
+   "rotulo": "039. tem dores de cabeça (sem causa médi",
+   "min": 0
+  },
+  {
+   "chave": "in_U58",
+   "celula": "U58",
+   "rotulo": "039. tem dores de cabeça (sem causa médi",
+   "min": 0
+  },
+  {
+   "chave": "in_V58",
+   "celula": "V58",
+   "rotulo": "039. tem dores de cabeça (sem causa médi",
+   "min": 0
+  },
+  {
+   "chave": "in_W58",
+   "celula": "W58",
+   "rotulo": "039. tem dores de cabeça (sem causa médi",
+   "min": 0
+  },
+  {
+   "chave": "in_X58",
+   "celula": "X58",
+   "rotulo": "039. tem dores de cabeça (sem causa médi",
+   "min": 0
+  },
+  {
+   "chave": "in_O59",
+   "celula": "O59",
+   "rotulo": "040. Bate nos outros.",
+   "min": 0
+  },
+  {
+   "chave": "in_P59",
+   "celula": "P59",
+   "rotulo": "040. Bate nos outros.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q59",
+   "celula": "Q59",
+   "rotulo": "040. Bate nos outros.",
+   "min": 0
+  },
+  {
+   "chave": "in_U59",
+   "celula": "U59",
+   "rotulo": "040. Bate nos outros.",
+   "min": 0
+  },
+  {
+   "chave": "in_V59",
+   "celula": "V59",
+   "rotulo": "040. Bate nos outros.",
+   "min": 0
+  },
+  {
+   "chave": "in_W59",
+   "celula": "W59",
+   "rotulo": "040. Bate nos outros.",
+   "min": 0
+  },
+  {
+   "chave": "in_X59",
+   "celula": "X59",
+   "rotulo": "040. Bate nos outros.",
+   "min": 0
+  },
+  {
+   "chave": "in_O60",
+   "celula": "O60",
+   "rotulo": "041. Prende a respiração.",
+   "min": 0
+  },
+  {
+   "chave": "in_P60",
+   "celula": "P60",
+   "rotulo": "041. Prende a respiração.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q60",
+   "celula": "Q60",
+   "rotulo": "041. Prende a respiração.",
+   "min": 0
+  },
+  {
+   "chave": "in_U60",
+   "celula": "U60",
+   "rotulo": "041. Prende a respiração.",
+   "min": 0
+  },
+  {
+   "chave": "in_V60",
+   "celula": "V60",
+   "rotulo": "041. Prende a respiração.",
+   "min": 0
+  },
+  {
+   "chave": "in_W60",
+   "celula": "W60",
+   "rotulo": "041. Prende a respiração.",
+   "min": 0
+  },
+  {
+   "chave": "in_X60",
+   "celula": "X60",
+   "rotulo": "041. Prende a respiração.",
+   "min": 0
+  },
+  {
+   "chave": "in_O61",
+   "celula": "O61",
+   "rotulo": "042. Machuca animais ou pessoas sem inte",
+   "min": 0
+  },
+  {
+   "chave": "in_P61",
+   "celula": "P61",
+   "rotulo": "042. Machuca animais ou pessoas sem inte",
+   "min": 0
+  },
+  {
+   "chave": "in_Q61",
+   "celula": "Q61",
+   "rotulo": "042. Machuca animais ou pessoas sem inte",
+   "min": 0
+  },
+  {
+   "chave": "in_U61",
+   "celula": "U61",
+   "rotulo": "042. Machuca animais ou pessoas sem inte",
+   "min": 0
+  },
+  {
+   "chave": "in_V61",
+   "celula": "V61",
+   "rotulo": "042. Machuca animais ou pessoas sem inte",
+   "min": 0
+  },
+  {
+   "chave": "in_W61",
+   "celula": "W61",
+   "rotulo": "042. Machuca animais ou pessoas sem inte",
+   "min": 0
+  },
+  {
+   "chave": "in_X61",
+   "celula": "X61",
+   "rotulo": "042. Machuca animais ou pessoas sem inte",
+   "min": 0
+  },
+  {
+   "chave": "in_O62",
+   "celula": "O62",
+   "rotulo": "043. Parece infeliz sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_P62",
+   "celula": "P62",
+   "rotulo": "043. Parece infeliz sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q62",
+   "celula": "Q62",
+   "rotulo": "043. Parece infeliz sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_U62",
+   "celula": "U62",
+   "rotulo": "043. Parece infeliz sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_V62",
+   "celula": "V62",
+   "rotulo": "043. Parece infeliz sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_W62",
+   "celula": "W62",
+   "rotulo": "043. Parece infeliz sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_X62",
+   "celula": "X62",
+   "rotulo": "043. Parece infeliz sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_O63",
+   "celula": "O63",
+   "rotulo": "044. É mal-humorado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P63",
+   "celula": "P63",
+   "rotulo": "044. É mal-humorado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q63",
+   "celula": "Q63",
+   "rotulo": "044. É mal-humorado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U63",
+   "celula": "U63",
+   "rotulo": "044. É mal-humorado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V63",
+   "celula": "V63",
+   "rotulo": "044. É mal-humorado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W63",
+   "celula": "W63",
+   "rotulo": "044. É mal-humorado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X63",
+   "celula": "X63",
+   "rotulo": "044. É mal-humorado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O64",
+   "celula": "O64",
+   "rotulo": "045. Tem náuseas, enjôo (sem causa médic",
+   "min": 0
+  },
+  {
+   "chave": "in_P64",
+   "celula": "P64",
+   "rotulo": "045. Tem náuseas, enjôo (sem causa médic",
+   "min": 0
+  },
+  {
+   "chave": "in_Q64",
+   "celula": "Q64",
+   "rotulo": "045. Tem náuseas, enjôo (sem causa médic",
+   "min": 0
+  },
+  {
+   "chave": "in_U64",
+   "celula": "U64",
+   "rotulo": "045. Tem náuseas, enjôo (sem causa médic",
+   "min": 0
+  },
+  {
+   "chave": "in_V64",
+   "celula": "V64",
+   "rotulo": "045. Tem náuseas, enjôo (sem causa médic",
+   "min": 0
+  },
+  {
+   "chave": "in_W64",
+   "celula": "W64",
+   "rotulo": "045. Tem náuseas, enjôo (sem causa médic",
+   "min": 0
+  },
+  {
+   "chave": "in_X64",
+   "celula": "X64",
+   "rotulo": "045. Tem náuseas, enjôo (sem causa médic",
+   "min": 0
+  },
+  {
+   "chave": "in_O65",
+   "celula": "O65",
+   "rotulo": "046. Tem movimentos repetitivos que não ",
+   "min": 0
+  },
+  {
+   "chave": "in_P65",
+   "celula": "P65",
+   "rotulo": "046. Tem movimentos repetitivos que não ",
+   "min": 0
+  },
+  {
+   "chave": "in_Q65",
+   "celula": "Q65",
+   "rotulo": "046. Tem movimentos repetitivos que não ",
+   "min": 0
+  },
+  {
+   "chave": "in_U65",
+   "celula": "U65",
+   "rotulo": "046. Tem movimentos repetitivos que não ",
+   "min": 0
+  },
+  {
+   "chave": "in_V65",
+   "celula": "V65",
+   "rotulo": "046. Tem movimentos repetitivos que não ",
+   "min": 0
+  },
+  {
+   "chave": "in_W65",
+   "celula": "W65",
+   "rotulo": "046. Tem movimentos repetitivos que não ",
+   "min": 0
+  },
+  {
+   "chave": "in_X65",
+   "celula": "X65",
+   "rotulo": "046. Tem movimentos repetitivos que não ",
+   "min": 0
+  },
+  {
+   "chave": "in_O66",
+   "celula": "O66",
+   "rotulo": "047. É nervoso(a) ou tenso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P66",
+   "celula": "P66",
+   "rotulo": "047. É nervoso(a) ou tenso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q66",
+   "celula": "Q66",
+   "rotulo": "047. É nervoso(a) ou tenso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O67",
+   "celula": "O67",
+   "rotulo": "048. Tem Pesadelos.",
+   "min": 0
+  },
+  {
+   "chave": "in_P67",
+   "celula": "P67",
+   "rotulo": "048. Tem Pesadelos.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q67",
+   "celula": "Q67",
+   "rotulo": "048. Tem Pesadelos.",
+   "min": 0
+  },
+  {
+   "chave": "in_U67",
+   "celula": "U67",
+   "rotulo": "048. Tem Pesadelos.",
+   "min": 0
+  },
+  {
+   "chave": "in_V67",
+   "celula": "V67",
+   "rotulo": "048. Tem Pesadelos.",
+   "min": 0
+  },
+  {
+   "chave": "in_W67",
+   "celula": "W67",
+   "rotulo": "048. Tem Pesadelos.",
+   "min": 0
+  },
+  {
+   "chave": "in_X67",
+   "celula": "X67",
+   "rotulo": "048. Tem Pesadelos.",
+   "min": 0
+  },
+  {
+   "chave": "in_O68",
+   "celula": "O68",
+   "rotulo": "049. Come demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_P68",
+   "celula": "P68",
+   "rotulo": "049. Come demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q68",
+   "celula": "Q68",
+   "rotulo": "049. Come demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_U68",
+   "celula": "U68",
+   "rotulo": "049. Come demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_V68",
+   "celula": "V68",
+   "rotulo": "049. Come demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_W68",
+   "celula": "W68",
+   "rotulo": "049. Come demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_X68",
+   "celula": "X68",
+   "rotulo": "049. Come demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_O69",
+   "celula": "O69",
+   "rotulo": "050. Sente-se cansado(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_P69",
+   "celula": "P69",
+   "rotulo": "050. Sente-se cansado(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q69",
+   "celula": "Q69",
+   "rotulo": "050. Sente-se cansado(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_U69",
+   "celula": "U69",
+   "rotulo": "050. Sente-se cansado(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_V69",
+   "celula": "V69",
+   "rotulo": "050. Sente-se cansado(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_W69",
+   "celula": "W69",
+   "rotulo": "050. Sente-se cansado(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_X69",
+   "celula": "X69",
+   "rotulo": "050. Sente-se cansado(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_O70",
+   "celula": "O70",
+   "rotulo": "051. Entra em pânico sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_P70",
+   "celula": "P70",
+   "rotulo": "051. Entra em pânico sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q70",
+   "celula": "Q70",
+   "rotulo": "051. Entra em pânico sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_U70",
+   "celula": "U70",
+   "rotulo": "051. Entra em pânico sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_V70",
+   "celula": "V70",
+   "rotulo": "051. Entra em pânico sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_W70",
+   "celula": "W70",
+   "rotulo": "051. Entra em pânico sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_X70",
+   "celula": "X70",
+   "rotulo": "051. Entra em pânico sem um bom motivo.",
+   "min": 0
+  },
+  {
+   "chave": "in_O71",
+   "celula": "O71",
+   "rotulo": "052. Sente dores na barriga (sem causa m",
+   "min": 0
+  },
+  {
+   "chave": "in_P71",
+   "celula": "P71",
+   "rotulo": "052. Sente dores na barriga (sem causa m",
+   "min": 0
+  },
+  {
+   "chave": "in_Q71",
+   "celula": "Q71",
+   "rotulo": "052. Sente dores na barriga (sem causa m",
+   "min": 0
+  },
+  {
+   "chave": "in_U71",
+   "celula": "U71",
+   "rotulo": "052. Sente dores na barriga (sem causa m",
+   "min": 0
+  },
+  {
+   "chave": "in_V71",
+   "celula": "V71",
+   "rotulo": "052. Sente dores na barriga (sem causa m",
+   "min": 0
+  },
+  {
+   "chave": "in_W71",
+   "celula": "W71",
+   "rotulo": "052. Sente dores na barriga (sem causa m",
+   "min": 0
+  },
+  {
+   "chave": "in_X71",
+   "celula": "X71",
+   "rotulo": "052. Sente dores na barriga (sem causa m",
+   "min": 0
+  },
+  {
+   "chave": "in_O72",
+   "celula": "O72",
+   "rotulo": "053. Come exageradamente",
+   "min": 0
+  },
+  {
+   "chave": "in_P72",
+   "celula": "P72",
+   "rotulo": "053. Come exageradamente",
+   "min": 0
+  },
+  {
+   "chave": "in_Q72",
+   "celula": "Q72",
+   "rotulo": "053. Come exageradamente",
+   "min": 0
+  },
+  {
+   "chave": "in_U72",
+   "celula": "U72",
+   "rotulo": "053. Come exageradamente",
+   "min": 0
+  },
+  {
+   "chave": "in_V72",
+   "celula": "V72",
+   "rotulo": "053. Come exageradamente",
+   "min": 0
+  },
+  {
+   "chave": "in_W72",
+   "celula": "W72",
+   "rotulo": "053. Come exageradamente",
+   "min": 0
+  },
+  {
+   "chave": "in_X72",
+   "celula": "X72",
+   "rotulo": "053. Come exageradamente",
+   "min": 0
+  },
+  {
+   "chave": "in_O73",
+   "celula": "O73",
+   "rotulo": "054. Sente-se cansado demais sem motivo",
+   "min": 0
+  },
+  {
+   "chave": "in_P73",
+   "celula": "P73",
+   "rotulo": "054. Sente-se cansado demais sem motivo",
+   "min": 0
+  },
+  {
+   "chave": "in_Q73",
+   "celula": "Q73",
+   "rotulo": "054. Sente-se cansado demais sem motivo",
+   "min": 0
+  },
+  {
+   "chave": "in_U73",
+   "celula": "U73",
+   "rotulo": "054. Sente-se cansado demais sem motivo",
+   "min": 0
+  },
+  {
+   "chave": "in_V73",
+   "celula": "V73",
+   "rotulo": "054. Sente-se cansado demais sem motivo",
+   "min": 0
+  },
+  {
+   "chave": "in_W73",
+   "celula": "W73",
+   "rotulo": "054. Sente-se cansado demais sem motivo",
+   "min": 0
+  },
+  {
+   "chave": "in_X73",
+   "celula": "X73",
+   "rotulo": "054. Sente-se cansado demais sem motivo",
+   "min": 0
+  },
+  {
+   "chave": "in_O74",
+   "celula": "O74",
+   "rotulo": "055. Mexe demais nas partes íntimas do c",
+   "min": 0
+  },
+  {
+   "chave": "in_P74",
+   "celula": "P74",
+   "rotulo": "055. Mexe demais nas partes íntimas do c",
+   "min": 0
+  },
+  {
+   "chave": "in_Q74",
+   "celula": "Q74",
+   "rotulo": "055. Mexe demais nas partes íntimas do c",
+   "min": 0
+  },
+  {
+   "chave": "in_U74",
+   "celula": "U74",
+   "rotulo": "055. Mexe demais nas partes íntimas do c",
+   "min": 0
+  },
+  {
+   "chave": "in_V74",
+   "celula": "V74",
+   "rotulo": "055. Mexe demais nas partes íntimas do c",
+   "min": 0
+  },
+  {
+   "chave": "in_W74",
+   "celula": "W74",
+   "rotulo": "055. Mexe demais nas partes íntimas do c",
+   "min": 0
+  },
+  {
+   "chave": "in_X74",
+   "celula": "X74",
+   "rotulo": "055. Mexe demais nas partes íntimas do c",
+   "min": 0
+  },
+  {
+   "chave": "in_O75",
+   "celula": "O75",
+   "rotulo": "056. É desajeitado(a), tem má coordenaçã",
+   "min": 0
+  },
+  {
+   "chave": "in_P75",
+   "celula": "P75",
+   "rotulo": "056. É desajeitado(a), tem má coordenaçã",
+   "min": 0
+  },
+  {
+   "chave": "in_Q75",
+   "celula": "Q75",
+   "rotulo": "056. É desajeitado(a), tem má coordenaçã",
+   "min": 0
+  },
+  {
+   "chave": "in_U75",
+   "celula": "U75",
+   "rotulo": "056. É desajeitado(a), tem má coordenaçã",
+   "min": 0
+  },
+  {
+   "chave": "in_V75",
+   "celula": "V75",
+   "rotulo": "056. É desajeitado(a), tem má coordenaçã",
+   "min": 0
+  },
+  {
+   "chave": "in_W75",
+   "celula": "W75",
+   "rotulo": "056. É desajeitado(a), tem má coordenaçã",
+   "min": 0
+  },
+  {
+   "chave": "in_X75",
+   "celula": "X75",
+   "rotulo": "056. É desajeitado(a), tem má coordenaçã",
+   "min": 0
+  },
+  {
+   "chave": "in_O76",
+   "celula": "O76",
+   "rotulo": "057. Tem problema com os olhos (sem caus",
+   "min": 0
+  },
+  {
+   "chave": "in_P76",
+   "celula": "P76",
+   "rotulo": "057. Tem problema com os olhos (sem caus",
+   "min": 0
+  },
+  {
+   "chave": "in_Q76",
+   "celula": "Q76",
+   "rotulo": "057. Tem problema com os olhos (sem caus",
+   "min": 0
+  },
+  {
+   "chave": "in_U76",
+   "celula": "U76",
+   "rotulo": "057. Tem problema com os olhos (sem caus",
+   "min": 0
+  },
+  {
+   "chave": "in_V76",
+   "celula": "V76",
+   "rotulo": "057. Tem problema com os olhos (sem caus",
+   "min": 0
+  },
+  {
+   "chave": "in_W76",
+   "celula": "W76",
+   "rotulo": "057. Tem problema com os olhos (sem caus",
+   "min": 0
+  },
+  {
+   "chave": "in_X76",
+   "celula": "X76",
+   "rotulo": "057. Tem problema com os olhos (sem caus",
+   "min": 0
+  },
+  {
+   "chave": "in_O77",
+   "celula": "O77",
+   "rotulo": "058. Seu comportamento não muda com puni",
+   "min": 0
+  },
+  {
+   "chave": "in_P77",
+   "celula": "P77",
+   "rotulo": "058. Seu comportamento não muda com puni",
+   "min": 0
+  },
+  {
+   "chave": "in_Q77",
+   "celula": "Q77",
+   "rotulo": "058. Seu comportamento não muda com puni",
+   "min": 0
+  },
+  {
+   "chave": "in_U77",
+   "celula": "U77",
+   "rotulo": "058. Seu comportamento não muda com puni",
+   "min": 0
+  },
+  {
+   "chave": "in_V77",
+   "celula": "V77",
+   "rotulo": "058. Seu comportamento não muda com puni",
+   "min": 0
+  },
+  {
+   "chave": "in_W77",
+   "celula": "W77",
+   "rotulo": "058. Seu comportamento não muda com puni",
+   "min": 0
+  },
+  {
+   "chave": "in_X77",
+   "celula": "X77",
+   "rotulo": "058. Seu comportamento não muda com puni",
+   "min": 0
+  },
+  {
+   "chave": "in_O78",
+   "celula": "O78",
+   "rotulo": "059. Muda de uma atividade para outra ra",
+   "min": 0
+  },
+  {
+   "chave": "in_P78",
+   "celula": "P78",
+   "rotulo": "059. Muda de uma atividade para outra ra",
+   "min": 0
+  },
+  {
+   "chave": "in_Q78",
+   "celula": "Q78",
+   "rotulo": "059. Muda de uma atividade para outra ra",
+   "min": 0
+  },
+  {
+   "chave": "in_U78",
+   "celula": "U78",
+   "rotulo": "059. Muda de uma atividade para outra ra",
+   "min": 0
+  },
+  {
+   "chave": "in_V78",
+   "celula": "V78",
+   "rotulo": "059. Muda de uma atividade para outra ra",
+   "min": 0
+  },
+  {
+   "chave": "in_W78",
+   "celula": "W78",
+   "rotulo": "059. Muda de uma atividade para outra ra",
+   "min": 0
+  },
+  {
+   "chave": "in_X78",
+   "celula": "X78",
+   "rotulo": "059. Muda de uma atividade para outra ra",
+   "min": 0
+  },
+  {
+   "chave": "in_O79",
+   "celula": "O79",
+   "rotulo": "060. Tem assaduras ou outros problemas d",
+   "min": 0
+  },
+  {
+   "chave": "in_P79",
+   "celula": "P79",
+   "rotulo": "060. Tem assaduras ou outros problemas d",
+   "min": 0
+  },
+  {
+   "chave": "in_Q79",
+   "celula": "Q79",
+   "rotulo": "060. Tem assaduras ou outros problemas d",
+   "min": 0
+  },
+  {
+   "chave": "in_U79",
+   "celula": "U79",
+   "rotulo": "060. Tem assaduras ou outros problemas d",
+   "min": 0
+  },
+  {
+   "chave": "in_V79",
+   "celula": "V79",
+   "rotulo": "060. Tem assaduras ou outros problemas d",
+   "min": 0
+  },
+  {
+   "chave": "in_W79",
+   "celula": "W79",
+   "rotulo": "060. Tem assaduras ou outros problemas d",
+   "min": 0
+  },
+  {
+   "chave": "in_X79",
+   "celula": "X79",
+   "rotulo": "060. Tem assaduras ou outros problemas d",
+   "min": 0
+  },
+  {
+   "chave": "in_O80",
+   "celula": "O80",
+   "rotulo": "061. Recusa-se a comer.",
+   "min": 0
+  },
+  {
+   "chave": "in_P80",
+   "celula": "P80",
+   "rotulo": "061. Recusa-se a comer.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q80",
+   "celula": "Q80",
+   "rotulo": "061. Recusa-se a comer.",
+   "min": 0
+  },
+  {
+   "chave": "in_U80",
+   "celula": "U80",
+   "rotulo": "061. Recusa-se a comer.",
+   "min": 0
+  },
+  {
+   "chave": "in_V80",
+   "celula": "V80",
+   "rotulo": "061. Recusa-se a comer.",
+   "min": 0
+  },
+  {
+   "chave": "in_W80",
+   "celula": "W80",
+   "rotulo": "061. Recusa-se a comer.",
+   "min": 0
+  },
+  {
+   "chave": "in_X80",
+   "celula": "X80",
+   "rotulo": "061. Recusa-se a comer.",
+   "min": 0
+  },
+  {
+   "chave": "in_O81",
+   "celula": "O81",
+   "rotulo": "062. Recusa-se a brincar de jogos movime",
+   "min": 0
+  },
+  {
+   "chave": "in_P81",
+   "celula": "P81",
+   "rotulo": "062. Recusa-se a brincar de jogos movime",
+   "min": 0
+  },
+  {
+   "chave": "in_Q81",
+   "celula": "Q81",
+   "rotulo": "062. Recusa-se a brincar de jogos movime",
+   "min": 0
+  },
+  {
+   "chave": "in_U81",
+   "celula": "U81",
+   "rotulo": "062. Recusa-se a brincar de jogos movime",
+   "min": 0
+  },
+  {
+   "chave": "in_V81",
+   "celula": "V81",
+   "rotulo": "062. Recusa-se a brincar de jogos movime",
+   "min": 0
+  },
+  {
+   "chave": "in_W81",
+   "celula": "W81",
+   "rotulo": "062. Recusa-se a brincar de jogos movime",
+   "min": 0
+  },
+  {
+   "chave": "in_X81",
+   "celula": "X81",
+   "rotulo": "062. Recusa-se a brincar de jogos movime",
+   "min": 0
+  },
+  {
+   "chave": "in_O82",
+   "celula": "O82",
+   "rotulo": "063. Balança a cabeça ou o corpo repetid",
+   "min": 0
+  },
+  {
+   "chave": "in_P82",
+   "celula": "P82",
+   "rotulo": "063. Balança a cabeça ou o corpo repetid",
+   "min": 0
+  },
+  {
+   "chave": "in_Q82",
+   "celula": "Q82",
+   "rotulo": "063. Balança a cabeça ou o corpo repetid",
+   "min": 0
+  },
+  {
+   "chave": "in_U82",
+   "celula": "U82",
+   "rotulo": "063. Balança a cabeça ou o corpo repetid",
+   "min": 0
+  },
+  {
+   "chave": "in_V82",
+   "celula": "V82",
+   "rotulo": "063. Balança a cabeça ou o corpo repetid",
+   "min": 0
+  },
+  {
+   "chave": "in_W82",
+   "celula": "W82",
+   "rotulo": "063. Balança a cabeça ou o corpo repetid",
+   "min": 0
+  },
+  {
+   "chave": "in_X82",
+   "celula": "X82",
+   "rotulo": "063. Balança a cabeça ou o corpo repetid",
+   "min": 0
+  },
+  {
+   "chave": "in_O83",
+   "celula": "O83",
+   "rotulo": "064. Resiste a ir para a cama à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_P83",
+   "celula": "P83",
+   "rotulo": "064. Resiste a ir para a cama à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q83",
+   "celula": "Q83",
+   "rotulo": "064. Resiste a ir para a cama à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_U83",
+   "celula": "U83",
+   "rotulo": "064. Resiste a ir para a cama à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_V83",
+   "celula": "V83",
+   "rotulo": "064. Resiste a ir para a cama à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_W83",
+   "celula": "W83",
+   "rotulo": "064. Resiste a ir para a cama à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_X83",
+   "celula": "X83",
+   "rotulo": "064. Resiste a ir para a cama à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_O84",
+   "celula": "O84",
+   "rotulo": "065. Resiste ao treinamento para o uso d",
+   "min": 0
+  },
+  {
+   "chave": "in_P84",
+   "celula": "P84",
+   "rotulo": "065. Resiste ao treinamento para o uso d",
+   "min": 0
+  },
+  {
+   "chave": "in_Q84",
+   "celula": "Q84",
+   "rotulo": "065. Resiste ao treinamento para o uso d",
+   "min": 0
+  },
+  {
+   "chave": "in_U84",
+   "celula": "U84",
+   "rotulo": "065. Resiste ao treinamento para o uso d",
+   "min": 0
+  },
+  {
+   "chave": "in_V84",
+   "celula": "V84",
+   "rotulo": "065. Resiste ao treinamento para o uso d",
+   "min": 0
+  },
+  {
+   "chave": "in_W84",
+   "celula": "W84",
+   "rotulo": "065. Resiste ao treinamento para o uso d",
+   "min": 0
+  },
+  {
+   "chave": "in_X84",
+   "celula": "X84",
+   "rotulo": "065. Resiste ao treinamento para o uso d",
+   "min": 0
+  },
+  {
+   "chave": "in_O85",
+   "celula": "O85",
+   "rotulo": "066. Grita muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_P85",
+   "celula": "P85",
+   "rotulo": "066. Grita muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q85",
+   "celula": "Q85",
+   "rotulo": "066. Grita muito.",
+   "min": 0
+  },
+  {
+   "chave": "in_O86",
+   "celula": "O86",
+   "rotulo": "067. Parece não corresponder a afeto (ca",
+   "min": 0
+  },
+  {
+   "chave": "in_P86",
+   "celula": "P86",
+   "rotulo": "067. Parece não corresponder a afeto (ca",
+   "min": 0
+  },
+  {
+   "chave": "in_Q86",
+   "celula": "Q86",
+   "rotulo": "067. Parece não corresponder a afeto (ca",
+   "min": 0
+  },
+  {
+   "chave": "in_U86",
+   "celula": "U86",
+   "rotulo": "067. Parece não corresponder a afeto (ca",
+   "min": 0
+  },
+  {
+   "chave": "in_V86",
+   "celula": "V86",
+   "rotulo": "067. Parece não corresponder a afeto (ca",
+   "min": 0
+  },
+  {
+   "chave": "in_W86",
+   "celula": "W86",
+   "rotulo": "067. Parece não corresponder a afeto (ca",
+   "min": 0
+  },
+  {
+   "chave": "in_X86",
+   "celula": "X86",
+   "rotulo": "067. Parece não corresponder a afeto (ca",
+   "min": 0
+  },
+  {
+   "chave": "in_O87",
+   "celula": "O87",
+   "rotulo": "068. Fica sem jeito na frente das pessoa",
+   "min": 0
+  },
+  {
+   "chave": "in_P87",
+   "celula": "P87",
+   "rotulo": "068. Fica sem jeito na frente das pessoa",
+   "min": 0
+  },
+  {
+   "chave": "in_Q87",
+   "celula": "Q87",
+   "rotulo": "068. Fica sem jeito na frente das pessoa",
+   "min": 0
+  },
+  {
+   "chave": "in_U87",
+   "celula": "U87",
+   "rotulo": "068. Fica sem jeito na frente das pessoa",
+   "min": 0
+  },
+  {
+   "chave": "in_V87",
+   "celula": "V87",
+   "rotulo": "068. Fica sem jeito na frente das pessoa",
+   "min": 0
+  },
+  {
+   "chave": "in_W87",
+   "celula": "W87",
+   "rotulo": "068. Fica sem jeito na frente das pessoa",
+   "min": 0
+  },
+  {
+   "chave": "in_X87",
+   "celula": "X87",
+   "rotulo": "068. Fica sem jeito na frente das pessoa",
+   "min": 0
+  },
+  {
+   "chave": "in_O88",
+   "celula": "O88",
+   "rotulo": "069. É egoista ou não divide.",
+   "min": 0
+  },
+  {
+   "chave": "in_P88",
+   "celula": "P88",
+   "rotulo": "069. É egoista ou não divide.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q88",
+   "celula": "Q88",
+   "rotulo": "069. É egoista ou não divide.",
+   "min": 0
+  },
+  {
+   "chave": "in_U88",
+   "celula": "U88",
+   "rotulo": "069. É egoista ou não divide.",
+   "min": 0
+  },
+  {
+   "chave": "in_V88",
+   "celula": "V88",
+   "rotulo": "069. É egoista ou não divide.",
+   "min": 0
+  },
+  {
+   "chave": "in_W88",
+   "celula": "W88",
+   "rotulo": "069. É egoista ou não divide.",
+   "min": 0
+  },
+  {
+   "chave": "in_X88",
+   "celula": "X88",
+   "rotulo": "069. É egoista ou não divide.",
+   "min": 0
+  },
+  {
+   "chave": "in_O89",
+   "celula": "O89",
+   "rotulo": "070. Mostra pouco afeto (carinho) pelas ",
+   "min": 0
+  },
+  {
+   "chave": "in_P89",
+   "celula": "P89",
+   "rotulo": "070. Mostra pouco afeto (carinho) pelas ",
+   "min": 0
+  },
+  {
+   "chave": "in_Q89",
+   "celula": "Q89",
+   "rotulo": "070. Mostra pouco afeto (carinho) pelas ",
+   "min": 0
+  },
+  {
+   "chave": "in_U89",
+   "celula": "U89",
+   "rotulo": "070. Mostra pouco afeto (carinho) pelas ",
+   "min": 0
+  },
+  {
+   "chave": "in_V89",
+   "celula": "V89",
+   "rotulo": "070. Mostra pouco afeto (carinho) pelas ",
+   "min": 0
+  },
+  {
+   "chave": "in_W89",
+   "celula": "W89",
+   "rotulo": "070. Mostra pouco afeto (carinho) pelas ",
+   "min": 0
+  },
+  {
+   "chave": "in_X89",
+   "celula": "X89",
+   "rotulo": "070. Mostra pouco afeto (carinho) pelas ",
+   "min": 0
+  },
+  {
+   "chave": "in_O90",
+   "celula": "O90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_P90",
+   "celula": "P90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_Q90",
+   "celula": "Q90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_U90",
+   "celula": "U90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_V90",
+   "celula": "V90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_W90",
+   "celula": "W90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_X90",
+   "celula": "X90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_Y90",
+   "celula": "Y90",
+   "rotulo": "071. Mostra pouco interesse pelas coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_O91",
+   "celula": "O91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_P91",
+   "celula": "P91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q91",
+   "celula": "Q91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_U91",
+   "celula": "U91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_V91",
+   "celula": "V91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_W91",
+   "celula": "W91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_X91",
+   "celula": "X91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_Y91",
+   "celula": "Y91",
+   "rotulo": "072. Mostra pouco medo de se machucar.",
+   "min": 0
+  },
+  {
+   "chave": "in_O92",
+   "celula": "O92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P92",
+   "celula": "P92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q92",
+   "celula": "Q92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U92",
+   "celula": "U92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V92",
+   "celula": "V92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W92",
+   "celula": "W92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X92",
+   "celula": "X92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Y92",
+   "celula": "Y92",
+   "rotulo": "073. É muito acanhado(a) ou tímido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O93",
+   "celula": "O93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_P93",
+   "celula": "P93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_Q93",
+   "celula": "Q93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_U93",
+   "celula": "U93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_V93",
+   "celula": "V93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_W93",
+   "celula": "W93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_X93",
+   "celula": "X93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_Y93",
+   "celula": "Y93",
+   "rotulo": "074. Dorme menos do que a maioria das cr",
+   "min": 0
+  },
+  {
+   "chave": "in_O94",
+   "celula": "O94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_P94",
+   "celula": "P94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q94",
+   "celula": "Q94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_U94",
+   "celula": "U94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_V94",
+   "celula": "V94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_W94",
+   "celula": "W94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_X94",
+   "celula": "X94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_Y94",
+   "celula": "Y94",
+   "rotulo": "075. Suja-se ou brinca com as fezes.",
+   "min": 0
+  },
+  {
+   "chave": "in_O95",
+   "celula": "O95",
+   "rotulo": "076. Tem problema de fala.",
+   "min": 0
+  },
+  {
+   "chave": "in_P95",
+   "celula": "P95",
+   "rotulo": "076. Tem problema de fala.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q95",
+   "celula": "Q95",
+   "rotulo": "076. Tem problema de fala.",
+   "min": 0
+  },
+  {
+   "chave": "in_U95",
+   "celula": "U95",
+   "rotulo": "076. Tem problema de fala.",
+   "min": 0
+  },
+  {
+   "chave": "in_V95",
+   "celula": "V95",
+   "rotulo": "076. Tem problema de fala.",
+   "min": 0
+  },
+  {
+   "chave": "in_W95",
+   "celula": "W95",
+   "rotulo": "076. Tem problema de fala.",
+   "min": 0
+  },
+  {
+   "chave": "in_X95",
+   "celula": "X95",
+   "rotulo": "076. Tem problema de fala.",
+   "min": 0
+  },
+  {
+   "chave": "in_O96",
+   "celula": "O96",
+   "rotulo": "077. Fica com o olhar parado ou parece p",
+   "min": 0
+  },
+  {
+   "chave": "in_P96",
+   "celula": "P96",
+   "rotulo": "077. Fica com o olhar parado ou parece p",
+   "min": 0
+  },
+  {
+   "chave": "in_Q96",
+   "celula": "Q96",
+   "rotulo": "077. Fica com o olhar parado ou parece p",
+   "min": 0
+  },
+  {
+   "chave": "in_U96",
+   "celula": "U96",
+   "rotulo": "077. Fica com o olhar parado ou parece p",
+   "min": 0
+  },
+  {
+   "chave": "in_V96",
+   "celula": "V96",
+   "rotulo": "077. Fica com o olhar parado ou parece p",
+   "min": 0
+  },
+  {
+   "chave": "in_W96",
+   "celula": "W96",
+   "rotulo": "077. Fica com o olhar parado ou parece p",
+   "min": 0
+  },
+  {
+   "chave": "in_X96",
+   "celula": "X96",
+   "rotulo": "077. Fica com o olhar parado ou parece p",
+   "min": 0
+  },
+  {
+   "chave": "in_O97",
+   "celula": "O97",
+   "rotulo": "078. Tem dores de estômago ou cólicas (s",
+   "min": 0
+  },
+  {
+   "chave": "in_P97",
+   "celula": "P97",
+   "rotulo": "078. Tem dores de estômago ou cólicas (s",
+   "min": 0
+  },
+  {
+   "chave": "in_Q97",
+   "celula": "Q97",
+   "rotulo": "078. Tem dores de estômago ou cólicas (s",
+   "min": 0
+  },
+  {
+   "chave": "in_U97",
+   "celula": "U97",
+   "rotulo": "078. Tem dores de estômago ou cólicas (s",
+   "min": 0
+  },
+  {
+   "chave": "in_V97",
+   "celula": "V97",
+   "rotulo": "078. Tem dores de estômago ou cólicas (s",
+   "min": 0
+  },
+  {
+   "chave": "in_W97",
+   "celula": "W97",
+   "rotulo": "078. Tem dores de estômago ou cólicas (s",
+   "min": 0
+  },
+  {
+   "chave": "in_X97",
+   "celula": "X97",
+   "rotulo": "078. Tem dores de estômago ou cólicas (s",
+   "min": 0
+  },
+  {
+   "chave": "in_O98",
+   "celula": "O98",
+   "rotulo": "079. Muda rapidamente da tristeza para a",
+   "min": 0
+  },
+  {
+   "chave": "in_P98",
+   "celula": "P98",
+   "rotulo": "079. Muda rapidamente da tristeza para a",
+   "min": 0
+  },
+  {
+   "chave": "in_Q98",
+   "celula": "Q98",
+   "rotulo": "079. Muda rapidamente da tristeza para a",
+   "min": 0
+  },
+  {
+   "chave": "in_U98",
+   "celula": "U98",
+   "rotulo": "079. Muda rapidamente da tristeza para a",
+   "min": 0
+  },
+  {
+   "chave": "in_V98",
+   "celula": "V98",
+   "rotulo": "079. Muda rapidamente da tristeza para a",
+   "min": 0
+  },
+  {
+   "chave": "in_W98",
+   "celula": "W98",
+   "rotulo": "079. Muda rapidamente da tristeza para a",
+   "min": 0
+  },
+  {
+   "chave": "in_X98",
+   "celula": "X98",
+   "rotulo": "079. Muda rapidamente da tristeza para a",
+   "min": 0
+  },
+  {
+   "chave": "in_O99",
+   "celula": "O99",
+   "rotulo": "080. Tem comportamento estranho.",
+   "min": 0
+  },
+  {
+   "chave": "in_P99",
+   "celula": "P99",
+   "rotulo": "080. Tem comportamento estranho.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q99",
+   "celula": "Q99",
+   "rotulo": "080. Tem comportamento estranho.",
+   "min": 0
+  },
+  {
+   "chave": "in_U99",
+   "celula": "U99",
+   "rotulo": "080. Tem comportamento estranho.",
+   "min": 0
+  },
+  {
+   "chave": "in_V99",
+   "celula": "V99",
+   "rotulo": "080. Tem comportamento estranho.",
+   "min": 0
+  },
+  {
+   "chave": "in_W99",
+   "celula": "W99",
+   "rotulo": "080. Tem comportamento estranho.",
+   "min": 0
+  },
+  {
+   "chave": "in_X99",
+   "celula": "X99",
+   "rotulo": "080. Tem comportamento estranho.",
+   "min": 0
+  },
+  {
+   "chave": "in_O100",
+   "celula": "O100",
+   "rotulo": "081. É teimoso(a) mal-humorado(a) ou fác",
+   "min": 0
+  },
+  {
+   "chave": "in_P100",
+   "celula": "P100",
+   "rotulo": "081. É teimoso(a) mal-humorado(a) ou fác",
+   "min": 0
+  },
+  {
+   "chave": "in_Q100",
+   "celula": "Q100",
+   "rotulo": "081. É teimoso(a) mal-humorado(a) ou fác",
+   "min": 0
+  },
+  {
+   "chave": "in_U100",
+   "celula": "U100",
+   "rotulo": "081. É teimoso(a) mal-humorado(a) ou fác",
+   "min": 0
+  },
+  {
+   "chave": "in_V100",
+   "celula": "V100",
+   "rotulo": "081. É teimoso(a) mal-humorado(a) ou fác",
+   "min": 0
+  },
+  {
+   "chave": "in_W100",
+   "celula": "W100",
+   "rotulo": "081. É teimoso(a) mal-humorado(a) ou fác",
+   "min": 0
+  },
+  {
+   "chave": "in_X100",
+   "celula": "X100",
+   "rotulo": "081. É teimoso(a) mal-humorado(a) ou fác",
+   "min": 0
+  },
+  {
+   "chave": "in_O101",
+   "celula": "O101",
+   "rotulo": "082. Tem mudanças repentinas de humor ou",
+   "min": 0
+  },
+  {
+   "chave": "in_P101",
+   "celula": "P101",
+   "rotulo": "082. Tem mudanças repentinas de humor ou",
+   "min": 0
+  },
+  {
+   "chave": "in_Q101",
+   "celula": "Q101",
+   "rotulo": "082. Tem mudanças repentinas de humor ou",
+   "min": 0
+  },
+  {
+   "chave": "in_U101",
+   "celula": "U101",
+   "rotulo": "082. Tem mudanças repentinas de humor ou",
+   "min": 0
+  },
+  {
+   "chave": "in_V101",
+   "celula": "V101",
+   "rotulo": "082. Tem mudanças repentinas de humor ou",
+   "min": 0
+  },
+  {
+   "chave": "in_W101",
+   "celula": "W101",
+   "rotulo": "082. Tem mudanças repentinas de humor ou",
+   "min": 0
+  },
+  {
+   "chave": "in_X101",
+   "celula": "X101",
+   "rotulo": "082. Tem mudanças repentinas de humor ou",
+   "min": 0
+  },
+  {
+   "chave": "in_O102",
+   "celula": "O102",
+   "rotulo": "083. Fica emburrado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_P102",
+   "celula": "P102",
+   "rotulo": "083. Fica emburrado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q102",
+   "celula": "Q102",
+   "rotulo": "083. Fica emburrado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_U102",
+   "celula": "U102",
+   "rotulo": "083. Fica emburrado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_V102",
+   "celula": "V102",
+   "rotulo": "083. Fica emburrado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_W102",
+   "celula": "W102",
+   "rotulo": "083. Fica emburrado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_X102",
+   "celula": "X102",
+   "rotulo": "083. Fica emburrado(a) facilmente.",
+   "min": 0
+  },
+  {
+   "chave": "in_O103",
+   "celula": "O103",
+   "rotulo": "084. Fala ou chora durante o sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_P103",
+   "celula": "P103",
+   "rotulo": "084. Fala ou chora durante o sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q103",
+   "celula": "Q103",
+   "rotulo": "084. Fala ou chora durante o sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_U103",
+   "celula": "U103",
+   "rotulo": "084. Fala ou chora durante o sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_V103",
+   "celula": "V103",
+   "rotulo": "084. Fala ou chora durante o sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_W103",
+   "celula": "W103",
+   "rotulo": "084. Fala ou chora durante o sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_X103",
+   "celula": "X103",
+   "rotulo": "084. Fala ou chora durante o sono.",
+   "min": 0
+  },
+  {
+   "chave": "in_O104",
+   "celula": "O104",
+   "rotulo": "085. Faz birra ou é esquentado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P104",
+   "celula": "P104",
+   "rotulo": "085. Faz birra ou é esquentado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q104",
+   "celula": "Q104",
+   "rotulo": "085. Faz birra ou é esquentado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U104",
+   "celula": "U104",
+   "rotulo": "085. Faz birra ou é esquentado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V104",
+   "celula": "V104",
+   "rotulo": "085. Faz birra ou é esquentado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W104",
+   "celula": "W104",
+   "rotulo": "085. Faz birra ou é esquentado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X104",
+   "celula": "X104",
+   "rotulo": "085. Faz birra ou é esquentado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O105",
+   "celula": "O105",
+   "rotulo": "086. É muito preocupado(a) com organizaç",
+   "min": 0
+  },
+  {
+   "chave": "in_P105",
+   "celula": "P105",
+   "rotulo": "086. É muito preocupado(a) com organizaç",
+   "min": 0
+  },
+  {
+   "chave": "in_Q105",
+   "celula": "Q105",
+   "rotulo": "086. É muito preocupado(a) com organizaç",
+   "min": 0
+  },
+  {
+   "chave": "in_U105",
+   "celula": "U105",
+   "rotulo": "086. É muito preocupado(a) com organizaç",
+   "min": 0
+  },
+  {
+   "chave": "in_V105",
+   "celula": "V105",
+   "rotulo": "086. É muito preocupado(a) com organizaç",
+   "min": 0
+  },
+  {
+   "chave": "in_W105",
+   "celula": "W105",
+   "rotulo": "086. É muito preocupado(a) com organizaç",
+   "min": 0
+  },
+  {
+   "chave": "in_X105",
+   "celula": "X105",
+   "rotulo": "086. É muito preocupado(a) com organizaç",
+   "min": 0
+  },
+  {
+   "chave": "in_O106",
+   "celula": "O106",
+   "rotulo": "087. É muito medroso(a) ou ansioso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P106",
+   "celula": "P106",
+   "rotulo": "087. É muito medroso(a) ou ansioso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q106",
+   "celula": "Q106",
+   "rotulo": "087. É muito medroso(a) ou ansioso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U106",
+   "celula": "U106",
+   "rotulo": "087. É muito medroso(a) ou ansioso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V106",
+   "celula": "V106",
+   "rotulo": "087. É muito medroso(a) ou ansioso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W106",
+   "celula": "W106",
+   "rotulo": "087. É muito medroso(a) ou ansioso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X106",
+   "celula": "X106",
+   "rotulo": "087. É muito medroso(a) ou ansioso(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O107",
+   "celula": "O107",
+   "rotulo": "088. Não é cooperativo(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P107",
+   "celula": "P107",
+   "rotulo": "088. Não é cooperativo(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q107",
+   "celula": "Q107",
+   "rotulo": "088. Não é cooperativo(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U107",
+   "celula": "U107",
+   "rotulo": "088. Não é cooperativo(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V107",
+   "celula": "V107",
+   "rotulo": "088. Não é cooperativo(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W107",
+   "celula": "W107",
+   "rotulo": "088. Não é cooperativo(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X107",
+   "celula": "X107",
+   "rotulo": "088. Não é cooperativo(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O108",
+   "celula": "O108",
+   "rotulo": "089. É pouco ativo(a), seus movimentos s",
+   "min": 0
+  },
+  {
+   "chave": "in_P108",
+   "celula": "P108",
+   "rotulo": "089. É pouco ativo(a), seus movimentos s",
+   "min": 0
+  },
+  {
+   "chave": "in_Q108",
+   "celula": "Q108",
+   "rotulo": "089. É pouco ativo(a), seus movimentos s",
+   "min": 0
+  },
+  {
+   "chave": "in_U108",
+   "celula": "U108",
+   "rotulo": "089. É pouco ativo(a), seus movimentos s",
+   "min": 0
+  },
+  {
+   "chave": "in_V108",
+   "celula": "V108",
+   "rotulo": "089. É pouco ativo(a), seus movimentos s",
+   "min": 0
+  },
+  {
+   "chave": "in_W108",
+   "celula": "W108",
+   "rotulo": "089. É pouco ativo(a), seus movimentos s",
+   "min": 0
+  },
+  {
+   "chave": "in_X108",
+   "celula": "X108",
+   "rotulo": "089. É pouco ativo(a), seus movimentos s",
+   "min": 0
+  },
+  {
+   "chave": "in_O109",
+   "celula": "O109",
+   "rotulo": "090. É infeliz, triste ou deprimido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P109",
+   "celula": "P109",
+   "rotulo": "090. É infeliz, triste ou deprimido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q109",
+   "celula": "Q109",
+   "rotulo": "090. É infeliz, triste ou deprimido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U109",
+   "celula": "U109",
+   "rotulo": "090. É infeliz, triste ou deprimido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V109",
+   "celula": "V109",
+   "rotulo": "090. É infeliz, triste ou deprimido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W109",
+   "celula": "W109",
+   "rotulo": "090. É infeliz, triste ou deprimido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X109",
+   "celula": "X109",
+   "rotulo": "090. É infeliz, triste ou deprimido(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O110",
+   "celula": "O110",
+   "rotulo": "091. É barulhente(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_P110",
+   "celula": "P110",
+   "rotulo": "091. É barulhente(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q110",
+   "celula": "Q110",
+   "rotulo": "091. É barulhente(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_U110",
+   "celula": "U110",
+   "rotulo": "091. É barulhente(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_V110",
+   "celula": "V110",
+   "rotulo": "091. É barulhente(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_W110",
+   "celula": "W110",
+   "rotulo": "091. É barulhente(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_X110",
+   "celula": "X110",
+   "rotulo": "091. É barulhente(a) demais.",
+   "min": 0
+  },
+  {
+   "chave": "in_O111",
+   "celula": "O111",
+   "rotulo": "092. Fica incomodado com pessoas ou situ",
+   "min": 0
+  },
+  {
+   "chave": "in_P111",
+   "celula": "P111",
+   "rotulo": "092. Fica incomodado com pessoas ou situ",
+   "min": 0
+  },
+  {
+   "chave": "in_Q111",
+   "celula": "Q111",
+   "rotulo": "092. Fica incomodado com pessoas ou situ",
+   "min": 0
+  },
+  {
+   "chave": "in_U111",
+   "celula": "U111",
+   "rotulo": "092. Fica incomodado com pessoas ou situ",
+   "min": 0
+  },
+  {
+   "chave": "in_V111",
+   "celula": "V111",
+   "rotulo": "092. Fica incomodado com pessoas ou situ",
+   "min": 0
+  },
+  {
+   "chave": "in_W111",
+   "celula": "W111",
+   "rotulo": "092. Fica incomodado com pessoas ou situ",
+   "min": 0
+  },
+  {
+   "chave": "in_X111",
+   "celula": "X111",
+   "rotulo": "092. Fica incomodado com pessoas ou situ",
+   "min": 0
+  },
+  {
+   "chave": "in_O112",
+   "celula": "O112",
+   "rotulo": "093. Vomita (sem causa médica).",
+   "min": 0
+  },
+  {
+   "chave": "in_P112",
+   "celula": "P112",
+   "rotulo": "093. Vomita (sem causa médica).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q112",
+   "celula": "Q112",
+   "rotulo": "093. Vomita (sem causa médica).",
+   "min": 0
+  },
+  {
+   "chave": "in_U112",
+   "celula": "U112",
+   "rotulo": "093. Vomita (sem causa médica).",
+   "min": 0
+  },
+  {
+   "chave": "in_V112",
+   "celula": "V112",
+   "rotulo": "093. Vomita (sem causa médica).",
+   "min": 0
+  },
+  {
+   "chave": "in_W112",
+   "celula": "W112",
+   "rotulo": "093. Vomita (sem causa médica).",
+   "min": 0
+  },
+  {
+   "chave": "in_X112",
+   "celula": "X112",
+   "rotulo": "093. Vomita (sem causa médica).",
+   "min": 0
+  },
+  {
+   "chave": "in_O113",
+   "celula": "O113",
+   "rotulo": "094. Acorda frequentemente à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_P113",
+   "celula": "P113",
+   "rotulo": "094. Acorda frequentemente à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q113",
+   "celula": "Q113",
+   "rotulo": "094. Acorda frequentemente à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_U113",
+   "celula": "U113",
+   "rotulo": "094. Acorda frequentemente à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_V113",
+   "celula": "V113",
+   "rotulo": "094. Acorda frequentemente à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_W113",
+   "celula": "W113",
+   "rotulo": "094. Acorda frequentemente à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_X113",
+   "celula": "X113",
+   "rotulo": "094. Acorda frequentemente à noite.",
+   "min": 0
+  },
+  {
+   "chave": "in_O114",
+   "celula": "O114",
+   "rotulo": "095. Foge.",
+   "min": 0
+  },
+  {
+   "chave": "in_P114",
+   "celula": "P114",
+   "rotulo": "095. Foge.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q114",
+   "celula": "Q114",
+   "rotulo": "095. Foge.",
+   "min": 0
+  },
+  {
+   "chave": "in_U114",
+   "celula": "U114",
+   "rotulo": "095. Foge.",
+   "min": 0
+  },
+  {
+   "chave": "in_V114",
+   "celula": "V114",
+   "rotulo": "095. Foge.",
+   "min": 0
+  },
+  {
+   "chave": "in_W114",
+   "celula": "W114",
+   "rotulo": "095. Foge.",
+   "min": 0
+  },
+  {
+   "chave": "in_X114",
+   "celula": "X114",
+   "rotulo": "095. Foge.",
+   "min": 0
+  },
+  {
+   "chave": "in_O115",
+   "celula": "O115",
+   "rotulo": "096. Exige que prestem muita atenção nel",
+   "min": 0
+  },
+  {
+   "chave": "in_P115",
+   "celula": "P115",
+   "rotulo": "096. Exige que prestem muita atenção nel",
+   "min": 0
+  },
+  {
+   "chave": "in_Q115",
+   "celula": "Q115",
+   "rotulo": "096. Exige que prestem muita atenção nel",
+   "min": 0
+  },
+  {
+   "chave": "in_U115",
+   "celula": "U115",
+   "rotulo": "096. Exige que prestem muita atenção nel",
+   "min": 0
+  },
+  {
+   "chave": "in_V115",
+   "celula": "V115",
+   "rotulo": "096. Exige que prestem muita atenção nel",
+   "min": 0
+  },
+  {
+   "chave": "in_W115",
+   "celula": "W115",
+   "rotulo": "096. Exige que prestem muita atenção nel",
+   "min": 0
+  },
+  {
+   "chave": "in_X115",
+   "celula": "X115",
+   "rotulo": "096. Exige que prestem muita atenção nel",
+   "min": 0
+  },
+  {
+   "chave": "in_O116",
+   "celula": "O116",
+   "rotulo": "097. Choraminha.",
+   "min": 0
+  },
+  {
+   "chave": "in_P116",
+   "celula": "P116",
+   "rotulo": "097. Choraminha.",
+   "min": 0
+  },
+  {
+   "chave": "in_Q116",
+   "celula": "Q116",
+   "rotulo": "097. Choraminha.",
+   "min": 0
+  },
+  {
+   "chave": "in_U116",
+   "celula": "U116",
+   "rotulo": "097. Choraminha.",
+   "min": 0
+  },
+  {
+   "chave": "in_V116",
+   "celula": "V116",
+   "rotulo": "097. Choraminha.",
+   "min": 0
+  },
+  {
+   "chave": "in_W116",
+   "celula": "W116",
+   "rotulo": "097. Choraminha.",
+   "min": 0
+  },
+  {
+   "chave": "in_X116",
+   "celula": "X116",
+   "rotulo": "097. Choraminha.",
+   "min": 0
+  },
+  {
+   "chave": "in_O117",
+   "celula": "O117",
+   "rotulo": "098. Isola-se, não se relaciona com os o",
+   "min": 0
+  },
+  {
+   "chave": "in_P117",
+   "celula": "P117",
+   "rotulo": "098. Isola-se, não se relaciona com os o",
+   "min": 0
+  },
+  {
+   "chave": "in_Q117",
+   "celula": "Q117",
+   "rotulo": "098. Isola-se, não se relaciona com os o",
+   "min": 0
+  },
+  {
+   "chave": "in_U117",
+   "celula": "U117",
+   "rotulo": "098. Isola-se, não se relaciona com os o",
+   "min": 0
+  },
+  {
+   "chave": "in_V117",
+   "celula": "V117",
+   "rotulo": "098. Isola-se, não se relaciona com os o",
+   "min": 0
+  },
+  {
+   "chave": "in_W117",
+   "celula": "W117",
+   "rotulo": "098. Isola-se, não se relaciona com os o",
+   "min": 0
+  },
+  {
+   "chave": "in_X117",
+   "celula": "X117",
+   "rotulo": "098. Isola-se, não se relaciona com os o",
+   "min": 0
+  },
+  {
+   "chave": "in_O118",
+   "celula": "O118",
+   "rotulo": "099. É preocupado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_P118",
+   "celula": "P118",
+   "rotulo": "099. É preocupado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_Q118",
+   "celula": "Q118",
+   "rotulo": "099. É preocupado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_U118",
+   "celula": "U118",
+   "rotulo": "099. É preocupado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_V118",
+   "celula": "V118",
+   "rotulo": "099. É preocupado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_W118",
+   "celula": "W118",
+   "rotulo": "099. É preocupado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_X118",
+   "celula": "X118",
+   "rotulo": "099. É preocupado(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_O119",
+   "celula": "O119",
+   "rotulo": "x",
+   "min": 0
+  },
+  {
+   "chave": "in_P119",
+   "celula": "P119",
+   "rotulo": "x",
+   "min": 0
+  },
+  {
+   "chave": "in_Q119",
+   "celula": "Q119",
+   "rotulo": "x",
+   "min": 0
+  },
+  {
+   "chave": "in_U119",
+   "celula": "U119",
+   "rotulo": "x",
+   "min": 0
+  },
+  {
+   "chave": "in_V119",
+   "celula": "V119",
+   "rotulo": "x",
+   "min": 0
+  },
+  {
+   "chave": "in_W119",
+   "celula": "W119",
+   "rotulo": "x",
+   "min": 0
+  },
+  {
+   "chave": "in_X119",
+   "celula": "X119",
+   "rotulo": "x",
+   "min": 0
+  },
+  {
+   "chave": "in_O120",
+   "celula": "O120",
+   "rotulo": "O120",
+   "min": 0
+  },
+  {
+   "chave": "in_P120",
+   "celula": "P120",
+   "rotulo": "P120",
+   "min": 0
+  },
+  {
+   "chave": "in_Q120",
+   "celula": "Q120",
+   "rotulo": "Q120",
+   "min": 0
+  },
+  {
+   "chave": "in_U120",
+   "celula": "U120",
+   "rotulo": "U120",
+   "min": 0
+  },
+  {
+   "chave": "in_V120",
+   "celula": "V120",
+   "rotulo": "V120",
+   "min": 0
+  },
+  {
+   "chave": "in_W120",
+   "celula": "W120",
+   "rotulo": "W120",
+   "min": 0
+  },
+  {
+   "chave": "in_X120",
+   "celula": "X120",
+   "rotulo": "X120",
+   "min": 0
+  },
+  {
+   "chave": "in_O121",
+   "celula": "O121",
+   "rotulo": "O121",
+   "min": 0
+  },
+  {
+   "chave": "in_P121",
+   "celula": "P121",
+   "rotulo": "P121",
+   "min": 0
+  },
+  {
+   "chave": "in_Q121",
+   "celula": "Q121",
+   "rotulo": "Q121",
+   "min": 0
+  },
+  {
+   "chave": "in_U121",
+   "celula": "U121",
+   "rotulo": "U121",
+   "min": 0
+  },
+  {
+   "chave": "in_V121",
+   "celula": "V121",
+   "rotulo": "V121",
+   "min": 0
+  },
+  {
+   "chave": "in_W121",
+   "celula": "W121",
+   "rotulo": "W121",
+   "min": 0
+  },
+  {
+   "chave": "in_X121",
+   "celula": "X121",
+   "rotulo": "X121",
+   "min": 0
+  },
+  {
+   "chave": "in_O122",
+   "celula": "O122",
+   "rotulo": "O122",
+   "min": 0
+  },
+  {
+   "chave": "in_P122",
+   "celula": "P122",
+   "rotulo": "P122",
+   "min": 0
+  },
+  {
+   "chave": "in_Q122",
+   "celula": "Q122",
+   "rotulo": "Q122",
+   "min": 0
+  },
+  {
+   "chave": "in_U122",
+   "celula": "U122",
+   "rotulo": "U122",
+   "min": 0
+  },
+  {
+   "chave": "in_V122",
+   "celula": "V122",
+   "rotulo": "V122",
+   "min": 0
+  },
+  {
+   "chave": "in_W122",
+   "celula": "W122",
+   "rotulo": "W122",
+   "min": 0
+  },
+  {
+   "chave": "in_X122",
+   "celula": "X122",
+   "rotulo": "X122",
+   "min": 0
+  },
+  {
+   "chave": "in_O123",
+   "celula": "O123",
+   "rotulo": "O123",
+   "min": 0
+  },
+  {
+   "chave": "in_P123",
+   "celula": "P123",
+   "rotulo": "P123",
+   "min": 0
+  },
+  {
+   "chave": "in_Q123",
+   "celula": "Q123",
+   "rotulo": "Q123",
+   "min": 0
+  },
+  {
+   "chave": "in_U123",
+   "celula": "U123",
+   "rotulo": "U123",
+   "min": 0
+  },
+  {
+   "chave": "in_V123",
+   "celula": "V123",
+   "rotulo": "V123",
+   "min": 0
+  },
+  {
+   "chave": "in_W123",
+   "celula": "W123",
+   "rotulo": "W123",
+   "min": 0
+  },
+  {
+   "chave": "in_X123",
+   "celula": "X123",
+   "rotulo": "X123",
+   "min": 0
+  },
+  {
+   "chave": "in_O124",
+   "celula": "O124",
+   "rotulo": "O124",
+   "min": 0
+  },
+  {
+   "chave": "in_P124",
+   "celula": "P124",
+   "rotulo": "P124",
+   "min": 0
+  },
+  {
+   "chave": "in_Q124",
+   "celula": "Q124",
+   "rotulo": "Q124",
+   "min": 0
+  },
+  {
+   "chave": "in_U124",
+   "celula": "U124",
+   "rotulo": "U124",
+   "min": 0
+  },
+  {
+   "chave": "in_V124",
+   "celula": "V124",
+   "rotulo": "V124",
+   "min": 0
+  },
+  {
+   "chave": "in_W124",
+   "celula": "W124",
+   "rotulo": "W124",
+   "min": 0
+  },
+  {
+   "chave": "in_X124",
+   "celula": "X124",
+   "rotulo": "X124",
+   "min": 0
+  },
+  {
+   "chave": "in_O125",
+   "celula": "O125",
+   "rotulo": "O125",
+   "min": 0
+  },
+  {
+   "chave": "in_P125",
+   "celula": "P125",
+   "rotulo": "P125",
+   "min": 0
+  },
+  {
+   "chave": "in_Q125",
+   "celula": "Q125",
+   "rotulo": "Q125",
+   "min": 0
+  },
+  {
+   "chave": "in_U125",
+   "celula": "U125",
+   "rotulo": "U125",
+   "min": 0
+  },
+  {
+   "chave": "in_V125",
+   "celula": "V125",
+   "rotulo": "V125",
+   "min": 0
+  },
+  {
+   "chave": "in_W125",
+   "celula": "W125",
+   "rotulo": "W125",
+   "min": 0
+  },
+  {
+   "chave": "in_X125",
+   "celula": "X125",
+   "rotulo": "X125",
+   "min": 0
+  },
+  {
+   "chave": "in_O126",
+   "celula": "O126",
+   "rotulo": "O126",
+   "min": 0
+  },
+  {
+   "chave": "in_P126",
+   "celula": "P126",
+   "rotulo": "P126",
+   "min": 0
+  },
+  {
+   "chave": "in_Q126",
+   "celula": "Q126",
+   "rotulo": "Q126",
+   "min": 0
+  },
+  {
+   "chave": "in_U126",
+   "celula": "U126",
+   "rotulo": "U126",
+   "min": 0
+  },
+  {
+   "chave": "in_V126",
+   "celula": "V126",
+   "rotulo": "V126",
+   "min": 0
+  },
+  {
+   "chave": "in_W126",
+   "celula": "W126",
+   "rotulo": "W126",
+   "min": 0
+  },
+  {
+   "chave": "in_X126",
+   "celula": "X126",
+   "rotulo": "X126",
+   "min": 0
+  },
+  {
+   "chave": "in_O127",
+   "celula": "O127",
+   "rotulo": "O127",
+   "min": 0
+  },
+  {
+   "chave": "in_P127",
+   "celula": "P127",
+   "rotulo": "P127",
+   "min": 0
+  },
+  {
+   "chave": "in_Q127",
+   "celula": "Q127",
+   "rotulo": "Q127",
+   "min": 0
+  },
+  {
+   "chave": "in_U127",
+   "celula": "U127",
+   "rotulo": "U127",
+   "min": 0
+  },
+  {
+   "chave": "in_V127",
+   "celula": "V127",
+   "rotulo": "V127",
+   "min": 0
+  },
+  {
+   "chave": "in_W127",
+   "celula": "W127",
+   "rotulo": "W127",
+   "min": 0
+  },
+  {
+   "chave": "in_X127",
+   "celula": "X127",
+   "rotulo": "X127",
+   "min": 0
+  },
+  {
+   "chave": "in_O128",
+   "celula": "O128",
+   "rotulo": "O128",
+   "min": 0
+  },
+  {
+   "chave": "in_P128",
+   "celula": "P128",
+   "rotulo": "P128",
+   "min": 0
+  },
+  {
+   "chave": "in_Q128",
+   "celula": "Q128",
+   "rotulo": "Q128",
+   "min": 0
+  },
+  {
+   "chave": "in_U128",
+   "celula": "U128",
+   "rotulo": "U128",
+   "min": 0
+  },
+  {
+   "chave": "in_V128",
+   "celula": "V128",
+   "rotulo": "V128",
+   "min": 0
+  },
+  {
+   "chave": "in_W128",
+   "celula": "W128",
+   "rotulo": "W128",
+   "min": 0
+  },
+  {
+   "chave": "in_X128",
+   "celula": "X128",
+   "rotulo": "X128",
+   "min": 0
+  },
+  {
+   "chave": "in_O129",
+   "celula": "O129",
+   "rotulo": "O129",
+   "min": 0
+  },
+  {
+   "chave": "in_P129",
+   "celula": "P129",
+   "rotulo": "P129",
+   "min": 0
+  },
+  {
+   "chave": "in_Q129",
+   "celula": "Q129",
+   "rotulo": "Q129",
+   "min": 0
+  },
+  {
+   "chave": "in_U129",
+   "celula": "U129",
+   "rotulo": "U129",
+   "min": 0
+  },
+  {
+   "chave": "in_V129",
+   "celula": "V129",
+   "rotulo": "V129",
+   "min": 0
+  },
+  {
+   "chave": "in_W129",
+   "celula": "W129",
+   "rotulo": "W129",
+   "min": 0
+  },
+  {
+   "chave": "in_X129",
+   "celula": "X129",
+   "rotulo": "X129",
+   "min": 0
+  },
+  {
+   "chave": "in_O130",
+   "celula": "O130",
+   "rotulo": "O130",
+   "min": 0
+  },
+  {
+   "chave": "in_P130",
+   "celula": "P130",
+   "rotulo": "P130",
+   "min": 0
+  },
+  {
+   "chave": "in_Q130",
+   "celula": "Q130",
+   "rotulo": "Q130",
+   "min": 0
+  },
+  {
+   "chave": "in_U130",
+   "celula": "U130",
+   "rotulo": "U130",
+   "min": 0
+  },
+  {
+   "chave": "in_V130",
+   "celula": "V130",
+   "rotulo": "V130",
+   "min": 0
+  },
+  {
+   "chave": "in_W130",
+   "celula": "W130",
+   "rotulo": "W130",
+   "min": 0
+  },
+  {
+   "chave": "in_X130",
+   "celula": "X130",
+   "rotulo": "X130",
+   "min": 0
+  },
+  {
+   "chave": "in_O131",
+   "celula": "O131",
+   "rotulo": "O131",
+   "min": 0
+  },
+  {
+   "chave": "in_P131",
+   "celula": "P131",
+   "rotulo": "P131",
+   "min": 0
+  },
+  {
+   "chave": "in_Q131",
+   "celula": "Q131",
+   "rotulo": "Q131",
+   "min": 0
+  },
+  {
+   "chave": "in_U131",
+   "celula": "U131",
+   "rotulo": "U131",
+   "min": 0
+  },
+  {
+   "chave": "in_V131",
+   "celula": "V131",
+   "rotulo": "V131",
+   "min": 0
+  },
+  {
+   "chave": "in_W131",
+   "celula": "W131",
+   "rotulo": "W131",
+   "min": 0
+  },
+  {
+   "chave": "in_X131",
+   "celula": "X131",
+   "rotulo": "X131",
+   "min": 0
+  },
+  {
+   "chave": "in_O132",
+   "celula": "O132",
+   "rotulo": "O132",
+   "min": 0
+  },
+  {
+   "chave": "in_P132",
+   "celula": "P132",
+   "rotulo": "P132",
+   "min": 0
+  },
+  {
+   "chave": "in_Q132",
+   "celula": "Q132",
+   "rotulo": "Q132",
+   "min": 0
+  },
+  {
+   "chave": "in_U132",
+   "celula": "U132",
+   "rotulo": "U132",
+   "min": 0
+  },
+  {
+   "chave": "in_V132",
+   "celula": "V132",
+   "rotulo": "V132",
+   "min": 0
+  },
+  {
+   "chave": "in_W132",
+   "celula": "W132",
+   "rotulo": "W132",
+   "min": 0
+  },
+  {
+   "chave": "in_X132",
+   "celula": "X132",
+   "rotulo": "X132",
+   "min": 0
+  },
+  {
+   "chave": "in_O133",
+   "celula": "O133",
+   "rotulo": "O133",
+   "min": 0
+  },
+  {
+   "chave": "in_P133",
+   "celula": "P133",
+   "rotulo": "P133",
+   "min": 0
+  },
+  {
+   "chave": "in_Q133",
+   "celula": "Q133",
+   "rotulo": "Q133",
+   "min": 0
+  },
+  {
+   "chave": "in_U133",
+   "celula": "U133",
+   "rotulo": "U133",
+   "min": 0
+  },
+  {
+   "chave": "in_V133",
+   "celula": "V133",
+   "rotulo": "V133",
+   "min": 0
+  },
+  {
+   "chave": "in_W133",
+   "celula": "W133",
+   "rotulo": "W133",
+   "min": 0
+  },
+  {
+   "chave": "in_X133",
+   "celula": "X133",
+   "rotulo": "X133",
+   "min": 0
+  },
+  {
+   "chave": "in_O134",
+   "celula": "O134",
+   "rotulo": "O134",
+   "min": 0
+  },
+  {
+   "chave": "in_P134",
+   "celula": "P134",
+   "rotulo": "P134",
+   "min": 0
+  },
+  {
+   "chave": "in_Q134",
+   "celula": "Q134",
+   "rotulo": "Q134",
+   "min": 0
+  },
+  {
+   "chave": "in_U134",
+   "celula": "U134",
+   "rotulo": "U134",
+   "min": 0
+  },
+  {
+   "chave": "in_V134",
+   "celula": "V134",
+   "rotulo": "V134",
+   "min": 0
+  },
+  {
+   "chave": "in_W134",
+   "celula": "W134",
+   "rotulo": "W134",
+   "min": 0
+  },
+  {
+   "chave": "in_X134",
+   "celula": "X134",
+   "rotulo": "X134",
+   "min": 0
+  },
+  {
+   "chave": "in_O135",
+   "celula": "O135",
+   "rotulo": "O135",
+   "min": 0
+  },
+  {
+   "chave": "in_P135",
+   "celula": "P135",
+   "rotulo": "P135",
+   "min": 0
+  },
+  {
+   "chave": "in_Q135",
+   "celula": "Q135",
+   "rotulo": "Q135",
+   "min": 0
+  },
+  {
+   "chave": "in_U135",
+   "celula": "U135",
+   "rotulo": "U135",
+   "min": 0
+  },
+  {
+   "chave": "in_V135",
+   "celula": "V135",
+   "rotulo": "V135",
+   "min": 0
+  },
+  {
+   "chave": "in_W135",
+   "celula": "W135",
+   "rotulo": "W135",
+   "min": 0
+  },
+  {
+   "chave": "in_X135",
+   "celula": "X135",
+   "rotulo": "X135",
+   "min": 0
+  },
+  {
+   "chave": "in_O136",
+   "celula": "O136",
+   "rotulo": "O136",
+   "min": 0
+  },
+  {
+   "chave": "in_P136",
+   "celula": "P136",
+   "rotulo": "P136",
+   "min": 0
+  },
+  {
+   "chave": "in_Q136",
+   "celula": "Q136",
+   "rotulo": "Q136",
+   "min": 0
+  },
+  {
+   "chave": "in_U136",
+   "celula": "U136",
+   "rotulo": "U136",
+   "min": 0
+  },
+  {
+   "chave": "in_V136",
+   "celula": "V136",
+   "rotulo": "V136",
+   "min": 0
+  },
+  {
+   "chave": "in_W136",
+   "celula": "W136",
+   "rotulo": "W136",
+   "min": 0
+  },
+  {
+   "chave": "in_X136",
+   "celula": "X136",
+   "rotulo": "X136",
+   "min": 0
+  },
+  {
+   "chave": "in_O137",
+   "celula": "O137",
+   "rotulo": "O137",
+   "min": 0
+  },
+  {
+   "chave": "in_P137",
+   "celula": "P137",
+   "rotulo": "P137",
+   "min": 0
+  },
+  {
+   "chave": "in_Q137",
+   "celula": "Q137",
+   "rotulo": "Q137",
+   "min": 0
+  },
+  {
+   "chave": "in_U137",
+   "celula": "U137",
+   "rotulo": "U137",
+   "min": 0
+  },
+  {
+   "chave": "in_V137",
+   "celula": "V137",
+   "rotulo": "V137",
+   "min": 0
+  },
+  {
+   "chave": "in_W137",
+   "celula": "W137",
+   "rotulo": "W137",
+   "min": 0
+  },
+  {
+   "chave": "in_X137",
+   "celula": "X137",
+   "rotulo": "X137",
+   "min": 0
+  },
+  {
+   "chave": "in_O138",
+   "celula": "O138",
+   "rotulo": "O138",
+   "min": 0
+  },
+  {
+   "chave": "in_P138",
+   "celula": "P138",
+   "rotulo": "P138",
+   "min": 0
+  },
+  {
+   "chave": "in_Q138",
+   "celula": "Q138",
+   "rotulo": "Q138",
+   "min": 0
+  },
+  {
+   "chave": "in_U138",
+   "celula": "U138",
+   "rotulo": "U138",
+   "min": 0
+  },
+  {
+   "chave": "in_V138",
+   "celula": "V138",
+   "rotulo": "V138",
+   "min": 0
+  },
+  {
+   "chave": "in_W138",
+   "celula": "W138",
+   "rotulo": "W138",
+   "min": 0
+  },
+  {
+   "chave": "in_X138",
+   "celula": "X138",
+   "rotulo": "X138",
+   "min": 0
+  },
+  {
+   "chave": "in_O139",
+   "celula": "O139",
+   "rotulo": "O139",
+   "min": 0
+  },
+  {
+   "chave": "in_P139",
+   "celula": "P139",
+   "rotulo": "P139",
+   "min": 0
+  },
+  {
+   "chave": "in_Q139",
+   "celula": "Q139",
+   "rotulo": "Q139",
+   "min": 0
+  },
+  {
+   "chave": "in_U139",
+   "celula": "U139",
+   "rotulo": "U139",
+   "min": 0
+  },
+  {
+   "chave": "in_V139",
+   "celula": "V139",
+   "rotulo": "V139",
+   "min": 0
+  },
+  {
+   "chave": "in_W139",
+   "celula": "W139",
+   "rotulo": "W139",
+   "min": 0
+  },
+  {
+   "chave": "in_X139",
+   "celula": "X139",
+   "rotulo": "X139",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_B15",
+   "celula": "B15",
+   "rotulo": "C-TRF2:"
+  },
+  {
+   "chave": "out_O19",
+   "celula": "O19",
+   "rotulo": "Item"
+  },
+  {
+   "chave": "out_P19",
+   "celula": "P19",
+   "rotulo": "Item"
+  },
+  {
+   "chave": "out_Q19",
+   "celula": "Q19",
+   "rotulo": "Item"
+  },
+  {
+   "chave": "out_U19",
+   "celula": "U19",
+   "rotulo": "Item"
+  },
+  {
+   "chave": "out_V19",
+   "celula": "V19",
+   "rotulo": "Item"
+  },
+  {
+   "chave": "out_W19",
+   "celula": "W19",
+   "rotulo": "Item"
+  },
+  {
+   "chave": "out_X19",
+   "celula": "X19",
+   "rotulo": "Item"
+  },
+  {
+   "chave": "out_F143",
+   "celula": "F143",
+   "rotulo": "CBCL"
+  },
+  {
+   "chave": "out_G143",
+   "celula": "G143",
+   "rotulo": "G143"
+  },
+  {
+   "chave": "out_H143",
+   "celula": "H143",
+   "rotulo": "H143"
+  },
+  {
+   "chave": "out_I143",
+   "celula": "I143",
+   "rotulo": "YSR"
+  },
+  {
+   "chave": "out_J143",
+   "celula": "J143",
+   "rotulo": "TRF"
+  },
+  {
+   "chave": "out_K143",
+   "celula": "K143",
+   "rotulo": "K143"
+  },
+  {
+   "chave": "out_L143",
+   "celula": "L143",
+   "rotulo": "L143"
+  },
+  {
+   "chave": "out_M143",
+   "celula": "M143",
+   "rotulo": "x"
+  },
+  {
+   "chave": "out_F144",
+   "celula": "F144",
+   "rotulo": "018. Machuca-se de propósito ... — CBCL"
+  },
+  {
+   "chave": "out_G144",
+   "celula": "G144",
+   "rotulo": "018. Machuca-se de propósito ..."
+  },
+  {
+   "chave": "out_H144",
+   "celula": "H144",
+   "rotulo": "018. Machuca-se de propósito ..."
+  },
+  {
+   "chave": "out_I144",
+   "celula": "I144",
+   "rotulo": "018. Machuca-se de propósito ... — YSR"
+  },
+  {
+   "chave": "out_J144",
+   "celula": "J144",
+   "rotulo": "018. Machuca-se de propósito ... — TRF"
+  },
+  {
+   "chave": "out_K144",
+   "celula": "K144",
+   "rotulo": "018. Machuca-se de propósito ..."
+  },
+  {
+   "chave": "out_L144",
+   "celula": "L144",
+   "rotulo": "018. Machuca-se de propósito ..."
+  },
+  {
+   "chave": "out_M144",
+   "celula": "M144",
+   "rotulo": "018. Machuca-se de propósito ... — x"
+  },
+  {
+   "chave": "out_F145",
+   "celula": "F145",
+   "rotulo": "040. Escuta sons ou vozes que não existe — CBCL"
+  },
+  {
+   "chave": "out_G145",
+   "celula": "G145",
+   "rotulo": "040. Escuta sons ou vozes que não existe"
+  },
+  {
+   "chave": "out_H145",
+   "celula": "H145",
+   "rotulo": "040. Escuta sons ou vozes que não existe"
+  },
+  {
+   "chave": "out_I145",
+   "celula": "I145",
+   "rotulo": "040. Escuta sons ou vozes que não existe — YSR"
+  },
+  {
+   "chave": "out_J145",
+   "celula": "J145",
+   "rotulo": "040. Escuta sons ou vozes que não existe — TRF"
+  },
+  {
+   "chave": "out_K145",
+   "celula": "K145",
+   "rotulo": "040. Escuta sons ou vozes que não existe"
+  },
+  {
+   "chave": "out_L145",
+   "celula": "L145",
+   "rotulo": "040. Escuta sons ou vozes que não existe"
+  },
+  {
+   "chave": "out_M145",
+   "celula": "M145",
+   "rotulo": "040. Escuta sons ou vozes que não existe — x"
+  },
+  {
+   "chave": "out_F146",
+   "celula": "F146",
+   "rotulo": "057. Ataca fisicamente as pessoas — CBCL"
+  },
+  {
+   "chave": "out_G146",
+   "celula": "G146",
+   "rotulo": "057. Ataca fisicamente as pessoas"
+  },
+  {
+   "chave": "out_H146",
+   "celula": "H146",
+   "rotulo": "057. Ataca fisicamente as pessoas"
+  },
+  {
+   "chave": "out_I146",
+   "celula": "I146",
+   "rotulo": "057. Ataca fisicamente as pessoas — YSR"
+  },
+  {
+   "chave": "out_J146",
+   "celula": "J146",
+   "rotulo": "057. Ataca fisicamente as pessoas — TRF"
+  },
+  {
+   "chave": "out_K146",
+   "celula": "K146",
+   "rotulo": "057. Ataca fisicamente as pessoas"
+  },
+  {
+   "chave": "out_L146",
+   "celula": "L146",
+   "rotulo": "057. Ataca fisicamente as pessoas"
+  },
+  {
+   "chave": "out_M146",
+   "celula": "M146",
+   "rotulo": "057. Ataca fisicamente as pessoas — x"
+  },
+  {
+   "chave": "out_F147",
+   "celula": "F147",
+   "rotulo": "067. Perturba a disciplina durante a aul — CBCL"
+  },
+  {
+   "chave": "out_G147",
+   "celula": "G147",
+   "rotulo": "067. Perturba a disciplina durante a aul"
+  },
+  {
+   "chave": "out_H147",
+   "celula": "H147",
+   "rotulo": "067. Perturba a disciplina durante a aul"
+  },
+  {
+   "chave": "out_I147",
+   "celula": "I147",
+   "rotulo": "067. Perturba a disciplina durante a aul — YSR"
+  },
+  {
+   "chave": "out_J147",
+   "celula": "J147",
+   "rotulo": "067. Perturba a disciplina durante a aul — TRF"
+  },
+  {
+   "chave": "out_K147",
+   "celula": "K147",
+   "rotulo": "067. Perturba a disciplina durante a aul"
+  },
+  {
+   "chave": "out_L147",
+   "celula": "L147",
+   "rotulo": "067. Perturba a disciplina durante a aul"
+  },
+  {
+   "chave": "out_M147",
+   "celula": "M147",
+   "rotulo": "067. Perturba a disciplina durante a aul — x"
+  },
+  {
+   "chave": "out_F148",
+   "celula": "F148",
+   "rotulo": "070. Vê coisas que não existem — CBCL"
+  },
+  {
+   "chave": "out_G148",
+   "celula": "G148",
+   "rotulo": "070. Vê coisas que não existem"
+  },
+  {
+   "chave": "out_H148",
+   "celula": "H148",
+   "rotulo": "070. Vê coisas que não existem"
+  },
+  {
+   "chave": "out_I148",
+   "celula": "I148",
+   "rotulo": "070. Vê coisas que não existem — YSR"
+  },
+  {
+   "chave": "out_J148",
+   "celula": "J148",
+   "rotulo": "070. Vê coisas que não existem — TRF"
+  },
+  {
+   "chave": "out_K148",
+   "celula": "K148",
+   "rotulo": "070. Vê coisas que não existem"
+  },
+  {
+   "chave": "out_L148",
+   "celula": "L148",
+   "rotulo": "070. Vê coisas que não existem"
+  },
+  {
+   "chave": "out_M148",
+   "celula": "M148",
+   "rotulo": "070. Vê coisas que não existem — x"
+  },
+  {
+   "chave": "out_F149",
+   "celula": "F149",
+   "rotulo": "072. O seu trabalho é bagunçado — CBCL"
+  },
+  {
+   "chave": "out_G149",
+   "celula": "G149",
+   "rotulo": "072. O seu trabalho é bagunçado"
+  },
+  {
+   "chave": "out_H149",
+   "celula": "H149",
+   "rotulo": "072. O seu trabalho é bagunçado"
+  },
+  {
+   "chave": "out_I149",
+   "celula": "I149",
+   "rotulo": "072. O seu trabalho é bagunçado — YSR"
+  },
+  {
+   "chave": "out_J149",
+   "celula": "J149",
+   "rotulo": "072. O seu trabalho é bagunçado — TRF"
+  },
+  {
+   "chave": "out_K149",
+   "celula": "K149",
+   "rotulo": "072. O seu trabalho é bagunçado"
+  },
+  {
+   "chave": "out_L149",
+   "celula": "L149",
+   "rotulo": "072. O seu trabalho é bagunçado"
+  },
+  {
+   "chave": "out_M149",
+   "celula": "M149",
+   "rotulo": "072. O seu trabalho é bagunçado — x"
+  },
+  {
+   "chave": "out_F150",
+   "celula": "F150",
+   "rotulo": "091. Fala que vai se matar — CBCL"
+  },
+  {
+   "chave": "out_G150",
+   "celula": "G150",
+   "rotulo": "091. Fala que vai se matar"
+  },
+  {
+   "chave": "out_H150",
+   "celula": "H150",
+   "rotulo": "091. Fala que vai se matar"
+  },
+  {
+   "chave": "out_I150",
+   "celula": "I150",
+   "rotulo": "091. Fala que vai se matar — YSR"
+  },
+  {
+   "chave": "out_J150",
+   "celula": "J150",
+   "rotulo": "091. Fala que vai se matar — TRF"
+  },
+  {
+   "chave": "out_K150",
+   "celula": "K150",
+   "rotulo": "091. Fala que vai se matar"
+  },
+  {
+   "chave": "out_L150",
+   "celula": "L150",
+   "rotulo": "091. Fala que vai se matar"
+  },
+  {
+   "chave": "out_M150",
+   "celula": "M150",
+   "rotulo": "091. Fala que vai se matar — x"
+  },
+  {
+   "chave": "out_F151",
+   "celula": "F151",
+   "rotulo": "103. É infeliz, — CBCL"
+  },
+  {
+   "chave": "out_G151",
+   "celula": "G151",
+   "rotulo": "103. É infeliz,"
+  },
+  {
+   "chave": "out_H151",
+   "celula": "H151",
+   "rotulo": "103. É infeliz,"
+  },
+  {
+   "chave": "out_I151",
+   "celula": "I151",
+   "rotulo": "103. É infeliz, — YSR"
+  },
+  {
+   "chave": "out_J151",
+   "celula": "J151",
+   "rotulo": "103. É infeliz, — TRF"
+  },
+  {
+   "chave": "out_K151",
+   "celula": "K151",
+   "rotulo": "103. É infeliz,"
+  },
+  {
+   "chave": "out_L151",
+   "celula": "L151",
+   "rotulo": "103. É infeliz,"
+  },
+  {
+   "chave": "out_M151",
+   "celula": "M151",
+   "rotulo": "103. É infeliz, — x"
+  },
+  {
+   "chave": "out_F152",
+   "celula": "F152",
+   "rotulo": "105. Usa drogas — CBCL"
+  },
+  {
+   "chave": "out_G152",
+   "celula": "G152",
+   "rotulo": "105. Usa drogas"
+  },
+  {
+   "chave": "out_H152",
+   "celula": "H152",
+   "rotulo": "105. Usa drogas"
+  },
+  {
+   "chave": "out_I152",
+   "celula": "I152",
+   "rotulo": "105. Usa drogas — YSR"
+  },
+  {
+   "chave": "out_J152",
+   "celula": "J152",
+   "rotulo": "105. Usa drogas — TRF"
+  },
+  {
+   "chave": "out_K152",
+   "celula": "K152",
+   "rotulo": "105. Usa drogas"
+  },
+  {
+   "chave": "out_L152",
+   "celula": "L152",
+   "rotulo": "105. Usa drogas"
+  },
+  {
+   "chave": "out_M152",
+   "celula": "M152",
+   "rotulo": "105. Usa drogas — x"
+  },
+  {
+   "chave": "out_F155",
+   "celula": "F155",
+   "rotulo": "CBCL"
+  },
+  {
+   "chave": "out_G155",
+   "celula": "G155",
+   "rotulo": "G155"
+  },
+  {
+   "chave": "out_H155",
+   "celula": "H155",
+   "rotulo": "H155"
+  },
+  {
+   "chave": "out_I155",
+   "celula": "I155",
+   "rotulo": "YSR"
+  },
+  {
+   "chave": "out_J155",
+   "celula": "J155",
+   "rotulo": "TRF"
+  },
+  {
+   "chave": "out_K155",
+   "celula": "K155",
+   "rotulo": "K155"
+  },
+  {
+   "chave": "out_L155",
+   "celula": "L155",
+   "rotulo": "L155"
+  },
+  {
+   "chave": "out_M155",
+   "celula": "M155",
+   "rotulo": "M155"
+  },
+  {
+   "chave": "out_F156",
+   "celula": "F156",
+   "rotulo": "Pts Brutos — CBCL"
+  },
+  {
+   "chave": "out_G156",
+   "celula": "G156",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H156",
+   "celula": "H156",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I156",
+   "celula": "I156",
+   "rotulo": "Pts Brutos — YSR"
+  },
+  {
+   "chave": "out_J156",
+   "celula": "J156",
+   "rotulo": "Pts Brutos — TRF"
+  },
+  {
+   "chave": "out_K156",
+   "celula": "K156",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L156",
+   "celula": "L156",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M156",
+   "celula": "M156",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F157",
+   "celula": "F157",
+   "rotulo": "Z-Score — CBCL"
+  },
+  {
+   "chave": "out_G157",
+   "celula": "G157",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H157",
+   "celula": "H157",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I157",
+   "celula": "I157",
+   "rotulo": "Z-Score — YSR"
+  },
+  {
+   "chave": "out_J157",
+   "celula": "J157",
+   "rotulo": "Z-Score — TRF"
+  },
+  {
+   "chave": "out_K157",
+   "celula": "K157",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L157",
+   "celula": "L157",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M157",
+   "celula": "M157",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F158",
+   "celula": "F158",
+   "rotulo": "T-Score — CBCL"
+  },
+  {
+   "chave": "out_G158",
+   "celula": "G158",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H158",
+   "celula": "H158",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I158",
+   "celula": "I158",
+   "rotulo": "T-Score — YSR"
+  },
+  {
+   "chave": "out_J158",
+   "celula": "J158",
+   "rotulo": "T-Score — TRF"
+  },
+  {
+   "chave": "out_K158",
+   "celula": "K158",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L158",
+   "celula": "L158",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M158",
+   "celula": "M158",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F159",
+   "celula": "F159",
+   "rotulo": "Percentil — CBCL"
+  },
+  {
+   "chave": "out_G159",
+   "celula": "G159",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H159",
+   "celula": "H159",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I159",
+   "celula": "I159",
+   "rotulo": "Percentil — YSR"
+  },
+  {
+   "chave": "out_J159",
+   "celula": "J159",
+   "rotulo": "Percentil — TRF"
+  },
+  {
+   "chave": "out_K159",
+   "celula": "K159",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L159",
+   "celula": "L159",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M159",
+   "celula": "M159",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F160",
+   "celula": "F160",
+   "rotulo": "Classific. — CBCL"
+  },
+  {
+   "chave": "out_G160",
+   "celula": "G160",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H160",
+   "celula": "H160",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I160",
+   "celula": "I160",
+   "rotulo": "Classific. — YSR"
+  },
+  {
+   "chave": "out_J160",
+   "celula": "J160",
+   "rotulo": "Classific. — TRF"
+  },
+  {
+   "chave": "out_K160",
+   "celula": "K160",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L160",
+   "celula": "L160",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M160",
+   "celula": "M160",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F161",
+   "celula": "F161",
+   "rotulo": "Pts Brutos — CBCL"
+  },
+  {
+   "chave": "out_G161",
+   "celula": "G161",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H161",
+   "celula": "H161",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I161",
+   "celula": "I161",
+   "rotulo": "Pts Brutos — YSR"
+  },
+  {
+   "chave": "out_J161",
+   "celula": "J161",
+   "rotulo": "Pts Brutos — TRF"
+  },
+  {
+   "chave": "out_K161",
+   "celula": "K161",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L161",
+   "celula": "L161",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M161",
+   "celula": "M161",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F162",
+   "celula": "F162",
+   "rotulo": "Z-Score — CBCL"
+  },
+  {
+   "chave": "out_G162",
+   "celula": "G162",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H162",
+   "celula": "H162",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I162",
+   "celula": "I162",
+   "rotulo": "Z-Score — YSR"
+  },
+  {
+   "chave": "out_J162",
+   "celula": "J162",
+   "rotulo": "Z-Score — TRF"
+  },
+  {
+   "chave": "out_K162",
+   "celula": "K162",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L162",
+   "celula": "L162",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M162",
+   "celula": "M162",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F163",
+   "celula": "F163",
+   "rotulo": "T-Score — CBCL"
+  },
+  {
+   "chave": "out_G163",
+   "celula": "G163",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H163",
+   "celula": "H163",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I163",
+   "celula": "I163",
+   "rotulo": "T-Score — YSR"
+  },
+  {
+   "chave": "out_J163",
+   "celula": "J163",
+   "rotulo": "T-Score — TRF"
+  },
+  {
+   "chave": "out_K163",
+   "celula": "K163",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L163",
+   "celula": "L163",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M163",
+   "celula": "M163",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F164",
+   "celula": "F164",
+   "rotulo": "Percentil — CBCL"
+  },
+  {
+   "chave": "out_G164",
+   "celula": "G164",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H164",
+   "celula": "H164",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I164",
+   "celula": "I164",
+   "rotulo": "Percentil — YSR"
+  },
+  {
+   "chave": "out_J164",
+   "celula": "J164",
+   "rotulo": "Percentil — TRF"
+  },
+  {
+   "chave": "out_K164",
+   "celula": "K164",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L164",
+   "celula": "L164",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M164",
+   "celula": "M164",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F165",
+   "celula": "F165",
+   "rotulo": "Classific. — CBCL"
+  },
+  {
+   "chave": "out_G165",
+   "celula": "G165",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H165",
+   "celula": "H165",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I165",
+   "celula": "I165",
+   "rotulo": "Classific. — YSR"
+  },
+  {
+   "chave": "out_J165",
+   "celula": "J165",
+   "rotulo": "Classific. — TRF"
+  },
+  {
+   "chave": "out_K165",
+   "celula": "K165",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L165",
+   "celula": "L165",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M165",
+   "celula": "M165",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F166",
+   "celula": "F166",
+   "rotulo": "Pts Brutos — CBCL"
+  },
+  {
+   "chave": "out_G166",
+   "celula": "G166",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H166",
+   "celula": "H166",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I166",
+   "celula": "I166",
+   "rotulo": "Pts Brutos — YSR"
+  },
+  {
+   "chave": "out_J166",
+   "celula": "J166",
+   "rotulo": "Pts Brutos — TRF"
+  },
+  {
+   "chave": "out_K166",
+   "celula": "K166",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L166",
+   "celula": "L166",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M166",
+   "celula": "M166",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F167",
+   "celula": "F167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G167",
+   "celula": "G167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H167",
+   "celula": "H167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I167",
+   "celula": "I167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J167",
+   "celula": "J167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_K167",
+   "celula": "K167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L167",
+   "celula": "L167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M167",
+   "celula": "M167",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F168",
+   "celula": "F168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G168",
+   "celula": "G168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H168",
+   "celula": "H168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I168",
+   "celula": "I168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J168",
+   "celula": "J168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_K168",
+   "celula": "K168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L168",
+   "celula": "L168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M168",
+   "celula": "M168",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F169",
+   "celula": "F169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G169",
+   "celula": "G169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H169",
+   "celula": "H169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I169",
+   "celula": "I169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J169",
+   "celula": "J169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_K169",
+   "celula": "K169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L169",
+   "celula": "L169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M169",
+   "celula": "M169",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F170",
+   "celula": "F170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G170",
+   "celula": "G170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H170",
+   "celula": "H170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I170",
+   "celula": "I170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J170",
+   "celula": "J170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_K170",
+   "celula": "K170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L170",
+   "celula": "L170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M170",
+   "celula": "M170",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F171",
+   "celula": "F171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G171",
+   "celula": "G171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H171",
+   "celula": "H171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I171",
+   "celula": "I171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J171",
+   "celula": "J171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_K171",
+   "celula": "K171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L171",
+   "celula": "L171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M171",
+   "celula": "M171",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F172",
+   "celula": "F172",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G172",
+   "celula": "G172",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H172",
+   "celula": "H172",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F173",
+   "celula": "F173",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G173",
+   "celula": "G173",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H173",
+   "celula": "H173",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F174",
+   "celula": "F174",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G174",
+   "celula": "G174",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H174",
+   "celula": "H174",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F175",
+   "celula": "F175",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G175",
+   "celula": "G175",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H175",
+   "celula": "H175",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F176",
+   "celula": "F176",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G176",
+   "celula": "G176",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H176",
+   "celula": "H176",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I176",
+   "celula": "I176",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J176",
+   "celula": "J176",
+   "rotulo": "Pts Brutos — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K176",
+   "celula": "K176",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L176",
+   "celula": "L176",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M176",
+   "celula": "M176",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F177",
+   "celula": "F177",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G177",
+   "celula": "G177",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H177",
+   "celula": "H177",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I177",
+   "celula": "I177",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J177",
+   "celula": "J177",
+   "rotulo": "Z-Score — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K177",
+   "celula": "K177",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L177",
+   "celula": "L177",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M177",
+   "celula": "M177",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F178",
+   "celula": "F178",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G178",
+   "celula": "G178",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H178",
+   "celula": "H178",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I178",
+   "celula": "I178",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J178",
+   "celula": "J178",
+   "rotulo": "T-Score — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K178",
+   "celula": "K178",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L178",
+   "celula": "L178",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M178",
+   "celula": "M178",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F179",
+   "celula": "F179",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G179",
+   "celula": "G179",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H179",
+   "celula": "H179",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I179",
+   "celula": "I179",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J179",
+   "celula": "J179",
+   "rotulo": "Percentil — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K179",
+   "celula": "K179",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L179",
+   "celula": "L179",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M179",
+   "celula": "M179",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F180",
+   "celula": "F180",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G180",
+   "celula": "G180",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H180",
+   "celula": "H180",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I180",
+   "celula": "I180",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J180",
+   "celula": "J180",
+   "rotulo": "Classific. — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K180",
+   "celula": "K180",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L180",
+   "celula": "L180",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M180",
+   "celula": "M180",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F181",
+   "celula": "F181",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G181",
+   "celula": "G181",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H181",
+   "celula": "H181",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I181",
+   "celula": "I181",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J181",
+   "celula": "J181",
+   "rotulo": "Pts Brutos — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K181",
+   "celula": "K181",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L181",
+   "celula": "L181",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M181",
+   "celula": "M181",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F182",
+   "celula": "F182",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G182",
+   "celula": "G182",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H182",
+   "celula": "H182",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I182",
+   "celula": "I182",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J182",
+   "celula": "J182",
+   "rotulo": "Z-Score — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K182",
+   "celula": "K182",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L182",
+   "celula": "L182",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M182",
+   "celula": "M182",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F183",
+   "celula": "F183",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G183",
+   "celula": "G183",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H183",
+   "celula": "H183",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I183",
+   "celula": "I183",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J183",
+   "celula": "J183",
+   "rotulo": "T-Score — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K183",
+   "celula": "K183",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L183",
+   "celula": "L183",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M183",
+   "celula": "M183",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F184",
+   "celula": "F184",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G184",
+   "celula": "G184",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H184",
+   "celula": "H184",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I184",
+   "celula": "I184",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J184",
+   "celula": "J184",
+   "rotulo": "Percentil — EM CONSTRUÇÃO Falta tabelas"
+  },
+  {
+   "chave": "out_K184",
+   "celula": "K184",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L184",
+   "celula": "L184",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M184",
+   "celula": "M184",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F185",
+   "celula": "F185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G185",
+   "celula": "G185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H185",
+   "celula": "H185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I185",
+   "celula": "I185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J185",
+   "celula": "J185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_K185",
+   "celula": "K185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L185",
+   "celula": "L185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M185",
+   "celula": "M185",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F186",
+   "celula": "F186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G186",
+   "celula": "G186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H186",
+   "celula": "H186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I186",
+   "celula": "I186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J186",
+   "celula": "J186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_K186",
+   "celula": "K186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L186",
+   "celula": "L186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M186",
+   "celula": "M186",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F187",
+   "celula": "F187",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G187",
+   "celula": "G187",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H187",
+   "celula": "H187",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F188",
+   "celula": "F188",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G188",
+   "celula": "G188",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H188",
+   "celula": "H188",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F189",
+   "celula": "F189",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G189",
+   "celula": "G189",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H189",
+   "celula": "H189",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F190",
+   "celula": "F190",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G190",
+   "celula": "G190",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H190",
+   "celula": "H190",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F191",
+   "celula": "F191",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G191",
+   "celula": "G191",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H191",
+   "celula": "H191",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I191",
+   "celula": "I191",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J191",
+   "celula": "J191",
+   "rotulo": "Pts Brutos — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K191",
+   "celula": "K191",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L191",
+   "celula": "L191",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M191",
+   "celula": "M191",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F192",
+   "celula": "F192",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G192",
+   "celula": "G192",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H192",
+   "celula": "H192",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I192",
+   "celula": "I192",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J192",
+   "celula": "J192",
+   "rotulo": "Z-Score — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K192",
+   "celula": "K192",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L192",
+   "celula": "L192",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M192",
+   "celula": "M192",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F193",
+   "celula": "F193",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G193",
+   "celula": "G193",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H193",
+   "celula": "H193",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I193",
+   "celula": "I193",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J193",
+   "celula": "J193",
+   "rotulo": "T-Score — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K193",
+   "celula": "K193",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L193",
+   "celula": "L193",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M193",
+   "celula": "M193",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F194",
+   "celula": "F194",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G194",
+   "celula": "G194",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H194",
+   "celula": "H194",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I194",
+   "celula": "I194",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J194",
+   "celula": "J194",
+   "rotulo": "Percentil — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K194",
+   "celula": "K194",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L194",
+   "celula": "L194",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M194",
+   "celula": "M194",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F195",
+   "celula": "F195",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G195",
+   "celula": "G195",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H195",
+   "celula": "H195",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I195",
+   "celula": "I195",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J195",
+   "celula": "J195",
+   "rotulo": "Classific. — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K195",
+   "celula": "K195",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L195",
+   "celula": "L195",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M195",
+   "celula": "M195",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F196",
+   "celula": "F196",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G196",
+   "celula": "G196",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H196",
+   "celula": "H196",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I196",
+   "celula": "I196",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J196",
+   "celula": "J196",
+   "rotulo": "Pts Brutos — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K196",
+   "celula": "K196",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L196",
+   "celula": "L196",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M196",
+   "celula": "M196",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F197",
+   "celula": "F197",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G197",
+   "celula": "G197",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H197",
+   "celula": "H197",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I197",
+   "celula": "I197",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J197",
+   "celula": "J197",
+   "rotulo": "Z-Score — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K197",
+   "celula": "K197",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L197",
+   "celula": "L197",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M197",
+   "celula": "M197",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F198",
+   "celula": "F198",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G198",
+   "celula": "G198",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H198",
+   "celula": "H198",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I198",
+   "celula": "I198",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J198",
+   "celula": "J198",
+   "rotulo": "T-Score — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K198",
+   "celula": "K198",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L198",
+   "celula": "L198",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M198",
+   "celula": "M198",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F199",
+   "celula": "F199",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G199",
+   "celula": "G199",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H199",
+   "celula": "H199",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I199",
+   "celula": "I199",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J199",
+   "celula": "J199",
+   "rotulo": "Percentil — EM CONSTRUÇÃO Falta as tabelas"
+  },
+  {
+   "chave": "out_K199",
+   "celula": "K199",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L199",
+   "celula": "L199",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M199",
+   "celula": "M199",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F200",
+   "celula": "F200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G200",
+   "celula": "G200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H200",
+   "celula": "H200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I200",
+   "celula": "I200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J200",
+   "celula": "J200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_K200",
+   "celula": "K200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L200",
+   "celula": "L200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M200",
+   "celula": "M200",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F201",
+   "celula": "F201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G201",
+   "celula": "G201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H201",
+   "celula": "H201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I201",
+   "celula": "I201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J201",
+   "celula": "J201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_K201",
+   "celula": "K201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L201",
+   "celula": "L201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M201",
+   "celula": "M201",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F202",
+   "celula": "F202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G202",
+   "celula": "G202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H202",
+   "celula": "H202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_I202",
+   "celula": "I202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J202",
+   "celula": "J202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_K202",
+   "celula": "K202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L202",
+   "celula": "L202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M202",
+   "celula": "M202",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F203",
+   "celula": "F203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G203",
+   "celula": "G203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H203",
+   "celula": "H203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_I203",
+   "celula": "I203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J203",
+   "celula": "J203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_K203",
+   "celula": "K203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L203",
+   "celula": "L203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M203",
+   "celula": "M203",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F204",
+   "celula": "F204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G204",
+   "celula": "G204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H204",
+   "celula": "H204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_I204",
+   "celula": "I204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J204",
+   "celula": "J204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_K204",
+   "celula": "K204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L204",
+   "celula": "L204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M204",
+   "celula": "M204",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F205",
+   "celula": "F205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G205",
+   "celula": "G205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H205",
+   "celula": "H205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_I205",
+   "celula": "I205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J205",
+   "celula": "J205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_K205",
+   "celula": "K205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L205",
+   "celula": "L205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M205",
+   "celula": "M205",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J206",
+   "celula": "J206",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_K206",
+   "celula": "K206",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L206",
+   "celula": "L206",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M206",
+   "celula": "M206",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J207",
+   "celula": "J207",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_K207",
+   "celula": "K207",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L207",
+   "celula": "L207",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M207",
+   "celula": "M207",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J208",
+   "celula": "J208",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_K208",
+   "celula": "K208",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L208",
+   "celula": "L208",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M208",
+   "celula": "M208",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J209",
+   "celula": "J209",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_K209",
+   "celula": "K209",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L209",
+   "celula": "L209",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M209",
+   "celula": "M209",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J210",
+   "celula": "J210",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_K210",
+   "celula": "K210",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L210",
+   "celula": "L210",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M210",
+   "celula": "M210",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_J211",
+   "celula": "J211",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_K211",
+   "celula": "K211",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L211",
+   "celula": "L211",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M211",
+   "celula": "M211",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J212",
+   "celula": "J212",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_K212",
+   "celula": "K212",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_L212",
+   "celula": "L212",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M212",
+   "celula": "M212",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_J213",
+   "celula": "J213",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_K213",
+   "celula": "K213",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_L213",
+   "celula": "L213",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_M213",
+   "celula": "M213",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_J214",
+   "celula": "J214",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_K214",
+   "celula": "K214",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_L214",
+   "celula": "L214",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M214",
+   "celula": "M214",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_J215",
+   "celula": "J215",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_K215",
+   "celula": "K215",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_L215",
+   "celula": "L215",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_M215",
+   "celula": "M215",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_F216",
+   "celula": "F216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G216",
+   "celula": "G216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H216",
+   "celula": "H216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_I216",
+   "celula": "I216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_J216",
+   "celula": "J216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_K216",
+   "celula": "K216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_L216",
+   "celula": "L216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_M216",
+   "celula": "M216",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F217",
+   "celula": "F217",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_G217",
+   "celula": "G217",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_H217",
+   "celula": "H217",
+   "rotulo": "Pts Brutos"
+  },
+  {
+   "chave": "out_F218",
+   "celula": "F218",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_G218",
+   "celula": "G218",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_H218",
+   "celula": "H218",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_F219",
+   "celula": "F219",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_G219",
+   "celula": "G219",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_H219",
+   "celula": "H219",
+   "rotulo": "T-Score"
+  },
+  {
+   "chave": "out_F220",
+   "celula": "F220",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_G220",
+   "celula": "G220",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H220",
+   "celula": "H220",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_F221",
+   "celula": "F221",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_G221",
+   "celula": "G221",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_H221",
+   "celula": "H221",
+   "rotulo": "Classific."
+  },
+  {
+   "chave": "out_C226",
+   "celula": "C226",
+   "rotulo": "IX - Outros Problemas"
+  },
+  {
+   "chave": "out_D226",
+   "celula": "D226",
+   "rotulo": "Atividade"
+  },
+  {
+   "chave": "out_E226",
+   "celula": "E226",
+   "rotulo": "Social"
+  },
+  {
+   "chave": "out_F226",
+   "celula": "F226",
+   "rotulo": "Escola"
+  },
+  {
+   "chave": "out_I226",
+   "celula": "I226",
+   "rotulo": "I226"
+  },
+  {
+   "chave": "out_J226",
+   "celula": "J226",
+   "rotulo": "Total Geral"
+  },
+  {
+   "chave": "out_C227",
+   "celula": "C227",
+   "rotulo": "IX - Outros Problemas"
+  },
+  {
+   "chave": "out_D227",
+   "celula": "D227",
+   "rotulo": "Atividade"
+  },
+  {
+   "chave": "out_E227",
+   "celula": "E227",
+   "rotulo": "Social"
+  },
+  {
+   "chave": "out_F227",
+   "celula": "F227",
+   "rotulo": "Escola"
+  },
+  {
+   "chave": "out_I227",
+   "celula": "I227",
+   "rotulo": "I227"
+  },
+  {
+   "chave": "out_J227",
+   "celula": "J227",
+   "rotulo": "Total Geral"
+  },
+  {
+   "chave": "out_C228",
+   "celula": "C228",
+   "rotulo": "IX - Outros Problemas"
+  },
+  {
+   "chave": "out_D228",
+   "celula": "D228",
+   "rotulo": "Atividade"
+  },
+  {
+   "chave": "out_E228",
+   "celula": "E228",
+   "rotulo": "Social"
+  },
+  {
+   "chave": "out_F228",
+   "celula": "F228",
+   "rotulo": "Escola"
+  },
+  {
+   "chave": "out_I228",
+   "celula": "I228",
+   "rotulo": "I228"
+  },
+  {
+   "chave": "out_J228",
+   "celula": "J228",
+   "rotulo": "Total Geral"
+  },
+  {
+   "chave": "out_C243",
+   "celula": "C243",
+   "rotulo": "C243"
+  },
+  {
+   "chave": "out_D243",
+   "celula": "D243",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E243",
+   "celula": "E243",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F243",
+   "celula": "F243",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G243",
+   "celula": "G243",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H243",
+   "celula": "H243",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I243",
+   "celula": "I243",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J243",
+   "celula": "J243",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K243",
+   "celula": "K243",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_C244",
+   "celula": "C244",
+   "rotulo": "C244"
+  },
+  {
+   "chave": "out_D244",
+   "celula": "D244",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E244",
+   "celula": "E244",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F244",
+   "celula": "F244",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G244",
+   "celula": "G244",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H244",
+   "celula": "H244",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I244",
+   "celula": "I244",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J244",
+   "celula": "J244",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K244",
+   "celula": "K244",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_C245",
+   "celula": "C245",
+   "rotulo": "C245"
+  },
+  {
+   "chave": "out_D245",
+   "celula": "D245",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E245",
+   "celula": "E245",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F245",
+   "celula": "F245",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G245",
+   "celula": "G245",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H245",
+   "celula": "H245",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I245",
+   "celula": "I245",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J245",
+   "celula": "J245",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K245",
+   "celula": "K245",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_C246",
+   "celula": "C246",
+   "rotulo": "C246"
+  },
+  {
+   "chave": "out_D246",
+   "celula": "D246",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E246",
+   "celula": "E246",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F246",
+   "celula": "F246",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G246",
+   "celula": "G246",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H246",
+   "celula": "H246",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I246",
+   "celula": "I246",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J246",
+   "celula": "J246",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K246",
+   "celula": "K246",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_C247",
+   "celula": "C247",
+   "rotulo": "C247"
+  },
+  {
+   "chave": "out_D247",
+   "celula": "D247",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E247",
+   "celula": "E247",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F247",
+   "celula": "F247",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G247",
+   "celula": "G247",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H247",
+   "celula": "H247",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I247",
+   "celula": "I247",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J247",
+   "celula": "J247",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K247",
+   "celula": "K247",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_C248",
+   "celula": "C248",
+   "rotulo": "C248"
+  },
+  {
+   "chave": "out_D248",
+   "celula": "D248",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E248",
+   "celula": "E248",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F248",
+   "celula": "F248",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G248",
+   "celula": "G248",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H248",
+   "celula": "H248",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I248",
+   "celula": "I248",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J248",
+   "celula": "J248",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K248",
+   "celula": "K248",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_C249",
+   "celula": "C249",
+   "rotulo": "C249"
+  },
+  {
+   "chave": "out_D249",
+   "celula": "D249",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E249",
+   "celula": "E249",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F249",
+   "celula": "F249",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G249",
+   "celula": "G249",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H249",
+   "celula": "H249",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I249",
+   "celula": "I249",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J249",
+   "celula": "J249",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K249",
+   "celula": "K249",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_C250",
+   "celula": "C250",
+   "rotulo": "C250"
+  },
+  {
+   "chave": "out_D250",
+   "celula": "D250",
+   "rotulo": "Depressão Ansiedade"
+  },
+  {
+   "chave": "out_E250",
+   "celula": "E250",
+   "rotulo": "Retraimento"
+  },
+  {
+   "chave": "out_F250",
+   "celula": "F250",
+   "rotulo": "Queixas Somáticas"
+  },
+  {
+   "chave": "out_G250",
+   "celula": "G250",
+   "rotulo": "Problemas Sociais"
+  },
+  {
+   "chave": "out_H250",
+   "celula": "H250",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I250",
+   "celula": "I250",
+   "rotulo": "Problemas de Atenção"
+  },
+  {
+   "chave": "out_J250",
+   "celula": "J250",
+   "rotulo": "Compto Disruptivo"
+  },
+  {
+   "chave": "out_K250",
+   "celula": "K250",
+   "rotulo": "Compto Agressivo"
+  },
+  {
+   "chave": "out_H252",
+   "celula": "H252",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I252",
+   "celula": "I252",
+   "rotulo": "Internalizante"
+  },
+  {
+   "chave": "out_J252",
+   "celula": "J252",
+   "rotulo": "Externalizante"
+  },
+  {
+   "chave": "out_K252",
+   "celula": "K252",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_H253",
+   "celula": "H253",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I253",
+   "celula": "I253",
+   "rotulo": "Internalizante"
+  },
+  {
+   "chave": "out_J253",
+   "celula": "J253",
+   "rotulo": "Externalizante"
+  },
+  {
+   "chave": "out_K253",
+   "celula": "K253",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_H254",
+   "celula": "H254",
+   "rotulo": "Alterações de Pensamento"
+  },
+  {
+   "chave": "out_I254",
+   "celula": "I254",
+   "rotulo": "Internalizante"
+  },
+  {
+   "chave": "out_J254",
+   "celula": "J254",
+   "rotulo": "Externalizante"
+  },
+  {
+   "chave": "out_K254",
+   "celula": "K254",
+   "rotulo": "TOTAL"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "C-TRF2:",
+    "IX - Outros Problemas",
+    "Atividade",
+    "Social",
+    "CBCL",
+    "G",
+    "H",
+    "YSR",
+    "TRF",
+    "K",
+    "L",
+    "x",
+    "O",
+    "P",
+    "Q",
+    "U",
+    "V",
+    "W",
+    "X"
+   ],
+   "linhas": [
+    {
+     "rotulo": "15",
+     "valores": [
+      "out_B15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Item",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_O19",
+      "out_P19",
+      "out_Q19",
+      "out_U19",
+      "out_V19",
+      "out_W19",
+      "out_X19"
+     ]
+    },
+    {
+     "rotulo": "143",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F143",
+      "out_G143",
+      "out_H143",
+      "out_I143",
+      "out_J143",
+      "out_K143",
+      "out_L143",
+      "out_M143",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "018. Machuca-se de propósito ...",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F144",
+      "out_G144",
+      "out_H144",
+      "out_I144",
+      "out_J144",
+      "out_K144",
+      "out_L144",
+      "out_M144",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "040. Escuta sons ou vozes que não existe",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F145",
+      "out_G145",
+      "out_H145",
+      "out_I145",
+      "out_J145",
+      "out_K145",
+      "out_L145",
+      "out_M145",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "057. Ataca fisicamente as pessoas",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F146",
+      "out_G146",
+      "out_H146",
+      "out_I146",
+      "out_J146",
+      "out_K146",
+      "out_L146",
+      "out_M146",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "067. Perturba a disciplina durante a aul",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F147",
+      "out_G147",
+      "out_H147",
+      "out_I147",
+      "out_J147",
+      "out_K147",
+      "out_L147",
+      "out_M147",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "070. Vê coisas que não existem",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F148",
+      "out_G148",
+      "out_H148",
+      "out_I148",
+      "out_J148",
+      "out_K148",
+      "out_L148",
+      "out_M148",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "072. O seu trabalho é bagunçado",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F149",
+      "out_G149",
+      "out_H149",
+      "out_I149",
+      "out_J149",
+      "out_K149",
+      "out_L149",
+      "out_M149",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "091. Fala que vai se matar",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F150",
+      "out_G150",
+      "out_H150",
+      "out_I150",
+      "out_J150",
+      "out_K150",
+      "out_L150",
+      "out_M150",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "103. É infeliz,",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F151",
+      "out_G151",
+      "out_H151",
+      "out_I151",
+      "out_J151",
+      "out_K151",
+      "out_L151",
+      "out_M151",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "105. Usa drogas",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F152",
+      "out_G152",
+      "out_H152",
+      "out_I152",
+      "out_J152",
+      "out_K152",
+      "out_L152",
+      "out_M152",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "155",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F155",
+      "out_G155",
+      "out_H155",
+      "out_I155",
+      "out_J155",
+      "out_K155",
+      "out_L155",
+      "out_M155",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F156",
+      "out_G156",
+      "out_H156",
+      "out_I156",
+      "out_J156",
+      "out_K156",
+      "out_L156",
+      "out_M156",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F157",
+      "out_G157",
+      "out_H157",
+      "out_I157",
+      "out_J157",
+      "out_K157",
+      "out_L157",
+      "out_M157",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F158",
+      "out_G158",
+      "out_H158",
+      "out_I158",
+      "out_J158",
+      "out_K158",
+      "out_L158",
+      "out_M158",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F159",
+      "out_G159",
+      "out_H159",
+      "out_I159",
+      "out_J159",
+      "out_K159",
+      "out_L159",
+      "out_M159",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F160",
+      "out_G160",
+      "out_H160",
+      "out_I160",
+      "out_J160",
+      "out_K160",
+      "out_L160",
+      "out_M160",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F161",
+      "out_G161",
+      "out_H161",
+      "out_I161",
+      "out_J161",
+      "out_K161",
+      "out_L161",
+      "out_M161",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F162",
+      "out_G162",
+      "out_H162",
+      "out_I162",
+      "out_J162",
+      "out_K162",
+      "out_L162",
+      "out_M162",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F163",
+      "out_G163",
+      "out_H163",
+      "out_I163",
+      "out_J163",
+      "out_K163",
+      "out_L163",
+      "out_M163",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F164",
+      "out_G164",
+      "out_H164",
+      "out_I164",
+      "out_J164",
+      "out_K164",
+      "out_L164",
+      "out_M164",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F165",
+      "out_G165",
+      "out_H165",
+      "out_I165",
+      "out_J165",
+      "out_K165",
+      "out_L165",
+      "out_M165",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F166",
+      "out_G166",
+      "out_H166",
+      "out_I166",
+      "out_J166",
+      "out_K166",
+      "out_L166",
+      "out_M166",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F167",
+      "out_G167",
+      "out_H167",
+      "out_I167",
+      "out_J167",
+      "out_K167",
+      "out_L167",
+      "out_M167",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F168",
+      "out_G168",
+      "out_H168",
+      "out_I168",
+      "out_J168",
+      "out_K168",
+      "out_L168",
+      "out_M168",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F169",
+      "out_G169",
+      "out_H169",
+      "out_I169",
+      "out_J169",
+      "out_K169",
+      "out_L169",
+      "out_M169",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F170",
+      "out_G170",
+      "out_H170",
+      "out_I170",
+      "out_J170",
+      "out_K170",
+      "out_L170",
+      "out_M170",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F171",
+      "out_G171",
+      "out_H171",
+      "out_I171",
+      "out_J171",
+      "out_K171",
+      "out_L171",
+      "out_M171",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F172",
+      "out_G172",
+      "out_H172",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F173",
+      "out_G173",
+      "out_H173",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F174",
+      "out_G174",
+      "out_H174",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F175",
+      "out_G175",
+      "out_H175",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F176",
+      "out_G176",
+      "out_H176",
+      "out_I176",
+      "out_J176",
+      "out_K176",
+      "out_L176",
+      "out_M176",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F177",
+      "out_G177",
+      "out_H177",
+      "out_I177",
+      "out_J177",
+      "out_K177",
+      "out_L177",
+      "out_M177",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F178",
+      "out_G178",
+      "out_H178",
+      "out_I178",
+      "out_J178",
+      "out_K178",
+      "out_L178",
+      "out_M178",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F179",
+      "out_G179",
+      "out_H179",
+      "out_I179",
+      "out_J179",
+      "out_K179",
+      "out_L179",
+      "out_M179",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F180",
+      "out_G180",
+      "out_H180",
+      "out_I180",
+      "out_J180",
+      "out_K180",
+      "out_L180",
+      "out_M180",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F181",
+      "out_G181",
+      "out_H181",
+      "out_I181",
+      "out_J181",
+      "out_K181",
+      "out_L181",
+      "out_M181",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F182",
+      "out_G182",
+      "out_H182",
+      "out_I182",
+      "out_J182",
+      "out_K182",
+      "out_L182",
+      "out_M182",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F183",
+      "out_G183",
+      "out_H183",
+      "out_I183",
+      "out_J183",
+      "out_K183",
+      "out_L183",
+      "out_M183",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F184",
+      "out_G184",
+      "out_H184",
+      "out_I184",
+      "out_J184",
+      "out_K184",
+      "out_L184",
+      "out_M184",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F185",
+      "out_G185",
+      "out_H185",
+      "out_I185",
+      "out_J185",
+      "out_K185",
+      "out_L185",
+      "out_M185",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F186",
+      "out_G186",
+      "out_H186",
+      "out_I186",
+      "out_J186",
+      "out_K186",
+      "out_L186",
+      "out_M186",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F187",
+      "out_G187",
+      "out_H187",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F188",
+      "out_G188",
+      "out_H188",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F189",
+      "out_G189",
+      "out_H189",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F190",
+      "out_G190",
+      "out_H190",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F191",
+      "out_G191",
+      "out_H191",
+      "out_I191",
+      "out_J191",
+      "out_K191",
+      "out_L191",
+      "out_M191",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F192",
+      "out_G192",
+      "out_H192",
+      "out_I192",
+      "out_J192",
+      "out_K192",
+      "out_L192",
+      "out_M192",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F193",
+      "out_G193",
+      "out_H193",
+      "out_I193",
+      "out_J193",
+      "out_K193",
+      "out_L193",
+      "out_M193",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F194",
+      "out_G194",
+      "out_H194",
+      "out_I194",
+      "out_J194",
+      "out_K194",
+      "out_L194",
+      "out_M194",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F195",
+      "out_G195",
+      "out_H195",
+      "out_I195",
+      "out_J195",
+      "out_K195",
+      "out_L195",
+      "out_M195",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F196",
+      "out_G196",
+      "out_H196",
+      "out_I196",
+      "out_J196",
+      "out_K196",
+      "out_L196",
+      "out_M196",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F197",
+      "out_G197",
+      "out_H197",
+      "out_I197",
+      "out_J197",
+      "out_K197",
+      "out_L197",
+      "out_M197",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F198",
+      "out_G198",
+      "out_H198",
+      "out_I198",
+      "out_J198",
+      "out_K198",
+      "out_L198",
+      "out_M198",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F199",
+      "out_G199",
+      "out_H199",
+      "out_I199",
+      "out_J199",
+      "out_K199",
+      "out_L199",
+      "out_M199",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F200",
+      "out_G200",
+      "out_H200",
+      "out_I200",
+      "out_J200",
+      "out_K200",
+      "out_L200",
+      "out_M200",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F201",
+      "out_G201",
+      "out_H201",
+      "out_I201",
+      "out_J201",
+      "out_K201",
+      "out_L201",
+      "out_M201",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F202",
+      "out_G202",
+      "out_H202",
+      "out_I202",
+      "out_J202",
+      "out_K202",
+      "out_L202",
+      "out_M202",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F203",
+      "out_G203",
+      "out_H203",
+      "out_I203",
+      "out_J203",
+      "out_K203",
+      "out_L203",
+      "out_M203",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F204",
+      "out_G204",
+      "out_H204",
+      "out_I204",
+      "out_J204",
+      "out_K204",
+      "out_L204",
+      "out_M204",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F205",
+      "out_G205",
+      "out_H205",
+      "out_I205",
+      "out_J205",
+      "out_K205",
+      "out_L205",
+      "out_M205",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J206",
+      "out_K206",
+      "out_L206",
+      "out_M206",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J207",
+      "out_K207",
+      "out_L207",
+      "out_M207",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J208",
+      "out_K208",
+      "out_L208",
+      "out_M208",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J209",
+      "out_K209",
+      "out_L209",
+      "out_M209",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J210",
+      "out_K210",
+      "out_L210",
+      "out_M210",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J211",
+      "out_K211",
+      "out_L211",
+      "out_M211",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J212",
+      "out_K212",
+      "out_L212",
+      "out_M212",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J213",
+      "out_K213",
+      "out_L213",
+      "out_M213",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J214",
+      "out_K214",
+      "out_L214",
+      "out_M214",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_J215",
+      "out_K215",
+      "out_L215",
+      "out_M215",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F216",
+      "out_G216",
+      "out_H216",
+      "out_I216",
+      "out_J216",
+      "out_K216",
+      "out_L216",
+      "out_M216",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pts Brutos",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F217",
+      "out_G217",
+      "out_H217",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Z-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F218",
+      "out_G218",
+      "out_H218",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "T-Score",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F219",
+      "out_G219",
+      "out_H219",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F220",
+      "out_G220",
+      "out_H220",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classific.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_F221",
+      "out_G221",
+      "out_H221",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "226",
+     "valores": [
+      null,
+      "out_C226",
+      "out_D226",
+      "out_E226",
+      "out_F226",
+      null,
+      null,
+      "out_I226",
+      "out_J226",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "227",
+     "valores": [
+      null,
+      "out_C227",
+      "out_D227",
+      "out_E227",
+      "out_F227",
+      null,
+      null,
+      "out_I227",
+      "out_J227",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "228",
+     "valores": [
+      null,
+      "out_C228",
+      "out_D228",
+      "out_E228",
+      "out_F228",
+      null,
+      null,
+      "out_I228",
+      "out_J228",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "243",
+     "valores": [
+      null,
+      "out_C243",
+      "out_D243",
+      "out_E243",
+      "out_F243",
+      "out_G243",
+      "out_H243",
+      "out_I243",
+      "out_J243",
+      "out_K243",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "244",
+     "valores": [
+      null,
+      "out_C244",
+      "out_D244",
+      "out_E244",
+      "out_F244",
+      "out_G244",
+      "out_H244",
+      "out_I244",
+      "out_J244",
+      "out_K244",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "245",
+     "valores": [
+      null,
+      "out_C245",
+      "out_D245",
+      "out_E245",
+      "out_F245",
+      "out_G245",
+      "out_H245",
+      "out_I245",
+      "out_J245",
+      "out_K245",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "246",
+     "valores": [
+      null,
+      "out_C246",
+      "out_D246",
+      "out_E246",
+      "out_F246",
+      "out_G246",
+      "out_H246",
+      "out_I246",
+      "out_J246",
+      "out_K246",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "247",
+     "valores": [
+      null,
+      "out_C247",
+      "out_D247",
+      "out_E247",
+      "out_F247",
+      "out_G247",
+      "out_H247",
+      "out_I247",
+      "out_J247",
+      "out_K247",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "248",
+     "valores": [
+      null,
+      "out_C248",
+      "out_D248",
+      "out_E248",
+      "out_F248",
+      "out_G248",
+      "out_H248",
+      "out_I248",
+      "out_J248",
+      "out_K248",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "249",
+     "valores": [
+      null,
+      "out_C249",
+      "out_D249",
+      "out_E249",
+      "out_F249",
+      "out_G249",
+      "out_H249",
+      "out_I249",
+      "out_J249",
+      "out_K249",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "250",
+     "valores": [
+      null,
+      "out_C250",
+      "out_D250",
+      "out_E250",
+      "out_F250",
+      "out_G250",
+      "out_H250",
+      "out_I250",
+      "out_J250",
+      "out_K250",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "252",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H252",
+      "out_I252",
+      "out_J252",
+      "out_K252",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "253",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H253",
+      "out_I253",
+      "out_J253",
+      "out_K253",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "254",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_H254",
+      "out_I254",
+      "out_J254",
+      "out_K254",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

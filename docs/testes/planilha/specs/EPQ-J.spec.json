@@ -1,0 +1,6952 @@
+{
+ "sigla": "EPQ-J",
+ "nome": "EPQ-J — Questionário de Personalidade de Eysenck (Juvenil)",
+ "dominio": "PERSONALIDADE",
+ "descricao": "EPQ-J: respostas aos itens somadas por escala (extroversão, neuroticismo, psicoticismo, sinceridade) e convertidas em classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "EYSENCK, H. J.; EYSENCK, S. B. G. EPQ-J (normas conforme planilha da psicóloga).",
+ "aba": "EPQJ",
+ "idade": [
+  10,
+  17
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "V3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_P4",
+   "celula": "P4",
+   "rotulo": "Respondente 2:",
+   "min": 0
+  },
+  {
+   "chave": "in_V4",
+   "celula": "V4",
+   "rotulo": "Data de aplicação 2:",
+   "min": 0
+  },
+  {
+   "chave": "in_P5",
+   "celula": "P5",
+   "rotulo": "Respondente 3:",
+   "min": 0
+  },
+  {
+   "chave": "in_V5",
+   "celula": "V5",
+   "rotulo": "Data de aplicação 3:",
+   "min": 0
+  },
+  {
+   "chave": "in_P6",
+   "celula": "P6",
+   "rotulo": "Respondente 4:",
+   "min": 0
+  },
+  {
+   "chave": "in_V6",
+   "celula": "V6",
+   "rotulo": "Data de aplicação 4:",
+   "min": 0
+  },
+  {
+   "chave": "in_V110",
+   "celula": "V110",
+   "rotulo": "Interpretação dos resultados segundo a p",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_AF3",
+   "celula": "AF3",
+   "rotulo": "Tabela Normativa 1:",
+   "valores": [
+    "Geral",
+    "Masculino",
+    "Feminino"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF4",
+   "celula": "AF4",
+   "rotulo": "Tabela Normativa 2:",
+   "valores": [
+    "Geral",
+    "Masculino",
+    "Feminino"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF5",
+   "celula": "AF5",
+   "rotulo": "Tabela Normativa 3:",
+   "valores": [
+    "Geral",
+    "Masculino",
+    "Feminino"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF6",
+   "celula": "AF6",
+   "rotulo": "Tabela Normativa 4:",
+   "valores": [
+    "Geral",
+    "Masculino",
+    "Feminino"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W15",
+   "celula": "W15",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_Z15",
+   "celula": "Z15",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AC15",
+   "celula": "AC15",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AF15",
+   "celula": "AF15",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_W16",
+   "celula": "W16",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_Z16",
+   "celula": "Z16",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AC16",
+   "celula": "AC16",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AF16",
+   "celula": "AF16",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_W17",
+   "celula": "W17",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_Z17",
+   "celula": "Z17",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AC17",
+   "celula": "AC17",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AF17",
+   "celula": "AF17",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_W18",
+   "celula": "W18",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_Z18",
+   "celula": "Z18",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AC18",
+   "celula": "AC18",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AF18",
+   "celula": "AF18",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_W19",
+   "celula": "W19",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_Z19",
+   "celula": "Z19",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AC19",
+   "celula": "AC19",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AF19",
+   "celula": "AF19",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_W20",
+   "celula": "W20",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_Z20",
+   "celula": "Z20",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AC20",
+   "celula": "AC20",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_AF20",
+   "celula": "AF20",
+   "rotulo": "Resp",
+   "valores": [
+    "sim",
+    "Não"
+   ]
+  },
+  {
+   "chave": "opcao_W21",
+   "celula": "W21",
+   "rotulo": "W21",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z21",
+   "celula": "Z21",
+   "rotulo": "Z21",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC21",
+   "celula": "AC21",
+   "rotulo": "AC21",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF21",
+   "celula": "AF21",
+   "rotulo": "AF21",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W22",
+   "celula": "W22",
+   "rotulo": "W22",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z22",
+   "celula": "Z22",
+   "rotulo": "Z22",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC22",
+   "celula": "AC22",
+   "rotulo": "AC22",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF22",
+   "celula": "AF22",
+   "rotulo": "AF22",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W23",
+   "celula": "W23",
+   "rotulo": "W23",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z23",
+   "celula": "Z23",
+   "rotulo": "Z23",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC23",
+   "celula": "AC23",
+   "rotulo": "AC23",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF23",
+   "celula": "AF23",
+   "rotulo": "AF23",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W24",
+   "celula": "W24",
+   "rotulo": "W24",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z24",
+   "celula": "Z24",
+   "rotulo": "Z24",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC24",
+   "celula": "AC24",
+   "rotulo": "AC24",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF24",
+   "celula": "AF24",
+   "rotulo": "AF24",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W25",
+   "celula": "W25",
+   "rotulo": "W25",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z25",
+   "celula": "Z25",
+   "rotulo": "Z25",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC25",
+   "celula": "AC25",
+   "rotulo": "AC25",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF25",
+   "celula": "AF25",
+   "rotulo": "AF25",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W26",
+   "celula": "W26",
+   "rotulo": "W26",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z26",
+   "celula": "Z26",
+   "rotulo": "Z26",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC26",
+   "celula": "AC26",
+   "rotulo": "AC26",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF26",
+   "celula": "AF26",
+   "rotulo": "AF26",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W27",
+   "celula": "W27",
+   "rotulo": "W27",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z27",
+   "celula": "Z27",
+   "rotulo": "Z27",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC27",
+   "celula": "AC27",
+   "rotulo": "AC27",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF27",
+   "celula": "AF27",
+   "rotulo": "AF27",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W28",
+   "celula": "W28",
+   "rotulo": "W28",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z28",
+   "celula": "Z28",
+   "rotulo": "Z28",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC28",
+   "celula": "AC28",
+   "rotulo": "AC28",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF28",
+   "celula": "AF28",
+   "rotulo": "AF28",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W29",
+   "celula": "W29",
+   "rotulo": "W29",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z29",
+   "celula": "Z29",
+   "rotulo": "Z29",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC29",
+   "celula": "AC29",
+   "rotulo": "AC29",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF29",
+   "celula": "AF29",
+   "rotulo": "AF29",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W30",
+   "celula": "W30",
+   "rotulo": "W30",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z30",
+   "celula": "Z30",
+   "rotulo": "Z30",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC30",
+   "celula": "AC30",
+   "rotulo": "AC30",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF30",
+   "celula": "AF30",
+   "rotulo": "AF30",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W31",
+   "celula": "W31",
+   "rotulo": "W31",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z31",
+   "celula": "Z31",
+   "rotulo": "Z31",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC31",
+   "celula": "AC31",
+   "rotulo": "AC31",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF31",
+   "celula": "AF31",
+   "rotulo": "AF31",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W32",
+   "celula": "W32",
+   "rotulo": "W32",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z32",
+   "celula": "Z32",
+   "rotulo": "Z32",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC32",
+   "celula": "AC32",
+   "rotulo": "AC32",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF32",
+   "celula": "AF32",
+   "rotulo": "AF32",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W33",
+   "celula": "W33",
+   "rotulo": "W33",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z33",
+   "celula": "Z33",
+   "rotulo": "Z33",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC33",
+   "celula": "AC33",
+   "rotulo": "AC33",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF33",
+   "celula": "AF33",
+   "rotulo": "AF33",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W34",
+   "celula": "W34",
+   "rotulo": "W34",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z34",
+   "celula": "Z34",
+   "rotulo": "Z34",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC34",
+   "celula": "AC34",
+   "rotulo": "AC34",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF34",
+   "celula": "AF34",
+   "rotulo": "AF34",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W35",
+   "celula": "W35",
+   "rotulo": "W35",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z35",
+   "celula": "Z35",
+   "rotulo": "Z35",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC35",
+   "celula": "AC35",
+   "rotulo": "AC35",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF35",
+   "celula": "AF35",
+   "rotulo": "AF35",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W36",
+   "celula": "W36",
+   "rotulo": "W36",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z36",
+   "celula": "Z36",
+   "rotulo": "Z36",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC36",
+   "celula": "AC36",
+   "rotulo": "AC36",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF36",
+   "celula": "AF36",
+   "rotulo": "AF36",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W37",
+   "celula": "W37",
+   "rotulo": "W37",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z37",
+   "celula": "Z37",
+   "rotulo": "Z37",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC37",
+   "celula": "AC37",
+   "rotulo": "AC37",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF37",
+   "celula": "AF37",
+   "rotulo": "AF37",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W38",
+   "celula": "W38",
+   "rotulo": "W38",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z38",
+   "celula": "Z38",
+   "rotulo": "Z38",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC38",
+   "celula": "AC38",
+   "rotulo": "AC38",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF38",
+   "celula": "AF38",
+   "rotulo": "AF38",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W39",
+   "celula": "W39",
+   "rotulo": "W39",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z39",
+   "celula": "Z39",
+   "rotulo": "Z39",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC39",
+   "celula": "AC39",
+   "rotulo": "AC39",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF39",
+   "celula": "AF39",
+   "rotulo": "AF39",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W40",
+   "celula": "W40",
+   "rotulo": "W40",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z40",
+   "celula": "Z40",
+   "rotulo": "Z40",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC40",
+   "celula": "AC40",
+   "rotulo": "AC40",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF40",
+   "celula": "AF40",
+   "rotulo": "AF40",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W41",
+   "celula": "W41",
+   "rotulo": "W41",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z41",
+   "celula": "Z41",
+   "rotulo": "Z41",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC41",
+   "celula": "AC41",
+   "rotulo": "AC41",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF41",
+   "celula": "AF41",
+   "rotulo": "AF41",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W42",
+   "celula": "W42",
+   "rotulo": "W42",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z42",
+   "celula": "Z42",
+   "rotulo": "Z42",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC42",
+   "celula": "AC42",
+   "rotulo": "AC42",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF42",
+   "celula": "AF42",
+   "rotulo": "AF42",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W43",
+   "celula": "W43",
+   "rotulo": "W43",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z43",
+   "celula": "Z43",
+   "rotulo": "Z43",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC43",
+   "celula": "AC43",
+   "rotulo": "AC43",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF43",
+   "celula": "AF43",
+   "rotulo": "AF43",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W44",
+   "celula": "W44",
+   "rotulo": "W44",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z44",
+   "celula": "Z44",
+   "rotulo": "Z44",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC44",
+   "celula": "AC44",
+   "rotulo": "AC44",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF44",
+   "celula": "AF44",
+   "rotulo": "AF44",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W45",
+   "celula": "W45",
+   "rotulo": "W45",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z45",
+   "celula": "Z45",
+   "rotulo": "Z45",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC45",
+   "celula": "AC45",
+   "rotulo": "AC45",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF45",
+   "celula": "AF45",
+   "rotulo": "AF45",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W46",
+   "celula": "W46",
+   "rotulo": "W46",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z46",
+   "celula": "Z46",
+   "rotulo": "Z46",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC46",
+   "celula": "AC46",
+   "rotulo": "AC46",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF46",
+   "celula": "AF46",
+   "rotulo": "AF46",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W47",
+   "celula": "W47",
+   "rotulo": "W47",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z47",
+   "celula": "Z47",
+   "rotulo": "Z47",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC47",
+   "celula": "AC47",
+   "rotulo": "AC47",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF47",
+   "celula": "AF47",
+   "rotulo": "AF47",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W48",
+   "celula": "W48",
+   "rotulo": "W48",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z48",
+   "celula": "Z48",
+   "rotulo": "Z48",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC48",
+   "celula": "AC48",
+   "rotulo": "AC48",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF48",
+   "celula": "AF48",
+   "rotulo": "AF48",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W49",
+   "celula": "W49",
+   "rotulo": "W49",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z49",
+   "celula": "Z49",
+   "rotulo": "Z49",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC49",
+   "celula": "AC49",
+   "rotulo": "AC49",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF49",
+   "celula": "AF49",
+   "rotulo": "AF49",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W50",
+   "celula": "W50",
+   "rotulo": "W50",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z50",
+   "celula": "Z50",
+   "rotulo": "Z50",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC50",
+   "celula": "AC50",
+   "rotulo": "AC50",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF50",
+   "celula": "AF50",
+   "rotulo": "AF50",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W51",
+   "celula": "W51",
+   "rotulo": "W51",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z51",
+   "celula": "Z51",
+   "rotulo": "Z51",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC51",
+   "celula": "AC51",
+   "rotulo": "AC51",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF51",
+   "celula": "AF51",
+   "rotulo": "AF51",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W52",
+   "celula": "W52",
+   "rotulo": "W52",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z52",
+   "celula": "Z52",
+   "rotulo": "Z52",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC52",
+   "celula": "AC52",
+   "rotulo": "AC52",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF52",
+   "celula": "AF52",
+   "rotulo": "AF52",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W53",
+   "celula": "W53",
+   "rotulo": "W53",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z53",
+   "celula": "Z53",
+   "rotulo": "Z53",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC53",
+   "celula": "AC53",
+   "rotulo": "AC53",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF53",
+   "celula": "AF53",
+   "rotulo": "AF53",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W54",
+   "celula": "W54",
+   "rotulo": "W54",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z54",
+   "celula": "Z54",
+   "rotulo": "Z54",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC54",
+   "celula": "AC54",
+   "rotulo": "AC54",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF54",
+   "celula": "AF54",
+   "rotulo": "AF54",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W55",
+   "celula": "W55",
+   "rotulo": "W55",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z55",
+   "celula": "Z55",
+   "rotulo": "Z55",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC55",
+   "celula": "AC55",
+   "rotulo": "AC55",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF55",
+   "celula": "AF55",
+   "rotulo": "AF55",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W56",
+   "celula": "W56",
+   "rotulo": "W56",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z56",
+   "celula": "Z56",
+   "rotulo": "Z56",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC56",
+   "celula": "AC56",
+   "rotulo": "AC56",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF56",
+   "celula": "AF56",
+   "rotulo": "AF56",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W57",
+   "celula": "W57",
+   "rotulo": "W57",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z57",
+   "celula": "Z57",
+   "rotulo": "Z57",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC57",
+   "celula": "AC57",
+   "rotulo": "AC57",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF57",
+   "celula": "AF57",
+   "rotulo": "AF57",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W58",
+   "celula": "W58",
+   "rotulo": "W58",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z58",
+   "celula": "Z58",
+   "rotulo": "Z58",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC58",
+   "celula": "AC58",
+   "rotulo": "AC58",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF58",
+   "celula": "AF58",
+   "rotulo": "AF58",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W59",
+   "celula": "W59",
+   "rotulo": "W59",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z59",
+   "celula": "Z59",
+   "rotulo": "Z59",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC59",
+   "celula": "AC59",
+   "rotulo": "AC59",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF59",
+   "celula": "AF59",
+   "rotulo": "AF59",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W60",
+   "celula": "W60",
+   "rotulo": "W60",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z60",
+   "celula": "Z60",
+   "rotulo": "Z60",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC60",
+   "celula": "AC60",
+   "rotulo": "AC60",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF60",
+   "celula": "AF60",
+   "rotulo": "AF60",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W61",
+   "celula": "W61",
+   "rotulo": "W61",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z61",
+   "celula": "Z61",
+   "rotulo": "Z61",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC61",
+   "celula": "AC61",
+   "rotulo": "AC61",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF61",
+   "celula": "AF61",
+   "rotulo": "AF61",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W62",
+   "celula": "W62",
+   "rotulo": "W62",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z62",
+   "celula": "Z62",
+   "rotulo": "Z62",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC62",
+   "celula": "AC62",
+   "rotulo": "AC62",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF62",
+   "celula": "AF62",
+   "rotulo": "AF62",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W63",
+   "celula": "W63",
+   "rotulo": "W63",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z63",
+   "celula": "Z63",
+   "rotulo": "Z63",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC63",
+   "celula": "AC63",
+   "rotulo": "AC63",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF63",
+   "celula": "AF63",
+   "rotulo": "AF63",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W64",
+   "celula": "W64",
+   "rotulo": "W64",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z64",
+   "celula": "Z64",
+   "rotulo": "Z64",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC64",
+   "celula": "AC64",
+   "rotulo": "AC64",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF64",
+   "celula": "AF64",
+   "rotulo": "AF64",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W65",
+   "celula": "W65",
+   "rotulo": "W65",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z65",
+   "celula": "Z65",
+   "rotulo": "Z65",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC65",
+   "celula": "AC65",
+   "rotulo": "AC65",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF65",
+   "celula": "AF65",
+   "rotulo": "AF65",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W66",
+   "celula": "W66",
+   "rotulo": "W66",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z66",
+   "celula": "Z66",
+   "rotulo": "Z66",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC66",
+   "celula": "AC66",
+   "rotulo": "AC66",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF66",
+   "celula": "AF66",
+   "rotulo": "AF66",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W67",
+   "celula": "W67",
+   "rotulo": "W67",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z67",
+   "celula": "Z67",
+   "rotulo": "Z67",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC67",
+   "celula": "AC67",
+   "rotulo": "AC67",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF67",
+   "celula": "AF67",
+   "rotulo": "AF67",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W68",
+   "celula": "W68",
+   "rotulo": "W68",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z68",
+   "celula": "Z68",
+   "rotulo": "Z68",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC68",
+   "celula": "AC68",
+   "rotulo": "AC68",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF68",
+   "celula": "AF68",
+   "rotulo": "AF68",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W69",
+   "celula": "W69",
+   "rotulo": "W69",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z69",
+   "celula": "Z69",
+   "rotulo": "Z69",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC69",
+   "celula": "AC69",
+   "rotulo": "AC69",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF69",
+   "celula": "AF69",
+   "rotulo": "AF69",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W70",
+   "celula": "W70",
+   "rotulo": "W70",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z70",
+   "celula": "Z70",
+   "rotulo": "Z70",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC70",
+   "celula": "AC70",
+   "rotulo": "AC70",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF70",
+   "celula": "AF70",
+   "rotulo": "AF70",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W71",
+   "celula": "W71",
+   "rotulo": "W71",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z71",
+   "celula": "Z71",
+   "rotulo": "Z71",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC71",
+   "celula": "AC71",
+   "rotulo": "AC71",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF71",
+   "celula": "AF71",
+   "rotulo": "AF71",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W72",
+   "celula": "W72",
+   "rotulo": "W72",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z72",
+   "celula": "Z72",
+   "rotulo": "Z72",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC72",
+   "celula": "AC72",
+   "rotulo": "AC72",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF72",
+   "celula": "AF72",
+   "rotulo": "AF72",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W73",
+   "celula": "W73",
+   "rotulo": "W73",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z73",
+   "celula": "Z73",
+   "rotulo": "Z73",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC73",
+   "celula": "AC73",
+   "rotulo": "AC73",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF73",
+   "celula": "AF73",
+   "rotulo": "AF73",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_W74",
+   "celula": "W74",
+   "rotulo": "W74",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_Z74",
+   "celula": "Z74",
+   "rotulo": "Z74",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AC74",
+   "celula": "AC74",
+   "rotulo": "AC74",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_AF74",
+   "celula": "AF74",
+   "rotulo": "AF74",
+   "valores": [
+    "sim",
+    "Não"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_Z4",
+   "celula": "Z4",
+   "rotulo": "Idade 2:"
+  },
+  {
+   "chave": "out_AI4",
+   "celula": "AI4",
+   "rotulo": "Masculino"
+  },
+  {
+   "chave": "out_Z5",
+   "celula": "Z5",
+   "rotulo": "Idade 3:"
+  },
+  {
+   "chave": "out_AI5",
+   "celula": "AI5",
+   "rotulo": "Feminino"
+  },
+  {
+   "chave": "out_Z6",
+   "celula": "Z6",
+   "rotulo": "Idade 4:"
+  },
+  {
+   "chave": "out_AI6",
+   "celula": "AI6",
+   "rotulo": "Tabela Normativa 4:"
+  },
+  {
+   "chave": "out_A7",
+   "celula": "A7",
+   "rotulo": "A7"
+  },
+  {
+   "chave": "out_B7",
+   "celula": "B7",
+   "rotulo": "Profissional Responsável:"
+  },
+  {
+   "chave": "out_D7",
+   "celula": "D7",
+   "rotulo": "D7"
+  },
+  {
+   "chave": "out_W13",
+   "celula": "W13",
+   "rotulo": "Aval 1:"
+  },
+  {
+   "chave": "out_Z13",
+   "celula": "Z13",
+   "rotulo": "Aval 2:"
+  },
+  {
+   "chave": "out_AC13",
+   "celula": "AC13",
+   "rotulo": "Aval 3:"
+  },
+  {
+   "chave": "out_AF13",
+   "celula": "AF13",
+   "rotulo": "Aval 4:"
+  },
+  {
+   "chave": "out_X15",
+   "celula": "X15",
+   "rotulo": "Alguma vez você já foi dormir sem escova — Pts"
+  },
+  {
+   "chave": "out_AA15",
+   "celula": "AA15",
+   "rotulo": "Alguma vez você já foi dormir sem escova — Pts"
+  },
+  {
+   "chave": "out_AD15",
+   "celula": "AD15",
+   "rotulo": "Alguma vez você já foi dormir sem escova — Pts"
+  },
+  {
+   "chave": "out_AG15",
+   "celula": "AG15",
+   "rotulo": "Alguma vez você já foi dormir sem escova — Pts"
+  },
+  {
+   "chave": "out_X16",
+   "celula": "X16",
+   "rotulo": "Você já chorou quando alguém riu de você — Pts"
+  },
+  {
+   "chave": "out_AA16",
+   "celula": "AA16",
+   "rotulo": "Você já chorou quando alguém riu de você — Pts"
+  },
+  {
+   "chave": "out_AD16",
+   "celula": "AD16",
+   "rotulo": "Você já chorou quando alguém riu de você — Pts"
+  },
+  {
+   "chave": "out_AG16",
+   "celula": "AG16",
+   "rotulo": "Você já chorou quando alguém riu de você — Pts"
+  },
+  {
+   "chave": "out_X17",
+   "celula": "X17",
+   "rotulo": "Você se diverte com piadas que às vezes  — Pts"
+  },
+  {
+   "chave": "out_AA17",
+   "celula": "AA17",
+   "rotulo": "Você se diverte com piadas que às vezes  — Pts"
+  },
+  {
+   "chave": "out_AD17",
+   "celula": "AD17",
+   "rotulo": "Você se diverte com piadas que às vezes  — Pts"
+  },
+  {
+   "chave": "out_AG17",
+   "celula": "AG17",
+   "rotulo": "Você se diverte com piadas que às vezes  — Pts"
+  },
+  {
+   "chave": "out_X18",
+   "celula": "X18",
+   "rotulo": "Você sempre faz imediatamente o que lhe  — Pts"
+  },
+  {
+   "chave": "out_AA18",
+   "celula": "AA18",
+   "rotulo": "Você sempre faz imediatamente o que lhe  — Pts"
+  },
+  {
+   "chave": "out_AD18",
+   "celula": "AD18",
+   "rotulo": "Você sempre faz imediatamente o que lhe  — Pts"
+  },
+  {
+   "chave": "out_AG18",
+   "celula": "AG18",
+   "rotulo": "Você sempre faz imediatamente o que lhe  — Pts"
+  },
+  {
+   "chave": "out_X19",
+   "celula": "X19",
+   "rotulo": "Quando vai dormir você tem pensamentos q — Pts"
+  },
+  {
+   "chave": "out_AA19",
+   "celula": "AA19",
+   "rotulo": "Quando vai dormir você tem pensamentos q — Pts"
+  },
+  {
+   "chave": "out_AD19",
+   "celula": "AD19",
+   "rotulo": "Quando vai dormir você tem pensamentos q — Pts"
+  },
+  {
+   "chave": "out_AG19",
+   "celula": "AG19",
+   "rotulo": "Quando vai dormir você tem pensamentos q — Pts"
+  },
+  {
+   "chave": "out_X20",
+   "celula": "X20",
+   "rotulo": "No colégio, você sempre cumpre tudo o qu — Pts"
+  },
+  {
+   "chave": "out_AA20",
+   "celula": "AA20",
+   "rotulo": "No colégio, você sempre cumpre tudo o qu — Pts"
+  },
+  {
+   "chave": "out_AD20",
+   "celula": "AD20",
+   "rotulo": "No colégio, você sempre cumpre tudo o qu — Pts"
+  },
+  {
+   "chave": "out_AG20",
+   "celula": "AG20",
+   "rotulo": "No colégio, você sempre cumpre tudo o qu — Pts"
+  },
+  {
+   "chave": "out_X21",
+   "celula": "X21",
+   "rotulo": "Você gostaria que outros colegas tivesse — Pts"
+  },
+  {
+   "chave": "out_AA21",
+   "celula": "AA21",
+   "rotulo": "Você gostaria que outros colegas tivesse — Pts"
+  },
+  {
+   "chave": "out_AD21",
+   "celula": "AD21",
+   "rotulo": "Você gostaria que outros colegas tivesse — Pts"
+  },
+  {
+   "chave": "out_AG21",
+   "celula": "AG21",
+   "rotulo": "Você gostaria que outros colegas tivesse — Pts"
+  },
+  {
+   "chave": "out_X22",
+   "celula": "X22",
+   "rotulo": "Você é muito alegre e animado(a)? — Pts"
+  },
+  {
+   "chave": "out_AA22",
+   "celula": "AA22",
+   "rotulo": "Você é muito alegre e animado(a)? — Pts"
+  },
+  {
+   "chave": "out_AD22",
+   "celula": "AD22",
+   "rotulo": "Você é muito alegre e animado(a)? — Pts"
+  },
+  {
+   "chave": "out_AG22",
+   "celula": "AG22",
+   "rotulo": "Você é muito alegre e animado(a)? — Pts"
+  },
+  {
+   "chave": "out_X23",
+   "celula": "X23",
+   "rotulo": "Há muitas coisas que incomodam você? — Pts"
+  },
+  {
+   "chave": "out_AA23",
+   "celula": "AA23",
+   "rotulo": "Há muitas coisas que incomodam você? — Pts"
+  },
+  {
+   "chave": "out_AD23",
+   "celula": "AD23",
+   "rotulo": "Há muitas coisas que incomodam você? — Pts"
+  },
+  {
+   "chave": "out_AG23",
+   "celula": "AG23",
+   "rotulo": "Há muitas coisas que incomodam você? — Pts"
+  },
+  {
+   "chave": "out_X24",
+   "celula": "X24",
+   "rotulo": "Você acha engraçado quando um colega cai — Pts"
+  },
+  {
+   "chave": "out_AA24",
+   "celula": "AA24",
+   "rotulo": "Você acha engraçado quando um colega cai — Pts"
+  },
+  {
+   "chave": "out_AD24",
+   "celula": "AD24",
+   "rotulo": "Você acha engraçado quando um colega cai — Pts"
+  },
+  {
+   "chave": "out_AG24",
+   "celula": "AG24",
+   "rotulo": "Você acha engraçado quando um colega cai — Pts"
+  },
+  {
+   "chave": "out_X25",
+   "celula": "X25",
+   "rotulo": "Você tem muitos amigos? — Pts"
+  },
+  {
+   "chave": "out_AA25",
+   "celula": "AA25",
+   "rotulo": "Você tem muitos amigos? — Pts"
+  },
+  {
+   "chave": "out_AD25",
+   "celula": "AD25",
+   "rotulo": "Você tem muitos amigos? — Pts"
+  },
+  {
+   "chave": "out_AG25",
+   "celula": "AG25",
+   "rotulo": "Você tem muitos amigos? — Pts"
+  },
+  {
+   "chave": "out_X26",
+   "celula": "X26",
+   "rotulo": "Alguma vez você se sentiu triste sem nen — Pts"
+  },
+  {
+   "chave": "out_AA26",
+   "celula": "AA26",
+   "rotulo": "Alguma vez você se sentiu triste sem nen — Pts"
+  },
+  {
+   "chave": "out_AD26",
+   "celula": "AD26",
+   "rotulo": "Alguma vez você se sentiu triste sem nen — Pts"
+  },
+  {
+   "chave": "out_AG26",
+   "celula": "AG26",
+   "rotulo": "Alguma vez você se sentiu triste sem nen — Pts"
+  },
+  {
+   "chave": "out_X27",
+   "celula": "X27",
+   "rotulo": "Às vezes, você gosta de provocar e irrit"
+  },
+  {
+   "chave": "out_AA27",
+   "celula": "AA27",
+   "rotulo": "Às vezes, você gosta de provocar e irrit"
+  },
+  {
+   "chave": "out_AD27",
+   "celula": "AD27",
+   "rotulo": "Às vezes, você gosta de provocar e irrit"
+  },
+  {
+   "chave": "out_AG27",
+   "celula": "AG27",
+   "rotulo": "Às vezes, você gosta de provocar e irrit"
+  },
+  {
+   "chave": "out_X28",
+   "celula": "X28",
+   "rotulo": "Alguma vez você fingiu que não ouviu qua"
+  },
+  {
+   "chave": "out_AA28",
+   "celula": "AA28",
+   "rotulo": "Alguma vez você fingiu que não ouviu qua"
+  },
+  {
+   "chave": "out_AD28",
+   "celula": "AD28",
+   "rotulo": "Alguma vez você fingiu que não ouviu qua"
+  },
+  {
+   "chave": "out_AG28",
+   "celula": "AG28",
+   "rotulo": "Alguma vez você fingiu que não ouviu qua"
+  },
+  {
+   "chave": "out_X29",
+   "celula": "X29",
+   "rotulo": "Com frequência você pensa que a vida é m"
+  },
+  {
+   "chave": "out_AA29",
+   "celula": "AA29",
+   "rotulo": "Com frequência você pensa que a vida é m"
+  },
+  {
+   "chave": "out_AD29",
+   "celula": "AD29",
+   "rotulo": "Com frequência você pensa que a vida é m"
+  },
+  {
+   "chave": "out_AG29",
+   "celula": "AG29",
+   "rotulo": "Com frequência você pensa que a vida é m"
+  },
+  {
+   "chave": "out_X30",
+   "celula": "X30",
+   "rotulo": "Você frequentemente discute com seus col"
+  },
+  {
+   "chave": "out_AA30",
+   "celula": "AA30",
+   "rotulo": "Você frequentemente discute com seus col"
+  },
+  {
+   "chave": "out_AD30",
+   "celula": "AD30",
+   "rotulo": "Você frequentemente discute com seus col"
+  },
+  {
+   "chave": "out_AG30",
+   "celula": "AG30",
+   "rotulo": "Você frequentemente discute com seus col"
+  },
+  {
+   "chave": "out_X31",
+   "celula": "X31",
+   "rotulo": "Em casa, você sempre acaba os deveres an"
+  },
+  {
+   "chave": "out_AA31",
+   "celula": "AA31",
+   "rotulo": "Em casa, você sempre acaba os deveres an"
+  },
+  {
+   "chave": "out_AD31",
+   "celula": "AD31",
+   "rotulo": "Em casa, você sempre acaba os deveres an"
+  },
+  {
+   "chave": "out_AG31",
+   "celula": "AG31",
+   "rotulo": "Em casa, você sempre acaba os deveres an"
+  },
+  {
+   "chave": "out_X32",
+   "celula": "X32",
+   "rotulo": "Você se preocupa com coisas ruins que po"
+  },
+  {
+   "chave": "out_AA32",
+   "celula": "AA32",
+   "rotulo": "Você se preocupa com coisas ruins que po"
+  },
+  {
+   "chave": "out_AD32",
+   "celula": "AD32",
+   "rotulo": "Você se preocupa com coisas ruins que po"
+  },
+  {
+   "chave": "out_AG32",
+   "celula": "AG32",
+   "rotulo": "Você se preocupa com coisas ruins que po"
+  },
+  {
+   "chave": "out_X33",
+   "celula": "X33",
+   "rotulo": "Alguma vez você já substituiu o almoço p"
+  },
+  {
+   "chave": "out_AA33",
+   "celula": "AA33",
+   "rotulo": "Alguma vez você já substituiu o almoço p"
+  },
+  {
+   "chave": "out_AD33",
+   "celula": "AD33",
+   "rotulo": "Alguma vez você já substituiu o almoço p"
+  },
+  {
+   "chave": "out_AG33",
+   "celula": "AG33",
+   "rotulo": "Alguma vez você já substituiu o almoço p"
+  },
+  {
+   "chave": "out_X34",
+   "celula": "X34",
+   "rotulo": "Você se sente facilmente magoado(a) quan"
+  },
+  {
+   "chave": "out_AA34",
+   "celula": "AA34",
+   "rotulo": "Você se sente facilmente magoado(a) quan"
+  },
+  {
+   "chave": "out_AD34",
+   "celula": "AD34",
+   "rotulo": "Você se sente facilmente magoado(a) quan"
+  },
+  {
+   "chave": "out_AG34",
+   "celula": "AG34",
+   "rotulo": "Você se sente facilmente magoado(a) quan"
+  },
+  {
+   "chave": "out_X35",
+   "celula": "X35",
+   "rotulo": "Você se assusta ao ver um acidente de ca"
+  },
+  {
+   "chave": "out_AA35",
+   "celula": "AA35",
+   "rotulo": "Você se assusta ao ver um acidente de ca"
+  },
+  {
+   "chave": "out_AD35",
+   "celula": "AD35",
+   "rotulo": "Você se assusta ao ver um acidente de ca"
+  },
+  {
+   "chave": "out_AG35",
+   "celula": "AG35",
+   "rotulo": "Você se assusta ao ver um acidente de ca"
+  },
+  {
+   "chave": "out_X36",
+   "celula": "X36",
+   "rotulo": "Alguém quer se vingar de você por causa "
+  },
+  {
+   "chave": "out_AA36",
+   "celula": "AA36",
+   "rotulo": "Alguém quer se vingar de você por causa "
+  },
+  {
+   "chave": "out_AD36",
+   "celula": "AD36",
+   "rotulo": "Alguém quer se vingar de você por causa "
+  },
+  {
+   "chave": "out_AG36",
+   "celula": "AG36",
+   "rotulo": "Alguém quer se vingar de você por causa "
+  },
+  {
+   "chave": "out_X37",
+   "celula": "X37",
+   "rotulo": "Você acha que deve ser muito divertido s"
+  },
+  {
+   "chave": "out_AA37",
+   "celula": "AA37",
+   "rotulo": "Você acha que deve ser muito divertido s"
+  },
+  {
+   "chave": "out_AD37",
+   "celula": "AD37",
+   "rotulo": "Você acha que deve ser muito divertido s"
+  },
+  {
+   "chave": "out_AG37",
+   "celula": "AG37",
+   "rotulo": "Você acha que deve ser muito divertido s"
+  },
+  {
+   "chave": "out_X38",
+   "celula": "X38",
+   "rotulo": "Você se sente frequentemente cansado(a) "
+  },
+  {
+   "chave": "out_AA38",
+   "celula": "AA38",
+   "rotulo": "Você se sente frequentemente cansado(a) "
+  },
+  {
+   "chave": "out_AD38",
+   "celula": "AD38",
+   "rotulo": "Você se sente frequentemente cansado(a) "
+  },
+  {
+   "chave": "out_AG38",
+   "celula": "AG38",
+   "rotulo": "Você se sente frequentemente cansado(a) "
+  },
+  {
+   "chave": "out_X39",
+   "celula": "X39",
+   "rotulo": "Em geral, você acha divertido incomodar "
+  },
+  {
+   "chave": "out_AA39",
+   "celula": "AA39",
+   "rotulo": "Em geral, você acha divertido incomodar "
+  },
+  {
+   "chave": "out_AD39",
+   "celula": "AD39",
+   "rotulo": "Em geral, você acha divertido incomodar "
+  },
+  {
+   "chave": "out_AG39",
+   "celula": "AG39",
+   "rotulo": "Em geral, você acha divertido incomodar "
+  },
+  {
+   "chave": "out_X40",
+   "celula": "X40",
+   "rotulo": "Você sempre fica calado(a) quando as pes"
+  },
+  {
+   "chave": "out_AA40",
+   "celula": "AA40",
+   "rotulo": "Você sempre fica calado(a) quando as pes"
+  },
+  {
+   "chave": "out_AD40",
+   "celula": "AD40",
+   "rotulo": "Você sempre fica calado(a) quando as pes"
+  },
+  {
+   "chave": "out_AG40",
+   "celula": "AG40",
+   "rotulo": "Você sempre fica calado(a) quando as pes"
+  },
+  {
+   "chave": "out_X41",
+   "celula": "X41",
+   "rotulo": "Em geral, é você quem dá o primeiro pass"
+  },
+  {
+   "chave": "out_AA41",
+   "celula": "AA41",
+   "rotulo": "Em geral, é você quem dá o primeiro pass"
+  },
+  {
+   "chave": "out_AD41",
+   "celula": "AD41",
+   "rotulo": "Em geral, é você quem dá o primeiro pass"
+  },
+  {
+   "chave": "out_AG41",
+   "celula": "AG41",
+   "rotulo": "Em geral, é você quem dá o primeiro pass"
+  },
+  {
+   "chave": "out_X42",
+   "celula": "X42",
+   "rotulo": "Você sempre encontra defeito em qualquer"
+  },
+  {
+   "chave": "out_AA42",
+   "celula": "AA42",
+   "rotulo": "Você sempre encontra defeito em qualquer"
+  },
+  {
+   "chave": "out_AD42",
+   "celula": "AD42",
+   "rotulo": "Você sempre encontra defeito em qualquer"
+  },
+  {
+   "chave": "out_AG42",
+   "celula": "AG42",
+   "rotulo": "Você sempre encontra defeito em qualquer"
+  },
+  {
+   "chave": "out_X43",
+   "celula": "X43",
+   "rotulo": "Você acredita que se envolve em mais bri"
+  },
+  {
+   "chave": "out_AA43",
+   "celula": "AA43",
+   "rotulo": "Você acredita que se envolve em mais bri"
+  },
+  {
+   "chave": "out_AD43",
+   "celula": "AD43",
+   "rotulo": "Você acredita que se envolve em mais bri"
+  },
+  {
+   "chave": "out_AG43",
+   "celula": "AG43",
+   "rotulo": "Você acredita que se envolve em mais bri"
+  },
+  {
+   "chave": "out_X44",
+   "celula": "X44",
+   "rotulo": "Alguma vez você disse um palavrão ou ins"
+  },
+  {
+   "chave": "out_AA44",
+   "celula": "AA44",
+   "rotulo": "Alguma vez você disse um palavrão ou ins"
+  },
+  {
+   "chave": "out_AD44",
+   "celula": "AD44",
+   "rotulo": "Alguma vez você disse um palavrão ou ins"
+  },
+  {
+   "chave": "out_AG44",
+   "celula": "AG44",
+   "rotulo": "Alguma vez você disse um palavrão ou ins"
+  },
+  {
+   "chave": "out_X45",
+   "celula": "X45",
+   "rotulo": "Você gosta de contar piadas ou historinh"
+  },
+  {
+   "chave": "out_AA45",
+   "celula": "AA45",
+   "rotulo": "Você gosta de contar piadas ou historinh"
+  },
+  {
+   "chave": "out_AD45",
+   "celula": "AD45",
+   "rotulo": "Você gosta de contar piadas ou historinh"
+  },
+  {
+   "chave": "out_AG45",
+   "celula": "AG45",
+   "rotulo": "Você gosta de contar piadas ou historinh"
+  },
+  {
+   "chave": "out_X46",
+   "celula": "X46",
+   "rotulo": "Em sala de aula, você entra em mais conf"
+  },
+  {
+   "chave": "out_AA46",
+   "celula": "AA46",
+   "rotulo": "Em sala de aula, você entra em mais conf"
+  },
+  {
+   "chave": "out_AD46",
+   "celula": "AD46",
+   "rotulo": "Em sala de aula, você entra em mais conf"
+  },
+  {
+   "chave": "out_AG46",
+   "celula": "AG46",
+   "rotulo": "Em sala de aula, você entra em mais conf"
+  },
+  {
+   "chave": "out_X47",
+   "celula": "X47",
+   "rotulo": "Em geral, você recolhe do chão os papéis"
+  },
+  {
+   "chave": "out_AA47",
+   "celula": "AA47",
+   "rotulo": "Em geral, você recolhe do chão os papéis"
+  },
+  {
+   "chave": "out_AD47",
+   "celula": "AD47",
+   "rotulo": "Em geral, você recolhe do chão os papéis"
+  },
+  {
+   "chave": "out_AG47",
+   "celula": "AG47",
+   "rotulo": "Em geral, você recolhe do chão os papéis"
+  },
+  {
+   "chave": "out_X48",
+   "celula": "X48",
+   "rotulo": "Você tem muitos passatempos ou se intere"
+  },
+  {
+   "chave": "out_AA48",
+   "celula": "AA48",
+   "rotulo": "Você tem muitos passatempos ou se intere"
+  },
+  {
+   "chave": "out_AD48",
+   "celula": "AD48",
+   "rotulo": "Você tem muitos passatempos ou se intere"
+  },
+  {
+   "chave": "out_AG48",
+   "celula": "AG48",
+   "rotulo": "Você tem muitos passatempos ou se intere"
+  },
+  {
+   "chave": "out_X49",
+   "celula": "X49",
+   "rotulo": "Algumas coisas facilmente o(a) magoam ou"
+  },
+  {
+   "chave": "out_AA49",
+   "celula": "AA49",
+   "rotulo": "Algumas coisas facilmente o(a) magoam ou"
+  },
+  {
+   "chave": "out_AD49",
+   "celula": "AD49",
+   "rotulo": "Algumas coisas facilmente o(a) magoam ou"
+  },
+  {
+   "chave": "out_AG49",
+   "celula": "AG49",
+   "rotulo": "Algumas coisas facilmente o(a) magoam ou"
+  },
+  {
+   "chave": "out_X50",
+   "celula": "X50",
+   "rotulo": "Você gosta de debochar ou pregar peça no"
+  },
+  {
+   "chave": "out_AA50",
+   "celula": "AA50",
+   "rotulo": "Você gosta de debochar ou pregar peça no"
+  },
+  {
+   "chave": "out_AD50",
+   "celula": "AD50",
+   "rotulo": "Você gosta de debochar ou pregar peça no"
+  },
+  {
+   "chave": "out_AG50",
+   "celula": "AG50",
+   "rotulo": "Você gosta de debochar ou pregar peça no"
+  },
+  {
+   "chave": "out_X51",
+   "celula": "X51",
+   "rotulo": "Alguma vez você desobedeceu a seus pais?"
+  },
+  {
+   "chave": "out_AA51",
+   "celula": "AA51",
+   "rotulo": "Alguma vez você desobedeceu a seus pais?"
+  },
+  {
+   "chave": "out_AD51",
+   "celula": "AD51",
+   "rotulo": "Alguma vez você desobedeceu a seus pais?"
+  },
+  {
+   "chave": "out_AG51",
+   "celula": "AG51",
+   "rotulo": "Alguma vez você desobedeceu a seus pais?"
+  },
+  {
+   "chave": "out_X52",
+   "celula": "X52",
+   "rotulo": "Frequentemente você se sente \"cansado(a)"
+  },
+  {
+   "chave": "out_AA52",
+   "celula": "AA52",
+   "rotulo": "Frequentemente você se sente \"cansado(a)"
+  },
+  {
+   "chave": "out_AD52",
+   "celula": "AD52",
+   "rotulo": "Frequentemente você se sente \"cansado(a)"
+  },
+  {
+   "chave": "out_AG52",
+   "celula": "AG52",
+   "rotulo": "Frequentemente você se sente \"cansado(a)"
+  },
+  {
+   "chave": "out_X53",
+   "celula": "X53",
+   "rotulo": "Às vezes, é bastante divertido ver como "
+  },
+  {
+   "chave": "out_AA53",
+   "celula": "AA53",
+   "rotulo": "Às vezes, é bastante divertido ver como "
+  },
+  {
+   "chave": "out_AD53",
+   "celula": "AD53",
+   "rotulo": "Às vezes, é bastante divertido ver como "
+  },
+  {
+   "chave": "out_AG53",
+   "celula": "AG53",
+   "rotulo": "Às vezes, é bastante divertido ver como "
+  },
+  {
+   "chave": "out_X54",
+   "celula": "X54",
+   "rotulo": "Você sempre se comporta bem em sala de a"
+  },
+  {
+   "chave": "out_AA54",
+   "celula": "AA54",
+   "rotulo": "Você sempre se comporta bem em sala de a"
+  },
+  {
+   "chave": "out_AD54",
+   "celula": "AD54",
+   "rotulo": "Você sempre se comporta bem em sala de a"
+  },
+  {
+   "chave": "out_AG54",
+   "celula": "AG54",
+   "rotulo": "Você sempre se comporta bem em sala de a"
+  },
+  {
+   "chave": "out_X55",
+   "celula": "X55",
+   "rotulo": "Quando uma pessoa o critica, você passa "
+  },
+  {
+   "chave": "out_AA55",
+   "celula": "AA55",
+   "rotulo": "Quando uma pessoa o critica, você passa "
+  },
+  {
+   "chave": "out_AD55",
+   "celula": "AD55",
+   "rotulo": "Quando uma pessoa o critica, você passa "
+  },
+  {
+   "chave": "out_AG55",
+   "celula": "AG55",
+   "rotulo": "Quando uma pessoa o critica, você passa "
+  },
+  {
+   "chave": "out_X56",
+   "celula": "X56",
+   "rotulo": "Você acha que quando alguém nos provoca "
+  },
+  {
+   "chave": "out_AA56",
+   "celula": "AA56",
+   "rotulo": "Você acha que quando alguém nos provoca "
+  },
+  {
+   "chave": "out_AD56",
+   "celula": "AD56",
+   "rotulo": "Você acha que quando alguém nos provoca "
+  },
+  {
+   "chave": "out_AG56",
+   "celula": "AG56",
+   "rotulo": "Você acha que quando alguém nos provoca "
+  },
+  {
+   "chave": "out_X57",
+   "celula": "X57",
+   "rotulo": "Você sempre diz a verdade?"
+  },
+  {
+   "chave": "out_AA57",
+   "celula": "AA57",
+   "rotulo": "Você sempre diz a verdade?"
+  },
+  {
+   "chave": "out_AD57",
+   "celula": "AD57",
+   "rotulo": "Você sempre diz a verdade?"
+  },
+  {
+   "chave": "out_AG57",
+   "celula": "AG57",
+   "rotulo": "Você sempre diz a verdade?"
+  },
+  {
+   "chave": "out_X58",
+   "celula": "X58",
+   "rotulo": "Você gosta de estar com outros colegas e"
+  },
+  {
+   "chave": "out_AA58",
+   "celula": "AA58",
+   "rotulo": "Você gosta de estar com outros colegas e"
+  },
+  {
+   "chave": "out_AD58",
+   "celula": "AD58",
+   "rotulo": "Você gosta de estar com outros colegas e"
+  },
+  {
+   "chave": "out_AG58",
+   "celula": "AG58",
+   "rotulo": "Você gosta de estar com outros colegas e"
+  },
+  {
+   "chave": "out_X59",
+   "celula": "X59",
+   "rotulo": "Você gostaria de pular de paraquedas?"
+  },
+  {
+   "chave": "out_AA59",
+   "celula": "AA59",
+   "rotulo": "Você gostaria de pular de paraquedas?"
+  },
+  {
+   "chave": "out_AD59",
+   "celula": "AD59",
+   "rotulo": "Você gostaria de pular de paraquedas?"
+  },
+  {
+   "chave": "out_AG59",
+   "celula": "AG59",
+   "rotulo": "Você gostaria de pular de paraquedas?"
+  },
+  {
+   "chave": "out_X60",
+   "celula": "X60",
+   "rotulo": "Você sempre come tudo o que lhe põem no "
+  },
+  {
+   "chave": "out_AA60",
+   "celula": "AA60",
+   "rotulo": "Você sempre come tudo o que lhe põem no "
+  },
+  {
+   "chave": "out_AD60",
+   "celula": "AD60",
+   "rotulo": "Você sempre come tudo o que lhe põem no "
+  },
+  {
+   "chave": "out_AG60",
+   "celula": "AG60",
+   "rotulo": "Você sempre come tudo o que lhe põem no "
+  },
+  {
+   "chave": "out_X61",
+   "celula": "X61",
+   "rotulo": "Sempre que alguém o(a) corrige na frente"
+  },
+  {
+   "chave": "out_AA61",
+   "celula": "AA61",
+   "rotulo": "Sempre que alguém o(a) corrige na frente"
+  },
+  {
+   "chave": "out_AD61",
+   "celula": "AD61",
+   "rotulo": "Sempre que alguém o(a) corrige na frente"
+  },
+  {
+   "chave": "out_AG61",
+   "celula": "AG61",
+   "rotulo": "Sempre que alguém o(a) corrige na frente"
+  },
+  {
+   "chave": "out_X62",
+   "celula": "X62",
+   "rotulo": "Você alguma vez foi atrevido(a) com seus"
+  },
+  {
+   "chave": "out_AA62",
+   "celula": "AA62",
+   "rotulo": "Você alguma vez foi atrevido(a) com seus"
+  },
+  {
+   "chave": "out_AD62",
+   "celula": "AD62",
+   "rotulo": "Você alguma vez foi atrevido(a) com seus"
+  },
+  {
+   "chave": "out_AG62",
+   "celula": "AG62",
+   "rotulo": "Você alguma vez foi atrevido(a) com seus"
+  },
+  {
+   "chave": "out_X63",
+   "celula": "X63",
+   "rotulo": "Você tem dificuldade de prestar atenção "
+  },
+  {
+   "chave": "out_AA63",
+   "celula": "AA63",
+   "rotulo": "Você tem dificuldade de prestar atenção "
+  },
+  {
+   "chave": "out_AD63",
+   "celula": "AD63",
+   "rotulo": "Você tem dificuldade de prestar atenção "
+  },
+  {
+   "chave": "out_AG63",
+   "celula": "AG63",
+   "rotulo": "Você tem dificuldade de prestar atenção "
+  },
+  {
+   "chave": "out_X64",
+   "celula": "X64",
+   "rotulo": "Você gosta de se jogar ou pular na água "
+  },
+  {
+   "chave": "out_AA64",
+   "celula": "AA64",
+   "rotulo": "Você gosta de se jogar ou pular na água "
+  },
+  {
+   "chave": "out_AD64",
+   "celula": "AD64",
+   "rotulo": "Você gosta de se jogar ou pular na água "
+  },
+  {
+   "chave": "out_AG64",
+   "celula": "AG64",
+   "rotulo": "Você gosta de se jogar ou pular na água "
+  },
+  {
+   "chave": "out_X65",
+   "celula": "X65",
+   "rotulo": "Quando você está preocupado(a) com algum"
+  },
+  {
+   "chave": "out_AA65",
+   "celula": "AA65",
+   "rotulo": "Quando você está preocupado(a) com algum"
+  },
+  {
+   "chave": "out_AD65",
+   "celula": "AD65",
+   "rotulo": "Quando você está preocupado(a) com algum"
+  },
+  {
+   "chave": "out_AG65",
+   "celula": "AG65",
+   "rotulo": "Quando você está preocupado(a) com algum"
+  },
+  {
+   "chave": "out_X66",
+   "celula": "X66",
+   "rotulo": "As outras pessoas pensam que você é muit"
+  },
+  {
+   "chave": "out_AA66",
+   "celula": "AA66",
+   "rotulo": "As outras pessoas pensam que você é muit"
+  },
+  {
+   "chave": "out_AD66",
+   "celula": "AD66",
+   "rotulo": "As outras pessoas pensam que você é muit"
+  },
+  {
+   "chave": "out_AG66",
+   "celula": "AG66",
+   "rotulo": "As outras pessoas pensam que você é muit"
+  },
+  {
+   "chave": "out_X67",
+   "celula": "X67",
+   "rotulo": "Freguentemente você se sente sozinho(a)?"
+  },
+  {
+   "chave": "out_AA67",
+   "celula": "AA67",
+   "rotulo": "Freguentemente você se sente sozinho(a)?"
+  },
+  {
+   "chave": "out_AD67",
+   "celula": "AD67",
+   "rotulo": "Freguentemente você se sente sozinho(a)?"
+  },
+  {
+   "chave": "out_AG67",
+   "celula": "AG67",
+   "rotulo": "Freguentemente você se sente sozinho(a)?"
+  },
+  {
+   "chave": "out_X68",
+   "celula": "X68",
+   "rotulo": "Você acha que uma criança de 6 anos deve"
+  },
+  {
+   "chave": "out_AA68",
+   "celula": "AA68",
+   "rotulo": "Você acha que uma criança de 6 anos deve"
+  },
+  {
+   "chave": "out_AD68",
+   "celula": "AD68",
+   "rotulo": "Você acha que uma criança de 6 anos deve"
+  },
+  {
+   "chave": "out_AG68",
+   "celula": "AG68",
+   "rotulo": "Você acha que uma criança de 6 anos deve"
+  },
+  {
+   "chave": "out_X69",
+   "celula": "X69",
+   "rotulo": "Você faz tudo o que seus pais Ihe pedem?"
+  },
+  {
+   "chave": "out_AA69",
+   "celula": "AA69",
+   "rotulo": "Você faz tudo o que seus pais Ihe pedem?"
+  },
+  {
+   "chave": "out_AD69",
+   "celula": "AD69",
+   "rotulo": "Você faz tudo o que seus pais Ihe pedem?"
+  },
+  {
+   "chave": "out_AG69",
+   "celula": "AG69",
+   "rotulo": "Você faz tudo o que seus pais Ihe pedem?"
+  },
+  {
+   "chave": "out_X70",
+   "celula": "X70",
+   "rotulo": "Você gosta muito de passear?"
+  },
+  {
+   "chave": "out_AA70",
+   "celula": "AA70",
+   "rotulo": "Você gosta muito de passear?"
+  },
+  {
+   "chave": "out_AD70",
+   "celula": "AD70",
+   "rotulo": "Você gosta muito de passear?"
+  },
+  {
+   "chave": "out_AG70",
+   "celula": "AG70",
+   "rotulo": "Você gosta muito de passear?"
+  },
+  {
+   "chave": "out_X71",
+   "celula": "X71",
+   "rotulo": "Alguma vez você já deixtou de fazer o de"
+  },
+  {
+   "chave": "out_AA71",
+   "celula": "AA71",
+   "rotulo": "Alguma vez você já deixtou de fazer o de"
+  },
+  {
+   "chave": "out_AD71",
+   "celula": "AD71",
+   "rotulo": "Alguma vez você já deixtou de fazer o de"
+  },
+  {
+   "chave": "out_AG71",
+   "celula": "AG71",
+   "rotulo": "Alguma vez você já deixtou de fazer o de"
+  },
+  {
+   "chave": "out_X72",
+   "celula": "X72",
+   "rotulo": "Algumas vezes você se sente alegre, outr"
+  },
+  {
+   "chave": "out_AA72",
+   "celula": "AA72",
+   "rotulo": "Algumas vezes você se sente alegre, outr"
+  },
+  {
+   "chave": "out_AD72",
+   "celula": "AD72",
+   "rotulo": "Algumas vezes você se sente alegre, outr"
+  },
+  {
+   "chave": "out_AG72",
+   "celula": "AG72",
+   "rotulo": "Algumas vezes você se sente alegre, outr"
+  },
+  {
+   "chave": "out_X73",
+   "celula": "X73",
+   "rotulo": "Com frequência você precisa de bons amig"
+  },
+  {
+   "chave": "out_AA73",
+   "celula": "AA73",
+   "rotulo": "Com frequência você precisa de bons amig"
+  },
+  {
+   "chave": "out_AD73",
+   "celula": "AD73",
+   "rotulo": "Com frequência você precisa de bons amig"
+  },
+  {
+   "chave": "out_AG73",
+   "celula": "AG73",
+   "rotulo": "Com frequência você precisa de bons amig"
+  },
+  {
+   "chave": "out_X74",
+   "celula": "X74",
+   "rotulo": "Você gostaria de participar de um treina"
+  },
+  {
+   "chave": "out_AA74",
+   "celula": "AA74",
+   "rotulo": "Você gostaria de participar de um treina"
+  },
+  {
+   "chave": "out_AD74",
+   "celula": "AD74",
+   "rotulo": "Você gostaria de participar de um treina"
+  },
+  {
+   "chave": "out_AG74",
+   "celula": "AG74",
+   "rotulo": "Você gostaria de participar de um treina"
+  },
+  {
+   "chave": "out_C78",
+   "celula": "C78",
+   "rotulo": "x"
+  },
+  {
+   "chave": "out_X79",
+   "celula": "X79",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_Y79",
+   "celula": "Y79",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_I80",
+   "celula": "I80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Pts Brts"
+  },
+  {
+   "chave": "out_K80",
+   "celula": "K80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Z-score"
+  },
+  {
+   "chave": "out_M80",
+   "celula": "M80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — T-Score"
+  },
+  {
+   "chave": "out_O80",
+   "celula": "O80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Ponderado"
+  },
+  {
+   "chave": "out_Q80",
+   "celula": "Q80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Percentil"
+  },
+  {
+   "chave": "out_S80",
+   "celula": "S80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X80",
+   "celula": "X80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_Y80",
+   "celula": "Y80",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_AA80",
+   "celula": "AA80",
+   "rotulo": "P"
+  },
+  {
+   "chave": "out_I81",
+   "celula": "I81",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Pts Brts"
+  },
+  {
+   "chave": "out_K81",
+   "celula": "K81",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Z-score"
+  },
+  {
+   "chave": "out_M81",
+   "celula": "M81",
+   "rotulo": "Extroversão (E) (Máx.= 12) — T-Score"
+  },
+  {
+   "chave": "out_O81",
+   "celula": "O81",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Ponderado"
+  },
+  {
+   "chave": "out_Q81",
+   "celula": "Q81",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Percentil"
+  },
+  {
+   "chave": "out_S81",
+   "celula": "S81",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X81",
+   "celula": "X81",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_Y81",
+   "celula": "Y81",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_AA81",
+   "celula": "AA81",
+   "rotulo": "E"
+  },
+  {
+   "chave": "out_I82",
+   "celula": "I82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Pts Brts"
+  },
+  {
+   "chave": "out_K82",
+   "celula": "K82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Z-score"
+  },
+  {
+   "chave": "out_M82",
+   "celula": "M82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — T-Score"
+  },
+  {
+   "chave": "out_O82",
+   "celula": "O82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Ponderado"
+  },
+  {
+   "chave": "out_Q82",
+   "celula": "Q82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Percentil"
+  },
+  {
+   "chave": "out_S82",
+   "celula": "S82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X82",
+   "celula": "X82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_Y82",
+   "celula": "Y82",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_AA82",
+   "celula": "AA82",
+   "rotulo": "N"
+  },
+  {
+   "chave": "out_I83",
+   "celula": "I83",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Pts Brts"
+  },
+  {
+   "chave": "out_K83",
+   "celula": "K83",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Z-score"
+  },
+  {
+   "chave": "out_M83",
+   "celula": "M83",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — T-Score"
+  },
+  {
+   "chave": "out_O83",
+   "celula": "O83",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Ponderado"
+  },
+  {
+   "chave": "out_Q83",
+   "celula": "Q83",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Percentil"
+  },
+  {
+   "chave": "out_S83",
+   "celula": "S83",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X83",
+   "celula": "X83",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_Y83",
+   "celula": "Y83",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_AA83",
+   "celula": "AA83",
+   "rotulo": "S"
+  },
+  {
+   "chave": "out_C86",
+   "celula": "C86",
+   "rotulo": "x — Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_X87",
+   "celula": "X87",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_Y87",
+   "celula": "Y87",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_I88",
+   "celula": "I88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Pts Brts"
+  },
+  {
+   "chave": "out_K88",
+   "celula": "K88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Z-score"
+  },
+  {
+   "chave": "out_M88",
+   "celula": "M88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — T-Score"
+  },
+  {
+   "chave": "out_O88",
+   "celula": "O88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Ponderado"
+  },
+  {
+   "chave": "out_Q88",
+   "celula": "Q88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Percentil"
+  },
+  {
+   "chave": "out_S88",
+   "celula": "S88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X88",
+   "celula": "X88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_Y88",
+   "celula": "Y88",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_AA88",
+   "celula": "AA88",
+   "rotulo": "P"
+  },
+  {
+   "chave": "out_I89",
+   "celula": "I89",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Pts Brts"
+  },
+  {
+   "chave": "out_K89",
+   "celula": "K89",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Z-score"
+  },
+  {
+   "chave": "out_M89",
+   "celula": "M89",
+   "rotulo": "Extroversão (E) (Máx.= 12) — T-Score"
+  },
+  {
+   "chave": "out_O89",
+   "celula": "O89",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Ponderado"
+  },
+  {
+   "chave": "out_Q89",
+   "celula": "Q89",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Percentil"
+  },
+  {
+   "chave": "out_S89",
+   "celula": "S89",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X89",
+   "celula": "X89",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_Y89",
+   "celula": "Y89",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_AA89",
+   "celula": "AA89",
+   "rotulo": "E"
+  },
+  {
+   "chave": "out_I90",
+   "celula": "I90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Pts Brts"
+  },
+  {
+   "chave": "out_K90",
+   "celula": "K90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Z-score"
+  },
+  {
+   "chave": "out_M90",
+   "celula": "M90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — T-Score"
+  },
+  {
+   "chave": "out_O90",
+   "celula": "O90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Ponderado"
+  },
+  {
+   "chave": "out_Q90",
+   "celula": "Q90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Percentil"
+  },
+  {
+   "chave": "out_S90",
+   "celula": "S90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X90",
+   "celula": "X90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_Y90",
+   "celula": "Y90",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_AA90",
+   "celula": "AA90",
+   "rotulo": "N"
+  },
+  {
+   "chave": "out_I91",
+   "celula": "I91",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Pts Brts"
+  },
+  {
+   "chave": "out_K91",
+   "celula": "K91",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Z-score"
+  },
+  {
+   "chave": "out_M91",
+   "celula": "M91",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — T-Score"
+  },
+  {
+   "chave": "out_O91",
+   "celula": "O91",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Ponderado"
+  },
+  {
+   "chave": "out_Q91",
+   "celula": "Q91",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Percentil"
+  },
+  {
+   "chave": "out_S91",
+   "celula": "S91",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X91",
+   "celula": "X91",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_Y91",
+   "celula": "Y91",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_AA91",
+   "celula": "AA91",
+   "rotulo": "S"
+  },
+  {
+   "chave": "out_C94",
+   "celula": "C94",
+   "rotulo": "x — Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_X95",
+   "celula": "X95",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_Y95",
+   "celula": "Y95",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_I96",
+   "celula": "I96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Pts Brts"
+  },
+  {
+   "chave": "out_K96",
+   "celula": "K96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Z-score"
+  },
+  {
+   "chave": "out_M96",
+   "celula": "M96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — T-Score"
+  },
+  {
+   "chave": "out_O96",
+   "celula": "O96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Ponderado"
+  },
+  {
+   "chave": "out_Q96",
+   "celula": "Q96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Percentil"
+  },
+  {
+   "chave": "out_S96",
+   "celula": "S96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X96",
+   "celula": "X96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_Y96",
+   "celula": "Y96",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_AA96",
+   "celula": "AA96",
+   "rotulo": "P"
+  },
+  {
+   "chave": "out_I97",
+   "celula": "I97",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Pts Brts"
+  },
+  {
+   "chave": "out_K97",
+   "celula": "K97",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Z-score"
+  },
+  {
+   "chave": "out_M97",
+   "celula": "M97",
+   "rotulo": "Extroversão (E) (Máx.= 12) — T-Score"
+  },
+  {
+   "chave": "out_O97",
+   "celula": "O97",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Ponderado"
+  },
+  {
+   "chave": "out_Q97",
+   "celula": "Q97",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Percentil"
+  },
+  {
+   "chave": "out_S97",
+   "celula": "S97",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X97",
+   "celula": "X97",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_Y97",
+   "celula": "Y97",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_AA97",
+   "celula": "AA97",
+   "rotulo": "E"
+  },
+  {
+   "chave": "out_I98",
+   "celula": "I98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Pts Brts"
+  },
+  {
+   "chave": "out_K98",
+   "celula": "K98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Z-score"
+  },
+  {
+   "chave": "out_M98",
+   "celula": "M98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — T-Score"
+  },
+  {
+   "chave": "out_O98",
+   "celula": "O98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Ponderado"
+  },
+  {
+   "chave": "out_Q98",
+   "celula": "Q98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Percentil"
+  },
+  {
+   "chave": "out_S98",
+   "celula": "S98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X98",
+   "celula": "X98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_Y98",
+   "celula": "Y98",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_AA98",
+   "celula": "AA98",
+   "rotulo": "N"
+  },
+  {
+   "chave": "out_I99",
+   "celula": "I99",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Pts Brts"
+  },
+  {
+   "chave": "out_K99",
+   "celula": "K99",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Z-score"
+  },
+  {
+   "chave": "out_M99",
+   "celula": "M99",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — T-Score"
+  },
+  {
+   "chave": "out_O99",
+   "celula": "O99",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Ponderado"
+  },
+  {
+   "chave": "out_Q99",
+   "celula": "Q99",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Percentil"
+  },
+  {
+   "chave": "out_S99",
+   "celula": "S99",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X99",
+   "celula": "X99",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_Y99",
+   "celula": "Y99",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_AA99",
+   "celula": "AA99",
+   "rotulo": "S"
+  },
+  {
+   "chave": "out_C102",
+   "celula": "C102",
+   "rotulo": "x — Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_X103",
+   "celula": "X103",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_Y103",
+   "celula": "Y103",
+   "rotulo": "Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_I104",
+   "celula": "I104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Pts Brts"
+  },
+  {
+   "chave": "out_K104",
+   "celula": "K104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Z-score"
+  },
+  {
+   "chave": "out_M104",
+   "celula": "M104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — T-Score"
+  },
+  {
+   "chave": "out_O104",
+   "celula": "O104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Ponderado"
+  },
+  {
+   "chave": "out_Q104",
+   "celula": "Q104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Percentil"
+  },
+  {
+   "chave": "out_S104",
+   "celula": "S104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X104",
+   "celula": "X104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_Y104",
+   "celula": "Y104",
+   "rotulo": "Psicoticismo (P) (Máx. = 14)"
+  },
+  {
+   "chave": "out_AA104",
+   "celula": "AA104",
+   "rotulo": "P"
+  },
+  {
+   "chave": "out_I105",
+   "celula": "I105",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Pts Brts"
+  },
+  {
+   "chave": "out_K105",
+   "celula": "K105",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Z-score"
+  },
+  {
+   "chave": "out_M105",
+   "celula": "M105",
+   "rotulo": "Extroversão (E) (Máx.= 12) — T-Score"
+  },
+  {
+   "chave": "out_O105",
+   "celula": "O105",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Ponderado"
+  },
+  {
+   "chave": "out_Q105",
+   "celula": "Q105",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Percentil"
+  },
+  {
+   "chave": "out_S105",
+   "celula": "S105",
+   "rotulo": "Extroversão (E) (Máx.= 12) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X105",
+   "celula": "X105",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_Y105",
+   "celula": "Y105",
+   "rotulo": "Extroversão (E) (Máx.= 12)"
+  },
+  {
+   "chave": "out_AA105",
+   "celula": "AA105",
+   "rotulo": "E"
+  },
+  {
+   "chave": "out_I106",
+   "celula": "I106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Pts Brts"
+  },
+  {
+   "chave": "out_K106",
+   "celula": "K106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Z-score"
+  },
+  {
+   "chave": "out_M106",
+   "celula": "M106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — T-Score"
+  },
+  {
+   "chave": "out_O106",
+   "celula": "O106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Ponderado"
+  },
+  {
+   "chave": "out_Q106",
+   "celula": "Q106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Percentil"
+  },
+  {
+   "chave": "out_S106",
+   "celula": "S106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X106",
+   "celula": "X106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_Y106",
+   "celula": "Y106",
+   "rotulo": "Neuroticismo (N) (Máx.= 18)"
+  },
+  {
+   "chave": "out_AA106",
+   "celula": "AA106",
+   "rotulo": "N"
+  },
+  {
+   "chave": "out_I107",
+   "celula": "I107",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Pts Brts"
+  },
+  {
+   "chave": "out_K107",
+   "celula": "K107",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Z-score"
+  },
+  {
+   "chave": "out_M107",
+   "celula": "M107",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — T-Score"
+  },
+  {
+   "chave": "out_O107",
+   "celula": "O107",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Ponderado"
+  },
+  {
+   "chave": "out_Q107",
+   "celula": "Q107",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Percentil"
+  },
+  {
+   "chave": "out_S107",
+   "celula": "S107",
+   "rotulo": "Sinceridade (S) (Máx.= 16) — Classificação (Livro de avaliação vol 3)"
+  },
+  {
+   "chave": "out_X107",
+   "celula": "X107",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_Y107",
+   "celula": "Y107",
+   "rotulo": "Sinceridade (S) (Máx.= 16)"
+  },
+  {
+   "chave": "out_AA107",
+   "celula": "AA107",
+   "rotulo": "S"
+  },
+  {
+   "chave": "out_X110",
+   "celula": "X110",
+   "rotulo": "Interpretação dos resultados segundo a p"
+  },
+  {
+   "chave": "out_Y110",
+   "celula": "Y110",
+   "rotulo": "Interpretação dos resultados segundo a p"
+  },
+  {
+   "chave": "out_Z110",
+   "celula": "Z110",
+   "rotulo": "Interpretação dos resultados segundo a p — S"
+  },
+  {
+   "chave": "out_AA110",
+   "celula": "AA110",
+   "rotulo": "Interpretação dos resultados segundo a p"
+  },
+  {
+   "chave": "out_B112",
+   "celula": "B112",
+   "rotulo": "Cada avaliação é única, assim como cada "
+  },
+  {
+   "chave": "out_B113",
+   "celula": "B113",
+   "rotulo": "Cada avaliação é única, assim como cada "
+  },
+  {
+   "chave": "out_M122",
+   "celula": "M122",
+   "rotulo": "Considerando:"
+  },
+  {
+   "chave": "out_B123",
+   "celula": "B123",
+   "rotulo": "Considerando:"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "A",
+    "Profissional Responsável:",
+    "C",
+    "D",
+    "Pts Brts",
+    "Z-score",
+    "T-Score",
+    "Ponderado",
+    "Percentil",
+    "Classificação (Livro de avaliação vol 3)",
+    "Aval 1:",
+    "Pts",
+    "Y",
+    "Z",
+    "Pts",
+    "Aval 3:",
+    "Pts",
+    "Aval 4:",
+    "Pts",
+    "AI"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Idade 2:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z4",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AI4"
+     ]
+    },
+    {
+     "rotulo": "Idade 3:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z5",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AI5"
+     ]
+    },
+    {
+     "rotulo": "Idade 4:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z6",
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AI6"
+     ]
+    },
+    {
+     "rotulo": "7",
+     "valores": [
+      "out_A7",
+      "out_B7",
+      null,
+      "out_D7",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "13",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_W13",
+      null,
+      null,
+      "out_Z13",
+      null,
+      "out_AC13",
+      null,
+      "out_AF13",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguma vez você já foi dormir sem escova",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X15",
+      null,
+      null,
+      "out_AA15",
+      null,
+      "out_AD15",
+      null,
+      "out_AG15",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você já chorou quando alguém riu de você",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X16",
+      null,
+      null,
+      "out_AA16",
+      null,
+      "out_AD16",
+      null,
+      "out_AG16",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você se diverte com piadas que às vezes ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X17",
+      null,
+      null,
+      "out_AA17",
+      null,
+      "out_AD17",
+      null,
+      "out_AG17",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você sempre faz imediatamente o que lhe ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X18",
+      null,
+      null,
+      "out_AA18",
+      null,
+      "out_AD18",
+      null,
+      "out_AG18",
+      null
+     ]
+    },
+    {
+     "rotulo": "Quando vai dormir você tem pensamentos q",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X19",
+      null,
+      null,
+      "out_AA19",
+      null,
+      "out_AD19",
+      null,
+      "out_AG19",
+      null
+     ]
+    },
+    {
+     "rotulo": "No colégio, você sempre cumpre tudo o qu",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X20",
+      null,
+      null,
+      "out_AA20",
+      null,
+      "out_AD20",
+      null,
+      "out_AG20",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gostaria que outros colegas tivesse",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X21",
+      null,
+      null,
+      "out_AA21",
+      null,
+      "out_AD21",
+      null,
+      "out_AG21",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você é muito alegre e animado(a)?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X22",
+      null,
+      null,
+      "out_AA22",
+      null,
+      "out_AD22",
+      null,
+      "out_AG22",
+      null
+     ]
+    },
+    {
+     "rotulo": "Há muitas coisas que incomodam você?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X23",
+      null,
+      null,
+      "out_AA23",
+      null,
+      "out_AD23",
+      null,
+      "out_AG23",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você acha engraçado quando um colega cai",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X24",
+      null,
+      null,
+      "out_AA24",
+      null,
+      "out_AD24",
+      null,
+      "out_AG24",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você tem muitos amigos?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X25",
+      null,
+      null,
+      "out_AA25",
+      null,
+      "out_AD25",
+      null,
+      "out_AG25",
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguma vez você se sentiu triste sem nen",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X26",
+      null,
+      null,
+      "out_AA26",
+      null,
+      "out_AD26",
+      null,
+      "out_AG26",
+      null
+     ]
+    },
+    {
+     "rotulo": "Às vezes, você gosta de provocar e irrit",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X27",
+      null,
+      null,
+      "out_AA27",
+      null,
+      "out_AD27",
+      null,
+      "out_AG27",
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguma vez você fingiu que não ouviu qua",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X28",
+      null,
+      null,
+      "out_AA28",
+      null,
+      "out_AD28",
+      null,
+      "out_AG28",
+      null
+     ]
+    },
+    {
+     "rotulo": "Com frequência você pensa que a vida é m",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X29",
+      null,
+      null,
+      "out_AA29",
+      null,
+      "out_AD29",
+      null,
+      "out_AG29",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você frequentemente discute com seus col",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X30",
+      null,
+      null,
+      "out_AA30",
+      null,
+      "out_AD30",
+      null,
+      "out_AG30",
+      null
+     ]
+    },
+    {
+     "rotulo": "Em casa, você sempre acaba os deveres an",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X31",
+      null,
+      null,
+      "out_AA31",
+      null,
+      "out_AD31",
+      null,
+      "out_AG31",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você se preocupa com coisas ruins que po",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X32",
+      null,
+      null,
+      "out_AA32",
+      null,
+      "out_AD32",
+      null,
+      "out_AG32",
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguma vez você já substituiu o almoço p",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X33",
+      null,
+      null,
+      "out_AA33",
+      null,
+      "out_AD33",
+      null,
+      "out_AG33",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você se sente facilmente magoado(a) quan",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X34",
+      null,
+      null,
+      "out_AA34",
+      null,
+      "out_AD34",
+      null,
+      "out_AG34",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você se assusta ao ver um acidente de ca",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X35",
+      null,
+      null,
+      "out_AA35",
+      null,
+      "out_AD35",
+      null,
+      "out_AG35",
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguém quer se vingar de você por causa ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X36",
+      null,
+      null,
+      "out_AA36",
+      null,
+      "out_AD36",
+      null,
+      "out_AG36",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você acha que deve ser muito divertido s",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X37",
+      null,
+      null,
+      "out_AA37",
+      null,
+      "out_AD37",
+      null,
+      "out_AG37",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você se sente frequentemente cansado(a) ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X38",
+      null,
+      null,
+      "out_AA38",
+      null,
+      "out_AD38",
+      null,
+      "out_AG38",
+      null
+     ]
+    },
+    {
+     "rotulo": "Em geral, você acha divertido incomodar ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X39",
+      null,
+      null,
+      "out_AA39",
+      null,
+      "out_AD39",
+      null,
+      "out_AG39",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você sempre fica calado(a) quando as pes",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X40",
+      null,
+      null,
+      "out_AA40",
+      null,
+      "out_AD40",
+      null,
+      "out_AG40",
+      null
+     ]
+    },
+    {
+     "rotulo": "Em geral, é você quem dá o primeiro pass",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X41",
+      null,
+      null,
+      "out_AA41",
+      null,
+      "out_AD41",
+      null,
+      "out_AG41",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você sempre encontra defeito em qualquer",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X42",
+      null,
+      null,
+      "out_AA42",
+      null,
+      "out_AD42",
+      null,
+      "out_AG42",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você acredita que se envolve em mais bri",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X43",
+      null,
+      null,
+      "out_AA43",
+      null,
+      "out_AD43",
+      null,
+      "out_AG43",
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguma vez você disse um palavrão ou ins",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X44",
+      null,
+      null,
+      "out_AA44",
+      null,
+      "out_AD44",
+      null,
+      "out_AG44",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gosta de contar piadas ou historinh",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X45",
+      null,
+      null,
+      "out_AA45",
+      null,
+      "out_AD45",
+      null,
+      "out_AG45",
+      null
+     ]
+    },
+    {
+     "rotulo": "Em sala de aula, você entra em mais conf",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X46",
+      null,
+      null,
+      "out_AA46",
+      null,
+      "out_AD46",
+      null,
+      "out_AG46",
+      null
+     ]
+    },
+    {
+     "rotulo": "Em geral, você recolhe do chão os papéis",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X47",
+      null,
+      null,
+      "out_AA47",
+      null,
+      "out_AD47",
+      null,
+      "out_AG47",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você tem muitos passatempos ou se intere",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X48",
+      null,
+      null,
+      "out_AA48",
+      null,
+      "out_AD48",
+      null,
+      "out_AG48",
+      null
+     ]
+    },
+    {
+     "rotulo": "Algumas coisas facilmente o(a) magoam ou",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X49",
+      null,
+      null,
+      "out_AA49",
+      null,
+      "out_AD49",
+      null,
+      "out_AG49",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gosta de debochar ou pregar peça no",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X50",
+      null,
+      null,
+      "out_AA50",
+      null,
+      "out_AD50",
+      null,
+      "out_AG50",
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguma vez você desobedeceu a seus pais?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X51",
+      null,
+      null,
+      "out_AA51",
+      null,
+      "out_AD51",
+      null,
+      "out_AG51",
+      null
+     ]
+    },
+    {
+     "rotulo": "Frequentemente você se sente \"cansado(a)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X52",
+      null,
+      null,
+      "out_AA52",
+      null,
+      "out_AD52",
+      null,
+      "out_AG52",
+      null
+     ]
+    },
+    {
+     "rotulo": "Às vezes, é bastante divertido ver como ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X53",
+      null,
+      null,
+      "out_AA53",
+      null,
+      "out_AD53",
+      null,
+      "out_AG53",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você sempre se comporta bem em sala de a",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X54",
+      null,
+      null,
+      "out_AA54",
+      null,
+      "out_AD54",
+      null,
+      "out_AG54",
+      null
+     ]
+    },
+    {
+     "rotulo": "Quando uma pessoa o critica, você passa ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X55",
+      null,
+      null,
+      "out_AA55",
+      null,
+      "out_AD55",
+      null,
+      "out_AG55",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você acha que quando alguém nos provoca ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X56",
+      null,
+      null,
+      "out_AA56",
+      null,
+      "out_AD56",
+      null,
+      "out_AG56",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você sempre diz a verdade?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X57",
+      null,
+      null,
+      "out_AA57",
+      null,
+      "out_AD57",
+      null,
+      "out_AG57",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gosta de estar com outros colegas e",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X58",
+      null,
+      null,
+      "out_AA58",
+      null,
+      "out_AD58",
+      null,
+      "out_AG58",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gostaria de pular de paraquedas?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X59",
+      null,
+      null,
+      "out_AA59",
+      null,
+      "out_AD59",
+      null,
+      "out_AG59",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você sempre come tudo o que lhe põem no ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X60",
+      null,
+      null,
+      "out_AA60",
+      null,
+      "out_AD60",
+      null,
+      "out_AG60",
+      null
+     ]
+    },
+    {
+     "rotulo": "Sempre que alguém o(a) corrige na frente",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X61",
+      null,
+      null,
+      "out_AA61",
+      null,
+      "out_AD61",
+      null,
+      "out_AG61",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você alguma vez foi atrevido(a) com seus",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X62",
+      null,
+      null,
+      "out_AA62",
+      null,
+      "out_AD62",
+      null,
+      "out_AG62",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você tem dificuldade de prestar atenção ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X63",
+      null,
+      null,
+      "out_AA63",
+      null,
+      "out_AD63",
+      null,
+      "out_AG63",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gosta de se jogar ou pular na água ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X64",
+      null,
+      null,
+      "out_AA64",
+      null,
+      "out_AD64",
+      null,
+      "out_AG64",
+      null
+     ]
+    },
+    {
+     "rotulo": "Quando você está preocupado(a) com algum",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X65",
+      null,
+      null,
+      "out_AA65",
+      null,
+      "out_AD65",
+      null,
+      "out_AG65",
+      null
+     ]
+    },
+    {
+     "rotulo": "As outras pessoas pensam que você é muit",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X66",
+      null,
+      null,
+      "out_AA66",
+      null,
+      "out_AD66",
+      null,
+      "out_AG66",
+      null
+     ]
+    },
+    {
+     "rotulo": "Freguentemente você se sente sozinho(a)?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X67",
+      null,
+      null,
+      "out_AA67",
+      null,
+      "out_AD67",
+      null,
+      "out_AG67",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você acha que uma criança de 6 anos deve",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X68",
+      null,
+      null,
+      "out_AA68",
+      null,
+      "out_AD68",
+      null,
+      "out_AG68",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você faz tudo o que seus pais Ihe pedem?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X69",
+      null,
+      null,
+      "out_AA69",
+      null,
+      "out_AD69",
+      null,
+      "out_AG69",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gosta muito de passear?",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X70",
+      null,
+      null,
+      "out_AA70",
+      null,
+      "out_AD70",
+      null,
+      "out_AG70",
+      null
+     ]
+    },
+    {
+     "rotulo": "Alguma vez você já deixtou de fazer o de",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X71",
+      null,
+      null,
+      "out_AA71",
+      null,
+      "out_AD71",
+      null,
+      "out_AG71",
+      null
+     ]
+    },
+    {
+     "rotulo": "Algumas vezes você se sente alegre, outr",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X72",
+      null,
+      null,
+      "out_AA72",
+      null,
+      "out_AD72",
+      null,
+      "out_AG72",
+      null
+     ]
+    },
+    {
+     "rotulo": "Com frequência você precisa de bons amig",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X73",
+      null,
+      null,
+      "out_AA73",
+      null,
+      "out_AD73",
+      null,
+      "out_AG73",
+      null
+     ]
+    },
+    {
+     "rotulo": "Você gostaria de participar de um treina",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X74",
+      null,
+      null,
+      "out_AA74",
+      null,
+      "out_AD74",
+      null,
+      "out_AG74",
+      null
+     ]
+    },
+    {
+     "rotulo": "x",
+     "valores": [
+      null,
+      null,
+      "out_C78",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classificação (Livro de avaliação vol 3)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X79",
+      "out_Y79",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Psicoticismo (P) (Máx. = 14)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I80",
+      "out_K80",
+      "out_M80",
+      "out_O80",
+      "out_Q80",
+      "out_S80",
+      null,
+      "out_X80",
+      "out_Y80",
+      null,
+      "out_AA80",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Extroversão (E) (Máx.= 12)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I81",
+      "out_K81",
+      "out_M81",
+      "out_O81",
+      "out_Q81",
+      "out_S81",
+      null,
+      "out_X81",
+      "out_Y81",
+      null,
+      "out_AA81",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Neuroticismo (N) (Máx.= 18)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I82",
+      "out_K82",
+      "out_M82",
+      "out_O82",
+      "out_Q82",
+      "out_S82",
+      null,
+      "out_X82",
+      "out_Y82",
+      null,
+      "out_AA82",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Sinceridade (S) (Máx.= 16)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I83",
+      "out_K83",
+      "out_M83",
+      "out_O83",
+      "out_Q83",
+      "out_S83",
+      null,
+      "out_X83",
+      "out_Y83",
+      null,
+      "out_AA83",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "x",
+     "valores": [
+      null,
+      null,
+      "out_C86",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classificação (Livro de avaliação vol 3)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X87",
+      "out_Y87",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Psicoticismo (P) (Máx. = 14)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I88",
+      "out_K88",
+      "out_M88",
+      "out_O88",
+      "out_Q88",
+      "out_S88",
+      null,
+      "out_X88",
+      "out_Y88",
+      null,
+      "out_AA88",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Extroversão (E) (Máx.= 12)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I89",
+      "out_K89",
+      "out_M89",
+      "out_O89",
+      "out_Q89",
+      "out_S89",
+      null,
+      "out_X89",
+      "out_Y89",
+      null,
+      "out_AA89",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Neuroticismo (N) (Máx.= 18)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I90",
+      "out_K90",
+      "out_M90",
+      "out_O90",
+      "out_Q90",
+      "out_S90",
+      null,
+      "out_X90",
+      "out_Y90",
+      null,
+      "out_AA90",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Sinceridade (S) (Máx.= 16)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I91",
+      "out_K91",
+      "out_M91",
+      "out_O91",
+      "out_Q91",
+      "out_S91",
+      null,
+      "out_X91",
+      "out_Y91",
+      null,
+      "out_AA91",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "x",
+     "valores": [
+      null,
+      null,
+      "out_C94",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classificação (Livro de avaliação vol 3)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X95",
+      "out_Y95",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Psicoticismo (P) (Máx. = 14)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I96",
+      "out_K96",
+      "out_M96",
+      "out_O96",
+      "out_Q96",
+      "out_S96",
+      null,
+      "out_X96",
+      "out_Y96",
+      null,
+      "out_AA96",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Extroversão (E) (Máx.= 12)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I97",
+      "out_K97",
+      "out_M97",
+      "out_O97",
+      "out_Q97",
+      "out_S97",
+      null,
+      "out_X97",
+      "out_Y97",
+      null,
+      "out_AA97",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Neuroticismo (N) (Máx.= 18)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I98",
+      "out_K98",
+      "out_M98",
+      "out_O98",
+      "out_Q98",
+      "out_S98",
+      null,
+      "out_X98",
+      "out_Y98",
+      null,
+      "out_AA98",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Sinceridade (S) (Máx.= 16)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I99",
+      "out_K99",
+      "out_M99",
+      "out_O99",
+      "out_Q99",
+      "out_S99",
+      null,
+      "out_X99",
+      "out_Y99",
+      null,
+      "out_AA99",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "x",
+     "valores": [
+      null,
+      null,
+      "out_C102",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Classificação (Livro de avaliação vol 3)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X103",
+      "out_Y103",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Psicoticismo (P) (Máx. = 14)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I104",
+      "out_K104",
+      "out_M104",
+      "out_O104",
+      "out_Q104",
+      "out_S104",
+      null,
+      "out_X104",
+      "out_Y104",
+      null,
+      "out_AA104",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Extroversão (E) (Máx.= 12)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I105",
+      "out_K105",
+      "out_M105",
+      "out_O105",
+      "out_Q105",
+      "out_S105",
+      null,
+      "out_X105",
+      "out_Y105",
+      null,
+      "out_AA105",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Neuroticismo (N) (Máx.= 18)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I106",
+      "out_K106",
+      "out_M106",
+      "out_O106",
+      "out_Q106",
+      "out_S106",
+      null,
+      "out_X106",
+      "out_Y106",
+      null,
+      "out_AA106",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Sinceridade (S) (Máx.= 16)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_I107",
+      "out_K107",
+      "out_M107",
+      "out_O107",
+      "out_Q107",
+      "out_S107",
+      null,
+      "out_X107",
+      "out_Y107",
+      null,
+      "out_AA107",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Interpretação dos resultados segundo a p",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X110",
+      "out_Y110",
+      "out_Z110",
+      "out_AA110",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "112",
+     "valores": [
+      null,
+      "out_B112",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "113",
+     "valores": [
+      null,
+      "out_B113",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Considerando:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_M122",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "123",
+     "valores": [
+      null,
+      "out_B123",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

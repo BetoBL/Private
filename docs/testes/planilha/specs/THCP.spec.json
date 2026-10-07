@@ -1,0 +1,1919 @@
+{
+ "sigla": "THCP",
+ "nome": "THCP — Teste de Habilidades e Conhecimentos Pré-Alfabetização",
+ "dominio": "LINGUAGEM_APRENDIZAGEM",
+ "descricao": "THCP: pontuações por subteste convertidas em Z, ponderado, percentil e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "THCP (normas conforme planilha da psicóloga).",
+ "aba": "THCP",
+ "idade": [
+  4,
+  8
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "AC3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_K11",
+   "celula": "K11",
+   "rotulo": "Total Labirinto (0 a 4 pontos):",
+   "min": 0
+  },
+  {
+   "chave": "in_AB11",
+   "celula": "AB11",
+   "rotulo": "1) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_AB12",
+   "celula": "AB12",
+   "rotulo": "2) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_K13",
+   "celula": "K13",
+   "rotulo": "Quadrado",
+   "min": 0
+  },
+  {
+   "chave": "in_AB13",
+   "celula": "AB13",
+   "rotulo": "3) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_K14",
+   "celula": "K14",
+   "rotulo": "Triângulo",
+   "min": 0
+  },
+  {
+   "chave": "in_AB14",
+   "celula": "AB14",
+   "rotulo": "4) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_K15",
+   "celula": "K15",
+   "rotulo": "Letra A",
+   "min": 0
+  },
+  {
+   "chave": "in_AB15",
+   "celula": "AB15",
+   "rotulo": "5) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_K16",
+   "celula": "K16",
+   "rotulo": "Letra B",
+   "min": 0
+  },
+  {
+   "chave": "in_AB16",
+   "celula": "AB16",
+   "rotulo": "6) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_K17",
+   "celula": "K17",
+   "rotulo": "Número 7",
+   "min": 0
+  },
+  {
+   "chave": "in_AB17",
+   "celula": "AB17",
+   "rotulo": "7) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_K18",
+   "celula": "K18",
+   "rotulo": "Letra G",
+   "min": 0
+  },
+  {
+   "chave": "in_AB18",
+   "celula": "AB18",
+   "rotulo": "8) — Idade para cálculo:",
+   "min": 0
+  },
+  {
+   "chave": "in_K19",
+   "celula": "K19",
+   "rotulo": "Número 2",
+   "min": 0
+  },
+  {
+   "chave": "in_AB19",
+   "celula": "AB19",
+   "rotulo": "9)",
+   "min": 0
+  },
+  {
+   "chave": "in_K20",
+   "celula": "K20",
+   "rotulo": "Figura Complexa: Quadrado",
+   "min": 0
+  },
+  {
+   "chave": "in_AB20",
+   "celula": "AB20",
+   "rotulo": "10)",
+   "min": 0
+  },
+  {
+   "chave": "in_K21",
+   "celula": "K21",
+   "rotulo": "Figura Complexa: Círculo",
+   "min": 0
+  },
+  {
+   "chave": "in_AB21",
+   "celula": "AB21",
+   "rotulo": "11)",
+   "min": 0
+  },
+  {
+   "chave": "in_K22",
+   "celula": "K22",
+   "rotulo": "Figura Complexa: Posição",
+   "min": 0
+  },
+  {
+   "chave": "in_AB22",
+   "celula": "AB22",
+   "rotulo": "12)",
+   "min": 0
+  },
+  {
+   "chave": "in_K23",
+   "celula": "K23",
+   "rotulo": "Figura complexa: Proporção",
+   "min": 0
+  },
+  {
+   "chave": "in_M25",
+   "celula": "M25",
+   "rotulo": "M25",
+   "min": 0
+  },
+  {
+   "chave": "in_K27",
+   "celula": "K27",
+   "rotulo": "1)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB27",
+   "celula": "AB27",
+   "rotulo": "1)",
+   "min": 0
+  },
+  {
+   "chave": "in_K28",
+   "celula": "K28",
+   "rotulo": "2)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB28",
+   "celula": "AB28",
+   "rotulo": "2a)",
+   "min": 0
+  },
+  {
+   "chave": "in_K29",
+   "celula": "K29",
+   "rotulo": "3)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB29",
+   "celula": "AB29",
+   "rotulo": "2b)",
+   "min": 0
+  },
+  {
+   "chave": "in_K30",
+   "celula": "K30",
+   "rotulo": "4a)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB30",
+   "celula": "AB30",
+   "rotulo": "3)",
+   "min": 0
+  },
+  {
+   "chave": "in_K31",
+   "celula": "K31",
+   "rotulo": "4b)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB31",
+   "celula": "AB31",
+   "rotulo": "4)",
+   "min": 0
+  },
+  {
+   "chave": "in_K32",
+   "celula": "K32",
+   "rotulo": "4c)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB32",
+   "celula": "AB32",
+   "rotulo": "5)",
+   "min": 0
+  },
+  {
+   "chave": "in_K33",
+   "celula": "K33",
+   "rotulo": "5)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB33",
+   "celula": "AB33",
+   "rotulo": "6)",
+   "min": 0
+  },
+  {
+   "chave": "in_K34",
+   "celula": "K34",
+   "rotulo": "6)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB34",
+   "celula": "AB34",
+   "rotulo": "7)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB35",
+   "celula": "AB35",
+   "rotulo": "8)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB36",
+   "celula": "AB36",
+   "rotulo": "9)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB37",
+   "celula": "AB37",
+   "rotulo": "10)",
+   "min": 0
+  },
+  {
+   "chave": "in_K41",
+   "celula": "K41",
+   "rotulo": "1)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB41",
+   "celula": "AB41",
+   "rotulo": "N° de acertos:",
+   "min": 0
+  },
+  {
+   "chave": "in_K42",
+   "celula": "K42",
+   "rotulo": "2)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB42",
+   "celula": "AB42",
+   "rotulo": "N° de erros:",
+   "min": 0
+  },
+  {
+   "chave": "in_K43",
+   "celula": "K43",
+   "rotulo": "3)",
+   "min": 0
+  },
+  {
+   "chave": "in_K44",
+   "celula": "K44",
+   "rotulo": "4)",
+   "min": 0
+  },
+  {
+   "chave": "in_I46",
+   "celula": "I46",
+   "rotulo": "I46",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_V3",
+   "celula": "V3",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "Amostra Geral",
+    "Idade",
+    "idade"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_L11",
+   "celula": "L11",
+   "rotulo": "Total Labirinto (0 a 4 pontos):"
+  },
+  {
+   "chave": "out_AC11",
+   "celula": "AC11",
+   "rotulo": "1)"
+  },
+  {
+   "chave": "out_AC12",
+   "celula": "AC12",
+   "rotulo": "2)"
+  },
+  {
+   "chave": "out_L13",
+   "celula": "L13",
+   "rotulo": "Quadrado"
+  },
+  {
+   "chave": "out_AC13",
+   "celula": "AC13",
+   "rotulo": "3)"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "Triângulo"
+  },
+  {
+   "chave": "out_AC14",
+   "celula": "AC14",
+   "rotulo": "4)"
+  },
+  {
+   "chave": "out_L15",
+   "celula": "L15",
+   "rotulo": "Letra A"
+  },
+  {
+   "chave": "out_AC15",
+   "celula": "AC15",
+   "rotulo": "5)"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "Letra B"
+  },
+  {
+   "chave": "out_AC16",
+   "celula": "AC16",
+   "rotulo": "6)"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "Número 7"
+  },
+  {
+   "chave": "out_AC17",
+   "celula": "AC17",
+   "rotulo": "7)"
+  },
+  {
+   "chave": "out_L18",
+   "celula": "L18",
+   "rotulo": "Letra G"
+  },
+  {
+   "chave": "out_AC18",
+   "celula": "AC18",
+   "rotulo": "8)"
+  },
+  {
+   "chave": "out_L19",
+   "celula": "L19",
+   "rotulo": "Número 2"
+  },
+  {
+   "chave": "out_AC19",
+   "celula": "AC19",
+   "rotulo": "9)"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Figura Complexa: Quadrado"
+  },
+  {
+   "chave": "out_AC20",
+   "celula": "AC20",
+   "rotulo": "10)"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "Figura Complexa: Círculo"
+  },
+  {
+   "chave": "out_AC21",
+   "celula": "AC21",
+   "rotulo": "11)"
+  },
+  {
+   "chave": "out_L22",
+   "celula": "L22",
+   "rotulo": "Figura Complexa: Posição"
+  },
+  {
+   "chave": "out_AC22",
+   "celula": "AC22",
+   "rotulo": "12)"
+  },
+  {
+   "chave": "out_L23",
+   "celula": "L23",
+   "rotulo": "Figura complexa: Proporção"
+  },
+  {
+   "chave": "out_AB23",
+   "celula": "AB23",
+   "rotulo": "Soma Linguagem (Máx. 12 Pts):"
+  },
+  {
+   "chave": "out_AC23",
+   "celula": "AC23",
+   "rotulo": "Soma Linguagem (Máx. 12 Pts):"
+  },
+  {
+   "chave": "out_K24",
+   "celula": "K24",
+   "rotulo": "Total Exercício I (Cópia + Labirinto) - "
+  },
+  {
+   "chave": "out_L24",
+   "celula": "L24",
+   "rotulo": "Total Exercício I (Cópia + Labirinto) - "
+  },
+  {
+   "chave": "out_N25",
+   "celula": "N25",
+   "rotulo": "N25"
+  },
+  {
+   "chave": "out_L27",
+   "celula": "L27",
+   "rotulo": "1)"
+  },
+  {
+   "chave": "out_AC27",
+   "celula": "AC27",
+   "rotulo": "1)"
+  },
+  {
+   "chave": "out_L28",
+   "celula": "L28",
+   "rotulo": "2)"
+  },
+  {
+   "chave": "out_AC28",
+   "celula": "AC28",
+   "rotulo": "2a)"
+  },
+  {
+   "chave": "out_L29",
+   "celula": "L29",
+   "rotulo": "3)"
+  },
+  {
+   "chave": "out_AC29",
+   "celula": "AC29",
+   "rotulo": "2b)"
+  },
+  {
+   "chave": "out_L30",
+   "celula": "L30",
+   "rotulo": "4a)"
+  },
+  {
+   "chave": "out_AC30",
+   "celula": "AC30",
+   "rotulo": "3)"
+  },
+  {
+   "chave": "out_L31",
+   "celula": "L31",
+   "rotulo": "4b)"
+  },
+  {
+   "chave": "out_AC31",
+   "celula": "AC31",
+   "rotulo": "4)"
+  },
+  {
+   "chave": "out_L32",
+   "celula": "L32",
+   "rotulo": "4c)"
+  },
+  {
+   "chave": "out_AC32",
+   "celula": "AC32",
+   "rotulo": "5)"
+  },
+  {
+   "chave": "out_L33",
+   "celula": "L33",
+   "rotulo": "5)"
+  },
+  {
+   "chave": "out_AC33",
+   "celula": "AC33",
+   "rotulo": "6)"
+  },
+  {
+   "chave": "out_L34",
+   "celula": "L34",
+   "rotulo": "6)"
+  },
+  {
+   "chave": "out_AC34",
+   "celula": "AC34",
+   "rotulo": "7)"
+  },
+  {
+   "chave": "out_K35",
+   "celula": "K35",
+   "rotulo": "Total Exercício II (Máx. 8):"
+  },
+  {
+   "chave": "out_L35",
+   "celula": "L35",
+   "rotulo": "Total Exercício II (Máx. 8):"
+  },
+  {
+   "chave": "out_AC35",
+   "celula": "AC35",
+   "rotulo": "8)"
+  },
+  {
+   "chave": "out_AC36",
+   "celula": "AC36",
+   "rotulo": "9)"
+  },
+  {
+   "chave": "out_K37",
+   "celula": "K37",
+   "rotulo": "Soma HPM (Totais Exercício I + II) (Máx."
+  },
+  {
+   "chave": "out_AC37",
+   "celula": "AC37",
+   "rotulo": "10)"
+  },
+  {
+   "chave": "out_AB38",
+   "celula": "AB38",
+   "rotulo": "Soma PQ (Máx. 11 Pts):"
+  },
+  {
+   "chave": "out_AC38",
+   "celula": "AC38",
+   "rotulo": "Soma PQ (Máx. 11 Pts):"
+  },
+  {
+   "chave": "out_L41",
+   "celula": "L41",
+   "rotulo": "1)"
+  },
+  {
+   "chave": "out_AC41",
+   "celula": "AC41",
+   "rotulo": "N° de acertos:"
+  },
+  {
+   "chave": "out_L42",
+   "celula": "L42",
+   "rotulo": "2)"
+  },
+  {
+   "chave": "out_AC42",
+   "celula": "AC42",
+   "rotulo": "N° de erros:"
+  },
+  {
+   "chave": "out_L43",
+   "celula": "L43",
+   "rotulo": "3)"
+  },
+  {
+   "chave": "out_AB43",
+   "celula": "AB43",
+   "rotulo": "TOTAL (acertos - erros) - (Máx 28 pts):"
+  },
+  {
+   "chave": "out_AC43",
+   "celula": "AC43",
+   "rotulo": "TOTAL (acertos - erros) - (Máx 28 pts):"
+  },
+  {
+   "chave": "out_L44",
+   "celula": "L44",
+   "rotulo": "4)"
+  },
+  {
+   "chave": "out_K45",
+   "celula": "K45",
+   "rotulo": "Soma Memória (Máx 10 pts):"
+  },
+  {
+   "chave": "out_L45",
+   "celula": "L45",
+   "rotulo": "Soma Memória (Máx 10 pts):"
+  },
+  {
+   "chave": "out_M46",
+   "celula": "M46",
+   "rotulo": "M46"
+  },
+  {
+   "chave": "out_K50",
+   "celula": "K50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Nota"
+  },
+  {
+   "chave": "out_L50",
+   "celula": "L50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Quartil"
+  },
+  {
+   "chave": "out_N50",
+   "celula": "N50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Classificação (Manual)"
+  },
+  {
+   "chave": "out_Q50",
+   "celula": "Q50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — T-Score"
+  },
+  {
+   "chave": "out_S50",
+   "celula": "S50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Média"
+  },
+  {
+   "chave": "out_U50",
+   "celula": "U50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Desv. Pad"
+  },
+  {
+   "chave": "out_W50",
+   "celula": "W50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Z-Score"
+  },
+  {
+   "chave": "out_Y50",
+   "celula": "Y50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Pontos Ponder"
+  },
+  {
+   "chave": "out_AA50",
+   "celula": "AA50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Percentil"
+  },
+  {
+   "chave": "out_AC50",
+   "celula": "AC50",
+   "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_K51",
+   "celula": "K51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Nota"
+  },
+  {
+   "chave": "out_L51",
+   "celula": "L51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Quartil"
+  },
+  {
+   "chave": "out_N51",
+   "celula": "N51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Classificação (Manual)"
+  },
+  {
+   "chave": "out_Q51",
+   "celula": "Q51",
+   "rotulo": "Linguagem (Máx. 12 pts): — T-Score"
+  },
+  {
+   "chave": "out_S51",
+   "celula": "S51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Média"
+  },
+  {
+   "chave": "out_U51",
+   "celula": "U51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Desv. Pad"
+  },
+  {
+   "chave": "out_W51",
+   "celula": "W51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Z-Score"
+  },
+  {
+   "chave": "out_Y51",
+   "celula": "Y51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Pontos Ponder"
+  },
+  {
+   "chave": "out_AA51",
+   "celula": "AA51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Percentil"
+  },
+  {
+   "chave": "out_AC51",
+   "celula": "AC51",
+   "rotulo": "Linguagem (Máx. 12 pts): — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_K52",
+   "celula": "K52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Nota"
+  },
+  {
+   "chave": "out_L52",
+   "celula": "L52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Quartil"
+  },
+  {
+   "chave": "out_N52",
+   "celula": "N52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Classificação (Manual)"
+  },
+  {
+   "chave": "out_Q52",
+   "celula": "Q52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — T-Score"
+  },
+  {
+   "chave": "out_S52",
+   "celula": "S52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Média"
+  },
+  {
+   "chave": "out_U52",
+   "celula": "U52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Desv. Pad"
+  },
+  {
+   "chave": "out_W52",
+   "celula": "W52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Z-Score"
+  },
+  {
+   "chave": "out_Y52",
+   "celula": "Y52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Pontos Ponder"
+  },
+  {
+   "chave": "out_AA52",
+   "celula": "AA52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Percentil"
+  },
+  {
+   "chave": "out_AC52",
+   "celula": "AC52",
+   "rotulo": "Pensamento Quantitativo (Máx. 11 pts): — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_K53",
+   "celula": "K53",
+   "rotulo": "Memória (Máx. 10 pts): — Nota"
+  },
+  {
+   "chave": "out_L53",
+   "celula": "L53",
+   "rotulo": "Memória (Máx. 10 pts): — Quartil"
+  },
+  {
+   "chave": "out_N53",
+   "celula": "N53",
+   "rotulo": "Memória (Máx. 10 pts): — Classificação (Manual)"
+  },
+  {
+   "chave": "out_Q53",
+   "celula": "Q53",
+   "rotulo": "Memória (Máx. 10 pts): — T-Score"
+  },
+  {
+   "chave": "out_S53",
+   "celula": "S53",
+   "rotulo": "Memória (Máx. 10 pts): — Média"
+  },
+  {
+   "chave": "out_U53",
+   "celula": "U53",
+   "rotulo": "Memória (Máx. 10 pts): — Desv. Pad"
+  },
+  {
+   "chave": "out_W53",
+   "celula": "W53",
+   "rotulo": "Memória (Máx. 10 pts): — Z-Score"
+  },
+  {
+   "chave": "out_Y53",
+   "celula": "Y53",
+   "rotulo": "Memória (Máx. 10 pts): — Pontos Ponder"
+  },
+  {
+   "chave": "out_AA53",
+   "celula": "AA53",
+   "rotulo": "Memória (Máx. 10 pts): — Percentil"
+  },
+  {
+   "chave": "out_AC53",
+   "celula": "AC53",
+   "rotulo": "Memória (Máx. 10 pts): — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_K54",
+   "celula": "K54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Nota"
+  },
+  {
+   "chave": "out_L54",
+   "celula": "L54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Quartil"
+  },
+  {
+   "chave": "out_N54",
+   "celula": "N54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Classificação (Manual)"
+  },
+  {
+   "chave": "out_Q54",
+   "celula": "Q54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — T-Score"
+  },
+  {
+   "chave": "out_S54",
+   "celula": "S54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Média"
+  },
+  {
+   "chave": "out_U54",
+   "celula": "U54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Desv. Pad"
+  },
+  {
+   "chave": "out_W54",
+   "celula": "W54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Z-Score"
+  },
+  {
+   "chave": "out_Y54",
+   "celula": "Y54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Pontos Ponder"
+  },
+  {
+   "chave": "out_AA54",
+   "celula": "AA54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Percentil"
+  },
+  {
+   "chave": "out_AC54",
+   "celula": "AC54",
+   "rotulo": "Atenção Concentrada (Máx. 28 pts): — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_K55",
+   "celula": "K55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Nota"
+  },
+  {
+   "chave": "out_L55",
+   "celula": "L55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Quartil"
+  },
+  {
+   "chave": "out_N55",
+   "celula": "N55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Classificação (Manual)"
+  },
+  {
+   "chave": "out_Q55",
+   "celula": "Q55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — T-Score"
+  },
+  {
+   "chave": "out_S55",
+   "celula": "S55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Média"
+  },
+  {
+   "chave": "out_U55",
+   "celula": "U55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Desv. Pad"
+  },
+  {
+   "chave": "out_W55",
+   "celula": "W55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Z-Score"
+  },
+  {
+   "chave": "out_Y55",
+   "celula": "Y55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Pontos Ponder"
+  },
+  {
+   "chave": "out_AA55",
+   "celula": "AA55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Percentil"
+  },
+  {
+   "chave": "out_AC55",
+   "celula": "AC55",
+   "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts): — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_B58",
+   "celula": "B58",
+   "rotulo": "OBSERVAÇÕES"
+  },
+  {
+   "chave": "out_B59",
+   "celula": "B59",
+   "rotulo": "OBSERVAÇÕES"
+  },
+  {
+   "chave": "out_D63",
+   "celula": "D63",
+   "rotulo": "HPM"
+  },
+  {
+   "chave": "out_D64",
+   "celula": "D64",
+   "rotulo": "LG"
+  },
+  {
+   "chave": "out_D65",
+   "celula": "D65",
+   "rotulo": "PQ"
+  },
+  {
+   "chave": "out_D66",
+   "celula": "D66",
+   "rotulo": "ME"
+  },
+  {
+   "chave": "out_D67",
+   "celula": "D67",
+   "rotulo": "AC"
+  },
+  {
+   "chave": "out_D68",
+   "celula": "D68",
+   "rotulo": "THCP"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "OBSERVAÇÕES",
+    "D",
+    "K",
+    "L",
+    "M",
+    "N",
+    "T-Score",
+    "Média",
+    "Desv. Pad",
+    "Z-Score",
+    "Pontos Ponder",
+    "Percentil",
+    "AB",
+    "AC"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Total Labirinto (0 a 4 pontos):",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L11",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC11"
+     ]
+    },
+    {
+     "rotulo": "2)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC12"
+     ]
+    },
+    {
+     "rotulo": "Quadrado",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC13"
+     ]
+    },
+    {
+     "rotulo": "Triângulo",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L14",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC14"
+     ]
+    },
+    {
+     "rotulo": "Letra A",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC15"
+     ]
+    },
+    {
+     "rotulo": "Letra B",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC16"
+     ]
+    },
+    {
+     "rotulo": "Número 7",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L17",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC17"
+     ]
+    },
+    {
+     "rotulo": "Letra G",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L18",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC18"
+     ]
+    },
+    {
+     "rotulo": "Número 2",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L19",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC19"
+     ]
+    },
+    {
+     "rotulo": "Figura Complexa: Quadrado",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L20",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC20"
+     ]
+    },
+    {
+     "rotulo": "Figura Complexa: Círculo",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L21",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC21"
+     ]
+    },
+    {
+     "rotulo": "Figura Complexa: Posição",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC22"
+     ]
+    },
+    {
+     "rotulo": "Figura complexa: Proporção",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L23",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB23",
+      "out_AC23"
+     ]
+    },
+    {
+     "rotulo": "Total Exercício I (Cópia + Labirinto) - ",
+     "valores": [
+      null,
+      null,
+      "out_K24",
+      "out_L24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "25",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_N25",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "1)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L27",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC27"
+     ]
+    },
+    {
+     "rotulo": "2)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC28"
+     ]
+    },
+    {
+     "rotulo": "3)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC29"
+     ]
+    },
+    {
+     "rotulo": "4a)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC30"
+     ]
+    },
+    {
+     "rotulo": "4b)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC31"
+     ]
+    },
+    {
+     "rotulo": "4c)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC32"
+     ]
+    },
+    {
+     "rotulo": "5)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L33",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC33"
+     ]
+    },
+    {
+     "rotulo": "6)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L34",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC34"
+     ]
+    },
+    {
+     "rotulo": "Total Exercício II (Máx. 8):",
+     "valores": [
+      null,
+      null,
+      "out_K35",
+      "out_L35",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC35"
+     ]
+    },
+    {
+     "rotulo": "9)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC36"
+     ]
+    },
+    {
+     "rotulo": "Soma HPM (Totais Exercício I + II) (Máx.",
+     "valores": [
+      null,
+      null,
+      "out_K37",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC37"
+     ]
+    },
+    {
+     "rotulo": "Soma PQ (Máx. 11 Pts):",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB38",
+      "out_AC38"
+     ]
+    },
+    {
+     "rotulo": "1)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L41",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC41"
+     ]
+    },
+    {
+     "rotulo": "2)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L42",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AC42"
+     ]
+    },
+    {
+     "rotulo": "3)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L43",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB43",
+      "out_AC43"
+     ]
+    },
+    {
+     "rotulo": "4)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_L44",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Soma Memória (Máx 10 pts):",
+     "valores": [
+      null,
+      null,
+      "out_K45",
+      "out_L45",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "46",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_M46",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Habilidades Percepto-Motoras (Máx. 30 pt",
+     "valores": [
+      null,
+      null,
+      "out_K50",
+      "out_L50",
+      null,
+      "out_N50",
+      "out_Q50",
+      "out_S50",
+      "out_U50",
+      "out_W50",
+      "out_Y50",
+      "out_AA50",
+      null,
+      "out_AC50"
+     ]
+    },
+    {
+     "rotulo": "Linguagem (Máx. 12 pts):",
+     "valores": [
+      null,
+      null,
+      "out_K51",
+      "out_L51",
+      null,
+      "out_N51",
+      "out_Q51",
+      "out_S51",
+      "out_U51",
+      "out_W51",
+      "out_Y51",
+      "out_AA51",
+      null,
+      "out_AC51"
+     ]
+    },
+    {
+     "rotulo": "Pensamento Quantitativo (Máx. 11 pts):",
+     "valores": [
+      null,
+      null,
+      "out_K52",
+      "out_L52",
+      null,
+      "out_N52",
+      "out_Q52",
+      "out_S52",
+      "out_U52",
+      "out_W52",
+      "out_Y52",
+      "out_AA52",
+      null,
+      "out_AC52"
+     ]
+    },
+    {
+     "rotulo": "Memória (Máx. 10 pts):",
+     "valores": [
+      null,
+      null,
+      "out_K53",
+      "out_L53",
+      null,
+      "out_N53",
+      "out_Q53",
+      "out_S53",
+      "out_U53",
+      "out_W53",
+      "out_Y53",
+      "out_AA53",
+      null,
+      "out_AC53"
+     ]
+    },
+    {
+     "rotulo": "Atenção Concentrada (Máx. 28 pts):",
+     "valores": [
+      null,
+      null,
+      "out_K54",
+      "out_L54",
+      null,
+      "out_N54",
+      "out_Q54",
+      "out_S54",
+      "out_U54",
+      "out_W54",
+      "out_Y54",
+      "out_AA54",
+      null,
+      "out_AC54"
+     ]
+    },
+    {
+     "rotulo": "ESCORE BRUTO TOTAL (Máx. 91 pts):",
+     "valores": [
+      null,
+      null,
+      "out_K55",
+      "out_L55",
+      null,
+      "out_N55",
+      "out_Q55",
+      "out_S55",
+      "out_U55",
+      "out_W55",
+      "out_Y55",
+      "out_AA55",
+      null,
+      "out_AC55"
+     ]
+    },
+    {
+     "rotulo": "58",
+     "valores": [
+      "out_B58",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "59",
+     "valores": [
+      "out_B59",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "HPM",
+     "valores": [
+      null,
+      "out_D63",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "LG",
+     "valores": [
+      null,
+      "out_D64",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "PQ",
+     "valores": [
+      null,
+      "out_D65",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "ME",
+     "valores": [
+      null,
+      "out_D66",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "AC",
+     "valores": [
+      null,
+      "out_D67",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "THCP",
+     "valores": [
+      null,
+      "out_D68",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

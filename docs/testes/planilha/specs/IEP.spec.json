@@ -1,0 +1,3733 @@
+{
+ "sigla": "IEP",
+ "nome": "IEP — Inventário de Estilos Parentais",
+ "dominio": "PERSONALIDADE",
+ "descricao": "IEP: respostas aos itens somadas por dimensão (práticas educativas) e convertidas em classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "GOMIDE, P. I. C. Inventário de Estilos Parentais (normas conforme planilha da psicóloga).",
+ "aba": "IEP",
+ "idade": [
+  6,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "P3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_K17",
+   "celula": "K17",
+   "rotulo": "Quando meu filho(a) sai, ele(a) conta es — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L17",
+   "celula": "L17",
+   "rotulo": "Quando meu filho(a) sai, ele(a) conta es — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M17",
+   "celula": "M17",
+   "rotulo": "Quando meu filho(a) sai, ele(a) conta es — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N17",
+   "celula": "N17",
+   "rotulo": "Quando meu filho(a) sai, ele(a) conta es",
+   "min": 0
+  },
+  {
+   "chave": "in_K18",
+   "celula": "K18",
+   "rotulo": "Ensino meu filho(a) a devolver objetos o — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L18",
+   "celula": "L18",
+   "rotulo": "Ensino meu filho(a) a devolver objetos o — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M18",
+   "celula": "M18",
+   "rotulo": "Ensino meu filho(a) a devolver objetos o — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N18",
+   "celula": "N18",
+   "rotulo": "Ensino meu filho(a) a devolver objetos o",
+   "min": 0
+  },
+  {
+   "chave": "in_K19",
+   "celula": "K19",
+   "rotulo": "Quando meu filho(a) faz algo errado, a p — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L19",
+   "celula": "L19",
+   "rotulo": "Quando meu filho(a) faz algo errado, a p — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M19",
+   "celula": "M19",
+   "rotulo": "Quando meu filho(a) faz algo errado, a p — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N19",
+   "celula": "N19",
+   "rotulo": "Quando meu filho(a) faz algo errado, a p",
+   "min": 0
+  },
+  {
+   "chave": "in_K20",
+   "celula": "K20",
+   "rotulo": "Meu trabalho atrapalha na atenção que do — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L20",
+   "celula": "L20",
+   "rotulo": "Meu trabalho atrapalha na atenção que do — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M20",
+   "celula": "M20",
+   "rotulo": "Meu trabalho atrapalha na atenção que do — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N20",
+   "celula": "N20",
+   "rotulo": "Meu trabalho atrapalha na atenção que do",
+   "min": 0
+  },
+  {
+   "chave": "in_K21",
+   "celula": "K21",
+   "rotulo": "Ameaço que vou me bater ou castigar e de — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L21",
+   "celula": "L21",
+   "rotulo": "Ameaço que vou me bater ou castigar e de — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M21",
+   "celula": "M21",
+   "rotulo": "Ameaço que vou me bater ou castigar e de — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N21",
+   "celula": "N21",
+   "rotulo": "Ameaço que vou me bater ou castigar e de",
+   "min": 0
+  },
+  {
+   "chave": "in_K22",
+   "celula": "K22",
+   "rotulo": "Critico qualquer coisa que meu filho(a)  — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L22",
+   "celula": "L22",
+   "rotulo": "Critico qualquer coisa que meu filho(a)  — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M22",
+   "celula": "M22",
+   "rotulo": "Critico qualquer coisa que meu filho(a)  — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N22",
+   "celula": "N22",
+   "rotulo": "Critico qualquer coisa que meu filho(a) ",
+   "min": 0
+  },
+  {
+   "chave": "in_K23",
+   "celula": "K23",
+   "rotulo": "Bato nele(a) com cinta ou outros objetos — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L23",
+   "celula": "L23",
+   "rotulo": "Bato nele(a) com cinta ou outros objetos — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M23",
+   "celula": "M23",
+   "rotulo": "Bato nele(a) com cinta ou outros objetos — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N23",
+   "celula": "N23",
+   "rotulo": "Bato nele(a) com cinta ou outros objetos",
+   "min": 0
+  },
+  {
+   "chave": "in_K24",
+   "celula": "K24",
+   "rotulo": "Pergunto como foi meu dia na escola e o  — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L24",
+   "celula": "L24",
+   "rotulo": "Pergunto como foi meu dia na escola e o  — Percepção do examinando ref. IEP Cuidado",
+   "min": 0
+  },
+  {
+   "chave": "in_M24",
+   "celula": "M24",
+   "rotulo": "Pergunto como foi meu dia na escola e o  — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N24",
+   "celula": "N24",
+   "rotulo": "Pergunto como foi meu dia na escola e o ",
+   "min": 0
+  },
+  {
+   "chave": "in_K25",
+   "celula": "K25",
+   "rotulo": "Se meu filho(a) colar na prova, explico  — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L25",
+   "celula": "L25",
+   "rotulo": "Se meu filho(a) colar na prova, explico ",
+   "min": 0
+  },
+  {
+   "chave": "in_M25",
+   "celula": "M25",
+   "rotulo": "Se meu filho(a) colar na prova, explico  — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N25",
+   "celula": "N25",
+   "rotulo": "Se meu filho(a) colar na prova, explico ",
+   "min": 0
+  },
+  {
+   "chave": "in_K26",
+   "celula": "K26",
+   "rotulo": "Quando estou alegre, não me importo com  — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L26",
+   "celula": "L26",
+   "rotulo": "Quando estou alegre, não me importo com ",
+   "min": 0
+  },
+  {
+   "chave": "in_M26",
+   "celula": "M26",
+   "rotulo": "Quando estou alegre, não me importo com  — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N26",
+   "celula": "N26",
+   "rotulo": "Quando estou alegre, não me importo com ",
+   "min": 0
+  },
+  {
+   "chave": "in_K27",
+   "celula": "K27",
+   "rotulo": "Meu filho(a) sente dificuldades em conta — Práticas Educativas",
+   "min": 0
+  },
+  {
+   "chave": "in_L27",
+   "celula": "L27",
+   "rotulo": "Meu filho(a) sente dificuldades em conta",
+   "min": 0
+  },
+  {
+   "chave": "in_M27",
+   "celula": "M27",
+   "rotulo": "Meu filho(a) sente dificuldades em conta — Percepção do Examinando",
+   "min": 0
+  },
+  {
+   "chave": "in_N27",
+   "celula": "N27",
+   "rotulo": "Meu filho(a) sente dificuldades em conta",
+   "min": 0
+  },
+  {
+   "chave": "in_K28",
+   "celula": "K28",
+   "rotulo": "Quando castigo meu filho(a) e ele pede p",
+   "min": 0
+  },
+  {
+   "chave": "in_L28",
+   "celula": "L28",
+   "rotulo": "Quando castigo meu filho(a) e ele pede p",
+   "min": 0
+  },
+  {
+   "chave": "in_M28",
+   "celula": "M28",
+   "rotulo": "Quando castigo meu filho(a) e ele pede p",
+   "min": 0
+  },
+  {
+   "chave": "in_N28",
+   "celula": "N28",
+   "rotulo": "Quando castigo meu filho(a) e ele pede p",
+   "min": 0
+  },
+  {
+   "chave": "in_K29",
+   "celula": "K29",
+   "rotulo": "Quando meu filho(a) sai, telefono procur",
+   "min": 0
+  },
+  {
+   "chave": "in_L29",
+   "celula": "L29",
+   "rotulo": "Quando meu filho(a) sai, telefono procur",
+   "min": 0
+  },
+  {
+   "chave": "in_M29",
+   "celula": "M29",
+   "rotulo": "Quando meu filho(a) sai, telefono procur",
+   "min": 0
+  },
+  {
+   "chave": "in_N29",
+   "celula": "N29",
+   "rotulo": "Quando meu filho(a) sai, telefono procur",
+   "min": 0
+  },
+  {
+   "chave": "in_K30",
+   "celula": "K30",
+   "rotulo": "Meu filho(a) tem muito medo de apanhar d",
+   "min": 0
+  },
+  {
+   "chave": "in_L30",
+   "celula": "L30",
+   "rotulo": "Meu filho(a) tem muito medo de apanhar d",
+   "min": 0
+  },
+  {
+   "chave": "in_M30",
+   "celula": "M30",
+   "rotulo": "Meu filho(a) tem muito medo de apanhar d",
+   "min": 0
+  },
+  {
+   "chave": "in_N30",
+   "celula": "N30",
+   "rotulo": "Meu filho(a) tem muito medo de apanhar d",
+   "min": 0
+  },
+  {
+   "chave": "in_K31",
+   "celula": "K31",
+   "rotulo": "Quando meu filho(a) esta triste ou aborr",
+   "min": 0
+  },
+  {
+   "chave": "in_L31",
+   "celula": "L31",
+   "rotulo": "Quando meu filho(a) esta triste ou aborr",
+   "min": 0
+  },
+  {
+   "chave": "in_M31",
+   "celula": "M31",
+   "rotulo": "Quando meu filho(a) esta triste ou aborr",
+   "min": 0
+  },
+  {
+   "chave": "in_N31",
+   "celula": "N31",
+   "rotulo": "Quando meu filho(a) esta triste ou aborr",
+   "min": 0
+  },
+  {
+   "chave": "in_K32",
+   "celula": "K32",
+   "rotulo": "Se meu filho(a) estragar alguma coisa de",
+   "min": 0
+  },
+  {
+   "chave": "in_L32",
+   "celula": "L32",
+   "rotulo": "Se meu filho(a) estragar alguma coisa de",
+   "min": 0
+  },
+  {
+   "chave": "in_M32",
+   "celula": "M32",
+   "rotulo": "Se meu filho(a) estragar alguma coisa de",
+   "min": 0
+  },
+  {
+   "chave": "in_N32",
+   "celula": "N32",
+   "rotulo": "Se meu filho(a) estragar alguma coisa de",
+   "min": 0
+  },
+  {
+   "chave": "in_K33",
+   "celula": "K33",
+   "rotulo": "Castigo-o quando estou nervoso(a); assim",
+   "min": 0
+  },
+  {
+   "chave": "in_L33",
+   "celula": "L33",
+   "rotulo": "Castigo-o quando estou nervoso(a); assim",
+   "min": 0
+  },
+  {
+   "chave": "in_M33",
+   "celula": "M33",
+   "rotulo": "Castigo-o quando estou nervoso(a); assim",
+   "min": 0
+  },
+  {
+   "chave": "in_N33",
+   "celula": "N33",
+   "rotulo": "Castigo-o quando estou nervoso(a); assim",
+   "min": 0
+  },
+  {
+   "chave": "in_K34",
+   "celula": "K34",
+   "rotulo": "Meu filho(a) fica sozinho(a) em casa a m",
+   "min": 0
+  },
+  {
+   "chave": "in_L34",
+   "celula": "L34",
+   "rotulo": "Meu filho(a) fica sozinho(a) em casa a m",
+   "min": 0
+  },
+  {
+   "chave": "in_M34",
+   "celula": "M34",
+   "rotulo": "Meu filho(a) fica sozinho(a) em casa a m",
+   "min": 0
+  },
+  {
+   "chave": "in_N34",
+   "celula": "N34",
+   "rotulo": "Meu filho(a) fica sozinho(a) em casa a m",
+   "min": 0
+  },
+  {
+   "chave": "in_K35",
+   "celula": "K35",
+   "rotulo": "Durante uma briga, meu filho(a) xinga ou",
+   "min": 0
+  },
+  {
+   "chave": "in_L35",
+   "celula": "L35",
+   "rotulo": "Durante uma briga, meu filho(a) xinga ou",
+   "min": 0
+  },
+  {
+   "chave": "in_M35",
+   "celula": "M35",
+   "rotulo": "Durante uma briga, meu filho(a) xinga ou",
+   "min": 0
+  },
+  {
+   "chave": "in_N35",
+   "celula": "N35",
+   "rotulo": "Durante uma briga, meu filho(a) xinga ou",
+   "min": 0
+  },
+  {
+   "chave": "in_K36",
+   "celula": "K36",
+   "rotulo": "Controlo com quem meu filho(a) fala ou s",
+   "min": 0
+  },
+  {
+   "chave": "in_L36",
+   "celula": "L36",
+   "rotulo": "Controlo com quem meu filho(a) fala ou s",
+   "min": 0
+  },
+  {
+   "chave": "in_M36",
+   "celula": "M36",
+   "rotulo": "Controlo com quem meu filho(a) fala ou s",
+   "min": 0
+  },
+  {
+   "chave": "in_N36",
+   "celula": "N36",
+   "rotulo": "Controlo com quem meu filho(a) fala ou s",
+   "min": 0
+  },
+  {
+   "chave": "in_K37",
+   "celula": "K37",
+   "rotulo": "Meu filho(a) fica machucado(a) quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_L37",
+   "celula": "L37",
+   "rotulo": "Meu filho(a) fica machucado(a) quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_M37",
+   "celula": "M37",
+   "rotulo": "Meu filho(a) fica machucado(a) quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_N37",
+   "celula": "N37",
+   "rotulo": "Meu filho(a) fica machucado(a) quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_K38",
+   "celula": "K38",
+   "rotulo": "Mesmo quando estou ocupado(a) ou viajand",
+   "min": 0
+  },
+  {
+   "chave": "in_L38",
+   "celula": "L38",
+   "rotulo": "Mesmo quando estou ocupado(a) ou viajand",
+   "min": 0
+  },
+  {
+   "chave": "in_M38",
+   "celula": "M38",
+   "rotulo": "Mesmo quando estou ocupado(a) ou viajand",
+   "min": 0
+  },
+  {
+   "chave": "in_N38",
+   "celula": "N38",
+   "rotulo": "Mesmo quando estou ocupado(a) ou viajand",
+   "min": 0
+  },
+  {
+   "chave": "in_K39",
+   "celula": "K39",
+   "rotulo": "Aconselha meu filho(a) a ler livros, rev",
+   "min": 0
+  },
+  {
+   "chave": "in_L39",
+   "celula": "L39",
+   "rotulo": "Aconselha meu filho(a) a ler livros, rev",
+   "min": 0
+  },
+  {
+   "chave": "in_M39",
+   "celula": "M39",
+   "rotulo": "Aconselha meu filho(a) a ler livros, rev",
+   "min": 0
+  },
+  {
+   "chave": "in_N39",
+   "celula": "N39",
+   "rotulo": "Aconselha meu filho(a) a ler livros, rev",
+   "min": 0
+  },
+  {
+   "chave": "in_K40",
+   "celula": "K40",
+   "rotulo": "Quando estou nervoso, acabo descontando ",
+   "min": 0
+  },
+  {
+   "chave": "in_L40",
+   "celula": "L40",
+   "rotulo": "Quando estou nervoso, acabo descontando ",
+   "min": 0
+  },
+  {
+   "chave": "in_M40",
+   "celula": "M40",
+   "rotulo": "Quando estou nervoso, acabo descontando ",
+   "min": 0
+  },
+  {
+   "chave": "in_N40",
+   "celula": "N40",
+   "rotulo": "Quando estou nervoso, acabo descontando ",
+   "min": 0
+  },
+  {
+   "chave": "in_K41",
+   "celula": "K41",
+   "rotulo": "Percebo que meu filho(a) sente que não d",
+   "min": 0
+  },
+  {
+   "chave": "in_L41",
+   "celula": "L41",
+   "rotulo": "Percebo que meu filho(a) sente que não d",
+   "min": 0
+  },
+  {
+   "chave": "in_M41",
+   "celula": "M41",
+   "rotulo": "Percebo que meu filho(a) sente que não d",
+   "min": 0
+  },
+  {
+   "chave": "in_N41",
+   "celula": "N41",
+   "rotulo": "Percebo que meu filho(a) sente que não d",
+   "min": 0
+  },
+  {
+   "chave": "in_K42",
+   "celula": "K42",
+   "rotulo": "Quando mando meu filho(a) estudar, arrum",
+   "min": 0
+  },
+  {
+   "chave": "in_L42",
+   "celula": "L42",
+   "rotulo": "Quando mando meu filho(a) estudar, arrum",
+   "min": 0
+  },
+  {
+   "chave": "in_M42",
+   "celula": "M42",
+   "rotulo": "Quando mando meu filho(a) estudar, arrum",
+   "min": 0
+  },
+  {
+   "chave": "in_N42",
+   "celula": "N42",
+   "rotulo": "Quando mando meu filho(a) estudar, arrum",
+   "min": 0
+  },
+  {
+   "chave": "in_K43",
+   "celula": "K43",
+   "rotulo": "Especialmente nas horas das refeições, f",
+   "min": 0
+  },
+  {
+   "chave": "in_L43",
+   "celula": "L43",
+   "rotulo": "Especialmente nas horas das refeições, f",
+   "min": 0
+  },
+  {
+   "chave": "in_M43",
+   "celula": "M43",
+   "rotulo": "Especialmente nas horas das refeições, f",
+   "min": 0
+  },
+  {
+   "chave": "in_N43",
+   "celula": "N43",
+   "rotulo": "Especialmente nas horas das refeições, f",
+   "min": 0
+  },
+  {
+   "chave": "in_K44",
+   "celula": "K44",
+   "rotulo": "Meu filho(a) sente ódio de mim quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_L44",
+   "celula": "L44",
+   "rotulo": "Meu filho(a) sente ódio de mim quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_M44",
+   "celula": "M44",
+   "rotulo": "Meu filho(a) sente ódio de mim quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_N44",
+   "celula": "N44",
+   "rotulo": "Meu filho(a) sente ódio de mim quando ba",
+   "min": 0
+  },
+  {
+   "chave": "in_K45",
+   "celula": "K45",
+   "rotulo": "Após uma festa, quero saber se meu filho",
+   "min": 0
+  },
+  {
+   "chave": "in_L45",
+   "celula": "L45",
+   "rotulo": "Após uma festa, quero saber se meu filho",
+   "min": 0
+  },
+  {
+   "chave": "in_M45",
+   "celula": "M45",
+   "rotulo": "Após uma festa, quero saber se meu filho",
+   "min": 0
+  },
+  {
+   "chave": "in_N45",
+   "celula": "N45",
+   "rotulo": "Após uma festa, quero saber se meu filho",
+   "min": 0
+  },
+  {
+   "chave": "in_K46",
+   "celula": "K46",
+   "rotulo": "Converso com meu filho(a) sobre o que é ",
+   "min": 0
+  },
+  {
+   "chave": "in_L46",
+   "celula": "L46",
+   "rotulo": "Converso com meu filho(a) sobre o que é ",
+   "min": 0
+  },
+  {
+   "chave": "in_M46",
+   "celula": "M46",
+   "rotulo": "Converso com meu filho(a) sobre o que é ",
+   "min": 0
+  },
+  {
+   "chave": "in_N46",
+   "celula": "N46",
+   "rotulo": "Converso com meu filho(a) sobre o que é ",
+   "min": 0
+  },
+  {
+   "chave": "in_K47",
+   "celula": "K47",
+   "rotulo": "Sou mal-humorado com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_L47",
+   "celula": "L47",
+   "rotulo": "Sou mal-humorado com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_M47",
+   "celula": "M47",
+   "rotulo": "Sou mal-humorado com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_N47",
+   "celula": "N47",
+   "rotulo": "Sou mal-humorado com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_K48",
+   "celula": "K48",
+   "rotulo": "Não sei dizer do que meu filho(a) gosta.",
+   "min": 0
+  },
+  {
+   "chave": "in_L48",
+   "celula": "L48",
+   "rotulo": "Não sei dizer do que meu filho(a) gosta.",
+   "min": 0
+  },
+  {
+   "chave": "in_M48",
+   "celula": "M48",
+   "rotulo": "Não sei dizer do que meu filho(a) gosta.",
+   "min": 0
+  },
+  {
+   "chave": "in_N48",
+   "celula": "N48",
+   "rotulo": "Não sei dizer do que meu filho(a) gosta.",
+   "min": 0
+  },
+  {
+   "chave": "in_K49",
+   "celula": "K49",
+   "rotulo": "Aviso que não vou dar um presente para m",
+   "min": 0
+  },
+  {
+   "chave": "in_L49",
+   "celula": "L49",
+   "rotulo": "Aviso que não vou dar um presente para m",
+   "min": 0
+  },
+  {
+   "chave": "in_M49",
+   "celula": "M49",
+   "rotulo": "Aviso que não vou dar um presente para m",
+   "min": 0
+  },
+  {
+   "chave": "in_N49",
+   "celula": "N49",
+   "rotulo": "Aviso que não vou dar um presente para m",
+   "min": 0
+  },
+  {
+   "chave": "in_K50",
+   "celula": "K50",
+   "rotulo": "Se meu filho(a) vai a uma festa, somente",
+   "min": 0
+  },
+  {
+   "chave": "in_L50",
+   "celula": "L50",
+   "rotulo": "Se meu filho(a) vai a uma festa, somente",
+   "min": 0
+  },
+  {
+   "chave": "in_M50",
+   "celula": "M50",
+   "rotulo": "Se meu filho(a) vai a uma festa, somente",
+   "min": 0
+  },
+  {
+   "chave": "in_N50",
+   "celula": "N50",
+   "rotulo": "Se meu filho(a) vai a uma festa, somente",
+   "min": 0
+  },
+  {
+   "chave": "in_K51",
+   "celula": "K51",
+   "rotulo": "Sou agressivo(a) com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_L51",
+   "celula": "L51",
+   "rotulo": "Sou agressivo(a) com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_M51",
+   "celula": "M51",
+   "rotulo": "Sou agressivo(a) com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_N51",
+   "celula": "N51",
+   "rotulo": "Sou agressivo(a) com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_K52",
+   "celula": "K52",
+   "rotulo": "Estabeleço regras (o que pode e o que nã",
+   "min": 0
+  },
+  {
+   "chave": "in_L52",
+   "celula": "L52",
+   "rotulo": "Estabeleço regras (o que pode e o que nã",
+   "min": 0
+  },
+  {
+   "chave": "in_M52",
+   "celula": "M52",
+   "rotulo": "Estabeleço regras (o que pode e o que nã",
+   "min": 0
+  },
+  {
+   "chave": "in_N52",
+   "celula": "N52",
+   "rotulo": "Estabeleço regras (o que pode e o que nã",
+   "min": 0
+  },
+  {
+   "chave": "in_K53",
+   "celula": "K53",
+   "rotulo": "Converso sobre o futuro trabalho ou prof",
+   "min": 0
+  },
+  {
+   "chave": "in_L53",
+   "celula": "L53",
+   "rotulo": "Converso sobre o futuro trabalho ou prof",
+   "min": 0
+  },
+  {
+   "chave": "in_M53",
+   "celula": "M53",
+   "rotulo": "Converso sobre o futuro trabalho ou prof",
+   "min": 0
+  },
+  {
+   "chave": "in_N53",
+   "celula": "N53",
+   "rotulo": "Converso sobre o futuro trabalho ou prof",
+   "min": 0
+  },
+  {
+   "chave": "in_K54",
+   "celula": "K54",
+   "rotulo": "Quando estou mau-humorado(a), não deixo ",
+   "min": 0
+  },
+  {
+   "chave": "in_L54",
+   "celula": "L54",
+   "rotulo": "Quando estou mau-humorado(a), não deixo ",
+   "min": 0
+  },
+  {
+   "chave": "in_M54",
+   "celula": "M54",
+   "rotulo": "Quando estou mau-humorado(a), não deixo ",
+   "min": 0
+  },
+  {
+   "chave": "in_N54",
+   "celula": "N54",
+   "rotulo": "Quando estou mau-humorado(a), não deixo ",
+   "min": 0
+  },
+  {
+   "chave": "in_K55",
+   "celula": "K55",
+   "rotulo": "Ignoro os problemas de meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_L55",
+   "celula": "L55",
+   "rotulo": "Ignoro os problemas de meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_M55",
+   "celula": "M55",
+   "rotulo": "Ignoro os problemas de meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_N55",
+   "celula": "N55",
+   "rotulo": "Ignoro os problemas de meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_K56",
+   "celula": "K56",
+   "rotulo": "Quando meu filho(a) fica muito nervoso(a",
+   "min": 0
+  },
+  {
+   "chave": "in_L56",
+   "celula": "L56",
+   "rotulo": "Quando meu filho(a) fica muito nervoso(a",
+   "min": 0
+  },
+  {
+   "chave": "in_M56",
+   "celula": "M56",
+   "rotulo": "Quando meu filho(a) fica muito nervoso(a",
+   "min": 0
+  },
+  {
+   "chave": "in_N56",
+   "celula": "N56",
+   "rotulo": "Quando meu filho(a) fica muito nervoso(a",
+   "min": 0
+  },
+  {
+   "chave": "in_K57",
+   "celula": "K57",
+   "rotulo": "Se meu filho(a) estiver aborrecido(a), f",
+   "min": 0
+  },
+  {
+   "chave": "in_L57",
+   "celula": "L57",
+   "rotulo": "Se meu filho(a) estiver aborrecido(a), f",
+   "min": 0
+  },
+  {
+   "chave": "in_M57",
+   "celula": "M57",
+   "rotulo": "Se meu filho(a) estiver aborrecido(a), f",
+   "min": 0
+  },
+  {
+   "chave": "in_N57",
+   "celula": "N57",
+   "rotulo": "Se meu filho(a) estiver aborrecido(a), f",
+   "min": 0
+  },
+  {
+   "chave": "in_K58",
+   "celula": "K58",
+   "rotulo": "Sou violento com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_L58",
+   "celula": "L58",
+   "rotulo": "Sou violento com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_M58",
+   "celula": "M58",
+   "rotulo": "Sou violento com meu filho(a).",
+   "min": 0
+  },
+  {
+   "chave": "in_N58",
+   "celula": "N58",
+   "rotulo": "Sou violento com meu filho(a).",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_K11",
+   "celula": "K11",
+   "rotulo": "Grau de relacionamento:",
+   "valores": [
+    "pai",
+    "mãe"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_R11",
+   "celula": "R11",
+   "rotulo": "Percepção do examinando ref. IEP Cuidador 1:",
+   "valores": [
+    "pai",
+    "mãe"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_K12",
+   "celula": "K12",
+   "rotulo": "Grau de relacionamento:",
+   "valores": [
+    "pai",
+    "mãe"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_R12",
+   "celula": "R12",
+   "rotulo": "Percepção do examinando ref. IEP Cuidador 1:",
+   "valores": [
+    "pai",
+    "mãe"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_B63",
+   "celula": "B63",
+   "rotulo": "CUIDADOR"
+  },
+  {
+   "chave": "out_H63",
+   "celula": "H63",
+   "rotulo": "Monitoria Positiva — Pts Brutos"
+  },
+  {
+   "chave": "out_I63",
+   "celula": "I63",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_J63",
+   "celula": "J63",
+   "rotulo": "Monitoria Positiva — Estilo Parental"
+  },
+  {
+   "chave": "out_M63",
+   "celula": "M63",
+   "rotulo": "Monitoria Positiva — Média"
+  },
+  {
+   "chave": "out_N63",
+   "celula": "N63",
+   "rotulo": "Monitoria Positiva — Dv. Pad"
+  },
+  {
+   "chave": "out_O63",
+   "celula": "O63",
+   "rotulo": "Monitoria Positiva — Z-Score"
+  },
+  {
+   "chave": "out_P63",
+   "celula": "P63",
+   "rotulo": "Monitoria Positiva — Pts Ponder"
+  },
+  {
+   "chave": "out_Q63",
+   "celula": "Q63",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_R63",
+   "celula": "R63",
+   "rotulo": "Monitoria Positiva — * Classificação"
+  },
+  {
+   "chave": "out_T63",
+   "celula": "T63",
+   "rotulo": "Monitoria Positiva — Pts Brutos"
+  },
+  {
+   "chave": "out_U63",
+   "celula": "U63",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_V63",
+   "celula": "V63",
+   "rotulo": "Monitoria Positiva — Estilo Parental"
+  },
+  {
+   "chave": "out_Y63",
+   "celula": "Y63",
+   "rotulo": "Monitoria Positiva — Média"
+  },
+  {
+   "chave": "out_Z63",
+   "celula": "Z63",
+   "rotulo": "Monitoria Positiva — Dv. Pad"
+  },
+  {
+   "chave": "out_AA63",
+   "celula": "AA63",
+   "rotulo": "Monitoria Positiva — Z-Score"
+  },
+  {
+   "chave": "out_AB63",
+   "celula": "AB63",
+   "rotulo": "Monitoria Positiva — Pts Ponder"
+  },
+  {
+   "chave": "out_AC63",
+   "celula": "AC63",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_AD63",
+   "celula": "AD63",
+   "rotulo": "Monitoria Positiva — * Classificação"
+  },
+  {
+   "chave": "out_H64",
+   "celula": "H64",
+   "rotulo": "Comportamento Moral — Pts Brutos"
+  },
+  {
+   "chave": "out_I64",
+   "celula": "I64",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_J64",
+   "celula": "J64",
+   "rotulo": "Comportamento Moral — Estilo Parental"
+  },
+  {
+   "chave": "out_M64",
+   "celula": "M64",
+   "rotulo": "Comportamento Moral — Média"
+  },
+  {
+   "chave": "out_N64",
+   "celula": "N64",
+   "rotulo": "Comportamento Moral — Dv. Pad"
+  },
+  {
+   "chave": "out_O64",
+   "celula": "O64",
+   "rotulo": "Comportamento Moral — Z-Score"
+  },
+  {
+   "chave": "out_P64",
+   "celula": "P64",
+   "rotulo": "Comportamento Moral — Pts Ponder"
+  },
+  {
+   "chave": "out_Q64",
+   "celula": "Q64",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_R64",
+   "celula": "R64",
+   "rotulo": "Comportamento Moral — * Classificação"
+  },
+  {
+   "chave": "out_T64",
+   "celula": "T64",
+   "rotulo": "Comportamento Moral — Pts Brutos"
+  },
+  {
+   "chave": "out_U64",
+   "celula": "U64",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_V64",
+   "celula": "V64",
+   "rotulo": "Comportamento Moral — Estilo Parental"
+  },
+  {
+   "chave": "out_Y64",
+   "celula": "Y64",
+   "rotulo": "Comportamento Moral — Média"
+  },
+  {
+   "chave": "out_Z64",
+   "celula": "Z64",
+   "rotulo": "Comportamento Moral — Dv. Pad"
+  },
+  {
+   "chave": "out_AA64",
+   "celula": "AA64",
+   "rotulo": "Comportamento Moral — Z-Score"
+  },
+  {
+   "chave": "out_AB64",
+   "celula": "AB64",
+   "rotulo": "Comportamento Moral — Pts Ponder"
+  },
+  {
+   "chave": "out_AC64",
+   "celula": "AC64",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_AD64",
+   "celula": "AD64",
+   "rotulo": "Comportamento Moral — * Classificação"
+  },
+  {
+   "chave": "out_H65",
+   "celula": "H65",
+   "rotulo": "Punição Inconsistente — Pts Brutos"
+  },
+  {
+   "chave": "out_I65",
+   "celula": "I65",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_J65",
+   "celula": "J65",
+   "rotulo": "Punição Inconsistente — Estilo Parental"
+  },
+  {
+   "chave": "out_M65",
+   "celula": "M65",
+   "rotulo": "Punição Inconsistente — Média"
+  },
+  {
+   "chave": "out_N65",
+   "celula": "N65",
+   "rotulo": "Punição Inconsistente — Dv. Pad"
+  },
+  {
+   "chave": "out_O65",
+   "celula": "O65",
+   "rotulo": "Punição Inconsistente — Z-Score"
+  },
+  {
+   "chave": "out_P65",
+   "celula": "P65",
+   "rotulo": "Punição Inconsistente — Pts Ponder"
+  },
+  {
+   "chave": "out_Q65",
+   "celula": "Q65",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_R65",
+   "celula": "R65",
+   "rotulo": "Punição Inconsistente — * Classificação"
+  },
+  {
+   "chave": "out_T65",
+   "celula": "T65",
+   "rotulo": "Punição Inconsistente — Pts Brutos"
+  },
+  {
+   "chave": "out_U65",
+   "celula": "U65",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_V65",
+   "celula": "V65",
+   "rotulo": "Punição Inconsistente — Estilo Parental"
+  },
+  {
+   "chave": "out_Y65",
+   "celula": "Y65",
+   "rotulo": "Punição Inconsistente — Média"
+  },
+  {
+   "chave": "out_Z65",
+   "celula": "Z65",
+   "rotulo": "Punição Inconsistente — Dv. Pad"
+  },
+  {
+   "chave": "out_AA65",
+   "celula": "AA65",
+   "rotulo": "Punição Inconsistente — Z-Score"
+  },
+  {
+   "chave": "out_AB65",
+   "celula": "AB65",
+   "rotulo": "Punição Inconsistente — Pts Ponder"
+  },
+  {
+   "chave": "out_AC65",
+   "celula": "AC65",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_AD65",
+   "celula": "AD65",
+   "rotulo": "Punição Inconsistente — * Classificação"
+  },
+  {
+   "chave": "out_H66",
+   "celula": "H66",
+   "rotulo": "Negligência — Pts Brutos"
+  },
+  {
+   "chave": "out_I66",
+   "celula": "I66",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_J66",
+   "celula": "J66",
+   "rotulo": "Negligência — Estilo Parental"
+  },
+  {
+   "chave": "out_M66",
+   "celula": "M66",
+   "rotulo": "Negligência — Média"
+  },
+  {
+   "chave": "out_N66",
+   "celula": "N66",
+   "rotulo": "Negligência — Dv. Pad"
+  },
+  {
+   "chave": "out_O66",
+   "celula": "O66",
+   "rotulo": "Negligência — Z-Score"
+  },
+  {
+   "chave": "out_P66",
+   "celula": "P66",
+   "rotulo": "Negligência — Pts Ponder"
+  },
+  {
+   "chave": "out_Q66",
+   "celula": "Q66",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_R66",
+   "celula": "R66",
+   "rotulo": "Negligência — * Classificação"
+  },
+  {
+   "chave": "out_T66",
+   "celula": "T66",
+   "rotulo": "Negligência — Pts Brutos"
+  },
+  {
+   "chave": "out_U66",
+   "celula": "U66",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_V66",
+   "celula": "V66",
+   "rotulo": "Negligência — Estilo Parental"
+  },
+  {
+   "chave": "out_Y66",
+   "celula": "Y66",
+   "rotulo": "Negligência — Média"
+  },
+  {
+   "chave": "out_Z66",
+   "celula": "Z66",
+   "rotulo": "Negligência — Dv. Pad"
+  },
+  {
+   "chave": "out_AA66",
+   "celula": "AA66",
+   "rotulo": "Negligência — Z-Score"
+  },
+  {
+   "chave": "out_AB66",
+   "celula": "AB66",
+   "rotulo": "Negligência — Pts Ponder"
+  },
+  {
+   "chave": "out_AC66",
+   "celula": "AC66",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_AD66",
+   "celula": "AD66",
+   "rotulo": "Negligência — * Classificação"
+  },
+  {
+   "chave": "out_H67",
+   "celula": "H67",
+   "rotulo": "Disciplina Relaxada — Pts Brutos"
+  },
+  {
+   "chave": "out_I67",
+   "celula": "I67",
+   "rotulo": "Disciplina Relaxada — Percentil"
+  },
+  {
+   "chave": "out_J67",
+   "celula": "J67",
+   "rotulo": "Disciplina Relaxada — Estilo Parental"
+  },
+  {
+   "chave": "out_M67",
+   "celula": "M67",
+   "rotulo": "Disciplina Relaxada — Média"
+  },
+  {
+   "chave": "out_N67",
+   "celula": "N67",
+   "rotulo": "Disciplina Relaxada — Dv. Pad"
+  },
+  {
+   "chave": "out_O67",
+   "celula": "O67",
+   "rotulo": "Disciplina Relaxada — Z-Score"
+  },
+  {
+   "chave": "out_P67",
+   "celula": "P67",
+   "rotulo": "Disciplina Relaxada — Pts Ponder"
+  },
+  {
+   "chave": "out_Q67",
+   "celula": "Q67",
+   "rotulo": "Disciplina Relaxada — Percentil"
+  },
+  {
+   "chave": "out_R67",
+   "celula": "R67",
+   "rotulo": "Disciplina Relaxada — * Classificação"
+  },
+  {
+   "chave": "out_T67",
+   "celula": "T67",
+   "rotulo": "Disciplina Relaxada — Pts Brutos"
+  },
+  {
+   "chave": "out_U67",
+   "celula": "U67",
+   "rotulo": "Disciplina Relaxada — Percentil"
+  },
+  {
+   "chave": "out_V67",
+   "celula": "V67",
+   "rotulo": "Disciplina Relaxada — Estilo Parental"
+  },
+  {
+   "chave": "out_Y67",
+   "celula": "Y67",
+   "rotulo": "Disciplina Relaxada — Média"
+  },
+  {
+   "chave": "out_Z67",
+   "celula": "Z67",
+   "rotulo": "Disciplina Relaxada — Dv. Pad"
+  },
+  {
+   "chave": "out_AA67",
+   "celula": "AA67",
+   "rotulo": "Disciplina Relaxada — Z-Score"
+  },
+  {
+   "chave": "out_AB67",
+   "celula": "AB67",
+   "rotulo": "Disciplina Relaxada — Pts Ponder"
+  },
+  {
+   "chave": "out_AC67",
+   "celula": "AC67",
+   "rotulo": "Disciplina Relaxada — Percentil"
+  },
+  {
+   "chave": "out_AD67",
+   "celula": "AD67",
+   "rotulo": "Disciplina Relaxada — * Classificação"
+  },
+  {
+   "chave": "out_H68",
+   "celula": "H68",
+   "rotulo": "Monitoria Negativa — Pts Brutos"
+  },
+  {
+   "chave": "out_I68",
+   "celula": "I68",
+   "rotulo": "Monitoria Negativa — Percentil"
+  },
+  {
+   "chave": "out_J68",
+   "celula": "J68",
+   "rotulo": "Monitoria Negativa — Estilo Parental"
+  },
+  {
+   "chave": "out_M68",
+   "celula": "M68",
+   "rotulo": "Monitoria Negativa — Média"
+  },
+  {
+   "chave": "out_N68",
+   "celula": "N68",
+   "rotulo": "Monitoria Negativa — Dv. Pad"
+  },
+  {
+   "chave": "out_O68",
+   "celula": "O68",
+   "rotulo": "Monitoria Negativa — Z-Score"
+  },
+  {
+   "chave": "out_P68",
+   "celula": "P68",
+   "rotulo": "Monitoria Negativa — Pts Ponder"
+  },
+  {
+   "chave": "out_Q68",
+   "celula": "Q68",
+   "rotulo": "Monitoria Negativa — Percentil"
+  },
+  {
+   "chave": "out_R68",
+   "celula": "R68",
+   "rotulo": "Monitoria Negativa — * Classificação"
+  },
+  {
+   "chave": "out_T68",
+   "celula": "T68",
+   "rotulo": "Monitoria Negativa — Pts Brutos"
+  },
+  {
+   "chave": "out_U68",
+   "celula": "U68",
+   "rotulo": "Monitoria Negativa — Percentil"
+  },
+  {
+   "chave": "out_V68",
+   "celula": "V68",
+   "rotulo": "Monitoria Negativa — Estilo Parental"
+  },
+  {
+   "chave": "out_Y68",
+   "celula": "Y68",
+   "rotulo": "Monitoria Negativa — Média"
+  },
+  {
+   "chave": "out_Z68",
+   "celula": "Z68",
+   "rotulo": "Monitoria Negativa — Dv. Pad"
+  },
+  {
+   "chave": "out_AA68",
+   "celula": "AA68",
+   "rotulo": "Monitoria Negativa — Z-Score"
+  },
+  {
+   "chave": "out_AB68",
+   "celula": "AB68",
+   "rotulo": "Monitoria Negativa — Pts Ponder"
+  },
+  {
+   "chave": "out_AC68",
+   "celula": "AC68",
+   "rotulo": "Monitoria Negativa — Percentil"
+  },
+  {
+   "chave": "out_AD68",
+   "celula": "AD68",
+   "rotulo": "Monitoria Negativa — * Classificação"
+  },
+  {
+   "chave": "out_H69",
+   "celula": "H69",
+   "rotulo": "Abuso Físico — Pts Brutos"
+  },
+  {
+   "chave": "out_I69",
+   "celula": "I69",
+   "rotulo": "Abuso Físico — Percentil"
+  },
+  {
+   "chave": "out_J69",
+   "celula": "J69",
+   "rotulo": "Abuso Físico — Estilo Parental"
+  },
+  {
+   "chave": "out_M69",
+   "celula": "M69",
+   "rotulo": "Abuso Físico — Média"
+  },
+  {
+   "chave": "out_N69",
+   "celula": "N69",
+   "rotulo": "Abuso Físico — Dv. Pad"
+  },
+  {
+   "chave": "out_O69",
+   "celula": "O69",
+   "rotulo": "Abuso Físico — Z-Score"
+  },
+  {
+   "chave": "out_P69",
+   "celula": "P69",
+   "rotulo": "Abuso Físico — Pts Ponder"
+  },
+  {
+   "chave": "out_Q69",
+   "celula": "Q69",
+   "rotulo": "Abuso Físico — Percentil"
+  },
+  {
+   "chave": "out_R69",
+   "celula": "R69",
+   "rotulo": "Abuso Físico — * Classificação"
+  },
+  {
+   "chave": "out_T69",
+   "celula": "T69",
+   "rotulo": "Abuso Físico — Pts Brutos"
+  },
+  {
+   "chave": "out_U69",
+   "celula": "U69",
+   "rotulo": "Abuso Físico — Percentil"
+  },
+  {
+   "chave": "out_V69",
+   "celula": "V69",
+   "rotulo": "Abuso Físico — Estilo Parental"
+  },
+  {
+   "chave": "out_Y69",
+   "celula": "Y69",
+   "rotulo": "Abuso Físico — Média"
+  },
+  {
+   "chave": "out_Z69",
+   "celula": "Z69",
+   "rotulo": "Abuso Físico — Dv. Pad"
+  },
+  {
+   "chave": "out_AA69",
+   "celula": "AA69",
+   "rotulo": "Abuso Físico — Z-Score"
+  },
+  {
+   "chave": "out_AB69",
+   "celula": "AB69",
+   "rotulo": "Abuso Físico — Pts Ponder"
+  },
+  {
+   "chave": "out_AC69",
+   "celula": "AC69",
+   "rotulo": "Abuso Físico — Percentil"
+  },
+  {
+   "chave": "out_AD69",
+   "celula": "AD69",
+   "rotulo": "Abuso Físico — * Classificação"
+  },
+  {
+   "chave": "out_H70",
+   "celula": "H70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Pts Brutos"
+  },
+  {
+   "chave": "out_I70",
+   "celula": "I70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Percentil"
+  },
+  {
+   "chave": "out_J70",
+   "celula": "J70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Estilo Parental"
+  },
+  {
+   "chave": "out_M70",
+   "celula": "M70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Média"
+  },
+  {
+   "chave": "out_N70",
+   "celula": "N70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Dv. Pad"
+  },
+  {
+   "chave": "out_O70",
+   "celula": "O70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Z-Score"
+  },
+  {
+   "chave": "out_P70",
+   "celula": "P70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Pts Ponder"
+  },
+  {
+   "chave": "out_Q70",
+   "celula": "Q70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Percentil"
+  },
+  {
+   "chave": "out_R70",
+   "celula": "R70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — * Classificação"
+  },
+  {
+   "chave": "out_T70",
+   "celula": "T70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Pts Brutos"
+  },
+  {
+   "chave": "out_U70",
+   "celula": "U70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Percentil"
+  },
+  {
+   "chave": "out_V70",
+   "celula": "V70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Estilo Parental"
+  },
+  {
+   "chave": "out_Y70",
+   "celula": "Y70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Média"
+  },
+  {
+   "chave": "out_Z70",
+   "celula": "Z70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Dv. Pad"
+  },
+  {
+   "chave": "out_AA70",
+   "celula": "AA70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Z-Score"
+  },
+  {
+   "chave": "out_AB70",
+   "celula": "AB70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Pts Ponder"
+  },
+  {
+   "chave": "out_AC70",
+   "celula": "AC70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — Percentil"
+  },
+  {
+   "chave": "out_AD70",
+   "celula": "AD70",
+   "rotulo": "Indice de Estilos Parentais (IEP) — * Classificação"
+  },
+  {
+   "chave": "out_B71",
+   "celula": "B71",
+   "rotulo": "CUIDADOR"
+  },
+  {
+   "chave": "out_H71",
+   "celula": "H71",
+   "rotulo": "Monitoria Positiva — Pts Brutos"
+  },
+  {
+   "chave": "out_I71",
+   "celula": "I71",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_J71",
+   "celula": "J71",
+   "rotulo": "Monitoria Positiva — Estilo Parental"
+  },
+  {
+   "chave": "out_M71",
+   "celula": "M71",
+   "rotulo": "Monitoria Positiva — Média"
+  },
+  {
+   "chave": "out_N71",
+   "celula": "N71",
+   "rotulo": "Monitoria Positiva — Dv. Pad"
+  },
+  {
+   "chave": "out_O71",
+   "celula": "O71",
+   "rotulo": "Monitoria Positiva — Z-Score"
+  },
+  {
+   "chave": "out_P71",
+   "celula": "P71",
+   "rotulo": "Monitoria Positiva — Pts Ponder"
+  },
+  {
+   "chave": "out_Q71",
+   "celula": "Q71",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_R71",
+   "celula": "R71",
+   "rotulo": "Monitoria Positiva — * Classificação"
+  },
+  {
+   "chave": "out_T71",
+   "celula": "T71",
+   "rotulo": "Monitoria Positiva — Pts Brutos"
+  },
+  {
+   "chave": "out_U71",
+   "celula": "U71",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_V71",
+   "celula": "V71",
+   "rotulo": "Monitoria Positiva — Estilo Parental"
+  },
+  {
+   "chave": "out_Y71",
+   "celula": "Y71",
+   "rotulo": "Monitoria Positiva — Média"
+  },
+  {
+   "chave": "out_Z71",
+   "celula": "Z71",
+   "rotulo": "Monitoria Positiva — Dv. Pad"
+  },
+  {
+   "chave": "out_AA71",
+   "celula": "AA71",
+   "rotulo": "Monitoria Positiva — Z-Score"
+  },
+  {
+   "chave": "out_AB71",
+   "celula": "AB71",
+   "rotulo": "Monitoria Positiva — Pts Ponder"
+  },
+  {
+   "chave": "out_AC71",
+   "celula": "AC71",
+   "rotulo": "Monitoria Positiva — Percentil"
+  },
+  {
+   "chave": "out_AD71",
+   "celula": "AD71",
+   "rotulo": "Monitoria Positiva — * Classificação"
+  },
+  {
+   "chave": "out_H72",
+   "celula": "H72",
+   "rotulo": "Comportamento Moral — Pts Brutos"
+  },
+  {
+   "chave": "out_I72",
+   "celula": "I72",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_J72",
+   "celula": "J72",
+   "rotulo": "Comportamento Moral — Estilo Parental"
+  },
+  {
+   "chave": "out_M72",
+   "celula": "M72",
+   "rotulo": "Comportamento Moral — Média"
+  },
+  {
+   "chave": "out_N72",
+   "celula": "N72",
+   "rotulo": "Comportamento Moral — Dv. Pad"
+  },
+  {
+   "chave": "out_O72",
+   "celula": "O72",
+   "rotulo": "Comportamento Moral — Z-Score"
+  },
+  {
+   "chave": "out_P72",
+   "celula": "P72",
+   "rotulo": "Comportamento Moral — Pts Ponder"
+  },
+  {
+   "chave": "out_Q72",
+   "celula": "Q72",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_R72",
+   "celula": "R72",
+   "rotulo": "Comportamento Moral — * Classificação"
+  },
+  {
+   "chave": "out_T72",
+   "celula": "T72",
+   "rotulo": "Comportamento Moral — Pts Brutos"
+  },
+  {
+   "chave": "out_U72",
+   "celula": "U72",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_V72",
+   "celula": "V72",
+   "rotulo": "Comportamento Moral — Estilo Parental"
+  },
+  {
+   "chave": "out_Y72",
+   "celula": "Y72",
+   "rotulo": "Comportamento Moral — Média"
+  },
+  {
+   "chave": "out_Z72",
+   "celula": "Z72",
+   "rotulo": "Comportamento Moral — Dv. Pad"
+  },
+  {
+   "chave": "out_AA72",
+   "celula": "AA72",
+   "rotulo": "Comportamento Moral — Z-Score"
+  },
+  {
+   "chave": "out_AB72",
+   "celula": "AB72",
+   "rotulo": "Comportamento Moral — Pts Ponder"
+  },
+  {
+   "chave": "out_AC72",
+   "celula": "AC72",
+   "rotulo": "Comportamento Moral — Percentil"
+  },
+  {
+   "chave": "out_AD72",
+   "celula": "AD72",
+   "rotulo": "Comportamento Moral — * Classificação"
+  },
+  {
+   "chave": "out_H73",
+   "celula": "H73",
+   "rotulo": "Punição Inconsistente — Pts Brutos"
+  },
+  {
+   "chave": "out_I73",
+   "celula": "I73",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_J73",
+   "celula": "J73",
+   "rotulo": "Punição Inconsistente — Estilo Parental"
+  },
+  {
+   "chave": "out_M73",
+   "celula": "M73",
+   "rotulo": "Punição Inconsistente — Média"
+  },
+  {
+   "chave": "out_N73",
+   "celula": "N73",
+   "rotulo": "Punição Inconsistente — Dv. Pad"
+  },
+  {
+   "chave": "out_O73",
+   "celula": "O73",
+   "rotulo": "Punição Inconsistente — Z-Score"
+  },
+  {
+   "chave": "out_P73",
+   "celula": "P73",
+   "rotulo": "Punição Inconsistente — Pts Ponder"
+  },
+  {
+   "chave": "out_Q73",
+   "celula": "Q73",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_R73",
+   "celula": "R73",
+   "rotulo": "Punição Inconsistente — * Classificação"
+  },
+  {
+   "chave": "out_T73",
+   "celula": "T73",
+   "rotulo": "Punição Inconsistente — Pts Brutos"
+  },
+  {
+   "chave": "out_U73",
+   "celula": "U73",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_V73",
+   "celula": "V73",
+   "rotulo": "Punição Inconsistente — Estilo Parental"
+  },
+  {
+   "chave": "out_Y73",
+   "celula": "Y73",
+   "rotulo": "Punição Inconsistente — Média"
+  },
+  {
+   "chave": "out_Z73",
+   "celula": "Z73",
+   "rotulo": "Punição Inconsistente — Dv. Pad"
+  },
+  {
+   "chave": "out_AA73",
+   "celula": "AA73",
+   "rotulo": "Punição Inconsistente — Z-Score"
+  },
+  {
+   "chave": "out_AB73",
+   "celula": "AB73",
+   "rotulo": "Punição Inconsistente — Pts Ponder"
+  },
+  {
+   "chave": "out_AC73",
+   "celula": "AC73",
+   "rotulo": "Punição Inconsistente — Percentil"
+  },
+  {
+   "chave": "out_AD73",
+   "celula": "AD73",
+   "rotulo": "Punição Inconsistente — * Classificação"
+  },
+  {
+   "chave": "out_H74",
+   "celula": "H74",
+   "rotulo": "Negligência — Pts Brutos"
+  },
+  {
+   "chave": "out_I74",
+   "celula": "I74",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_J74",
+   "celula": "J74",
+   "rotulo": "Negligência — Estilo Parental"
+  },
+  {
+   "chave": "out_M74",
+   "celula": "M74",
+   "rotulo": "Negligência — Média"
+  },
+  {
+   "chave": "out_N74",
+   "celula": "N74",
+   "rotulo": "Negligência — Dv. Pad"
+  },
+  {
+   "chave": "out_O74",
+   "celula": "O74",
+   "rotulo": "Negligência — Z-Score"
+  },
+  {
+   "chave": "out_P74",
+   "celula": "P74",
+   "rotulo": "Negligência — Pts Ponder"
+  },
+  {
+   "chave": "out_Q74",
+   "celula": "Q74",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_R74",
+   "celula": "R74",
+   "rotulo": "Negligência — * Classificação"
+  },
+  {
+   "chave": "out_T74",
+   "celula": "T74",
+   "rotulo": "Negligência — Pts Brutos"
+  },
+  {
+   "chave": "out_U74",
+   "celula": "U74",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_V74",
+   "celula": "V74",
+   "rotulo": "Negligência — Estilo Parental"
+  },
+  {
+   "chave": "out_Y74",
+   "celula": "Y74",
+   "rotulo": "Negligência — Média"
+  },
+  {
+   "chave": "out_Z74",
+   "celula": "Z74",
+   "rotulo": "Negligência — Dv. Pad"
+  },
+  {
+   "chave": "out_AA74",
+   "celula": "AA74",
+   "rotulo": "Negligência — Z-Score"
+  },
+  {
+   "chave": "out_AB74",
+   "celula": "AB74",
+   "rotulo": "Negligência — Pts Ponder"
+  },
+  {
+   "chave": "out_AC74",
+   "celula": "AC74",
+   "rotulo": "Negligência — Percentil"
+  },
+  {
+   "chave": "out_AD74",
+   "celula": "AD74",
+   "rotulo": "Negligência — * Classificação"
+  },
+  {
+   "chave": "out_H75",
+   "celula": "H75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_I75",
+   "celula": "I75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_J75",
+   "celula": "J75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_M75",
+   "celula": "M75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_N75",
+   "celula": "N75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_O75",
+   "celula": "O75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_P75",
+   "celula": "P75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_Q75",
+   "celula": "Q75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_R75",
+   "celula": "R75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_T75",
+   "celula": "T75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_U75",
+   "celula": "U75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_V75",
+   "celula": "V75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_Y75",
+   "celula": "Y75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_Z75",
+   "celula": "Z75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_AA75",
+   "celula": "AA75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_AB75",
+   "celula": "AB75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_AC75",
+   "celula": "AC75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_AD75",
+   "celula": "AD75",
+   "rotulo": "Disciplina Relaxada"
+  },
+  {
+   "chave": "out_H76",
+   "celula": "H76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_I76",
+   "celula": "I76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_J76",
+   "celula": "J76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_M76",
+   "celula": "M76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_N76",
+   "celula": "N76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_O76",
+   "celula": "O76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_P76",
+   "celula": "P76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_Q76",
+   "celula": "Q76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_R76",
+   "celula": "R76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_T76",
+   "celula": "T76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_U76",
+   "celula": "U76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_V76",
+   "celula": "V76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_Y76",
+   "celula": "Y76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_Z76",
+   "celula": "Z76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_AA76",
+   "celula": "AA76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_AB76",
+   "celula": "AB76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_AC76",
+   "celula": "AC76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_AD76",
+   "celula": "AD76",
+   "rotulo": "Monitoria Negativa"
+  },
+  {
+   "chave": "out_H77",
+   "celula": "H77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_I77",
+   "celula": "I77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_J77",
+   "celula": "J77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_M77",
+   "celula": "M77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_N77",
+   "celula": "N77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_O77",
+   "celula": "O77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_P77",
+   "celula": "P77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_Q77",
+   "celula": "Q77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_R77",
+   "celula": "R77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_T77",
+   "celula": "T77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_U77",
+   "celula": "U77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_V77",
+   "celula": "V77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_Y77",
+   "celula": "Y77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_Z77",
+   "celula": "Z77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_AA77",
+   "celula": "AA77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_AB77",
+   "celula": "AB77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_AC77",
+   "celula": "AC77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_AD77",
+   "celula": "AD77",
+   "rotulo": "Abuso Físico"
+  },
+  {
+   "chave": "out_H78",
+   "celula": "H78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_I78",
+   "celula": "I78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_J78",
+   "celula": "J78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_M78",
+   "celula": "M78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_N78",
+   "celula": "N78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_O78",
+   "celula": "O78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_P78",
+   "celula": "P78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_Q78",
+   "celula": "Q78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_R78",
+   "celula": "R78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_T78",
+   "celula": "T78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_U78",
+   "celula": "U78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_V78",
+   "celula": "V78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_Y78",
+   "celula": "Y78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_Z78",
+   "celula": "Z78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_AA78",
+   "celula": "AA78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_AB78",
+   "celula": "AB78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_AC78",
+   "celula": "AC78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_AD78",
+   "celula": "AD78",
+   "rotulo": "Indice de Estilos Parentais (IEP)"
+  },
+  {
+   "chave": "out_S81",
+   "celula": "S81",
+   "rotulo": "Estilo Parental Ótimo, com presença marc"
+  },
+  {
+   "chave": "out_T81",
+   "celula": "T81",
+   "rotulo": "Estilo Parental Ótimo, com presença marc"
+  },
+  {
+   "chave": "out_S82",
+   "celula": "S82",
+   "rotulo": "MP"
+  },
+  {
+   "chave": "out_T82",
+   "celula": "T82",
+   "rotulo": "MP"
+  },
+  {
+   "chave": "out_S83",
+   "celula": "S83",
+   "rotulo": "CM"
+  },
+  {
+   "chave": "out_T83",
+   "celula": "T83",
+   "rotulo": "CM"
+  },
+  {
+   "chave": "out_S84",
+   "celula": "S84",
+   "rotulo": "PI"
+  },
+  {
+   "chave": "out_T84",
+   "celula": "T84",
+   "rotulo": "PI"
+  },
+  {
+   "chave": "out_S85",
+   "celula": "S85",
+   "rotulo": "NG"
+  },
+  {
+   "chave": "out_T85",
+   "celula": "T85",
+   "rotulo": "NG"
+  },
+  {
+   "chave": "out_S86",
+   "celula": "S86",
+   "rotulo": "DR"
+  },
+  {
+   "chave": "out_T86",
+   "celula": "T86",
+   "rotulo": "DR"
+  },
+  {
+   "chave": "out_S87",
+   "celula": "S87",
+   "rotulo": "MN"
+  },
+  {
+   "chave": "out_T87",
+   "celula": "T87",
+   "rotulo": "MN"
+  },
+  {
+   "chave": "out_S88",
+   "celula": "S88",
+   "rotulo": "AF"
+  },
+  {
+   "chave": "out_T88",
+   "celula": "T88",
+   "rotulo": "AF"
+  },
+  {
+   "chave": "out_S89",
+   "celula": "S89",
+   "rotulo": "IEP"
+  },
+  {
+   "chave": "out_T89",
+   "celula": "T89",
+   "rotulo": "IEP"
+  },
+  {
+   "chave": "out_F101",
+   "celula": "F101",
+   "rotulo": "F101"
+  },
+  {
+   "chave": "out_S101",
+   "celula": "S101",
+   "rotulo": "Exam."
+  },
+  {
+   "chave": "out_F102",
+   "celula": "F102",
+   "rotulo": "MP"
+  },
+  {
+   "chave": "out_G102",
+   "celula": "G102",
+   "rotulo": "MP — Exam."
+  },
+  {
+   "chave": "out_S102",
+   "celula": "S102",
+   "rotulo": "MP"
+  },
+  {
+   "chave": "out_T102",
+   "celula": "T102",
+   "rotulo": "MP — Exam."
+  },
+  {
+   "chave": "out_F103",
+   "celula": "F103",
+   "rotulo": "CM"
+  },
+  {
+   "chave": "out_G103",
+   "celula": "G103",
+   "rotulo": "CM — Exam."
+  },
+  {
+   "chave": "out_S103",
+   "celula": "S103",
+   "rotulo": "CM"
+  },
+  {
+   "chave": "out_T103",
+   "celula": "T103",
+   "rotulo": "CM — Exam."
+  },
+  {
+   "chave": "out_F104",
+   "celula": "F104",
+   "rotulo": "PI"
+  },
+  {
+   "chave": "out_G104",
+   "celula": "G104",
+   "rotulo": "PI — Exam."
+  },
+  {
+   "chave": "out_S104",
+   "celula": "S104",
+   "rotulo": "PI"
+  },
+  {
+   "chave": "out_T104",
+   "celula": "T104",
+   "rotulo": "PI — Exam."
+  },
+  {
+   "chave": "out_F105",
+   "celula": "F105",
+   "rotulo": "NG"
+  },
+  {
+   "chave": "out_G105",
+   "celula": "G105",
+   "rotulo": "NG — Exam."
+  },
+  {
+   "chave": "out_S105",
+   "celula": "S105",
+   "rotulo": "NG"
+  },
+  {
+   "chave": "out_T105",
+   "celula": "T105",
+   "rotulo": "NG — Exam."
+  },
+  {
+   "chave": "out_F106",
+   "celula": "F106",
+   "rotulo": "DR"
+  },
+  {
+   "chave": "out_G106",
+   "celula": "G106",
+   "rotulo": "DR — Exam."
+  },
+  {
+   "chave": "out_S106",
+   "celula": "S106",
+   "rotulo": "DR"
+  },
+  {
+   "chave": "out_T106",
+   "celula": "T106",
+   "rotulo": "DR — Exam."
+  },
+  {
+   "chave": "out_F107",
+   "celula": "F107",
+   "rotulo": "MN"
+  },
+  {
+   "chave": "out_G107",
+   "celula": "G107",
+   "rotulo": "MN — Exam."
+  },
+  {
+   "chave": "out_S107",
+   "celula": "S107",
+   "rotulo": "MN"
+  },
+  {
+   "chave": "out_T107",
+   "celula": "T107",
+   "rotulo": "MN — Exam."
+  },
+  {
+   "chave": "out_F108",
+   "celula": "F108",
+   "rotulo": "AF"
+  },
+  {
+   "chave": "out_G108",
+   "celula": "G108",
+   "rotulo": "AF — Exam."
+  },
+  {
+   "chave": "out_S108",
+   "celula": "S108",
+   "rotulo": "AF"
+  },
+  {
+   "chave": "out_T108",
+   "celula": "T108",
+   "rotulo": "AF — Exam."
+  },
+  {
+   "chave": "out_F109",
+   "celula": "F109",
+   "rotulo": "IEP"
+  },
+  {
+   "chave": "out_G109",
+   "celula": "G109",
+   "rotulo": "IEP — Exam."
+  },
+  {
+   "chave": "out_S109",
+   "celula": "S109",
+   "rotulo": "IEP"
+  },
+  {
+   "chave": "out_T109",
+   "celula": "T109",
+   "rotulo": "IEP — Exam."
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "CUIDADOR",
+    "F",
+    "Exam.",
+    "Pts Brutos",
+    "Percentil",
+    "Estilo Parental",
+    "Média",
+    "Dv. Pad",
+    "Z-Score",
+    "Pts Ponder",
+    "Percentil",
+    "* Classificação",
+    "S",
+    "Pts Brutos",
+    "Percentil",
+    "Estilo Parental",
+    "Média",
+    "Dv. Pad",
+    "Z-Score",
+    "Pts Ponder",
+    "Percentil",
+    "* Classificação"
+   ],
+   "linhas": [
+    {
+     "rotulo": "63",
+     "valores": [
+      "out_B63",
+      null,
+      null,
+      "out_H63",
+      "out_I63",
+      "out_J63",
+      "out_M63",
+      "out_N63",
+      "out_O63",
+      "out_P63",
+      "out_Q63",
+      "out_R63",
+      null,
+      "out_T63",
+      "out_U63",
+      "out_V63",
+      "out_Y63",
+      "out_Z63",
+      "out_AA63",
+      "out_AB63",
+      "out_AC63",
+      "out_AD63"
+     ]
+    },
+    {
+     "rotulo": "Comportamento Moral",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H64",
+      "out_I64",
+      "out_J64",
+      "out_M64",
+      "out_N64",
+      "out_O64",
+      "out_P64",
+      "out_Q64",
+      "out_R64",
+      null,
+      "out_T64",
+      "out_U64",
+      "out_V64",
+      "out_Y64",
+      "out_Z64",
+      "out_AA64",
+      "out_AB64",
+      "out_AC64",
+      "out_AD64"
+     ]
+    },
+    {
+     "rotulo": "Punição Inconsistente",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H65",
+      "out_I65",
+      "out_J65",
+      "out_M65",
+      "out_N65",
+      "out_O65",
+      "out_P65",
+      "out_Q65",
+      "out_R65",
+      null,
+      "out_T65",
+      "out_U65",
+      "out_V65",
+      "out_Y65",
+      "out_Z65",
+      "out_AA65",
+      "out_AB65",
+      "out_AC65",
+      "out_AD65"
+     ]
+    },
+    {
+     "rotulo": "Negligência",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H66",
+      "out_I66",
+      "out_J66",
+      "out_M66",
+      "out_N66",
+      "out_O66",
+      "out_P66",
+      "out_Q66",
+      "out_R66",
+      null,
+      "out_T66",
+      "out_U66",
+      "out_V66",
+      "out_Y66",
+      "out_Z66",
+      "out_AA66",
+      "out_AB66",
+      "out_AC66",
+      "out_AD66"
+     ]
+    },
+    {
+     "rotulo": "Disciplina Relaxada",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H67",
+      "out_I67",
+      "out_J67",
+      "out_M67",
+      "out_N67",
+      "out_O67",
+      "out_P67",
+      "out_Q67",
+      "out_R67",
+      null,
+      "out_T67",
+      "out_U67",
+      "out_V67",
+      "out_Y67",
+      "out_Z67",
+      "out_AA67",
+      "out_AB67",
+      "out_AC67",
+      "out_AD67"
+     ]
+    },
+    {
+     "rotulo": "Monitoria Negativa",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H68",
+      "out_I68",
+      "out_J68",
+      "out_M68",
+      "out_N68",
+      "out_O68",
+      "out_P68",
+      "out_Q68",
+      "out_R68",
+      null,
+      "out_T68",
+      "out_U68",
+      "out_V68",
+      "out_Y68",
+      "out_Z68",
+      "out_AA68",
+      "out_AB68",
+      "out_AC68",
+      "out_AD68"
+     ]
+    },
+    {
+     "rotulo": "Abuso Físico",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H69",
+      "out_I69",
+      "out_J69",
+      "out_M69",
+      "out_N69",
+      "out_O69",
+      "out_P69",
+      "out_Q69",
+      "out_R69",
+      null,
+      "out_T69",
+      "out_U69",
+      "out_V69",
+      "out_Y69",
+      "out_Z69",
+      "out_AA69",
+      "out_AB69",
+      "out_AC69",
+      "out_AD69"
+     ]
+    },
+    {
+     "rotulo": "Indice de Estilos Parentais (IEP)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H70",
+      "out_I70",
+      "out_J70",
+      "out_M70",
+      "out_N70",
+      "out_O70",
+      "out_P70",
+      "out_Q70",
+      "out_R70",
+      null,
+      "out_T70",
+      "out_U70",
+      "out_V70",
+      "out_Y70",
+      "out_Z70",
+      "out_AA70",
+      "out_AB70",
+      "out_AC70",
+      "out_AD70"
+     ]
+    },
+    {
+     "rotulo": "71",
+     "valores": [
+      "out_B71",
+      null,
+      null,
+      "out_H71",
+      "out_I71",
+      "out_J71",
+      "out_M71",
+      "out_N71",
+      "out_O71",
+      "out_P71",
+      "out_Q71",
+      "out_R71",
+      null,
+      "out_T71",
+      "out_U71",
+      "out_V71",
+      "out_Y71",
+      "out_Z71",
+      "out_AA71",
+      "out_AB71",
+      "out_AC71",
+      "out_AD71"
+     ]
+    },
+    {
+     "rotulo": "Comportamento Moral",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H72",
+      "out_I72",
+      "out_J72",
+      "out_M72",
+      "out_N72",
+      "out_O72",
+      "out_P72",
+      "out_Q72",
+      "out_R72",
+      null,
+      "out_T72",
+      "out_U72",
+      "out_V72",
+      "out_Y72",
+      "out_Z72",
+      "out_AA72",
+      "out_AB72",
+      "out_AC72",
+      "out_AD72"
+     ]
+    },
+    {
+     "rotulo": "Punição Inconsistente",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H73",
+      "out_I73",
+      "out_J73",
+      "out_M73",
+      "out_N73",
+      "out_O73",
+      "out_P73",
+      "out_Q73",
+      "out_R73",
+      null,
+      "out_T73",
+      "out_U73",
+      "out_V73",
+      "out_Y73",
+      "out_Z73",
+      "out_AA73",
+      "out_AB73",
+      "out_AC73",
+      "out_AD73"
+     ]
+    },
+    {
+     "rotulo": "Negligência",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H74",
+      "out_I74",
+      "out_J74",
+      "out_M74",
+      "out_N74",
+      "out_O74",
+      "out_P74",
+      "out_Q74",
+      "out_R74",
+      null,
+      "out_T74",
+      "out_U74",
+      "out_V74",
+      "out_Y74",
+      "out_Z74",
+      "out_AA74",
+      "out_AB74",
+      "out_AC74",
+      "out_AD74"
+     ]
+    },
+    {
+     "rotulo": "Disciplina Relaxada",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H75",
+      "out_I75",
+      "out_J75",
+      "out_M75",
+      "out_N75",
+      "out_O75",
+      "out_P75",
+      "out_Q75",
+      "out_R75",
+      null,
+      "out_T75",
+      "out_U75",
+      "out_V75",
+      "out_Y75",
+      "out_Z75",
+      "out_AA75",
+      "out_AB75",
+      "out_AC75",
+      "out_AD75"
+     ]
+    },
+    {
+     "rotulo": "Monitoria Negativa",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H76",
+      "out_I76",
+      "out_J76",
+      "out_M76",
+      "out_N76",
+      "out_O76",
+      "out_P76",
+      "out_Q76",
+      "out_R76",
+      null,
+      "out_T76",
+      "out_U76",
+      "out_V76",
+      "out_Y76",
+      "out_Z76",
+      "out_AA76",
+      "out_AB76",
+      "out_AC76",
+      "out_AD76"
+     ]
+    },
+    {
+     "rotulo": "Abuso Físico",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H77",
+      "out_I77",
+      "out_J77",
+      "out_M77",
+      "out_N77",
+      "out_O77",
+      "out_P77",
+      "out_Q77",
+      "out_R77",
+      null,
+      "out_T77",
+      "out_U77",
+      "out_V77",
+      "out_Y77",
+      "out_Z77",
+      "out_AA77",
+      "out_AB77",
+      "out_AC77",
+      "out_AD77"
+     ]
+    },
+    {
+     "rotulo": "Indice de Estilos Parentais (IEP)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_H78",
+      "out_I78",
+      "out_J78",
+      "out_M78",
+      "out_N78",
+      "out_O78",
+      "out_P78",
+      "out_Q78",
+      "out_R78",
+      null,
+      "out_T78",
+      "out_U78",
+      "out_V78",
+      "out_Y78",
+      "out_Z78",
+      "out_AA78",
+      "out_AB78",
+      "out_AC78",
+      "out_AD78"
+     ]
+    },
+    {
+     "rotulo": "Estilo Parental Ótimo, com presença marc",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S81",
+      "out_T81",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "MP",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S82",
+      "out_T82",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "CM",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S83",
+      "out_T83",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "PI",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S84",
+      "out_T84",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "NG",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S85",
+      "out_T85",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "DR",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S86",
+      "out_T86",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "MN",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S87",
+      "out_T87",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "AF",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S88",
+      "out_T88",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "IEP",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S89",
+      "out_T89",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "101",
+     "valores": [
+      null,
+      "out_F101",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S101",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "MP",
+     "valores": [
+      null,
+      "out_F102",
+      "out_G102",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S102",
+      "out_T102",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "CM",
+     "valores": [
+      null,
+      "out_F103",
+      "out_G103",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S103",
+      "out_T103",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "PI",
+     "valores": [
+      null,
+      "out_F104",
+      "out_G104",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S104",
+      "out_T104",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "NG",
+     "valores": [
+      null,
+      "out_F105",
+      "out_G105",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S105",
+      "out_T105",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "DR",
+     "valores": [
+      null,
+      "out_F106",
+      "out_G106",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S106",
+      "out_T106",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "MN",
+     "valores": [
+      null,
+      "out_F107",
+      "out_G107",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S107",
+      "out_T107",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "AF",
+     "valores": [
+      null,
+      "out_F108",
+      "out_G108",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S108",
+      "out_T108",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "IEP",
+     "valores": [
+      null,
+      "out_F109",
+      "out_G109",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S109",
+      "out_T109",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,454 @@
+{
+ "sigla": "WISCONSIN",
+ "nome": "Wisconsin — Teste de Classificação de Cartas (48 cartas)",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "Wisconsin (flexibilidade cognitiva): categorias, erros, perseverações e outros índices convertidos em Z, ponderado, percentil e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "HEATON, R. K. et al. Wisconsin Card Sorting Test (normas conforme planilha da psicóloga).",
+ "aba": "WSCT48",
+ "idade": [
+  6,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "W3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_F12",
+   "celula": "F12",
+   "rotulo": "Número de Categorias Completadas — Escore Bruto",
+   "min": 0
+  },
+  {
+   "chave": "in_F13",
+   "celula": "F13",
+   "rotulo": "Ensaios administrados — Escore Bruto",
+   "min": 0
+  },
+  {
+   "chave": "in_F14",
+   "celula": "F14",
+   "rotulo": "Total de acerto — Escore Bruto",
+   "min": 0
+  },
+  {
+   "chave": "in_F15",
+   "celula": "F15",
+   "rotulo": "Total de erros — Escore Bruto",
+   "min": 0
+  },
+  {
+   "chave": "in_F17",
+   "celula": "F17",
+   "rotulo": "Erros perseverativos — Escore Bruto",
+   "min": 0
+  },
+  {
+   "chave": "in_F21",
+   "celula": "F21",
+   "rotulo": "Fracasso em manter o Contexto — Escore Bruto",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_G12",
+   "celula": "G12",
+   "rotulo": "Número de Categorias Completadas — Percentil"
+  },
+  {
+   "chave": "out_I12",
+   "celula": "I12",
+   "rotulo": "Número de Categorias Completadas — Média"
+  },
+  {
+   "chave": "out_J12",
+   "celula": "J12",
+   "rotulo": "Número de Categorias Completadas — Desv Pad"
+  },
+  {
+   "chave": "out_K12",
+   "celula": "K12",
+   "rotulo": "Número de Categorias Completadas — Z-Score"
+  },
+  {
+   "chave": "out_L12",
+   "celula": "L12",
+   "rotulo": "Número de Categorias Completadas — Pontos Ponder"
+  },
+  {
+   "chave": "out_M12",
+   "celula": "M12",
+   "rotulo": "Número de Categorias Completadas — Percentil"
+  },
+  {
+   "chave": "out_N12",
+   "celula": "N12",
+   "rotulo": "Número de Categorias Completadas — Classificação"
+  },
+  {
+   "chave": "out_G13",
+   "celula": "G13",
+   "rotulo": "Ensaios administrados — Percentil"
+  },
+  {
+   "chave": "out_Q13",
+   "celula": "Q13",
+   "rotulo": "Ensaios administrados — Manual"
+  },
+  {
+   "chave": "out_G14",
+   "celula": "G14",
+   "rotulo": "Total de acerto — Percentil"
+  },
+  {
+   "chave": "out_G15",
+   "celula": "G15",
+   "rotulo": "Total de erros — Percentil"
+  },
+  {
+   "chave": "out_F16",
+   "celula": "F16",
+   "rotulo": "Percentual de erros — Escore Bruto"
+  },
+  {
+   "chave": "out_G17",
+   "celula": "G17",
+   "rotulo": "Erros perseverativos — Percentil"
+  },
+  {
+   "chave": "out_I17",
+   "celula": "I17",
+   "rotulo": "Erros perseverativos — Média"
+  },
+  {
+   "chave": "out_J17",
+   "celula": "J17",
+   "rotulo": "Erros perseverativos — Desv Pad"
+  },
+  {
+   "chave": "out_K17",
+   "celula": "K17",
+   "rotulo": "Erros perseverativos — Z-Score"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "Erros perseverativos — Pontos Ponder"
+  },
+  {
+   "chave": "out_M17",
+   "celula": "M17",
+   "rotulo": "Erros perseverativos — Percentil"
+  },
+  {
+   "chave": "out_N17",
+   "celula": "N17",
+   "rotulo": "Erros perseverativos — Classificação"
+  },
+  {
+   "chave": "out_F18",
+   "celula": "F18",
+   "rotulo": "Percentual de erros perseverativos — Escore Bruto"
+  },
+  {
+   "chave": "out_I18",
+   "celula": "I18",
+   "rotulo": "Percentual de erros perseverativos — Média"
+  },
+  {
+   "chave": "out_J18",
+   "celula": "J18",
+   "rotulo": "Percentual de erros perseverativos — Desv Pad"
+  },
+  {
+   "chave": "out_K18",
+   "celula": "K18",
+   "rotulo": "Percentual de erros perseverativos — Z-Score"
+  },
+  {
+   "chave": "out_L18",
+   "celula": "L18",
+   "rotulo": "Percentual de erros perseverativos — Pontos Ponder"
+  },
+  {
+   "chave": "out_M18",
+   "celula": "M18",
+   "rotulo": "Percentual de erros perseverativos — Percentil"
+  },
+  {
+   "chave": "out_Q18",
+   "celula": "Q18",
+   "rotulo": "Percentual de erros perseverativos — Cálculos"
+  },
+  {
+   "chave": "out_F19",
+   "celula": "F19",
+   "rotulo": "Erros NÃO perseverativos — Escore Bruto"
+  },
+  {
+   "chave": "out_G19",
+   "celula": "G19",
+   "rotulo": "Erros NÃO perseverativos — Percentil"
+  },
+  {
+   "chave": "out_I19",
+   "celula": "I19",
+   "rotulo": "Erros NÃO perseverativos — Média"
+  },
+  {
+   "chave": "out_J19",
+   "celula": "J19",
+   "rotulo": "Erros NÃO perseverativos — Desv Pad"
+  },
+  {
+   "chave": "out_K19",
+   "celula": "K19",
+   "rotulo": "Erros NÃO perseverativos — Z-Score"
+  },
+  {
+   "chave": "out_L19",
+   "celula": "L19",
+   "rotulo": "Erros NÃO perseverativos — Pontos Ponder"
+  },
+  {
+   "chave": "out_M19",
+   "celula": "M19",
+   "rotulo": "Erros NÃO perseverativos — Percentil"
+  },
+  {
+   "chave": "out_N19",
+   "celula": "N19",
+   "rotulo": "Erros NÃO perseverativos — Classificação"
+  },
+  {
+   "chave": "out_F20",
+   "celula": "F20",
+   "rotulo": "Percentual de erros NÃO perseverativos — Escore Bruto"
+  },
+  {
+   "chave": "out_I20",
+   "celula": "I20",
+   "rotulo": "Percentual de erros NÃO perseverativos — Média"
+  },
+  {
+   "chave": "out_J20",
+   "celula": "J20",
+   "rotulo": "Percentual de erros NÃO perseverativos — Desv Pad"
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "Percentual de erros NÃO perseverativos — Z-Score"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Percentual de erros NÃO perseverativos — Pontos Ponder"
+  },
+  {
+   "chave": "out_M20",
+   "celula": "M20",
+   "rotulo": "Percentual de erros NÃO perseverativos — Percentil"
+  },
+  {
+   "chave": "out_G21",
+   "celula": "G21",
+   "rotulo": "Fracasso em manter o Contexto — Percentil"
+  },
+  {
+   "chave": "out_I21",
+   "celula": "I21",
+   "rotulo": "Fracasso em manter o Contexto — Média"
+  },
+  {
+   "chave": "out_J21",
+   "celula": "J21",
+   "rotulo": "Fracasso em manter o Contexto — Desv Pad"
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "Fracasso em manter o Contexto — Z-Score"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "Fracasso em manter o Contexto — Pontos Ponder"
+  },
+  {
+   "chave": "out_M21",
+   "celula": "M21",
+   "rotulo": "Fracasso em manter o Contexto — Percentil"
+  },
+  {
+   "chave": "out_N21",
+   "celula": "N21",
+   "rotulo": "Fracasso em manter o Contexto — Classificação"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Escore Bruto",
+    "Percentil",
+    "Média",
+    "Desv Pad",
+    "Z-Score",
+    "Pontos Ponder",
+    "Percentil",
+    "Classificação",
+    "Manual"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Número de Categorias Completadas",
+     "valores": [
+      null,
+      "out_G12",
+      "out_I12",
+      "out_J12",
+      "out_K12",
+      "out_L12",
+      "out_M12",
+      "out_N12",
+      null
+     ]
+    },
+    {
+     "rotulo": "Ensaios administrados",
+     "valores": [
+      null,
+      "out_G13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Q13"
+     ]
+    },
+    {
+     "rotulo": "Total de acerto",
+     "valores": [
+      null,
+      "out_G14",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total de erros",
+     "valores": [
+      null,
+      "out_G15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentual de erros",
+     "valores": [
+      "out_F16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Erros perseverativos",
+     "valores": [
+      null,
+      "out_G17",
+      "out_I17",
+      "out_J17",
+      "out_K17",
+      "out_L17",
+      "out_M17",
+      "out_N17",
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentual de erros perseverativos",
+     "valores": [
+      "out_F18",
+      null,
+      "out_I18",
+      "out_J18",
+      "out_K18",
+      "out_L18",
+      "out_M18",
+      null,
+      "out_Q18"
+     ]
+    },
+    {
+     "rotulo": "Erros NÃO perseverativos",
+     "valores": [
+      "out_F19",
+      "out_G19",
+      "out_I19",
+      "out_J19",
+      "out_K19",
+      "out_L19",
+      "out_M19",
+      "out_N19",
+      null
+     ]
+    },
+    {
+     "rotulo": "Percentual de erros NÃO perseverativos",
+     "valores": [
+      "out_F20",
+      null,
+      "out_I20",
+      "out_J20",
+      "out_K20",
+      "out_L20",
+      "out_M20",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fracasso em manter o Contexto",
+     "valores": [
+      null,
+      "out_G21",
+      "out_I21",
+      "out_J21",
+      "out_K21",
+      "out_L21",
+      "out_M21",
+      "out_N21",
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

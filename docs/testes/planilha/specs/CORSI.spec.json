@@ -417,6 +417,16 @@
     "Pós Graduação"
    ],
    "padrao": 0
+  },
+  {
+   "chave": "opcao_C5",
+   "celula": "C5",
+   "rotulo": "Tipo de Escola",
+   "valores": [
+    "Pública",
+    "Privada"
+   ],
+   "padrao": 0
   }
  ],
  "saidas": [

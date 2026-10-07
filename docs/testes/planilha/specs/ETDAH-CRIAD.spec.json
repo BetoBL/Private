@@ -1,0 +1,698 @@
+{
+ "sigla": "ETDAH-CRIAD",
+ "nome": "E-TDAH — Crianças e Adolescentes (autorrelato)",
+ "dominio": "RASTREIO_TDAH",
+ "descricao": "Escala de TDAH para crianças e adolescentes: respostas aos itens somadas por fator e convertidas em escore T/percentil/classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "BENCZIK, E. B. P. E-TDAH (normas conforme planilha da psicóloga).",
+ "aba": "ETDAH-CriAd",
+ "idade": [
+  6,
+  17
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "M3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_G10",
+   "celula": "G10",
+   "rotulo": "Não consigo esperar o tempo suficiente (",
+   "min": 0
+  },
+  {
+   "chave": "in_O10",
+   "celula": "O10",
+   "rotulo": "Preciso de mais tempo para terminar as t — Tabela Normativa:",
+   "min": 0
+  },
+  {
+   "chave": "in_G11",
+   "celula": "G11",
+   "rotulo": "Me acham agitado/a (inquieto/a)",
+   "min": 0
+  },
+  {
+   "chave": "in_O11",
+   "celula": "O11",
+   "rotulo": "Presto atenção em outras coisas e me per — Tabela Normativa:",
+   "min": 0
+  },
+  {
+   "chave": "in_G12",
+   "celula": "G12",
+   "rotulo": "Sou teimoso (a)",
+   "min": 0
+  },
+  {
+   "chave": "in_O12",
+   "celula": "O12",
+   "rotulo": "É difícil para mim, fazer os exercícios  — Tabela Normativa:",
+   "min": 0
+  },
+  {
+   "chave": "in_G13",
+   "celula": "G13",
+   "rotulo": "Tenho muita pressa para fazer as coisas",
+   "min": 0
+  },
+  {
+   "chave": "in_M13",
+   "celula": "M13",
+   "rotulo": "Minha mãe tem que me lembrar de fazer as",
+   "min": 0
+  },
+  {
+   "chave": "in_O13",
+   "celula": "O13",
+   "rotulo": "Minha mãe tem que me lembrar de fazer as — Tabela Normativa:",
+   "min": 0
+  },
+  {
+   "chave": "in_G14",
+   "celula": "G14",
+   "rotulo": "Todos falam que eu sou barulhento (a)",
+   "min": 0
+  },
+  {
+   "chave": "in_O14",
+   "celula": "O14",
+   "rotulo": "Para mim é difícil aprender coisas novas — Tabela Normativa:",
+   "min": 0
+  },
+  {
+   "chave": "in_P14",
+   "celula": "P14",
+   "rotulo": "Para mim é difícil aprender coisas novas",
+   "min": 0
+  },
+  {
+   "chave": "in_G15",
+   "celula": "G15",
+   "rotulo": "Quando percebo já falei ou fiz (...)",
+   "min": 0
+  },
+  {
+   "chave": "in_O15",
+   "celula": "O15",
+   "rotulo": "Meu caderno é desorganizado — Tabela Normativa:",
+   "min": 0
+  },
+  {
+   "chave": "in_P15",
+   "celula": "P15",
+   "rotulo": "Meu caderno é desorganizado",
+   "min": 0
+  },
+  {
+   "chave": "in_G16",
+   "celula": "G16",
+   "rotulo": "Dizem que falo muito",
+   "min": 0
+  },
+  {
+   "chave": "in_O16",
+   "celula": "O16",
+   "rotulo": "Erro nas lições por falta de atenção",
+   "min": 0
+  },
+  {
+   "chave": "in_G17",
+   "celula": "G17",
+   "rotulo": "Mexo e balanço as pernas, (...)",
+   "min": 0
+  },
+  {
+   "chave": "in_O17",
+   "celula": "O17",
+   "rotulo": "É difícil terminar o que começo",
+   "min": 0
+  },
+  {
+   "chave": "in_G18",
+   "celula": "G18",
+   "rotulo": "Eu me levanto da carteira durante a aula",
+   "min": 0
+  },
+  {
+   "chave": "in_O18",
+   "celula": "O18",
+   "rotulo": "Minhas notas estão ruins",
+   "min": 0
+  },
+  {
+   "chave": "in_G19",
+   "celula": "G19",
+   "rotulo": "Me movimento muito (me mexo muito)",
+   "min": 0
+  },
+  {
+   "chave": "in_O19",
+   "celula": "O19",
+   "rotulo": "Me perco nos sinais das contas de matemá",
+   "min": 0
+  },
+  {
+   "chave": "in_G20",
+   "celula": "G20",
+   "rotulo": "Não tenho paciência de esperar (...)",
+   "min": 0
+  },
+  {
+   "chave": "in_G21",
+   "celula": "G21",
+   "rotulo": "Vivo correndo, ou subindo nos sofás, (..",
+   "min": 0
+  },
+  {
+   "chave": "in_G23",
+   "celula": "G23",
+   "rotulo": "G23",
+   "min": 0
+  },
+  {
+   "chave": "in_M23",
+   "celula": "M23",
+   "rotulo": "M23",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_Q3",
+   "celula": "Q3",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "Amostra Geral",
+    "Faixa Etária"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_O20",
+   "celula": "O20",
+   "rotulo": "TOTAL (Fator 1 - Máx. 40):"
+  },
+  {
+   "chave": "out_P20",
+   "celula": "P20",
+   "rotulo": "TOTAL (Fator 1 - Máx. 40):"
+  },
+  {
+   "chave": "out_G22",
+   "celula": "G22",
+   "rotulo": "TOTAL (Fator 1 - Máx. 48):"
+  },
+  {
+   "chave": "out_H22",
+   "celula": "H22",
+   "rotulo": "TOTAL (Fator 1 - Máx. 48):"
+  },
+  {
+   "chave": "out_E26",
+   "celula": "E26",
+   "rotulo": "Fator 1 - Hiperatividade — Pontos Brutos"
+  },
+  {
+   "chave": "out_F26",
+   "celula": "F26",
+   "rotulo": "Fator 1 - Hiperatividade — Percentil"
+  },
+  {
+   "chave": "out_G26",
+   "celula": "G26",
+   "rotulo": "Fator 1 - Hiperatividade — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_H26",
+   "celula": "H26",
+   "rotulo": "Fator 1 - Hiperatividade — Nível (pag. 4)"
+  },
+  {
+   "chave": "out_I26",
+   "celula": "I26",
+   "rotulo": "Fator 1 - Hiperatividade — Classificação"
+  },
+  {
+   "chave": "out_K26",
+   "celula": "K26",
+   "rotulo": "Fator 1 - Hiperatividade — Média"
+  },
+  {
+   "chave": "out_L26",
+   "celula": "L26",
+   "rotulo": "Fator 1 - Hiperatividade — Dv. Pd."
+  },
+  {
+   "chave": "out_M26",
+   "celula": "M26",
+   "rotulo": "Fator 1 - Hiperatividade — Z-Score"
+  },
+  {
+   "chave": "out_N26",
+   "celula": "N26",
+   "rotulo": "Fator 1 - Hiperatividade — Pontos Ponder"
+  },
+  {
+   "chave": "out_O26",
+   "celula": "O26",
+   "rotulo": "Fator 1 - Hiperatividade — Percentil"
+  },
+  {
+   "chave": "out_P26",
+   "celula": "P26",
+   "rotulo": "Fator 1 - Hiperatividade — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E27",
+   "celula": "E27",
+   "rotulo": "Fator 2 - Atenção — Pontos Brutos"
+  },
+  {
+   "chave": "out_F27",
+   "celula": "F27",
+   "rotulo": "Fator 2 - Atenção — Percentil"
+  },
+  {
+   "chave": "out_G27",
+   "celula": "G27",
+   "rotulo": "Fator 2 - Atenção — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_H27",
+   "celula": "H27",
+   "rotulo": "Fator 2 - Atenção — Nível (pag. 4)"
+  },
+  {
+   "chave": "out_I27",
+   "celula": "I27",
+   "rotulo": "Fator 2 - Atenção — Classificação"
+  },
+  {
+   "chave": "out_K27",
+   "celula": "K27",
+   "rotulo": "Fator 2 - Atenção — Média"
+  },
+  {
+   "chave": "out_L27",
+   "celula": "L27",
+   "rotulo": "Fator 2 - Atenção — Dv. Pd."
+  },
+  {
+   "chave": "out_M27",
+   "celula": "M27",
+   "rotulo": "Fator 2 - Atenção — Z-Score"
+  },
+  {
+   "chave": "out_N27",
+   "celula": "N27",
+   "rotulo": "Fator 2 - Atenção — Pontos Ponder"
+  },
+  {
+   "chave": "out_O27",
+   "celula": "O27",
+   "rotulo": "Fator 2 - Atenção — Percentil"
+  },
+  {
+   "chave": "out_P27",
+   "celula": "P27",
+   "rotulo": "Fator 2 - Atenção — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E28",
+   "celula": "E28",
+   "rotulo": "ESCORE GERAL — Pontos Brutos"
+  },
+  {
+   "chave": "out_F28",
+   "celula": "F28",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_G28",
+   "celula": "G28",
+   "rotulo": "ESCORE GERAL — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_H28",
+   "celula": "H28",
+   "rotulo": "ESCORE GERAL — Nível (pag. 4)"
+  },
+  {
+   "chave": "out_I28",
+   "celula": "I28",
+   "rotulo": "ESCORE GERAL — Classificação"
+  },
+  {
+   "chave": "out_K28",
+   "celula": "K28",
+   "rotulo": "ESCORE GERAL — Média"
+  },
+  {
+   "chave": "out_L28",
+   "celula": "L28",
+   "rotulo": "ESCORE GERAL — Dv. Pd."
+  },
+  {
+   "chave": "out_M28",
+   "celula": "M28",
+   "rotulo": "ESCORE GERAL — Z-Score"
+  },
+  {
+   "chave": "out_N28",
+   "celula": "N28",
+   "rotulo": "ESCORE GERAL — Pontos Ponder"
+  },
+  {
+   "chave": "out_O28",
+   "celula": "O28",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_P28",
+   "celula": "P28",
+   "rotulo": "ESCORE GERAL — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E32",
+   "celula": "E32",
+   "rotulo": "F1 - Hiperatividade — Pontos Brutos"
+  },
+  {
+   "chave": "out_E33",
+   "celula": "E33",
+   "rotulo": "F2 - Atenção — Pontos Brutos"
+  },
+  {
+   "chave": "out_E34",
+   "celula": "E34",
+   "rotulo": "TOTAL — Pontos Brutos"
+  },
+  {
+   "chave": "out_S49",
+   "celula": "S49",
+   "rotulo": "Cada avaliação é única, assim como cada "
+  },
+  {
+   "chave": "out_B51",
+   "celula": "B51",
+   "rotulo": "A interpretação qualitativa abaixo diz r"
+  },
+  {
+   "chave": "out_B52",
+   "celula": "B52",
+   "rotulo": "A interpretação qualitativa abaixo diz r"
+  },
+  {
+   "chave": "out_R52",
+   "celula": "R52",
+   "rotulo": "R52"
+  },
+  {
+   "chave": "out_R53",
+   "celula": "R53",
+   "rotulo": "R53"
+  },
+  {
+   "chave": "out_R54",
+   "celula": "R54",
+   "rotulo": "R54"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "A interpretação qualitativa abaixo diz r",
+    "Pontos Brutos",
+    "Percentil",
+    "G",
+    "H",
+    "Classificação",
+    "Média",
+    "Dv. Pd.",
+    "Z-Score",
+    "Pontos Ponder",
+    "O",
+    "P",
+    "R",
+    "S"
+   ],
+   "linhas": [
+    {
+     "rotulo": "TOTAL (Fator 1 - Máx. 40):",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_O20",
+      "out_P20",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "TOTAL (Fator 1 - Máx. 48):",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G22",
+      "out_H22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 1 - Hiperatividade",
+     "valores": [
+      null,
+      "out_E26",
+      "out_F26",
+      "out_G26",
+      "out_H26",
+      "out_I26",
+      "out_K26",
+      "out_L26",
+      "out_M26",
+      "out_N26",
+      "out_O26",
+      "out_P26",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 2 - Atenção",
+     "valores": [
+      null,
+      "out_E27",
+      "out_F27",
+      "out_G27",
+      "out_H27",
+      "out_I27",
+      "out_K27",
+      "out_L27",
+      "out_M27",
+      "out_N27",
+      "out_O27",
+      "out_P27",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "ESCORE GERAL",
+     "valores": [
+      null,
+      "out_E28",
+      "out_F28",
+      "out_G28",
+      "out_H28",
+      "out_I28",
+      "out_K28",
+      "out_L28",
+      "out_M28",
+      "out_N28",
+      "out_O28",
+      "out_P28",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "F1 - Hiperatividade",
+     "valores": [
+      null,
+      "out_E32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "F2 - Atenção",
+     "valores": [
+      null,
+      "out_E33",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "TOTAL",
+     "valores": [
+      null,
+      "out_E34",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Cada avaliação é única, assim como cada ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S49"
+     ]
+    },
+    {
+     "rotulo": "51",
+     "valores": [
+      "out_B51",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "52",
+     "valores": [
+      "out_B52",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R52",
+      null
+     ]
+    },
+    {
+     "rotulo": "53",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R53",
+      null
+     ]
+    },
+    {
+     "rotulo": "54",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R54",
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

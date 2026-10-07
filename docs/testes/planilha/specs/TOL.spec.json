@@ -667,7 +667,18 @@
    "min": 0
   }
  ],
- "opcoes": [],
+ "opcoes": [
+  {
+   "chave": "opcao_I4",
+   "celula": "I4",
+   "rotulo": "Tipo",
+   "valores": [
+    "Pública",
+    "Privada"
+   ],
+   "padrao": 0
+  }
+ ],
  "saidas": [
   {
    "chave": "out_G13",

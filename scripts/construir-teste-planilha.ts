@@ -90,10 +90,15 @@ const compactar = (celulas: Celula[]) => {
   for (const [col, m] of porCol) { const rs = [...m.keys()]; const r0 = Math.min(...rs), r1 = Math.max(...rs); colunas[col] = { r0, v: Array.from({ length: r1 - r0 + 1 }, (_, i) => m.get(r0 + i) ?? null) }; }
   return colunas;
 };
+// índice por endereço (as abas grandes, como as do Vineland, tornavam a varredura quadrática lenta demais)
+const indices = new WeakMap<Celula[], Map<string, Celula>>();
 const noIntervalo = (celulas: Celula[], r: Ref) => {
+  let idx = indices.get(celulas);
+  if (!idx) { idx = new Map(celulas.map((c) => [c.c, c])); indices.set(celulas, idx); }
   const a = parseEnd(r.a), b = parseEnd(r.b);
-  const [c0, c1, r0, r1] = [Math.min(a.c, b.c), Math.max(a.c, b.c), Math.min(a.r, b.r), Math.max(a.r, b.r)];
-  return celulas.filter((x) => { const p = parseEnd(x.c); return p.c >= c0 && p.c <= c1 && p.r >= r0 && p.r <= r1; });
+  const out: Celula[] = [];
+  for (let cc = Math.min(a.c, b.c); cc <= Math.max(a.c, b.c); cc++) for (let rr = Math.min(a.r, b.r); rr <= Math.max(a.r, b.r); rr++) { const x = idx.get(`${numCol(cc)}${rr}`); if (x) out.push(x); }
+  return out;
 };
 const mantidasExt = new Map<string, Map<string, Celula>>();
 for (const r of todasRefs) {
@@ -129,7 +134,7 @@ if (n > 0) {
   for (let i = 0; i < n; i++) {
     const escores: Record<string, number> = {};
     for (const e of def.entradas) if (rnd() < 0.85) escores[e.chave] = Math.floor((e.min ?? 0) + rnd() * ((e.max ?? 60) - (e.min ?? 0) + 1));
-    for (const o of def.opcoes) escores[o.chave] = Math.floor(rnd() * o.valores.length);
+    for (const o of def.opcoes) if (o.padrao !== undefined || rnd() < 0.7) escores[o.chave] = Math.floor(rnd() * o.valores.length);
     const anos = spec.idade ? spec.idade[0] + Math.floor(rnd() * (spec.idade[1] - spec.idade[0] + 1)) : 30;
     const ref = new Date(Date.UTC(2026, 6, 28));
     const nasc = new Date(Date.UTC(2026 - anos, Math.floor(rnd() * 12), 1 + Math.floor(rnd() * 28)));

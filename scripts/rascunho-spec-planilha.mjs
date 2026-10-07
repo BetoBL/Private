@@ -34,6 +34,7 @@ for (const c of aba.celulas) {
     for (let cc = Math.min(a.c, b.c); cc <= Math.max(a.c, b.c); cc++) for (let rr = Math.min(a.r, b.r); rr <= Math.max(a.r, b.r); rr++) lidas.add(`${numCol(cc)}${rr}`);
   }
   for (const m of texto.matchAll(/(\$?[A-Z]{1,3}\$?\d+)\s*=\s*"([^"]+)"/g)) { const k = desloc(m[1], dr, dc).replace(/\$/g, ""); (comparacoes.get(k) ?? comparacoes.set(k, new Set()).get(k)).add(m[2]); }
+  for (const m of texto.matchAll(/DATEDIF\(\s*0\s*,\s*\$?([A-Z]+\$?\d+)\s*-/g)) { const k = desloc(m[1], dr, dc).replace(/\$/g, ""); datedifSegundos.set(k, (datedifSegundos.get(k) ?? 0) + 1); }
   for (const m of texto.matchAll(/DATEDIF\(\s*\$?([A-Z]+\$?\d+)\s*,\s*\$?([A-Z]+\$?\d+)/g)) { const k = desloc(m[2], dr, dc).replace(/\$/g, ""); datedifSegundos.set(k, (datedifSegundos.get(k) ?? 0) + 1); }
 }
 const limpar = (e) => e.replace(/\$/g, "");
@@ -55,7 +56,7 @@ for (const end of [...lidasLimpas].sort((a, b) => parse(a).r - parse(b).r || par
   if (c?.f) continue;
   if (end === dataAplicacao) continue;
   const comp = comparacoes.get(end);
-  if (comp && comp.size) { opcoes.push({ chave: `opcao_${end}`, celula: end, rotulo: rotulo(end), valores: [...comp], padrao: 0 }); continue; }
+  if (comp && comp.size) { { const valores = [...comp]; const atual = c && typeof c.v === "string" ? valores.indexOf(c.v.trim()) : -1; opcoes.push({ chave: `opcao_${end}`, celula: end, rotulo: rotulo(end), valores, ...(atual >= 0 ? { padrao: atual } : {}) }); continue; } }
   const v = c && c.v !== "" && c.v !== null ? Number(c.v) : null;
   if (c && c.v !== "" && c.v !== null && Number.isNaN(v)) continue; // texto fixo
   if (c && v !== null) continue; // constante numérica (parâmetro da planilha)
@@ -63,6 +64,10 @@ for (const end of [...lidasLimpas].sort((a, b) => parse(a).r - parse(b).r || par
   const grupo = meta.grupoPorColuna?.[col];
   entradas.push({ chave: `in_${end}`, celula: end, rotulo: (grupo ? grupo + " — " : "") + rotuloGrade(end), ...(grupo ? { grupo } : {}), min: 0 });
 }
+// Seletores de tabela/amostra (rótulo único) começam na 1ª opção; listas por item (mesmo rótulo repetido 3+ vezes: S/N, C/PC/N...) começam em branco.
+const nRotulo = new Map();
+for (const o of opcoes) nRotulo.set(o.rotulo, (nRotulo.get(o.rotulo) ?? 0) + 1);
+for (const o of opcoes) if (o.padrao === undefined && (nRotulo.get(o.rotulo) ?? 0) < 3) o.padrao = 0;
 // opções que o cadastro do paciente não tem (ex.: tipo de escola = CADASTRO!D7): células-espelho do cadastro comparadas com textos nas fórmulas
 for (const c of aba.celulas) {
   if (!c.f || !/^=\s*(IF\([^,]*,\s*"",\s*)?CADASTRO!\$?D\$?7\b/.test(String(c.f).replace(/\s+/g, " "))) continue;
@@ -75,7 +80,7 @@ const cabecalhoColuna = (end) => { const p = parse(end); for (let r = p.r - 1; r
 const rotuloLinha = (end) => { const p = parse(end); for (let c = p.c - 1; c >= 1; c--) { const t = textoDe(cel.get(`${numCol(c)}${p.r}`)); if (t) return t.slice(0, 40); } return null; };
 const grade = [];
 for (const c of aba.celulas) {
-  if (!c.f || String(c.f).includes("CADASTRO!")) continue;
+  if (!c.f || /^=(IF\([^()]*,"",)?CADASTRO!\$?D\$?\d+\)?$/.test(String(c.f).replace(/\s+/g, ""))) continue;
   const p = parse(c.c);
   if (p.r < primeiraLinha) continue;
   const linha = rotuloLinha(c.c), colh = cabecalhoColuna(c.c);

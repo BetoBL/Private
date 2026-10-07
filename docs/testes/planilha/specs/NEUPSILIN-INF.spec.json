@@ -1,0 +1,4449 @@
+{
+ "sigla": "NEUPSILIN-INF",
+ "nome": "Neupsilin-Inf — Instrumento de Avaliação Neuropsicológica Breve Infantil",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "Neupsilin-Inf: escores das tarefas convertidos em Z, percentil e classificação por série/idade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "SALLES, J. F. et al. Neupsilin-Inf (normas conforme planilha da psicóloga).",
+ "aba": "Neupsilin-Inf",
+ "idade": [
+  6,
+  12
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "X3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_M10",
+   "celula": "M10",
+   "rotulo": "ORIENTAÇÃO: — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_M12",
+   "celula": "M12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_M13",
+   "celula": "M13",
+   "rotulo": "Tempo de Execução (seg.): — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_N13",
+   "celula": "N13",
+   "rotulo": "Tempo de Execução (seg.): — (máx.)",
+   "min": 0
+  },
+  {
+   "chave": "in_M14",
+   "celula": "M14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_M15",
+   "celula": "M15",
+   "rotulo": "Maior sequência respondida corretamente  — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_M17",
+   "celula": "M17",
+   "rotulo": "Emoções em faces: — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_M18",
+   "celula": "M18",
+   "rotulo": "Constância de forma e de objetos: — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_M22",
+   "celula": "M22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:",
+   "min": 0
+  },
+  {
+   "chave": "in_M23",
+   "celula": "M23",
+   "rotulo": "Maior sequência - O.I.:",
+   "min": 0
+  },
+  {
+   "chave": "in_M24",
+   "celula": "M24",
+   "rotulo": "Span de Pseudopalavras:",
+   "min": 0
+  },
+  {
+   "chave": "in_M25",
+   "celula": "M25",
+   "rotulo": "Maior sequência - Pseudopalavras",
+   "min": 0
+  },
+  {
+   "chave": "in_M26",
+   "celula": "M26",
+   "rotulo": "Visuoespacial - (ordem inversa)",
+   "min": 0
+  },
+  {
+   "chave": "in_M27",
+   "celula": "M27",
+   "rotulo": "Maior sequência - visuoespacial:",
+   "min": 0
+  },
+  {
+   "chave": "in_M29",
+   "celula": "M29",
+   "rotulo": "Evocação imediata",
+   "min": 0
+  },
+  {
+   "chave": "in_M30",
+   "celula": "M30",
+   "rotulo": "Evocação tardia:",
+   "min": 0
+  },
+  {
+   "chave": "in_M31",
+   "celula": "M31",
+   "rotulo": "Semântica:",
+   "min": 0
+  },
+  {
+   "chave": "in_M32",
+   "celula": "M32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista ",
+   "min": 0
+  },
+  {
+   "chave": "in_M35",
+   "celula": "M35",
+   "rotulo": "Nomeação:",
+   "min": 0
+  },
+  {
+   "chave": "in_M37",
+   "celula": "M37",
+   "rotulo": "Rima:",
+   "min": 0
+  },
+  {
+   "chave": "in_M38",
+   "celula": "M38",
+   "rotulo": "Subtração fonêmica:",
+   "min": 0
+  },
+  {
+   "chave": "in_M39",
+   "celula": "M39",
+   "rotulo": "Compreensão Oral:",
+   "min": 0
+  },
+  {
+   "chave": "in_M40",
+   "celula": "M40",
+   "rotulo": "Processamento inferencial:",
+   "min": 0
+  },
+  {
+   "chave": "in_M43",
+   "celula": "M43",
+   "rotulo": "Sílabas",
+   "min": 0
+  },
+  {
+   "chave": "in_M44",
+   "celula": "M44",
+   "rotulo": "Palavras:",
+   "min": 0
+  },
+  {
+   "chave": "in_M45",
+   "celula": "M45",
+   "rotulo": "Pseudopalavras:",
+   "min": 0
+  },
+  {
+   "chave": "in_M46",
+   "celula": "M46",
+   "rotulo": "Compreensão Escrita:",
+   "min": 0
+  },
+  {
+   "chave": "in_M48",
+   "celula": "M48",
+   "rotulo": "Palavras:",
+   "min": 0
+  },
+  {
+   "chave": "in_M49",
+   "celula": "M49",
+   "rotulo": "Pseudopalavras:",
+   "min": 0
+  },
+  {
+   "chave": "in_M50",
+   "celula": "M50",
+   "rotulo": "Escrita Espontânea:",
+   "min": 0
+  },
+  {
+   "chave": "in_M51",
+   "celula": "M51",
+   "rotulo": "Escrita Copiada:",
+   "min": 0
+  },
+  {
+   "chave": "in_M53",
+   "celula": "M53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç",
+   "min": 0
+  },
+  {
+   "chave": "in_N53",
+   "celula": "N53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç",
+   "min": 0
+  },
+  {
+   "chave": "in_M54",
+   "celula": "M54",
+   "rotulo": "Quadrado:",
+   "min": 0
+  },
+  {
+   "chave": "in_M55",
+   "celula": "M55",
+   "rotulo": "Losango:",
+   "min": 0
+  },
+  {
+   "chave": "in_M56",
+   "celula": "M56",
+   "rotulo": "Margarida:",
+   "min": 0
+  },
+  {
+   "chave": "in_M57",
+   "celula": "M57",
+   "rotulo": "Figura dupla:",
+   "min": 0
+  },
+  {
+   "chave": "in_M59",
+   "celula": "M59",
+   "rotulo": "Contagem de palitos:",
+   "min": 0
+  },
+  {
+   "chave": "in_M60",
+   "celula": "M60",
+   "rotulo": "Cálculos Matemáticos:",
+   "min": 0
+  },
+  {
+   "chave": "in_N62",
+   "celula": "N62",
+   "rotulo": "Fluência Verbal:",
+   "min": 0
+  },
+  {
+   "chave": "in_M63",
+   "celula": "M63",
+   "rotulo": "Ortográfica:",
+   "min": 0
+  },
+  {
+   "chave": "in_N63",
+   "celula": "N63",
+   "rotulo": "Ortográfica:",
+   "min": 0
+  },
+  {
+   "chave": "in_M64",
+   "celula": "M64",
+   "rotulo": "Semântica:",
+   "min": 0
+  },
+  {
+   "chave": "in_N64",
+   "celula": "N64",
+   "rotulo": "Semântica:",
+   "min": 0
+  },
+  {
+   "chave": "in_M65",
+   "celula": "M65",
+   "rotulo": "Tarefa Go - No Go",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_T3",
+   "celula": "T3",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "RS - Amostra Total",
+    "SP - Amostra Total",
+    "RS - Escola Pública",
+    "RS - Escola Privada",
+    "SP - Escola Pública",
+    "SP - Escola Privada"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_O10",
+   "celula": "O10",
+   "rotulo": "ORIENTAÇÃO: — %"
+  },
+  {
+   "chave": "out_P10",
+   "celula": "P10",
+   "rotulo": "ORIENTAÇÃO: — Média"
+  },
+  {
+   "chave": "out_Q10",
+   "celula": "Q10",
+   "rotulo": "ORIENTAÇÃO: — Desvio Padrão"
+  },
+  {
+   "chave": "out_R10",
+   "celula": "R10",
+   "rotulo": "ORIENTAÇÃO: — Z-Score"
+  },
+  {
+   "chave": "out_S10",
+   "celula": "S10",
+   "rotulo": "ORIENTAÇÃO: — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V10",
+   "celula": "V10",
+   "rotulo": "ORIENTAÇÃO: — Ponder."
+  },
+  {
+   "chave": "out_W10",
+   "celula": "W10",
+   "rotulo": "ORIENTAÇÃO: — Percentil"
+  },
+  {
+   "chave": "out_X10",
+   "celula": "X10",
+   "rotulo": "ORIENTAÇÃO: — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_M11",
+   "celula": "M11",
+   "rotulo": "ATENÇÃO: — Pontos Brutos"
+  },
+  {
+   "chave": "out_O11",
+   "celula": "O11",
+   "rotulo": "ATENÇÃO: — %"
+  },
+  {
+   "chave": "out_P11",
+   "celula": "P11",
+   "rotulo": "ATENÇÃO: — Média"
+  },
+  {
+   "chave": "out_Q11",
+   "celula": "Q11",
+   "rotulo": "ATENÇÃO: — Desvio Padrão"
+  },
+  {
+   "chave": "out_R11",
+   "celula": "R11",
+   "rotulo": "ATENÇÃO: — Z-Score"
+  },
+  {
+   "chave": "out_S11",
+   "celula": "S11",
+   "rotulo": "ATENÇÃO: — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V11",
+   "celula": "V11",
+   "rotulo": "ATENÇÃO: — Ponder."
+  },
+  {
+   "chave": "out_W11",
+   "celula": "W11",
+   "rotulo": "ATENÇÃO: — Percentil"
+  },
+  {
+   "chave": "out_X11",
+   "celula": "X11",
+   "rotulo": "ATENÇÃO: — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_O12",
+   "celula": "O12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — %"
+  },
+  {
+   "chave": "out_P12",
+   "celula": "P12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Média"
+  },
+  {
+   "chave": "out_Q12",
+   "celula": "Q12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Desvio Padrão"
+  },
+  {
+   "chave": "out_R12",
+   "celula": "R12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Z-Score"
+  },
+  {
+   "chave": "out_S12",
+   "celula": "S12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V12",
+   "celula": "V12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Ponder."
+  },
+  {
+   "chave": "out_W12",
+   "celula": "W12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Percentil"
+  },
+  {
+   "chave": "out_X12",
+   "celula": "X12",
+   "rotulo": "Atenção Visual - Cancelamento de Figuras — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_O13",
+   "celula": "O13",
+   "rotulo": "Tempo de Execução (seg.): — %"
+  },
+  {
+   "chave": "out_P13",
+   "celula": "P13",
+   "rotulo": "Tempo de Execução (seg.): — Média"
+  },
+  {
+   "chave": "out_Q13",
+   "celula": "Q13",
+   "rotulo": "Tempo de Execução (seg.): — Desvio Padrão"
+  },
+  {
+   "chave": "out_R13",
+   "celula": "R13",
+   "rotulo": "Tempo de Execução (seg.): — Z-Score"
+  },
+  {
+   "chave": "out_S13",
+   "celula": "S13",
+   "rotulo": "Tempo de Execução (seg.): — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V13",
+   "celula": "V13",
+   "rotulo": "Tempo de Execução (seg.): — Ponder."
+  },
+  {
+   "chave": "out_W13",
+   "celula": "W13",
+   "rotulo": "Tempo de Execução (seg.): — Percentil"
+  },
+  {
+   "chave": "out_X13",
+   "celula": "X13",
+   "rotulo": "Tempo de Execução (seg.): — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_O14",
+   "celula": "O14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — %"
+  },
+  {
+   "chave": "out_P14",
+   "celula": "P14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Média"
+  },
+  {
+   "chave": "out_Q14",
+   "celula": "Q14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Desvio Padrão"
+  },
+  {
+   "chave": "out_R14",
+   "celula": "R14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Z-Score"
+  },
+  {
+   "chave": "out_S14",
+   "celula": "S14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V14",
+   "celula": "V14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Ponder."
+  },
+  {
+   "chave": "out_W14",
+   "celula": "W14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Percentil"
+  },
+  {
+   "chave": "out_X14",
+   "celula": "X14",
+   "rotulo": "Atenção auditiva - Repetição de sequênci — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_O15",
+   "celula": "O15",
+   "rotulo": "Maior sequência respondida corretamente  — %"
+  },
+  {
+   "chave": "out_P15",
+   "celula": "P15",
+   "rotulo": "Maior sequência respondida corretamente  — Média"
+  },
+  {
+   "chave": "out_Q15",
+   "celula": "Q15",
+   "rotulo": "Maior sequência respondida corretamente  — Desvio Padrão"
+  },
+  {
+   "chave": "out_R15",
+   "celula": "R15",
+   "rotulo": "Maior sequência respondida corretamente  — Z-Score"
+  },
+  {
+   "chave": "out_S15",
+   "celula": "S15",
+   "rotulo": "Maior sequência respondida corretamente  — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V15",
+   "celula": "V15",
+   "rotulo": "Maior sequência respondida corretamente  — Ponder."
+  },
+  {
+   "chave": "out_W15",
+   "celula": "W15",
+   "rotulo": "Maior sequência respondida corretamente  — Percentil"
+  },
+  {
+   "chave": "out_X15",
+   "celula": "X15",
+   "rotulo": "Maior sequência respondida corretamente  — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_M16",
+   "celula": "M16",
+   "rotulo": "PERCEPÇÃO: — Pontos Brutos"
+  },
+  {
+   "chave": "out_O16",
+   "celula": "O16",
+   "rotulo": "PERCEPÇÃO: — %"
+  },
+  {
+   "chave": "out_P16",
+   "celula": "P16",
+   "rotulo": "PERCEPÇÃO: — Média"
+  },
+  {
+   "chave": "out_Q16",
+   "celula": "Q16",
+   "rotulo": "PERCEPÇÃO: — Desvio Padrão"
+  },
+  {
+   "chave": "out_R16",
+   "celula": "R16",
+   "rotulo": "PERCEPÇÃO: — Z-Score"
+  },
+  {
+   "chave": "out_S16",
+   "celula": "S16",
+   "rotulo": "PERCEPÇÃO: — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V16",
+   "celula": "V16",
+   "rotulo": "PERCEPÇÃO: — Ponder."
+  },
+  {
+   "chave": "out_W16",
+   "celula": "W16",
+   "rotulo": "PERCEPÇÃO: — Percentil"
+  },
+  {
+   "chave": "out_X16",
+   "celula": "X16",
+   "rotulo": "PERCEPÇÃO: — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_O17",
+   "celula": "O17",
+   "rotulo": "Emoções em faces: — %"
+  },
+  {
+   "chave": "out_P17",
+   "celula": "P17",
+   "rotulo": "Emoções em faces: — Média"
+  },
+  {
+   "chave": "out_Q17",
+   "celula": "Q17",
+   "rotulo": "Emoções em faces: — Desvio Padrão"
+  },
+  {
+   "chave": "out_R17",
+   "celula": "R17",
+   "rotulo": "Emoções em faces: — Z-Score"
+  },
+  {
+   "chave": "out_S17",
+   "celula": "S17",
+   "rotulo": "Emoções em faces: — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V17",
+   "celula": "V17",
+   "rotulo": "Emoções em faces: — Ponder."
+  },
+  {
+   "chave": "out_W17",
+   "celula": "W17",
+   "rotulo": "Emoções em faces: — Percentil"
+  },
+  {
+   "chave": "out_X17",
+   "celula": "X17",
+   "rotulo": "Emoções em faces: — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_O18",
+   "celula": "O18",
+   "rotulo": "Constância de forma e de objetos: — %"
+  },
+  {
+   "chave": "out_P18",
+   "celula": "P18",
+   "rotulo": "Constância de forma e de objetos: — Média"
+  },
+  {
+   "chave": "out_Q18",
+   "celula": "Q18",
+   "rotulo": "Constância de forma e de objetos: — Desvio Padrão"
+  },
+  {
+   "chave": "out_R18",
+   "celula": "R18",
+   "rotulo": "Constância de forma e de objetos: — Z-Score"
+  },
+  {
+   "chave": "out_S18",
+   "celula": "S18",
+   "rotulo": "Constância de forma e de objetos: — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V18",
+   "celula": "V18",
+   "rotulo": "Constância de forma e de objetos: — Ponder."
+  },
+  {
+   "chave": "out_W18",
+   "celula": "W18",
+   "rotulo": "Constância de forma e de objetos: — Percentil"
+  },
+  {
+   "chave": "out_X18",
+   "celula": "X18",
+   "rotulo": "Constância de forma e de objetos: — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_M19",
+   "celula": "M19",
+   "rotulo": "MEMÓRIA: — Pontos Brutos"
+  },
+  {
+   "chave": "out_O19",
+   "celula": "O19",
+   "rotulo": "MEMÓRIA: — %"
+  },
+  {
+   "chave": "out_P19",
+   "celula": "P19",
+   "rotulo": "MEMÓRIA: — Média"
+  },
+  {
+   "chave": "out_Q19",
+   "celula": "Q19",
+   "rotulo": "MEMÓRIA: — Desvio Padrão"
+  },
+  {
+   "chave": "out_R19",
+   "celula": "R19",
+   "rotulo": "MEMÓRIA: — Z-Score"
+  },
+  {
+   "chave": "out_S19",
+   "celula": "S19",
+   "rotulo": "MEMÓRIA: — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V19",
+   "celula": "V19",
+   "rotulo": "MEMÓRIA: — Ponder."
+  },
+  {
+   "chave": "out_W19",
+   "celula": "W19",
+   "rotulo": "MEMÓRIA: — Percentil"
+  },
+  {
+   "chave": "out_X19",
+   "celula": "X19",
+   "rotulo": "MEMÓRIA: — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_M20",
+   "celula": "M20",
+   "rotulo": "Memória de Trabalho (Operacional): — Pontos Brutos"
+  },
+  {
+   "chave": "out_O20",
+   "celula": "O20",
+   "rotulo": "Memória de Trabalho (Operacional): — %"
+  },
+  {
+   "chave": "out_P20",
+   "celula": "P20",
+   "rotulo": "Memória de Trabalho (Operacional): — Média"
+  },
+  {
+   "chave": "out_Q20",
+   "celula": "Q20",
+   "rotulo": "Memória de Trabalho (Operacional): — Desvio Padrão"
+  },
+  {
+   "chave": "out_R20",
+   "celula": "R20",
+   "rotulo": "Memória de Trabalho (Operacional): — Z-Score"
+  },
+  {
+   "chave": "out_S20",
+   "celula": "S20",
+   "rotulo": "Memória de Trabalho (Operacional): — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V20",
+   "celula": "V20",
+   "rotulo": "Memória de Trabalho (Operacional): — Ponder."
+  },
+  {
+   "chave": "out_W20",
+   "celula": "W20",
+   "rotulo": "Memória de Trabalho (Operacional): — Percentil"
+  },
+  {
+   "chave": "out_X20",
+   "celula": "X20",
+   "rotulo": "Memória de Trabalho (Operacional): — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_M21",
+   "celula": "M21",
+   "rotulo": "Componentes Fonológico e executivo centr — Pontos Brutos"
+  },
+  {
+   "chave": "out_O21",
+   "celula": "O21",
+   "rotulo": "Componentes Fonológico e executivo centr — %"
+  },
+  {
+   "chave": "out_P21",
+   "celula": "P21",
+   "rotulo": "Componentes Fonológico e executivo centr — Média"
+  },
+  {
+   "chave": "out_Q21",
+   "celula": "Q21",
+   "rotulo": "Componentes Fonológico e executivo centr — Desvio Padrão"
+  },
+  {
+   "chave": "out_R21",
+   "celula": "R21",
+   "rotulo": "Componentes Fonológico e executivo centr — Z-Score"
+  },
+  {
+   "chave": "out_S21",
+   "celula": "S21",
+   "rotulo": "Componentes Fonológico e executivo centr — Classificação (Manual)"
+  },
+  {
+   "chave": "out_V21",
+   "celula": "V21",
+   "rotulo": "Componentes Fonológico e executivo centr — Ponder."
+  },
+  {
+   "chave": "out_W21",
+   "celula": "W21",
+   "rotulo": "Componentes Fonológico e executivo centr — Percentil"
+  },
+  {
+   "chave": "out_X21",
+   "celula": "X21",
+   "rotulo": "Componentes Fonológico e executivo centr — Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_O22",
+   "celula": "O22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_P22",
+   "celula": "P22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_Q22",
+   "celula": "Q22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_R22",
+   "celula": "R22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_S22",
+   "celula": "S22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_V22",
+   "celula": "V22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_W22",
+   "celula": "W22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_X22",
+   "celula": "X22",
+   "rotulo": "Repetição de Dígitos - Ordem inversa:"
+  },
+  {
+   "chave": "out_O23",
+   "celula": "O23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_P23",
+   "celula": "P23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_Q23",
+   "celula": "Q23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_R23",
+   "celula": "R23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_S23",
+   "celula": "S23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_V23",
+   "celula": "V23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_W23",
+   "celula": "W23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_X23",
+   "celula": "X23",
+   "rotulo": "Maior sequência - O.I.:"
+  },
+  {
+   "chave": "out_O24",
+   "celula": "O24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_P24",
+   "celula": "P24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_Q24",
+   "celula": "Q24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_R24",
+   "celula": "R24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_S24",
+   "celula": "S24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_V24",
+   "celula": "V24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_W24",
+   "celula": "W24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_X24",
+   "celula": "X24",
+   "rotulo": "Span de Pseudopalavras:"
+  },
+  {
+   "chave": "out_O25",
+   "celula": "O25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_P25",
+   "celula": "P25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_Q25",
+   "celula": "Q25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_R25",
+   "celula": "R25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_S25",
+   "celula": "S25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_V25",
+   "celula": "V25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_W25",
+   "celula": "W25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_X25",
+   "celula": "X25",
+   "rotulo": "Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_O26",
+   "celula": "O26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_P26",
+   "celula": "P26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_Q26",
+   "celula": "Q26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_R26",
+   "celula": "R26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_S26",
+   "celula": "S26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_V26",
+   "celula": "V26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_W26",
+   "celula": "W26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_X26",
+   "celula": "X26",
+   "rotulo": "Visuoespacial - (ordem inversa)"
+  },
+  {
+   "chave": "out_O27",
+   "celula": "O27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_P27",
+   "celula": "P27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_Q27",
+   "celula": "Q27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_R27",
+   "celula": "R27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_S27",
+   "celula": "S27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_V27",
+   "celula": "V27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_W27",
+   "celula": "W27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_X27",
+   "celula": "X27",
+   "rotulo": "Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_M28",
+   "celula": "M28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_O28",
+   "celula": "O28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_P28",
+   "celula": "P28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_Q28",
+   "celula": "Q28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_R28",
+   "celula": "R28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_S28",
+   "celula": "S28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_V28",
+   "celula": "V28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_W28",
+   "celula": "W28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_X28",
+   "celula": "X28",
+   "rotulo": "Episódico-semântica verbal:"
+  },
+  {
+   "chave": "out_O29",
+   "celula": "O29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_P29",
+   "celula": "P29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_Q29",
+   "celula": "Q29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_R29",
+   "celula": "R29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_S29",
+   "celula": "S29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_V29",
+   "celula": "V29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_W29",
+   "celula": "W29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_X29",
+   "celula": "X29",
+   "rotulo": "Evocação imediata"
+  },
+  {
+   "chave": "out_O30",
+   "celula": "O30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_P30",
+   "celula": "P30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_Q30",
+   "celula": "Q30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_R30",
+   "celula": "R30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_S30",
+   "celula": "S30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_V30",
+   "celula": "V30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_W30",
+   "celula": "W30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_X30",
+   "celula": "X30",
+   "rotulo": "Evocação tardia:"
+  },
+  {
+   "chave": "out_O31",
+   "celula": "O31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_P31",
+   "celula": "P31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_Q31",
+   "celula": "Q31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_R31",
+   "celula": "R31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_S31",
+   "celula": "S31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_V31",
+   "celula": "V31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_W31",
+   "celula": "W31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_X31",
+   "celula": "X31",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_O32",
+   "celula": "O32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_P32",
+   "celula": "P32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_Q32",
+   "celula": "Q32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_R32",
+   "celula": "R32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_S32",
+   "celula": "S32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_V32",
+   "celula": "V32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_W32",
+   "celula": "W32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_X32",
+   "celula": "X32",
+   "rotulo": "Episódico-semântica visuoverbal - Lista "
+  },
+  {
+   "chave": "out_M33",
+   "celula": "M33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_O33",
+   "celula": "O33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_P33",
+   "celula": "P33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_Q33",
+   "celula": "Q33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_R33",
+   "celula": "R33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_S33",
+   "celula": "S33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_V33",
+   "celula": "V33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_W33",
+   "celula": "W33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_X33",
+   "celula": "X33",
+   "rotulo": "LINGUAGEM:"
+  },
+  {
+   "chave": "out_M34",
+   "celula": "M34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_O34",
+   "celula": "O34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_P34",
+   "celula": "P34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_Q34",
+   "celula": "Q34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_R34",
+   "celula": "R34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_S34",
+   "celula": "S34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_V34",
+   "celula": "V34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_W34",
+   "celula": "W34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_X34",
+   "celula": "X34",
+   "rotulo": "Linguagem Oral:"
+  },
+  {
+   "chave": "out_O35",
+   "celula": "O35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_P35",
+   "celula": "P35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_Q35",
+   "celula": "Q35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_R35",
+   "celula": "R35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_S35",
+   "celula": "S35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_V35",
+   "celula": "V35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_W35",
+   "celula": "W35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_X35",
+   "celula": "X35",
+   "rotulo": "Nomeação:"
+  },
+  {
+   "chave": "out_M36",
+   "celula": "M36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_O36",
+   "celula": "O36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_P36",
+   "celula": "P36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_Q36",
+   "celula": "Q36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_R36",
+   "celula": "R36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_S36",
+   "celula": "S36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_V36",
+   "celula": "V36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_W36",
+   "celula": "W36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_X36",
+   "celula": "X36",
+   "rotulo": "Consciência Fonológica:"
+  },
+  {
+   "chave": "out_O37",
+   "celula": "O37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_P37",
+   "celula": "P37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_Q37",
+   "celula": "Q37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_R37",
+   "celula": "R37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_S37",
+   "celula": "S37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_V37",
+   "celula": "V37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_W37",
+   "celula": "W37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_X37",
+   "celula": "X37",
+   "rotulo": "Rima:"
+  },
+  {
+   "chave": "out_O38",
+   "celula": "O38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_P38",
+   "celula": "P38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_Q38",
+   "celula": "Q38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_R38",
+   "celula": "R38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_S38",
+   "celula": "S38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_V38",
+   "celula": "V38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_W38",
+   "celula": "W38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_X38",
+   "celula": "X38",
+   "rotulo": "Subtração fonêmica:"
+  },
+  {
+   "chave": "out_O39",
+   "celula": "O39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_P39",
+   "celula": "P39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_Q39",
+   "celula": "Q39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_R39",
+   "celula": "R39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_S39",
+   "celula": "S39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_V39",
+   "celula": "V39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_W39",
+   "celula": "W39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_X39",
+   "celula": "X39",
+   "rotulo": "Compreensão Oral:"
+  },
+  {
+   "chave": "out_O40",
+   "celula": "O40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_P40",
+   "celula": "P40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_Q40",
+   "celula": "Q40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_R40",
+   "celula": "R40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_S40",
+   "celula": "S40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_V40",
+   "celula": "V40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_W40",
+   "celula": "W40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_X40",
+   "celula": "X40",
+   "rotulo": "Processamento inferencial:"
+  },
+  {
+   "chave": "out_M41",
+   "celula": "M41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_O41",
+   "celula": "O41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_P41",
+   "celula": "P41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_Q41",
+   "celula": "Q41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_R41",
+   "celula": "R41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_S41",
+   "celula": "S41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_V41",
+   "celula": "V41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_W41",
+   "celula": "W41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_X41",
+   "celula": "X41",
+   "rotulo": "Linguagem Escrita:"
+  },
+  {
+   "chave": "out_M42",
+   "celula": "M42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_O42",
+   "celula": "O42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_P42",
+   "celula": "P42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_Q42",
+   "celula": "Q42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_R42",
+   "celula": "R42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_S42",
+   "celula": "S42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_V42",
+   "celula": "V42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_W42",
+   "celula": "W42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_X42",
+   "celula": "X42",
+   "rotulo": "Leitura em voz alta:"
+  },
+  {
+   "chave": "out_O43",
+   "celula": "O43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_P43",
+   "celula": "P43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_Q43",
+   "celula": "Q43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_R43",
+   "celula": "R43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_S43",
+   "celula": "S43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_V43",
+   "celula": "V43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_W43",
+   "celula": "W43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_X43",
+   "celula": "X43",
+   "rotulo": "Sílabas"
+  },
+  {
+   "chave": "out_O44",
+   "celula": "O44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_P44",
+   "celula": "P44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_Q44",
+   "celula": "Q44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_R44",
+   "celula": "R44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_S44",
+   "celula": "S44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_V44",
+   "celula": "V44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_W44",
+   "celula": "W44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_X44",
+   "celula": "X44",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_O45",
+   "celula": "O45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_P45",
+   "celula": "P45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_Q45",
+   "celula": "Q45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_R45",
+   "celula": "R45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_S45",
+   "celula": "S45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_V45",
+   "celula": "V45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_W45",
+   "celula": "W45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_X45",
+   "celula": "X45",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_O46",
+   "celula": "O46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_P46",
+   "celula": "P46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_Q46",
+   "celula": "Q46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_R46",
+   "celula": "R46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_S46",
+   "celula": "S46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_V46",
+   "celula": "V46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_W46",
+   "celula": "W46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_X46",
+   "celula": "X46",
+   "rotulo": "Compreensão Escrita:"
+  },
+  {
+   "chave": "out_M47",
+   "celula": "M47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_O47",
+   "celula": "O47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_P47",
+   "celula": "P47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_Q47",
+   "celula": "Q47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_R47",
+   "celula": "R47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_S47",
+   "celula": "S47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_V47",
+   "celula": "V47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_W47",
+   "celula": "W47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_X47",
+   "celula": "X47",
+   "rotulo": "Escrita de Palavras e Pseudopalavras:"
+  },
+  {
+   "chave": "out_O48",
+   "celula": "O48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_P48",
+   "celula": "P48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_Q48",
+   "celula": "Q48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_R48",
+   "celula": "R48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_S48",
+   "celula": "S48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_V48",
+   "celula": "V48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_W48",
+   "celula": "W48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_X48",
+   "celula": "X48",
+   "rotulo": "Palavras:"
+  },
+  {
+   "chave": "out_O49",
+   "celula": "O49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_P49",
+   "celula": "P49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_Q49",
+   "celula": "Q49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_R49",
+   "celula": "R49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_S49",
+   "celula": "S49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_V49",
+   "celula": "V49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_W49",
+   "celula": "W49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_X49",
+   "celula": "X49",
+   "rotulo": "Pseudopalavras:"
+  },
+  {
+   "chave": "out_O50",
+   "celula": "O50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_P50",
+   "celula": "P50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_Q50",
+   "celula": "Q50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_R50",
+   "celula": "R50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_S50",
+   "celula": "S50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_V50",
+   "celula": "V50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_W50",
+   "celula": "W50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_X50",
+   "celula": "X50",
+   "rotulo": "Escrita Espontânea:"
+  },
+  {
+   "chave": "out_O51",
+   "celula": "O51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_P51",
+   "celula": "P51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_Q51",
+   "celula": "Q51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_R51",
+   "celula": "R51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_S51",
+   "celula": "S51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_V51",
+   "celula": "V51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_W51",
+   "celula": "W51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_X51",
+   "celula": "X51",
+   "rotulo": "Escrita Copiada:"
+  },
+  {
+   "chave": "out_M52",
+   "celula": "M52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_O52",
+   "celula": "O52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_P52",
+   "celula": "P52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_Q52",
+   "celula": "Q52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_R52",
+   "celula": "R52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_S52",
+   "celula": "S52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_V52",
+   "celula": "V52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_W52",
+   "celula": "W52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_X52",
+   "celula": "X52",
+   "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:"
+  },
+  {
+   "chave": "out_O53",
+   "celula": "O53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_P53",
+   "celula": "P53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_Q53",
+   "celula": "Q53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_R53",
+   "celula": "R53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_S53",
+   "celula": "S53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_V53",
+   "celula": "V53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_W53",
+   "celula": "W53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_X53",
+   "celula": "X53",
+   "rotulo": "Cópia de Figuras - Tempo total de Execuç"
+  },
+  {
+   "chave": "out_O54",
+   "celula": "O54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_P54",
+   "celula": "P54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_Q54",
+   "celula": "Q54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_R54",
+   "celula": "R54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_S54",
+   "celula": "S54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_V54",
+   "celula": "V54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_W54",
+   "celula": "W54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_X54",
+   "celula": "X54",
+   "rotulo": "Quadrado:"
+  },
+  {
+   "chave": "out_O55",
+   "celula": "O55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_P55",
+   "celula": "P55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_Q55",
+   "celula": "Q55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_R55",
+   "celula": "R55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_S55",
+   "celula": "S55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_V55",
+   "celula": "V55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_W55",
+   "celula": "W55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_X55",
+   "celula": "X55",
+   "rotulo": "Losango:"
+  },
+  {
+   "chave": "out_O56",
+   "celula": "O56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_P56",
+   "celula": "P56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_Q56",
+   "celula": "Q56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_R56",
+   "celula": "R56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_S56",
+   "celula": "S56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_V56",
+   "celula": "V56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_W56",
+   "celula": "W56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_X56",
+   "celula": "X56",
+   "rotulo": "Margarida:"
+  },
+  {
+   "chave": "out_O57",
+   "celula": "O57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_P57",
+   "celula": "P57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_Q57",
+   "celula": "Q57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_R57",
+   "celula": "R57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_S57",
+   "celula": "S57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_V57",
+   "celula": "V57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_W57",
+   "celula": "W57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_X57",
+   "celula": "X57",
+   "rotulo": "Figura dupla:"
+  },
+  {
+   "chave": "out_M58",
+   "celula": "M58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_O58",
+   "celula": "O58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_P58",
+   "celula": "P58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_Q58",
+   "celula": "Q58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_R58",
+   "celula": "R58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_S58",
+   "celula": "S58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_V58",
+   "celula": "V58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_W58",
+   "celula": "W58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_X58",
+   "celula": "X58",
+   "rotulo": "HABILIDADES ARITMÉTICAS:"
+  },
+  {
+   "chave": "out_O59",
+   "celula": "O59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_P59",
+   "celula": "P59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_Q59",
+   "celula": "Q59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_R59",
+   "celula": "R59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_S59",
+   "celula": "S59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_V59",
+   "celula": "V59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_W59",
+   "celula": "W59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_X59",
+   "celula": "X59",
+   "rotulo": "Contagem de palitos:"
+  },
+  {
+   "chave": "out_O60",
+   "celula": "O60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_P60",
+   "celula": "P60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_Q60",
+   "celula": "Q60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_R60",
+   "celula": "R60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_S60",
+   "celula": "S60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_V60",
+   "celula": "V60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_W60",
+   "celula": "W60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_X60",
+   "celula": "X60",
+   "rotulo": "Cálculos Matemáticos:"
+  },
+  {
+   "chave": "out_M62",
+   "celula": "M62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_O62",
+   "celula": "O62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_P62",
+   "celula": "P62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_Q62",
+   "celula": "Q62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_R62",
+   "celula": "R62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_S62",
+   "celula": "S62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_V62",
+   "celula": "V62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_W62",
+   "celula": "W62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_X62",
+   "celula": "X62",
+   "rotulo": "Fluência Verbal:"
+  },
+  {
+   "chave": "out_O63",
+   "celula": "O63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_P63",
+   "celula": "P63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_Q63",
+   "celula": "Q63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_R63",
+   "celula": "R63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_S63",
+   "celula": "S63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_V63",
+   "celula": "V63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_W63",
+   "celula": "W63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_X63",
+   "celula": "X63",
+   "rotulo": "Ortográfica:"
+  },
+  {
+   "chave": "out_O64",
+   "celula": "O64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_P64",
+   "celula": "P64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_Q64",
+   "celula": "Q64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_R64",
+   "celula": "R64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_S64",
+   "celula": "S64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_V64",
+   "celula": "V64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_W64",
+   "celula": "W64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_X64",
+   "celula": "X64",
+   "rotulo": "Semântica:"
+  },
+  {
+   "chave": "out_O65",
+   "celula": "O65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_P65",
+   "celula": "P65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_Q65",
+   "celula": "Q65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_R65",
+   "celula": "R65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_S65",
+   "celula": "S65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_V65",
+   "celula": "V65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_W65",
+   "celula": "W65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_X65",
+   "celula": "X65",
+   "rotulo": "Tarefa Go - No Go"
+  },
+  {
+   "chave": "out_I67",
+   "celula": "I67",
+   "rotulo": "1.ORIENTAÇÃO"
+  },
+  {
+   "chave": "out_I68",
+   "celula": "I68",
+   "rotulo": "2. ATENÇÃO"
+  },
+  {
+   "chave": "out_I69",
+   "celula": "I69",
+   "rotulo": "2.1 Atenção Visual - Cancelamento de Fig"
+  },
+  {
+   "chave": "out_I70",
+   "celula": "I70",
+   "rotulo": "2.1.1 Atenção Visual - Cancelamento - Te"
+  },
+  {
+   "chave": "out_I71",
+   "celula": "I71",
+   "rotulo": "2.2 Atenção auditiva - Repetição de sequ"
+  },
+  {
+   "chave": "out_I72",
+   "celula": "I72",
+   "rotulo": "2.2.1 Atenção auditiva - Maior sequência"
+  },
+  {
+   "chave": "out_I73",
+   "celula": "I73",
+   "rotulo": "3. PERCEPÇÃO"
+  },
+  {
+   "chave": "out_I74",
+   "celula": "I74",
+   "rotulo": "3.1 Emoções em faces"
+  },
+  {
+   "chave": "out_I75",
+   "celula": "I75",
+   "rotulo": "3.2 Constância de forma e de objetos"
+  },
+  {
+   "chave": "out_I76",
+   "celula": "I76",
+   "rotulo": "4.MEMÓRIA"
+  },
+  {
+   "chave": "out_I77",
+   "celula": "I77",
+   "rotulo": "4.1 Memória de Trabalho (Operacional)"
+  },
+  {
+   "chave": "out_I78",
+   "celula": "I78",
+   "rotulo": "4,1,1 Componentes Fonológico e executivo"
+  },
+  {
+   "chave": "out_I79",
+   "celula": "I79",
+   "rotulo": "A) Repetição de Dígitos - Ordem inversa"
+  },
+  {
+   "chave": "out_I80",
+   "celula": "I80",
+   "rotulo": "A.1) Maior sequência - Ordem inversa"
+  },
+  {
+   "chave": "out_I81",
+   "celula": "I81",
+   "rotulo": "B) Span de Pseudopalavras"
+  },
+  {
+   "chave": "out_I82",
+   "celula": "I82",
+   "rotulo": "B.1) Maior sequência - Pseudopalavras"
+  },
+  {
+   "chave": "out_I83",
+   "celula": "I83",
+   "rotulo": "4.1.2 Memória de trabalho Visuoespacial "
+  },
+  {
+   "chave": "out_I84",
+   "celula": "I84",
+   "rotulo": "A) Maior sequência - visuoespacial:"
+  },
+  {
+   "chave": "out_I85",
+   "celula": "I85",
+   "rotulo": "4.2 Memória Episódico-semântica verbal"
+  },
+  {
+   "chave": "out_I86",
+   "celula": "I86",
+   "rotulo": "A) Evocação imediata"
+  },
+  {
+   "chave": "out_I87",
+   "celula": "I87",
+   "rotulo": "B) Evocação tardia"
+  },
+  {
+   "chave": "out_I88",
+   "celula": "I88",
+   "rotulo": "4.3 Memória Semântica"
+  },
+  {
+   "chave": "out_I89",
+   "celula": "I89",
+   "rotulo": "4.4 Episódico-semântica visuoverbal - Re"
+  },
+  {
+   "chave": "out_I90",
+   "celula": "I90",
+   "rotulo": "5. LINGUAGEM"
+  },
+  {
+   "chave": "out_I91",
+   "celula": "I91",
+   "rotulo": "5.1 Linguagem Oral"
+  },
+  {
+   "chave": "out_I92",
+   "celula": "I92",
+   "rotulo": "5.1.1 Nomeação"
+  },
+  {
+   "chave": "out_I93",
+   "celula": "I93",
+   "rotulo": "5.1.2 Consciência Fonológica"
+  },
+  {
+   "chave": "out_I94",
+   "celula": "I94",
+   "rotulo": "A) Rima"
+  },
+  {
+   "chave": "out_I95",
+   "celula": "I95",
+   "rotulo": "B) Subtração fonêmica"
+  },
+  {
+   "chave": "out_I96",
+   "celula": "I96",
+   "rotulo": "5.1.3 Compreensão Oral"
+  },
+  {
+   "chave": "out_I97",
+   "celula": "I97",
+   "rotulo": "5.1.4 Processamento inferencial"
+  },
+  {
+   "chave": "out_I98",
+   "celula": "I98",
+   "rotulo": "5.2 Linguagem Escrita"
+  },
+  {
+   "chave": "out_I99",
+   "celula": "I99",
+   "rotulo": "5.2.1 Leitura em voz alta"
+  },
+  {
+   "chave": "out_I100",
+   "celula": "I100",
+   "rotulo": "A) Sílabas"
+  },
+  {
+   "chave": "out_I101",
+   "celula": "I101",
+   "rotulo": "B) Palavras"
+  },
+  {
+   "chave": "out_I102",
+   "celula": "I102",
+   "rotulo": "C) Pseudopalavras"
+  },
+  {
+   "chave": "out_I103",
+   "celula": "I103",
+   "rotulo": "5.2.2 Compreensão Escrita"
+  },
+  {
+   "chave": "out_I104",
+   "celula": "I104",
+   "rotulo": "5.2.3 Escrita de Palavras e Pseudopalavr"
+  },
+  {
+   "chave": "out_I105",
+   "celula": "I105",
+   "rotulo": "A) Palavras"
+  },
+  {
+   "chave": "out_I106",
+   "celula": "I106",
+   "rotulo": "B) Pseudopalavras"
+  },
+  {
+   "chave": "out_I107",
+   "celula": "I107",
+   "rotulo": "5.2.4 Escrita Espontânea"
+  },
+  {
+   "chave": "out_I108",
+   "celula": "I108",
+   "rotulo": "5.2.5 Escrita Copiada"
+  },
+  {
+   "chave": "out_I109",
+   "celula": "I109",
+   "rotulo": "6. HABILIDADES VISUOCONSTRUTIVAS"
+  },
+  {
+   "chave": "out_I110",
+   "celula": "I110",
+   "rotulo": "6.1 Cópia de Figuras - Tempo total de Ex"
+  },
+  {
+   "chave": "out_I111",
+   "celula": "I111",
+   "rotulo": "7. HABILIDADES ARITMÉTICAS"
+  },
+  {
+   "chave": "out_I112",
+   "celula": "I112",
+   "rotulo": "7.1 Contagem de palitos"
+  },
+  {
+   "chave": "out_I113",
+   "celula": "I113",
+   "rotulo": "7.2 Cálculos Matemáticos"
+  },
+  {
+   "chave": "out_I115",
+   "celula": "I115",
+   "rotulo": "8.1 Fluência Verbal"
+  },
+  {
+   "chave": "out_I116",
+   "celula": "I116",
+   "rotulo": "A) Ortográfica"
+  },
+  {
+   "chave": "out_I117",
+   "celula": "I117",
+   "rotulo": "B) Semântica"
+  },
+  {
+   "chave": "out_I118",
+   "celula": "I118",
+   "rotulo": "8.2 Tarefa Go - No Go"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "I",
+    "Pontos Brutos",
+    "%",
+    "Média",
+    "Desvio Padrão",
+    "Z-Score",
+    "Classificação (Manual)",
+    "Ponder.",
+    "Percentil",
+    "Classificação (Guilmette)"
+   ],
+   "linhas": [
+    {
+     "rotulo": "ORIENTAÇÃO:",
+     "valores": [
+      null,
+      null,
+      "out_O10",
+      "out_P10",
+      "out_Q10",
+      "out_R10",
+      "out_S10",
+      "out_V10",
+      "out_W10",
+      "out_X10"
+     ]
+    },
+    {
+     "rotulo": "ATENÇÃO:",
+     "valores": [
+      null,
+      "out_M11",
+      "out_O11",
+      "out_P11",
+      "out_Q11",
+      "out_R11",
+      "out_S11",
+      "out_V11",
+      "out_W11",
+      "out_X11"
+     ]
+    },
+    {
+     "rotulo": "Atenção Visual - Cancelamento de Figuras",
+     "valores": [
+      null,
+      null,
+      "out_O12",
+      "out_P12",
+      "out_Q12",
+      "out_R12",
+      "out_S12",
+      "out_V12",
+      "out_W12",
+      "out_X12"
+     ]
+    },
+    {
+     "rotulo": "Tempo de Execução (seg.):",
+     "valores": [
+      null,
+      null,
+      "out_O13",
+      "out_P13",
+      "out_Q13",
+      "out_R13",
+      "out_S13",
+      "out_V13",
+      "out_W13",
+      "out_X13"
+     ]
+    },
+    {
+     "rotulo": "Atenção auditiva - Repetição de sequênci",
+     "valores": [
+      null,
+      null,
+      "out_O14",
+      "out_P14",
+      "out_Q14",
+      "out_R14",
+      "out_S14",
+      "out_V14",
+      "out_W14",
+      "out_X14"
+     ]
+    },
+    {
+     "rotulo": "Maior sequência respondida corretamente ",
+     "valores": [
+      null,
+      null,
+      "out_O15",
+      "out_P15",
+      "out_Q15",
+      "out_R15",
+      "out_S15",
+      "out_V15",
+      "out_W15",
+      "out_X15"
+     ]
+    },
+    {
+     "rotulo": "PERCEPÇÃO:",
+     "valores": [
+      null,
+      "out_M16",
+      "out_O16",
+      "out_P16",
+      "out_Q16",
+      "out_R16",
+      "out_S16",
+      "out_V16",
+      "out_W16",
+      "out_X16"
+     ]
+    },
+    {
+     "rotulo": "Emoções em faces:",
+     "valores": [
+      null,
+      null,
+      "out_O17",
+      "out_P17",
+      "out_Q17",
+      "out_R17",
+      "out_S17",
+      "out_V17",
+      "out_W17",
+      "out_X17"
+     ]
+    },
+    {
+     "rotulo": "Constância de forma e de objetos:",
+     "valores": [
+      null,
+      null,
+      "out_O18",
+      "out_P18",
+      "out_Q18",
+      "out_R18",
+      "out_S18",
+      "out_V18",
+      "out_W18",
+      "out_X18"
+     ]
+    },
+    {
+     "rotulo": "MEMÓRIA:",
+     "valores": [
+      null,
+      "out_M19",
+      "out_O19",
+      "out_P19",
+      "out_Q19",
+      "out_R19",
+      "out_S19",
+      "out_V19",
+      "out_W19",
+      "out_X19"
+     ]
+    },
+    {
+     "rotulo": "Memória de Trabalho (Operacional):",
+     "valores": [
+      null,
+      "out_M20",
+      "out_O20",
+      "out_P20",
+      "out_Q20",
+      "out_R20",
+      "out_S20",
+      "out_V20",
+      "out_W20",
+      "out_X20"
+     ]
+    },
+    {
+     "rotulo": "Componentes Fonológico e executivo centr",
+     "valores": [
+      null,
+      "out_M21",
+      "out_O21",
+      "out_P21",
+      "out_Q21",
+      "out_R21",
+      "out_S21",
+      "out_V21",
+      "out_W21",
+      "out_X21"
+     ]
+    },
+    {
+     "rotulo": "Repetição de Dígitos - Ordem inversa:",
+     "valores": [
+      null,
+      null,
+      "out_O22",
+      "out_P22",
+      "out_Q22",
+      "out_R22",
+      "out_S22",
+      "out_V22",
+      "out_W22",
+      "out_X22"
+     ]
+    },
+    {
+     "rotulo": "Maior sequência - O.I.:",
+     "valores": [
+      null,
+      null,
+      "out_O23",
+      "out_P23",
+      "out_Q23",
+      "out_R23",
+      "out_S23",
+      "out_V23",
+      "out_W23",
+      "out_X23"
+     ]
+    },
+    {
+     "rotulo": "Span de Pseudopalavras:",
+     "valores": [
+      null,
+      null,
+      "out_O24",
+      "out_P24",
+      "out_Q24",
+      "out_R24",
+      "out_S24",
+      "out_V24",
+      "out_W24",
+      "out_X24"
+     ]
+    },
+    {
+     "rotulo": "Maior sequência - Pseudopalavras",
+     "valores": [
+      null,
+      null,
+      "out_O25",
+      "out_P25",
+      "out_Q25",
+      "out_R25",
+      "out_S25",
+      "out_V25",
+      "out_W25",
+      "out_X25"
+     ]
+    },
+    {
+     "rotulo": "Visuoespacial - (ordem inversa)",
+     "valores": [
+      null,
+      null,
+      "out_O26",
+      "out_P26",
+      "out_Q26",
+      "out_R26",
+      "out_S26",
+      "out_V26",
+      "out_W26",
+      "out_X26"
+     ]
+    },
+    {
+     "rotulo": "Maior sequência - visuoespacial:",
+     "valores": [
+      null,
+      null,
+      "out_O27",
+      "out_P27",
+      "out_Q27",
+      "out_R27",
+      "out_S27",
+      "out_V27",
+      "out_W27",
+      "out_X27"
+     ]
+    },
+    {
+     "rotulo": "Episódico-semântica verbal:",
+     "valores": [
+      null,
+      "out_M28",
+      "out_O28",
+      "out_P28",
+      "out_Q28",
+      "out_R28",
+      "out_S28",
+      "out_V28",
+      "out_W28",
+      "out_X28"
+     ]
+    },
+    {
+     "rotulo": "Evocação imediata",
+     "valores": [
+      null,
+      null,
+      "out_O29",
+      "out_P29",
+      "out_Q29",
+      "out_R29",
+      "out_S29",
+      "out_V29",
+      "out_W29",
+      "out_X29"
+     ]
+    },
+    {
+     "rotulo": "Evocação tardia:",
+     "valores": [
+      null,
+      null,
+      "out_O30",
+      "out_P30",
+      "out_Q30",
+      "out_R30",
+      "out_S30",
+      "out_V30",
+      "out_W30",
+      "out_X30"
+     ]
+    },
+    {
+     "rotulo": "Semântica:",
+     "valores": [
+      null,
+      null,
+      "out_O31",
+      "out_P31",
+      "out_Q31",
+      "out_R31",
+      "out_S31",
+      "out_V31",
+      "out_W31",
+      "out_X31"
+     ]
+    },
+    {
+     "rotulo": "Episódico-semântica visuoverbal - Lista ",
+     "valores": [
+      null,
+      null,
+      "out_O32",
+      "out_P32",
+      "out_Q32",
+      "out_R32",
+      "out_S32",
+      "out_V32",
+      "out_W32",
+      "out_X32"
+     ]
+    },
+    {
+     "rotulo": "LINGUAGEM:",
+     "valores": [
+      null,
+      "out_M33",
+      "out_O33",
+      "out_P33",
+      "out_Q33",
+      "out_R33",
+      "out_S33",
+      "out_V33",
+      "out_W33",
+      "out_X33"
+     ]
+    },
+    {
+     "rotulo": "Linguagem Oral:",
+     "valores": [
+      null,
+      "out_M34",
+      "out_O34",
+      "out_P34",
+      "out_Q34",
+      "out_R34",
+      "out_S34",
+      "out_V34",
+      "out_W34",
+      "out_X34"
+     ]
+    },
+    {
+     "rotulo": "Nomeação:",
+     "valores": [
+      null,
+      null,
+      "out_O35",
+      "out_P35",
+      "out_Q35",
+      "out_R35",
+      "out_S35",
+      "out_V35",
+      "out_W35",
+      "out_X35"
+     ]
+    },
+    {
+     "rotulo": "Consciência Fonológica:",
+     "valores": [
+      null,
+      "out_M36",
+      "out_O36",
+      "out_P36",
+      "out_Q36",
+      "out_R36",
+      "out_S36",
+      "out_V36",
+      "out_W36",
+      "out_X36"
+     ]
+    },
+    {
+     "rotulo": "Rima:",
+     "valores": [
+      null,
+      null,
+      "out_O37",
+      "out_P37",
+      "out_Q37",
+      "out_R37",
+      "out_S37",
+      "out_V37",
+      "out_W37",
+      "out_X37"
+     ]
+    },
+    {
+     "rotulo": "Subtração fonêmica:",
+     "valores": [
+      null,
+      null,
+      "out_O38",
+      "out_P38",
+      "out_Q38",
+      "out_R38",
+      "out_S38",
+      "out_V38",
+      "out_W38",
+      "out_X38"
+     ]
+    },
+    {
+     "rotulo": "Compreensão Oral:",
+     "valores": [
+      null,
+      null,
+      "out_O39",
+      "out_P39",
+      "out_Q39",
+      "out_R39",
+      "out_S39",
+      "out_V39",
+      "out_W39",
+      "out_X39"
+     ]
+    },
+    {
+     "rotulo": "Processamento inferencial:",
+     "valores": [
+      null,
+      null,
+      "out_O40",
+      "out_P40",
+      "out_Q40",
+      "out_R40",
+      "out_S40",
+      "out_V40",
+      "out_W40",
+      "out_X40"
+     ]
+    },
+    {
+     "rotulo": "Linguagem Escrita:",
+     "valores": [
+      null,
+      "out_M41",
+      "out_O41",
+      "out_P41",
+      "out_Q41",
+      "out_R41",
+      "out_S41",
+      "out_V41",
+      "out_W41",
+      "out_X41"
+     ]
+    },
+    {
+     "rotulo": "Leitura em voz alta:",
+     "valores": [
+      null,
+      "out_M42",
+      "out_O42",
+      "out_P42",
+      "out_Q42",
+      "out_R42",
+      "out_S42",
+      "out_V42",
+      "out_W42",
+      "out_X42"
+     ]
+    },
+    {
+     "rotulo": "Sílabas",
+     "valores": [
+      null,
+      null,
+      "out_O43",
+      "out_P43",
+      "out_Q43",
+      "out_R43",
+      "out_S43",
+      "out_V43",
+      "out_W43",
+      "out_X43"
+     ]
+    },
+    {
+     "rotulo": "Palavras:",
+     "valores": [
+      null,
+      null,
+      "out_O44",
+      "out_P44",
+      "out_Q44",
+      "out_R44",
+      "out_S44",
+      "out_V44",
+      "out_W44",
+      "out_X44"
+     ]
+    },
+    {
+     "rotulo": "Pseudopalavras:",
+     "valores": [
+      null,
+      null,
+      "out_O45",
+      "out_P45",
+      "out_Q45",
+      "out_R45",
+      "out_S45",
+      "out_V45",
+      "out_W45",
+      "out_X45"
+     ]
+    },
+    {
+     "rotulo": "Compreensão Escrita:",
+     "valores": [
+      null,
+      null,
+      "out_O46",
+      "out_P46",
+      "out_Q46",
+      "out_R46",
+      "out_S46",
+      "out_V46",
+      "out_W46",
+      "out_X46"
+     ]
+    },
+    {
+     "rotulo": "Escrita de Palavras e Pseudopalavras:",
+     "valores": [
+      null,
+      "out_M47",
+      "out_O47",
+      "out_P47",
+      "out_Q47",
+      "out_R47",
+      "out_S47",
+      "out_V47",
+      "out_W47",
+      "out_X47"
+     ]
+    },
+    {
+     "rotulo": "Palavras:",
+     "valores": [
+      null,
+      null,
+      "out_O48",
+      "out_P48",
+      "out_Q48",
+      "out_R48",
+      "out_S48",
+      "out_V48",
+      "out_W48",
+      "out_X48"
+     ]
+    },
+    {
+     "rotulo": "Pseudopalavras:",
+     "valores": [
+      null,
+      null,
+      "out_O49",
+      "out_P49",
+      "out_Q49",
+      "out_R49",
+      "out_S49",
+      "out_V49",
+      "out_W49",
+      "out_X49"
+     ]
+    },
+    {
+     "rotulo": "Escrita Espontânea:",
+     "valores": [
+      null,
+      null,
+      "out_O50",
+      "out_P50",
+      "out_Q50",
+      "out_R50",
+      "out_S50",
+      "out_V50",
+      "out_W50",
+      "out_X50"
+     ]
+    },
+    {
+     "rotulo": "Escrita Copiada:",
+     "valores": [
+      null,
+      null,
+      "out_O51",
+      "out_P51",
+      "out_Q51",
+      "out_R51",
+      "out_S51",
+      "out_V51",
+      "out_W51",
+      "out_X51"
+     ]
+    },
+    {
+     "rotulo": "HABILIDADES VISUOCONSTRUTIVAS:",
+     "valores": [
+      null,
+      "out_M52",
+      "out_O52",
+      "out_P52",
+      "out_Q52",
+      "out_R52",
+      "out_S52",
+      "out_V52",
+      "out_W52",
+      "out_X52"
+     ]
+    },
+    {
+     "rotulo": "Cópia de Figuras - Tempo total de Execuç",
+     "valores": [
+      null,
+      null,
+      "out_O53",
+      "out_P53",
+      "out_Q53",
+      "out_R53",
+      "out_S53",
+      "out_V53",
+      "out_W53",
+      "out_X53"
+     ]
+    },
+    {
+     "rotulo": "Quadrado:",
+     "valores": [
+      null,
+      null,
+      "out_O54",
+      "out_P54",
+      "out_Q54",
+      "out_R54",
+      "out_S54",
+      "out_V54",
+      "out_W54",
+      "out_X54"
+     ]
+    },
+    {
+     "rotulo": "Losango:",
+     "valores": [
+      null,
+      null,
+      "out_O55",
+      "out_P55",
+      "out_Q55",
+      "out_R55",
+      "out_S55",
+      "out_V55",
+      "out_W55",
+      "out_X55"
+     ]
+    },
+    {
+     "rotulo": "Margarida:",
+     "valores": [
+      null,
+      null,
+      "out_O56",
+      "out_P56",
+      "out_Q56",
+      "out_R56",
+      "out_S56",
+      "out_V56",
+      "out_W56",
+      "out_X56"
+     ]
+    },
+    {
+     "rotulo": "Figura dupla:",
+     "valores": [
+      null,
+      null,
+      "out_O57",
+      "out_P57",
+      "out_Q57",
+      "out_R57",
+      "out_S57",
+      "out_V57",
+      "out_W57",
+      "out_X57"
+     ]
+    },
+    {
+     "rotulo": "HABILIDADES ARITMÉTICAS:",
+     "valores": [
+      null,
+      "out_M58",
+      "out_O58",
+      "out_P58",
+      "out_Q58",
+      "out_R58",
+      "out_S58",
+      "out_V58",
+      "out_W58",
+      "out_X58"
+     ]
+    },
+    {
+     "rotulo": "Contagem de palitos:",
+     "valores": [
+      null,
+      null,
+      "out_O59",
+      "out_P59",
+      "out_Q59",
+      "out_R59",
+      "out_S59",
+      "out_V59",
+      "out_W59",
+      "out_X59"
+     ]
+    },
+    {
+     "rotulo": "Cálculos Matemáticos:",
+     "valores": [
+      null,
+      null,
+      "out_O60",
+      "out_P60",
+      "out_Q60",
+      "out_R60",
+      "out_S60",
+      "out_V60",
+      "out_W60",
+      "out_X60"
+     ]
+    },
+    {
+     "rotulo": "Fluência Verbal:",
+     "valores": [
+      null,
+      "out_M62",
+      "out_O62",
+      "out_P62",
+      "out_Q62",
+      "out_R62",
+      "out_S62",
+      "out_V62",
+      "out_W62",
+      "out_X62"
+     ]
+    },
+    {
+     "rotulo": "Ortográfica:",
+     "valores": [
+      null,
+      null,
+      "out_O63",
+      "out_P63",
+      "out_Q63",
+      "out_R63",
+      "out_S63",
+      "out_V63",
+      "out_W63",
+      "out_X63"
+     ]
+    },
+    {
+     "rotulo": "Semântica:",
+     "valores": [
+      null,
+      null,
+      "out_O64",
+      "out_P64",
+      "out_Q64",
+      "out_R64",
+      "out_S64",
+      "out_V64",
+      "out_W64",
+      "out_X64"
+     ]
+    },
+    {
+     "rotulo": "Tarefa Go - No Go",
+     "valores": [
+      null,
+      null,
+      "out_O65",
+      "out_P65",
+      "out_Q65",
+      "out_R65",
+      "out_S65",
+      "out_V65",
+      "out_W65",
+      "out_X65"
+     ]
+    },
+    {
+     "rotulo": "1.ORIENTAÇÃO",
+     "valores": [
+      "out_I67",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "2. ATENÇÃO",
+     "valores": [
+      "out_I68",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "2.1 Atenção Visual - Cancelamento de Fig",
+     "valores": [
+      "out_I69",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "2.1.1 Atenção Visual - Cancelamento - Te",
+     "valores": [
+      "out_I70",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "2.2 Atenção auditiva - Repetição de sequ",
+     "valores": [
+      "out_I71",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "2.2.1 Atenção auditiva - Maior sequência",
+     "valores": [
+      "out_I72",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "3. PERCEPÇÃO",
+     "valores": [
+      "out_I73",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "3.1 Emoções em faces",
+     "valores": [
+      "out_I74",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "3.2 Constância de forma e de objetos",
+     "valores": [
+      "out_I75",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4.MEMÓRIA",
+     "valores": [
+      "out_I76",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4.1 Memória de Trabalho (Operacional)",
+     "valores": [
+      "out_I77",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4,1,1 Componentes Fonológico e executivo",
+     "valores": [
+      "out_I78",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A) Repetição de Dígitos - Ordem inversa",
+     "valores": [
+      "out_I79",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A.1) Maior sequência - Ordem inversa",
+     "valores": [
+      "out_I80",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B) Span de Pseudopalavras",
+     "valores": [
+      "out_I81",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B.1) Maior sequência - Pseudopalavras",
+     "valores": [
+      "out_I82",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4.1.2 Memória de trabalho Visuoespacial ",
+     "valores": [
+      "out_I83",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A) Maior sequência - visuoespacial:",
+     "valores": [
+      "out_I84",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4.2 Memória Episódico-semântica verbal",
+     "valores": [
+      "out_I85",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A) Evocação imediata",
+     "valores": [
+      "out_I86",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B) Evocação tardia",
+     "valores": [
+      "out_I87",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4.3 Memória Semântica",
+     "valores": [
+      "out_I88",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4.4 Episódico-semântica visuoverbal - Re",
+     "valores": [
+      "out_I89",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5. LINGUAGEM",
+     "valores": [
+      "out_I90",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.1 Linguagem Oral",
+     "valores": [
+      "out_I91",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.1.1 Nomeação",
+     "valores": [
+      "out_I92",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.1.2 Consciência Fonológica",
+     "valores": [
+      "out_I93",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A) Rima",
+     "valores": [
+      "out_I94",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B) Subtração fonêmica",
+     "valores": [
+      "out_I95",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.1.3 Compreensão Oral",
+     "valores": [
+      "out_I96",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.1.4 Processamento inferencial",
+     "valores": [
+      "out_I97",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.2 Linguagem Escrita",
+     "valores": [
+      "out_I98",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.2.1 Leitura em voz alta",
+     "valores": [
+      "out_I99",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A) Sílabas",
+     "valores": [
+      "out_I100",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B) Palavras",
+     "valores": [
+      "out_I101",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "C) Pseudopalavras",
+     "valores": [
+      "out_I102",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.2.2 Compreensão Escrita",
+     "valores": [
+      "out_I103",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.2.3 Escrita de Palavras e Pseudopalavr",
+     "valores": [
+      "out_I104",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A) Palavras",
+     "valores": [
+      "out_I105",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B) Pseudopalavras",
+     "valores": [
+      "out_I106",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.2.4 Escrita Espontânea",
+     "valores": [
+      "out_I107",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5.2.5 Escrita Copiada",
+     "valores": [
+      "out_I108",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "6. HABILIDADES VISUOCONSTRUTIVAS",
+     "valores": [
+      "out_I109",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "6.1 Cópia de Figuras - Tempo total de Ex",
+     "valores": [
+      "out_I110",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "7. HABILIDADES ARITMÉTICAS",
+     "valores": [
+      "out_I111",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "7.1 Contagem de palitos",
+     "valores": [
+      "out_I112",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "7.2 Cálculos Matemáticos",
+     "valores": [
+      "out_I113",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "8.1 Fluência Verbal",
+     "valores": [
+      "out_I115",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "A) Ortográfica",
+     "valores": [
+      "out_I116",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "B) Semântica",
+     "valores": [
+      "out_I117",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "8.2 Tarefa Go - No Go",
+     "valores": [
+      "out_I118",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,652 @@
+{
+ "sigla": "PA",
+ "nome": "PA — Prova de Aritmética",
+ "dominio": "LINGUAGEM_APRENDIZAGEM",
+ "descricao": "Prova de Aritmética: acertos convertidos em percentil e classificação por série. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "Prova de Aritmética (normas conforme planilha da psicóloga).",
+ "aba": "Prova_Aritmética",
+ "idade": [
+  6,
+  17
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "S3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_C9",
+   "celula": "C9",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_F9",
+   "celula": "F9",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_I9",
+   "celula": "I9",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_L9",
+   "celula": "L9",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_O9",
+   "celula": "O9",
+   "rotulo": "8 > 2 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R9",
+   "celula": "R9",
+   "rotulo": "3 + 5 = 8 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U9",
+   "celula": "U9",
+   "rotulo": "7 + 2 = 9 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_X9",
+   "celula": "X9",
+   "rotulo": "1) 12 maçãs — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_C10",
+   "celula": "C10",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_F10",
+   "celula": "F10",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_I10",
+   "celula": "I10",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_L10",
+   "celula": "L10",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_O10",
+   "celula": "O10",
+   "rotulo": "69 < 97 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R10",
+   "celula": "R10",
+   "rotulo": "7 + 4 = 11 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U10",
+   "celula": "U10",
+   "rotulo": "3 + 8 = 11 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_X10",
+   "celula": "X10",
+   "rotulo": "2) 11 livros — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_C11",
+   "celula": "C11",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_F11",
+   "celula": "F11",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_I11",
+   "celula": "I11",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_L11",
+   "celula": "L11",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_O11",
+   "celula": "O11",
+   "rotulo": "731 > 602 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R11",
+   "celula": "R11",
+   "rotulo": "28 + 60 = 88 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U11",
+   "celula": "U11",
+   "rotulo": "46 + 21 = 67 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_X11",
+   "celula": "X11",
+   "rotulo": "3) 60 alunos — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_C12",
+   "celula": "C12",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_F12",
+   "celula": "F12",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_I12",
+   "celula": "I12",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_L12",
+   "celula": "L12",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_O12",
+   "celula": "O12",
+   "rotulo": "136 > 100 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R12",
+   "celula": "R12",
+   "rotulo": "39 + 46 = 85 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U12",
+   "celula": "U12",
+   "rotulo": "65 + 17 = 82 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_X12",
+   "celula": "X12",
+   "rotulo": "4) 4 lápis — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_C13",
+   "celula": "C13",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_F13",
+   "celula": "F13",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_I13",
+   "celula": "I13",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_L13",
+   "celula": "L13",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_O13",
+   "celula": "O13",
+   "rotulo": "Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R13",
+   "celula": "R13",
+   "rotulo": "9 - 4 = 5 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U13",
+   "celula": "U13",
+   "rotulo": "8 - 5 = 3 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R14",
+   "celula": "R14",
+   "rotulo": "12 - 7 = 5 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U14",
+   "celula": "U14",
+   "rotulo": "14 - 9 = 5 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R15",
+   "celula": "R15",
+   "rotulo": "36 - 25 = 11 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U15",
+   "celula": "U15",
+   "rotulo": "36 - 22 = 14 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R16",
+   "celula": "R16",
+   "rotulo": "58 - 29 = 29 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U16",
+   "celula": "U16",
+   "rotulo": "61 - 53 = 8 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R17",
+   "celula": "R17",
+   "rotulo": "4 x 2 = 8 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U17",
+   "celula": "U17",
+   "rotulo": "3 x 2 = 6 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R18",
+   "celula": "R18",
+   "rotulo": "30 x 3 = 90 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U18",
+   "celula": "U18",
+   "rotulo": "21 x 4 = 84 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R19",
+   "celula": "R19",
+   "rotulo": "46 x 2 = 92 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U19",
+   "celula": "U19",
+   "rotulo": "18 x 5 = 90 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R20",
+   "celula": "R20",
+   "rotulo": "26 x 14 = 364 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_U20",
+   "celula": "U20",
+   "rotulo": "45 x 26 = 1.170 — Pontos 1 = certo 0 = errado",
+   "min": 0
+  },
+  {
+   "chave": "in_R21",
+   "celula": "R21",
+   "rotulo": "9 : 3 = 3",
+   "min": 0
+  },
+  {
+   "chave": "in_U21",
+   "celula": "U21",
+   "rotulo": "8 : 4 = 2",
+   "min": 0
+  },
+  {
+   "chave": "in_R22",
+   "celula": "R22",
+   "rotulo": "48 : 4 = 12",
+   "min": 0
+  },
+  {
+   "chave": "in_U22",
+   "celula": "U22",
+   "rotulo": "36 : 2 = 18",
+   "min": 0
+  },
+  {
+   "chave": "in_R23",
+   "celula": "R23",
+   "rotulo": "42 : 3 = 14",
+   "min": 0
+  },
+  {
+   "chave": "in_U23",
+   "celula": "U23",
+   "rotulo": "52 : 4 = 13",
+   "min": 0
+  },
+  {
+   "chave": "in_R24",
+   "celula": "R24",
+   "rotulo": "90 : 15 = 6",
+   "min": 0
+  },
+  {
+   "chave": "in_U24",
+   "celula": "U24",
+   "rotulo": "60 : 12 = 5",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_X13",
+   "celula": "X13",
+   "rotulo": "Total 6 — Pontos 1 = certo 0 = errado"
+  },
+  {
+   "chave": "out_C14",
+   "celula": "C14",
+   "rotulo": "Total 1A — Pontos 1 = certo 0 = errado"
+  },
+  {
+   "chave": "out_F14",
+   "celula": "F14",
+   "rotulo": "Total 1B — Pontos 1 = certo 0 = errado"
+  },
+  {
+   "chave": "out_I14",
+   "celula": "I14",
+   "rotulo": "Total 2A — Pontos 1 = certo 0 = errado"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "Total 2B — Pontos 1 = certo 0 = errado"
+  },
+  {
+   "chave": "out_O14",
+   "celula": "O14",
+   "rotulo": "Total 3 — Pontos 1 = certo 0 = errado"
+  },
+  {
+   "chave": "out_F19",
+   "celula": "F19",
+   "rotulo": "Pontuação Total — Pontos Brutos"
+  },
+  {
+   "chave": "out_G19",
+   "celula": "G19",
+   "rotulo": "Pontuação Total — Pontuação Padrão"
+  },
+  {
+   "chave": "out_I19",
+   "celula": "I19",
+   "rotulo": "Pontuação Total — Classificação"
+  },
+  {
+   "chave": "out_K19",
+   "celula": "K19",
+   "rotulo": "Pontuação Total — Ponder"
+  },
+  {
+   "chave": "out_L19",
+   "celula": "L19",
+   "rotulo": "Pontuação Total — z-Score"
+  },
+  {
+   "chave": "out_M19",
+   "celula": "M19",
+   "rotulo": "Pontuação Total — Percent"
+  },
+  {
+   "chave": "out_O19",
+   "celula": "O19",
+   "rotulo": "Pontuação Total — Classific"
+  },
+  {
+   "chave": "out_F20",
+   "celula": "F20",
+   "rotulo": "Fator Processamento Numérico — Pontos Brutos"
+  },
+  {
+   "chave": "out_G20",
+   "celula": "G20",
+   "rotulo": "Fator Processamento Numérico — Pontuação Padrão"
+  },
+  {
+   "chave": "out_I20",
+   "celula": "I20",
+   "rotulo": "Fator Processamento Numérico — Classificação"
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "Fator Processamento Numérico — Ponder"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Fator Processamento Numérico — z-Score"
+  },
+  {
+   "chave": "out_M20",
+   "celula": "M20",
+   "rotulo": "Fator Processamento Numérico — Percent"
+  },
+  {
+   "chave": "out_O20",
+   "celula": "O20",
+   "rotulo": "Fator Processamento Numérico — Classific"
+  },
+  {
+   "chave": "out_F21",
+   "celula": "F21",
+   "rotulo": "Fator Cálculo — Pontos Brutos"
+  },
+  {
+   "chave": "out_G21",
+   "celula": "G21",
+   "rotulo": "Fator Cálculo — Pontuação Padrão"
+  },
+  {
+   "chave": "out_I21",
+   "celula": "I21",
+   "rotulo": "Fator Cálculo — Classificação"
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "Fator Cálculo — Ponder"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "Fator Cálculo — z-Score"
+  },
+  {
+   "chave": "out_M21",
+   "celula": "M21",
+   "rotulo": "Fator Cálculo — Percent"
+  },
+  {
+   "chave": "out_O21",
+   "celula": "O21",
+   "rotulo": "Fator Cálculo — Classific"
+  },
+  {
+   "chave": "out_R25",
+   "celula": "R25",
+   "rotulo": "Total 4"
+  },
+  {
+   "chave": "out_U25",
+   "celula": "U25",
+   "rotulo": "Total 5"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Pontos 1 = certo 0 = errado",
+    "Pontos 1 = certo 0 = errado",
+    "Pontuação Padrão",
+    "Pontos 1 = certo 0 = errado",
+    "Ponder",
+    "Pontos 1 = certo 0 = errado",
+    "Percent",
+    "Pontos 1 = certo 0 = errado",
+    "R",
+    "U",
+    "Pontos 1 = certo 0 = errado"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Total 6",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_X13"
+     ]
+    },
+    {
+     "rotulo": "Total 1A",
+     "valores": [
+      "out_C14",
+      "out_F14",
+      null,
+      "out_I14",
+      null,
+      "out_L14",
+      null,
+      "out_O14",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação Total",
+     "valores": [
+      null,
+      "out_F19",
+      "out_G19",
+      "out_I19",
+      "out_K19",
+      "out_L19",
+      "out_M19",
+      "out_O19",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator Processamento Numérico",
+     "valores": [
+      null,
+      "out_F20",
+      "out_G20",
+      "out_I20",
+      "out_K20",
+      "out_L20",
+      "out_M20",
+      "out_O20",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator Cálculo",
+     "valores": [
+      null,
+      "out_F21",
+      "out_G21",
+      "out_I21",
+      "out_K21",
+      "out_L21",
+      "out_M21",
+      "out_O21",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total 4",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R25",
+      "out_U25",
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,280 @@
+{
+ "sigla": "NOMEACAO",
+ "nome": "Nomeação (Seabra)",
+ "dominio": "LINGUAGEM_APRENDIZAGEM",
+ "descricao": "Nomeação automática rápida: tempo e erros convertidos em Z, ponderado, percentil e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "SEABRA, A. G.; DIAS, N. M. Avaliação neuropsicológica cognitiva: linguagem oral (normas conforme planilha da psicóloga).",
+ "aba": "NOMEAÇÃO",
+ "idade": [
+  5,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_J3",
+   "celula": "J3",
+   "rotulo": "Escolaridade (anos):",
+   "min": 0
+  },
+  {
+   "chave": "in_C11",
+   "celula": "C11",
+   "rotulo": "Pontuação Total — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_C17",
+   "celula": "C17",
+   "rotulo": "Pontuação Total — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_C23",
+   "celula": "C23",
+   "rotulo": "Pontuação Total — Pontos Brutos",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_N5",
+   "celula": "N5",
+   "rotulo": "Idade Cronológica:"
+  },
+  {
+   "chave": "out_N6",
+   "celula": "N6",
+   "rotulo": "Idade para cálculo:"
+  },
+  {
+   "chave": "out_D11",
+   "celula": "D11",
+   "rotulo": "Pontuação Total — Pontuação Padrão"
+  },
+  {
+   "chave": "out_F11",
+   "celula": "F11",
+   "rotulo": "Pontuação Total — Classificação Manual"
+  },
+  {
+   "chave": "out_H11",
+   "celula": "H11",
+   "rotulo": "Pontuação Total — z-Score"
+  },
+  {
+   "chave": "out_I11",
+   "celula": "I11",
+   "rotulo": "Pontuação Total — Ponder"
+  },
+  {
+   "chave": "out_J11",
+   "celula": "J11",
+   "rotulo": "Pontuação Total — Percentil"
+  },
+  {
+   "chave": "out_L11",
+   "celula": "L11",
+   "rotulo": "Pontuação Total — Classificação (Sistema Wechsler)"
+  },
+  {
+   "chave": "out_N11",
+   "celula": "N11",
+   "rotulo": "Pontuação Total — Classificação (Sistema Heaton)"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "Boston Name Testing - Original — Classificação (Sistema Wechsler)"
+  },
+  {
+   "chave": "out_D17",
+   "celula": "D17",
+   "rotulo": "Pontuação Total — Média"
+  },
+  {
+   "chave": "out_E17",
+   "celula": "E17",
+   "rotulo": "Pontuação Total — Desv. Pad"
+  },
+  {
+   "chave": "out_F17",
+   "celula": "F17",
+   "rotulo": "Pontuação Total — z-Score"
+  },
+  {
+   "chave": "out_G17",
+   "celula": "G17",
+   "rotulo": "Pontuação Total — Ponder"
+  },
+  {
+   "chave": "out_H17",
+   "celula": "H17",
+   "rotulo": "Pontuação Total — Percent"
+  },
+  {
+   "chave": "out_I17",
+   "celula": "I17",
+   "rotulo": "Pontuação Total — Classificação (Sistema Wechsler)"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Boston Name Testing - Adaptado — Classificação (Sistema Wechsler)"
+  },
+  {
+   "chave": "out_D23",
+   "celula": "D23",
+   "rotulo": "Pontuação Total — Média"
+  },
+  {
+   "chave": "out_E23",
+   "celula": "E23",
+   "rotulo": "Pontuação Total — Desv. Pad"
+  },
+  {
+   "chave": "out_F23",
+   "celula": "F23",
+   "rotulo": "Pontuação Total — z-Score"
+  },
+  {
+   "chave": "out_G23",
+   "celula": "G23",
+   "rotulo": "Pontuação Total — Ponder"
+  },
+  {
+   "chave": "out_H23",
+   "celula": "H23",
+   "rotulo": "Pontuação Total — Percent"
+  },
+  {
+   "chave": "out_I23",
+   "celula": "I23",
+   "rotulo": "Pontuação Total — Classificação (Sistema Wechsler)"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Pontuação Padrão",
+    "Desv. Pad",
+    "Classificação Manual",
+    "Ponder",
+    "z-Score",
+    "Ponder",
+    "Percentil",
+    "Classificação (Sistema Wechsler)",
+    "N"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Idade Cronológica:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_N5"
+     ]
+    },
+    {
+     "rotulo": "Idade para cálculo:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_N6"
+     ]
+    },
+    {
+     "rotulo": "Pontuação Total",
+     "valores": [
+      "out_D11",
+      null,
+      "out_F11",
+      null,
+      "out_H11",
+      "out_I11",
+      "out_J11",
+      "out_L11",
+      "out_N11"
+     ]
+    },
+    {
+     "rotulo": "Boston Name Testing - Original",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L14",
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação Total",
+     "valores": [
+      "out_D17",
+      "out_E17",
+      "out_F17",
+      "out_G17",
+      "out_H17",
+      "out_I17",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Boston Name Testing - Adaptado",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_L20",
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação Total",
+     "valores": [
+      "out_D23",
+      "out_E23",
+      "out_F23",
+      "out_G23",
+      "out_H23",
+      "out_I23",
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

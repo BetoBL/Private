@@ -1,0 +1,288 @@
+{
+ "sigla": "BVMT-R",
+ "nome": "BVMT-R — Teste Breve de Memória Visuoespacial Revisado",
+ "dominio": "MEMORIA",
+ "descricao": "Memória visuoespacial (BVMT-R): tentativas de aprendizagem, evocação tardia e reconhecimento convertidos em escores T/percentil/classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "BENEDICT, R. H. B. Brief Visuospatial Memory Test – Revised (normas conforme planilha da psicóloga).",
+ "aba": "BVMT-R",
+ "idade": [
+  18,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "V3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_D15",
+   "celula": "D15",
+   "rotulo": "T1",
+   "min": 0
+  },
+  {
+   "chave": "in_E15",
+   "celula": "E15",
+   "rotulo": "T2",
+   "min": 0
+  },
+  {
+   "chave": "in_F15",
+   "celula": "F15",
+   "rotulo": "T3",
+   "min": 0
+  },
+  {
+   "chave": "in_D19",
+   "celula": "D19",
+   "rotulo": "TOTAL",
+   "min": 0
+  },
+  {
+   "chave": "in_D23",
+   "celula": "D23",
+   "rotulo": "TOTAL",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_P5",
+   "celula": "P5",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "1 - 4",
+    "5 - 8",
+    "9 - 11",
+    "≥ 12"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_G15",
+   "celula": "G15",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_I15",
+   "celula": "I15",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_M15",
+   "celula": "M15",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_O15",
+   "celula": "O15",
+   "rotulo": "Pts Ponder."
+  },
+  {
+   "chave": "out_Q15",
+   "celula": "Q15",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_S15",
+   "celula": "S15",
+   "rotulo": "* Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_V15",
+   "celula": "V15",
+   "rotulo": "Amostra (n)"
+  },
+  {
+   "chave": "out_I19",
+   "celula": "I19",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_K19",
+   "celula": "K19",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_M19",
+   "celula": "M19",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_O19",
+   "celula": "O19",
+   "rotulo": "Pts Ponder."
+  },
+  {
+   "chave": "out_Q19",
+   "celula": "Q19",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_S19",
+   "celula": "S19",
+   "rotulo": "* Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_V19",
+   "celula": "V19",
+   "rotulo": "Amostra (n)"
+  },
+  {
+   "chave": "out_I23",
+   "celula": "I23",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_K23",
+   "celula": "K23",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_M23",
+   "celula": "M23",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_O23",
+   "celula": "O23",
+   "rotulo": "Pts Ponder."
+  },
+  {
+   "chave": "out_Q23",
+   "celula": "Q23",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_S23",
+   "celula": "S23",
+   "rotulo": "* Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_V23",
+   "celula": "V23",
+   "rotulo": "Amostra (n)"
+  },
+  {
+   "chave": "out_I30",
+   "celula": "I30",
+   "rotulo": "Evocação Imediata — Média"
+  },
+  {
+   "chave": "out_I31",
+   "celula": "I31",
+   "rotulo": "Evocação tardia — Média"
+  },
+  {
+   "chave": "out_I32",
+   "celula": "I32",
+   "rotulo": "Reconhecimento — Média"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "TOTAL",
+    "Média",
+    "Desvio Padrão",
+    "Z-Score",
+    "Pts Ponder.",
+    "Percentil",
+    "* Classificação (Guilmette)",
+    "Amostra (n)"
+   ],
+   "linhas": [
+    {
+     "rotulo": "15",
+     "valores": [
+      "out_G15",
+      "out_I15",
+      "out_K15",
+      "out_M15",
+      "out_O15",
+      "out_Q15",
+      "out_S15",
+      "out_V15"
+     ]
+    },
+    {
+     "rotulo": "19",
+     "valores": [
+      null,
+      "out_I19",
+      "out_K19",
+      "out_M19",
+      "out_O19",
+      "out_Q19",
+      "out_S19",
+      "out_V19"
+     ]
+    },
+    {
+     "rotulo": "23",
+     "valores": [
+      null,
+      "out_I23",
+      "out_K23",
+      "out_M23",
+      "out_O23",
+      "out_Q23",
+      "out_S23",
+      "out_V23"
+     ]
+    },
+    {
+     "rotulo": "Evocação Imediata",
+     "valores": [
+      null,
+      "out_I30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Evocação tardia",
+     "valores": [
+      null,
+      "out_I31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Reconhecimento",
+     "valores": [
+      null,
+      "out_I32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

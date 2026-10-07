@@ -16,6 +16,7 @@ export interface TesteSeedPlanilha {
   referenciaBibliografica: string;
   isPlaceholder: false;
   direcao: "MAIOR_MELHOR";
+  instrumento?: string;
   tabelasNormativas: Array<{ criterio: string; faixaMin: number; faixaMax: number; conversao: Record<string, unknown> }>;
 }
 
@@ -42,6 +43,8 @@ export function carregarTestesPlanilha(): TesteSeedPlanilha[] {
         referenciaBibliografica: referencia ?? "",
         isPlaceholder: false as const,
         direcao: "MAIOR_MELHOR" as const,
+        // formulários do mesmo instrumento (informantes diferentes) compartilham a chave de instrumento
+        ...(String(def.sigla).startsWith("VINELAND3-") ? { instrumento: "VINELAND3" } : {}),
         tabelasNormativas: [{ criterio: "geral", faixaMin: idade[0], faixaMax: idade[1], conversao: def }],
       };
     });

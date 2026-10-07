@@ -301,3 +301,8 @@
 - Novo: lib/planilha/motor.ts (tipo de conversão "planilha", ResultadoCalculado modo "planilha"), scripts/construir-teste-planilha.ts, scripts/mapear-aba.mjs, prisma/planilhas-seed.ts, TestePlanilha.tsx (tela genérica), docs/testes/planilha/LEIAME.md.
 - API: conversões de tabela normativa ficam em cache na memória (o cálculo ao vivo não relê centenas de KB a cada tecla); nome/sexo/escolaridade do paciente chegam ao motor.
 - Piloto: D2-R (36 entradas, 41 saídas, 291 KB). atualizar-wechsler.ts agora cria/atualiza também os testes de planilha.
+
+## 07/10/2026 (noite) — 45 testes pelo motor de planilha (local; NÃO publicados)
+- Lotes (docs/testes/planilha/lotes): 2 = AC, AC-15, Corsi, TOL, TFV, Go/No-Go, Fig. Rey; 3 = BVMT-R, HVLT-R, Hayling, PED-VR, PROLEC, THCP, TDE-II, Nomeação, PA, Token, 7Fig-7Pal, Wisconsin; 4 = BAMS, BDEFS, E-TDAH (AD, CriAd, 2), IEP, QEDP, SDQ, SNAP-IV, EPQ-J; 5 = BRIEF-P, CBCL, CBCL-Pre, Neupsilin-Inf, NEPSY-II, Pfister, PEP-R, Vineland-3 (6 formas); + D2-R, Stroop e Trilhas (specs manuais). Total: 45 testes (~30 MB de definições).
+- Ferramentas: scripts/rascunho-spec-planilha.mjs (rascunho automático de spec), scripts/lote-planilha.mjs (rascunho + construção + fumaça em lote), construir-teste-planilha.ts mais rápido (índice por endereço) e sem dado de paciente/profissional nas definições (valores em cache zerados; ID-Usuário excluída).
+- Varredura ponta a ponta no banco local: todos respondem 200 em < 250 ms. Os specs são RASCUNHOS automáticos: rótulos, agrupamento e tabelas de resultado precisam de revisão por teste (principalmente questionários grandes) e validação com casos reais da Leticia.

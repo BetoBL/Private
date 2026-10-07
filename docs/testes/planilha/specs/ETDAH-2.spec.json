@@ -1,0 +1,6079 @@
+{
+ "sigla": "ETDAH-2",
+ "nome": "E-TDAH — Professores",
+ "dominio": "RASTREIO_TDAH",
+ "descricao": "Escala de TDAH respondida por professores: respostas aos itens somadas por fator e convertidas em escore T/percentil/classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "BENCZIK, E. B. P. E-TDAH (normas conforme planilha da psicóloga).",
+ "aba": "ETDAH-2",
+ "idade": [
+  6,
+  17
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "M3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_J12",
+   "celula": "J12",
+   "rotulo": "Disciplina: — 1",
+   "min": 0
+  },
+  {
+   "chave": "in_J13",
+   "celula": "J13",
+   "rotulo": "Disciplina: — 1",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_Q3",
+   "celula": "Q3",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "Amostra Geral",
+    "Tipo de Escola"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J9",
+   "celula": "J9",
+   "rotulo": "J9",
+   "valores": [
+    "Sim"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H17",
+   "celula": "H17",
+   "rotulo": "É organizado (a) em suas lições de classe.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I17",
+   "celula": "I17",
+   "rotulo": "É organizado (a) em suas lições de classe.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J17",
+   "celula": "J17",
+   "rotulo": "1",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H18",
+   "celula": "H18",
+   "rotulo": "Dá respostas claras e coerentes ao professor.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I18",
+   "celula": "I18",
+   "rotulo": "Dá respostas claras e coerentes ao professor.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J18",
+   "celula": "J18",
+   "rotulo": "J18",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H19",
+   "celula": "H19",
+   "rotulo": "Segue o ritmo da classe.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I19",
+   "celula": "I19",
+   "rotulo": "Segue o ritmo da classe.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J19",
+   "celula": "J19",
+   "rotulo": "J19",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H20",
+   "celula": "H20",
+   "rotulo": "É atento (a) nas lições do caderno.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I20",
+   "celula": "I20",
+   "rotulo": "É atento (a) nas lições do caderno.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J20",
+   "celula": "J20",
+   "rotulo": "J20",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H21",
+   "celula": "H21",
+   "rotulo": "É responsável com o seu material escolar.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I21",
+   "celula": "I21",
+   "rotulo": "É responsável com o seu material escolar.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J21",
+   "celula": "J21",
+   "rotulo": "J21",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H22",
+   "celula": "H22",
+   "rotulo": "Sabe trabalhar independente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I22",
+   "celula": "I22",
+   "rotulo": "Sabe trabalhar independente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J22",
+   "celula": "J22",
+   "rotulo": "J22",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H23",
+   "celula": "H23",
+   "rotulo": "É meticuloso (a) nas atividades (é detalhista, faz",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I23",
+   "celula": "I23",
+   "rotulo": "É meticuloso (a) nas atividades (é detalhista, faz",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J23",
+   "celula": "J23",
+   "rotulo": "J23",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H24",
+   "celula": "H24",
+   "rotulo": "Fica atento (a) durante as explicações do professo",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I24",
+   "celula": "I24",
+   "rotulo": "Fica atento (a) durante as explicações do professo",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J24",
+   "celula": "J24",
+   "rotulo": "J24",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H25",
+   "celula": "H25",
+   "rotulo": "Consegue prestar atenção à uma mesma coisa durante",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I25",
+   "celula": "I25",
+   "rotulo": "Consegue prestar atenção à uma mesma coisa durante",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J25",
+   "celula": "J25",
+   "rotulo": "J25",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H26",
+   "celula": "H26",
+   "rotulo": "Perde e esquece objetos (livros, cadernos, lápis, ",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I26",
+   "celula": "I26",
+   "rotulo": "Perde e esquece objetos (livros, cadernos, lápis, ",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J26",
+   "celula": "J26",
+   "rotulo": "J26",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H27",
+   "celula": "H27",
+   "rotulo": "Distrai-se facilmente por barulhos em sala de aula",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I27",
+   "celula": "I27",
+   "rotulo": "Distrai-se facilmente por barulhos em sala de aula",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J27",
+   "celula": "J27",
+   "rotulo": "J27",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H28",
+   "celula": "H28",
+   "rotulo": "Nunca termina o que começa.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I28",
+   "celula": "I28",
+   "rotulo": "Nunca termina o que começa.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J28",
+   "celula": "J28",
+   "rotulo": "J28",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H29",
+   "celula": "H29",
+   "rotulo": "Passa de uma atividade incompleta para outra.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I29",
+   "celula": "I29",
+   "rotulo": "Passa de uma atividade incompleta para outra.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J29",
+   "celula": "J29",
+   "rotulo": "J29",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H30",
+   "celula": "H30",
+   "rotulo": "Tem dificuldade para concentrar-se",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I30",
+   "celula": "I30",
+   "rotulo": "Tem dificuldade para concentrar-se",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J30",
+   "celula": "J30",
+   "rotulo": "J30",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H31",
+   "celula": "H31",
+   "rotulo": "Esquece muito rápido o que acabou de ser dito",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I31",
+   "celula": "I31",
+   "rotulo": "Esquece muito rápido o que acabou de ser dito",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J31",
+   "celula": "J31",
+   "rotulo": "J31",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H37",
+   "celula": "H37",
+   "rotulo": "Mexe-se e contorce-se na cadeira.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I37",
+   "celula": "I37",
+   "rotulo": "Mexe-se e contorce-se na cadeira.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J37",
+   "celula": "J37",
+   "rotulo": "J37",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H38",
+   "celula": "H38",
+   "rotulo": "Age sem pensar (é impulsivo).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I38",
+   "celula": "I38",
+   "rotulo": "Age sem pensar (é impulsivo).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J38",
+   "celula": "J38",
+   "rotulo": "J38",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H39",
+   "celula": "H39",
+   "rotulo": "Parece estar sempre “a todo vapor” ou “ligado como",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I39",
+   "celula": "I39",
+   "rotulo": "Parece estar sempre “a todo vapor” ou “ligado como",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J39",
+   "celula": "J39",
+   "rotulo": "J39",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H40",
+   "celula": "H40",
+   "rotulo": "Mexe mãos e pés constantemente (é inquieto).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I40",
+   "celula": "I40",
+   "rotulo": "Mexe mãos e pés constantemente (é inquieto).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J40",
+   "celula": "J40",
+   "rotulo": "J40",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H41",
+   "celula": "H41",
+   "rotulo": "Levanta-se frequentemente da cadeira.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I41",
+   "celula": "I41",
+   "rotulo": "Levanta-se frequentemente da cadeira.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J41",
+   "celula": "J41",
+   "rotulo": "J41",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H42",
+   "celula": "H42",
+   "rotulo": "Atrapalha o professor com barulhos diferentes.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I42",
+   "celula": "I42",
+   "rotulo": "Atrapalha o professor com barulhos diferentes.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J42",
+   "celula": "J42",
+   "rotulo": "J42",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H43",
+   "celula": "H43",
+   "rotulo": "Age imprudentemente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I43",
+   "celula": "I43",
+   "rotulo": "Age imprudentemente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J43",
+   "celula": "J43",
+   "rotulo": "J43",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H44",
+   "celula": "H44",
+   "rotulo": "Tem sempre muita pressa.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I44",
+   "celula": "I44",
+   "rotulo": "Tem sempre muita pressa.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J44",
+   "celula": "J44",
+   "rotulo": "J44",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H45",
+   "celula": "H45",
+   "rotulo": "Muda muito de lugar e de postura.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I45",
+   "celula": "I45",
+   "rotulo": "Muda muito de lugar e de postura.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J45",
+   "celula": "J45",
+   "rotulo": "J45",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H46",
+   "celula": "H46",
+   "rotulo": "Fala pouco.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I46",
+   "celula": "I46",
+   "rotulo": "Fala pouco.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J46",
+   "celula": "J46",
+   "rotulo": "J46",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H47",
+   "celula": "H47",
+   "rotulo": "É paciente (sabe aguardar sua vez).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I47",
+   "celula": "I47",
+   "rotulo": "É paciente (sabe aguardar sua vez).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J47",
+   "celula": "J47",
+   "rotulo": "J47",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H48",
+   "celula": "H48",
+   "rotulo": "Parece ser um(a) estudante tranquilo(a) e sossegad",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I48",
+   "celula": "I48",
+   "rotulo": "Parece ser um(a) estudante tranquilo(a) e sossegad",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J48",
+   "celula": "J48",
+   "rotulo": "J48",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H54",
+   "celula": "H54",
+   "rotulo": "Não rende de acordo com o esperado em Português.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I54",
+   "celula": "I54",
+   "rotulo": "Não rende de acordo com o esperado em Português.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J54",
+   "celula": "J54",
+   "rotulo": "J54",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H55",
+   "celula": "H55",
+   "rotulo": "Tem dificuldades para aprender problemas de matemá",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I55",
+   "celula": "I55",
+   "rotulo": "Tem dificuldades para aprender problemas de matemá",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J55",
+   "celula": "J55",
+   "rotulo": "J55",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H56",
+   "celula": "H56",
+   "rotulo": "Tem dificuldades para expressar verbalmente seus p",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I56",
+   "celula": "I56",
+   "rotulo": "Tem dificuldades para expressar verbalmente seus p",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J56",
+   "celula": "J56",
+   "rotulo": "J56",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H57",
+   "celula": "H57",
+   "rotulo": "Seu raciocínio lógico é lento.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I57",
+   "celula": "I57",
+   "rotulo": "Seu raciocínio lógico é lento.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J57",
+   "celula": "J57",
+   "rotulo": "J57",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H58",
+   "celula": "H58",
+   "rotulo": "Troca letras ao escrever.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I58",
+   "celula": "I58",
+   "rotulo": "Troca letras ao escrever.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J58",
+   "celula": "J58",
+   "rotulo": "J58",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H59",
+   "celula": "H59",
+   "rotulo": "Sua caligrafia é desleixada.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I59",
+   "celula": "I59",
+   "rotulo": "Sua caligrafia é desleixada.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J59",
+   "celula": "J59",
+   "rotulo": "J59",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H60",
+   "celula": "H60",
+   "rotulo": "Gosta de fazer exercícios de matemática",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I60",
+   "celula": "I60",
+   "rotulo": "Gosta de fazer exercícios de matemática",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J60",
+   "celula": "J60",
+   "rotulo": "J60",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H61",
+   "celula": "H61",
+   "rotulo": "Escreve sem erros.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I61",
+   "celula": "I61",
+   "rotulo": "Escreve sem erros.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J61",
+   "celula": "J61",
+   "rotulo": "J61",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H62",
+   "celula": "H62",
+   "rotulo": "Lê perfeitamente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I62",
+   "celula": "I62",
+   "rotulo": "Lê perfeitamente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J62",
+   "celula": "J62",
+   "rotulo": "J62",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H63",
+   "celula": "H63",
+   "rotulo": "É rápido para fazer cálculos.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I63",
+   "celula": "I63",
+   "rotulo": "É rápido para fazer cálculos.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J63",
+   "celula": "J63",
+   "rotulo": "J63",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H64",
+   "celula": "H64",
+   "rotulo": "Compreende textos corretamente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I64",
+   "celula": "I64",
+   "rotulo": "Compreende textos corretamente.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J64",
+   "celula": "J64",
+   "rotulo": "J64",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H65",
+   "celula": "H65",
+   "rotulo": "Domina soma, subtração, multiplicação e divisão.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I65",
+   "celula": "I65",
+   "rotulo": "Domina soma, subtração, multiplicação e divisão.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J65",
+   "celula": "J65",
+   "rotulo": "J65",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H66",
+   "celula": "H66",
+   "rotulo": "Fala com perfeição.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I66",
+   "celula": "I66",
+   "rotulo": "Fala com perfeição.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J66",
+   "celula": "J66",
+   "rotulo": "J66",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H72",
+   "celula": "H72",
+   "rotulo": "Os Colegas de classe o (a) evitam.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I72",
+   "celula": "I72",
+   "rotulo": "Os Colegas de classe o (a) evitam.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J72",
+   "celula": "J72",
+   "rotulo": "J72",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H73",
+   "celula": "H73",
+   "rotulo": "Irrita outros alunos com suas palhaçadas.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I73",
+   "celula": "I73",
+   "rotulo": "Irrita outros alunos com suas palhaçadas.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J73",
+   "celula": "J73",
+   "rotulo": "J73",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H74",
+   "celula": "H74",
+   "rotulo": "É briguento (a).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I74",
+   "celula": "I74",
+   "rotulo": "É briguento (a).",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J74",
+   "celula": "J74",
+   "rotulo": "J74",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H75",
+   "celula": "H75",
+   "rotulo": "Causa confusão em sala de aula.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I75",
+   "celula": "I75",
+   "rotulo": "Causa confusão em sala de aula.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J75",
+   "celula": "J75",
+   "rotulo": "J75",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H76",
+   "celula": "H76",
+   "rotulo": "É bem aceito (a) pelos colegas de classe.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I76",
+   "celula": "I76",
+   "rotulo": "É bem aceito (a) pelos colegas de classe.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J76",
+   "celula": "J76",
+   "rotulo": "J76",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_H77",
+   "celula": "H77",
+   "rotulo": "Sabe respeitar os professores.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_I77",
+   "celula": "I77",
+   "rotulo": "Sabe respeitar os professores.",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J77",
+   "celula": "J77",
+   "rotulo": "J77",
+   "valores": [
+    "DT",
+    "D",
+    "DP",
+    "CP",
+    "C",
+    "CT"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_D6",
+   "celula": "D6",
+   "rotulo": "Tipo de Escola",
+   "valores": [
+    "Privada",
+    "Pública"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_H16",
+   "celula": "H16",
+   "rotulo": "ATENÇÃO (A) — Respostas do informante"
+  },
+  {
+   "chave": "out_I16",
+   "celula": "I16",
+   "rotulo": "ATENÇÃO (A)"
+  },
+  {
+   "chave": "out_J16",
+   "celula": "J16",
+   "rotulo": "ATENÇÃO (A) — 1"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "ATENÇÃO (A) — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "ATENÇÃO (A) — Idade para Cálculo"
+  },
+  {
+   "chave": "out_M16",
+   "celula": "M16",
+   "rotulo": "ATENÇÃO (A)"
+  },
+  {
+   "chave": "out_K17",
+   "celula": "K17",
+   "rotulo": "É organizado (a) em suas lições de class — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "É organizado (a) em suas lições de class — Idade para Cálculo"
+  },
+  {
+   "chave": "out_M17",
+   "celula": "M17",
+   "rotulo": "É organizado (a) em suas lições de class"
+  },
+  {
+   "chave": "out_K18",
+   "celula": "K18",
+   "rotulo": "Dá respostas claras e coerentes ao profe — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L18",
+   "celula": "L18",
+   "rotulo": "Dá respostas claras e coerentes ao profe — Idade para Cálculo"
+  },
+  {
+   "chave": "out_M18",
+   "celula": "M18",
+   "rotulo": "Dá respostas claras e coerentes ao profe"
+  },
+  {
+   "chave": "out_K19",
+   "celula": "K19",
+   "rotulo": "Segue o ritmo da classe. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L19",
+   "celula": "L19",
+   "rotulo": "Segue o ritmo da classe."
+  },
+  {
+   "chave": "out_M19",
+   "celula": "M19",
+   "rotulo": "Segue o ritmo da classe."
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "É atento (a) nas lições do caderno. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "É atento (a) nas lições do caderno."
+  },
+  {
+   "chave": "out_M20",
+   "celula": "M20",
+   "rotulo": "É atento (a) nas lições do caderno."
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "É responsável com o seu material escolar — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "É responsável com o seu material escolar"
+  },
+  {
+   "chave": "out_M21",
+   "celula": "M21",
+   "rotulo": "É responsável com o seu material escolar"
+  },
+  {
+   "chave": "out_K22",
+   "celula": "K22",
+   "rotulo": "Sabe trabalhar independente. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L22",
+   "celula": "L22",
+   "rotulo": "Sabe trabalhar independente."
+  },
+  {
+   "chave": "out_M22",
+   "celula": "M22",
+   "rotulo": "Sabe trabalhar independente."
+  },
+  {
+   "chave": "out_K23",
+   "celula": "K23",
+   "rotulo": "É meticuloso (a) nas atividades (é detal — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L23",
+   "celula": "L23",
+   "rotulo": "É meticuloso (a) nas atividades (é detal"
+  },
+  {
+   "chave": "out_M23",
+   "celula": "M23",
+   "rotulo": "É meticuloso (a) nas atividades (é detal"
+  },
+  {
+   "chave": "out_K24",
+   "celula": "K24",
+   "rotulo": "Fica atento (a) durante as explicações d — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L24",
+   "celula": "L24",
+   "rotulo": "Fica atento (a) durante as explicações d"
+  },
+  {
+   "chave": "out_M24",
+   "celula": "M24",
+   "rotulo": "Fica atento (a) durante as explicações d"
+  },
+  {
+   "chave": "out_K25",
+   "celula": "K25",
+   "rotulo": "Consegue prestar atenção à uma mesma coi — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L25",
+   "celula": "L25",
+   "rotulo": "Consegue prestar atenção à uma mesma coi"
+  },
+  {
+   "chave": "out_M25",
+   "celula": "M25",
+   "rotulo": "Consegue prestar atenção à uma mesma coi"
+  },
+  {
+   "chave": "out_K26",
+   "celula": "K26",
+   "rotulo": "Perde e esquece objetos (livros, caderno — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L26",
+   "celula": "L26",
+   "rotulo": "Perde e esquece objetos (livros, caderno"
+  },
+  {
+   "chave": "out_M26",
+   "celula": "M26",
+   "rotulo": "Perde e esquece objetos (livros, caderno"
+  },
+  {
+   "chave": "out_K27",
+   "celula": "K27",
+   "rotulo": "Distrai-se facilmente por barulhos em sa — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L27",
+   "celula": "L27",
+   "rotulo": "Distrai-se facilmente por barulhos em sa"
+  },
+  {
+   "chave": "out_M27",
+   "celula": "M27",
+   "rotulo": "Distrai-se facilmente por barulhos em sa"
+  },
+  {
+   "chave": "out_K28",
+   "celula": "K28",
+   "rotulo": "Nunca termina o que começa."
+  },
+  {
+   "chave": "out_L28",
+   "celula": "L28",
+   "rotulo": "Nunca termina o que começa."
+  },
+  {
+   "chave": "out_M28",
+   "celula": "M28",
+   "rotulo": "Nunca termina o que começa."
+  },
+  {
+   "chave": "out_K29",
+   "celula": "K29",
+   "rotulo": "Passa de uma atividade incompleta para o"
+  },
+  {
+   "chave": "out_L29",
+   "celula": "L29",
+   "rotulo": "Passa de uma atividade incompleta para o"
+  },
+  {
+   "chave": "out_M29",
+   "celula": "M29",
+   "rotulo": "Passa de uma atividade incompleta para o"
+  },
+  {
+   "chave": "out_K30",
+   "celula": "K30",
+   "rotulo": "Tem dificuldade para concentrar-se"
+  },
+  {
+   "chave": "out_L30",
+   "celula": "L30",
+   "rotulo": "Tem dificuldade para concentrar-se"
+  },
+  {
+   "chave": "out_M30",
+   "celula": "M30",
+   "rotulo": "Tem dificuldade para concentrar-se"
+  },
+  {
+   "chave": "out_K31",
+   "celula": "K31",
+   "rotulo": "Esquece muito rápido o que acabou de ser"
+  },
+  {
+   "chave": "out_L31",
+   "celula": "L31",
+   "rotulo": "Esquece muito rápido o que acabou de ser"
+  },
+  {
+   "chave": "out_M31",
+   "celula": "M31",
+   "rotulo": "Esquece muito rápido o que acabou de ser"
+  },
+  {
+   "chave": "out_H32",
+   "celula": "H32",
+   "rotulo": "ATENÇÃO (A) SOMA DOS ITENS 1 a 15 - (Máx"
+  },
+  {
+   "chave": "out_I32",
+   "celula": "I32",
+   "rotulo": "ATENÇÃO (A) SOMA DOS ITENS 1 a 15 - (Máx"
+  },
+  {
+   "chave": "out_J32",
+   "celula": "J32",
+   "rotulo": "ATENÇÃO (A) SOMA DOS ITENS 1 a 15 - (Máx"
+  },
+  {
+   "chave": "out_K32",
+   "celula": "K32",
+   "rotulo": "ATENÇÃO (A) SOMA DOS ITENS 1 a 15 - (Máx"
+  },
+  {
+   "chave": "out_L32",
+   "celula": "L32",
+   "rotulo": "ATENÇÃO (A) SOMA DOS ITENS 1 a 15 - (Máx"
+  },
+  {
+   "chave": "out_M32",
+   "celula": "M32",
+   "rotulo": "ATENÇÃO (A) SOMA DOS ITENS 1 a 15 - (Máx"
+  },
+  {
+   "chave": "out_H36",
+   "celula": "H36",
+   "rotulo": "HIPERATIVIDADE / IMPULSIVIDADE (H/I) — INFORMANTE"
+  },
+  {
+   "chave": "out_I36",
+   "celula": "I36",
+   "rotulo": "HIPERATIVIDADE / IMPULSIVIDADE (H/I)"
+  },
+  {
+   "chave": "out_J36",
+   "celula": "J36",
+   "rotulo": "HIPERATIVIDADE / IMPULSIVIDADE (H/I)"
+  },
+  {
+   "chave": "out_K36",
+   "celula": "K36",
+   "rotulo": "HIPERATIVIDADE / IMPULSIVIDADE (H/I) — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L36",
+   "celula": "L36",
+   "rotulo": "HIPERATIVIDADE / IMPULSIVIDADE (H/I)"
+  },
+  {
+   "chave": "out_M36",
+   "celula": "M36",
+   "rotulo": "HIPERATIVIDADE / IMPULSIVIDADE (H/I)"
+  },
+  {
+   "chave": "out_K37",
+   "celula": "K37",
+   "rotulo": "Mexe-se e contorce-se na cadeira. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L37",
+   "celula": "L37",
+   "rotulo": "Mexe-se e contorce-se na cadeira."
+  },
+  {
+   "chave": "out_M37",
+   "celula": "M37",
+   "rotulo": "Mexe-se e contorce-se na cadeira."
+  },
+  {
+   "chave": "out_K38",
+   "celula": "K38",
+   "rotulo": "Age sem pensar (é impulsivo). — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L38",
+   "celula": "L38",
+   "rotulo": "Age sem pensar (é impulsivo)."
+  },
+  {
+   "chave": "out_M38",
+   "celula": "M38",
+   "rotulo": "Age sem pensar (é impulsivo)."
+  },
+  {
+   "chave": "out_K39",
+   "celula": "K39",
+   "rotulo": "Parece estar sempre “a todo vapor” ou “l — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L39",
+   "celula": "L39",
+   "rotulo": "Parece estar sempre “a todo vapor” ou “l"
+  },
+  {
+   "chave": "out_M39",
+   "celula": "M39",
+   "rotulo": "Parece estar sempre “a todo vapor” ou “l"
+  },
+  {
+   "chave": "out_K40",
+   "celula": "K40",
+   "rotulo": "Mexe mãos e pés constantemente (é inquie — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L40",
+   "celula": "L40",
+   "rotulo": "Mexe mãos e pés constantemente (é inquie"
+  },
+  {
+   "chave": "out_M40",
+   "celula": "M40",
+   "rotulo": "Mexe mãos e pés constantemente (é inquie"
+  },
+  {
+   "chave": "out_K41",
+   "celula": "K41",
+   "rotulo": "Levanta-se frequentemente da cadeira. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L41",
+   "celula": "L41",
+   "rotulo": "Levanta-se frequentemente da cadeira."
+  },
+  {
+   "chave": "out_M41",
+   "celula": "M41",
+   "rotulo": "Levanta-se frequentemente da cadeira."
+  },
+  {
+   "chave": "out_K42",
+   "celula": "K42",
+   "rotulo": "Atrapalha o professor com barulhos difer — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L42",
+   "celula": "L42",
+   "rotulo": "Atrapalha o professor com barulhos difer"
+  },
+  {
+   "chave": "out_M42",
+   "celula": "M42",
+   "rotulo": "Atrapalha o professor com barulhos difer"
+  },
+  {
+   "chave": "out_K43",
+   "celula": "K43",
+   "rotulo": "Age imprudentemente. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L43",
+   "celula": "L43",
+   "rotulo": "Age imprudentemente."
+  },
+  {
+   "chave": "out_M43",
+   "celula": "M43",
+   "rotulo": "Age imprudentemente."
+  },
+  {
+   "chave": "out_K44",
+   "celula": "K44",
+   "rotulo": "Tem sempre muita pressa. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L44",
+   "celula": "L44",
+   "rotulo": "Tem sempre muita pressa."
+  },
+  {
+   "chave": "out_M44",
+   "celula": "M44",
+   "rotulo": "Tem sempre muita pressa."
+  },
+  {
+   "chave": "out_K45",
+   "celula": "K45",
+   "rotulo": "Muda muito de lugar e de postura. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L45",
+   "celula": "L45",
+   "rotulo": "Muda muito de lugar e de postura."
+  },
+  {
+   "chave": "out_M45",
+   "celula": "M45",
+   "rotulo": "Muda muito de lugar e de postura."
+  },
+  {
+   "chave": "out_K46",
+   "celula": "K46",
+   "rotulo": "Fala pouco. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L46",
+   "celula": "L46",
+   "rotulo": "Fala pouco."
+  },
+  {
+   "chave": "out_M46",
+   "celula": "M46",
+   "rotulo": "Fala pouco."
+  },
+  {
+   "chave": "out_K47",
+   "celula": "K47",
+   "rotulo": "É paciente (sabe aguardar sua vez). — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L47",
+   "celula": "L47",
+   "rotulo": "É paciente (sabe aguardar sua vez)."
+  },
+  {
+   "chave": "out_M47",
+   "celula": "M47",
+   "rotulo": "É paciente (sabe aguardar sua vez)."
+  },
+  {
+   "chave": "out_K48",
+   "celula": "K48",
+   "rotulo": "Parece ser um(a) estudante tranquilo(a) "
+  },
+  {
+   "chave": "out_L48",
+   "celula": "L48",
+   "rotulo": "Parece ser um(a) estudante tranquilo(a) "
+  },
+  {
+   "chave": "out_M48",
+   "celula": "M48",
+   "rotulo": "Parece ser um(a) estudante tranquilo(a) "
+  },
+  {
+   "chave": "out_H49",
+   "celula": "H49",
+   "rotulo": "HIPERATIVIDADE/IMPULSIVIDADE (H/I) SOMA "
+  },
+  {
+   "chave": "out_I49",
+   "celula": "I49",
+   "rotulo": "HIPERATIVIDADE/IMPULSIVIDADE (H/I) SOMA "
+  },
+  {
+   "chave": "out_J49",
+   "celula": "J49",
+   "rotulo": "HIPERATIVIDADE/IMPULSIVIDADE (H/I) SOMA "
+  },
+  {
+   "chave": "out_K49",
+   "celula": "K49",
+   "rotulo": "HIPERATIVIDADE/IMPULSIVIDADE (H/I) SOMA "
+  },
+  {
+   "chave": "out_L49",
+   "celula": "L49",
+   "rotulo": "HIPERATIVIDADE/IMPULSIVIDADE (H/I) SOMA "
+  },
+  {
+   "chave": "out_M49",
+   "celula": "M49",
+   "rotulo": "HIPERATIVIDADE/IMPULSIVIDADE (H/I) SOMA "
+  },
+  {
+   "chave": "out_H53",
+   "celula": "H53",
+   "rotulo": "APRENDIZAGEM (AP) — INFORMANTE"
+  },
+  {
+   "chave": "out_I53",
+   "celula": "I53",
+   "rotulo": "APRENDIZAGEM (AP)"
+  },
+  {
+   "chave": "out_J53",
+   "celula": "J53",
+   "rotulo": "APRENDIZAGEM (AP)"
+  },
+  {
+   "chave": "out_K53",
+   "celula": "K53",
+   "rotulo": "APRENDIZAGEM (AP) — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L53",
+   "celula": "L53",
+   "rotulo": "APRENDIZAGEM (AP)"
+  },
+  {
+   "chave": "out_M53",
+   "celula": "M53",
+   "rotulo": "APRENDIZAGEM (AP)"
+  },
+  {
+   "chave": "out_K54",
+   "celula": "K54",
+   "rotulo": "Não rende de acordo com o esperado em Po — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L54",
+   "celula": "L54",
+   "rotulo": "Não rende de acordo com o esperado em Po"
+  },
+  {
+   "chave": "out_M54",
+   "celula": "M54",
+   "rotulo": "Não rende de acordo com o esperado em Po"
+  },
+  {
+   "chave": "out_K55",
+   "celula": "K55",
+   "rotulo": "Tem dificuldades para aprender problemas — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L55",
+   "celula": "L55",
+   "rotulo": "Tem dificuldades para aprender problemas"
+  },
+  {
+   "chave": "out_M55",
+   "celula": "M55",
+   "rotulo": "Tem dificuldades para aprender problemas"
+  },
+  {
+   "chave": "out_K56",
+   "celula": "K56",
+   "rotulo": "Tem dificuldades para expressar verbalme — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L56",
+   "celula": "L56",
+   "rotulo": "Tem dificuldades para expressar verbalme"
+  },
+  {
+   "chave": "out_M56",
+   "celula": "M56",
+   "rotulo": "Tem dificuldades para expressar verbalme"
+  },
+  {
+   "chave": "out_K57",
+   "celula": "K57",
+   "rotulo": "Seu raciocínio lógico é lento. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L57",
+   "celula": "L57",
+   "rotulo": "Seu raciocínio lógico é lento."
+  },
+  {
+   "chave": "out_M57",
+   "celula": "M57",
+   "rotulo": "Seu raciocínio lógico é lento."
+  },
+  {
+   "chave": "out_K58",
+   "celula": "K58",
+   "rotulo": "Troca letras ao escrever. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L58",
+   "celula": "L58",
+   "rotulo": "Troca letras ao escrever."
+  },
+  {
+   "chave": "out_M58",
+   "celula": "M58",
+   "rotulo": "Troca letras ao escrever."
+  },
+  {
+   "chave": "out_K59",
+   "celula": "K59",
+   "rotulo": "Sua caligrafia é desleixada. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L59",
+   "celula": "L59",
+   "rotulo": "Sua caligrafia é desleixada."
+  },
+  {
+   "chave": "out_M59",
+   "celula": "M59",
+   "rotulo": "Sua caligrafia é desleixada."
+  },
+  {
+   "chave": "out_K60",
+   "celula": "K60",
+   "rotulo": "Gosta de fazer exercícios de matemática — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L60",
+   "celula": "L60",
+   "rotulo": "Gosta de fazer exercícios de matemática"
+  },
+  {
+   "chave": "out_M60",
+   "celula": "M60",
+   "rotulo": "Gosta de fazer exercícios de matemática"
+  },
+  {
+   "chave": "out_K61",
+   "celula": "K61",
+   "rotulo": "Escreve sem erros. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L61",
+   "celula": "L61",
+   "rotulo": "Escreve sem erros."
+  },
+  {
+   "chave": "out_M61",
+   "celula": "M61",
+   "rotulo": "Escreve sem erros."
+  },
+  {
+   "chave": "out_K62",
+   "celula": "K62",
+   "rotulo": "Lê perfeitamente. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L62",
+   "celula": "L62",
+   "rotulo": "Lê perfeitamente."
+  },
+  {
+   "chave": "out_M62",
+   "celula": "M62",
+   "rotulo": "Lê perfeitamente."
+  },
+  {
+   "chave": "out_K63",
+   "celula": "K63",
+   "rotulo": "É rápido para fazer cálculos. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L63",
+   "celula": "L63",
+   "rotulo": "É rápido para fazer cálculos."
+  },
+  {
+   "chave": "out_M63",
+   "celula": "M63",
+   "rotulo": "É rápido para fazer cálculos."
+  },
+  {
+   "chave": "out_K64",
+   "celula": "K64",
+   "rotulo": "Compreende textos corretamente. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L64",
+   "celula": "L64",
+   "rotulo": "Compreende textos corretamente."
+  },
+  {
+   "chave": "out_M64",
+   "celula": "M64",
+   "rotulo": "Compreende textos corretamente."
+  },
+  {
+   "chave": "out_K65",
+   "celula": "K65",
+   "rotulo": "Domina soma, subtração, multiplicação e "
+  },
+  {
+   "chave": "out_L65",
+   "celula": "L65",
+   "rotulo": "Domina soma, subtração, multiplicação e "
+  },
+  {
+   "chave": "out_M65",
+   "celula": "M65",
+   "rotulo": "Domina soma, subtração, multiplicação e "
+  },
+  {
+   "chave": "out_K66",
+   "celula": "K66",
+   "rotulo": "Fala com perfeição."
+  },
+  {
+   "chave": "out_L66",
+   "celula": "L66",
+   "rotulo": "Fala com perfeição."
+  },
+  {
+   "chave": "out_M66",
+   "celula": "M66",
+   "rotulo": "Fala com perfeição."
+  },
+  {
+   "chave": "out_H67",
+   "celula": "H67",
+   "rotulo": "APRENDIZAGEM (A) SOMA DOS ITENS 28 a 40 "
+  },
+  {
+   "chave": "out_I67",
+   "celula": "I67",
+   "rotulo": "APRENDIZAGEM (A) SOMA DOS ITENS 28 a 40 "
+  },
+  {
+   "chave": "out_J67",
+   "celula": "J67",
+   "rotulo": "APRENDIZAGEM (A) SOMA DOS ITENS 28 a 40 "
+  },
+  {
+   "chave": "out_K67",
+   "celula": "K67",
+   "rotulo": "APRENDIZAGEM (A) SOMA DOS ITENS 28 a 40 "
+  },
+  {
+   "chave": "out_L67",
+   "celula": "L67",
+   "rotulo": "APRENDIZAGEM (A) SOMA DOS ITENS 28 a 40 "
+  },
+  {
+   "chave": "out_M67",
+   "celula": "M67",
+   "rotulo": "APRENDIZAGEM (A) SOMA DOS ITENS 28 a 40 "
+  },
+  {
+   "chave": "out_H71",
+   "celula": "H71",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) — INFORMANTE"
+  },
+  {
+   "chave": "out_I71",
+   "celula": "I71",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS)"
+  },
+  {
+   "chave": "out_J71",
+   "celula": "J71",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS)"
+  },
+  {
+   "chave": "out_K71",
+   "celula": "K71",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L71",
+   "celula": "L71",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS)"
+  },
+  {
+   "chave": "out_M71",
+   "celula": "M71",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS)"
+  },
+  {
+   "chave": "out_K72",
+   "celula": "K72",
+   "rotulo": "Os Colegas de classe o (a) evitam. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L72",
+   "celula": "L72",
+   "rotulo": "Os Colegas de classe o (a) evitam."
+  },
+  {
+   "chave": "out_M72",
+   "celula": "M72",
+   "rotulo": "Os Colegas de classe o (a) evitam."
+  },
+  {
+   "chave": "out_K73",
+   "celula": "K73",
+   "rotulo": "Irrita outros alunos com suas palhaçadas — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L73",
+   "celula": "L73",
+   "rotulo": "Irrita outros alunos com suas palhaçadas"
+  },
+  {
+   "chave": "out_M73",
+   "celula": "M73",
+   "rotulo": "Irrita outros alunos com suas palhaçadas"
+  },
+  {
+   "chave": "out_K74",
+   "celula": "K74",
+   "rotulo": "É briguento (a). — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L74",
+   "celula": "L74",
+   "rotulo": "É briguento (a)."
+  },
+  {
+   "chave": "out_M74",
+   "celula": "M74",
+   "rotulo": "É briguento (a)."
+  },
+  {
+   "chave": "out_K75",
+   "celula": "K75",
+   "rotulo": "Causa confusão em sala de aula. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L75",
+   "celula": "L75",
+   "rotulo": "Causa confusão em sala de aula."
+  },
+  {
+   "chave": "out_M75",
+   "celula": "M75",
+   "rotulo": "Causa confusão em sala de aula."
+  },
+  {
+   "chave": "out_K76",
+   "celula": "K76",
+   "rotulo": "É bem aceito (a) pelos colegas de classe — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L76",
+   "celula": "L76",
+   "rotulo": "É bem aceito (a) pelos colegas de classe"
+  },
+  {
+   "chave": "out_M76",
+   "celula": "M76",
+   "rotulo": "É bem aceito (a) pelos colegas de classe"
+  },
+  {
+   "chave": "out_K77",
+   "celula": "K77",
+   "rotulo": "Sabe respeitar os professores. — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L77",
+   "celula": "L77",
+   "rotulo": "Sabe respeitar os professores."
+  },
+  {
+   "chave": "out_M77",
+   "celula": "M77",
+   "rotulo": "Sabe respeitar os professores."
+  },
+  {
+   "chave": "out_H78",
+   "celula": "H78",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) SOMA DOS ITENS — INFORMANTE"
+  },
+  {
+   "chave": "out_I78",
+   "celula": "I78",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) SOMA DOS ITENS"
+  },
+  {
+   "chave": "out_J78",
+   "celula": "J78",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) SOMA DOS ITENS"
+  },
+  {
+   "chave": "out_K78",
+   "celula": "K78",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) SOMA DOS ITENS — PONTUAÇÃO"
+  },
+  {
+   "chave": "out_L78",
+   "celula": "L78",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) SOMA DOS ITENS"
+  },
+  {
+   "chave": "out_M78",
+   "celula": "M78",
+   "rotulo": "COMPORTAMENTO SOCIAL (CS) SOMA DOS ITENS"
+  },
+  {
+   "chave": "out_B84",
+   "celula": "B84",
+   "rotulo": "Respondente"
+  },
+  {
+   "chave": "out_H84",
+   "celula": "H84",
+   "rotulo": "ESCORE GERAL — Pontos Brutos"
+  },
+  {
+   "chave": "out_I84",
+   "celula": "I84",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_J84",
+   "celula": "J84",
+   "rotulo": "ESCORE GERAL — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K84",
+   "celula": "K84",
+   "rotulo": "ESCORE GERAL — Nível"
+  },
+  {
+   "chave": "out_L84",
+   "celula": "L84",
+   "rotulo": "ESCORE GERAL — Classificação"
+  },
+  {
+   "chave": "out_N84",
+   "celula": "N84",
+   "rotulo": "ESCORE GERAL — Média"
+  },
+  {
+   "chave": "out_O84",
+   "celula": "O84",
+   "rotulo": "ESCORE GERAL — Dv. Pd."
+  },
+  {
+   "chave": "out_P84",
+   "celula": "P84",
+   "rotulo": "ESCORE GERAL — Z-Score"
+  },
+  {
+   "chave": "out_Q84",
+   "celula": "Q84",
+   "rotulo": "ESCORE GERAL — Pontos Ponder"
+  },
+  {
+   "chave": "out_R84",
+   "celula": "R84",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_S84",
+   "celula": "S84",
+   "rotulo": "ESCORE GERAL — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H85",
+   "celula": "H85",
+   "rotulo": "Fator 1 - Atenção (A) — Pontos Brutos"
+  },
+  {
+   "chave": "out_I85",
+   "celula": "I85",
+   "rotulo": "Fator 1 - Atenção (A) — Percentil"
+  },
+  {
+   "chave": "out_J85",
+   "celula": "J85",
+   "rotulo": "Fator 1 - Atenção (A) — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K85",
+   "celula": "K85",
+   "rotulo": "Fator 1 - Atenção (A) — Nível"
+  },
+  {
+   "chave": "out_L85",
+   "celula": "L85",
+   "rotulo": "Fator 1 - Atenção (A) — Classificação"
+  },
+  {
+   "chave": "out_N85",
+   "celula": "N85",
+   "rotulo": "Fator 1 - Atenção (A) — Média"
+  },
+  {
+   "chave": "out_O85",
+   "celula": "O85",
+   "rotulo": "Fator 1 - Atenção (A) — Dv. Pd."
+  },
+  {
+   "chave": "out_P85",
+   "celula": "P85",
+   "rotulo": "Fator 1 - Atenção (A) — Z-Score"
+  },
+  {
+   "chave": "out_Q85",
+   "celula": "Q85",
+   "rotulo": "Fator 1 - Atenção (A) — Pontos Ponder"
+  },
+  {
+   "chave": "out_R85",
+   "celula": "R85",
+   "rotulo": "Fator 1 - Atenção (A) — Percentil"
+  },
+  {
+   "chave": "out_S85",
+   "celula": "S85",
+   "rotulo": "Fator 1 - Atenção (A) — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H86",
+   "celula": "H86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Pontos Brutos"
+  },
+  {
+   "chave": "out_I86",
+   "celula": "I86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Percentil"
+  },
+  {
+   "chave": "out_J86",
+   "celula": "J86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K86",
+   "celula": "K86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Nível"
+  },
+  {
+   "chave": "out_L86",
+   "celula": "L86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Classificação"
+  },
+  {
+   "chave": "out_N86",
+   "celula": "N86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Média"
+  },
+  {
+   "chave": "out_O86",
+   "celula": "O86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Dv. Pd."
+  },
+  {
+   "chave": "out_P86",
+   "celula": "P86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Z-Score"
+  },
+  {
+   "chave": "out_Q86",
+   "celula": "Q86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Pontos Ponder"
+  },
+  {
+   "chave": "out_R86",
+   "celula": "R86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Percentil"
+  },
+  {
+   "chave": "out_S86",
+   "celula": "S86",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H87",
+   "celula": "H87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Pontos Brutos"
+  },
+  {
+   "chave": "out_I87",
+   "celula": "I87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Percentil"
+  },
+  {
+   "chave": "out_J87",
+   "celula": "J87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K87",
+   "celula": "K87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Nível"
+  },
+  {
+   "chave": "out_L87",
+   "celula": "L87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Classificação"
+  },
+  {
+   "chave": "out_N87",
+   "celula": "N87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Média"
+  },
+  {
+   "chave": "out_O87",
+   "celula": "O87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Dv. Pd."
+  },
+  {
+   "chave": "out_P87",
+   "celula": "P87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Z-Score"
+  },
+  {
+   "chave": "out_Q87",
+   "celula": "Q87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Pontos Ponder"
+  },
+  {
+   "chave": "out_R87",
+   "celula": "R87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Percentil"
+  },
+  {
+   "chave": "out_S87",
+   "celula": "S87",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H88",
+   "celula": "H88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Pontos Brutos"
+  },
+  {
+   "chave": "out_I88",
+   "celula": "I88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Percentil"
+  },
+  {
+   "chave": "out_J88",
+   "celula": "J88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K88",
+   "celula": "K88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Nível"
+  },
+  {
+   "chave": "out_L88",
+   "celula": "L88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Classificação"
+  },
+  {
+   "chave": "out_N88",
+   "celula": "N88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Média"
+  },
+  {
+   "chave": "out_O88",
+   "celula": "O88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Dv. Pd."
+  },
+  {
+   "chave": "out_P88",
+   "celula": "P88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Z-Score"
+  },
+  {
+   "chave": "out_Q88",
+   "celula": "Q88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Pontos Ponder"
+  },
+  {
+   "chave": "out_R88",
+   "celula": "R88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Percentil"
+  },
+  {
+   "chave": "out_S88",
+   "celula": "S88",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_B89",
+   "celula": "B89",
+   "rotulo": "Respondente"
+  },
+  {
+   "chave": "out_H89",
+   "celula": "H89",
+   "rotulo": "ESCORE GERAL — Pontos Brutos"
+  },
+  {
+   "chave": "out_I89",
+   "celula": "I89",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_J89",
+   "celula": "J89",
+   "rotulo": "ESCORE GERAL — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K89",
+   "celula": "K89",
+   "rotulo": "ESCORE GERAL — Nível"
+  },
+  {
+   "chave": "out_L89",
+   "celula": "L89",
+   "rotulo": "ESCORE GERAL — Classificação"
+  },
+  {
+   "chave": "out_N89",
+   "celula": "N89",
+   "rotulo": "ESCORE GERAL — Média"
+  },
+  {
+   "chave": "out_O89",
+   "celula": "O89",
+   "rotulo": "ESCORE GERAL — Dv. Pd."
+  },
+  {
+   "chave": "out_P89",
+   "celula": "P89",
+   "rotulo": "ESCORE GERAL — Z-Score"
+  },
+  {
+   "chave": "out_Q89",
+   "celula": "Q89",
+   "rotulo": "ESCORE GERAL — Pontos Ponder"
+  },
+  {
+   "chave": "out_R89",
+   "celula": "R89",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_S89",
+   "celula": "S89",
+   "rotulo": "ESCORE GERAL — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H90",
+   "celula": "H90",
+   "rotulo": "Fator 1 - Atenção (A) — Pontos Brutos"
+  },
+  {
+   "chave": "out_I90",
+   "celula": "I90",
+   "rotulo": "Fator 1 - Atenção (A) — Percentil"
+  },
+  {
+   "chave": "out_J90",
+   "celula": "J90",
+   "rotulo": "Fator 1 - Atenção (A) — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K90",
+   "celula": "K90",
+   "rotulo": "Fator 1 - Atenção (A) — Nível"
+  },
+  {
+   "chave": "out_L90",
+   "celula": "L90",
+   "rotulo": "Fator 1 - Atenção (A) — Classificação"
+  },
+  {
+   "chave": "out_N90",
+   "celula": "N90",
+   "rotulo": "Fator 1 - Atenção (A) — Média"
+  },
+  {
+   "chave": "out_O90",
+   "celula": "O90",
+   "rotulo": "Fator 1 - Atenção (A) — Dv. Pd."
+  },
+  {
+   "chave": "out_P90",
+   "celula": "P90",
+   "rotulo": "Fator 1 - Atenção (A) — Z-Score"
+  },
+  {
+   "chave": "out_Q90",
+   "celula": "Q90",
+   "rotulo": "Fator 1 - Atenção (A) — Pontos Ponder"
+  },
+  {
+   "chave": "out_R90",
+   "celula": "R90",
+   "rotulo": "Fator 1 - Atenção (A) — Percentil"
+  },
+  {
+   "chave": "out_S90",
+   "celula": "S90",
+   "rotulo": "Fator 1 - Atenção (A) — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H91",
+   "celula": "H91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Pontos Brutos"
+  },
+  {
+   "chave": "out_I91",
+   "celula": "I91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Percentil"
+  },
+  {
+   "chave": "out_J91",
+   "celula": "J91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K91",
+   "celula": "K91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Nível"
+  },
+  {
+   "chave": "out_L91",
+   "celula": "L91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Classificação"
+  },
+  {
+   "chave": "out_N91",
+   "celula": "N91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Média"
+  },
+  {
+   "chave": "out_O91",
+   "celula": "O91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Dv. Pd."
+  },
+  {
+   "chave": "out_P91",
+   "celula": "P91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Z-Score"
+  },
+  {
+   "chave": "out_Q91",
+   "celula": "Q91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Pontos Ponder"
+  },
+  {
+   "chave": "out_R91",
+   "celula": "R91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — Percentil"
+  },
+  {
+   "chave": "out_S91",
+   "celula": "S91",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ( — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H92",
+   "celula": "H92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Pontos Brutos"
+  },
+  {
+   "chave": "out_I92",
+   "celula": "I92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Percentil"
+  },
+  {
+   "chave": "out_J92",
+   "celula": "J92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K92",
+   "celula": "K92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Nível"
+  },
+  {
+   "chave": "out_L92",
+   "celula": "L92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Classificação"
+  },
+  {
+   "chave": "out_N92",
+   "celula": "N92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Média"
+  },
+  {
+   "chave": "out_O92",
+   "celula": "O92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Dv. Pd."
+  },
+  {
+   "chave": "out_P92",
+   "celula": "P92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Z-Score"
+  },
+  {
+   "chave": "out_Q92",
+   "celula": "Q92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Pontos Ponder"
+  },
+  {
+   "chave": "out_R92",
+   "celula": "R92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — Percentil"
+  },
+  {
+   "chave": "out_S92",
+   "celula": "S92",
+   "rotulo": "Fator 3 - Aprendizagem (AP) — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H93",
+   "celula": "H93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Pontos Brutos"
+  },
+  {
+   "chave": "out_I93",
+   "celula": "I93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Percentil"
+  },
+  {
+   "chave": "out_J93",
+   "celula": "J93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K93",
+   "celula": "K93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Nível"
+  },
+  {
+   "chave": "out_L93",
+   "celula": "L93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Classificação"
+  },
+  {
+   "chave": "out_N93",
+   "celula": "N93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Média"
+  },
+  {
+   "chave": "out_O93",
+   "celula": "O93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Dv. Pd."
+  },
+  {
+   "chave": "out_P93",
+   "celula": "P93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Z-Score"
+  },
+  {
+   "chave": "out_Q93",
+   "celula": "Q93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Pontos Ponder"
+  },
+  {
+   "chave": "out_R93",
+   "celula": "R93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — Percentil"
+  },
+  {
+   "chave": "out_S93",
+   "celula": "S93",
+   "rotulo": "Fator 4 - Comportamento Social (CS) — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_B94",
+   "celula": "B94",
+   "rotulo": "Respondente"
+  },
+  {
+   "chave": "out_H94",
+   "celula": "H94",
+   "rotulo": "ESCORE GERAL — Pontos Brutos"
+  },
+  {
+   "chave": "out_I94",
+   "celula": "I94",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_J94",
+   "celula": "J94",
+   "rotulo": "ESCORE GERAL — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K94",
+   "celula": "K94",
+   "rotulo": "ESCORE GERAL — Nível"
+  },
+  {
+   "chave": "out_L94",
+   "celula": "L94",
+   "rotulo": "ESCORE GERAL — Classificação"
+  },
+  {
+   "chave": "out_N94",
+   "celula": "N94",
+   "rotulo": "ESCORE GERAL — Média"
+  },
+  {
+   "chave": "out_O94",
+   "celula": "O94",
+   "rotulo": "ESCORE GERAL — Dv. Pd."
+  },
+  {
+   "chave": "out_P94",
+   "celula": "P94",
+   "rotulo": "ESCORE GERAL — Z-Score"
+  },
+  {
+   "chave": "out_Q94",
+   "celula": "Q94",
+   "rotulo": "ESCORE GERAL — Pontos Ponder"
+  },
+  {
+   "chave": "out_R94",
+   "celula": "R94",
+   "rotulo": "ESCORE GERAL — Percentil"
+  },
+  {
+   "chave": "out_S94",
+   "celula": "S94",
+   "rotulo": "ESCORE GERAL — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H95",
+   "celula": "H95",
+   "rotulo": "Fator 1 - Desatenção (D) — Pontos Brutos"
+  },
+  {
+   "chave": "out_I95",
+   "celula": "I95",
+   "rotulo": "Fator 1 - Desatenção (D) — Percentil"
+  },
+  {
+   "chave": "out_J95",
+   "celula": "J95",
+   "rotulo": "Fator 1 - Desatenção (D) — Tem Prejuizo?"
+  },
+  {
+   "chave": "out_K95",
+   "celula": "K95",
+   "rotulo": "Fator 1 - Desatenção (D) — Nível"
+  },
+  {
+   "chave": "out_L95",
+   "celula": "L95",
+   "rotulo": "Fator 1 - Desatenção (D) — Classificação"
+  },
+  {
+   "chave": "out_N95",
+   "celula": "N95",
+   "rotulo": "Fator 1 - Desatenção (D) — Média"
+  },
+  {
+   "chave": "out_O95",
+   "celula": "O95",
+   "rotulo": "Fator 1 - Desatenção (D) — Dv. Pd."
+  },
+  {
+   "chave": "out_P95",
+   "celula": "P95",
+   "rotulo": "Fator 1 - Desatenção (D) — Z-Score"
+  },
+  {
+   "chave": "out_Q95",
+   "celula": "Q95",
+   "rotulo": "Fator 1 - Desatenção (D) — Pontos Ponder"
+  },
+  {
+   "chave": "out_R95",
+   "celula": "R95",
+   "rotulo": "Fator 1 - Desatenção (D) — Percentil"
+  },
+  {
+   "chave": "out_S95",
+   "celula": "S95",
+   "rotulo": "Fator 1 - Desatenção (D) — ** Classificação (Pag 72 do manual)"
+  },
+  {
+   "chave": "out_H96",
+   "celula": "H96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_I96",
+   "celula": "I96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_J96",
+   "celula": "J96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_K96",
+   "celula": "K96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_L96",
+   "celula": "L96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_N96",
+   "celula": "N96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_O96",
+   "celula": "O96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_P96",
+   "celula": "P96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_Q96",
+   "celula": "Q96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_R96",
+   "celula": "R96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_S96",
+   "celula": "S96",
+   "rotulo": "Fator 2 - Hiperatividade Impulsividade ("
+  },
+  {
+   "chave": "out_H97",
+   "celula": "H97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_I97",
+   "celula": "I97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_J97",
+   "celula": "J97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_K97",
+   "celula": "K97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_L97",
+   "celula": "L97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_N97",
+   "celula": "N97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_O97",
+   "celula": "O97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_P97",
+   "celula": "P97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_Q97",
+   "celula": "Q97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_R97",
+   "celula": "R97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_S97",
+   "celula": "S97",
+   "rotulo": "Fator 3 - Aprendizagem (AP)"
+  },
+  {
+   "chave": "out_H98",
+   "celula": "H98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_I98",
+   "celula": "I98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_J98",
+   "celula": "J98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_K98",
+   "celula": "K98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_L98",
+   "celula": "L98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_N98",
+   "celula": "N98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_O98",
+   "celula": "O98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_P98",
+   "celula": "P98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_Q98",
+   "celula": "Q98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_R98",
+   "celula": "R98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_S98",
+   "celula": "S98",
+   "rotulo": "Fator 4 - Comportamento Social (CS)"
+  },
+  {
+   "chave": "out_E101",
+   "celula": "E101",
+   "rotulo": "E101"
+  },
+  {
+   "chave": "out_F101",
+   "celula": "F101",
+   "rotulo": "F101"
+  },
+  {
+   "chave": "out_G101",
+   "celula": "G101",
+   "rotulo": "G101"
+  },
+  {
+   "chave": "out_E102",
+   "celula": "E102",
+   "rotulo": "F1 - A"
+  },
+  {
+   "chave": "out_F102",
+   "celula": "F102",
+   "rotulo": "F1 - A"
+  },
+  {
+   "chave": "out_G102",
+   "celula": "G102",
+   "rotulo": "F1 - A"
+  },
+  {
+   "chave": "out_E103",
+   "celula": "E103",
+   "rotulo": "F2 - H / I"
+  },
+  {
+   "chave": "out_F103",
+   "celula": "F103",
+   "rotulo": "F2 - H / I"
+  },
+  {
+   "chave": "out_G103",
+   "celula": "G103",
+   "rotulo": "F2 - H / I"
+  },
+  {
+   "chave": "out_E104",
+   "celula": "E104",
+   "rotulo": "F3 - AP"
+  },
+  {
+   "chave": "out_F104",
+   "celula": "F104",
+   "rotulo": "F3 - AP"
+  },
+  {
+   "chave": "out_G104",
+   "celula": "G104",
+   "rotulo": "F3 - AP"
+  },
+  {
+   "chave": "out_E105",
+   "celula": "E105",
+   "rotulo": "F4 - CS"
+  },
+  {
+   "chave": "out_F105",
+   "celula": "F105",
+   "rotulo": "F4 - CS"
+  },
+  {
+   "chave": "out_G105",
+   "celula": "G105",
+   "rotulo": "F4 - CS"
+  },
+  {
+   "chave": "out_E106",
+   "celula": "E106",
+   "rotulo": "GERAL"
+  },
+  {
+   "chave": "out_F106",
+   "celula": "F106",
+   "rotulo": "GERAL"
+  },
+  {
+   "chave": "out_G106",
+   "celula": "G106",
+   "rotulo": "GERAL"
+  },
+  {
+   "chave": "out_S123",
+   "celula": "S123",
+   "rotulo": "Cada avaliação é única, assim como cada  — Selecione da lista suspensa"
+  },
+  {
+   "chave": "out_T123",
+   "celula": "T123",
+   "rotulo": "Cada avaliação é única, assim como cada "
+  },
+  {
+   "chave": "out_U123",
+   "celula": "U123",
+   "rotulo": "Cada avaliação é única, assim como cada "
+  },
+  {
+   "chave": "out_B125",
+   "celula": "B125",
+   "rotulo": "A interpretação qualitativa abaixo diz r"
+  },
+  {
+   "chave": "out_R125",
+   "celula": "R125",
+   "rotulo": "R125"
+  },
+  {
+   "chave": "out_B126",
+   "celula": "B126",
+   "rotulo": "A interpretação qualitativa abaixo diz r"
+  },
+  {
+   "chave": "out_R126",
+   "celula": "R126",
+   "rotulo": "R126"
+  },
+  {
+   "chave": "out_R127",
+   "celula": "R127",
+   "rotulo": "R127"
+  },
+  {
+   "chave": "out_R128",
+   "celula": "R128",
+   "rotulo": "R128"
+  },
+  {
+   "chave": "out_R129",
+   "celula": "R129",
+   "rotulo": "R129"
+  },
+  {
+   "chave": "out_R130",
+   "celula": "R130",
+   "rotulo": "R130"
+  },
+  {
+   "chave": "out_R131",
+   "celula": "R131",
+   "rotulo": "R131"
+  },
+  {
+   "chave": "out_R132",
+   "celula": "R132",
+   "rotulo": "R132"
+  },
+  {
+   "chave": "out_R133",
+   "celula": "R133",
+   "rotulo": "R133"
+  },
+  {
+   "chave": "out_R134",
+   "celula": "R134",
+   "rotulo": "R134"
+  },
+  {
+   "chave": "out_R135",
+   "celula": "R135",
+   "rotulo": "R135"
+  },
+  {
+   "chave": "out_R136",
+   "celula": "R136",
+   "rotulo": "R136"
+  },
+  {
+   "chave": "out_R137",
+   "celula": "R137",
+   "rotulo": "R137"
+  },
+  {
+   "chave": "out_R138",
+   "celula": "R138",
+   "rotulo": "R138"
+  },
+  {
+   "chave": "out_R139",
+   "celula": "R139",
+   "rotulo": "R139"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Respondente",
+    "E",
+    "F",
+    "G",
+    "Respostas do informante",
+    "I",
+    "1",
+    "PONTUAÇÃO",
+    "Idade para Cálculo",
+    "M",
+    "Média",
+    "Dv. Pd.",
+    "Z-Score",
+    "Pontos Ponder",
+    "Percentil",
+    "** Classificação (Pag 72 do manual)",
+    "T",
+    "U"
+   ],
+   "linhas": [
+    {
+     "rotulo": "ATENÇÃO (A)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H16",
+      "out_I16",
+      "out_J16",
+      "out_K16",
+      "out_L16",
+      "out_M16",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É organizado (a) em suas lições de class",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K17",
+      "out_L17",
+      "out_M17",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Dá respostas claras e coerentes ao profe",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K18",
+      "out_L18",
+      "out_M18",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Segue o ritmo da classe.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K19",
+      "out_L19",
+      "out_M19",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É atento (a) nas lições do caderno.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K20",
+      "out_L20",
+      "out_M20",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É responsável com o seu material escolar",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K21",
+      "out_L21",
+      "out_M21",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Sabe trabalhar independente.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K22",
+      "out_L22",
+      "out_M22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É meticuloso (a) nas atividades (é detal",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K23",
+      "out_L23",
+      "out_M23",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fica atento (a) durante as explicações d",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K24",
+      "out_L24",
+      "out_M24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Consegue prestar atenção à uma mesma coi",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K25",
+      "out_L25",
+      "out_M25",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Perde e esquece objetos (livros, caderno",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K26",
+      "out_L26",
+      "out_M26",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Distrai-se facilmente por barulhos em sa",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K27",
+      "out_L27",
+      "out_M27",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Nunca termina o que começa.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K28",
+      "out_L28",
+      "out_M28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Passa de uma atividade incompleta para o",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K29",
+      "out_L29",
+      "out_M29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tem dificuldade para concentrar-se",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K30",
+      "out_L30",
+      "out_M30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Esquece muito rápido o que acabou de ser",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K31",
+      "out_L31",
+      "out_M31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "ATENÇÃO (A) SOMA DOS ITENS 1 a 15 - (Máx",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H32",
+      "out_I32",
+      "out_J32",
+      "out_K32",
+      "out_L32",
+      "out_M32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "HIPERATIVIDADE / IMPULSIVIDADE (H/I)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H36",
+      "out_I36",
+      "out_J36",
+      "out_K36",
+      "out_L36",
+      "out_M36",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Mexe-se e contorce-se na cadeira.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K37",
+      "out_L37",
+      "out_M37",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Age sem pensar (é impulsivo).",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K38",
+      "out_L38",
+      "out_M38",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Parece estar sempre “a todo vapor” ou “l",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K39",
+      "out_L39",
+      "out_M39",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Mexe mãos e pés constantemente (é inquie",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K40",
+      "out_L40",
+      "out_M40",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Levanta-se frequentemente da cadeira.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K41",
+      "out_L41",
+      "out_M41",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Atrapalha o professor com barulhos difer",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K42",
+      "out_L42",
+      "out_M42",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Age imprudentemente.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K43",
+      "out_L43",
+      "out_M43",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tem sempre muita pressa.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K44",
+      "out_L44",
+      "out_M44",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Muda muito de lugar e de postura.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K45",
+      "out_L45",
+      "out_M45",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fala pouco.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K46",
+      "out_L46",
+      "out_M46",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É paciente (sabe aguardar sua vez).",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K47",
+      "out_L47",
+      "out_M47",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Parece ser um(a) estudante tranquilo(a) ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K48",
+      "out_L48",
+      "out_M48",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "HIPERATIVIDADE/IMPULSIVIDADE (H/I) SOMA ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H49",
+      "out_I49",
+      "out_J49",
+      "out_K49",
+      "out_L49",
+      "out_M49",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "APRENDIZAGEM (AP)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H53",
+      "out_I53",
+      "out_J53",
+      "out_K53",
+      "out_L53",
+      "out_M53",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Não rende de acordo com o esperado em Po",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K54",
+      "out_L54",
+      "out_M54",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tem dificuldades para aprender problemas",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K55",
+      "out_L55",
+      "out_M55",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tem dificuldades para expressar verbalme",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K56",
+      "out_L56",
+      "out_M56",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Seu raciocínio lógico é lento.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K57",
+      "out_L57",
+      "out_M57",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Troca letras ao escrever.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K58",
+      "out_L58",
+      "out_M58",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Sua caligrafia é desleixada.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K59",
+      "out_L59",
+      "out_M59",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Gosta de fazer exercícios de matemática",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K60",
+      "out_L60",
+      "out_M60",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Escreve sem erros.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K61",
+      "out_L61",
+      "out_M61",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Lê perfeitamente.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K62",
+      "out_L62",
+      "out_M62",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É rápido para fazer cálculos.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K63",
+      "out_L63",
+      "out_M63",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Compreende textos corretamente.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K64",
+      "out_L64",
+      "out_M64",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Domina soma, subtração, multiplicação e ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K65",
+      "out_L65",
+      "out_M65",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fala com perfeição.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K66",
+      "out_L66",
+      "out_M66",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "APRENDIZAGEM (A) SOMA DOS ITENS 28 a 40 ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H67",
+      "out_I67",
+      "out_J67",
+      "out_K67",
+      "out_L67",
+      "out_M67",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "COMPORTAMENTO SOCIAL (CS)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H71",
+      "out_I71",
+      "out_J71",
+      "out_K71",
+      "out_L71",
+      "out_M71",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Os Colegas de classe o (a) evitam.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K72",
+      "out_L72",
+      "out_M72",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Irrita outros alunos com suas palhaçadas",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K73",
+      "out_L73",
+      "out_M73",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É briguento (a).",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K74",
+      "out_L74",
+      "out_M74",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Causa confusão em sala de aula.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K75",
+      "out_L75",
+      "out_M75",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "É bem aceito (a) pelos colegas de classe",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K76",
+      "out_L76",
+      "out_M76",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Sabe respeitar os professores.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K77",
+      "out_L77",
+      "out_M77",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "COMPORTAMENTO SOCIAL (CS) SOMA DOS ITENS",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H78",
+      "out_I78",
+      "out_J78",
+      "out_K78",
+      "out_L78",
+      "out_M78",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "84",
+     "valores": [
+      "out_B84",
+      null,
+      null,
+      null,
+      "out_H84",
+      "out_I84",
+      "out_J84",
+      "out_K84",
+      "out_L84",
+      null,
+      "out_N84",
+      "out_O84",
+      "out_P84",
+      "out_Q84",
+      "out_R84",
+      "out_S84",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 1 - Atenção (A)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H85",
+      "out_I85",
+      "out_J85",
+      "out_K85",
+      "out_L85",
+      null,
+      "out_N85",
+      "out_O85",
+      "out_P85",
+      "out_Q85",
+      "out_R85",
+      "out_S85",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 2 - Hiperatividade Impulsividade (",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H86",
+      "out_I86",
+      "out_J86",
+      "out_K86",
+      "out_L86",
+      null,
+      "out_N86",
+      "out_O86",
+      "out_P86",
+      "out_Q86",
+      "out_R86",
+      "out_S86",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 3 - Aprendizagem (AP)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H87",
+      "out_I87",
+      "out_J87",
+      "out_K87",
+      "out_L87",
+      null,
+      "out_N87",
+      "out_O87",
+      "out_P87",
+      "out_Q87",
+      "out_R87",
+      "out_S87",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 4 - Comportamento Social (CS)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H88",
+      "out_I88",
+      "out_J88",
+      "out_K88",
+      "out_L88",
+      null,
+      "out_N88",
+      "out_O88",
+      "out_P88",
+      "out_Q88",
+      "out_R88",
+      "out_S88",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "89",
+     "valores": [
+      "out_B89",
+      null,
+      null,
+      null,
+      "out_H89",
+      "out_I89",
+      "out_J89",
+      "out_K89",
+      "out_L89",
+      null,
+      "out_N89",
+      "out_O89",
+      "out_P89",
+      "out_Q89",
+      "out_R89",
+      "out_S89",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 1 - Atenção (A)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H90",
+      "out_I90",
+      "out_J90",
+      "out_K90",
+      "out_L90",
+      null,
+      "out_N90",
+      "out_O90",
+      "out_P90",
+      "out_Q90",
+      "out_R90",
+      "out_S90",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 2 - Hiperatividade Impulsividade (",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H91",
+      "out_I91",
+      "out_J91",
+      "out_K91",
+      "out_L91",
+      null,
+      "out_N91",
+      "out_O91",
+      "out_P91",
+      "out_Q91",
+      "out_R91",
+      "out_S91",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 3 - Aprendizagem (AP)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H92",
+      "out_I92",
+      "out_J92",
+      "out_K92",
+      "out_L92",
+      null,
+      "out_N92",
+      "out_O92",
+      "out_P92",
+      "out_Q92",
+      "out_R92",
+      "out_S92",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 4 - Comportamento Social (CS)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H93",
+      "out_I93",
+      "out_J93",
+      "out_K93",
+      "out_L93",
+      null,
+      "out_N93",
+      "out_O93",
+      "out_P93",
+      "out_Q93",
+      "out_R93",
+      "out_S93",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "94",
+     "valores": [
+      "out_B94",
+      null,
+      null,
+      null,
+      "out_H94",
+      "out_I94",
+      "out_J94",
+      "out_K94",
+      "out_L94",
+      null,
+      "out_N94",
+      "out_O94",
+      "out_P94",
+      "out_Q94",
+      "out_R94",
+      "out_S94",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 1 - Desatenção (D)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H95",
+      "out_I95",
+      "out_J95",
+      "out_K95",
+      "out_L95",
+      null,
+      "out_N95",
+      "out_O95",
+      "out_P95",
+      "out_Q95",
+      "out_R95",
+      "out_S95",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 2 - Hiperatividade Impulsividade (",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H96",
+      "out_I96",
+      "out_J96",
+      "out_K96",
+      "out_L96",
+      null,
+      "out_N96",
+      "out_O96",
+      "out_P96",
+      "out_Q96",
+      "out_R96",
+      "out_S96",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 3 - Aprendizagem (AP)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H97",
+      "out_I97",
+      "out_J97",
+      "out_K97",
+      "out_L97",
+      null,
+      "out_N97",
+      "out_O97",
+      "out_P97",
+      "out_Q97",
+      "out_R97",
+      "out_S97",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator 4 - Comportamento Social (CS)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H98",
+      "out_I98",
+      "out_J98",
+      "out_K98",
+      "out_L98",
+      null,
+      "out_N98",
+      "out_O98",
+      "out_P98",
+      "out_Q98",
+      "out_R98",
+      "out_S98",
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "101",
+     "valores": [
+      null,
+      "out_E101",
+      "out_F101",
+      "out_G101",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "F1 - A",
+     "valores": [
+      null,
+      "out_E102",
+      "out_F102",
+      "out_G102",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "F2 - H / I",
+     "valores": [
+      null,
+      "out_E103",
+      "out_F103",
+      "out_G103",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "F3 - AP",
+     "valores": [
+      null,
+      "out_E104",
+      "out_F104",
+      "out_G104",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "F4 - CS",
+     "valores": [
+      null,
+      "out_E105",
+      "out_F105",
+      "out_G105",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "GERAL",
+     "valores": [
+      null,
+      "out_E106",
+      "out_F106",
+      "out_G106",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Cada avaliação é única, assim como cada ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S123",
+      "out_T123",
+      "out_U123"
+     ]
+    },
+    {
+     "rotulo": "125",
+     "valores": [
+      "out_B125",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R125",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "126",
+     "valores": [
+      "out_B126",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R126",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "127",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R127",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "128",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R128",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "129",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R129",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "130",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R130",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "131",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R131",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "132",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R132",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "133",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R133",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "134",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R134",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "135",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R135",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "136",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R136",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "137",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R137",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "138",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R138",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "139",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_R139",
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

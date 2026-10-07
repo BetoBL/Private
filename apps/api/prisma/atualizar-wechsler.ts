@@ -30,7 +30,7 @@ async function main() {
         await prisma.teste.create({
           data: {
             nome: novo.nome, sigla, dominio: novo.dominio, escopo: EscopoTeste.FIXO, descricao: novo.descricao, algoritmoCorrecao: novo.algoritmoCorrecao as never,
-            referenciaBibliografica: novo.referenciaBibliografica, isPlaceholder: novo.isPlaceholder ?? true, direcao: novo.direcao ?? "NEUTRO",
+            referenciaBibliografica: novo.referenciaBibliografica, isPlaceholder: novo.isPlaceholder ?? true, direcao: novo.direcao ?? "NEUTRO", instrumento: novo.instrumento,
             tabelasNormativas: { create: novo.tabelasNormativas.map((f) => ({ criterio: f.criterio, faixaMin: f.faixaMin, faixaMax: f.faixaMax, faixaLabel: f.faixaLabel, sexo: f.sexo, conversao: f.conversao as never })) },
           },
         });

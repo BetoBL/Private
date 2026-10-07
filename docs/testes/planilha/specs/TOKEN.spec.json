@@ -1,0 +1,136 @@
+{
+ "sigla": "TOKEN",
+ "nome": "Token Test",
+ "dominio": "LINGUAGEM_APRENDIZAGEM",
+ "descricao": "Token Test (compreensão de comandos): acertos convertidos em Z, ponderado, percentil e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "Token Test (normas conforme planilha da psicóloga).",
+ "aba": "TOKEN",
+ "idade": [
+  6,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "M3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_C9",
+   "celula": "C9",
+   "rotulo": "Pontos Brutos",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_D9",
+   "celula": "D9",
+   "rotulo": "Percentil do estudo"
+  },
+  {
+   "chave": "out_E9",
+   "celula": "E9",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_F9",
+   "celula": "F9",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_G9",
+   "celula": "G9",
+   "rotulo": "Z Score"
+  },
+  {
+   "chave": "out_I9",
+   "celula": "I9",
+   "rotulo": "Pontos Ponderados"
+  },
+  {
+   "chave": "out_K9",
+   "celula": "K9",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M9",
+   "celula": "M9",
+   "rotulo": "Classificação"
+  },
+  {
+   "chave": "out_B11",
+   "celula": "B11",
+   "rotulo": "Sexo:"
+  },
+  {
+   "chave": "out_C13",
+   "celula": "C13",
+   "rotulo": "Normas: — Pontos Brutos"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Sexo:",
+    "Pontos Brutos",
+    "Percentil do estudo",
+    "Média",
+    "Desvio Padrão",
+    "Z Score",
+    "Pontos Ponderados",
+    "Percentil",
+    "Classificação"
+   ],
+   "linhas": [
+    {
+     "rotulo": "9",
+     "valores": [
+      null,
+      null,
+      "out_D9",
+      "out_E9",
+      "out_F9",
+      "out_G9",
+      "out_I9",
+      "out_K9",
+      "out_M9"
+     ]
+    },
+    {
+     "rotulo": "11",
+     "valores": [
+      "out_B11",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Normas:",
+     "valores": [
+      null,
+      "out_C13",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1196 @@
+{
+ "sigla": "TDE-2",
+ "nome": "TDE-II — Teste de Desempenho Escolar",
+ "dominio": "LINGUAGEM_APRENDIZAGEM",
+ "descricao": "TDE-II: escores de leitura de palavras, escrita e aritmética convertidos em classificação por ano escolar. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "STEIN, L. M. et al. TDE-II: Teste de Desempenho Escolar (normas conforme planilha da psicóloga).",
+ "aba": "TDE2",
+ "idade": [
+  6,
+  17
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "Y3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_H12",
+   "celula": "H12",
+   "rotulo": "Palavras Escritas Certas",
+   "min": 0
+  },
+  {
+   "chave": "in_H13",
+   "celula": "H13",
+   "rotulo": "Palavras Escritas Erradas",
+   "min": 0
+  },
+  {
+   "chave": "in_F14",
+   "celula": "F14",
+   "rotulo": "min:",
+   "min": 0
+  },
+  {
+   "chave": "in_H14",
+   "celula": "H14",
+   "rotulo": "seg:",
+   "min": 0
+  },
+  {
+   "chave": "in_H16",
+   "celula": "H16",
+   "rotulo": "Palavras Lidas Certas:",
+   "min": 0
+  },
+  {
+   "chave": "in_H17",
+   "celula": "H17",
+   "rotulo": "Palavras Lidas Erradas:",
+   "min": 0
+  },
+  {
+   "chave": "in_F18",
+   "celula": "F18",
+   "rotulo": "min:",
+   "min": 0
+  },
+  {
+   "chave": "in_H18",
+   "celula": "H18",
+   "rotulo": "seg:",
+   "min": 0
+  },
+  {
+   "chave": "in_H20",
+   "celula": "H20",
+   "rotulo": "Acertos (pts)",
+   "min": 0
+  },
+  {
+   "chave": "in_F21",
+   "celula": "F21",
+   "rotulo": "min:",
+   "min": 0
+  },
+  {
+   "chave": "in_H21",
+   "celula": "H21",
+   "rotulo": "seg:",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_S3",
+   "celula": "S3",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "Escola Privada",
+    "Escola Pública",
+    "Amostra Geral"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_I12",
+   "celula": "I12",
+   "rotulo": "Palavras Escritas Certas — Percentil"
+  },
+  {
+   "chave": "out_K12",
+   "celula": "K12",
+   "rotulo": "Palavras Escritas Certas — Classificação"
+  },
+  {
+   "chave": "out_M12",
+   "celula": "M12",
+   "rotulo": "Palavras Escritas Certas — Média"
+  },
+  {
+   "chave": "out_N12",
+   "celula": "N12",
+   "rotulo": "Palavras Escritas Certas — Dv. Pad"
+  },
+  {
+   "chave": "out_O12",
+   "celula": "O12",
+   "rotulo": "Palavras Escritas Certas — Z-Score"
+  },
+  {
+   "chave": "out_P12",
+   "celula": "P12",
+   "rotulo": "Palavras Escritas Certas — Ponder"
+  },
+  {
+   "chave": "out_Q12",
+   "celula": "Q12",
+   "rotulo": "Palavras Escritas Certas — Percentil"
+  },
+  {
+   "chave": "out_R12",
+   "celula": "R12",
+   "rotulo": "Palavras Escritas Certas — Classificação *"
+  },
+  {
+   "chave": "out_T12",
+   "celula": "T12",
+   "rotulo": "Palavras Escritas Certas — Distribuição Normal"
+  },
+  {
+   "chave": "out_V12",
+   "celula": "V12",
+   "rotulo": "Palavras Escritas Certas — Escore de Eficiència"
+  },
+  {
+   "chave": "out_W12",
+   "celula": "W12",
+   "rotulo": "Palavras Escritas Certas — Percentil"
+  },
+  {
+   "chave": "out_Y12",
+   "celula": "Y12",
+   "rotulo": "Palavras Escritas Certas — Classificação"
+  },
+  {
+   "chave": "out_AA12",
+   "celula": "AA12",
+   "rotulo": "Palavras Escritas Certas — Média"
+  },
+  {
+   "chave": "out_AB12",
+   "celula": "AB12",
+   "rotulo": "Palavras Escritas Certas — Dv. Pad"
+  },
+  {
+   "chave": "out_AC12",
+   "celula": "AC12",
+   "rotulo": "Palavras Escritas Certas — Z-Score"
+  },
+  {
+   "chave": "out_AD12",
+   "celula": "AD12",
+   "rotulo": "Palavras Escritas Certas — Ponder"
+  },
+  {
+   "chave": "out_AE12",
+   "celula": "AE12",
+   "rotulo": "Palavras Escritas Certas — Percentil"
+  },
+  {
+   "chave": "out_AF12",
+   "celula": "AF12",
+   "rotulo": "Palavras Escritas Certas — Classificação *"
+  },
+  {
+   "chave": "out_I14",
+   "celula": "I14",
+   "rotulo": "seg: — Percentil"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "seg: — Classificação"
+  },
+  {
+   "chave": "out_M14",
+   "celula": "M14",
+   "rotulo": "seg: — Média"
+  },
+  {
+   "chave": "out_N14",
+   "celula": "N14",
+   "rotulo": "seg: — Dv. Pad"
+  },
+  {
+   "chave": "out_O14",
+   "celula": "O14",
+   "rotulo": "seg: — Z-Score"
+  },
+  {
+   "chave": "out_P14",
+   "celula": "P14",
+   "rotulo": "seg: — Ponder"
+  },
+  {
+   "chave": "out_Q14",
+   "celula": "Q14",
+   "rotulo": "seg: — Percentil"
+  },
+  {
+   "chave": "out_R14",
+   "celula": "R14",
+   "rotulo": "seg: — Classificação *"
+  },
+  {
+   "chave": "out_T14",
+   "celula": "T14",
+   "rotulo": "seg: — Distribuição Normal"
+  },
+  {
+   "chave": "out_A15",
+   "celula": "A15",
+   "rotulo": "A15"
+  },
+  {
+   "chave": "out_H15",
+   "celula": "H15",
+   "rotulo": "Palavras Escritas por minuto"
+  },
+  {
+   "chave": "out_I15",
+   "celula": "I15",
+   "rotulo": "Palavras Escritas por minuto — Percentil"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "Palavras Escritas por minuto — Classificação"
+  },
+  {
+   "chave": "out_M15",
+   "celula": "M15",
+   "rotulo": "Palavras Escritas por minuto — Média"
+  },
+  {
+   "chave": "out_N15",
+   "celula": "N15",
+   "rotulo": "Palavras Escritas por minuto — Dv. Pad"
+  },
+  {
+   "chave": "out_O15",
+   "celula": "O15",
+   "rotulo": "Palavras Escritas por minuto — Z-Score"
+  },
+  {
+   "chave": "out_P15",
+   "celula": "P15",
+   "rotulo": "Palavras Escritas por minuto — Ponder"
+  },
+  {
+   "chave": "out_Q15",
+   "celula": "Q15",
+   "rotulo": "Palavras Escritas por minuto — Percentil"
+  },
+  {
+   "chave": "out_R15",
+   "celula": "R15",
+   "rotulo": "Palavras Escritas por minuto — Classificação *"
+  },
+  {
+   "chave": "out_T15",
+   "celula": "T15",
+   "rotulo": "Palavras Escritas por minuto — Distribuição Normal"
+  },
+  {
+   "chave": "out_I16",
+   "celula": "I16",
+   "rotulo": "Palavras Lidas Certas: — Percentil"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "Palavras Lidas Certas: — Classificação"
+  },
+  {
+   "chave": "out_M16",
+   "celula": "M16",
+   "rotulo": "Palavras Lidas Certas: — Média"
+  },
+  {
+   "chave": "out_N16",
+   "celula": "N16",
+   "rotulo": "Palavras Lidas Certas: — Dv. Pad"
+  },
+  {
+   "chave": "out_O16",
+   "celula": "O16",
+   "rotulo": "Palavras Lidas Certas: — Z-Score"
+  },
+  {
+   "chave": "out_P16",
+   "celula": "P16",
+   "rotulo": "Palavras Lidas Certas: — Ponder"
+  },
+  {
+   "chave": "out_Q16",
+   "celula": "Q16",
+   "rotulo": "Palavras Lidas Certas: — Percentil"
+  },
+  {
+   "chave": "out_R16",
+   "celula": "R16",
+   "rotulo": "Palavras Lidas Certas: — Classificação *"
+  },
+  {
+   "chave": "out_T16",
+   "celula": "T16",
+   "rotulo": "Palavras Lidas Certas: — Distribuição Normal"
+  },
+  {
+   "chave": "out_V16",
+   "celula": "V16",
+   "rotulo": "Palavras Lidas Certas: — Escore de Eficiència"
+  },
+  {
+   "chave": "out_W16",
+   "celula": "W16",
+   "rotulo": "Palavras Lidas Certas: — Percentil"
+  },
+  {
+   "chave": "out_Y16",
+   "celula": "Y16",
+   "rotulo": "Palavras Lidas Certas: — Classificação"
+  },
+  {
+   "chave": "out_AA16",
+   "celula": "AA16",
+   "rotulo": "Palavras Lidas Certas: — Média"
+  },
+  {
+   "chave": "out_AB16",
+   "celula": "AB16",
+   "rotulo": "Palavras Lidas Certas: — Dv. Pad"
+  },
+  {
+   "chave": "out_AC16",
+   "celula": "AC16",
+   "rotulo": "Palavras Lidas Certas: — Z-Score"
+  },
+  {
+   "chave": "out_AD16",
+   "celula": "AD16",
+   "rotulo": "Palavras Lidas Certas: — Ponder"
+  },
+  {
+   "chave": "out_AE16",
+   "celula": "AE16",
+   "rotulo": "Palavras Lidas Certas: — Percentil"
+  },
+  {
+   "chave": "out_AF16",
+   "celula": "AF16",
+   "rotulo": "Palavras Lidas Certas: — Classificação *"
+  },
+  {
+   "chave": "out_I18",
+   "celula": "I18",
+   "rotulo": "seg: — Percentil"
+  },
+  {
+   "chave": "out_K18",
+   "celula": "K18",
+   "rotulo": "seg: — Classificação"
+  },
+  {
+   "chave": "out_M18",
+   "celula": "M18",
+   "rotulo": "seg: — Média"
+  },
+  {
+   "chave": "out_N18",
+   "celula": "N18",
+   "rotulo": "seg: — Dv. Pad"
+  },
+  {
+   "chave": "out_O18",
+   "celula": "O18",
+   "rotulo": "seg: — Z-Score"
+  },
+  {
+   "chave": "out_P18",
+   "celula": "P18",
+   "rotulo": "seg: — Ponder"
+  },
+  {
+   "chave": "out_Q18",
+   "celula": "Q18",
+   "rotulo": "seg: — Percentil"
+  },
+  {
+   "chave": "out_R18",
+   "celula": "R18",
+   "rotulo": "seg: — Classificação *"
+  },
+  {
+   "chave": "out_T18",
+   "celula": "T18",
+   "rotulo": "seg: — Distribuição Normal"
+  },
+  {
+   "chave": "out_A19",
+   "celula": "A19",
+   "rotulo": "A19"
+  },
+  {
+   "chave": "out_H19",
+   "celula": "H19",
+   "rotulo": "Palavras Lidas por minuto."
+  },
+  {
+   "chave": "out_I19",
+   "celula": "I19",
+   "rotulo": "Palavras Lidas por minuto. — Percentil"
+  },
+  {
+   "chave": "out_K19",
+   "celula": "K19",
+   "rotulo": "Palavras Lidas por minuto. — Classificação"
+  },
+  {
+   "chave": "out_M19",
+   "celula": "M19",
+   "rotulo": "Palavras Lidas por minuto. — Média"
+  },
+  {
+   "chave": "out_N19",
+   "celula": "N19",
+   "rotulo": "Palavras Lidas por minuto. — Dv. Pad"
+  },
+  {
+   "chave": "out_O19",
+   "celula": "O19",
+   "rotulo": "Palavras Lidas por minuto. — Z-Score"
+  },
+  {
+   "chave": "out_P19",
+   "celula": "P19",
+   "rotulo": "Palavras Lidas por minuto. — Ponder"
+  },
+  {
+   "chave": "out_Q19",
+   "celula": "Q19",
+   "rotulo": "Palavras Lidas por minuto. — Percentil"
+  },
+  {
+   "chave": "out_R19",
+   "celula": "R19",
+   "rotulo": "Palavras Lidas por minuto. — Classificação *"
+  },
+  {
+   "chave": "out_T19",
+   "celula": "T19",
+   "rotulo": "Palavras Lidas por minuto. — Distribuição Normal"
+  },
+  {
+   "chave": "out_I20",
+   "celula": "I20",
+   "rotulo": "Acertos (pts) — Percentil"
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "Acertos (pts) — Classificação"
+  },
+  {
+   "chave": "out_M20",
+   "celula": "M20",
+   "rotulo": "Acertos (pts) — Média"
+  },
+  {
+   "chave": "out_N20",
+   "celula": "N20",
+   "rotulo": "Acertos (pts) — Dv. Pad"
+  },
+  {
+   "chave": "out_O20",
+   "celula": "O20",
+   "rotulo": "Acertos (pts) — Z-Score"
+  },
+  {
+   "chave": "out_P20",
+   "celula": "P20",
+   "rotulo": "Acertos (pts) — Ponder"
+  },
+  {
+   "chave": "out_Q20",
+   "celula": "Q20",
+   "rotulo": "Acertos (pts) — Percentil"
+  },
+  {
+   "chave": "out_R20",
+   "celula": "R20",
+   "rotulo": "Acertos (pts) — Classificação *"
+  },
+  {
+   "chave": "out_T20",
+   "celula": "T20",
+   "rotulo": "Acertos (pts) — Distribuição Normal"
+  },
+  {
+   "chave": "out_V20",
+   "celula": "V20",
+   "rotulo": "Acertos (pts) — Escore de Eficiència"
+  },
+  {
+   "chave": "out_W20",
+   "celula": "W20",
+   "rotulo": "Acertos (pts) — Percentil"
+  },
+  {
+   "chave": "out_Y20",
+   "celula": "Y20",
+   "rotulo": "Acertos (pts) — Classificação"
+  },
+  {
+   "chave": "out_AA20",
+   "celula": "AA20",
+   "rotulo": "Acertos (pts) — Média"
+  },
+  {
+   "chave": "out_AB20",
+   "celula": "AB20",
+   "rotulo": "Acertos (pts) — Dv. Pad"
+  },
+  {
+   "chave": "out_AC20",
+   "celula": "AC20",
+   "rotulo": "Acertos (pts) — Z-Score"
+  },
+  {
+   "chave": "out_AD20",
+   "celula": "AD20",
+   "rotulo": "Acertos (pts) — Ponder"
+  },
+  {
+   "chave": "out_AE20",
+   "celula": "AE20",
+   "rotulo": "Acertos (pts) — Percentil"
+  },
+  {
+   "chave": "out_AF20",
+   "celula": "AF20",
+   "rotulo": "Acertos (pts) — Classificação *"
+  },
+  {
+   "chave": "out_I21",
+   "celula": "I21",
+   "rotulo": "seg: — Percentil"
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "seg: — Classificação"
+  },
+  {
+   "chave": "out_M21",
+   "celula": "M21",
+   "rotulo": "seg: — Média"
+  },
+  {
+   "chave": "out_N21",
+   "celula": "N21",
+   "rotulo": "seg: — Dv. Pad"
+  },
+  {
+   "chave": "out_O21",
+   "celula": "O21",
+   "rotulo": "seg: — Z-Score"
+  },
+  {
+   "chave": "out_P21",
+   "celula": "P21",
+   "rotulo": "seg: — Ponder"
+  },
+  {
+   "chave": "out_Q21",
+   "celula": "Q21",
+   "rotulo": "seg: — Percentil"
+  },
+  {
+   "chave": "out_R21",
+   "celula": "R21",
+   "rotulo": "seg: — Classificação *"
+  },
+  {
+   "chave": "out_T21",
+   "celula": "T21",
+   "rotulo": "seg: — Distribuição Normal"
+  },
+  {
+   "chave": "out_E28",
+   "celula": "E28",
+   "rotulo": "Acertos — Percentil"
+  },
+  {
+   "chave": "out_E29",
+   "celula": "E29",
+   "rotulo": "Tempo — Percentil"
+  },
+  {
+   "chave": "out_E30",
+   "celula": "E30",
+   "rotulo": "Pal. / Min. — Percentil"
+  },
+  {
+   "chave": "out_E32",
+   "celula": "E32",
+   "rotulo": "Acertos — Percentil"
+  },
+  {
+   "chave": "out_E33",
+   "celula": "E33",
+   "rotulo": "Tempo — Percentil"
+  },
+  {
+   "chave": "out_E34",
+   "celula": "E34",
+   "rotulo": "Pal. / Min — Percentil"
+  },
+  {
+   "chave": "out_E36",
+   "celula": "E36",
+   "rotulo": "Acertos — Percentil"
+  },
+  {
+   "chave": "out_E37",
+   "celula": "E37",
+   "rotulo": "Tempo — Percentil"
+  },
+  {
+   "chave": "out_B51",
+   "celula": "B51",
+   "rotulo": "Tempo"
+  },
+  {
+   "chave": "out_C51",
+   "celula": "C51",
+   "rotulo": "Acertos"
+  },
+  {
+   "chave": "out_P51",
+   "celula": "P51",
+   "rotulo": "Tempo"
+  },
+  {
+   "chave": "out_Q51",
+   "celula": "Q51",
+   "rotulo": "Acertos"
+  },
+  {
+   "chave": "out_AB51",
+   "celula": "AB51",
+   "rotulo": "Tempo"
+  },
+  {
+   "chave": "out_AC51",
+   "celula": "AC51",
+   "rotulo": "Acertos"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "A",
+    "Tempo",
+    "Acertos",
+    "Percentil",
+    "H",
+    "Percentil",
+    "Classificação",
+    "Média",
+    "Dv. Pad",
+    "Z-Score",
+    "Ponder",
+    "Percentil",
+    "Classificação *",
+    "Distribuição Normal",
+    "Escore de Eficiència",
+    "Percentil",
+    "Classificação",
+    "Média",
+    "Dv. Pad",
+    "Z-Score",
+    "Ponder",
+    "Percentil",
+    "Classificação *"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Palavras Escritas Certas",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I12",
+      "out_K12",
+      "out_M12",
+      "out_N12",
+      "out_O12",
+      "out_P12",
+      "out_Q12",
+      "out_R12",
+      "out_T12",
+      "out_V12",
+      "out_W12",
+      "out_Y12",
+      "out_AA12",
+      "out_AB12",
+      "out_AC12",
+      "out_AD12",
+      "out_AE12",
+      "out_AF12"
+     ]
+    },
+    {
+     "rotulo": "seg:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I14",
+      "out_K14",
+      "out_M14",
+      "out_N14",
+      "out_O14",
+      "out_P14",
+      "out_Q14",
+      "out_R14",
+      "out_T14",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "15",
+     "valores": [
+      "out_A15",
+      null,
+      null,
+      null,
+      "out_H15",
+      "out_I15",
+      "out_K15",
+      "out_M15",
+      "out_N15",
+      "out_O15",
+      "out_P15",
+      "out_Q15",
+      "out_R15",
+      "out_T15",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Palavras Lidas Certas:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I16",
+      "out_K16",
+      "out_M16",
+      "out_N16",
+      "out_O16",
+      "out_P16",
+      "out_Q16",
+      "out_R16",
+      "out_T16",
+      "out_V16",
+      "out_W16",
+      "out_Y16",
+      "out_AA16",
+      "out_AB16",
+      "out_AC16",
+      "out_AD16",
+      "out_AE16",
+      "out_AF16"
+     ]
+    },
+    {
+     "rotulo": "seg:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I18",
+      "out_K18",
+      "out_M18",
+      "out_N18",
+      "out_O18",
+      "out_P18",
+      "out_Q18",
+      "out_R18",
+      "out_T18",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "19",
+     "valores": [
+      "out_A19",
+      null,
+      null,
+      null,
+      "out_H19",
+      "out_I19",
+      "out_K19",
+      "out_M19",
+      "out_N19",
+      "out_O19",
+      "out_P19",
+      "out_Q19",
+      "out_R19",
+      "out_T19",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Acertos (pts)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I20",
+      "out_K20",
+      "out_M20",
+      "out_N20",
+      "out_O20",
+      "out_P20",
+      "out_Q20",
+      "out_R20",
+      "out_T20",
+      "out_V20",
+      "out_W20",
+      "out_Y20",
+      "out_AA20",
+      "out_AB20",
+      "out_AC20",
+      "out_AD20",
+      "out_AE20",
+      "out_AF20"
+     ]
+    },
+    {
+     "rotulo": "seg:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_I21",
+      "out_K21",
+      "out_M21",
+      "out_N21",
+      "out_O21",
+      "out_P21",
+      "out_Q21",
+      "out_R21",
+      "out_T21",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Acertos",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E28",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E29",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pal. / Min.",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E30",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Acertos",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E32",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E33",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pal. / Min",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E34",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Acertos",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E36",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_E37",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "51",
+     "valores": [
+      null,
+      "out_B51",
+      "out_C51",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_P51",
+      "out_Q51",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AB51",
+      "out_AC51",
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

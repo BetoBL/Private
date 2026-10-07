@@ -103,7 +103,7 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
         {layout.opcoes.length > 0 && (
           <div className="mb-4 flex flex-wrap gap-4">
             {layout.opcoes.map((o) => {
-              const atual = Number(escoresBrutos[o.chave] ?? o.padrao ?? 0);
+              const atual = escoresBrutos[o.chave] !== undefined ? Number(escoresBrutos[o.chave]) : o.padrao ?? -1;
               return (
                 <div key={o.chave} className="flex items-center gap-2 text-xs">
                   <span className="text-ink/50">{o.rotulo}:</span>
