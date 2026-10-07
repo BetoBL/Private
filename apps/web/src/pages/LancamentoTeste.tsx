@@ -63,6 +63,15 @@ export function LancamentoTeste() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testes, searchParams]);
 
+  // Vindo da ficha do paciente (?aplicacaoId=): abre o lançamento salvo na tela completa do teste.
+  useEffect(() => {
+    const alvo = searchParams.get("aplicacaoId");
+    if (!alvo || editandoAplicacaoId === alvo || testes.length === 0) return;
+    const aplicacao = aplicacoes.find((a) => a.id === alvo);
+    if (aplicacao) editarLancamento(aplicacao);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [aplicacoes, testes]);
+
   // Guarda contra corrida: uma resposta de uma sessão antiga pode chegar depois
   // de o usuário já ter trocado de sessão, fazendo a lista "misturar" dados.
   useEffect(() => {
@@ -72,7 +81,16 @@ export function LancamentoTeste() {
       return;
     }
     let cancelado = false;
-    api.listSessoes(pacienteId).then((s) => !cancelado && setSessoes(s)).catch((e) => !cancelado && setErro(e.message));
+    api
+      .listSessoes(pacienteId)
+      .then((s) => {
+        if (cancelado) return;
+        setSessoes(s);
+        // vindo da ficha do paciente (?sessaoId=): abre direto na sessão escolhida
+        const alvo = searchParams.get("sessaoId");
+        if (alvo && s.some((x) => x.id === alvo)) setSessaoId((atual) => atual || alvo);
+      })
+      .catch((e) => !cancelado && setErro(e.message));
     return () => {
       cancelado = true;
     };
@@ -92,7 +110,6 @@ export function LancamentoTeste() {
 
   const paciente = pacientes.find((p) => p.id === pacienteId);
   const teste = testes.find((t) => t.id === testeId);
-  const campos = teste?.algoritmoCorrecao.campos ?? [];
 
   const sessoesFiltradas = buscaData
     ? sessoes.filter((s) => new Date(s.dataHora).toLocaleDateString("pt-BR").includes(buscaData))
@@ -200,8 +217,9 @@ export function LancamentoTeste() {
     setMensagem(null);
     try {
       const escoresBrutos: Record<string, number> = {};
-      for (const campo of campos) {
-        escoresBrutos[campo.chave] = Number(escores[campo.chave] ?? 0);
+      // só o que foi preenchido: campo em branco = subteste não aplicado (não vale zero). Inclui as opções do motor de planilha.
+      for (const [chave, valor] of Object.entries(escores)) {
+        if (valor.trim() !== "" && Number.isFinite(Number(valor))) escoresBrutos[chave] = Number(valor);
       }
       // Nome e relação só fazem sentido quando o respondente não é o próprio paciente; mandar
       // vazio evita deixar resíduo de um lançamento anterior gravado num PACIENTE.

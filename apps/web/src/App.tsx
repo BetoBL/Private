@@ -17,6 +17,7 @@ import { PainelDoDia } from "./pages/PainelDoDia";
 import { PerfilAtuacao } from "./pages/PerfilAtuacao";
 import { Pacientes } from "./pages/Pacientes";
 import { PreviewWais3 } from "./pages/PreviewWais3";
+import { TesteCompleto } from "./pages/TesteCompleto";
 
 function App() {
   const { profissional } = useAuth();
@@ -32,6 +33,8 @@ function App() {
       {/* Fora do <Layout/> de propósito: ambiente visual próprio, sem a sidebar escura da
           gestão da clínica (ver pages/BibliotecaDeTestes.tsx). */}
       <Route path="/biblioteca" element={<BibliotecaDeTestes />} />
+      {/* Tela cheia de um teste numa sessão (sem a sidebar), aberta pela ficha do paciente */}
+      <Route path="/teste-completo" element={<TesteCompleto />} />
       <Route element={<Layout />}>
         <Route path="/" element={<PainelDoDia />} />
         <Route path="/pacientes" element={<Pacientes />} />

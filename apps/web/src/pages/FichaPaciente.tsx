@@ -547,7 +547,8 @@ export function FichaPaciente() {
                 <div className="text-sm text-ink/60">Sessão sem testes lançados.</div>
               ) : (
                 testes.map((t) => (
-                  <div key={t.id} className="text-sm text-ink/70">
+                  <div key={t.id} className="flex flex-wrap items-center gap-x-3 text-sm text-ink/70">
+                    <span>
                     {t.teste.sigla} aplicado
                     {/* Em escala de informante, "quem respondeu" é parte do resultado: o mesmo
                         teste pode aparecer duas vezes na sessão, uma por respondente. */}
@@ -559,9 +560,23 @@ export function FichaPaciente() {
                       </span>
                     )}{" "}
                     {t.teste.isPlaceholder && <span className="text-ember">(provisório)</span>}
+                    </span>
+                    {/* Duas formas de abrir o lançamento: o formulário simples desta ficha (lista acima) e a tela completa do teste, com abas e gráficos */}
+                    <button
+                      className="rounded-md border border-sage-deep/30 px-2 py-0.5 text-xs font-semibold text-sage-deep hover:bg-sage-deep/5"
+                      onClick={() => navigate(`/teste-completo?pacienteId=${id}&sessaoId=${sessao.id}&aplicacaoId=${t.id}&teste=${encodeURIComponent(t.teste.sigla)}`)}
+                    >
+                      Abrir tela completa
+                    </button>
                   </div>
                 ))
               )}
+              <button
+                className="mt-1 text-xs font-semibold text-sage-deep underline-offset-2 hover:underline"
+                onClick={() => navigate(`/teste-completo?pacienteId=${id}&sessaoId=${sessao.id}`)}
+              >
+                + Lançar teste nesta sessão (tela completa)
+              </button>
             </div>
           ))}
         </div>
