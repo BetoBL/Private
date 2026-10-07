@@ -21,7 +21,7 @@
   {
    "chave": "in_D13",
    "celula": "D13",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
@@ -75,7 +75,7 @@
   {
    "chave": "in_D14",
    "celula": "D14",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
@@ -129,7 +129,7 @@
   {
    "chave": "in_D15",
    "celula": "D15",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -183,7 +183,7 @@
   {
    "chave": "in_D16",
    "celula": "D16",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -237,7 +237,7 @@
   {
    "chave": "in_D17",
    "celula": "D17",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -291,7 +291,7 @@
   {
    "chave": "in_D18",
    "celula": "D18",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -345,7 +345,7 @@
   {
    "chave": "in_D19",
    "celula": "D19",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -399,7 +399,7 @@
   {
    "chave": "in_D20",
    "celula": "D20",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -453,7 +453,7 @@
   {
    "chave": "in_D21",
    "celula": "D21",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -507,7 +507,7 @@
   {
    "chave": "in_D22",
    "celula": "D22",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -561,7 +561,7 @@
   {
    "chave": "in_D23",
    "celula": "D23",
-   "rotulo": "Resposta (N° de movts)",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -615,7 +615,7 @@
   {
    "chave": "in_D24",
    "celula": "D24",
-   "rotulo": "D24",
+   "rotulo": "Item 5",
    "min": 0
   },
   {

@@ -13,7 +13,10 @@ import { TESTES_PLACEHOLDER } from "./seed";
 
 const prisma = new PrismaClient();
 // Wechsler + todos os testes do motor de planilha (docs/testes/planilha). Cria o que ainda não existe no banco.
-const SIGLAS = ["WAIS-III", "WISC-IV", "WASI", ...carregarTestesPlanilha().map((p) => p.sigla)];
+const TODAS = ["WAIS-III", "WISC-IV", "WASI", ...carregarTestesPlanilha().map((p) => p.sigla)];
+// SO_SIGLAS=BPA,FDT limita a atualização a esses testes (útil para publicar aos poucos)
+const filtro = (process.env.SO_SIGLAS ?? "").split(",").map((s) => s.trim()).filter(Boolean);
+const SIGLAS = filtro.length ? TODAS.filter((s) => filtro.includes(s)) : TODAS;
 
 async function main() {
   const aplicar = process.argv.includes("--aplicar");

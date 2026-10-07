@@ -1,0 +1,580 @@
+{
+ "sigla": "FDT",
+ "nome": "FDT — Five Digit Test",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "FDT: tempos e erros de leitura, contagem, escolha e alternância, com os índices de inibição e flexibilidade, convertidos em percentil e classificação por idade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "SEDÓ, M.; DE PAULA, J. J.; MALLOY-DINIZ, L. F. Five Digits Test (normas conforme planilha da psicóloga).",
+ "aba": "FDT",
+ "idade": [
+  6,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_G12",
+   "celula": "G12",
+   "rotulo": "Leitura — Tempo em segundos",
+   "min": 0
+  },
+  {
+   "chave": "in_G13",
+   "celula": "G13",
+   "rotulo": "Contagem — Tempo em segundos",
+   "min": 0
+  },
+  {
+   "chave": "in_G14",
+   "celula": "G14",
+   "rotulo": "Escolha — Tempo em segundos",
+   "min": 0
+  },
+  {
+   "chave": "in_G15",
+   "celula": "G15",
+   "rotulo": "Alternância — Tempo em segundos",
+   "min": 0
+  },
+  {
+   "chave": "in_G20",
+   "celula": "G20",
+   "rotulo": "Leitura — Qtde de erros",
+   "min": 0
+  },
+  {
+   "chave": "in_G21",
+   "celula": "G21",
+   "rotulo": "Contagem — Qtde de erros",
+   "min": 0
+  },
+  {
+   "chave": "in_G22",
+   "celula": "G22",
+   "rotulo": "Escolha — Qtde de erros",
+   "min": 0
+  },
+  {
+   "chave": "in_G23",
+   "celula": "G23",
+   "rotulo": "Alternância — Qtde de erros",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_H12",
+   "celula": "H12",
+   "rotulo": "Leitura — Percentil"
+  },
+  {
+   "chave": "out_I12",
+   "celula": "I12",
+   "rotulo": "Leitura — Média"
+  },
+  {
+   "chave": "out_J12",
+   "celula": "J12",
+   "rotulo": "Leitura — Desvio Padrão"
+  },
+  {
+   "chave": "out_K12",
+   "celula": "K12",
+   "rotulo": "Leitura — Z-Score"
+  },
+  {
+   "chave": "out_L12",
+   "celula": "L12",
+   "rotulo": "Leitura — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M12",
+   "celula": "M12",
+   "rotulo": "Leitura — Percentil"
+  },
+  {
+   "chave": "out_N12",
+   "celula": "N12",
+   "rotulo": "Leitura — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_H13",
+   "celula": "H13",
+   "rotulo": "Contagem — Percentil"
+  },
+  {
+   "chave": "out_I13",
+   "celula": "I13",
+   "rotulo": "Contagem — Média"
+  },
+  {
+   "chave": "out_J13",
+   "celula": "J13",
+   "rotulo": "Contagem — Desvio Padrão"
+  },
+  {
+   "chave": "out_K13",
+   "celula": "K13",
+   "rotulo": "Contagem — Z-Score"
+  },
+  {
+   "chave": "out_L13",
+   "celula": "L13",
+   "rotulo": "Contagem — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M13",
+   "celula": "M13",
+   "rotulo": "Contagem — Percentil"
+  },
+  {
+   "chave": "out_N13",
+   "celula": "N13",
+   "rotulo": "Contagem — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_H14",
+   "celula": "H14",
+   "rotulo": "Escolha — Percentil"
+  },
+  {
+   "chave": "out_I14",
+   "celula": "I14",
+   "rotulo": "Escolha — Média"
+  },
+  {
+   "chave": "out_J14",
+   "celula": "J14",
+   "rotulo": "Escolha — Desvio Padrão"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "Escolha — Z-Score"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "Escolha — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M14",
+   "celula": "M14",
+   "rotulo": "Escolha — Percentil"
+  },
+  {
+   "chave": "out_N14",
+   "celula": "N14",
+   "rotulo": "Escolha — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_H15",
+   "celula": "H15",
+   "rotulo": "Alternância — Percentil"
+  },
+  {
+   "chave": "out_I15",
+   "celula": "I15",
+   "rotulo": "Alternância — Média"
+  },
+  {
+   "chave": "out_J15",
+   "celula": "J15",
+   "rotulo": "Alternância — Desvio Padrão"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "Alternância — Z-Score"
+  },
+  {
+   "chave": "out_L15",
+   "celula": "L15",
+   "rotulo": "Alternância — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M15",
+   "celula": "M15",
+   "rotulo": "Alternância — Percentil"
+  },
+  {
+   "chave": "out_N15",
+   "celula": "N15",
+   "rotulo": "Alternância — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_G16",
+   "celula": "G16",
+   "rotulo": "Inibição — Tempo em segundos"
+  },
+  {
+   "chave": "out_H16",
+   "celula": "H16",
+   "rotulo": "Inibição — Percentil"
+  },
+  {
+   "chave": "out_I16",
+   "celula": "I16",
+   "rotulo": "Inibição — Média"
+  },
+  {
+   "chave": "out_J16",
+   "celula": "J16",
+   "rotulo": "Inibição — Desvio Padrão"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "Inibição — Z-Score"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "Inibição — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M16",
+   "celula": "M16",
+   "rotulo": "Inibição — Percentil"
+  },
+  {
+   "chave": "out_N16",
+   "celula": "N16",
+   "rotulo": "Inibição — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_G17",
+   "celula": "G17",
+   "rotulo": "Flexibilidade — Tempo em segundos"
+  },
+  {
+   "chave": "out_H17",
+   "celula": "H17",
+   "rotulo": "Flexibilidade — Percentil"
+  },
+  {
+   "chave": "out_I17",
+   "celula": "I17",
+   "rotulo": "Flexibilidade — Média"
+  },
+  {
+   "chave": "out_J17",
+   "celula": "J17",
+   "rotulo": "Flexibilidade — Desvio Padrão"
+  },
+  {
+   "chave": "out_K17",
+   "celula": "K17",
+   "rotulo": "Flexibilidade — Z-Score"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "Flexibilidade — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M17",
+   "celula": "M17",
+   "rotulo": "Flexibilidade — Percentil"
+  },
+  {
+   "chave": "out_N17",
+   "celula": "N17",
+   "rotulo": "Flexibilidade — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_H20",
+   "celula": "H20",
+   "rotulo": "Leitura — Percentil"
+  },
+  {
+   "chave": "out_I20",
+   "celula": "I20",
+   "rotulo": "Leitura — Média"
+  },
+  {
+   "chave": "out_J20",
+   "celula": "J20",
+   "rotulo": "Leitura — Desvio Padrão"
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "Leitura — Z-Score"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Leitura — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M20",
+   "celula": "M20",
+   "rotulo": "Leitura — Percentil"
+  },
+  {
+   "chave": "out_N20",
+   "celula": "N20",
+   "rotulo": "Leitura — * Classificação (Guilmette"
+  },
+  {
+   "chave": "out_H21",
+   "celula": "H21",
+   "rotulo": "Contagem — Percentil"
+  },
+  {
+   "chave": "out_I21",
+   "celula": "I21",
+   "rotulo": "Contagem — Média"
+  },
+  {
+   "chave": "out_J21",
+   "celula": "J21",
+   "rotulo": "Contagem — Desvio Padrão"
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "Contagem — Z-Score"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "Contagem — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M21",
+   "celula": "M21",
+   "rotulo": "Contagem — Percentil"
+  },
+  {
+   "chave": "out_N21",
+   "celula": "N21",
+   "rotulo": "Contagem — * Classificação (Guilmette"
+  },
+  {
+   "chave": "out_H22",
+   "celula": "H22",
+   "rotulo": "Escolha — Percentil"
+  },
+  {
+   "chave": "out_I22",
+   "celula": "I22",
+   "rotulo": "Escolha — Média"
+  },
+  {
+   "chave": "out_J22",
+   "celula": "J22",
+   "rotulo": "Escolha — Desvio Padrão"
+  },
+  {
+   "chave": "out_K22",
+   "celula": "K22",
+   "rotulo": "Escolha — Z-Score"
+  },
+  {
+   "chave": "out_L22",
+   "celula": "L22",
+   "rotulo": "Escolha — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M22",
+   "celula": "M22",
+   "rotulo": "Escolha — Percentil"
+  },
+  {
+   "chave": "out_N22",
+   "celula": "N22",
+   "rotulo": "Escolha — * Classificação (Guilmette"
+  },
+  {
+   "chave": "out_H23",
+   "celula": "H23",
+   "rotulo": "Alternância — Percentil"
+  },
+  {
+   "chave": "out_I23",
+   "celula": "I23",
+   "rotulo": "Alternância — Média"
+  },
+  {
+   "chave": "out_J23",
+   "celula": "J23",
+   "rotulo": "Alternância — Desvio Padrão"
+  },
+  {
+   "chave": "out_K23",
+   "celula": "K23",
+   "rotulo": "Alternância — Z-Score"
+  },
+  {
+   "chave": "out_L23",
+   "celula": "L23",
+   "rotulo": "Alternância — Pontos Ponderados"
+  },
+  {
+   "chave": "out_M23",
+   "celula": "M23",
+   "rotulo": "Alternância — Percentil"
+  },
+  {
+   "chave": "out_N23",
+   "celula": "N23",
+   "rotulo": "Alternância — * Classificação (Guilmette"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Tempo em segundos",
+    "Percentil",
+    "Média",
+    "Desvio Padrão",
+    "Z-Score",
+    "Pontos Ponderados",
+    "Percentil",
+    "* Classificação (Guilmette)"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Leitura",
+     "valores": [
+      null,
+      "out_H12",
+      "out_I12",
+      "out_J12",
+      "out_K12",
+      "out_L12",
+      "out_M12",
+      "out_N12"
+     ]
+    },
+    {
+     "rotulo": "Contagem",
+     "valores": [
+      null,
+      "out_H13",
+      "out_I13",
+      "out_J13",
+      "out_K13",
+      "out_L13",
+      "out_M13",
+      "out_N13"
+     ]
+    },
+    {
+     "rotulo": "Escolha",
+     "valores": [
+      null,
+      "out_H14",
+      "out_I14",
+      "out_J14",
+      "out_K14",
+      "out_L14",
+      "out_M14",
+      "out_N14"
+     ]
+    },
+    {
+     "rotulo": "Alternância",
+     "valores": [
+      null,
+      "out_H15",
+      "out_I15",
+      "out_J15",
+      "out_K15",
+      "out_L15",
+      "out_M15",
+      "out_N15"
+     ]
+    },
+    {
+     "rotulo": "Inibição",
+     "valores": [
+      "out_G16",
+      "out_H16",
+      "out_I16",
+      "out_J16",
+      "out_K16",
+      "out_L16",
+      "out_M16",
+      "out_N16"
+     ]
+    },
+    {
+     "rotulo": "Flexibilidade",
+     "valores": [
+      "out_G17",
+      "out_H17",
+      "out_I17",
+      "out_J17",
+      "out_K17",
+      "out_L17",
+      "out_M17",
+      "out_N17"
+     ]
+    },
+    {
+     "rotulo": "Leitura",
+     "valores": [
+      null,
+      "out_H20",
+      "out_I20",
+      "out_J20",
+      "out_K20",
+      "out_L20",
+      "out_M20",
+      "out_N20"
+     ]
+    },
+    {
+     "rotulo": "Contagem",
+     "valores": [
+      null,
+      "out_H21",
+      "out_I21",
+      "out_J21",
+      "out_K21",
+      "out_L21",
+      "out_M21",
+      "out_N21"
+     ]
+    },
+    {
+     "rotulo": "Escolha",
+     "valores": [
+      null,
+      "out_H22",
+      "out_I22",
+      "out_J22",
+      "out_K22",
+      "out_L22",
+      "out_M22",
+      "out_N22"
+     ]
+    },
+    {
+     "rotulo": "Alternância",
+     "valores": [
+      null,
+      "out_H23",
+      "out_I23",
+      "out_J23",
+      "out_K23",
+      "out_L23",
+      "out_M23",
+      "out_N23"
+     ]
+    }
+   ]
+  }
+ ]
+}

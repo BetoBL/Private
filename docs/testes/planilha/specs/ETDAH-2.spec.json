@@ -19,6 +19,12 @@
  },
  "entradas": [
   {
+   "chave": "in_J11",
+   "celula": "J11",
+   "rotulo": "Disciplina:",
+   "min": 0
+  },
+  {
    "chave": "in_J12",
    "celula": "J12",
    "rotulo": "Disciplina: — 1",
@@ -28,6 +34,12 @@
    "chave": "in_J13",
    "celula": "J13",
    "rotulo": "Disciplina: — 1",
+   "min": 0
+  },
+  {
+   "chave": "in_P120",
+   "celula": "P120",
+   "rotulo": "Interpretação dos resultados segundo a p",
    "min": 0
   }
  ],

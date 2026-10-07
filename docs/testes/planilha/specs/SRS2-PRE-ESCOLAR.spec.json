@@ -1,0 +1,6985 @@
+{
+ "sigla": "SRS2-PRE-ESCOLAR",
+ "nome": "SRS-2 — Escala de Responsividade Social (Pré-escolar)",
+ "dominio": "RASTREIO_TEA",
+ "descricao": "SRS-2 pré-escolar: itens somados por escala de tratamento DSM e total, convertidos em escore T e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "CONSTANTINO, J. N.; GRUBER, C. P. Social Responsiveness Scale, Second Edition (normas conforme planilha da psicóloga).",
+ "aba": "SRS2_Pre_Escolar",
+ "idade": [
+  2,
+  5
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "Z3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_R3",
+   "celula": "R3",
+   "rotulo": "Avaliação 1:",
+   "min": 0
+  },
+  {
+   "chave": "in_R4",
+   "celula": "R4",
+   "rotulo": "Avaliação 2:",
+   "min": 0
+  },
+  {
+   "chave": "in_Z4",
+   "celula": "Z4",
+   "rotulo": "Data de aplicação 2:",
+   "min": 0
+  },
+  {
+   "chave": "in_R5",
+   "celula": "R5",
+   "rotulo": "Avaliação 3:",
+   "min": 0
+  },
+  {
+   "chave": "in_Z5",
+   "celula": "Z5",
+   "rotulo": "Data de aplicação 3:",
+   "min": 0
+  },
+  {
+   "chave": "in_R6",
+   "celula": "R6",
+   "rotulo": "Avaliação 4:",
+   "min": 0
+  },
+  {
+   "chave": "in_Z6",
+   "celula": "Z6",
+   "rotulo": "Data de aplicação 4:",
+   "min": 0
+  },
+  {
+   "chave": "in_Y13",
+   "celula": "Y13",
+   "rotulo": "Parece muito mais inquieta em situações  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB13",
+   "celula": "AB13",
+   "rotulo": "Parece muito mais inquieta em situações  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE13",
+   "celula": "AE13",
+   "rotulo": "Parece muito mais inquieta em situações  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH13",
+   "celula": "AH13",
+   "rotulo": "Parece muito mais inquieta em situações  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y14",
+   "celula": "Y14",
+   "rotulo": "As expressões em seu rosto não combinam  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB14",
+   "celula": "AB14",
+   "rotulo": "As expressões em seu rosto não combinam  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE14",
+   "celula": "AE14",
+   "rotulo": "As expressões em seu rosto não combinam  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH14",
+   "celula": "AH14",
+   "rotulo": "As expressões em seu rosto não combinam  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y15",
+   "celula": "Y15",
+   "rotulo": "Parece confiante (ou segura) quando está — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB15",
+   "celula": "AB15",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE15",
+   "celula": "AE15",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH15",
+   "celula": "AH15",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y16",
+   "celula": "Y16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB16",
+   "celula": "AB16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE16",
+   "celula": "AE16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH16",
+   "celula": "AH16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y17",
+   "celula": "Y17",
+   "rotulo": "Não percebe quando os outros estão tenta — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB17",
+   "celula": "AB17",
+   "rotulo": "Não percebe quando os outros estão tenta — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE17",
+   "celula": "AE17",
+   "rotulo": "Não percebe quando os outros estão tenta — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH17",
+   "celula": "AH17",
+   "rotulo": "Não percebe quando os outros estão tenta — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y18",
+   "celula": "Y18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB18",
+   "celula": "AB18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE18",
+   "celula": "AE18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH18",
+   "celula": "AH18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y19",
+   "celula": "Y19",
+   "rotulo": "Demonstra perceber o que os outros estão — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB19",
+   "celula": "AB19",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE19",
+   "celula": "AE19",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH19",
+   "celula": "AH19",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y20",
+   "celula": "Y20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB20",
+   "celula": "AB20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE20",
+   "celula": "AE20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH20",
+   "celula": "AH20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y21",
+   "celula": "Y21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB21",
+   "celula": "AB21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE21",
+   "celula": "AE21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH21",
+   "celula": "AH21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y22",
+   "celula": "Y22",
+   "rotulo": "É incapaz de compreender o sentido da co — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB22",
+   "celula": "AB22",
+   "rotulo": "É incapaz de compreender o sentido da co — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE22",
+   "celula": "AE22",
+   "rotulo": "É incapaz de compreender o sentido da co — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH22",
+   "celula": "AH22",
+   "rotulo": "É incapaz de compreender o sentido da co — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y23",
+   "celula": "Y23",
+   "rotulo": "É autoconfiante. — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB23",
+   "celula": "AB23",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE23",
+   "celula": "AE23",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH23",
+   "celula": "AH23",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y24",
+   "celula": "Y24",
+   "rotulo": "É capaz de comunicar seus sentimentos a  — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AB24",
+   "celula": "AB24",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AE24",
+   "celula": "AE24",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_AH24",
+   "celula": "AH24",
+   "rotulo": "inv — Resp",
+   "min": 0
+  },
+  {
+   "chave": "in_Y25",
+   "celula": "Y25",
+   "rotulo": "É devagar ou não consegue interagir com ",
+   "min": 0
+  },
+  {
+   "chave": "in_AB25",
+   "celula": "AB25",
+   "rotulo": "É devagar ou não consegue interagir com ",
+   "min": 0
+  },
+  {
+   "chave": "in_AE25",
+   "celula": "AE25",
+   "rotulo": "É devagar ou não consegue interagir com ",
+   "min": 0
+  },
+  {
+   "chave": "in_AH25",
+   "celula": "AH25",
+   "rotulo": "É devagar ou não consegue interagir com ",
+   "min": 0
+  },
+  {
+   "chave": "in_Y26",
+   "celula": "Y26",
+   "rotulo": "Não tem boa coordenação nas atividades m",
+   "min": 0
+  },
+  {
+   "chave": "in_AB26",
+   "celula": "AB26",
+   "rotulo": "Não tem boa coordenação nas atividades m",
+   "min": 0
+  },
+  {
+   "chave": "in_AE26",
+   "celula": "AE26",
+   "rotulo": "Não tem boa coordenação nas atividades m",
+   "min": 0
+  },
+  {
+   "chave": "in_AH26",
+   "celula": "AH26",
+   "rotulo": "Não tem boa coordenação nas atividades m",
+   "min": 0
+  },
+  {
+   "chave": "in_Y27",
+   "celula": "Y27",
+   "rotulo": "É capaz de entender o tom de voz e as ex",
+   "min": 0
+  },
+  {
+   "chave": "in_AB27",
+   "celula": "AB27",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE27",
+   "celula": "AE27",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH27",
+   "celula": "AH27",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y28",
+   "celula": "Y28",
+   "rotulo": "Evita o contato visual ou tem contato vi",
+   "min": 0
+  },
+  {
+   "chave": "in_AB28",
+   "celula": "AB28",
+   "rotulo": "Evita o contato visual ou tem contato vi",
+   "min": 0
+  },
+  {
+   "chave": "in_AE28",
+   "celula": "AE28",
+   "rotulo": "Evita o contato visual ou tem contato vi",
+   "min": 0
+  },
+  {
+   "chave": "in_AH28",
+   "celula": "AH28",
+   "rotulo": "Evita o contato visual ou tem contato vi",
+   "min": 0
+  },
+  {
+   "chave": "in_Y29",
+   "celula": "Y29",
+   "rotulo": "Reconhece quando algo é injusto.",
+   "min": 0
+  },
+  {
+   "chave": "in_AB29",
+   "celula": "AB29",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE29",
+   "celula": "AE29",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH29",
+   "celula": "AH29",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y30",
+   "celula": "Y30",
+   "rotulo": "Quando está no parquinho ou em um grupo ",
+   "min": 0
+  },
+  {
+   "chave": "in_AB30",
+   "celula": "AB30",
+   "rotulo": "Quando está no parquinho ou em um grupo ",
+   "min": 0
+  },
+  {
+   "chave": "in_AE30",
+   "celula": "AE30",
+   "rotulo": "Quando está no parquinho ou em um grupo ",
+   "min": 0
+  },
+  {
+   "chave": "in_AH30",
+   "celula": "AH30",
+   "rotulo": "Quando está no parquinho ou em um grupo ",
+   "min": 0
+  },
+  {
+   "chave": "in_Y31",
+   "celula": "Y31",
+   "rotulo": "Fica frustrada quando não consegue expre",
+   "min": 0
+  },
+  {
+   "chave": "in_AB31",
+   "celula": "AB31",
+   "rotulo": "Fica frustrada quando não consegue expre",
+   "min": 0
+  },
+  {
+   "chave": "in_AE31",
+   "celula": "AE31",
+   "rotulo": "Fica frustrada quando não consegue expre",
+   "min": 0
+  },
+  {
+   "chave": "in_AH31",
+   "celula": "AH31",
+   "rotulo": "Fica frustrada quando não consegue expre",
+   "min": 0
+  },
+  {
+   "chave": "in_Y32",
+   "celula": "Y32",
+   "rotulo": "Tem um jeito estranho de brincar com bri",
+   "min": 0
+  },
+  {
+   "chave": "in_AB32",
+   "celula": "AB32",
+   "rotulo": "Tem um jeito estranho de brincar com bri",
+   "min": 0
+  },
+  {
+   "chave": "in_AE32",
+   "celula": "AE32",
+   "rotulo": "Tem um jeito estranho de brincar com bri",
+   "min": 0
+  },
+  {
+   "chave": "in_AH32",
+   "celula": "AH32",
+   "rotulo": "Tem um jeito estranho de brincar com bri",
+   "min": 0
+  },
+  {
+   "chave": "in_Y33",
+   "celula": "Y33",
+   "rotulo": "É capaz de imitar as ações de outras pes",
+   "min": 0
+  },
+  {
+   "chave": "in_AB33",
+   "celula": "AB33",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE33",
+   "celula": "AE33",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH33",
+   "celula": "AH33",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y34",
+   "celula": "Y34",
+   "rotulo": "Brinca adequadamente com crianças da sua",
+   "min": 0
+  },
+  {
+   "chave": "in_AB34",
+   "celula": "AB34",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE34",
+   "celula": "AE34",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH34",
+   "celula": "AH34",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y35",
+   "celula": "Y35",
+   "rotulo": "Não participa de atividades em grupo a m",
+   "min": 0
+  },
+  {
+   "chave": "in_AB35",
+   "celula": "AB35",
+   "rotulo": "Não participa de atividades em grupo a m",
+   "min": 0
+  },
+  {
+   "chave": "in_AE35",
+   "celula": "AE35",
+   "rotulo": "Não participa de atividades em grupo a m",
+   "min": 0
+  },
+  {
+   "chave": "in_AH35",
+   "celula": "AH35",
+   "rotulo": "Não participa de atividades em grupo a m",
+   "min": 0
+  },
+  {
+   "chave": "in_Y36",
+   "celula": "Y36",
+   "rotulo": "Tem mais dificuldade do que outras crian",
+   "min": 0
+  },
+  {
+   "chave": "in_AB36",
+   "celula": "AB36",
+   "rotulo": "Tem mais dificuldade do que outras crian",
+   "min": 0
+  },
+  {
+   "chave": "in_AE36",
+   "celula": "AE36",
+   "rotulo": "Tem mais dificuldade do que outras crian",
+   "min": 0
+  },
+  {
+   "chave": "in_AH36",
+   "celula": "AH36",
+   "rotulo": "Tem mais dificuldade do que outras crian",
+   "min": 0
+  },
+  {
+   "chave": "in_Y37",
+   "celula": "Y37",
+   "rotulo": "Não parece se importar em estar fora de ",
+   "min": 0
+  },
+  {
+   "chave": "in_AB37",
+   "celula": "AB37",
+   "rotulo": "Não parece se importar em estar fora de ",
+   "min": 0
+  },
+  {
+   "chave": "in_AE37",
+   "celula": "AE37",
+   "rotulo": "Não parece se importar em estar fora de ",
+   "min": 0
+  },
+  {
+   "chave": "in_AH37",
+   "celula": "AH37",
+   "rotulo": "Não parece se importar em estar fora de ",
+   "min": 0
+  },
+  {
+   "chave": "in_Y38",
+   "celula": "Y38",
+   "rotulo": "Oferece conforto para os outros quando e",
+   "min": 0
+  },
+  {
+   "chave": "in_AB38",
+   "celula": "AB38",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE38",
+   "celula": "AE38",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH38",
+   "celula": "AH38",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y39",
+   "celula": "Y39",
+   "rotulo": "Evita iniciar interações sociais com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_AB39",
+   "celula": "AB39",
+   "rotulo": "Evita iniciar interações sociais com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_AE39",
+   "celula": "AE39",
+   "rotulo": "Evita iniciar interações sociais com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_AH39",
+   "celula": "AH39",
+   "rotulo": "Evita iniciar interações sociais com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_Y40",
+   "celula": "Y40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi",
+   "min": 0
+  },
+  {
+   "chave": "in_AB40",
+   "celula": "AB40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi",
+   "min": 0
+  },
+  {
+   "chave": "in_AE40",
+   "celula": "AE40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi",
+   "min": 0
+  },
+  {
+   "chave": "in_AH40",
+   "celula": "AH40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi",
+   "min": 0
+  },
+  {
+   "chave": "in_Y41",
+   "celula": "Y41",
+   "rotulo": "É considerada como estranha ou esquisita",
+   "min": 0
+  },
+  {
+   "chave": "in_AB41",
+   "celula": "AB41",
+   "rotulo": "É considerada como estranha ou esquisita",
+   "min": 0
+  },
+  {
+   "chave": "in_AE41",
+   "celula": "AE41",
+   "rotulo": "É considerada como estranha ou esquisita",
+   "min": 0
+  },
+  {
+   "chave": "in_AH41",
+   "celula": "AH41",
+   "rotulo": "É considerada como estranha ou esquisita",
+   "min": 0
+  },
+  {
+   "chave": "in_Y42",
+   "celula": "Y42",
+   "rotulo": "Fica perturbada em uma situação com muit",
+   "min": 0
+  },
+  {
+   "chave": "in_AB42",
+   "celula": "AB42",
+   "rotulo": "Fica perturbada em uma situação com muit",
+   "min": 0
+  },
+  {
+   "chave": "in_AE42",
+   "celula": "AE42",
+   "rotulo": "Fica perturbada em uma situação com muit",
+   "min": 0
+  },
+  {
+   "chave": "in_AH42",
+   "celula": "AH42",
+   "rotulo": "Fica perturbada em uma situação com muit",
+   "min": 0
+  },
+  {
+   "chave": "in_Y43",
+   "celula": "Y43",
+   "rotulo": "Não consegue tirar algo da sua mente uma",
+   "min": 0
+  },
+  {
+   "chave": "in_AB43",
+   "celula": "AB43",
+   "rotulo": "Não consegue tirar algo da sua mente uma",
+   "min": 0
+  },
+  {
+   "chave": "in_AE43",
+   "celula": "AE43",
+   "rotulo": "Não consegue tirar algo da sua mente uma",
+   "min": 0
+  },
+  {
+   "chave": "in_AH43",
+   "celula": "AH43",
+   "rotulo": "Não consegue tirar algo da sua mente uma",
+   "min": 0
+  },
+  {
+   "chave": "in_Y44",
+   "celula": "Y44",
+   "rotulo": "Quer ser trocada quando a fralda ou cuec",
+   "min": 0
+  },
+  {
+   "chave": "in_AB44",
+   "celula": "AB44",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE44",
+   "celula": "AE44",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH44",
+   "celula": "AH44",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y45",
+   "celula": "Y45",
+   "rotulo": "É socialmente inadequada, mesmo quando t",
+   "min": 0
+  },
+  {
+   "chave": "in_AB45",
+   "celula": "AB45",
+   "rotulo": "É socialmente inadequada, mesmo quando t",
+   "min": 0
+  },
+  {
+   "chave": "in_AE45",
+   "celula": "AE45",
+   "rotulo": "É socialmente inadequada, mesmo quando t",
+   "min": 0
+  },
+  {
+   "chave": "in_AH45",
+   "celula": "AH45",
+   "rotulo": "É socialmente inadequada, mesmo quando t",
+   "min": 0
+  },
+  {
+   "chave": "in_Y46",
+   "celula": "Y46",
+   "rotulo": "Evita pessoas que querem se aproximar de",
+   "min": 0
+  },
+  {
+   "chave": "in_AB46",
+   "celula": "AB46",
+   "rotulo": "Evita pessoas que querem se aproximar de",
+   "min": 0
+  },
+  {
+   "chave": "in_AE46",
+   "celula": "AE46",
+   "rotulo": "Evita pessoas que querem se aproximar de",
+   "min": 0
+  },
+  {
+   "chave": "in_AH46",
+   "celula": "AH46",
+   "rotulo": "Evita pessoas que querem se aproximar de",
+   "min": 0
+  },
+  {
+   "chave": "in_Y47",
+   "celula": "Y47",
+   "rotulo": "Tem dificuldade em manter uma interação ",
+   "min": 0
+  },
+  {
+   "chave": "in_AB47",
+   "celula": "AB47",
+   "rotulo": "Tem dificuldade em manter uma interação ",
+   "min": 0
+  },
+  {
+   "chave": "in_AE47",
+   "celula": "AE47",
+   "rotulo": "Tem dificuldade em manter uma interação ",
+   "min": 0
+  },
+  {
+   "chave": "in_AH47",
+   "celula": "AH47",
+   "rotulo": "Tem dificuldade em manter uma interação ",
+   "min": 0
+  },
+  {
+   "chave": "in_Y48",
+   "celula": "Y48",
+   "rotulo": "Tem dificuldade em se relacionar com adu",
+   "min": 0
+  },
+  {
+   "chave": "in_AB48",
+   "celula": "AB48",
+   "rotulo": "Tem dificuldade em se relacionar com adu",
+   "min": 0
+  },
+  {
+   "chave": "in_AE48",
+   "celula": "AE48",
+   "rotulo": "Tem dificuldade em se relacionar com adu",
+   "min": 0
+  },
+  {
+   "chave": "in_AH48",
+   "celula": "AH48",
+   "rotulo": "Tem dificuldade em se relacionar com adu",
+   "min": 0
+  },
+  {
+   "chave": "in_Y49",
+   "celula": "Y49",
+   "rotulo": "Tem dificuldade em se relacionar com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_AB49",
+   "celula": "AB49",
+   "rotulo": "Tem dificuldade em se relacionar com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_AE49",
+   "celula": "AE49",
+   "rotulo": "Tem dificuldade em se relacionar com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_AH49",
+   "celula": "AH49",
+   "rotulo": "Tem dificuldade em se relacionar com seu",
+   "min": 0
+  },
+  {
+   "chave": "in_Y50",
+   "celula": "Y50",
+   "rotulo": "Responde adequadamente às mudanças de hu",
+   "min": 0
+  },
+  {
+   "chave": "in_AB50",
+   "celula": "AB50",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE50",
+   "celula": "AE50",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH50",
+   "celula": "AH50",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y51",
+   "celula": "Y51",
+   "rotulo": "Tem uma variedade de interesses extraord",
+   "min": 0
+  },
+  {
+   "chave": "in_AB51",
+   "celula": "AB51",
+   "rotulo": "Tem uma variedade de interesses extraord",
+   "min": 0
+  },
+  {
+   "chave": "in_AE51",
+   "celula": "AE51",
+   "rotulo": "Tem uma variedade de interesses extraord",
+   "min": 0
+  },
+  {
+   "chave": "in_AH51",
+   "celula": "AH51",
+   "rotulo": "Tem uma variedade de interesses extraord",
+   "min": 0
+  },
+  {
+   "chave": "in_Y52",
+   "celula": "Y52",
+   "rotulo": "É imaginativa, hábil em fantasiar (contu",
+   "min": 0
+  },
+  {
+   "chave": "in_AB52",
+   "celula": "AB52",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE52",
+   "celula": "AE52",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH52",
+   "celula": "AH52",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y53",
+   "celula": "Y53",
+   "rotulo": "Muda de uma atividade para outra sem obj",
+   "min": 0
+  },
+  {
+   "chave": "in_AB53",
+   "celula": "AB53",
+   "rotulo": "Muda de uma atividade para outra sem obj",
+   "min": 0
+  },
+  {
+   "chave": "in_AE53",
+   "celula": "AE53",
+   "rotulo": "Muda de uma atividade para outra sem obj",
+   "min": 0
+  },
+  {
+   "chave": "in_AH53",
+   "celula": "AH53",
+   "rotulo": "Muda de uma atividade para outra sem obj",
+   "min": 0
+  },
+  {
+   "chave": "in_Y54",
+   "celula": "Y54",
+   "rotulo": "Parece excessivamente sensível aos sons,",
+   "min": 0
+  },
+  {
+   "chave": "in_AB54",
+   "celula": "AB54",
+   "rotulo": "Parece excessivamente sensível aos sons,",
+   "min": 0
+  },
+  {
+   "chave": "in_AE54",
+   "celula": "AE54",
+   "rotulo": "Parece excessivamente sensível aos sons,",
+   "min": 0
+  },
+  {
+   "chave": "in_AH54",
+   "celula": "AH54",
+   "rotulo": "Parece excessivamente sensível aos sons,",
+   "min": 0
+  },
+  {
+   "chave": "in_Y55",
+   "celula": "Y55",
+   "rotulo": "Separa-se facilmente (ou frequentemente)",
+   "min": 0
+  },
+  {
+   "chave": "in_AB55",
+   "celula": "AB55",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE55",
+   "celula": "AE55",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH55",
+   "celula": "AH55",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y56",
+   "celula": "Y56",
+   "rotulo": "Não entende como os eventos se encadeiam",
+   "min": 0
+  },
+  {
+   "chave": "in_AB56",
+   "celula": "AB56",
+   "rotulo": "Não entende como os eventos se encadeiam",
+   "min": 0
+  },
+  {
+   "chave": "in_AE56",
+   "celula": "AE56",
+   "rotulo": "Não entende como os eventos se encadeiam",
+   "min": 0
+  },
+  {
+   "chave": "in_AH56",
+   "celula": "AH56",
+   "rotulo": "Não entende como os eventos se encadeiam",
+   "min": 0
+  },
+  {
+   "chave": "in_Y57",
+   "celula": "Y57",
+   "rotulo": "Focaliza (ou dirige) sua atenção para on",
+   "min": 0
+  },
+  {
+   "chave": "in_AB57",
+   "celula": "AB57",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE57",
+   "celula": "AE57",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH57",
+   "celula": "AH57",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y58",
+   "celula": "Y58",
+   "rotulo": "Tem expressão facial excessivamente séri",
+   "min": 0
+  },
+  {
+   "chave": "in_AB58",
+   "celula": "AB58",
+   "rotulo": "Tem expressão facial excessivamente séri",
+   "min": 0
+  },
+  {
+   "chave": "in_AE58",
+   "celula": "AE58",
+   "rotulo": "Tem expressão facial excessivamente séri",
+   "min": 0
+  },
+  {
+   "chave": "in_AH58",
+   "celula": "AH58",
+   "rotulo": "Tem expressão facial excessivamente séri",
+   "min": 0
+  },
+  {
+   "chave": "in_Y59",
+   "celula": "Y59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina",
+   "min": 0
+  },
+  {
+   "chave": "in_AB59",
+   "celula": "AB59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina",
+   "min": 0
+  },
+  {
+   "chave": "in_AE59",
+   "celula": "AE59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina",
+   "min": 0
+  },
+  {
+   "chave": "in_AH59",
+   "celula": "AH59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina",
+   "min": 0
+  },
+  {
+   "chave": "in_Y60",
+   "celula": "Y60",
+   "rotulo": "Tem senso de humor e entende as piadas.",
+   "min": 0
+  },
+  {
+   "chave": "in_AB60",
+   "celula": "AB60",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE60",
+   "celula": "AE60",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH60",
+   "celula": "AH60",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y61",
+   "celula": "Y61",
+   "rotulo": "É extremamente hábil em algumas tarefas ",
+   "min": 0
+  },
+  {
+   "chave": "in_AB61",
+   "celula": "AB61",
+   "rotulo": "É extremamente hábil em algumas tarefas ",
+   "min": 0
+  },
+  {
+   "chave": "in_AE61",
+   "celula": "AE61",
+   "rotulo": "É extremamente hábil em algumas tarefas ",
+   "min": 0
+  },
+  {
+   "chave": "in_AH61",
+   "celula": "AH61",
+   "rotulo": "É extremamente hábil em algumas tarefas ",
+   "min": 0
+  },
+  {
+   "chave": "in_Y62",
+   "celula": "Y62",
+   "rotulo": "Tem comportamentos repetitivos, estranho",
+   "min": 0
+  },
+  {
+   "chave": "in_AB62",
+   "celula": "AB62",
+   "rotulo": "Tem comportamentos repetitivos, estranho",
+   "min": 0
+  },
+  {
+   "chave": "in_AE62",
+   "celula": "AE62",
+   "rotulo": "Tem comportamentos repetitivos, estranho",
+   "min": 0
+  },
+  {
+   "chave": "in_AH62",
+   "celula": "AH62",
+   "rotulo": "Tem comportamentos repetitivos, estranho",
+   "min": 0
+  },
+  {
+   "chave": "in_Y63",
+   "celula": "Y63",
+   "rotulo": "Responde a questões claras e diretas de ",
+   "min": 0
+  },
+  {
+   "chave": "in_AB63",
+   "celula": "AB63",
+   "rotulo": "Responde a questões claras e diretas de ",
+   "min": 0
+  },
+  {
+   "chave": "in_AE63",
+   "celula": "AE63",
+   "rotulo": "Responde a questões claras e diretas de ",
+   "min": 0
+  },
+  {
+   "chave": "in_AH63",
+   "celula": "AH63",
+   "rotulo": "Responde a questões claras e diretas de ",
+   "min": 0
+  },
+  {
+   "chave": "in_Y64",
+   "celula": "Y64",
+   "rotulo": "Sabe quando está falando muito alto ou f",
+   "min": 0
+  },
+  {
+   "chave": "in_AB64",
+   "celula": "AB64",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE64",
+   "celula": "AE64",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH64",
+   "celula": "AH64",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y65",
+   "celula": "Y65",
+   "rotulo": "Fala com as pessoas com um tom de voz in",
+   "min": 0
+  },
+  {
+   "chave": "in_AB65",
+   "celula": "AB65",
+   "rotulo": "Fala com as pessoas com um tom de voz in",
+   "min": 0
+  },
+  {
+   "chave": "in_AE65",
+   "celula": "AE65",
+   "rotulo": "Fala com as pessoas com um tom de voz in",
+   "min": 0
+  },
+  {
+   "chave": "in_AH65",
+   "celula": "AH65",
+   "rotulo": "Fala com as pessoas com um tom de voz in",
+   "min": 0
+  },
+  {
+   "chave": "in_Y66",
+   "celula": "Y66",
+   "rotulo": "Parece agir com as pessoas como se elas ",
+   "min": 0
+  },
+  {
+   "chave": "in_AB66",
+   "celula": "AB66",
+   "rotulo": "Parece agir com as pessoas como se elas ",
+   "min": 0
+  },
+  {
+   "chave": "in_AE66",
+   "celula": "AE66",
+   "rotulo": "Parece agir com as pessoas como se elas ",
+   "min": 0
+  },
+  {
+   "chave": "in_AH66",
+   "celula": "AH66",
+   "rotulo": "Parece agir com as pessoas como se elas ",
+   "min": 0
+  },
+  {
+   "chave": "in_Y67",
+   "celula": "Y67",
+   "rotulo": "Sabe quando está muito próxima ou invadi",
+   "min": 0
+  },
+  {
+   "chave": "in_AB67",
+   "celula": "AB67",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AE67",
+   "celula": "AE67",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_AH67",
+   "celula": "AH67",
+   "rotulo": "inv",
+   "min": 0
+  },
+  {
+   "chave": "in_Y68",
+   "celula": "Y68",
+   "rotulo": "Caminha entre duas pessoas que estão con",
+   "min": 0
+  },
+  {
+   "chave": "in_AB68",
+   "celula": "AB68",
+   "rotulo": "Caminha entre duas pessoas que estão con",
+   "min": 0
+  },
+  {
+   "chave": "in_AE68",
+   "celula": "AE68",
+   "rotulo": "Caminha entre duas pessoas que estão con",
+   "min": 0
+  },
+  {
+   "chave": "in_AH68",
+   "celula": "AH68",
+   "rotulo": "Caminha entre duas pessoas que estão con",
+   "min": 0
+  },
+  {
+   "chave": "in_Y69",
+   "celula": "Y69",
+   "rotulo": "Outras crianças não gostam de brincar co",
+   "min": 0
+  },
+  {
+   "chave": "in_AB69",
+   "celula": "AB69",
+   "rotulo": "Outras crianças não gostam de brincar co",
+   "min": 0
+  },
+  {
+   "chave": "in_AE69",
+   "celula": "AE69",
+   "rotulo": "Outras crianças não gostam de brincar co",
+   "min": 0
+  },
+  {
+   "chave": "in_AH69",
+   "celula": "AH69",
+   "rotulo": "Outras crianças não gostam de brincar co",
+   "min": 0
+  },
+  {
+   "chave": "in_Y70",
+   "celula": "Y70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa",
+   "min": 0
+  },
+  {
+   "chave": "in_AB70",
+   "celula": "AB70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa",
+   "min": 0
+  },
+  {
+   "chave": "in_AE70",
+   "celula": "AE70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa",
+   "min": 0
+  },
+  {
+   "chave": "in_AH70",
+   "celula": "AH70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa",
+   "min": 0
+  },
+  {
+   "chave": "in_Y71",
+   "celula": "Y71",
+   "rotulo": "É excessivamente desconfiada.",
+   "min": 0
+  },
+  {
+   "chave": "in_AB71",
+   "celula": "AB71",
+   "rotulo": "É excessivamente desconfiada.",
+   "min": 0
+  },
+  {
+   "chave": "in_AE71",
+   "celula": "AE71",
+   "rotulo": "É excessivamente desconfiada.",
+   "min": 0
+  },
+  {
+   "chave": "in_AH71",
+   "celula": "AH71",
+   "rotulo": "É excessivamente desconfiada.",
+   "min": 0
+  },
+  {
+   "chave": "in_Y72",
+   "celula": "Y72",
+   "rotulo": "É emocionalmente distante, não demonstra",
+   "min": 0
+  },
+  {
+   "chave": "in_AB72",
+   "celula": "AB72",
+   "rotulo": "É emocionalmente distante, não demonstra",
+   "min": 0
+  },
+  {
+   "chave": "in_AE72",
+   "celula": "AE72",
+   "rotulo": "É emocionalmente distante, não demonstra",
+   "min": 0
+  },
+  {
+   "chave": "in_AH72",
+   "celula": "AH72",
+   "rotulo": "É emocionalmente distante, não demonstra",
+   "min": 0
+  },
+  {
+   "chave": "in_Y73",
+   "celula": "Y73",
+   "rotulo": "É inflexível, leva muito tempo para muda",
+   "min": 0
+  },
+  {
+   "chave": "in_AB73",
+   "celula": "AB73",
+   "rotulo": "É inflexível, leva muito tempo para muda",
+   "min": 0
+  },
+  {
+   "chave": "in_AE73",
+   "celula": "AE73",
+   "rotulo": "É inflexível, leva muito tempo para muda",
+   "min": 0
+  },
+  {
+   "chave": "in_AH73",
+   "celula": "AH73",
+   "rotulo": "É inflexível, leva muito tempo para muda",
+   "min": 0
+  },
+  {
+   "chave": "in_Y74",
+   "celula": "Y74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p",
+   "min": 0
+  },
+  {
+   "chave": "in_AB74",
+   "celula": "AB74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p",
+   "min": 0
+  },
+  {
+   "chave": "in_AE74",
+   "celula": "AE74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p",
+   "min": 0
+  },
+  {
+   "chave": "in_AH74",
+   "celula": "AH74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p",
+   "min": 0
+  },
+  {
+   "chave": "in_Y75",
+   "celula": "Y75",
+   "rotulo": "Toca os outros de maneira incomum.",
+   "min": 0
+  },
+  {
+   "chave": "in_AB75",
+   "celula": "AB75",
+   "rotulo": "Toca os outros de maneira incomum.",
+   "min": 0
+  },
+  {
+   "chave": "in_AE75",
+   "celula": "AE75",
+   "rotulo": "Toca os outros de maneira incomum.",
+   "min": 0
+  },
+  {
+   "chave": "in_AH75",
+   "celula": "AH75",
+   "rotulo": "Toca os outros de maneira incomum.",
+   "min": 0
+  },
+  {
+   "chave": "in_Y76",
+   "celula": "Y76",
+   "rotulo": "Fica muito agitada em situações sociais.",
+   "min": 0
+  },
+  {
+   "chave": "in_AB76",
+   "celula": "AB76",
+   "rotulo": "Fica muito agitada em situações sociais.",
+   "min": 0
+  },
+  {
+   "chave": "in_AE76",
+   "celula": "AE76",
+   "rotulo": "Fica muito agitada em situações sociais.",
+   "min": 0
+  },
+  {
+   "chave": "in_AH76",
+   "celula": "AH76",
+   "rotulo": "Fica muito agitada em situações sociais.",
+   "min": 0
+  },
+  {
+   "chave": "in_Y77",
+   "celula": "Y77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente",
+   "min": 0
+  },
+  {
+   "chave": "in_AB77",
+   "celula": "AB77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente",
+   "min": 0
+  },
+  {
+   "chave": "in_AE77",
+   "celula": "AE77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente",
+   "min": 0
+  },
+  {
+   "chave": "in_AH77",
+   "celula": "AH77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_AE3",
+   "celula": "AE3",
+   "rotulo": "Idade 1:"
+  },
+  {
+   "chave": "out_AH3",
+   "celula": "AH3",
+   "rotulo": "Idade 1: — dias"
+  },
+  {
+   "chave": "out_AE4",
+   "celula": "AE4",
+   "rotulo": "Idade 2:"
+  },
+  {
+   "chave": "out_AH4",
+   "celula": "AH4",
+   "rotulo": "Idade 2: — dias"
+  },
+  {
+   "chave": "out_AE5",
+   "celula": "AE5",
+   "rotulo": "Idade 3:"
+  },
+  {
+   "chave": "out_AH5",
+   "celula": "AH5",
+   "rotulo": "Idade 3: — dias"
+  },
+  {
+   "chave": "out_AE6",
+   "celula": "AE6",
+   "rotulo": "Idade 4:"
+  },
+  {
+   "chave": "out_AH6",
+   "celula": "AH6",
+   "rotulo": "Idade 4: — dias"
+  },
+  {
+   "chave": "out_A7",
+   "celula": "A7",
+   "rotulo": "A7"
+  },
+  {
+   "chave": "out_B7",
+   "celula": "B7",
+   "rotulo": "Profissional Responsável:"
+  },
+  {
+   "chave": "out_C7",
+   "celula": "C7",
+   "rotulo": "C7"
+  },
+  {
+   "chave": "out_Y11",
+   "celula": "Y11",
+   "rotulo": "Aval 1:"
+  },
+  {
+   "chave": "out_AB11",
+   "celula": "AB11",
+   "rotulo": "Aval 2:"
+  },
+  {
+   "chave": "out_AE11",
+   "celula": "AE11",
+   "rotulo": "Aval 3:"
+  },
+  {
+   "chave": "out_AH11",
+   "celula": "AH11",
+   "rotulo": "Aval 4:"
+  },
+  {
+   "chave": "out_Z13",
+   "celula": "Z13",
+   "rotulo": "Parece muito mais inquieta em situações  — Pts"
+  },
+  {
+   "chave": "out_AC13",
+   "celula": "AC13",
+   "rotulo": "Parece muito mais inquieta em situações  — Pts"
+  },
+  {
+   "chave": "out_AF13",
+   "celula": "AF13",
+   "rotulo": "Parece muito mais inquieta em situações  — Pts"
+  },
+  {
+   "chave": "out_AI13",
+   "celula": "AI13",
+   "rotulo": "Parece muito mais inquieta em situações  — Pts"
+  },
+  {
+   "chave": "out_Z14",
+   "celula": "Z14",
+   "rotulo": "As expressões em seu rosto não combinam  — Pts"
+  },
+  {
+   "chave": "out_AC14",
+   "celula": "AC14",
+   "rotulo": "As expressões em seu rosto não combinam  — Pts"
+  },
+  {
+   "chave": "out_AF14",
+   "celula": "AF14",
+   "rotulo": "As expressões em seu rosto não combinam  — Pts"
+  },
+  {
+   "chave": "out_AI14",
+   "celula": "AI14",
+   "rotulo": "As expressões em seu rosto não combinam  — Pts"
+  },
+  {
+   "chave": "out_Z15",
+   "celula": "Z15",
+   "rotulo": "Parece confiante (ou segura) quando está — Pts"
+  },
+  {
+   "chave": "out_AC15",
+   "celula": "AC15",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AF15",
+   "celula": "AF15",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AI15",
+   "celula": "AI15",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_Z16",
+   "celula": "Z16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Pts"
+  },
+  {
+   "chave": "out_AC16",
+   "celula": "AC16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Pts"
+  },
+  {
+   "chave": "out_AF16",
+   "celula": "AF16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Pts"
+  },
+  {
+   "chave": "out_AI16",
+   "celula": "AI16",
+   "rotulo": "Quando há sobrecarga de estímulos, a cri — Pts"
+  },
+  {
+   "chave": "out_Z17",
+   "celula": "Z17",
+   "rotulo": "Não percebe quando os outros estão tenta — Pts"
+  },
+  {
+   "chave": "out_AC17",
+   "celula": "AC17",
+   "rotulo": "Não percebe quando os outros estão tenta — Pts"
+  },
+  {
+   "chave": "out_AF17",
+   "celula": "AF17",
+   "rotulo": "Não percebe quando os outros estão tenta — Pts"
+  },
+  {
+   "chave": "out_AI17",
+   "celula": "AI17",
+   "rotulo": "Não percebe quando os outros estão tenta — Pts"
+  },
+  {
+   "chave": "out_Z18",
+   "celula": "Z18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Pts"
+  },
+  {
+   "chave": "out_AC18",
+   "celula": "AC18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Pts"
+  },
+  {
+   "chave": "out_AF18",
+   "celula": "AF18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Pts"
+  },
+  {
+   "chave": "out_AI18",
+   "celula": "AI18",
+   "rotulo": "Prefere estar sozinha do que com os outr — Pts"
+  },
+  {
+   "chave": "out_Z19",
+   "celula": "Z19",
+   "rotulo": "Demonstra perceber o que os outros estão — Pts"
+  },
+  {
+   "chave": "out_AC19",
+   "celula": "AC19",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AF19",
+   "celula": "AF19",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AI19",
+   "celula": "AI19",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_Z20",
+   "celula": "Z20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Pts"
+  },
+  {
+   "chave": "out_AC20",
+   "celula": "AC20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Pts"
+  },
+  {
+   "chave": "out_AF20",
+   "celula": "AF20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Pts"
+  },
+  {
+   "chave": "out_AI20",
+   "celula": "AI20",
+   "rotulo": "Se comporta de maneira estranha ou bizar — Pts"
+  },
+  {
+   "chave": "out_Z21",
+   "celula": "Z21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Pts"
+  },
+  {
+   "chave": "out_AC21",
+   "celula": "AC21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Pts"
+  },
+  {
+   "chave": "out_AF21",
+   "celula": "AF21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Pts"
+  },
+  {
+   "chave": "out_AI21",
+   "celula": "AI21",
+   "rotulo": "Fica próxima a adultos, parece ser muito — Pts"
+  },
+  {
+   "chave": "out_Z22",
+   "celula": "Z22",
+   "rotulo": "É incapaz de compreender o sentido da co — Pts"
+  },
+  {
+   "chave": "out_AC22",
+   "celula": "AC22",
+   "rotulo": "É incapaz de compreender o sentido da co — Pts"
+  },
+  {
+   "chave": "out_AF22",
+   "celula": "AF22",
+   "rotulo": "É incapaz de compreender o sentido da co — Pts"
+  },
+  {
+   "chave": "out_AI22",
+   "celula": "AI22",
+   "rotulo": "É incapaz de compreender o sentido da co — Pts"
+  },
+  {
+   "chave": "out_Z23",
+   "celula": "Z23",
+   "rotulo": "É autoconfiante. — Pts"
+  },
+  {
+   "chave": "out_AC23",
+   "celula": "AC23",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AF23",
+   "celula": "AF23",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AI23",
+   "celula": "AI23",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_Z24",
+   "celula": "Z24",
+   "rotulo": "É capaz de comunicar seus sentimentos a  — Pts"
+  },
+  {
+   "chave": "out_AC24",
+   "celula": "AC24",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AF24",
+   "celula": "AF24",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_AI24",
+   "celula": "AI24",
+   "rotulo": "inv — Pts"
+  },
+  {
+   "chave": "out_Z25",
+   "celula": "Z25",
+   "rotulo": "É devagar ou não consegue interagir com "
+  },
+  {
+   "chave": "out_AC25",
+   "celula": "AC25",
+   "rotulo": "É devagar ou não consegue interagir com "
+  },
+  {
+   "chave": "out_AF25",
+   "celula": "AF25",
+   "rotulo": "É devagar ou não consegue interagir com "
+  },
+  {
+   "chave": "out_AI25",
+   "celula": "AI25",
+   "rotulo": "É devagar ou não consegue interagir com "
+  },
+  {
+   "chave": "out_Z26",
+   "celula": "Z26",
+   "rotulo": "Não tem boa coordenação nas atividades m"
+  },
+  {
+   "chave": "out_AC26",
+   "celula": "AC26",
+   "rotulo": "Não tem boa coordenação nas atividades m"
+  },
+  {
+   "chave": "out_AF26",
+   "celula": "AF26",
+   "rotulo": "Não tem boa coordenação nas atividades m"
+  },
+  {
+   "chave": "out_AI26",
+   "celula": "AI26",
+   "rotulo": "Não tem boa coordenação nas atividades m"
+  },
+  {
+   "chave": "out_Z27",
+   "celula": "Z27",
+   "rotulo": "É capaz de entender o tom de voz e as ex"
+  },
+  {
+   "chave": "out_AC27",
+   "celula": "AC27",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF27",
+   "celula": "AF27",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI27",
+   "celula": "AI27",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z28",
+   "celula": "Z28",
+   "rotulo": "Evita o contato visual ou tem contato vi"
+  },
+  {
+   "chave": "out_AC28",
+   "celula": "AC28",
+   "rotulo": "Evita o contato visual ou tem contato vi"
+  },
+  {
+   "chave": "out_AF28",
+   "celula": "AF28",
+   "rotulo": "Evita o contato visual ou tem contato vi"
+  },
+  {
+   "chave": "out_AI28",
+   "celula": "AI28",
+   "rotulo": "Evita o contato visual ou tem contato vi"
+  },
+  {
+   "chave": "out_Z29",
+   "celula": "Z29",
+   "rotulo": "Reconhece quando algo é injusto."
+  },
+  {
+   "chave": "out_AC29",
+   "celula": "AC29",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF29",
+   "celula": "AF29",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI29",
+   "celula": "AI29",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z30",
+   "celula": "Z30",
+   "rotulo": "Quando está no parquinho ou em um grupo "
+  },
+  {
+   "chave": "out_AC30",
+   "celula": "AC30",
+   "rotulo": "Quando está no parquinho ou em um grupo "
+  },
+  {
+   "chave": "out_AF30",
+   "celula": "AF30",
+   "rotulo": "Quando está no parquinho ou em um grupo "
+  },
+  {
+   "chave": "out_AI30",
+   "celula": "AI30",
+   "rotulo": "Quando está no parquinho ou em um grupo "
+  },
+  {
+   "chave": "out_Z31",
+   "celula": "Z31",
+   "rotulo": "Fica frustrada quando não consegue expre"
+  },
+  {
+   "chave": "out_AC31",
+   "celula": "AC31",
+   "rotulo": "Fica frustrada quando não consegue expre"
+  },
+  {
+   "chave": "out_AF31",
+   "celula": "AF31",
+   "rotulo": "Fica frustrada quando não consegue expre"
+  },
+  {
+   "chave": "out_AI31",
+   "celula": "AI31",
+   "rotulo": "Fica frustrada quando não consegue expre"
+  },
+  {
+   "chave": "out_Z32",
+   "celula": "Z32",
+   "rotulo": "Tem um jeito estranho de brincar com bri"
+  },
+  {
+   "chave": "out_AC32",
+   "celula": "AC32",
+   "rotulo": "Tem um jeito estranho de brincar com bri"
+  },
+  {
+   "chave": "out_AF32",
+   "celula": "AF32",
+   "rotulo": "Tem um jeito estranho de brincar com bri"
+  },
+  {
+   "chave": "out_AI32",
+   "celula": "AI32",
+   "rotulo": "Tem um jeito estranho de brincar com bri"
+  },
+  {
+   "chave": "out_Z33",
+   "celula": "Z33",
+   "rotulo": "É capaz de imitar as ações de outras pes"
+  },
+  {
+   "chave": "out_AC33",
+   "celula": "AC33",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF33",
+   "celula": "AF33",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI33",
+   "celula": "AI33",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z34",
+   "celula": "Z34",
+   "rotulo": "Brinca adequadamente com crianças da sua"
+  },
+  {
+   "chave": "out_AC34",
+   "celula": "AC34",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF34",
+   "celula": "AF34",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI34",
+   "celula": "AI34",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z35",
+   "celula": "Z35",
+   "rotulo": "Não participa de atividades em grupo a m"
+  },
+  {
+   "chave": "out_AC35",
+   "celula": "AC35",
+   "rotulo": "Não participa de atividades em grupo a m"
+  },
+  {
+   "chave": "out_AF35",
+   "celula": "AF35",
+   "rotulo": "Não participa de atividades em grupo a m"
+  },
+  {
+   "chave": "out_AI35",
+   "celula": "AI35",
+   "rotulo": "Não participa de atividades em grupo a m"
+  },
+  {
+   "chave": "out_Z36",
+   "celula": "Z36",
+   "rotulo": "Tem mais dificuldade do que outras crian"
+  },
+  {
+   "chave": "out_AC36",
+   "celula": "AC36",
+   "rotulo": "Tem mais dificuldade do que outras crian"
+  },
+  {
+   "chave": "out_AF36",
+   "celula": "AF36",
+   "rotulo": "Tem mais dificuldade do que outras crian"
+  },
+  {
+   "chave": "out_AI36",
+   "celula": "AI36",
+   "rotulo": "Tem mais dificuldade do que outras crian"
+  },
+  {
+   "chave": "out_Z37",
+   "celula": "Z37",
+   "rotulo": "Não parece se importar em estar fora de "
+  },
+  {
+   "chave": "out_AC37",
+   "celula": "AC37",
+   "rotulo": "Não parece se importar em estar fora de "
+  },
+  {
+   "chave": "out_AF37",
+   "celula": "AF37",
+   "rotulo": "Não parece se importar em estar fora de "
+  },
+  {
+   "chave": "out_AI37",
+   "celula": "AI37",
+   "rotulo": "Não parece se importar em estar fora de "
+  },
+  {
+   "chave": "out_Z38",
+   "celula": "Z38",
+   "rotulo": "Oferece conforto para os outros quando e"
+  },
+  {
+   "chave": "out_AC38",
+   "celula": "AC38",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF38",
+   "celula": "AF38",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI38",
+   "celula": "AI38",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z39",
+   "celula": "Z39",
+   "rotulo": "Evita iniciar interações sociais com seu"
+  },
+  {
+   "chave": "out_AC39",
+   "celula": "AC39",
+   "rotulo": "Evita iniciar interações sociais com seu"
+  },
+  {
+   "chave": "out_AF39",
+   "celula": "AF39",
+   "rotulo": "Evita iniciar interações sociais com seu"
+  },
+  {
+   "chave": "out_AI39",
+   "celula": "AI39",
+   "rotulo": "Evita iniciar interações sociais com seu"
+  },
+  {
+   "chave": "out_Z40",
+   "celula": "Z40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi"
+  },
+  {
+   "chave": "out_AC40",
+   "celula": "AC40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi"
+  },
+  {
+   "chave": "out_AF40",
+   "celula": "AF40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi"
+  },
+  {
+   "chave": "out_AI40",
+   "celula": "AI40",
+   "rotulo": "Pensa ou fala sobre a mesma coisa repedi"
+  },
+  {
+   "chave": "out_Z41",
+   "celula": "Z41",
+   "rotulo": "É considerada como estranha ou esquisita"
+  },
+  {
+   "chave": "out_AC41",
+   "celula": "AC41",
+   "rotulo": "É considerada como estranha ou esquisita"
+  },
+  {
+   "chave": "out_AF41",
+   "celula": "AF41",
+   "rotulo": "É considerada como estranha ou esquisita"
+  },
+  {
+   "chave": "out_AI41",
+   "celula": "AI41",
+   "rotulo": "É considerada como estranha ou esquisita"
+  },
+  {
+   "chave": "out_Z42",
+   "celula": "Z42",
+   "rotulo": "Fica perturbada em uma situação com muit"
+  },
+  {
+   "chave": "out_AC42",
+   "celula": "AC42",
+   "rotulo": "Fica perturbada em uma situação com muit"
+  },
+  {
+   "chave": "out_AF42",
+   "celula": "AF42",
+   "rotulo": "Fica perturbada em uma situação com muit"
+  },
+  {
+   "chave": "out_AI42",
+   "celula": "AI42",
+   "rotulo": "Fica perturbada em uma situação com muit"
+  },
+  {
+   "chave": "out_Z43",
+   "celula": "Z43",
+   "rotulo": "Não consegue tirar algo da sua mente uma"
+  },
+  {
+   "chave": "out_AC43",
+   "celula": "AC43",
+   "rotulo": "Não consegue tirar algo da sua mente uma"
+  },
+  {
+   "chave": "out_AF43",
+   "celula": "AF43",
+   "rotulo": "Não consegue tirar algo da sua mente uma"
+  },
+  {
+   "chave": "out_AI43",
+   "celula": "AI43",
+   "rotulo": "Não consegue tirar algo da sua mente uma"
+  },
+  {
+   "chave": "out_Z44",
+   "celula": "Z44",
+   "rotulo": "Quer ser trocada quando a fralda ou cuec"
+  },
+  {
+   "chave": "out_AC44",
+   "celula": "AC44",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF44",
+   "celula": "AF44",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI44",
+   "celula": "AI44",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z45",
+   "celula": "Z45",
+   "rotulo": "É socialmente inadequada, mesmo quando t"
+  },
+  {
+   "chave": "out_AC45",
+   "celula": "AC45",
+   "rotulo": "É socialmente inadequada, mesmo quando t"
+  },
+  {
+   "chave": "out_AF45",
+   "celula": "AF45",
+   "rotulo": "É socialmente inadequada, mesmo quando t"
+  },
+  {
+   "chave": "out_AI45",
+   "celula": "AI45",
+   "rotulo": "É socialmente inadequada, mesmo quando t"
+  },
+  {
+   "chave": "out_Z46",
+   "celula": "Z46",
+   "rotulo": "Evita pessoas que querem se aproximar de"
+  },
+  {
+   "chave": "out_AC46",
+   "celula": "AC46",
+   "rotulo": "Evita pessoas que querem se aproximar de"
+  },
+  {
+   "chave": "out_AF46",
+   "celula": "AF46",
+   "rotulo": "Evita pessoas que querem se aproximar de"
+  },
+  {
+   "chave": "out_AI46",
+   "celula": "AI46",
+   "rotulo": "Evita pessoas que querem se aproximar de"
+  },
+  {
+   "chave": "out_Z47",
+   "celula": "Z47",
+   "rotulo": "Tem dificuldade em manter uma interação "
+  },
+  {
+   "chave": "out_AC47",
+   "celula": "AC47",
+   "rotulo": "Tem dificuldade em manter uma interação "
+  },
+  {
+   "chave": "out_AF47",
+   "celula": "AF47",
+   "rotulo": "Tem dificuldade em manter uma interação "
+  },
+  {
+   "chave": "out_AI47",
+   "celula": "AI47",
+   "rotulo": "Tem dificuldade em manter uma interação "
+  },
+  {
+   "chave": "out_Z48",
+   "celula": "Z48",
+   "rotulo": "Tem dificuldade em se relacionar com adu"
+  },
+  {
+   "chave": "out_AC48",
+   "celula": "AC48",
+   "rotulo": "Tem dificuldade em se relacionar com adu"
+  },
+  {
+   "chave": "out_AF48",
+   "celula": "AF48",
+   "rotulo": "Tem dificuldade em se relacionar com adu"
+  },
+  {
+   "chave": "out_AI48",
+   "celula": "AI48",
+   "rotulo": "Tem dificuldade em se relacionar com adu"
+  },
+  {
+   "chave": "out_Z49",
+   "celula": "Z49",
+   "rotulo": "Tem dificuldade em se relacionar com seu"
+  },
+  {
+   "chave": "out_AC49",
+   "celula": "AC49",
+   "rotulo": "Tem dificuldade em se relacionar com seu"
+  },
+  {
+   "chave": "out_AF49",
+   "celula": "AF49",
+   "rotulo": "Tem dificuldade em se relacionar com seu"
+  },
+  {
+   "chave": "out_AI49",
+   "celula": "AI49",
+   "rotulo": "Tem dificuldade em se relacionar com seu"
+  },
+  {
+   "chave": "out_Z50",
+   "celula": "Z50",
+   "rotulo": "Responde adequadamente às mudanças de hu"
+  },
+  {
+   "chave": "out_AC50",
+   "celula": "AC50",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF50",
+   "celula": "AF50",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI50",
+   "celula": "AI50",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z51",
+   "celula": "Z51",
+   "rotulo": "Tem uma variedade de interesses extraord"
+  },
+  {
+   "chave": "out_AC51",
+   "celula": "AC51",
+   "rotulo": "Tem uma variedade de interesses extraord"
+  },
+  {
+   "chave": "out_AF51",
+   "celula": "AF51",
+   "rotulo": "Tem uma variedade de interesses extraord"
+  },
+  {
+   "chave": "out_AI51",
+   "celula": "AI51",
+   "rotulo": "Tem uma variedade de interesses extraord"
+  },
+  {
+   "chave": "out_Z52",
+   "celula": "Z52",
+   "rotulo": "É imaginativa, hábil em fantasiar (contu"
+  },
+  {
+   "chave": "out_AC52",
+   "celula": "AC52",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF52",
+   "celula": "AF52",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI52",
+   "celula": "AI52",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z53",
+   "celula": "Z53",
+   "rotulo": "Muda de uma atividade para outra sem obj"
+  },
+  {
+   "chave": "out_AC53",
+   "celula": "AC53",
+   "rotulo": "Muda de uma atividade para outra sem obj"
+  },
+  {
+   "chave": "out_AF53",
+   "celula": "AF53",
+   "rotulo": "Muda de uma atividade para outra sem obj"
+  },
+  {
+   "chave": "out_AI53",
+   "celula": "AI53",
+   "rotulo": "Muda de uma atividade para outra sem obj"
+  },
+  {
+   "chave": "out_Z54",
+   "celula": "Z54",
+   "rotulo": "Parece excessivamente sensível aos sons,"
+  },
+  {
+   "chave": "out_AC54",
+   "celula": "AC54",
+   "rotulo": "Parece excessivamente sensível aos sons,"
+  },
+  {
+   "chave": "out_AF54",
+   "celula": "AF54",
+   "rotulo": "Parece excessivamente sensível aos sons,"
+  },
+  {
+   "chave": "out_AI54",
+   "celula": "AI54",
+   "rotulo": "Parece excessivamente sensível aos sons,"
+  },
+  {
+   "chave": "out_Z55",
+   "celula": "Z55",
+   "rotulo": "Separa-se facilmente (ou frequentemente)"
+  },
+  {
+   "chave": "out_AC55",
+   "celula": "AC55",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF55",
+   "celula": "AF55",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI55",
+   "celula": "AI55",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z56",
+   "celula": "Z56",
+   "rotulo": "Não entende como os eventos se encadeiam"
+  },
+  {
+   "chave": "out_AC56",
+   "celula": "AC56",
+   "rotulo": "Não entende como os eventos se encadeiam"
+  },
+  {
+   "chave": "out_AF56",
+   "celula": "AF56",
+   "rotulo": "Não entende como os eventos se encadeiam"
+  },
+  {
+   "chave": "out_AI56",
+   "celula": "AI56",
+   "rotulo": "Não entende como os eventos se encadeiam"
+  },
+  {
+   "chave": "out_Z57",
+   "celula": "Z57",
+   "rotulo": "Focaliza (ou dirige) sua atenção para on"
+  },
+  {
+   "chave": "out_AC57",
+   "celula": "AC57",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF57",
+   "celula": "AF57",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI57",
+   "celula": "AI57",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z58",
+   "celula": "Z58",
+   "rotulo": "Tem expressão facial excessivamente séri"
+  },
+  {
+   "chave": "out_AC58",
+   "celula": "AC58",
+   "rotulo": "Tem expressão facial excessivamente séri"
+  },
+  {
+   "chave": "out_AF58",
+   "celula": "AF58",
+   "rotulo": "Tem expressão facial excessivamente séri"
+  },
+  {
+   "chave": "out_AI58",
+   "celula": "AI58",
+   "rotulo": "Tem expressão facial excessivamente séri"
+  },
+  {
+   "chave": "out_Z59",
+   "celula": "Z59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina"
+  },
+  {
+   "chave": "out_AC59",
+   "celula": "AC59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina"
+  },
+  {
+   "chave": "out_AF59",
+   "celula": "AF59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina"
+  },
+  {
+   "chave": "out_AI59",
+   "celula": "AI59",
+   "rotulo": "Comporta-se como tola ou ri de forma ina"
+  },
+  {
+   "chave": "out_Z60",
+   "celula": "Z60",
+   "rotulo": "Tem senso de humor e entende as piadas."
+  },
+  {
+   "chave": "out_AC60",
+   "celula": "AC60",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF60",
+   "celula": "AF60",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI60",
+   "celula": "AI60",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z61",
+   "celula": "Z61",
+   "rotulo": "É extremamente hábil em algumas tarefas "
+  },
+  {
+   "chave": "out_AC61",
+   "celula": "AC61",
+   "rotulo": "É extremamente hábil em algumas tarefas "
+  },
+  {
+   "chave": "out_AF61",
+   "celula": "AF61",
+   "rotulo": "É extremamente hábil em algumas tarefas "
+  },
+  {
+   "chave": "out_AI61",
+   "celula": "AI61",
+   "rotulo": "É extremamente hábil em algumas tarefas "
+  },
+  {
+   "chave": "out_Z62",
+   "celula": "Z62",
+   "rotulo": "Tem comportamentos repetitivos, estranho"
+  },
+  {
+   "chave": "out_AC62",
+   "celula": "AC62",
+   "rotulo": "Tem comportamentos repetitivos, estranho"
+  },
+  {
+   "chave": "out_AF62",
+   "celula": "AF62",
+   "rotulo": "Tem comportamentos repetitivos, estranho"
+  },
+  {
+   "chave": "out_AI62",
+   "celula": "AI62",
+   "rotulo": "Tem comportamentos repetitivos, estranho"
+  },
+  {
+   "chave": "out_Z63",
+   "celula": "Z63",
+   "rotulo": "Responde a questões claras e diretas de "
+  },
+  {
+   "chave": "out_AC63",
+   "celula": "AC63",
+   "rotulo": "Responde a questões claras e diretas de "
+  },
+  {
+   "chave": "out_AF63",
+   "celula": "AF63",
+   "rotulo": "Responde a questões claras e diretas de "
+  },
+  {
+   "chave": "out_AI63",
+   "celula": "AI63",
+   "rotulo": "Responde a questões claras e diretas de "
+  },
+  {
+   "chave": "out_Z64",
+   "celula": "Z64",
+   "rotulo": "Sabe quando está falando muito alto ou f"
+  },
+  {
+   "chave": "out_AC64",
+   "celula": "AC64",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF64",
+   "celula": "AF64",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI64",
+   "celula": "AI64",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z65",
+   "celula": "Z65",
+   "rotulo": "Fala com as pessoas com um tom de voz in"
+  },
+  {
+   "chave": "out_AC65",
+   "celula": "AC65",
+   "rotulo": "Fala com as pessoas com um tom de voz in"
+  },
+  {
+   "chave": "out_AF65",
+   "celula": "AF65",
+   "rotulo": "Fala com as pessoas com um tom de voz in"
+  },
+  {
+   "chave": "out_AI65",
+   "celula": "AI65",
+   "rotulo": "Fala com as pessoas com um tom de voz in"
+  },
+  {
+   "chave": "out_Z66",
+   "celula": "Z66",
+   "rotulo": "Parece agir com as pessoas como se elas "
+  },
+  {
+   "chave": "out_AC66",
+   "celula": "AC66",
+   "rotulo": "Parece agir com as pessoas como se elas "
+  },
+  {
+   "chave": "out_AF66",
+   "celula": "AF66",
+   "rotulo": "Parece agir com as pessoas como se elas "
+  },
+  {
+   "chave": "out_AI66",
+   "celula": "AI66",
+   "rotulo": "Parece agir com as pessoas como se elas "
+  },
+  {
+   "chave": "out_Z67",
+   "celula": "Z67",
+   "rotulo": "Sabe quando está muito próxima ou invadi"
+  },
+  {
+   "chave": "out_AC67",
+   "celula": "AC67",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AF67",
+   "celula": "AF67",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_AI67",
+   "celula": "AI67",
+   "rotulo": "inv"
+  },
+  {
+   "chave": "out_Z68",
+   "celula": "Z68",
+   "rotulo": "Caminha entre duas pessoas que estão con"
+  },
+  {
+   "chave": "out_AC68",
+   "celula": "AC68",
+   "rotulo": "Caminha entre duas pessoas que estão con"
+  },
+  {
+   "chave": "out_AF68",
+   "celula": "AF68",
+   "rotulo": "Caminha entre duas pessoas que estão con"
+  },
+  {
+   "chave": "out_AI68",
+   "celula": "AI68",
+   "rotulo": "Caminha entre duas pessoas que estão con"
+  },
+  {
+   "chave": "out_Z69",
+   "celula": "Z69",
+   "rotulo": "Outras crianças não gostam de brincar co"
+  },
+  {
+   "chave": "out_AC69",
+   "celula": "AC69",
+   "rotulo": "Outras crianças não gostam de brincar co"
+  },
+  {
+   "chave": "out_AF69",
+   "celula": "AF69",
+   "rotulo": "Outras crianças não gostam de brincar co"
+  },
+  {
+   "chave": "out_AI69",
+   "celula": "AI69",
+   "rotulo": "Outras crianças não gostam de brincar co"
+  },
+  {
+   "chave": "out_Z70",
+   "celula": "Z70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa"
+  },
+  {
+   "chave": "out_AC70",
+   "celula": "AC70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa"
+  },
+  {
+   "chave": "out_AF70",
+   "celula": "AF70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa"
+  },
+  {
+   "chave": "out_AI70",
+   "celula": "AI70",
+   "rotulo": "Concetra-se muito nos detalhes das coisa"
+  },
+  {
+   "chave": "out_Z71",
+   "celula": "Z71",
+   "rotulo": "É excessivamente desconfiada."
+  },
+  {
+   "chave": "out_AC71",
+   "celula": "AC71",
+   "rotulo": "É excessivamente desconfiada."
+  },
+  {
+   "chave": "out_AF71",
+   "celula": "AF71",
+   "rotulo": "É excessivamente desconfiada."
+  },
+  {
+   "chave": "out_AI71",
+   "celula": "AI71",
+   "rotulo": "É excessivamente desconfiada."
+  },
+  {
+   "chave": "out_Z72",
+   "celula": "Z72",
+   "rotulo": "É emocionalmente distante, não demonstra"
+  },
+  {
+   "chave": "out_AC72",
+   "celula": "AC72",
+   "rotulo": "É emocionalmente distante, não demonstra"
+  },
+  {
+   "chave": "out_AF72",
+   "celula": "AF72",
+   "rotulo": "É emocionalmente distante, não demonstra"
+  },
+  {
+   "chave": "out_AI72",
+   "celula": "AI72",
+   "rotulo": "É emocionalmente distante, não demonstra"
+  },
+  {
+   "chave": "out_Z73",
+   "celula": "Z73",
+   "rotulo": "É inflexível, leva muito tempo para muda"
+  },
+  {
+   "chave": "out_AC73",
+   "celula": "AC73",
+   "rotulo": "É inflexível, leva muito tempo para muda"
+  },
+  {
+   "chave": "out_AF73",
+   "celula": "AF73",
+   "rotulo": "É inflexível, leva muito tempo para muda"
+  },
+  {
+   "chave": "out_AI73",
+   "celula": "AI73",
+   "rotulo": "É inflexível, leva muito tempo para muda"
+  },
+  {
+   "chave": "out_Z74",
+   "celula": "Z74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p"
+  },
+  {
+   "chave": "out_AC74",
+   "celula": "AC74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p"
+  },
+  {
+   "chave": "out_AF74",
+   "celula": "AF74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p"
+  },
+  {
+   "chave": "out_AI74",
+   "celula": "AI74",
+   "rotulo": "Dá explicações incomuns ou ilógicas do p"
+  },
+  {
+   "chave": "out_Z75",
+   "celula": "Z75",
+   "rotulo": "Toca os outros de maneira incomum."
+  },
+  {
+   "chave": "out_AC75",
+   "celula": "AC75",
+   "rotulo": "Toca os outros de maneira incomum."
+  },
+  {
+   "chave": "out_AF75",
+   "celula": "AF75",
+   "rotulo": "Toca os outros de maneira incomum."
+  },
+  {
+   "chave": "out_AI75",
+   "celula": "AI75",
+   "rotulo": "Toca os outros de maneira incomum."
+  },
+  {
+   "chave": "out_Z76",
+   "celula": "Z76",
+   "rotulo": "Fica muito agitada em situações sociais."
+  },
+  {
+   "chave": "out_AC76",
+   "celula": "AC76",
+   "rotulo": "Fica muito agitada em situações sociais."
+  },
+  {
+   "chave": "out_AF76",
+   "celula": "AF76",
+   "rotulo": "Fica muito agitada em situações sociais."
+  },
+  {
+   "chave": "out_AI76",
+   "celula": "AI76",
+   "rotulo": "Fica muito agitada em situações sociais."
+  },
+  {
+   "chave": "out_Z77",
+   "celula": "Z77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente"
+  },
+  {
+   "chave": "out_AC77",
+   "celula": "AC77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente"
+  },
+  {
+   "chave": "out_AF77",
+   "celula": "AF77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente"
+  },
+  {
+   "chave": "out_AI77",
+   "celula": "AI77",
+   "rotulo": "Fica com olhar perdido ou olha fixamente"
+  },
+  {
+   "chave": "out_C79",
+   "celula": "C79",
+   "rotulo": "C79"
+  },
+  {
+   "chave": "out_AE80",
+   "celula": "AE80",
+   "rotulo": "Perc.S"
+  },
+  {
+   "chave": "out_AI80",
+   "celula": "AI80",
+   "rotulo": "Perc.S"
+  },
+  {
+   "chave": "out_I81",
+   "celula": "I81",
+   "rotulo": "Percepção Social (Perc.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K81",
+   "celula": "K81",
+   "rotulo": "Percepção Social (Perc.S.) — T-Score"
+  },
+  {
+   "chave": "out_M81",
+   "celula": "M81",
+   "rotulo": "Percepção Social (Perc.S.) — Percentil"
+  },
+  {
+   "chave": "out_O81",
+   "celula": "O81",
+   "rotulo": "Percepção Social (Perc.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q81",
+   "celula": "Q81",
+   "rotulo": "Percepção Social (Perc.S.) — Z-score"
+  },
+  {
+   "chave": "out_S81",
+   "celula": "S81",
+   "rotulo": "Percepção Social (Perc.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE81",
+   "celula": "AE81",
+   "rotulo": "Cog.S"
+  },
+  {
+   "chave": "out_AI81",
+   "celula": "AI81",
+   "rotulo": "Cog.S"
+  },
+  {
+   "chave": "out_I82",
+   "celula": "I82",
+   "rotulo": "Cognição Social (Cog.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K82",
+   "celula": "K82",
+   "rotulo": "Cognição Social (Cog.S.) — T-Score"
+  },
+  {
+   "chave": "out_M82",
+   "celula": "M82",
+   "rotulo": "Cognição Social (Cog.S.) — Percentil"
+  },
+  {
+   "chave": "out_O82",
+   "celula": "O82",
+   "rotulo": "Cognição Social (Cog.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q82",
+   "celula": "Q82",
+   "rotulo": "Cognição Social (Cog.S.) — Z-score"
+  },
+  {
+   "chave": "out_S82",
+   "celula": "S82",
+   "rotulo": "Cognição Social (Cog.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE82",
+   "celula": "AE82",
+   "rotulo": "Com.S"
+  },
+  {
+   "chave": "out_AI82",
+   "celula": "AI82",
+   "rotulo": "Com.S"
+  },
+  {
+   "chave": "out_I83",
+   "celula": "I83",
+   "rotulo": "Comunicação Social (Com.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K83",
+   "celula": "K83",
+   "rotulo": "Comunicação Social (Com.S.) — T-Score"
+  },
+  {
+   "chave": "out_M83",
+   "celula": "M83",
+   "rotulo": "Comunicação Social (Com.S.) — Percentil"
+  },
+  {
+   "chave": "out_O83",
+   "celula": "O83",
+   "rotulo": "Comunicação Social (Com.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q83",
+   "celula": "Q83",
+   "rotulo": "Comunicação Social (Com.S.) — Z-score"
+  },
+  {
+   "chave": "out_S83",
+   "celula": "S83",
+   "rotulo": "Comunicação Social (Com.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE83",
+   "celula": "AE83",
+   "rotulo": "Mot.S"
+  },
+  {
+   "chave": "out_AI83",
+   "celula": "AI83",
+   "rotulo": "Mot.S"
+  },
+  {
+   "chave": "out_I84",
+   "celula": "I84",
+   "rotulo": "Motivação Social (Mot.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K84",
+   "celula": "K84",
+   "rotulo": "Motivação Social (Mot.S.) — T-Score"
+  },
+  {
+   "chave": "out_M84",
+   "celula": "M84",
+   "rotulo": "Motivação Social (Mot.S.) — Percentil"
+  },
+  {
+   "chave": "out_O84",
+   "celula": "O84",
+   "rotulo": "Motivação Social (Mot.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q84",
+   "celula": "Q84",
+   "rotulo": "Motivação Social (Mot.S.) — Z-score"
+  },
+  {
+   "chave": "out_S84",
+   "celula": "S84",
+   "rotulo": "Motivação Social (Mot.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_I85",
+   "celula": "I85",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Pts Brts"
+  },
+  {
+   "chave": "out_K85",
+   "celula": "K85",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — T-Score"
+  },
+  {
+   "chave": "out_M85",
+   "celula": "M85",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Percentil"
+  },
+  {
+   "chave": "out_O85",
+   "celula": "O85",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Ponderado"
+  },
+  {
+   "chave": "out_Q85",
+   "celula": "Q85",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Z-score"
+  },
+  {
+   "chave": "out_S85",
+   "celula": "S85",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE85",
+   "celula": "AE85",
+   "rotulo": "PRR"
+  },
+  {
+   "chave": "out_AI85",
+   "celula": "AI85",
+   "rotulo": "PRR"
+  },
+  {
+   "chave": "out_I86",
+   "celula": "I86",
+   "rotulo": "Comunicação e Interação Social (CIS) — Pts Brts"
+  },
+  {
+   "chave": "out_K86",
+   "celula": "K86",
+   "rotulo": "Comunicação e Interação Social (CIS) — T-Score"
+  },
+  {
+   "chave": "out_M86",
+   "celula": "M86",
+   "rotulo": "Comunicação e Interação Social (CIS) — Percentil"
+  },
+  {
+   "chave": "out_O86",
+   "celula": "O86",
+   "rotulo": "Comunicação e Interação Social (CIS) — Ponderado"
+  },
+  {
+   "chave": "out_Q86",
+   "celula": "Q86",
+   "rotulo": "Comunicação e Interação Social (CIS) — Z-score"
+  },
+  {
+   "chave": "out_S86",
+   "celula": "S86",
+   "rotulo": "Comunicação e Interação Social (CIS) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE86",
+   "celula": "AE86",
+   "rotulo": "CIS"
+  },
+  {
+   "chave": "out_AI86",
+   "celula": "AI86",
+   "rotulo": "CIS"
+  },
+  {
+   "chave": "out_I87",
+   "celula": "I87",
+   "rotulo": "Pontuação SRS-2 Total — Pts Brts"
+  },
+  {
+   "chave": "out_K87",
+   "celula": "K87",
+   "rotulo": "Pontuação SRS-2 Total — T-Score"
+  },
+  {
+   "chave": "out_M87",
+   "celula": "M87",
+   "rotulo": "Pontuação SRS-2 Total — Percentil"
+  },
+  {
+   "chave": "out_O87",
+   "celula": "O87",
+   "rotulo": "Pontuação SRS-2 Total — Ponderado"
+  },
+  {
+   "chave": "out_Q87",
+   "celula": "Q87",
+   "rotulo": "Pontuação SRS-2 Total — Z-score"
+  },
+  {
+   "chave": "out_S87",
+   "celula": "S87",
+   "rotulo": "Pontuação SRS-2 Total — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE87",
+   "celula": "AE87",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_AI87",
+   "celula": "AI87",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_C89",
+   "celula": "C89",
+   "rotulo": "Pontuação SRS-2 Total"
+  },
+  {
+   "chave": "out_AE90",
+   "celula": "AE90",
+   "rotulo": "Perc.S"
+  },
+  {
+   "chave": "out_I91",
+   "celula": "I91",
+   "rotulo": "Percepção Social (Perc.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K91",
+   "celula": "K91",
+   "rotulo": "Percepção Social (Perc.S.) — T-Score"
+  },
+  {
+   "chave": "out_M91",
+   "celula": "M91",
+   "rotulo": "Percepção Social (Perc.S.) — Percentil"
+  },
+  {
+   "chave": "out_O91",
+   "celula": "O91",
+   "rotulo": "Percepção Social (Perc.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q91",
+   "celula": "Q91",
+   "rotulo": "Percepção Social (Perc.S.) — Z-score"
+  },
+  {
+   "chave": "out_S91",
+   "celula": "S91",
+   "rotulo": "Percepção Social (Perc.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE91",
+   "celula": "AE91",
+   "rotulo": "Cog.S"
+  },
+  {
+   "chave": "out_I92",
+   "celula": "I92",
+   "rotulo": "Cognição Social (Cog.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K92",
+   "celula": "K92",
+   "rotulo": "Cognição Social (Cog.S.) — T-Score"
+  },
+  {
+   "chave": "out_M92",
+   "celula": "M92",
+   "rotulo": "Cognição Social (Cog.S.) — Percentil"
+  },
+  {
+   "chave": "out_O92",
+   "celula": "O92",
+   "rotulo": "Cognição Social (Cog.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q92",
+   "celula": "Q92",
+   "rotulo": "Cognição Social (Cog.S.) — Z-score"
+  },
+  {
+   "chave": "out_S92",
+   "celula": "S92",
+   "rotulo": "Cognição Social (Cog.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE92",
+   "celula": "AE92",
+   "rotulo": "Com.S"
+  },
+  {
+   "chave": "out_I93",
+   "celula": "I93",
+   "rotulo": "Comunicação Social (Cog.S) — Pts Brts"
+  },
+  {
+   "chave": "out_K93",
+   "celula": "K93",
+   "rotulo": "Comunicação Social (Cog.S) — T-Score"
+  },
+  {
+   "chave": "out_M93",
+   "celula": "M93",
+   "rotulo": "Comunicação Social (Cog.S) — Percentil"
+  },
+  {
+   "chave": "out_O93",
+   "celula": "O93",
+   "rotulo": "Comunicação Social (Cog.S) — Ponderado"
+  },
+  {
+   "chave": "out_Q93",
+   "celula": "Q93",
+   "rotulo": "Comunicação Social (Cog.S) — Z-score"
+  },
+  {
+   "chave": "out_S93",
+   "celula": "S93",
+   "rotulo": "Comunicação Social (Cog.S) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE93",
+   "celula": "AE93",
+   "rotulo": "Mot.S"
+  },
+  {
+   "chave": "out_I94",
+   "celula": "I94",
+   "rotulo": "Motivação Social (Mot.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K94",
+   "celula": "K94",
+   "rotulo": "Motivação Social (Mot.S.) — T-Score"
+  },
+  {
+   "chave": "out_M94",
+   "celula": "M94",
+   "rotulo": "Motivação Social (Mot.S.) — Percentil"
+  },
+  {
+   "chave": "out_O94",
+   "celula": "O94",
+   "rotulo": "Motivação Social (Mot.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q94",
+   "celula": "Q94",
+   "rotulo": "Motivação Social (Mot.S.) — Z-score"
+  },
+  {
+   "chave": "out_S94",
+   "celula": "S94",
+   "rotulo": "Motivação Social (Mot.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_I95",
+   "celula": "I95",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Pts Brts"
+  },
+  {
+   "chave": "out_K95",
+   "celula": "K95",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — T-Score"
+  },
+  {
+   "chave": "out_M95",
+   "celula": "M95",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Percentil"
+  },
+  {
+   "chave": "out_O95",
+   "celula": "O95",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Ponderado"
+  },
+  {
+   "chave": "out_Q95",
+   "celula": "Q95",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Z-score"
+  },
+  {
+   "chave": "out_S95",
+   "celula": "S95",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE95",
+   "celula": "AE95",
+   "rotulo": "PRR"
+  },
+  {
+   "chave": "out_I96",
+   "celula": "I96",
+   "rotulo": "Comunicação e Interação Social (CIS) — Pts Brts"
+  },
+  {
+   "chave": "out_K96",
+   "celula": "K96",
+   "rotulo": "Comunicação e Interação Social (CIS) — T-Score"
+  },
+  {
+   "chave": "out_M96",
+   "celula": "M96",
+   "rotulo": "Comunicação e Interação Social (CIS) — Percentil"
+  },
+  {
+   "chave": "out_O96",
+   "celula": "O96",
+   "rotulo": "Comunicação e Interação Social (CIS) — Ponderado"
+  },
+  {
+   "chave": "out_Q96",
+   "celula": "Q96",
+   "rotulo": "Comunicação e Interação Social (CIS) — Z-score"
+  },
+  {
+   "chave": "out_S96",
+   "celula": "S96",
+   "rotulo": "Comunicação e Interação Social (CIS) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE96",
+   "celula": "AE96",
+   "rotulo": "CIS"
+  },
+  {
+   "chave": "out_I97",
+   "celula": "I97",
+   "rotulo": "Pontuação SRS-2 Total — Pts Brts"
+  },
+  {
+   "chave": "out_K97",
+   "celula": "K97",
+   "rotulo": "Pontuação SRS-2 Total — T-Score"
+  },
+  {
+   "chave": "out_M97",
+   "celula": "M97",
+   "rotulo": "Pontuação SRS-2 Total — Percentil"
+  },
+  {
+   "chave": "out_O97",
+   "celula": "O97",
+   "rotulo": "Pontuação SRS-2 Total — Ponderado"
+  },
+  {
+   "chave": "out_Q97",
+   "celula": "Q97",
+   "rotulo": "Pontuação SRS-2 Total — Z-score"
+  },
+  {
+   "chave": "out_S97",
+   "celula": "S97",
+   "rotulo": "Pontuação SRS-2 Total — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE97",
+   "celula": "AE97",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_C99",
+   "celula": "C99",
+   "rotulo": "Pontuação SRS-2 Total"
+  },
+  {
+   "chave": "out_AE100",
+   "celula": "AE100",
+   "rotulo": "Perc.S"
+  },
+  {
+   "chave": "out_I101",
+   "celula": "I101",
+   "rotulo": "Percepção Social (Perc.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K101",
+   "celula": "K101",
+   "rotulo": "Percepção Social (Perc.S.) — T-Score"
+  },
+  {
+   "chave": "out_M101",
+   "celula": "M101",
+   "rotulo": "Percepção Social (Perc.S.) — Percentil"
+  },
+  {
+   "chave": "out_O101",
+   "celula": "O101",
+   "rotulo": "Percepção Social (Perc.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q101",
+   "celula": "Q101",
+   "rotulo": "Percepção Social (Perc.S.) — Z-score"
+  },
+  {
+   "chave": "out_S101",
+   "celula": "S101",
+   "rotulo": "Percepção Social (Perc.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE101",
+   "celula": "AE101",
+   "rotulo": "Cog.S"
+  },
+  {
+   "chave": "out_I102",
+   "celula": "I102",
+   "rotulo": "Cognição Social(Cog.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K102",
+   "celula": "K102",
+   "rotulo": "Cognição Social(Cog.S.) — T-Score"
+  },
+  {
+   "chave": "out_M102",
+   "celula": "M102",
+   "rotulo": "Cognição Social(Cog.S.) — Percentil"
+  },
+  {
+   "chave": "out_O102",
+   "celula": "O102",
+   "rotulo": "Cognição Social(Cog.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q102",
+   "celula": "Q102",
+   "rotulo": "Cognição Social(Cog.S.) — Z-score"
+  },
+  {
+   "chave": "out_S102",
+   "celula": "S102",
+   "rotulo": "Cognição Social(Cog.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE102",
+   "celula": "AE102",
+   "rotulo": "Com.S"
+  },
+  {
+   "chave": "out_I103",
+   "celula": "I103",
+   "rotulo": "Comunicação Social (Com.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K103",
+   "celula": "K103",
+   "rotulo": "Comunicação Social (Com.S.) — T-Score"
+  },
+  {
+   "chave": "out_M103",
+   "celula": "M103",
+   "rotulo": "Comunicação Social (Com.S.) — Percentil"
+  },
+  {
+   "chave": "out_O103",
+   "celula": "O103",
+   "rotulo": "Comunicação Social (Com.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q103",
+   "celula": "Q103",
+   "rotulo": "Comunicação Social (Com.S.) — Z-score"
+  },
+  {
+   "chave": "out_S103",
+   "celula": "S103",
+   "rotulo": "Comunicação Social (Com.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE103",
+   "celula": "AE103",
+   "rotulo": "Mot.S"
+  },
+  {
+   "chave": "out_I104",
+   "celula": "I104",
+   "rotulo": "Motivação Social (Mot.S.) — Pts Brts"
+  },
+  {
+   "chave": "out_K104",
+   "celula": "K104",
+   "rotulo": "Motivação Social (Mot.S.) — T-Score"
+  },
+  {
+   "chave": "out_M104",
+   "celula": "M104",
+   "rotulo": "Motivação Social (Mot.S.) — Percentil"
+  },
+  {
+   "chave": "out_O104",
+   "celula": "O104",
+   "rotulo": "Motivação Social (Mot.S.) — Ponderado"
+  },
+  {
+   "chave": "out_Q104",
+   "celula": "Q104",
+   "rotulo": "Motivação Social (Mot.S.) — Z-score"
+  },
+  {
+   "chave": "out_S104",
+   "celula": "S104",
+   "rotulo": "Motivação Social (Mot.S.) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_I105",
+   "celula": "I105",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Pts Brts"
+  },
+  {
+   "chave": "out_K105",
+   "celula": "K105",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — T-Score"
+  },
+  {
+   "chave": "out_M105",
+   "celula": "M105",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Percentil"
+  },
+  {
+   "chave": "out_O105",
+   "celula": "O105",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Ponderado"
+  },
+  {
+   "chave": "out_Q105",
+   "celula": "Q105",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Z-score"
+  },
+  {
+   "chave": "out_S105",
+   "celula": "S105",
+   "rotulo": "Padrões Restritos e Repetitivos (PRR) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE105",
+   "celula": "AE105",
+   "rotulo": "PRR"
+  },
+  {
+   "chave": "out_I106",
+   "celula": "I106",
+   "rotulo": "Comunicação e Interação Social (CIS) — Pts Brts"
+  },
+  {
+   "chave": "out_K106",
+   "celula": "K106",
+   "rotulo": "Comunicação e Interação Social (CIS) — T-Score"
+  },
+  {
+   "chave": "out_M106",
+   "celula": "M106",
+   "rotulo": "Comunicação e Interação Social (CIS) — Percentil"
+  },
+  {
+   "chave": "out_O106",
+   "celula": "O106",
+   "rotulo": "Comunicação e Interação Social (CIS) — Ponderado"
+  },
+  {
+   "chave": "out_Q106",
+   "celula": "Q106",
+   "rotulo": "Comunicação e Interação Social (CIS) — Z-score"
+  },
+  {
+   "chave": "out_S106",
+   "celula": "S106",
+   "rotulo": "Comunicação e Interação Social (CIS) — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE106",
+   "celula": "AE106",
+   "rotulo": "CIS"
+  },
+  {
+   "chave": "out_I107",
+   "celula": "I107",
+   "rotulo": "Pontuação SRS-2 Total — Pts Brts"
+  },
+  {
+   "chave": "out_K107",
+   "celula": "K107",
+   "rotulo": "Pontuação SRS-2 Total — T-Score"
+  },
+  {
+   "chave": "out_M107",
+   "celula": "M107",
+   "rotulo": "Pontuação SRS-2 Total — Percentil"
+  },
+  {
+   "chave": "out_O107",
+   "celula": "O107",
+   "rotulo": "Pontuação SRS-2 Total — Ponderado"
+  },
+  {
+   "chave": "out_Q107",
+   "celula": "Q107",
+   "rotulo": "Pontuação SRS-2 Total — Z-score"
+  },
+  {
+   "chave": "out_S107",
+   "celula": "S107",
+   "rotulo": "Pontuação SRS-2 Total — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE107",
+   "celula": "AE107",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_C109",
+   "celula": "C109",
+   "rotulo": "Pontuação SRS-2 Total"
+  },
+  {
+   "chave": "out_AE110",
+   "celula": "AE110",
+   "rotulo": "Perc.S"
+  },
+  {
+   "chave": "out_I111",
+   "celula": "I111",
+   "rotulo": "Percepção Social — Pts Brts"
+  },
+  {
+   "chave": "out_K111",
+   "celula": "K111",
+   "rotulo": "Percepção Social — T-Score"
+  },
+  {
+   "chave": "out_M111",
+   "celula": "M111",
+   "rotulo": "Percepção Social — Percentil"
+  },
+  {
+   "chave": "out_O111",
+   "celula": "O111",
+   "rotulo": "Percepção Social — Ponderado"
+  },
+  {
+   "chave": "out_Q111",
+   "celula": "Q111",
+   "rotulo": "Percepção Social — Z-score"
+  },
+  {
+   "chave": "out_S111",
+   "celula": "S111",
+   "rotulo": "Percepção Social — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE111",
+   "celula": "AE111",
+   "rotulo": "Cog.S"
+  },
+  {
+   "chave": "out_I112",
+   "celula": "I112",
+   "rotulo": "Cognição Social — Pts Brts"
+  },
+  {
+   "chave": "out_K112",
+   "celula": "K112",
+   "rotulo": "Cognição Social — T-Score"
+  },
+  {
+   "chave": "out_M112",
+   "celula": "M112",
+   "rotulo": "Cognição Social — Percentil"
+  },
+  {
+   "chave": "out_O112",
+   "celula": "O112",
+   "rotulo": "Cognição Social — Ponderado"
+  },
+  {
+   "chave": "out_Q112",
+   "celula": "Q112",
+   "rotulo": "Cognição Social — Z-score"
+  },
+  {
+   "chave": "out_S112",
+   "celula": "S112",
+   "rotulo": "Cognição Social — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE112",
+   "celula": "AE112",
+   "rotulo": "Com.S"
+  },
+  {
+   "chave": "out_I113",
+   "celula": "I113",
+   "rotulo": "Comunicação Social — Pts Brts"
+  },
+  {
+   "chave": "out_K113",
+   "celula": "K113",
+   "rotulo": "Comunicação Social — T-Score"
+  },
+  {
+   "chave": "out_M113",
+   "celula": "M113",
+   "rotulo": "Comunicação Social — Percentil"
+  },
+  {
+   "chave": "out_O113",
+   "celula": "O113",
+   "rotulo": "Comunicação Social — Ponderado"
+  },
+  {
+   "chave": "out_Q113",
+   "celula": "Q113",
+   "rotulo": "Comunicação Social — Z-score"
+  },
+  {
+   "chave": "out_S113",
+   "celula": "S113",
+   "rotulo": "Comunicação Social — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE113",
+   "celula": "AE113",
+   "rotulo": "Mot.S"
+  },
+  {
+   "chave": "out_I114",
+   "celula": "I114",
+   "rotulo": "Motivação Social — Pts Brts"
+  },
+  {
+   "chave": "out_K114",
+   "celula": "K114",
+   "rotulo": "Motivação Social — T-Score"
+  },
+  {
+   "chave": "out_M114",
+   "celula": "M114",
+   "rotulo": "Motivação Social — Percentil"
+  },
+  {
+   "chave": "out_O114",
+   "celula": "O114",
+   "rotulo": "Motivação Social — Ponderado"
+  },
+  {
+   "chave": "out_Q114",
+   "celula": "Q114",
+   "rotulo": "Motivação Social — Z-score"
+  },
+  {
+   "chave": "out_S114",
+   "celula": "S114",
+   "rotulo": "Motivação Social — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_I115",
+   "celula": "I115",
+   "rotulo": "Padrões Restritos e Repetitivos — Pts Brts"
+  },
+  {
+   "chave": "out_K115",
+   "celula": "K115",
+   "rotulo": "Padrões Restritos e Repetitivos — T-Score"
+  },
+  {
+   "chave": "out_M115",
+   "celula": "M115",
+   "rotulo": "Padrões Restritos e Repetitivos — Percentil"
+  },
+  {
+   "chave": "out_O115",
+   "celula": "O115",
+   "rotulo": "Padrões Restritos e Repetitivos — Ponderado"
+  },
+  {
+   "chave": "out_Q115",
+   "celula": "Q115",
+   "rotulo": "Padrões Restritos e Repetitivos — Z-score"
+  },
+  {
+   "chave": "out_S115",
+   "celula": "S115",
+   "rotulo": "Padrões Restritos e Repetitivos — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE115",
+   "celula": "AE115",
+   "rotulo": "PRR"
+  },
+  {
+   "chave": "out_I116",
+   "celula": "I116",
+   "rotulo": "Comunicação e Interação Social — Pts Brts"
+  },
+  {
+   "chave": "out_K116",
+   "celula": "K116",
+   "rotulo": "Comunicação e Interação Social — T-Score"
+  },
+  {
+   "chave": "out_M116",
+   "celula": "M116",
+   "rotulo": "Comunicação e Interação Social — Percentil"
+  },
+  {
+   "chave": "out_O116",
+   "celula": "O116",
+   "rotulo": "Comunicação e Interação Social — Ponderado"
+  },
+  {
+   "chave": "out_Q116",
+   "celula": "Q116",
+   "rotulo": "Comunicação e Interação Social — Z-score"
+  },
+  {
+   "chave": "out_S116",
+   "celula": "S116",
+   "rotulo": "Comunicação e Interação Social — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE116",
+   "celula": "AE116",
+   "rotulo": "CIS"
+  },
+  {
+   "chave": "out_I117",
+   "celula": "I117",
+   "rotulo": "Pontuação SRS-2 Total — Pts Brts"
+  },
+  {
+   "chave": "out_K117",
+   "celula": "K117",
+   "rotulo": "Pontuação SRS-2 Total — T-Score"
+  },
+  {
+   "chave": "out_M117",
+   "celula": "M117",
+   "rotulo": "Pontuação SRS-2 Total — Percentil"
+  },
+  {
+   "chave": "out_O117",
+   "celula": "O117",
+   "rotulo": "Pontuação SRS-2 Total — Ponderado"
+  },
+  {
+   "chave": "out_Q117",
+   "celula": "Q117",
+   "rotulo": "Pontuação SRS-2 Total — Z-score"
+  },
+  {
+   "chave": "out_S117",
+   "celula": "S117",
+   "rotulo": "Pontuação SRS-2 Total — Classificação (pag 11)"
+  },
+  {
+   "chave": "out_AE117",
+   "celula": "AE117",
+   "rotulo": "TOTAL"
+  },
+  {
+   "chave": "out_I145",
+   "celula": "I145",
+   "rotulo": "Fator"
+  },
+  {
+   "chave": "out_J145",
+   "celula": "J145",
+   "rotulo": "Fator"
+  },
+  {
+   "chave": "out_K145",
+   "celula": "K145",
+   "rotulo": "Fator"
+  },
+  {
+   "chave": "out_L145",
+   "celula": "L145",
+   "rotulo": "Fator"
+  },
+  {
+   "chave": "out_I146",
+   "celula": "I146",
+   "rotulo": "Perc.Soc."
+  },
+  {
+   "chave": "out_J146",
+   "celula": "J146",
+   "rotulo": "Perc.Soc."
+  },
+  {
+   "chave": "out_K146",
+   "celula": "K146",
+   "rotulo": "Perc.Soc."
+  },
+  {
+   "chave": "out_L146",
+   "celula": "L146",
+   "rotulo": "Perc.Soc."
+  },
+  {
+   "chave": "out_I147",
+   "celula": "I147",
+   "rotulo": "Cog.Soc."
+  },
+  {
+   "chave": "out_J147",
+   "celula": "J147",
+   "rotulo": "Cog.Soc."
+  },
+  {
+   "chave": "out_K147",
+   "celula": "K147",
+   "rotulo": "Cog.Soc."
+  },
+  {
+   "chave": "out_L147",
+   "celula": "L147",
+   "rotulo": "Cog.Soc."
+  },
+  {
+   "chave": "out_I148",
+   "celula": "I148",
+   "rotulo": "Com.Soc."
+  },
+  {
+   "chave": "out_J148",
+   "celula": "J148",
+   "rotulo": "Com.Soc."
+  },
+  {
+   "chave": "out_K148",
+   "celula": "K148",
+   "rotulo": "Com.Soc."
+  },
+  {
+   "chave": "out_L148",
+   "celula": "L148",
+   "rotulo": "Com.Soc."
+  },
+  {
+   "chave": "out_I149",
+   "celula": "I149",
+   "rotulo": "Mot.Soc."
+  },
+  {
+   "chave": "out_J149",
+   "celula": "J149",
+   "rotulo": "Mot.Soc."
+  },
+  {
+   "chave": "out_K149",
+   "celula": "K149",
+   "rotulo": "Mot.Soc."
+  },
+  {
+   "chave": "out_L149",
+   "celula": "L149",
+   "rotulo": "Mot.Soc."
+  },
+  {
+   "chave": "out_I151",
+   "celula": "I151",
+   "rotulo": "Pad.Rest.Rep."
+  },
+  {
+   "chave": "out_J151",
+   "celula": "J151",
+   "rotulo": "Pad.Rest.Rep."
+  },
+  {
+   "chave": "out_K151",
+   "celula": "K151",
+   "rotulo": "Pad.Rest.Rep."
+  },
+  {
+   "chave": "out_L151",
+   "celula": "L151",
+   "rotulo": "Pad.Rest.Rep."
+  },
+  {
+   "chave": "out_I152",
+   "celula": "I152",
+   "rotulo": "Com.Inter.Soc."
+  },
+  {
+   "chave": "out_J152",
+   "celula": "J152",
+   "rotulo": "Com.Inter.Soc."
+  },
+  {
+   "chave": "out_K152",
+   "celula": "K152",
+   "rotulo": "Com.Inter.Soc."
+  },
+  {
+   "chave": "out_L152",
+   "celula": "L152",
+   "rotulo": "Com.Inter.Soc."
+  },
+  {
+   "chave": "out_I153",
+   "celula": "I153",
+   "rotulo": "Total"
+  },
+  {
+   "chave": "out_J153",
+   "celula": "J153",
+   "rotulo": "Total"
+  },
+  {
+   "chave": "out_K153",
+   "celula": "K153",
+   "rotulo": "Total"
+  },
+  {
+   "chave": "out_L153",
+   "celula": "L153",
+   "rotulo": "Total"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "A",
+    "Profissional Responsável:",
+    "C",
+    "Pts Brts",
+    "J",
+    "T-Score",
+    "L",
+    "Percentil",
+    "Ponderado",
+    "Z-score",
+    "Classificação (pag 11)",
+    "Aval 1:",
+    "Pts",
+    "Aval 2:",
+    "Pts",
+    "AE",
+    "Pts",
+    "dias",
+    "Pts"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Idade 1:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE3",
+      null,
+      "out_AH3",
+      null
+     ]
+    },
+    {
+     "rotulo": "Idade 2:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE4",
+      null,
+      "out_AH4",
+      null
+     ]
+    },
+    {
+     "rotulo": "Idade 3:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE5",
+      null,
+      "out_AH5",
+      null
+     ]
+    },
+    {
+     "rotulo": "Idade 4:",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE6",
+      null,
+      "out_AH6",
+      null
+     ]
+    },
+    {
+     "rotulo": "7",
+     "valores": [
+      "out_A7",
+      "out_B7",
+      "out_C7",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "11",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Y11",
+      null,
+      "out_AB11",
+      null,
+      "out_AE11",
+      null,
+      "out_AH11",
+      null
+     ]
+    },
+    {
+     "rotulo": "Parece muito mais inquieta em situações ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z13",
+      null,
+      "out_AC13",
+      null,
+      "out_AF13",
+      null,
+      "out_AI13"
+     ]
+    },
+    {
+     "rotulo": "As expressões em seu rosto não combinam ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z14",
+      null,
+      "out_AC14",
+      null,
+      "out_AF14",
+      null,
+      "out_AI14"
+     ]
+    },
+    {
+     "rotulo": "Parece confiante (ou segura) quando está",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z15",
+      null,
+      "out_AC15",
+      null,
+      "out_AF15",
+      null,
+      "out_AI15"
+     ]
+    },
+    {
+     "rotulo": "Quando há sobrecarga de estímulos, a cri",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z16",
+      null,
+      "out_AC16",
+      null,
+      "out_AF16",
+      null,
+      "out_AI16"
+     ]
+    },
+    {
+     "rotulo": "Não percebe quando os outros estão tenta",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z17",
+      null,
+      "out_AC17",
+      null,
+      "out_AF17",
+      null,
+      "out_AI17"
+     ]
+    },
+    {
+     "rotulo": "Prefere estar sozinha do que com os outr",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z18",
+      null,
+      "out_AC18",
+      null,
+      "out_AF18",
+      null,
+      "out_AI18"
+     ]
+    },
+    {
+     "rotulo": "Demonstra perceber o que os outros estão",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z19",
+      null,
+      "out_AC19",
+      null,
+      "out_AF19",
+      null,
+      "out_AI19"
+     ]
+    },
+    {
+     "rotulo": "Se comporta de maneira estranha ou bizar",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z20",
+      null,
+      "out_AC20",
+      null,
+      "out_AF20",
+      null,
+      "out_AI20"
+     ]
+    },
+    {
+     "rotulo": "Fica próxima a adultos, parece ser muito",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z21",
+      null,
+      "out_AC21",
+      null,
+      "out_AF21",
+      null,
+      "out_AI21"
+     ]
+    },
+    {
+     "rotulo": "É incapaz de compreender o sentido da co",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z22",
+      null,
+      "out_AC22",
+      null,
+      "out_AF22",
+      null,
+      "out_AI22"
+     ]
+    },
+    {
+     "rotulo": "É autoconfiante.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z23",
+      null,
+      "out_AC23",
+      null,
+      "out_AF23",
+      null,
+      "out_AI23"
+     ]
+    },
+    {
+     "rotulo": "É capaz de comunicar seus sentimentos a ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z24",
+      null,
+      "out_AC24",
+      null,
+      "out_AF24",
+      null,
+      "out_AI24"
+     ]
+    },
+    {
+     "rotulo": "É devagar ou não consegue interagir com ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z25",
+      null,
+      "out_AC25",
+      null,
+      "out_AF25",
+      null,
+      "out_AI25"
+     ]
+    },
+    {
+     "rotulo": "Não tem boa coordenação nas atividades m",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z26",
+      null,
+      "out_AC26",
+      null,
+      "out_AF26",
+      null,
+      "out_AI26"
+     ]
+    },
+    {
+     "rotulo": "É capaz de entender o tom de voz e as ex",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z27",
+      null,
+      "out_AC27",
+      null,
+      "out_AF27",
+      null,
+      "out_AI27"
+     ]
+    },
+    {
+     "rotulo": "Evita o contato visual ou tem contato vi",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z28",
+      null,
+      "out_AC28",
+      null,
+      "out_AF28",
+      null,
+      "out_AI28"
+     ]
+    },
+    {
+     "rotulo": "Reconhece quando algo é injusto.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z29",
+      null,
+      "out_AC29",
+      null,
+      "out_AF29",
+      null,
+      "out_AI29"
+     ]
+    },
+    {
+     "rotulo": "Quando está no parquinho ou em um grupo ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z30",
+      null,
+      "out_AC30",
+      null,
+      "out_AF30",
+      null,
+      "out_AI30"
+     ]
+    },
+    {
+     "rotulo": "Fica frustrada quando não consegue expre",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z31",
+      null,
+      "out_AC31",
+      null,
+      "out_AF31",
+      null,
+      "out_AI31"
+     ]
+    },
+    {
+     "rotulo": "Tem um jeito estranho de brincar com bri",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z32",
+      null,
+      "out_AC32",
+      null,
+      "out_AF32",
+      null,
+      "out_AI32"
+     ]
+    },
+    {
+     "rotulo": "É capaz de imitar as ações de outras pes",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z33",
+      null,
+      "out_AC33",
+      null,
+      "out_AF33",
+      null,
+      "out_AI33"
+     ]
+    },
+    {
+     "rotulo": "Brinca adequadamente com crianças da sua",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z34",
+      null,
+      "out_AC34",
+      null,
+      "out_AF34",
+      null,
+      "out_AI34"
+     ]
+    },
+    {
+     "rotulo": "Não participa de atividades em grupo a m",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z35",
+      null,
+      "out_AC35",
+      null,
+      "out_AF35",
+      null,
+      "out_AI35"
+     ]
+    },
+    {
+     "rotulo": "Tem mais dificuldade do que outras crian",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z36",
+      null,
+      "out_AC36",
+      null,
+      "out_AF36",
+      null,
+      "out_AI36"
+     ]
+    },
+    {
+     "rotulo": "Não parece se importar em estar fora de ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z37",
+      null,
+      "out_AC37",
+      null,
+      "out_AF37",
+      null,
+      "out_AI37"
+     ]
+    },
+    {
+     "rotulo": "Oferece conforto para os outros quando e",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z38",
+      null,
+      "out_AC38",
+      null,
+      "out_AF38",
+      null,
+      "out_AI38"
+     ]
+    },
+    {
+     "rotulo": "Evita iniciar interações sociais com seu",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z39",
+      null,
+      "out_AC39",
+      null,
+      "out_AF39",
+      null,
+      "out_AI39"
+     ]
+    },
+    {
+     "rotulo": "Pensa ou fala sobre a mesma coisa repedi",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z40",
+      null,
+      "out_AC40",
+      null,
+      "out_AF40",
+      null,
+      "out_AI40"
+     ]
+    },
+    {
+     "rotulo": "É considerada como estranha ou esquisita",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z41",
+      null,
+      "out_AC41",
+      null,
+      "out_AF41",
+      null,
+      "out_AI41"
+     ]
+    },
+    {
+     "rotulo": "Fica perturbada em uma situação com muit",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z42",
+      null,
+      "out_AC42",
+      null,
+      "out_AF42",
+      null,
+      "out_AI42"
+     ]
+    },
+    {
+     "rotulo": "Não consegue tirar algo da sua mente uma",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z43",
+      null,
+      "out_AC43",
+      null,
+      "out_AF43",
+      null,
+      "out_AI43"
+     ]
+    },
+    {
+     "rotulo": "Quer ser trocada quando a fralda ou cuec",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z44",
+      null,
+      "out_AC44",
+      null,
+      "out_AF44",
+      null,
+      "out_AI44"
+     ]
+    },
+    {
+     "rotulo": "É socialmente inadequada, mesmo quando t",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z45",
+      null,
+      "out_AC45",
+      null,
+      "out_AF45",
+      null,
+      "out_AI45"
+     ]
+    },
+    {
+     "rotulo": "Evita pessoas que querem se aproximar de",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z46",
+      null,
+      "out_AC46",
+      null,
+      "out_AF46",
+      null,
+      "out_AI46"
+     ]
+    },
+    {
+     "rotulo": "Tem dificuldade em manter uma interação ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z47",
+      null,
+      "out_AC47",
+      null,
+      "out_AF47",
+      null,
+      "out_AI47"
+     ]
+    },
+    {
+     "rotulo": "Tem dificuldade em se relacionar com adu",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z48",
+      null,
+      "out_AC48",
+      null,
+      "out_AF48",
+      null,
+      "out_AI48"
+     ]
+    },
+    {
+     "rotulo": "Tem dificuldade em se relacionar com seu",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z49",
+      null,
+      "out_AC49",
+      null,
+      "out_AF49",
+      null,
+      "out_AI49"
+     ]
+    },
+    {
+     "rotulo": "Responde adequadamente às mudanças de hu",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z50",
+      null,
+      "out_AC50",
+      null,
+      "out_AF50",
+      null,
+      "out_AI50"
+     ]
+    },
+    {
+     "rotulo": "Tem uma variedade de interesses extraord",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z51",
+      null,
+      "out_AC51",
+      null,
+      "out_AF51",
+      null,
+      "out_AI51"
+     ]
+    },
+    {
+     "rotulo": "É imaginativa, hábil em fantasiar (contu",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z52",
+      null,
+      "out_AC52",
+      null,
+      "out_AF52",
+      null,
+      "out_AI52"
+     ]
+    },
+    {
+     "rotulo": "Muda de uma atividade para outra sem obj",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z53",
+      null,
+      "out_AC53",
+      null,
+      "out_AF53",
+      null,
+      "out_AI53"
+     ]
+    },
+    {
+     "rotulo": "Parece excessivamente sensível aos sons,",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z54",
+      null,
+      "out_AC54",
+      null,
+      "out_AF54",
+      null,
+      "out_AI54"
+     ]
+    },
+    {
+     "rotulo": "Separa-se facilmente (ou frequentemente)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z55",
+      null,
+      "out_AC55",
+      null,
+      "out_AF55",
+      null,
+      "out_AI55"
+     ]
+    },
+    {
+     "rotulo": "Não entende como os eventos se encadeiam",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z56",
+      null,
+      "out_AC56",
+      null,
+      "out_AF56",
+      null,
+      "out_AI56"
+     ]
+    },
+    {
+     "rotulo": "Focaliza (ou dirige) sua atenção para on",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z57",
+      null,
+      "out_AC57",
+      null,
+      "out_AF57",
+      null,
+      "out_AI57"
+     ]
+    },
+    {
+     "rotulo": "Tem expressão facial excessivamente séri",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z58",
+      null,
+      "out_AC58",
+      null,
+      "out_AF58",
+      null,
+      "out_AI58"
+     ]
+    },
+    {
+     "rotulo": "Comporta-se como tola ou ri de forma ina",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z59",
+      null,
+      "out_AC59",
+      null,
+      "out_AF59",
+      null,
+      "out_AI59"
+     ]
+    },
+    {
+     "rotulo": "Tem senso de humor e entende as piadas.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z60",
+      null,
+      "out_AC60",
+      null,
+      "out_AF60",
+      null,
+      "out_AI60"
+     ]
+    },
+    {
+     "rotulo": "É extremamente hábil em algumas tarefas ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z61",
+      null,
+      "out_AC61",
+      null,
+      "out_AF61",
+      null,
+      "out_AI61"
+     ]
+    },
+    {
+     "rotulo": "Tem comportamentos repetitivos, estranho",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z62",
+      null,
+      "out_AC62",
+      null,
+      "out_AF62",
+      null,
+      "out_AI62"
+     ]
+    },
+    {
+     "rotulo": "Responde a questões claras e diretas de ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z63",
+      null,
+      "out_AC63",
+      null,
+      "out_AF63",
+      null,
+      "out_AI63"
+     ]
+    },
+    {
+     "rotulo": "Sabe quando está falando muito alto ou f",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z64",
+      null,
+      "out_AC64",
+      null,
+      "out_AF64",
+      null,
+      "out_AI64"
+     ]
+    },
+    {
+     "rotulo": "Fala com as pessoas com um tom de voz in",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z65",
+      null,
+      "out_AC65",
+      null,
+      "out_AF65",
+      null,
+      "out_AI65"
+     ]
+    },
+    {
+     "rotulo": "Parece agir com as pessoas como se elas ",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z66",
+      null,
+      "out_AC66",
+      null,
+      "out_AF66",
+      null,
+      "out_AI66"
+     ]
+    },
+    {
+     "rotulo": "Sabe quando está muito próxima ou invadi",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z67",
+      null,
+      "out_AC67",
+      null,
+      "out_AF67",
+      null,
+      "out_AI67"
+     ]
+    },
+    {
+     "rotulo": "Caminha entre duas pessoas que estão con",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z68",
+      null,
+      "out_AC68",
+      null,
+      "out_AF68",
+      null,
+      "out_AI68"
+     ]
+    },
+    {
+     "rotulo": "Outras crianças não gostam de brincar co",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z69",
+      null,
+      "out_AC69",
+      null,
+      "out_AF69",
+      null,
+      "out_AI69"
+     ]
+    },
+    {
+     "rotulo": "Concetra-se muito nos detalhes das coisa",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z70",
+      null,
+      "out_AC70",
+      null,
+      "out_AF70",
+      null,
+      "out_AI70"
+     ]
+    },
+    {
+     "rotulo": "É excessivamente desconfiada.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z71",
+      null,
+      "out_AC71",
+      null,
+      "out_AF71",
+      null,
+      "out_AI71"
+     ]
+    },
+    {
+     "rotulo": "É emocionalmente distante, não demonstra",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z72",
+      null,
+      "out_AC72",
+      null,
+      "out_AF72",
+      null,
+      "out_AI72"
+     ]
+    },
+    {
+     "rotulo": "É inflexível, leva muito tempo para muda",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z73",
+      null,
+      "out_AC73",
+      null,
+      "out_AF73",
+      null,
+      "out_AI73"
+     ]
+    },
+    {
+     "rotulo": "Dá explicações incomuns ou ilógicas do p",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z74",
+      null,
+      "out_AC74",
+      null,
+      "out_AF74",
+      null,
+      "out_AI74"
+     ]
+    },
+    {
+     "rotulo": "Toca os outros de maneira incomum.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z75",
+      null,
+      "out_AC75",
+      null,
+      "out_AF75",
+      null,
+      "out_AI75"
+     ]
+    },
+    {
+     "rotulo": "Fica muito agitada em situações sociais.",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z76",
+      null,
+      "out_AC76",
+      null,
+      "out_AF76",
+      null,
+      "out_AI76"
+     ]
+    },
+    {
+     "rotulo": "Fica com olhar perdido ou olha fixamente",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_Z77",
+      null,
+      "out_AC77",
+      null,
+      "out_AF77",
+      null,
+      "out_AI77"
+     ]
+    },
+    {
+     "rotulo": "79",
+     "valores": [
+      null,
+      null,
+      "out_C79",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Perc.S",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE80",
+      null,
+      null,
+      "out_AI80"
+     ]
+    },
+    {
+     "rotulo": "Percepção Social (Perc.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I81",
+      null,
+      "out_K81",
+      null,
+      "out_M81",
+      "out_O81",
+      "out_Q81",
+      "out_S81",
+      null,
+      null,
+      null,
+      null,
+      "out_AE81",
+      null,
+      null,
+      "out_AI81"
+     ]
+    },
+    {
+     "rotulo": "Cognição Social (Cog.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I82",
+      null,
+      "out_K82",
+      null,
+      "out_M82",
+      "out_O82",
+      "out_Q82",
+      "out_S82",
+      null,
+      null,
+      null,
+      null,
+      "out_AE82",
+      null,
+      null,
+      "out_AI82"
+     ]
+    },
+    {
+     "rotulo": "Comunicação Social (Com.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I83",
+      null,
+      "out_K83",
+      null,
+      "out_M83",
+      "out_O83",
+      "out_Q83",
+      "out_S83",
+      null,
+      null,
+      null,
+      null,
+      "out_AE83",
+      null,
+      null,
+      "out_AI83"
+     ]
+    },
+    {
+     "rotulo": "Motivação Social (Mot.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I84",
+      null,
+      "out_K84",
+      null,
+      "out_M84",
+      "out_O84",
+      "out_Q84",
+      "out_S84",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Padrões Restritos e Repetitivos (PRR)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I85",
+      null,
+      "out_K85",
+      null,
+      "out_M85",
+      "out_O85",
+      "out_Q85",
+      "out_S85",
+      null,
+      null,
+      null,
+      null,
+      "out_AE85",
+      null,
+      null,
+      "out_AI85"
+     ]
+    },
+    {
+     "rotulo": "Comunicação e Interação Social (CIS)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I86",
+      null,
+      "out_K86",
+      null,
+      "out_M86",
+      "out_O86",
+      "out_Q86",
+      "out_S86",
+      null,
+      null,
+      null,
+      null,
+      "out_AE86",
+      null,
+      null,
+      "out_AI86"
+     ]
+    },
+    {
+     "rotulo": "Pontuação SRS-2 Total",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I87",
+      null,
+      "out_K87",
+      null,
+      "out_M87",
+      "out_O87",
+      "out_Q87",
+      "out_S87",
+      null,
+      null,
+      null,
+      null,
+      "out_AE87",
+      null,
+      null,
+      "out_AI87"
+     ]
+    },
+    {
+     "rotulo": "89",
+     "valores": [
+      null,
+      null,
+      "out_C89",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Perc.S",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE90",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percepção Social (Perc.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I91",
+      null,
+      "out_K91",
+      null,
+      "out_M91",
+      "out_O91",
+      "out_Q91",
+      "out_S91",
+      null,
+      null,
+      null,
+      null,
+      "out_AE91",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Cognição Social (Cog.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I92",
+      null,
+      "out_K92",
+      null,
+      "out_M92",
+      "out_O92",
+      "out_Q92",
+      "out_S92",
+      null,
+      null,
+      null,
+      null,
+      "out_AE92",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Comunicação Social (Cog.S)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I93",
+      null,
+      "out_K93",
+      null,
+      "out_M93",
+      "out_O93",
+      "out_Q93",
+      "out_S93",
+      null,
+      null,
+      null,
+      null,
+      "out_AE93",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Motivação Social (Mot.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I94",
+      null,
+      "out_K94",
+      null,
+      "out_M94",
+      "out_O94",
+      "out_Q94",
+      "out_S94",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Padrões Restritos e Repetitivos (PRR)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I95",
+      null,
+      "out_K95",
+      null,
+      "out_M95",
+      "out_O95",
+      "out_Q95",
+      "out_S95",
+      null,
+      null,
+      null,
+      null,
+      "out_AE95",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Comunicação e Interação Social (CIS)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I96",
+      null,
+      "out_K96",
+      null,
+      "out_M96",
+      "out_O96",
+      "out_Q96",
+      "out_S96",
+      null,
+      null,
+      null,
+      null,
+      "out_AE96",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação SRS-2 Total",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I97",
+      null,
+      "out_K97",
+      null,
+      "out_M97",
+      "out_O97",
+      "out_Q97",
+      "out_S97",
+      null,
+      null,
+      null,
+      null,
+      "out_AE97",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "99",
+     "valores": [
+      null,
+      null,
+      "out_C99",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Perc.S",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE100",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percepção Social (Perc.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I101",
+      null,
+      "out_K101",
+      null,
+      "out_M101",
+      "out_O101",
+      "out_Q101",
+      "out_S101",
+      null,
+      null,
+      null,
+      null,
+      "out_AE101",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Cognição Social(Cog.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I102",
+      null,
+      "out_K102",
+      null,
+      "out_M102",
+      "out_O102",
+      "out_Q102",
+      "out_S102",
+      null,
+      null,
+      null,
+      null,
+      "out_AE102",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Comunicação Social (Com.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I103",
+      null,
+      "out_K103",
+      null,
+      "out_M103",
+      "out_O103",
+      "out_Q103",
+      "out_S103",
+      null,
+      null,
+      null,
+      null,
+      "out_AE103",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Motivação Social (Mot.S.)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I104",
+      null,
+      "out_K104",
+      null,
+      "out_M104",
+      "out_O104",
+      "out_Q104",
+      "out_S104",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Padrões Restritos e Repetitivos (PRR)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I105",
+      null,
+      "out_K105",
+      null,
+      "out_M105",
+      "out_O105",
+      "out_Q105",
+      "out_S105",
+      null,
+      null,
+      null,
+      null,
+      "out_AE105",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Comunicação e Interação Social (CIS)",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I106",
+      null,
+      "out_K106",
+      null,
+      "out_M106",
+      "out_O106",
+      "out_Q106",
+      "out_S106",
+      null,
+      null,
+      null,
+      null,
+      "out_AE106",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação SRS-2 Total",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I107",
+      null,
+      "out_K107",
+      null,
+      "out_M107",
+      "out_O107",
+      "out_Q107",
+      "out_S107",
+      null,
+      null,
+      null,
+      null,
+      "out_AE107",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "109",
+     "valores": [
+      null,
+      null,
+      "out_C109",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Perc.S",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_AE110",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Percepção Social",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I111",
+      null,
+      "out_K111",
+      null,
+      "out_M111",
+      "out_O111",
+      "out_Q111",
+      "out_S111",
+      null,
+      null,
+      null,
+      null,
+      "out_AE111",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Cognição Social",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I112",
+      null,
+      "out_K112",
+      null,
+      "out_M112",
+      "out_O112",
+      "out_Q112",
+      "out_S112",
+      null,
+      null,
+      null,
+      null,
+      "out_AE112",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Comunicação Social",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I113",
+      null,
+      "out_K113",
+      null,
+      "out_M113",
+      "out_O113",
+      "out_Q113",
+      "out_S113",
+      null,
+      null,
+      null,
+      null,
+      "out_AE113",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Motivação Social",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I114",
+      null,
+      "out_K114",
+      null,
+      "out_M114",
+      "out_O114",
+      "out_Q114",
+      "out_S114",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Padrões Restritos e Repetitivos",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I115",
+      null,
+      "out_K115",
+      null,
+      "out_M115",
+      "out_O115",
+      "out_Q115",
+      "out_S115",
+      null,
+      null,
+      null,
+      null,
+      "out_AE115",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Comunicação e Interação Social",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I116",
+      null,
+      "out_K116",
+      null,
+      "out_M116",
+      "out_O116",
+      "out_Q116",
+      "out_S116",
+      null,
+      null,
+      null,
+      null,
+      "out_AE116",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação SRS-2 Total",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I117",
+      null,
+      "out_K117",
+      null,
+      "out_M117",
+      "out_O117",
+      "out_Q117",
+      "out_S117",
+      null,
+      null,
+      null,
+      null,
+      "out_AE117",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Fator",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I145",
+      "out_J145",
+      "out_K145",
+      "out_L145",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Perc.Soc.",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I146",
+      "out_J146",
+      "out_K146",
+      "out_L146",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Cog.Soc.",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I147",
+      "out_J147",
+      "out_K147",
+      "out_L147",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Com.Soc.",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I148",
+      "out_J148",
+      "out_K148",
+      "out_L148",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Mot.Soc.",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I149",
+      "out_J149",
+      "out_K149",
+      "out_L149",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pad.Rest.Rep.",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I151",
+      "out_J151",
+      "out_K151",
+      "out_L151",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Com.Inter.Soc.",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I152",
+      "out_J152",
+      "out_K152",
+      "out_L152",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_I153",
+      "out_J153",
+      "out_K153",
+      "out_L153",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

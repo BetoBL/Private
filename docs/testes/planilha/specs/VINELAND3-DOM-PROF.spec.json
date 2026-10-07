@@ -25,6 +25,12 @@
    "min": 0
   },
   {
+   "chave": "in_Z3",
+   "celula": "Z3",
+   "rotulo": "Data de aplicação 1:",
+   "min": 0
+  },
+  {
    "chave": "in_R4",
    "celula": "R4",
    "rotulo": "Entrevista 2:",

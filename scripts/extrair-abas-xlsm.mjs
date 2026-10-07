@@ -9,7 +9,7 @@
 // células de entrada. Grave a saída FORA do repositório (ex.: pasta temporária) e nunca a versione. Os geradores só copiam
 // para docs/ a estrutura e as tabelas de norma, não as respostas.
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync, existsSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync, existsSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -21,6 +21,7 @@ if (!arquivo || !saida) {
 
 // descompacta uma CÓPIA (o original não é tocado e pode estar aberto no Excel: o Copy-Item lê com compartilhamento)
 const dir = mkdtempSync(join(tmpdir(), "xlsm-"));
+process.on("exit", () => { try { rmSync(dir, { recursive: true, force: true }); } catch { /* ignora */ } }); // a cópia + os XMLs pesam centenas de MB
 const copia = join(dir, "copia.zip");
 execFileSync("powershell", ["-NoProfile", "-Command", `Copy-Item -LiteralPath '${arquivo.replace(/'/g, "''")}' -Destination '${copia}'; Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory('${copia}', '${join(dir, "x")}')`], { stdio: "inherit" });
 const ler = (p) => readFileSync(join(dir, "x", p), "utf8");
@@ -40,6 +41,11 @@ if (saida === "--listar") {
   process.exit(0);
 }
 
+// estilos com proteção locked="0" = células de digitação (as demais são fórmulas/tabelas bloqueadas)
+const estilos = existsSync(join(dir, "x", "xl/styles.xml")) ? ler("xl/styles.xml") : "";
+const blocoXfs = /<cellXfs\b[^>]*>([\s\S]*?)<\/cellXfs>/.exec(estilos)?.[1] ?? "";
+const desbloqueados = new Set();
+[...blocoXfs.matchAll(/<xf\b[^>]*?(?:\/>|>[\s\S]*?<\/xf>)/g)].forEach((m, i) => { if (/<protection\b[^>]*locked="0"/.test(m[0])) desbloqueados.add(i); });
 const ss = existsSync(join(dir, "x", "xl/sharedStrings.xml")) ? ler("xl/sharedStrings.xml") : "";
 const strs = [...ss.matchAll(/<si>([\s\S]*?)<\/si>/g)].map((m) => decodificar([...m[1].matchAll(/<t[^>]*>([\s\S]*?)<\/t>/g)].map((x) => x[1]).join("")));
 
@@ -75,7 +81,9 @@ for (const nome of abas) {
         f = texto ? "=" + texto : `(fórmula compartilhada #${si})`;
       } else f = "=" + texto;
     }
-    celulas.push({ c, v, f, s, t });
+    const estilo = /\bs="(\d+)"/.exec(attrs)?.[1];
+    const u = estilo !== undefined && desbloqueados.has(Number(estilo));
+    celulas.push(u ? { c, v, f, s, t, u: true } : { c, v, f, s, t });
   }
   const mesclagens = [...xml.matchAll(/<mergeCell\b[^>]*ref="([^"]+)"/g)].map((m) => m[1]);
   resultado[nome] = { estado: p.estado, mesclagens, celulas };

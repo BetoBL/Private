@@ -283,6 +283,54 @@
    "min": 0
   },
   {
+   "chave": "in_H46",
+   "celula": "H46",
+   "rotulo": "Internalizante (Seção A) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_X46",
+   "celula": "X46",
+   "rotulo": "Internalizante (Seção A) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_AN46",
+   "celula": "AN46",
+   "rotulo": "Internalizante (Seção A) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_BD46",
+   "celula": "BD46",
+   "rotulo": "Internalizante (Seção A) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_H48",
+   "celula": "H48",
+   "rotulo": "Externalizante (Seção B) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_X48",
+   "celula": "X48",
+   "rotulo": "Externalizante (Seção B) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_AN48",
+   "celula": "AN48",
+   "rotulo": "Externalizante (Seção B) — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_BD48",
+   "celula": "BD48",
+   "rotulo": "Externalizante (Seção B) — Pontos Brutos",
+   "min": 0
+  },
+  {
    "chave": "in_L67",
    "celula": "L67",
    "rotulo": "Valor Crítico",

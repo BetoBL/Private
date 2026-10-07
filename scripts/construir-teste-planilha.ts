@@ -6,7 +6,7 @@
 // os dados do paciente, o layout das tabelas de resultado e correções de fórmula (para defeitos da planilha). O script extrai só o
 // necessário: as fórmulas da aba, as constantes que elas referenciam e as células de norma que elas leem (nada de dado de paciente).
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { calcularPlanilha, type DefinicaoPlanilha } from "../apps/api/src/lib/planilha/motor";
@@ -17,12 +17,13 @@ const opt = (n: string) => { const i = resto.indexOf(n); return i >= 0 ? resto[i
 const spec = JSON.parse(readFileSync(specPath, "utf8"));
 const saida = opt("--saida") ?? join("docs", "testes", "planilha", `${spec.sigla}.json`);
 
-type Celula = { c: string; v: unknown; f: string | null; s: string | null; t: string | null };
+type Celula = { c: string; v: unknown; f: string | null; s: string | null; t: string | null; u?: boolean };
 const colNum = (l: string) => [...l].reduce((n, ch) => n * 26 + ch.charCodeAt(0) - 64, 0);
 const numCol = (n: number) => { let s = ""; while (n > 0) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = Math.floor((n - 1) / 26); } return s; };
 const parseEnd = (a: string) => { const m = /^(\$?)([A-Z]{1,3})(\$?)(\d+)$/.exec(a)!; return { cAbs: !!m[1], c: colNum(m[2]), rAbs: !!m[3], r: Number(m[4]) }; };
 
 const dirTmp = mkdtempSync(join(tmpdir(), "planilha-"));
+process.on("exit", () => { try { rmSync(dirTmp, { recursive: true, force: true }); } catch { /* ignora */ } });
 const extrair = (abas: string[]): Record<string, { celulas: Celula[] }> => {
   const arq = join(dirTmp, `x${Math.random().toString(36).slice(2)}.json`);
   execFileSync("node", ["scripts/extrair-abas-xlsm.mjs", xlsm, arq, ...abas], { stdio: "pipe" });
@@ -72,6 +73,7 @@ const ext = abasExternas.length ? extrair(abasExternas) : {};
 
 // 3) células a incluir
 const ehEntrada = new Set<string>([...spec.entradas.map((e: { celula: string }) => e.celula), ...(spec.opcoes ?? []).map((o: { celula: string }) => o.celula)]);
+for (const c of aba) if (c.u) ehEntrada.add(c.c); // células de digitação: sem valor na definição (podem trazer um protocolo de exemplo)
 for (const k of Object.values(spec.contexto ?? {})) { const s = String(k); if (!s.includes("!")) ehEntrada.add(s); }
 const incluidas = new Map<string, Celula>();
 for (const c of aba) if (c.f) incluidas.set(c.c, { ...c, v: "" }); // o valor em cache pode ter dado de paciente (ex.: nome): zera

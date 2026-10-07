@@ -21,13 +21,13 @@
   {
    "chave": "in_P13",
    "celula": "P13",
-   "rotulo": "Repetição - Escore Total — Pontos",
+   "rotulo": "Item 20",
    "min": 0
   },
   {
    "chave": "in_P14",
    "celula": "P14",
-   "rotulo": "Recordação - Escore Total — Pontos",
+   "rotulo": "Item 40",
    "min": 0
   },
   {
@@ -81,7 +81,7 @@
   {
    "chave": "in_R25",
    "celula": "R25",
-   "rotulo": "NA — Conteúdo Escore",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -117,7 +117,7 @@
   {
    "chave": "in_R26",
    "celula": "R26",
-   "rotulo": "NA — Conteúdo Escore",
+   "rotulo": "Item 6",
    "min": 0
   },
   {
@@ -153,7 +153,7 @@
   {
    "chave": "in_R27",
    "celula": "R27",
-   "rotulo": "NA — Conteúdo Escore",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
@@ -189,7 +189,7 @@
   {
    "chave": "in_R28",
    "celula": "R28",
-   "rotulo": "NA — Conteúdo Escore",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
@@ -207,7 +207,7 @@
   {
    "chave": "in_K36",
    "celula": "K36",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -225,7 +225,7 @@
   {
    "chave": "in_R36",
    "celula": "R36",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -243,7 +243,7 @@
   {
    "chave": "in_K37",
    "celula": "K37",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 6",
    "min": 0
   },
   {
@@ -261,7 +261,7 @@
   {
    "chave": "in_R37",
    "celula": "R37",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 6",
    "min": 0
   },
   {
@@ -279,7 +279,7 @@
   {
    "chave": "in_K38",
    "celula": "K38",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
@@ -297,7 +297,7 @@
   {
    "chave": "in_R38",
    "celula": "R38",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
@@ -315,7 +315,7 @@
   {
    "chave": "in_K39",
    "celula": "K39",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
@@ -333,7 +333,7 @@
   {
    "chave": "in_R39",
    "celula": "R39",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
@@ -369,7 +369,7 @@
   {
    "chave": "in_R40",
    "celula": "R40",
-   "rotulo": "NA — Conteúdo Escore",
+   "rotulo": "Item 11",
    "min": 0
   },
   {
@@ -405,7 +405,7 @@
   {
    "chave": "in_R41",
    "celula": "R41",
-   "rotulo": "NA — Conteúdo Escore",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
@@ -423,7 +423,7 @@
   {
    "chave": "in_K49",
    "celula": "K49",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -441,7 +441,7 @@
   {
    "chave": "in_R49",
    "celula": "R49",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -459,7 +459,7 @@
   {
    "chave": "in_K50",
    "celula": "K50",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 6",
    "min": 0
   },
   {
@@ -477,7 +477,7 @@
   {
    "chave": "in_R50",
    "celula": "R50",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 6",
    "min": 0
   },
   {
@@ -495,7 +495,7 @@
   {
    "chave": "in_K51",
    "celula": "K51",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
@@ -513,7 +513,7 @@
   {
    "chave": "in_R51",
    "celula": "R51",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
@@ -531,7 +531,7 @@
   {
    "chave": "in_K52",
    "celula": "K52",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
@@ -549,7 +549,7 @@
   {
    "chave": "in_R52",
    "celula": "R52",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
@@ -567,7 +567,7 @@
   {
    "chave": "in_K53",
    "celula": "K53",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 11",
    "min": 0
   },
   {
@@ -585,7 +585,7 @@
   {
    "chave": "in_R53",
    "celula": "R53",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 11",
    "min": 0
   },
   {
@@ -603,7 +603,7 @@
   {
    "chave": "in_K54",
    "celula": "K54",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
@@ -621,7 +621,7 @@
   {
    "chave": "in_R54",
    "celula": "R54",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
@@ -639,7 +639,7 @@
   {
    "chave": "in_K55",
    "celula": "K55",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
@@ -657,7 +657,7 @@
   {
    "chave": "in_R55",
    "celula": "R55",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
@@ -675,7 +675,7 @@
   {
    "chave": "in_K56",
    "celula": "K56",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 16",
    "min": 0
   },
   {
@@ -693,7 +693,7 @@
   {
    "chave": "in_R56",
    "celula": "R56",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 16",
    "min": 0
   },
   {
@@ -711,7 +711,7 @@
   {
    "chave": "in_R57",
    "celula": "R57",
-   "rotulo": "TOTAL (Máx. = 40) — Conteúdo Escore",
+   "rotulo": "Item 19",
    "min": 0
   },
   {
@@ -729,7 +729,7 @@
   {
    "chave": "in_R58",
    "celula": "R58",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 20",
    "min": 0
   },
   {
@@ -759,7 +759,7 @@
   {
    "chave": "in_K71",
    "celula": "K71",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -777,7 +777,7 @@
   {
    "chave": "in_R71",
    "celula": "R71",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -795,7 +795,7 @@
   {
    "chave": "in_K72",
    "celula": "K72",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 6",
    "min": 0
   },
   {
@@ -813,7 +813,7 @@
   {
    "chave": "in_R72",
    "celula": "R72",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 6",
    "min": 0
   },
   {
@@ -831,7 +831,7 @@
   {
    "chave": "in_K73",
    "celula": "K73",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
@@ -849,7 +849,7 @@
   {
    "chave": "in_R73",
    "celula": "R73",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
@@ -867,7 +867,7 @@
   {
    "chave": "in_K74",
    "celula": "K74",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
@@ -885,7 +885,7 @@
   {
    "chave": "in_R74",
    "celula": "R74",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
@@ -903,7 +903,7 @@
   {
    "chave": "in_K75",
    "celula": "K75",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 11",
    "min": 0
   },
   {
@@ -921,7 +921,7 @@
   {
    "chave": "in_R75",
    "celula": "R75",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 11",
    "min": 0
   },
   {
@@ -939,7 +939,7 @@
   {
    "chave": "in_K76",
    "celula": "K76",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
@@ -957,7 +957,7 @@
   {
    "chave": "in_R76",
    "celula": "R76",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
@@ -975,7 +975,7 @@
   {
    "chave": "in_K77",
    "celula": "K77",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
@@ -993,7 +993,7 @@
   {
    "chave": "in_R77",
    "celula": "R77",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
@@ -1011,7 +1011,7 @@
   {
    "chave": "in_K78",
    "celula": "K78",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 16",
    "min": 0
   },
   {
@@ -1029,7 +1029,7 @@
   {
    "chave": "in_R78",
    "celula": "R78",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 16",
    "min": 0
   },
   {
@@ -1047,7 +1047,7 @@
   {
    "chave": "in_R79",
    "celula": "R79",
-   "rotulo": "TOTAL (Máx. = 40) — Conteúdo Escore",
+   "rotulo": "Item 19",
    "min": 0
   },
   {
@@ -1065,7 +1065,7 @@
   {
    "chave": "in_R80",
    "celula": "R80",
-   "rotulo": "Conteúdo Escore",
+   "rotulo": "Item 20",
    "min": 0
   },
   {
@@ -1089,7 +1089,7 @@
   {
    "chave": "in_P92",
    "celula": "P92",
-   "rotulo": "Memória para Faces - Escore Total",
+   "rotulo": "Item 16",
    "min": 0
   },
   {
@@ -1107,7 +1107,7 @@
   {
    "chave": "in_P93",
    "celula": "P93",
-   "rotulo": "Memória Tardia para Faces - Escore Total",
+   "rotulo": "Item 16",
    "min": 0
   },
   {
@@ -1131,7 +1131,7 @@
   {
    "chave": "in_P99",
    "celula": "P99",
-   "rotulo": "RF - Escore Total",
+   "rotulo": "Item 34",
    "min": 0
   },
   {
@@ -1389,55 +1389,55 @@
   {
    "chave": "in_P165",
    "celula": "P165",
-   "rotulo": "Erros de Classificação Original - Total",
+   "rotulo": "Item 20",
    "min": 0
   },
   {
    "chave": "in_P166",
    "celula": "P166",
-   "rotulo": "Erros de Classificação Repetida - Total",
+   "rotulo": "Item 20",
    "min": 0
   },
   {
    "chave": "in_P168",
    "celula": "P168",
-   "rotulo": "Classificação Correta - Total",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
    "chave": "in_P170",
    "celula": "P170",
-   "rotulo": "Movimento do Corpo",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
    "chave": "in_P171",
    "celula": "P171",
-   "rotulo": "Abertura dos Olhos",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
    "chave": "in_P172",
    "celula": "P172",
-   "rotulo": "Vocalização",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
    "chave": "in_P173",
    "celula": "P173",
-   "rotulo": "Escore Total",
+   "rotulo": "Item 30",
    "min": 0
   },
   {
    "chave": "in_P174",
    "celula": "P174",
-   "rotulo": "Série Estruturada",
+   "rotulo": "Item 35",
    "min": 0
   },
   {
    "chave": "in_P175",
    "celula": "P175",
-   "rotulo": "Série Aleatória",
+   "rotulo": "Item 35",
    "min": 0
   },
   {
@@ -1587,13 +1587,13 @@
   {
    "chave": "in_P201",
    "celula": "P201",
-   "rotulo": "RL - Escore Total",
+   "rotulo": "Item 78",
    "min": 0
   },
   {
    "chave": "in_P206",
    "celula": "P206",
-   "rotulo": "Compreendendo Instruções - Total — Pontos",
+   "rotulo": "Item 33",
    "min": 0
   },
   {
@@ -1611,13 +1611,13 @@
   {
    "chave": "in_P208",
    "celula": "P208",
-   "rotulo": "Nomeando - Escore Total — Pontos",
+   "rotulo": "Item 22",
    "min": 0
   },
   {
    "chave": "in_P209",
    "celula": "P209",
-   "rotulo": "Identificando Partes do Corpo - Escore T — Pontos",
+   "rotulo": "Item 11",
    "min": 0
   },
   {
@@ -1671,7 +1671,7 @@
   {
    "chave": "in_P220",
    "celula": "P220",
-   "rotulo": "RP - Escore Total",
+   "rotulo": "Item 45",
    "min": 0
   },
   {
@@ -1683,7 +1683,7 @@
   {
    "chave": "in_P223",
    "celula": "P223",
-   "rotulo": "SO - Escore Total",
+   "rotulo": "Item 70",
    "min": 0
   },
   {
@@ -1701,7 +1701,7 @@
   {
    "chave": "in_P232",
    "celula": "P232",
-   "rotulo": "RE - Escore Total — Pontos",
+   "rotulo": "Item 35",
    "min": 0
   },
   {
@@ -1755,19 +1755,19 @@
   {
    "chave": "in_P240",
    "celula": "P240",
-   "rotulo": "TM Verbal - Total — Pontos",
+   "rotulo": "Item 22",
    "min": 0
   },
   {
    "chave": "in_P241",
    "celula": "P241",
-   "rotulo": "TM - Escore Total — Pontos",
+   "rotulo": "Item 28",
    "min": 0
   },
   {
    "chave": "in_P246",
    "celula": "P246",
-   "rotulo": "Construindo com Blocos - Total — Pontos",
+   "rotulo": "Item 28",
    "min": 0
   },
   {
@@ -1797,19 +1797,19 @@
   {
    "chave": "in_P253",
    "celula": "P253",
-   "rotulo": "Encontrando Caminhos - Total — Pontos",
+   "rotulo": "Item 10",
    "min": 0
   },
   {
    "chave": "in_P254",
    "celula": "P254",
-   "rotulo": "Escore Total — Pontos",
+   "rotulo": "Item 38",
    "min": 0
   },
   {
    "chave": "in_P255",
    "celula": "P255",
-   "rotulo": "QI - Escore Total — Pontos",
+   "rotulo": "Item 20",
    "min": 0
   },
   {
@@ -1821,7 +1821,7 @@
   {
    "chave": "in_P261",
    "celula": "P261",
-   "rotulo": "Mão Dominante — Pontos",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
@@ -1833,7 +1833,7 @@
   {
    "chave": "in_P262",
    "celula": "P262",
-   "rotulo": "Mão Não Dominante — Pontos",
+   "rotulo": "Item 12",
    "min": 0
   },
   {
@@ -1869,7 +1869,7 @@
   {
    "chave": "in_P273",
    "celula": "P273",
-   "rotulo": "SM - Escore Total",
+   "rotulo": "Item 60",
    "min": 0
   },
   {
@@ -1899,43 +1899,43 @@
   {
    "chave": "in_AG276",
    "celula": "AG276",
-   "rotulo": "< 2",
+   "rotulo": "Item 1",
    "min": 0
   },
   {
    "chave": "in_AG277",
    "celula": "AG277",
-   "rotulo": "≥ 2 ≤ 5",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
    "chave": "in_AG278",
    "celula": "AG278",
-   "rotulo": "≥ 6 ≤ 10",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
    "chave": "in_P281",
    "celula": "P281",
-   "rotulo": "Repetições - Total",
+   "rotulo": "Item 60",
    "min": 0
   },
   {
    "chave": "in_P282",
    "celula": "P282",
-   "rotulo": "Sequência - Total",
+   "rotulo": "Item 90",
    "min": 0
   },
   {
    "chave": "in_AG282",
    "celula": "AG282",
-   "rotulo": "> 75",
+   "rotulo": "Item 7",
    "min": 0
   },
   {
    "chave": "in_P283",
    "celula": "P283",
-   "rotulo": "Repetições - Total",
+   "rotulo": "Item 60",
    "min": 0
   },
   {
@@ -1947,7 +1947,7 @@
   {
    "chave": "in_P284",
    "celula": "P284",
-   "rotulo": "Sequência - Total",
+   "rotulo": "Item 90",
    "min": 0
   },
   {

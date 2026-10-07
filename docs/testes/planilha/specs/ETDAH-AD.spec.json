@@ -31,9 +31,15 @@
    "min": 0
   },
   {
+   "chave": "in_H21",
+   "celula": "H21",
+   "rotulo": "É atento quando conversa com alguém. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I21",
    "celula": "I21",
-   "rotulo": "É atento quando conversa com alguém.",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -43,9 +49,15 @@
    "min": 0
   },
   {
+   "chave": "in_H22",
+   "celula": "H22",
+   "rotulo": "É afobado no trabalho. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I22",
    "celula": "I22",
-   "rotulo": "É afobado no trabalho.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -55,9 +67,15 @@
    "min": 0
   },
   {
+   "chave": "in_H23",
+   "celula": "H23",
+   "rotulo": "Necessita fazer listas de tudo o que tem — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I23",
    "celula": "I23",
-   "rotulo": "Necessita fazer listas de tudo o que tem",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -67,9 +85,15 @@
    "min": 0
   },
   {
+   "chave": "in_H24",
+   "celula": "H24",
+   "rotulo": "Sente-se chateado e infeliz. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I24",
    "celula": "I24",
-   "rotulo": "Sente-se chateado e infeliz.",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -79,9 +103,15 @@
    "min": 0
   },
   {
+   "chave": "in_H25",
+   "celula": "H25",
+   "rotulo": "Quando tem de seguir instruções segue pa — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I25",
    "celula": "I25",
-   "rotulo": "Quando tem de seguir instruções segue pa",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -91,9 +121,15 @@
    "min": 0
   },
   {
+   "chave": "in_H26",
+   "celula": "H26",
+   "rotulo": "É desorganizado financeiramente. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I26",
    "celula": "I26",
-   "rotulo": "É desorganizado financeiramente.",
+   "rotulo": "Item 1",
    "min": 0
   },
   {
@@ -103,9 +139,15 @@
    "min": 0
   },
   {
+   "chave": "in_H27",
+   "celula": "H27",
+   "rotulo": "É solitário. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I27",
    "celula": "I27",
-   "rotulo": "É solitário.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -115,9 +157,15 @@
    "min": 0
   },
   {
+   "chave": "in_H28",
+   "celula": "H28",
+   "rotulo": "Termina tudo o que começa. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I28",
    "celula": "I28",
-   "rotulo": "Termina tudo o que começa.",
+   "rotulo": "Item 0",
    "min": 0
   },
   {
@@ -127,9 +175,15 @@
    "min": 0
   },
   {
+   "chave": "in_H29",
+   "celula": "H29",
+   "rotulo": "Explode com facilidade (é do tipo pavio  — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I29",
    "celula": "I29",
-   "rotulo": "Explode com facilidade (é do tipo pavio ",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -139,9 +193,15 @@
    "min": 0
   },
   {
+   "chave": "in_H30",
+   "celula": "H30",
+   "rotulo": "É detalhista e minucioso. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I30",
    "celula": "I30",
-   "rotulo": "É detalhista e minucioso.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -151,9 +211,15 @@
    "min": 0
   },
   {
+   "chave": "in_H31",
+   "celula": "H31",
+   "rotulo": "Arruma encrenca e confusão facilmente. — INFORMANTE",
+   "min": 0
+  },
+  {
    "chave": "in_I31",
    "celula": "I31",
-   "rotulo": "Arruma encrenca e confusão facilmente.",
+   "rotulo": "Item 1",
    "min": 0
   },
   {
@@ -163,9 +229,15 @@
    "min": 0
   },
   {
+   "chave": "in_H32",
+   "celula": "H32",
+   "rotulo": "Mostra-se insensível à dor e ao perigo",
+   "min": 0
+  },
+  {
    "chave": "in_I32",
    "celula": "I32",
-   "rotulo": "Mostra-se insensível à dor e ao perigo",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
@@ -175,9 +247,15 @@
    "min": 0
   },
   {
+   "chave": "in_H33",
+   "celula": "H33",
+   "rotulo": "Tem sono agitado, mexe-se na cama.",
+   "min": 0
+  },
+  {
    "chave": "in_I33",
    "celula": "I33",
-   "rotulo": "Tem sono agitado, mexe-se na cama.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -187,9 +265,15 @@
    "min": 0
   },
   {
+   "chave": "in_H34",
+   "celula": "H34",
+   "rotulo": "É bem-aceito por todos.",
+   "min": 0
+  },
+  {
    "chave": "in_I34",
    "celula": "I34",
-   "rotulo": "É bem-aceito por todos.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -199,9 +283,15 @@
    "min": 0
   },
   {
+   "chave": "in_H35",
+   "celula": "H35",
+   "rotulo": "Costuma se dar mal por falar as coisas s",
+   "min": 0
+  },
+  {
    "chave": "in_I35",
    "celula": "I35",
-   "rotulo": "Costuma se dar mal por falar as coisas s",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -211,9 +301,15 @@
    "min": 0
   },
   {
+   "chave": "in_H36",
+   "celula": "H36",
+   "rotulo": "É persistente e insistente diante de uma",
+   "min": 0
+  },
+  {
    "chave": "in_I36",
    "celula": "I36",
-   "rotulo": "É persistente e insistente diante de uma",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -223,9 +319,15 @@
    "min": 0
   },
   {
+   "chave": "in_H37",
+   "celula": "H37",
+   "rotulo": "Acidenta-se com facilidade (cai, tropeça",
+   "min": 0
+  },
+  {
    "chave": "in_I37",
    "celula": "I37",
-   "rotulo": "Acidenta-se com facilidade (cai, tropeça",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
@@ -235,9 +337,15 @@
    "min": 0
   },
   {
+   "chave": "in_H38",
+   "celula": "H38",
+   "rotulo": "Tende a discordar das regras e normas.",
+   "min": 0
+  },
+  {
    "chave": "in_I38",
    "celula": "I38",
-   "rotulo": "Tende a discordar das regras e normas.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -247,9 +355,15 @@
    "min": 0
   },
   {
+   "chave": "in_H39",
+   "celula": "H39",
+   "rotulo": "Dá impressão de que não sabe o que quer.",
+   "min": 0
+  },
+  {
    "chave": "in_I39",
    "celula": "I39",
-   "rotulo": "Dá impressão de que não sabe o que quer.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -259,9 +373,15 @@
    "min": 0
   },
   {
+   "chave": "in_H40",
+   "celula": "H40",
+   "rotulo": "Evita trabalhos longos, detalhados e com",
+   "min": 0
+  },
+  {
    "chave": "in_I40",
    "celula": "I40",
-   "rotulo": "Evita trabalhos longos, detalhados e com",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -271,9 +391,15 @@
    "min": 0
   },
   {
+   "chave": "in_H41",
+   "celula": "H41",
+   "rotulo": "Tem dificuldade para se adaptar às mudan",
+   "min": 0
+  },
+  {
    "chave": "in_I41",
    "celula": "I41",
-   "rotulo": "Tem dificuldade para se adaptar às mudan",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -283,9 +409,15 @@
    "min": 0
   },
   {
+   "chave": "in_H42",
+   "celula": "H42",
+   "rotulo": "A qualidade do trabalho é comprometida p",
+   "min": 0
+  },
+  {
    "chave": "in_I42",
    "celula": "I42",
-   "rotulo": "A qualidade do trabalho é comprometida p",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -295,9 +427,15 @@
    "min": 0
   },
   {
+   "chave": "in_H43",
+   "celula": "H43",
+   "rotulo": "Inicia uma atividade com entusiasmo e di",
+   "min": 0
+  },
+  {
    "chave": "in_I43",
    "celula": "I43",
-   "rotulo": "Inicia uma atividade com entusiasmo e di",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -307,9 +445,15 @@
    "min": 0
   },
   {
+   "chave": "in_H44",
+   "celula": "H44",
+   "rotulo": "Evita as atividades que exijam esforço m",
+   "min": 0
+  },
+  {
    "chave": "in_I44",
    "celula": "I44",
-   "rotulo": "Evita as atividades que exijam esforço m",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -319,9 +463,15 @@
    "min": 0
   },
   {
+   "chave": "in_H45",
+   "celula": "H45",
+   "rotulo": "Perde a paciência com os familiares.",
+   "min": 0
+  },
+  {
    "chave": "in_I45",
    "celula": "I45",
-   "rotulo": "Perde a paciência com os familiares.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -331,9 +481,15 @@
    "min": 0
   },
   {
+   "chave": "in_H46",
+   "celula": "H46",
+   "rotulo": "É rebelde com as pessoas e as situações.",
+   "min": 0
+  },
+  {
    "chave": "in_I46",
    "celula": "I46",
-   "rotulo": "É rebelde com as pessoas e as situações.",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -343,9 +499,15 @@
    "min": 0
   },
   {
+   "chave": "in_H47",
+   "celula": "H47",
+   "rotulo": "Persiste quando quer alguma coisa.",
+   "min": 0
+  },
+  {
    "chave": "in_I47",
    "celula": "I47",
-   "rotulo": "Persiste quando quer alguma coisa.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -355,9 +517,15 @@
    "min": 0
   },
   {
+   "chave": "in_H48",
+   "celula": "H48",
+   "rotulo": "Tem tendência a sonhar acordado.",
+   "min": 0
+  },
+  {
    "chave": "in_I48",
    "celula": "I48",
-   "rotulo": "Tem tendência a sonhar acordado.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -367,9 +535,15 @@
    "min": 0
   },
   {
+   "chave": "in_H49",
+   "celula": "H49",
+   "rotulo": "Faz planos cuidadosamente, considera tod",
+   "min": 0
+  },
+  {
    "chave": "in_I49",
    "celula": "I49",
-   "rotulo": "Faz planos cuidadosamente, considera tod",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -379,9 +553,15 @@
    "min": 0
   },
   {
+   "chave": "in_H50",
+   "celula": "H50",
+   "rotulo": "Parece sonhar acordado.",
+   "min": 0
+  },
+  {
    "chave": "in_I50",
    "celula": "I50",
-   "rotulo": "Parece sonhar acordado.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -391,9 +571,15 @@
    "min": 0
   },
   {
+   "chave": "in_H51",
+   "celula": "H51",
+   "rotulo": "Faz seu trabalho rápido demais.",
+   "min": 0
+  },
+  {
    "chave": "in_I51",
    "celula": "I51",
-   "rotulo": "Faz seu trabalho rápido demais.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -403,9 +589,15 @@
    "min": 0
   },
   {
+   "chave": "in_H52",
+   "celula": "H52",
+   "rotulo": "É distraído com tudo.",
+   "min": 0
+  },
+  {
    "chave": "in_I52",
    "celula": "I52",
-   "rotulo": "É distraído com tudo.",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -415,9 +607,15 @@
    "min": 0
   },
   {
+   "chave": "in_H53",
+   "celula": "H53",
+   "rotulo": "Dificilmente chega ao final de um projet",
+   "min": 0
+  },
+  {
    "chave": "in_I53",
    "celula": "I53",
-   "rotulo": "Dificilmente chega ao final de um projet",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -427,9 +625,15 @@
    "min": 0
   },
   {
+   "chave": "in_H54",
+   "celula": "H54",
+   "rotulo": "Seu hábito de trabalho é confuso e desor",
+   "min": 0
+  },
+  {
    "chave": "in_I54",
    "celula": "I54",
-   "rotulo": "Seu hábito de trabalho é confuso e desor",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -439,9 +643,15 @@
    "min": 0
   },
   {
+   "chave": "in_H55",
+   "celula": "H55",
+   "rotulo": "Necessita estar em constante movimentaçã",
+   "min": 0
+  },
+  {
    "chave": "in_I55",
    "celula": "I55",
-   "rotulo": "Necessita estar em constante movimentaçã",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -451,9 +661,21 @@
    "min": 0
   },
   {
+   "chave": "in_H56",
+   "celula": "H56",
+   "rotulo": "Atrasa os pagamentos porque se esquece d",
+   "min": 0
+  },
+  {
+   "chave": "in_H57",
+   "celula": "H57",
+   "rotulo": "Mostra-se apático e indiferente diante d",
+   "min": 0
+  },
+  {
    "chave": "in_I57",
    "celula": "I57",
-   "rotulo": "Mostra-se apático e indiferente diante d",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -463,9 +685,15 @@
    "min": 0
   },
   {
+   "chave": "in_H58",
+   "celula": "H58",
+   "rotulo": "Tem fortes reações emocionais (...)",
+   "min": 0
+  },
+  {
    "chave": "in_I58",
    "celula": "I58",
-   "rotulo": "Tem fortes reações emocionais (...)",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -475,9 +703,15 @@
    "min": 0
   },
   {
+   "chave": "in_H59",
+   "celula": "H59",
+   "rotulo": "E agressivo.",
+   "min": 0
+  },
+  {
    "chave": "in_I59",
    "celula": "I59",
-   "rotulo": "E agressivo.",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -487,9 +721,15 @@
    "min": 0
   },
   {
+   "chave": "in_H60",
+   "celula": "H60",
+   "rotulo": "Tem problemas com a lei e/ou com a justi",
+   "min": 0
+  },
+  {
    "chave": "in_I60",
    "celula": "I60",
-   "rotulo": "Tem problemas com a lei e/ou com a justi",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -499,9 +739,15 @@
    "min": 0
   },
   {
+   "chave": "in_H61",
+   "celula": "H61",
+   "rotulo": "É impudente, arrisca sempre.",
+   "min": 0
+  },
+  {
    "chave": "in_I61",
    "celula": "I61",
-   "rotulo": "É impudente, arrisca sempre.",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -511,9 +757,15 @@
    "min": 0
   },
   {
+   "chave": "in_H62",
+   "celula": "H62",
+   "rotulo": "É tolerante diante das situações.",
+   "min": 0
+  },
+  {
    "chave": "in_I62",
    "celula": "I62",
-   "rotulo": "É tolerante diante das situações.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -523,9 +775,15 @@
    "min": 0
   },
   {
+   "chave": "in_H63",
+   "celula": "H63",
+   "rotulo": "Tem dificuldade para permanecer sentado ",
+   "min": 0
+  },
+  {
    "chave": "in_I63",
    "celula": "I63",
-   "rotulo": "Tem dificuldade para permanecer sentado ",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -535,9 +793,15 @@
    "min": 0
   },
   {
+   "chave": "in_H64",
+   "celula": "H64",
+   "rotulo": "É conhecido pelos outros como desligado,",
+   "min": 0
+  },
+  {
    "chave": "in_I64",
    "celula": "I64",
-   "rotulo": "É conhecido pelos outros como desligado,",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -547,9 +811,15 @@
    "min": 0
   },
   {
+   "chave": "in_H65",
+   "celula": "H65",
+   "rotulo": "Seu jeito de ser é motivo de discussão e",
+   "min": 0
+  },
+  {
    "chave": "in_I65",
    "celula": "I65",
-   "rotulo": "Seu jeito de ser é motivo de discussão e",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
@@ -559,9 +829,15 @@
    "min": 0
   },
   {
+   "chave": "in_H66",
+   "celula": "H66",
+   "rotulo": "Tira conclusões mesmo antes de conhecer ",
+   "min": 0
+  },
+  {
    "chave": "in_I66",
    "celula": "I66",
-   "rotulo": "Tira conclusões mesmo antes de conhecer ",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -571,9 +847,15 @@
    "min": 0
   },
   {
+   "chave": "in_H67",
+   "celula": "H67",
+   "rotulo": "Necessita estar em situações mais perigo",
+   "min": 0
+  },
+  {
    "chave": "in_I67",
    "celula": "I67",
-   "rotulo": "Necessita estar em situações mais perigo",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -583,9 +865,15 @@
    "min": 0
   },
   {
+   "chave": "in_H68",
+   "celula": "H68",
+   "rotulo": "Tem dificuldades em aceitar a opinião do",
+   "min": 0
+  },
+  {
    "chave": "in_I68",
    "celula": "I68",
-   "rotulo": "Tem dificuldades em aceitar a opinião do",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -595,9 +883,15 @@
    "min": 0
   },
   {
+   "chave": "in_H69",
+   "celula": "H69",
+   "rotulo": "Faz as coisas devagar, apresenta um ritm",
+   "min": 0
+  },
+  {
    "chave": "in_I69",
    "celula": "I69",
-   "rotulo": "Faz as coisas devagar, apresenta um ritm",
+   "rotulo": "Item 1",
    "min": 0
   },
   {
@@ -607,9 +901,15 @@
    "min": 0
   },
   {
+   "chave": "in_H70",
+   "celula": "H70",
+   "rotulo": "Distrai-se enquanto trabalho e outras pe",
+   "min": 0
+  },
+  {
    "chave": "in_I70",
    "celula": "I70",
-   "rotulo": "Distrai-se enquanto trabalho e outras pe",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -619,9 +919,15 @@
    "min": 0
   },
   {
+   "chave": "in_H71",
+   "celula": "H71",
+   "rotulo": "A mente voa longe enquanto lê.",
+   "min": 0
+  },
+  {
    "chave": "in_I71",
    "celula": "I71",
-   "rotulo": "A mente voa longe enquanto lê.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -631,9 +937,15 @@
    "min": 0
   },
   {
+   "chave": "in_H72",
+   "celula": "H72",
+   "rotulo": "Faz tudo o que dá em sua cabeça.",
+   "min": 0
+  },
+  {
    "chave": "in_I72",
    "celula": "I72",
-   "rotulo": "Faz tudo o que dá em sua cabeça.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -643,9 +955,15 @@
    "min": 0
   },
   {
+   "chave": "in_H73",
+   "celula": "H73",
+   "rotulo": "Costuma vingar-se das pessoas, não engol",
+   "min": 0
+  },
+  {
    "chave": "in_I73",
    "celula": "I73",
-   "rotulo": "Costuma vingar-se das pessoas, não engol",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -655,9 +973,15 @@
    "min": 0
   },
   {
+   "chave": "in_H74",
+   "celula": "H74",
+   "rotulo": "Precisa ser lembrado dos compromissos di",
+   "min": 0
+  },
+  {
    "chave": "in_I74",
    "celula": "I74",
-   "rotulo": "Precisa ser lembrado dos compromissos di",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -667,9 +991,15 @@
    "min": 0
   },
   {
+   "chave": "in_H75",
+   "celula": "H75",
+   "rotulo": "Vive isolado, evita as atividades de gru",
+   "min": 0
+  },
+  {
    "chave": "in_I75",
    "celula": "I75",
-   "rotulo": "Vive isolado, evita as atividades de gru",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -679,9 +1009,15 @@
    "min": 0
   },
   {
+   "chave": "in_H76",
+   "celula": "H76",
+   "rotulo": "É mais desorganizado do que a maioria da",
+   "min": 0
+  },
+  {
    "chave": "in_I76",
    "celula": "I76",
-   "rotulo": "É mais desorganizado do que a maioria da",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
@@ -691,9 +1027,15 @@
    "min": 0
   },
   {
+   "chave": "in_H77",
+   "celula": "H77",
+   "rotulo": "Não observa detalhes e minúcias.",
+   "min": 0
+  },
+  {
    "chave": "in_I77",
    "celula": "I77",
-   "rotulo": "Não observa detalhes e minúcias.",
+   "rotulo": "Item 1",
    "min": 0
   },
   {
@@ -703,9 +1045,15 @@
    "min": 0
   },
   {
+   "chave": "in_H78",
+   "celula": "H78",
+   "rotulo": "Persiste até o fim com os seus objetivos",
+   "min": 0
+  },
+  {
    "chave": "in_I78",
    "celula": "I78",
-   "rotulo": "Persiste até o fim com os seus objetivos",
+   "rotulo": "Item 2",
    "min": 0
   },
   {
@@ -715,9 +1063,15 @@
    "min": 0
   },
   {
+   "chave": "in_H79",
+   "celula": "H79",
+   "rotulo": "Sabe aguardar a vez (p. ex., fila de ban",
+   "min": 0
+  },
+  {
    "chave": "in_I79",
    "celula": "I79",
-   "rotulo": "Sabe aguardar a vez (p. ex., fila de ban",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -727,9 +1081,15 @@
    "min": 0
   },
   {
+   "chave": "in_H80",
+   "celula": "H80",
+   "rotulo": "Responde antes de ouvir a pergunta intei",
+   "min": 0
+  },
+  {
    "chave": "in_I80",
    "celula": "I80",
-   "rotulo": "Responde antes de ouvir a pergunta intei",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -739,9 +1099,15 @@
    "min": 0
   },
   {
+   "chave": "in_H81",
+   "celula": "H81",
+   "rotulo": "É criticado por seu jeito de ser.",
+   "min": 0
+  },
+  {
    "chave": "in_I81",
    "celula": "I81",
-   "rotulo": "É criticado por seu jeito de ser.",
+   "rotulo": "Item 4",
    "min": 0
   },
   {
@@ -751,9 +1117,15 @@
    "min": 0
   },
   {
+   "chave": "in_H82",
+   "celula": "H82",
+   "rotulo": "Intromete-se em assuntos que não lhe diz",
+   "min": 0
+  },
+  {
    "chave": "in_I82",
    "celula": "I82",
-   "rotulo": "Intromete-se em assuntos que não lhe diz",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -763,9 +1135,15 @@
    "min": 0
   },
   {
+   "chave": "in_H83",
+   "celula": "H83",
+   "rotulo": "Costuma criticar os outros.",
+   "min": 0
+  },
+  {
    "chave": "in_I83",
    "celula": "I83",
-   "rotulo": "Costuma criticar os outros.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -775,9 +1153,15 @@
    "min": 0
   },
   {
+   "chave": "in_H84",
+   "celula": "H84",
+   "rotulo": "Tem memória ruim para guardar instruções",
+   "min": 0
+  },
+  {
    "chave": "in_I84",
    "celula": "I84",
-   "rotulo": "Tem memória ruim para guardar instruções",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -787,9 +1171,15 @@
    "min": 0
   },
   {
+   "chave": "in_H85",
+   "celula": "H85",
+   "rotulo": "Planeja suas ações",
+   "min": 0
+  },
+  {
    "chave": "in_I85",
    "celula": "I85",
-   "rotulo": "Planeja suas ações",
+   "rotulo": "Item 3",
    "min": 0
   },
   {
@@ -799,9 +1189,15 @@
    "min": 0
   },
   {
+   "chave": "in_H86",
+   "celula": "H86",
+   "rotulo": "É impulsivo; age antes de pensar.",
+   "min": 0
+  },
+  {
    "chave": "in_I86",
    "celula": "I86",
-   "rotulo": "É impulsivo; age antes de pensar.",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -811,9 +1207,15 @@
    "min": 0
   },
   {
+   "chave": "in_H87",
+   "celula": "H87",
+   "rotulo": "Costuma se esquecer de datas, números de",
+   "min": 0
+  },
+  {
    "chave": "in_I87",
    "celula": "I87",
-   "rotulo": "Costuma se esquecer de datas, números de",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -823,9 +1225,15 @@
    "min": 0
   },
   {
+   "chave": "in_H88",
+   "celula": "H88",
+   "rotulo": "Necessita de novidades e de variedades e",
+   "min": 0
+  },
+  {
    "chave": "in_I88",
    "celula": "I88",
-   "rotulo": "Necessita de novidades e de variedades e",
+   "rotulo": "Item 5",
    "min": 0
   },
   {
@@ -835,9 +1243,15 @@
    "min": 0
   },
   {
+   "chave": "in_H89",
+   "celula": "H89",
+   "rotulo": "Tem dificuldade para processar as inform",
+   "min": 0
+  },
+  {
    "chave": "in_I89",
    "celula": "I89",
-   "rotulo": "Tem dificuldade para processar as inform",
+   "rotulo": "Item 3",
    "min": 0
   },
   {

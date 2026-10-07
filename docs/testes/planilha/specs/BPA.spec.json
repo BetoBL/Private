@@ -1,0 +1,735 @@
+{
+ "sigla": "BPA",
+ "nome": "BPA — Bateria Psicológica para Avaliação da Atenção",
+ "dominio": "ATENCAO",
+ "descricao": "BPA: pontos de atenção concentrada, dividida e alternada e atenção geral convertidos em percentil e classificação por faixa etária/escolaridade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "RUEDA, F. J. M. BPA — Bateria Psicológica para Avaliação da Atenção (normas conforme planilha da psicóloga).",
+ "aba": "BPA",
+ "idade": [
+  6,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_D11",
+   "celula": "D11",
+   "rotulo": "Atenção Concentrada - AC — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E11",
+   "celula": "E11",
+   "rotulo": "Atenção Concentrada - AC — Erros",
+   "min": 0
+  },
+  {
+   "chave": "in_F11",
+   "celula": "F11",
+   "rotulo": "Atenção Concentrada - AC — Omissões",
+   "min": 0
+  },
+  {
+   "chave": "in_G11",
+   "celula": "G11",
+   "rotulo": "Atenção Concentrada - AC — Auto Correções",
+   "min": 0
+  },
+  {
+   "chave": "in_D12",
+   "celula": "D12",
+   "rotulo": "Atenção Dividida - AD — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E12",
+   "celula": "E12",
+   "rotulo": "Atenção Dividida - AD — Erros",
+   "min": 0
+  },
+  {
+   "chave": "in_F12",
+   "celula": "F12",
+   "rotulo": "Atenção Dividida - AD — Omissões",
+   "min": 0
+  },
+  {
+   "chave": "in_G12",
+   "celula": "G12",
+   "rotulo": "Atenção Dividida - AD — Auto Correções",
+   "min": 0
+  },
+  {
+   "chave": "in_D13",
+   "celula": "D13",
+   "rotulo": "Atenção Alternada - AA — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E13",
+   "celula": "E13",
+   "rotulo": "Atenção Alternada - AA — Erros",
+   "min": 0
+  },
+  {
+   "chave": "in_F13",
+   "celula": "F13",
+   "rotulo": "Atenção Alternada - AA — Omissões",
+   "min": 0
+  },
+  {
+   "chave": "in_G13",
+   "celula": "G13",
+   "rotulo": "Atenção Alternada - AA — Auto Correções",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_H11",
+   "celula": "H11",
+   "rotulo": "Atenção Concentrada - AC — TOTAL"
+  },
+  {
+   "chave": "out_I11",
+   "celula": "I11",
+   "rotulo": "Atenção Concentrada - AC — Percentil"
+  },
+  {
+   "chave": "out_J11",
+   "celula": "J11",
+   "rotulo": "Atenção Concentrada - AC — Classificação"
+  },
+  {
+   "chave": "out_K11",
+   "celula": "K11",
+   "rotulo": "Atenção Concentrada - AC — Média"
+  },
+  {
+   "chave": "out_L11",
+   "celula": "L11",
+   "rotulo": "Atenção Concentrada - AC — Desv. Pad."
+  },
+  {
+   "chave": "out_M11",
+   "celula": "M11",
+   "rotulo": "Atenção Concentrada - AC — Z-Score"
+  },
+  {
+   "chave": "out_N11",
+   "celula": "N11",
+   "rotulo": "Atenção Concentrada - AC — Ponder"
+  },
+  {
+   "chave": "out_O11",
+   "celula": "O11",
+   "rotulo": "Atenção Concentrada - AC — Percentil"
+  },
+  {
+   "chave": "out_P11",
+   "celula": "P11",
+   "rotulo": "Atenção Concentrada - AC — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_R11",
+   "celula": "R11",
+   "rotulo": "Atenção Concentrada - AC — Percentil"
+  },
+  {
+   "chave": "out_S11",
+   "celula": "S11",
+   "rotulo": "Atenção Concentrada - AC — Classificação"
+  },
+  {
+   "chave": "out_T11",
+   "celula": "T11",
+   "rotulo": "Atenção Concentrada - AC — Média"
+  },
+  {
+   "chave": "out_U11",
+   "celula": "U11",
+   "rotulo": "Atenção Concentrada - AC — Desv. Pad."
+  },
+  {
+   "chave": "out_V11",
+   "celula": "V11",
+   "rotulo": "Atenção Concentrada - AC — Z-Score"
+  },
+  {
+   "chave": "out_W11",
+   "celula": "W11",
+   "rotulo": "Atenção Concentrada - AC — Ponder"
+  },
+  {
+   "chave": "out_X11",
+   "celula": "X11",
+   "rotulo": "Atenção Concentrada - AC — Percentil"
+  },
+  {
+   "chave": "out_Y11",
+   "celula": "Y11",
+   "rotulo": "Atenção Concentrada - AC — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_H12",
+   "celula": "H12",
+   "rotulo": "Atenção Dividida - AD — TOTAL"
+  },
+  {
+   "chave": "out_I12",
+   "celula": "I12",
+   "rotulo": "Atenção Dividida - AD — Percentil"
+  },
+  {
+   "chave": "out_J12",
+   "celula": "J12",
+   "rotulo": "Atenção Dividida - AD — Classificação"
+  },
+  {
+   "chave": "out_K12",
+   "celula": "K12",
+   "rotulo": "Atenção Dividida - AD — Média"
+  },
+  {
+   "chave": "out_L12",
+   "celula": "L12",
+   "rotulo": "Atenção Dividida - AD — Desv. Pad."
+  },
+  {
+   "chave": "out_M12",
+   "celula": "M12",
+   "rotulo": "Atenção Dividida - AD — Z-Score"
+  },
+  {
+   "chave": "out_N12",
+   "celula": "N12",
+   "rotulo": "Atenção Dividida - AD — Ponder"
+  },
+  {
+   "chave": "out_O12",
+   "celula": "O12",
+   "rotulo": "Atenção Dividida - AD — Percentil"
+  },
+  {
+   "chave": "out_P12",
+   "celula": "P12",
+   "rotulo": "Atenção Dividida - AD — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_R12",
+   "celula": "R12",
+   "rotulo": "Atenção Dividida - AD — Percentil"
+  },
+  {
+   "chave": "out_S12",
+   "celula": "S12",
+   "rotulo": "Atenção Dividida - AD — Classificação"
+  },
+  {
+   "chave": "out_T12",
+   "celula": "T12",
+   "rotulo": "Atenção Dividida - AD — Média"
+  },
+  {
+   "chave": "out_U12",
+   "celula": "U12",
+   "rotulo": "Atenção Dividida - AD — Desv. Pad."
+  },
+  {
+   "chave": "out_V12",
+   "celula": "V12",
+   "rotulo": "Atenção Dividida - AD — Z-Score"
+  },
+  {
+   "chave": "out_W12",
+   "celula": "W12",
+   "rotulo": "Atenção Dividida - AD — Ponder"
+  },
+  {
+   "chave": "out_X12",
+   "celula": "X12",
+   "rotulo": "Atenção Dividida - AD — Percentil"
+  },
+  {
+   "chave": "out_Y12",
+   "celula": "Y12",
+   "rotulo": "Atenção Dividida - AD — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_H13",
+   "celula": "H13",
+   "rotulo": "Atenção Alternada - AA — TOTAL"
+  },
+  {
+   "chave": "out_I13",
+   "celula": "I13",
+   "rotulo": "Atenção Alternada - AA — Percentil"
+  },
+  {
+   "chave": "out_J13",
+   "celula": "J13",
+   "rotulo": "Atenção Alternada - AA — Classificação"
+  },
+  {
+   "chave": "out_K13",
+   "celula": "K13",
+   "rotulo": "Atenção Alternada - AA — Média"
+  },
+  {
+   "chave": "out_L13",
+   "celula": "L13",
+   "rotulo": "Atenção Alternada - AA — Desv. Pad."
+  },
+  {
+   "chave": "out_M13",
+   "celula": "M13",
+   "rotulo": "Atenção Alternada - AA — Z-Score"
+  },
+  {
+   "chave": "out_N13",
+   "celula": "N13",
+   "rotulo": "Atenção Alternada - AA — Ponder"
+  },
+  {
+   "chave": "out_O13",
+   "celula": "O13",
+   "rotulo": "Atenção Alternada - AA — Percentil"
+  },
+  {
+   "chave": "out_P13",
+   "celula": "P13",
+   "rotulo": "Atenção Alternada - AA — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_R13",
+   "celula": "R13",
+   "rotulo": "Atenção Alternada - AA — Percentil"
+  },
+  {
+   "chave": "out_S13",
+   "celula": "S13",
+   "rotulo": "Atenção Alternada - AA — Classificação"
+  },
+  {
+   "chave": "out_T13",
+   "celula": "T13",
+   "rotulo": "Atenção Alternada - AA — Média"
+  },
+  {
+   "chave": "out_U13",
+   "celula": "U13",
+   "rotulo": "Atenção Alternada - AA — Desv. Pad."
+  },
+  {
+   "chave": "out_V13",
+   "celula": "V13",
+   "rotulo": "Atenção Alternada - AA — Z-Score"
+  },
+  {
+   "chave": "out_W13",
+   "celula": "W13",
+   "rotulo": "Atenção Alternada - AA — Ponder"
+  },
+  {
+   "chave": "out_X13",
+   "celula": "X13",
+   "rotulo": "Atenção Alternada - AA — Percentil"
+  },
+  {
+   "chave": "out_Y13",
+   "celula": "Y13",
+   "rotulo": "Atenção Alternada - AA — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_D14",
+   "celula": "D14",
+   "rotulo": "Atenção Geral — Pontos Brutos"
+  },
+  {
+   "chave": "out_E14",
+   "celula": "E14",
+   "rotulo": "Atenção Geral — Erros"
+  },
+  {
+   "chave": "out_F14",
+   "celula": "F14",
+   "rotulo": "Atenção Geral — Omissões"
+  },
+  {
+   "chave": "out_G14",
+   "celula": "G14",
+   "rotulo": "Atenção Geral — Auto Correções"
+  },
+  {
+   "chave": "out_H14",
+   "celula": "H14",
+   "rotulo": "Atenção Geral — TOTAL"
+  },
+  {
+   "chave": "out_I14",
+   "celula": "I14",
+   "rotulo": "Atenção Geral — Percentil"
+  },
+  {
+   "chave": "out_J14",
+   "celula": "J14",
+   "rotulo": "Atenção Geral — Classificação"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "Atenção Geral — Média"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "Atenção Geral — Desv. Pad."
+  },
+  {
+   "chave": "out_M14",
+   "celula": "M14",
+   "rotulo": "Atenção Geral — Z-Score"
+  },
+  {
+   "chave": "out_N14",
+   "celula": "N14",
+   "rotulo": "Atenção Geral — Ponder"
+  },
+  {
+   "chave": "out_O14",
+   "celula": "O14",
+   "rotulo": "Atenção Geral — Percentil"
+  },
+  {
+   "chave": "out_P14",
+   "celula": "P14",
+   "rotulo": "Atenção Geral — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_R14",
+   "celula": "R14",
+   "rotulo": "Atenção Geral — Percentil"
+  },
+  {
+   "chave": "out_S14",
+   "celula": "S14",
+   "rotulo": "Atenção Geral — Classificação"
+  },
+  {
+   "chave": "out_T14",
+   "celula": "T14",
+   "rotulo": "Atenção Geral — Média"
+  },
+  {
+   "chave": "out_U14",
+   "celula": "U14",
+   "rotulo": "Atenção Geral — Desv. Pad."
+  },
+  {
+   "chave": "out_V14",
+   "celula": "V14",
+   "rotulo": "Atenção Geral — Z-Score"
+  },
+  {
+   "chave": "out_W14",
+   "celula": "W14",
+   "rotulo": "Atenção Geral — Ponder"
+  },
+  {
+   "chave": "out_X14",
+   "celula": "X14",
+   "rotulo": "Atenção Geral — Percentil"
+  },
+  {
+   "chave": "out_Y14",
+   "celula": "Y14",
+   "rotulo": "Atenção Geral — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_K24",
+   "celula": "K24",
+   "rotulo": "Atenção Concentrada - AC — Percentil"
+  },
+  {
+   "chave": "out_T24",
+   "celula": "T24",
+   "rotulo": "Atenção Concentrada - AC — Percventil"
+  },
+  {
+   "chave": "out_K25",
+   "celula": "K25",
+   "rotulo": "Atenção Dividida - AD — Percentil"
+  },
+  {
+   "chave": "out_T25",
+   "celula": "T25",
+   "rotulo": "Atenção Dividida - AD — Percventil"
+  },
+  {
+   "chave": "out_K26",
+   "celula": "K26",
+   "rotulo": "Atenção Alternada - AA — Percentil"
+  },
+  {
+   "chave": "out_T26",
+   "celula": "T26",
+   "rotulo": "Atenção Alternada - AA — Percventil"
+  },
+  {
+   "chave": "out_K27",
+   "celula": "K27",
+   "rotulo": "Atenção Geral — Percentil"
+  },
+  {
+   "chave": "out_T27",
+   "celula": "T27",
+   "rotulo": "Atenção Geral — Percventil"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Pontos Brutos",
+    "Erros",
+    "Omissões",
+    "Auto Correções",
+    "TOTAL",
+    "Percentil",
+    "Classificação",
+    "Média",
+    "Desv. Pad.",
+    "Z-Score",
+    "Ponder",
+    "Percentil",
+    "* Classificação (Guilmette)",
+    "Percentil",
+    "Classificação",
+    "Média",
+    "Desv. Pad.",
+    "Z-Score",
+    "Ponder",
+    "Percentil",
+    "* Classificação (Guilmette)"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Atenção Concentrada - AC",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H11",
+      "out_I11",
+      "out_J11",
+      "out_K11",
+      "out_L11",
+      "out_M11",
+      "out_N11",
+      "out_O11",
+      "out_P11",
+      "out_R11",
+      "out_S11",
+      "out_T11",
+      "out_U11",
+      "out_V11",
+      "out_W11",
+      "out_X11",
+      "out_Y11"
+     ]
+    },
+    {
+     "rotulo": "Atenção Dividida - AD",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H12",
+      "out_I12",
+      "out_J12",
+      "out_K12",
+      "out_L12",
+      "out_M12",
+      "out_N12",
+      "out_O12",
+      "out_P12",
+      "out_R12",
+      "out_S12",
+      "out_T12",
+      "out_U12",
+      "out_V12",
+      "out_W12",
+      "out_X12",
+      "out_Y12"
+     ]
+    },
+    {
+     "rotulo": "Atenção Alternada - AA",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_H13",
+      "out_I13",
+      "out_J13",
+      "out_K13",
+      "out_L13",
+      "out_M13",
+      "out_N13",
+      "out_O13",
+      "out_P13",
+      "out_R13",
+      "out_S13",
+      "out_T13",
+      "out_U13",
+      "out_V13",
+      "out_W13",
+      "out_X13",
+      "out_Y13"
+     ]
+    },
+    {
+     "rotulo": "Atenção Geral",
+     "valores": [
+      "out_D14",
+      "out_E14",
+      "out_F14",
+      "out_G14",
+      "out_H14",
+      "out_I14",
+      "out_J14",
+      "out_K14",
+      "out_L14",
+      "out_M14",
+      "out_N14",
+      "out_O14",
+      "out_P14",
+      "out_R14",
+      "out_S14",
+      "out_T14",
+      "out_U14",
+      "out_V14",
+      "out_W14",
+      "out_X14",
+      "out_Y14"
+     ]
+    },
+    {
+     "rotulo": "Atenção Concentrada - AC",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_T24",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Atenção Dividida - AD",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K25",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_T25",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Atenção Alternada - AA",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K26",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_T26",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Atenção Geral",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K27",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_T27",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

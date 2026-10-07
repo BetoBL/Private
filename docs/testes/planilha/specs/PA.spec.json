@@ -21,25 +21,25 @@
   {
    "chave": "in_C9",
    "celula": "C9",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 8",
    "min": 0
   },
   {
    "chave": "in_F9",
    "celula": "F9",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 9",
    "min": 0
   },
   {
    "chave": "in_I9",
    "celula": "I9",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 54",
    "min": 0
   },
   {
    "chave": "in_L9",
    "celula": "L9",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 24",
    "min": 0
   },
   {
@@ -69,25 +69,25 @@
   {
    "chave": "in_C10",
    "celula": "C10",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 37",
    "min": 0
   },
   {
    "chave": "in_F10",
    "celula": "F10",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 76",
    "min": 0
   },
   {
    "chave": "in_I10",
    "celula": "I10",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 56",
    "min": 0
   },
   {
    "chave": "in_L10",
    "celula": "L10",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 21",
    "min": 0
   },
   {
@@ -117,25 +117,25 @@
   {
    "chave": "in_C11",
    "celula": "C11",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 69",
    "min": 0
   },
   {
    "chave": "in_F11",
    "celula": "F11",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 85",
    "min": 0
   },
   {
    "chave": "in_I11",
    "celula": "I11",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 58",
    "min": 0
   },
   {
    "chave": "in_L11",
    "celula": "L11",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 18",
    "min": 0
   },
   {
@@ -165,25 +165,25 @@
   {
    "chave": "in_C12",
    "celula": "C12",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 152",
    "min": 0
   },
   {
    "chave": "in_F12",
    "celula": "F12",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 210",
    "min": 0
   },
   {
    "chave": "in_I12",
    "celula": "I12",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 60",
    "min": 0
   },
   {
    "chave": "in_L12",
    "celula": "L12",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 15",
    "min": 0
   },
   {
@@ -213,25 +213,25 @@
   {
    "chave": "in_C13",
    "celula": "C13",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 7048",
    "min": 0
   },
   {
    "chave": "in_F13",
    "celula": "F13",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 3492",
    "min": 0
   },
   {
    "chave": "in_I13",
    "celula": "I13",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 62",
    "min": 0
   },
   {
    "chave": "in_L13",
    "celula": "L13",
-   "rotulo": "Pontos 1 = certo 0 = errado",
+   "rotulo": "Item 12",
    "min": 0
   },
   {

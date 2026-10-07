@@ -311,3 +311,8 @@
 - Nova rota /teste-completo (pages/TesteCompleto.tsx, fora da sidebar): abre o teste numa sessão em tela cheia, com abas/gráficos/cálculo ao vivo, carregando o lançamento salvo (?aplicacaoId=) ou deixando escolher o teste. Ficha do paciente → linha do tempo: botões "Abrir tela completa" e "+ Lançar teste nesta sessão (tela completa)". O lançamento de sempre (/testes) fica como está.
 - Correção: o "Salvar" de /testes gravava campo em branco como 0 (subteste não aplicado virava zero) e não gravava as opções (ex.: tabela normativa). Agora grava só o preenchido, com as opções.
 - API: GET /testes sem as conversões (34 MB → 2,8 MB) + gzip (≈350 KB) — corrigiu "Failed to fetch" no Render (já publicado).
+
+## 07/10/2026 (tarde) — Substituição dos testes antigos pelo motor de planilha (em andamento, local)
+- Extrator marca as células DESBLOQUEADAS da planilha protegida (u:true) = células de digitação; o construtor nunca leva valor delas para a definição. Motivo: a planilha traz um protocolo de exemplo preenchido (respostas de itens). Definições regeneradas sem esses valores; as já publicadas (commits 9f509bd/a882fe5, produção) ainda têm os valores de exemplo → republicar para limpar.
+- Disco encheu (13 GB em pastas temporárias do extrator): scripts agora apagam seus temporários.
+- lote6 (BPA, FDT, BFP, RAVLT, SCARED, SRS-2 adultos/escolar/pré, E-TDAH Pais) gerado. BPA e FDT aplicados no banco LOCAL (mesma sigla = substitui; entradas equivalentes às antigas, FDT confere com a coluna "percentil manual"). BFP, RAVLT, SCARED, SRS-2 e E-TDAH Pais passam de total digitado para item a item: aguardam decisão do usuário. atualizar-wechsler.ts aceita SO_SIGLAS=BPA,FDT.

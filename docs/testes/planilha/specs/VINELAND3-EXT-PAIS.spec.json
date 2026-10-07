@@ -499,6 +499,12 @@
    "min": 0
   },
   {
+   "chave": "in_L134",
+   "celula": "L134",
+   "rotulo": "Valor Crítico",
+   "min": 0
+  },
+  {
    "chave": "in_AB134",
    "celula": "AB134",
    "rotulo": "Valor Crítico",

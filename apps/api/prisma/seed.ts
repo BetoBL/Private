@@ -1514,7 +1514,12 @@ export const TESTES_PLACEHOLDER: TesteSeed[] = [
 ];
 
 // Testes do motor de planilha (docs/testes/planilha/*.json); não duplica sigla já definida acima.
-for (const p of carregarTestesPlanilha()) if (!TESTES_PLACEHOLDER.some((x) => x.sigla === p.sigla)) TESTES_PLACEHOLDER.push(p as unknown as TesteSeed);
+// Mesma sigla = o teste do motor de planilha SUBSTITUI a versão antiga (feita a partir das normas dos manuais).
+for (const p of carregarTestesPlanilha()) {
+  const i = TESTES_PLACEHOLDER.findIndex((x) => x.sigla === p.sigla);
+  if (i >= 0) TESTES_PLACEHOLDER[i] = p as unknown as TesteSeed;
+  else TESTES_PLACEHOLDER.push(p as unknown as TesteSeed);
+}
 
 async function main() {
   console.log("Removendo catálogo fixo de testes anterior (se houver)...");

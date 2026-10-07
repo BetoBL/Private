@@ -9,6 +9,7 @@ import { readFileSync } from "node:fs";
 
 const [, , arq, nomeAba, sigla, metaJson] = process.argv;
 const meta = metaJson ? JSON.parse(metaJson) : {};
+const forcadas = new Set(meta.entradasForcadas ?? []); // células de entrada que a planilha não marca como desbloqueadas
 const aba = JSON.parse(readFileSync(arq, "utf8"))[nomeAba];
 if (!aba) { console.error("aba não encontrada"); process.exit(1); }
 const cel = new Map(aba.celulas.map((c) => [c.c, c]));
@@ -48,7 +49,7 @@ function rotulo(end) {
   return end;
 }
 
-const rotuloGrade = (end) => { const p = parse(end); let l = null, h = null; for (let c = p.c - 1; c >= 1 && !l; c--) l = textoDe(cel.get(`${numCol(c)}${p.r}`)); for (let r = p.r - 1; r >= Math.max(1, p.r - 12) && !h; r--) h = textoDe(cel.get(`${numCol(p.c)}${r}`)); return [l, h].filter(Boolean).map((x) => x.slice(0, 40)).join(" — ") || end; };
+const rotuloGrade = (end) => { const p = parse(end); let l = null, h = null; const esq = cel.get(`${numCol(p.c - 1)}${p.r}`); if (p.c > 1 && esq && !esq.u && !esq.f && esq.v !== "" && esq.v !== null && esq.t !== "s" && esq.t !== "str" && !Number.isNaN(Number(esq.v))) return `Item ${esq.v}`; for (let c = p.c - 1; c >= 1 && !l; c--) l = textoDe(cel.get(`${numCol(c)}${p.r}`)); for (let r = p.r - 1; r >= Math.max(1, p.r - 12) && !h; r--) h = textoDe(cel.get(`${numCol(p.c)}${r}`)); return [l, h].filter(Boolean).map((x) => x.slice(0, 40)).join(" — ") || end; };
 const dataAplicacao = [...datedifSegundos.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
 const entradas = [], opcoes = [], saidas = [];
 for (const end of [...lidasLimpas].sort((a, b) => parse(a).r - parse(b).r || parse(a).c - parse(b).c)) {
@@ -58,8 +59,9 @@ for (const end of [...lidasLimpas].sort((a, b) => parse(a).r - parse(b).r || par
   const comp = comparacoes.get(end);
   if (comp && comp.size) { { const valores = [...comp]; const atual = c && typeof c.v === "string" ? valores.indexOf(c.v.trim()) : -1; opcoes.push({ chave: `opcao_${end}`, celula: end, rotulo: rotulo(end), valores, ...(atual >= 0 ? { padrao: atual } : {}) }); continue; } }
   const v = c && c.v !== "" && c.v !== null ? Number(c.v) : null;
-  if (c && c.v !== "" && c.v !== null && Number.isNaN(v)) continue; // texto fixo
-  if (c && v !== null) continue; // constante numérica (parâmetro da planilha)
+  if (c && c.v !== "" && c.v !== null && Number.isNaN(v) && !c.u) continue; // texto fixo
+  if (c && v !== null && !c.u && !forcadas.has(end)) continue; // constante numérica bloqueada (parâmetro da planilha)
+  if (c && c.u && c.v !== "" && c.v !== null && Number.isNaN(v)) continue; // texto digitável tratado como opção/ignorado
   const col = numCol(parse(end).c);
   const grupo = meta.grupoPorColuna?.[col];
   entradas.push({ chave: `in_${end}`, celula: end, rotulo: (grupo ? grupo + " — " : "") + rotuloGrade(end), ...(grupo ? { grupo } : {}), min: 0 });
