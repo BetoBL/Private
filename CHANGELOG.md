@@ -282,3 +282,9 @@
 ## 07/10/2026 — Script de atualização do WAIS-III/WISC-IV para produção (preparado, NÃO executado no Render)
 - apps/api/prisma/atualizar-wechsler.ts: atualiza só Teste + TabelaNormativa do WAIS-III e do WISC-IV, sem apagar lançamentos; padrão = simulação, `--aplicar` grava em transação. seed.ts agora exporta TESTES_PLACEHOLDER e só roda main() quando executado direto.
 - Testado no banco local (simulação, aplicar, simulação, e2e do WISC-IV = ok). Antes de usar em produção: conferir DATABASE_URL (o .env aponta para o Render) e os lançamentos antigos de WISC-IV.
+
+## 07/10/2026 — Deploy no Render
+- Push para BetoBL/Private (master). Serviços criados pela API do Render na conta "Bora Luxar": neurologic-api (web, starter, https://neurologic-api.onrender.com, srv-db31s1u7bikc73bd2d10) e neurologic-web (site estático, https://neurologic-web.onrender.com, srv-db31s2k9v7es73am2tlg), ligados ao banco existente neurologic-db pela URL interna. autoDeploy ligado: todo push na master publica.
+- /health = 200; SPA responde nas rotas internas; CORS ok.
+- WAIS-III e WISC-IV do banco de produção atualizados com prisma/atualizar-wechsler.ts (0 lançamentos afetados). Produção tem 2 profissionais e 4 pacientes reais: não rodar o seed completo.
+- render.yaml: build com `npm install --include=dev` (o tsc é devDependency).
