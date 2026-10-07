@@ -10,6 +10,7 @@ import { atendimentosRouter } from "./routes/atendimentos.routes";
 import { authRouter } from "./routes/auth.routes";
 import { clinicasRouter } from "./routes/clinicas.routes";
 import { conveniosRouter } from "./routes/convenios.routes";
+import { financeiroRouter } from "./routes/financeiro.routes";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
 import { laudosRouter } from "./routes/laudos.routes";
 import { normativasCustomizadasRouter } from "./routes/normativasCustomizadas.routes";
@@ -52,6 +53,7 @@ app.use("/anexos", exigirAutenticacao, anexosRouter);
 app.use("/tipos-atendimento", exigirAutenticacao, tiposAtendimentoRouter);
 app.use("/atendimentos", exigirAutenticacao, atendimentosRouter);
 app.use("/convenios", exigirAutenticacao, conveniosRouter);
+app.use("/financeiro", exigirAutenticacao, financeiroRouter);
 app.use("/salas-virtuais", exigirAutenticacao, salasVirtuaisRouter);
 app.use("/normativas-customizadas", exigirAutenticacao, normativasCustomizadasRouter);
 

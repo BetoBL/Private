@@ -17,6 +17,7 @@ import { PainelDoDia } from "./pages/PainelDoDia";
 import { PerfilAtuacao } from "./pages/PerfilAtuacao";
 import { Pacientes } from "./pages/Pacientes";
 import { TesteCompleto } from "./pages/TesteCompleto";
+import { Financeiro } from "./pages/Financeiro";
 
 function App() {
   const { profissional } = useAuth();
@@ -41,6 +42,7 @@ function App() {
         <Route path="/testes" element={<LancamentoTeste />} />
         <Route path="/laudo" element={<ComposicaoLaudo />} />
         <Route path="/agenda" element={<Agenda />} />
+        <Route path="/financeiro" element={<Financeiro />} />
         <Route path="/perfil-atuacao" element={<PerfilAtuacao />} />
         <Route path="/clinica" element={<CadastroClinica />} />
         <Route path="/profissionais" element={<CadastroProfissional />} />

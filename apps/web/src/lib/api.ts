@@ -43,6 +43,38 @@ export interface Convenio {
   ativo: boolean;
 }
 
+export type StatusCobranca = "ABERTA" | "PAGA" | "CANCELADA";
+export interface Cobranca {
+  id: string;
+  pacienteId: string;
+  sessaoId: string | null;
+  convenioId: string | null;
+  descricao: string;
+  valor: string; // decimal em texto
+  vencimento: string;
+  status: StatusCobranca;
+  valorPago: string | null;
+  pagoEm: string | null;
+  formaPagamento: string | null;
+  observacoes: string | null;
+  paciente: { id: string; nome: string };
+  convenio: { id: string; nomeOperadora: string } | null;
+}
+export interface ResumoFinanceiro {
+  aReceberNoMes: { total: number; quantidade: number };
+  atrasado: { total: number; quantidade: number };
+  recebidoNoMes: { total: number; quantidade: number };
+  emAbertoPorOrigem: Array<{ convenioId: string | null; nome: string; total: number; quantidade: number }>;
+}
+export interface DadosCobranca {
+  pacienteId: string;
+  convenioId?: string | null;
+  descricao: string;
+  valor: number;
+  vencimento: string;
+  observacoes?: string | null;
+}
+
 export type PapelProfissional = "ADMIN" | "PSICOLOGO";
 
 export interface Profissional {
@@ -623,6 +655,22 @@ export const api = {
 
   iniciarAtendimento: enviarAtendimento,
 
+  // financeiro: cobranças (particular ou convênio), baixa e resumo do mês
+  listCobrancas: (f: { status?: string; mes?: string; pacienteId?: string; convenioId?: string; particular?: boolean } = {}) => {
+    const q = new URLSearchParams();
+    if (f.status) q.set("status", f.status);
+    if (f.mes) q.set("mes", f.mes);
+    if (f.pacienteId) q.set("pacienteId", f.pacienteId);
+    if (f.convenioId) q.set("convenioId", f.convenioId);
+    if (f.particular) q.set("particular", "1");
+    return request<Cobranca[]>("/financeiro?" + q.toString());
+  },
+  resumoFinanceiro: (mes: string) => request<ResumoFinanceiro>("/financeiro/resumo?mes=" + mes),
+  createCobranca: (data: DadosCobranca) => request<Cobranca>("/financeiro", { method: "POST", body: JSON.stringify(data) }),
+  updateCobranca: (id: string, data: Partial<Omit<DadosCobranca, "pacienteId">>) => request<Cobranca>("/financeiro/" + id, { method: "PATCH", body: JSON.stringify(data) }),
+  baixarCobranca: (id: string, data: { valorPago: number; pagoEm?: string; formaPagamento?: string | null }) => request<Cobranca>("/financeiro/" + id + "/baixa", { method: "POST", body: JSON.stringify(data) }),
+  reabrirCobranca: (id: string) => request<Cobranca>("/financeiro/" + id + "/reabrir", { method: "POST" }),
+  cancelarCobranca: (id: string) => request<void>("/financeiro/" + id, { method: "DELETE" }),
   listConvenios: (opcoes?: { todos?: boolean }) => request<Convenio[]>(`/convenios${opcoes?.todos ? "?todos=1" : ""}`),
   createConvenio: (data: { nomeOperadora: string; codigoPrestador?: string }) =>
     request<Convenio>("/convenios", { method: "POST", body: JSON.stringify(data) }),

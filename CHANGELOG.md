@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-10-07] Financeiro (fase 1): cobranças, baixa e resumo
+
+- **Modelo `Cobranca`** (migration `20261007202348_adiciona_cobranca`): paciente, sessão (opcional), convênio (vazio = particular), descrição, valor, vencimento, status (ABERTA/PAGA/CANCELADA), valor pago, data e forma do pagamento. Cancelar não apaga.
+- **Rota `/financeiro`**: listar (filtros de mês, status, paciente, convênio/particular), `/resumo?mes=` (a receber no mês, atrasado de qualquer mês, recebido no mês, em aberto por origem), criar, editar, `/:id/baixa`, `/:id/reabrir` e cancelar. ADMIN vê a clínica toda; os demais, só os próprios pacientes. Excluir sessão com cobrança agora é bloqueado (409).
+- **Tela "Financeiro"** no menu: cartões do mês, filtros, lançar/editar, dar baixa (valor menor que o cobrado aparece como "diferença: desconto ou glosa"), reabrir e cancelar. Ao escolher o paciente sugere o convênio dele.
+- Próximos passos combinados com o usuário: emissão de NFS-e pelo Emissor Nacional (portar do Infinity; clínica é Simples Nacional; outros municípios ficam para depois de 01/11/2026) e geração do XML TISS (guia SP/SADT) para convênios, a começar pela Amil. Envio direto à Amil depende de acesso técnico que ela libere ao credenciamento (códigos de prestador ainda não disponíveis).
+
 ## [2026-10-07] Construção: BRIEF-2 no motor, telas genéricas melhores, reavaliação
 
 - **BRIEF-2 pelo motor de planilha** (`BRIEF2`, aba "BRIEF-2"): 63 itens × 8 informantes (3 cuidadores, 4 professores, auto-relato), respostas N/A/F, 9 escalas clínicas, 4 índices (IRC/IRE/IRCog/IEG) e 3 escalas de validade, com T-score, percentil, IC e classificação. Gerado por `scripts/gerar-brief2-spec.mjs`. Substitui o antigo `BRIEF2-PAIS` no seed (só pais, sem índices). Conferido por caso manual (8 itens × "A" = 16 pontos brutos em Inibição); a aba não tem protocolo de exemplo em cache, então NÃO foi comparado com o Excel — pedir casos reais à Leticia. Observação: com idade ≥ 11 a coluna do auto-relato aparece com zeros mesmo sem respostas (o Excel faz o mesmo).

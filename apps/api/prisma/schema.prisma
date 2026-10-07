@@ -195,6 +195,7 @@ model Paciente {
   anamnese        Json?      // estrutura livre: queixa, histórico escolar/médico/familiar
   preferenciasAgenda Json?   // melhores dias/horários do paciente para agendamento
   anexos          Anexo[]
+  cobrancas       Cobranca[]
   sessoes         Sessao[]
   laudos          Laudo[]
   eventosAgenda   EventoAgenda[]
@@ -229,6 +230,7 @@ model Sessao {
   aplicacoesTeste AplicacaoDeTeste[]
   salasVirtuais   SalaVirtual[]
   eventoAgenda    EventoAgenda?
+  cobrancas       Cobranca[]
 
   criadoEm        DateTime  @default(now())
 }
@@ -453,6 +455,7 @@ model Convenio {
   codigoPrestador String?
   ativo          Boolean   @default(true) // desativar em vez de apagar: pacientes antigos continuam apontando para ele
   pacientes      Paciente[]
+  cobrancas      Cobranca[]
   profissionais  ProfissionalConvenio[]
   tabelaValores  TabelaValorConvenio[]
 
@@ -474,4 +477,33 @@ model TabelaValorConvenio {
   codigoTUSS    String
   descricao     String
   valor         Decimal
+}
+
+// Valor a receber por um atendimento. Particular = sem convênio; com convênio, o valor é o que a operadora paga.
+// Cancelar não apaga (status CANCELADA): o histórico financeiro fica.
+model Cobranca {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  paciente       Paciente  @relation(fields: [pacienteId], references: [id])
+  sessaoId       String?
+  sessao         Sessao?   @relation(fields: [sessaoId], references: [id])
+  convenioId     String?
+  convenio       Convenio? @relation(fields: [convenioId], references: [id])
+
+  descricao      String
+  valor          Decimal   @db.Decimal(10, 2)
+  vencimento     DateTime  @db.Date
+  status         String    @default("ABERTA") // ABERTA | PAGA | CANCELADA
+
+  valorPago      Decimal?  @db.Decimal(10, 2) // menor que o valor = glosa/desconto (a diferença fica visível)
+  pagoEm         DateTime? @db.Date
+  formaPagamento String?   // pix, dinheiro, cartão, transferência, repasse do convênio...
+  observacoes    String?   @db.Text
+
+  criadoEm       DateTime  @default(now())
+  atualizadoEm   DateTime  @updatedAt
+
+  @@index([clinicaId, status, vencimento])
+  @@index([pacienteId])
 }

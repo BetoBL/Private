@@ -77,7 +77,7 @@ sessoesRouter.get(
 const sessaoUpdateSchema = z.object({ dataHora: z.coerce.date().optional(), observacoes: z.string().nullable().optional() });
 
 async function sessaoDoUsuario(req: { params: { id: string }; profissional?: { clinicaId: string; papel: string; sub: string } }) {
-  const sessao = await prisma.sessao.findUnique({ where: { id: req.params.id }, include: { paciente: true, aplicacoesTeste: { select: { id: true } }, salasVirtuais: { select: { id: true } }, eventoAgenda: { select: { id: true } } } });
+  const sessao = await prisma.sessao.findUnique({ where: { id: req.params.id }, include: { paciente: true, aplicacoesTeste: { select: { id: true } }, salasVirtuais: { select: { id: true } }, eventoAgenda: { select: { id: true } }, cobrancas: { select: { id: true } } } });
   if (!sessao || sessao.paciente.clinicaId !== req.profissional!.clinicaId) return null;
   if (!ehAdmin(req) && sessao.paciente.profissionalId !== req.profissional!.sub) return null;
   return sessao;
@@ -108,8 +108,8 @@ sessoesRouter.delete(
       res.status(404).json({ error: "Sessão não encontrada" });
       return;
     }
-    if (sessao.aplicacoesTeste.length > 0 || sessao.salasVirtuais.length > 0 || sessao.eventoAgenda) {
-      res.status(409).json({ error: "Esta sessão tem testes lançados, sala virtual ou evento na agenda. Remova esses itens antes de excluir a sessão." });
+    if (sessao.aplicacoesTeste.length > 0 || sessao.salasVirtuais.length > 0 || sessao.eventoAgenda || sessao.cobrancas.length > 0) {
+      res.status(409).json({ error: "Esta sessão tem testes lançados, sala virtual, evento na agenda ou cobrança. Remova esses itens antes de excluir a sessão." });
       return;
     }
     await prisma.sessao.delete({ where: { id: sessao.id } });

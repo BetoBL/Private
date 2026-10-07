@@ -8,6 +8,7 @@ const LINKS = [
   { to: "/pacientes", label: "Pacientes" },
   { to: "/iniciar-atendimento", label: "Iniciar Atendimento" },
   { to: "/agenda", label: "Agenda" },
+  { to: "/financeiro", label: "Financeiro" },
   { to: "/clinica", label: "Cadastro · Clínica" },
   { to: "/profissionais", label: "Cadastro · Profissional" },
   { to: "/tipos-atendimento", label: "Cadastro · Tipos de Atendimento" },
