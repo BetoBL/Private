@@ -11,7 +11,7 @@ testesRouter.get(
     const incluirInativos = req.query.incluirInativos === "true";
     const testes = await prisma.teste.findMany({
       where: incluirInativos ? undefined : { ativo: true },
-      include: { tabelasNormativas: true },
+      include: { tabelasNormativas: { omit: { conversao: true } } }, // a conversão é grande (motor de planilha): nunca vai na listagem
       orderBy: { nome: "asc" },
     });
     res.json(testes);
@@ -23,7 +23,7 @@ testesRouter.get(
   asyncHandler(async (req, res) => {
     const teste = await prisma.teste.findUnique({
       where: { id: req.params.id },
-      include: { tabelasNormativas: true },
+      include: { tabelasNormativas: { omit: { conversao: true } } }, // a conversão é grande (motor de planilha): nunca vai na listagem
     });
     if (!teste) {
       res.status(404).json({ error: "Teste não encontrado" });

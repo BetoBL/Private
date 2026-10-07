@@ -1,3 +1,4 @@
+import compression from "compression";
 import cors from "cors";
 import "dotenv/config";
 import express from "express";
@@ -24,6 +25,7 @@ import { tiposAtendimentoRouter } from "./routes/tiposAtendimento";
 const app = express();
 
 app.use(cors());
+app.use(compression()); // listas de testes e resultados são grandes (motor de planilha)
 app.use(express.json());
 
 app.get("/health", (_req, res) => {
