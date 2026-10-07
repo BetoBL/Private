@@ -288,3 +288,16 @@
 - /health = 200; SPA responde nas rotas internas; CORS ok.
 - WAIS-III e WISC-IV do banco de produção atualizados com prisma/atualizar-wechsler.ts (0 lançamentos afetados). Produção tem 2 profissionais e 4 pacientes reais: não rodar o seed completo.
 - render.yaml: build com `npm install --include=dev` (o tsc é devDependency).
+
+## 07/10/2026 — WASI espelhando a planilha (local, ainda NÃO publicado)
+- Novas ferramentas: scripts/extrair-abas-xlsm.mjs (lê qualquer aba do .xlsm direto do arquivo; funciona com o arquivo aberto no Excel porque usa cópia) e scripts/gerar-wasi-planilha.mjs / comparar-wasi.ts.
+- apps/api/src/lib/wasi.ts + docs/testes/WASI-planilha.json: escore T por 45 faixas etárias, Z/composto/percentil/ponderado, QI Verbal/Execução/QIT-4/QIT-2 com IC 90/95, interpretabilidade, habilidades (56), intraindividual, idade mental. Comparador contra a planilha avaliada: 3 sementes × 300 casos (~55 mil campos) sem divergência; suíte 102/102.
+- Catálogo: WASI do seed trocado (era só classificação de QI digitado) por 4 campos brutos + 4 calculados; atualizar-wechsler.ts agora cobre WAIS-III, WISC-IV e WASI.
+- Tela TesteWasi.tsx (5 abas). Defeitos da planilha em docs/testes/WASI-divergencias-planilha.md.
+- Próximo no menu: WISC-IV-REAV (reavaliação) e depois o restante da lista (ver memória project_neurologic_menu_planilha).
+
+## 07/10/2026 — Motor de planilha (decisão: testes simples rodam as fórmulas da própria planilha)
+- Avaliador de fórmulas agora é fonte única em apps/api/src/lib/planilha/avaliador.ts (+COUNTIFS, COUNT, COUNTBLANK, AVERAGE, NORM.DIST, STANDARDIZE, MATCH, RANK.EQ, CHAR, CONCAT, TODAY, NOW); scripts/avaliador-planilha.mjs só reexporta (rodar com tsx).
+- Novo: lib/planilha/motor.ts (tipo de conversão "planilha", ResultadoCalculado modo "planilha"), scripts/construir-teste-planilha.ts, scripts/mapear-aba.mjs, prisma/planilhas-seed.ts, TestePlanilha.tsx (tela genérica), docs/testes/planilha/LEIAME.md.
+- API: conversões de tabela normativa ficam em cache na memória (o cálculo ao vivo não relê centenas de KB a cada tecla); nome/sexo/escolaridade do paciente chegam ao motor.
+- Piloto: D2-R (36 entradas, 41 saídas, 291 KB). atualizar-wechsler.ts agora cria/atualiza também os testes de planilha.

@@ -9,6 +9,8 @@ import {
   WISC4_PRINCIPAIS,
   WISC4_SUPLEMENTARES,
 } from "./wisc4-normas";
+import { carregarTestesPlanilha } from "./planilhas-seed";
+import { WASI_PLANILHA_CALCULADOS, WASI_PLANILHA_CAMPOS, WASI_PLANILHA_CONVERSAO, WASI_PLANILHA_IDADE_MAX, WASI_PLANILHA_IDADE_MIN } from "./wasi-planilha";
 import { WISC4_PLANILHA_CALCULADOS, WISC4_PLANILHA_CAMPOS, WISC4_PLANILHA_CONVERSAO, WISC4_PLANILHA_IDADE_MAX, WISC4_PLANILHA_IDADE_MIN } from "./wisc4-planilha";
 import { WAIS3_CAMPOS, WAIS3_CAMPOS_CALCULADOS, WAIS3_CONVERSAO, WAIS3_IDADE_MAX, WAIS3_IDADE_MIN } from "./wais3-normas";
 import { FDT_CAMPOS_DERIVADOS, FDT_FAIXAS_ETARIAS, FDT_FONTE, campoErros, campoTempo } from "./fdt-normas";
@@ -743,49 +745,32 @@ export const TESTES_PLACEHOLDER: TesteSeed[] = [
     dominio: DominioCognitivo.INTELIGENCIA,
     direcao: "MAIOR_MELHOR",
     descricao:
-      "Versão abreviada do WAIS, 4 subtestes (Vocabulário, Semelhanças, Cubos, Raciocínio " +
-      "Matricial) ou 2 (versão rápida: Vocabulário + Raciocínio Matricial). Escore de subteste em " +
-      "Escore T (média 50, DP 10); QI Total/Verbal/Execução usam a mesma classificação Wechsler " +
-      "padrão do WAIS-III.",
+      "Versão abreviada do WAIS para 6 a 89 anos, com 4 subtestes (Vocabulário, Cubos, Semelhanças e Raciocínio Matricial) ou 2 (Vocabulário + " +
+      "Raciocínio Matricial). Cálculo espelhando a planilha da psicóloga: bruto → escore T pela faixa etária (45 faixas), soma dos escores T → " +
+      "QI Verbal, QI de Execução e QI Total (4 ou 2 subtestes) com percentil e IC 90/95%, análise de interpretabilidade, habilidades " +
+      "compartilhadas e idade mental.",
     algoritmoCorrecao: {
-      // Mesmo princípio do WAIS-III: o profissional lança os escores T dos subtestes e os QIs já
-      // convertidos pelas tabelas oficiais do manual (23 faixas etárias — ver docs/testes/WASI.md,
-      // Tabelas A.1.1-A.1.23 para escore T por subteste, A.3-A.6 para soma de T -> QI). Este motor
-      // só classifica o QI já calculado, não agrega subtestes.
-      subtestes: {
-        versaoCompleta: ["Vocabulário", "Semelhanças", "Cubos", "Raciocínio Matricial"],
-        versaoRapida: ["Vocabulário", "Raciocínio Matricial"],
-      },
-      campos: [
-        { chave: "vocabulario", label: "Vocabulário (Escore T, 20-80)" },
-        { chave: "semelhancas", label: "Semelhanças (Escore T, 20-80) — só na versão completa" },
-        { chave: "cubos", label: "Cubos (Escore T, 20-80) — só na versão completa" },
-        { chave: "raciocinioMatricial", label: "Raciocínio Matricial (Escore T, 20-80)" },
-        { chave: "qiVerbal", label: "QI Verbal (Tabela A.3, Vocabulário+Semelhanças) — só na versão completa" },
-        { chave: "qiExecucao", label: "QI Execução (Tabela A.4, Cubos+Rac.Matricial) — só na versão completa" },
-        { chave: "qiTotal", label: "QI Total (Tabela A.5 versão completa ou A.6 versão rápida)" },
+      aviso:
+        "Cada QI só é calculado quando TODOS os subtestes que o compõem forem lançados (a planilha original soma o que houver). O QI Verbal " +
+        "usa VC + SM, o de Execução usa CB + RM, o QIT-4 usa os quatro e o QIT-2 usa VC + RM.",
+      etapas: [
+        "1. Idade em dias na data de aplicação (anos×365 + meses×30 + dias) → faixa etária.",
+        "2. Bruto de cada subteste → escore T pela tabela da faixa; Z = (T−50)/10; ponto composto = Z×15+100.",
+        "3. Soma dos escores T → QI, percentil e IC 90/95 (6-16 anos e 17-89 anos têm colunas diferentes).",
+        "4. Análise: interpretabilidade dos QIs, habilidades compartilhadas, intraindividual e idade mental.",
       ],
+      campos: WASI_PLANILHA_CAMPOS,
+      camposCalculados: WASI_PLANILHA_CALCULADOS,
     },
     referenciaBibliografica:
-      "WECHSLER, D. WASI: Escala Wechsler Abreviada de Inteligência — manual profissional. " +
-      "Adaptação e normatização brasileira. São Paulo: Pearson/Casa do Psicólogo.",
+      "WECHSLER, D. WASI: Escala Wechsler Abreviada de Inteligência — manual profissional. Adaptação e normatização brasileira. São Paulo: Pearson/Casa do Psicólogo.",
     isPlaceholder: false,
     tabelasNormativas: [
       {
         criterio: "geral",
-        faixaMin: 6,
-        faixaMax: 89,
-        conversao: {
-          tipo: "percentil_por_campo",
-          fonte:
-            "Classificação Wechsler padrão (mesma Tabela 5.24 do WAIS-III — o manual WASI remete " +
-            "explicitamente a ela, ver docs/testes/WASI.md) aplicada a qiTotal/qiVerbal/qiExecucao.",
-          faixasPorCampo: {
-            qiTotal: WECHSLER_CLASSIFICACAO_FAIXAS,
-            qiVerbal: WECHSLER_CLASSIFICACAO_FAIXAS,
-            qiExecucao: WECHSLER_CLASSIFICACAO_FAIXAS,
-          },
-        },
+        faixaMin: WASI_PLANILHA_IDADE_MIN,
+        faixaMax: WASI_PLANILHA_IDADE_MAX,
+        conversao: WASI_PLANILHA_CONVERSAO,
       },
     ],
   },
@@ -1527,6 +1512,9 @@ export const TESTES_PLACEHOLDER: TesteSeed[] = [
     ],
   },
 ];
+
+// Testes do motor de planilha (docs/testes/planilha/*.json); não duplica sigla já definida acima.
+for (const p of carregarTestesPlanilha()) if (!TESTES_PLACEHOLDER.some((x) => x.sigla === p.sigla)) TESTES_PLACEHOLDER.push(p as unknown as TesteSeed);
 
 async function main() {
   console.log("Removendo catálogo fixo de testes anterior (se houver)...");

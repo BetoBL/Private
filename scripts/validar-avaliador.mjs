@@ -6,7 +6,7 @@ import { Err, Planilhas } from "./avaliador-planilha.mjs";
 
 const [, , arq, abaAlvo = "WAIS-III"] = process.argv;
 const dados = JSON.parse(readFileSync(arq, "utf8"));
-const pl = new Planilhas(dados, ["WAIS-NORMAS", "WISC-NORMAS", "Tab_Conversao", "ID-Usuário"]);
+const pl = new Planilhas(dados, Object.keys(dados).filter((n) => /norma|nomas|Tab_Conversao|ID-Usuário/i.test(n)));
 const aba = dados[abaAlvo];
 
 let total = 0, iguais = 0;

@@ -2,7 +2,7 @@ import type { Teste } from "./api";
 
 // Testes que têm componentes customizados com abas específicas.
 // Resto usa TesteGenerico.
-export const TESTES_CUSTOMIZADOS = new Set(["WAIS-III", "WISC-IV"]);
+export const TESTES_CUSTOMIZADOS = new Set(["WAIS-III", "WISC-IV", "WASI"]);
 
 /**
  * Retorna o nome do componente que deve renderizar este teste.
@@ -11,14 +11,17 @@ export const TESTES_CUSTOMIZADOS = new Set(["WAIS-III", "WISC-IV"]);
  * @param teste - Teste a renderizar
  * @returns "generico" ou o nome do componente específico (ex: "waisIII")
  */
-export function escolherComponenteTeste(teste: Teste): "generico" | "waisIII" | "wiscIV" {
+export function escolherComponenteTeste(teste: Teste): "generico" | "waisIII" | "wiscIV" | "wasi" | "planilha" {
   switch (teste.sigla) {
     case "WAIS-III":
       return "waisIII";
     case "WISC-IV":
       return "wiscIV";
+    case "WASI":
+      return "wasi";
     default:
-      return "generico";
+      // testes do motor de planilha trazem o layout no próprio catálogo
+      return (teste.algoritmoCorrecao as unknown as { layout?: unknown }).layout ? "planilha" : "generico";
   }
 }
 

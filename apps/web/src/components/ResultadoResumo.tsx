@@ -104,6 +104,21 @@ export function ResultadoResumo({
     );
   }
 
+  if (resultado.modo === "planilha") {
+    // Resultado do motor de planilha: lista as saídas preenchidas (o detalhe fica na tela do teste)
+    const preenchidas = Object.entries(resultado.saidas).filter(([, v]) => v !== null && v !== "");
+    return (
+      <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm sm:grid-cols-3">
+        {preenchidas.slice(0, 12).map(([chave, v]) => (
+          <div key={chave} className="flex justify-between gap-2 border-b border-mist/60 py-0.5">
+            <dt className="truncate text-ink/60">{labelPorChave.get(chave) ?? chave}</dt>
+            <dd className="font-semibold tabular-nums">{String(v)}</dd>
+          </div>
+        ))}
+      </dl>
+    );
+  }
+
   return (
     <div className="mt-2 flex flex-col gap-3">
       {Object.entries(resultado.porCampo).map(([chave, r]) => (

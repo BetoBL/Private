@@ -1,0 +1,247 @@
+{
+ "sigla": "FIGREY",
+ "nome": "Figuras Complexas de Rey",
+ "dominio": "MEMORIA",
+ "descricao": "Figura Complexa de Rey (cópia e memória): pontuações e tempo convertidos em percentil, Z, ponderado e classificação por idade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "REY, A. Figuras Complexas de Rey (normas conforme planilha da psicóloga).",
+ "aba": "FigRey",
+ "idade": [
+  5,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "R3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_D12",
+   "celula": "D12",
+   "rotulo": "Cópia — Pts Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_P12",
+   "celula": "P12",
+   "rotulo": "Cópia — Pts Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_D13",
+   "celula": "D13",
+   "rotulo": "Evocação — Pts Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_P13",
+   "celula": "P13",
+   "rotulo": "Evocação — Pts Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_D14",
+   "celula": "D14",
+   "rotulo": "Cópia — Pts Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_P14",
+   "celula": "P14",
+   "rotulo": "Cópia — Pts Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_D15",
+   "celula": "D15",
+   "rotulo": "Evocação — Pts Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_P15",
+   "celula": "P15",
+   "rotulo": "Evocação — Pts Brutos",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_U3",
+   "celula": "U3",
+   "rotulo": "Figura",
+   "valores": [
+    "Figura B",
+    "Figura A"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_D17",
+   "celula": "D17",
+   "rotulo": "Tipo de cópia:",
+   "valores": [
+    "1&2"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_R12",
+   "celula": "R12",
+   "rotulo": "Cópia — Classificação"
+  },
+  {
+   "chave": "out_R13",
+   "celula": "R13",
+   "rotulo": "Evocação — Classificação"
+  },
+  {
+   "chave": "out_D16",
+   "celula": "D16",
+   "rotulo": "Classificação referente tempo, consultar — Pts Brutos"
+  },
+  {
+   "chave": "out_E17",
+   "celula": "E17",
+   "rotulo": "Tipo de cópia: — Percentil"
+  },
+  {
+   "chave": "out_F28",
+   "celula": "F28",
+   "rotulo": "Pontos - Cópia — Percentil"
+  },
+  {
+   "chave": "out_Q28",
+   "celula": "Q28",
+   "rotulo": "Pontos - Cópia"
+  },
+  {
+   "chave": "out_F29",
+   "celula": "F29",
+   "rotulo": "Pontos - Evocação — Percentil"
+  },
+  {
+   "chave": "out_Q29",
+   "celula": "Q29",
+   "rotulo": "Pontos - Evocação"
+  },
+  {
+   "chave": "out_F30",
+   "celula": "F30",
+   "rotulo": "Tempo - Cópia — Percentil"
+  },
+  {
+   "chave": "out_Q30",
+   "celula": "Q30",
+   "rotulo": "Tempo - Cópia"
+  },
+  {
+   "chave": "out_F31",
+   "celula": "F31",
+   "rotulo": "Tempo - Evocação — Percentil"
+  },
+  {
+   "chave": "out_Q31",
+   "celula": "Q31",
+   "rotulo": "Tempo - Evocação"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Pts Brutos",
+    "Percentil",
+    "Percentil",
+    "Q",
+    "Classificação"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Cópia",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_R12"
+     ]
+    },
+    {
+     "rotulo": "Evocação",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      "out_R13"
+     ]
+    },
+    {
+     "rotulo": "Classificação referente tempo, consultar",
+     "valores": [
+      "out_D16",
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Tipo de cópia:",
+     "valores": [
+      null,
+      "out_E17",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontos - Cópia",
+     "valores": [
+      null,
+      null,
+      "out_F28",
+      "out_Q28",
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontos - Evocação",
+     "valores": [
+      null,
+      null,
+      "out_F29",
+      "out_Q29",
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo - Cópia",
+     "valores": [
+      null,
+      null,
+      "out_F30",
+      "out_Q30",
+      null
+     ]
+    },
+    {
+     "rotulo": "Tempo - Evocação",
+     "valores": [
+      null,
+      null,
+      "out_F31",
+      "out_Q31",
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

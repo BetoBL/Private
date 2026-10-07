@@ -1,0 +1,1276 @@
+{
+ "sigla": "CORSI",
+ "nome": "Blocos de Corsi",
+ "dominio": "MEMORIA",
+ "descricao": "Blocos de Corsi (memória visuoespacial): pontuação e span em ordem direta e inversa, pontuação-padrão, Z, ponderado, percentil e classificação por idade/escolaridade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "Blocos de Corsi (normas conforme planilha da psicóloga).",
+ "aba": "Corsi",
+ "idade": [
+  4,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "M3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_E13",
+   "celula": "E13",
+   "rotulo": "Ordem direta — 8 – 5 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M13",
+   "celula": "M13",
+   "rotulo": "Ordem inversa — 8 – 5 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E14",
+   "celula": "E14",
+   "rotulo": "Ordem direta — 6 – 4 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F14",
+   "celula": "F14",
+   "rotulo": "Ordem direta — 6 – 4 — Span",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M14",
+   "celula": "M14",
+   "rotulo": "Ordem inversa — 6 – 4 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N14",
+   "celula": "N14",
+   "rotulo": "Ordem inversa — 6 – 4 — Span",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E15",
+   "celula": "E15",
+   "rotulo": "Ordem direta — 4 – 7 – 2 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M15",
+   "celula": "M15",
+   "rotulo": "Ordem inversa — 4 – 7 – 2 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E16",
+   "celula": "E16",
+   "rotulo": "Ordem direta — 8 – 1 – 5 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F16",
+   "celula": "F16",
+   "rotulo": "Ordem direta — 8 – 1 – 5 — Span",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M16",
+   "celula": "M16",
+   "rotulo": "Ordem inversa — 8 – 1 – 5 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N16",
+   "celula": "N16",
+   "rotulo": "Ordem inversa — 8 – 1 – 5 — Span",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E17",
+   "celula": "E17",
+   "rotulo": "Ordem direta — 3 – 4 – 1 – 7 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M17",
+   "celula": "M17",
+   "rotulo": "Ordem inversa — 3 – 4 – 1 – 7 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E18",
+   "celula": "E18",
+   "rotulo": "Ordem direta — 6 – 1 – 5 – 8 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F18",
+   "celula": "F18",
+   "rotulo": "Ordem direta — 6 – 1 – 5 – 8 — Span",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M18",
+   "celula": "M18",
+   "rotulo": "Ordem inversa — 6 – 1 – 5 – 8 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N18",
+   "celula": "N18",
+   "rotulo": "Ordem inversa — 6 – 1 – 5 – 8 — Span",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E19",
+   "celula": "E19",
+   "rotulo": "Ordem direta — 5 – 2 – 1 – 8 – 6 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M19",
+   "celula": "M19",
+   "rotulo": "Ordem inversa — 5 – 2 – 1 – 8 – 6 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E20",
+   "celula": "E20",
+   "rotulo": "Ordem direta — 4 – 2 – 7 – 3 – 1 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F20",
+   "celula": "F20",
+   "rotulo": "Ordem direta — 4 – 2 – 7 – 3 – 1 — Span",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M20",
+   "celula": "M20",
+   "rotulo": "Ordem inversa — 4 – 2 – 7 – 3 – 1 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N20",
+   "celula": "N20",
+   "rotulo": "Ordem inversa — 4 – 2 – 7 – 3 – 1 — Span",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E21",
+   "celula": "E21",
+   "rotulo": "Ordem direta — 3 – 9 – 2 – 4 – 8 – 7 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M21",
+   "celula": "M21",
+   "rotulo": "Ordem inversa — 3 – 9 – 2 – 4 – 8 – 7 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E22",
+   "celula": "E22",
+   "rotulo": "Ordem direta — 3 – 7 – 8 – 2 – 9 – 4 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F22",
+   "celula": "F22",
+   "rotulo": "Ordem direta — 3 – 7 – 8 – 2 – 9 – 4 — Span",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M22",
+   "celula": "M22",
+   "rotulo": "Ordem inversa — 3 – 7 – 8 – 2 – 9 – 4 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N22",
+   "celula": "N22",
+   "rotulo": "Ordem inversa — 3 – 7 – 8 – 2 – 9 – 4 — Span",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E23",
+   "celula": "E23",
+   "rotulo": "Ordem direta — 5 – 9 – 1 – 7 – 4 – 2 – 8 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M23",
+   "celula": "M23",
+   "rotulo": "Ordem inversa — 5 – 9 – 1 – 7 – 4 – 2 – 8 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E24",
+   "celula": "E24",
+   "rotulo": "Ordem direta — 5 – 7 – 9 – 2 – 8 – 4 – 6 — Pontos",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F24",
+   "celula": "F24",
+   "rotulo": "Ordem direta — 5 – 7 – 9 – 2 – 8 – 4 – 6 — Span",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M24",
+   "celula": "M24",
+   "rotulo": "Ordem inversa — 5 – 7 – 9 – 2 – 8 – 4 – 6 — Pontos",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N24",
+   "celula": "N24",
+   "rotulo": "Ordem inversa — 5 – 7 – 9 – 2 – 8 – 4 – 6 — Span",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E25",
+   "celula": "E25",
+   "rotulo": "Ordem direta — 5 – 8 – 1 – 9 – 2 – 6 – 4 – 7",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M25",
+   "celula": "M25",
+   "rotulo": "Ordem inversa — Se preferir, preencha APENAS os Totais!",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E26",
+   "celula": "E26",
+   "rotulo": "Ordem direta — 5 – 9 – 3 – 6 – 7 – 2 – 4 – 3",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F26",
+   "celula": "F26",
+   "rotulo": "Ordem direta — 5 – 9 – 3 – 6 – 7 – 2 – 4 – 3",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M26",
+   "celula": "M26",
+   "rotulo": "Ordem inversa — 5 – 9 – 3 – 6 – 7 – 2 – 4 – 3",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N26",
+   "celula": "N26",
+   "rotulo": "Ordem inversa — 5 – 9 – 3 – 6 – 7 – 2 – 4 – 3",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E27",
+   "celula": "E27",
+   "rotulo": "Ordem direta — 5 – 3 – 8 – 7 – 1 – 2 – 4 – 6 – 9",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M27",
+   "celula": "M27",
+   "rotulo": "Ordem inversa — 5 – 3 – 8 – 7 – 1 – 2 – 4 – 6 – 9",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E28",
+   "celula": "E28",
+   "rotulo": "Ordem direta — 4 – 2 – 6 – 8 – 1 – 7 – 9 – 3 – 5",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F28",
+   "celula": "F28",
+   "rotulo": "Ordem direta — 4 – 2 – 6 – 8 – 1 – 7 – 9 – 3 – 5",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M28",
+   "celula": "M28",
+   "rotulo": "Ordem inversa — 4 – 2 – 6 – 8 – 1 – 7 – 9 – 3 – 5",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N28",
+   "celula": "N28",
+   "rotulo": "Ordem inversa — 4 – 2 – 6 – 8 – 1 – 7 – 9 – 3 – 5",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_E29",
+   "celula": "E29",
+   "rotulo": "Ordem direta — Total",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_F29",
+   "celula": "F29",
+   "rotulo": "Ordem direta — Total",
+   "grupo": "Ordem direta",
+   "min": 0
+  },
+  {
+   "chave": "in_M29",
+   "celula": "M29",
+   "rotulo": "Ordem inversa — Total",
+   "grupo": "Ordem inversa",
+   "min": 0
+  },
+  {
+   "chave": "in_N29",
+   "celula": "N29",
+   "rotulo": "Ordem inversa — Total",
+   "grupo": "Ordem inversa",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_J3",
+   "celula": "J3",
+   "rotulo": "Normatização:",
+   "valores": [
+    "Idade",
+    "Escolaridade"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J4",
+   "celula": "J4",
+   "rotulo": "Série:",
+   "valores": [
+    "Pré I",
+    "Pré II"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_J5",
+   "celula": "J5",
+   "rotulo": "Escolaridade:",
+   "valores": [
+    "Analfabeto",
+    "Fundamental 1",
+    "Fundamental 2",
+    "Médio",
+    "Superior",
+    "Pós Graduação"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_F13",
+   "celula": "F13",
+   "rotulo": "8 – 5 — Span"
+  },
+  {
+   "chave": "out_G13",
+   "celula": "G13",
+   "rotulo": "8 – 5"
+  },
+  {
+   "chave": "out_K13",
+   "celula": "K13",
+   "rotulo": "8 – 5 — Sequência"
+  },
+  {
+   "chave": "out_N13",
+   "celula": "N13",
+   "rotulo": "8 – 5 — Span"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "6 – 4 — Sequência"
+  },
+  {
+   "chave": "out_F15",
+   "celula": "F15",
+   "rotulo": "4 – 7 – 2 — Span"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "4 – 7 – 2 — Sequência"
+  },
+  {
+   "chave": "out_N15",
+   "celula": "N15",
+   "rotulo": "4 – 7 – 2 — Span"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "8 – 1 – 5 — Sequência"
+  },
+  {
+   "chave": "out_F17",
+   "celula": "F17",
+   "rotulo": "3 – 4 – 1 – 7 — Span"
+  },
+  {
+   "chave": "out_K17",
+   "celula": "K17",
+   "rotulo": "3 – 4 – 1 – 7 — Sequência"
+  },
+  {
+   "chave": "out_N17",
+   "celula": "N17",
+   "rotulo": "3 – 4 – 1 – 7 — Span"
+  },
+  {
+   "chave": "out_K18",
+   "celula": "K18",
+   "rotulo": "6 – 1 – 5 – 8 — Sequência"
+  },
+  {
+   "chave": "out_F19",
+   "celula": "F19",
+   "rotulo": "5 – 2 – 1 – 8 – 6 — Span"
+  },
+  {
+   "chave": "out_K19",
+   "celula": "K19",
+   "rotulo": "5 – 2 – 1 – 8 – 6 — Sequência"
+  },
+  {
+   "chave": "out_N19",
+   "celula": "N19",
+   "rotulo": "5 – 2 – 1 – 8 – 6 — Span"
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "4 – 2 – 7 – 3 – 1 — Sequência"
+  },
+  {
+   "chave": "out_F21",
+   "celula": "F21",
+   "rotulo": "3 – 9 – 2 – 4 – 8 – 7 — Span"
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "3 – 9 – 2 – 4 – 8 – 7 — Sequência"
+  },
+  {
+   "chave": "out_N21",
+   "celula": "N21",
+   "rotulo": "3 – 9 – 2 – 4 – 8 – 7 — Span"
+  },
+  {
+   "chave": "out_K22",
+   "celula": "K22",
+   "rotulo": "3 – 7 – 8 – 2 – 9 – 4 — Sequência"
+  },
+  {
+   "chave": "out_F23",
+   "celula": "F23",
+   "rotulo": "5 – 9 – 1 – 7 – 4 – 2 – 8 — Span"
+  },
+  {
+   "chave": "out_K23",
+   "celula": "K23",
+   "rotulo": "5 – 9 – 1 – 7 – 4 – 2 – 8 — Sequência"
+  },
+  {
+   "chave": "out_N23",
+   "celula": "N23",
+   "rotulo": "5 – 9 – 1 – 7 – 4 – 2 – 8 — Span"
+  },
+  {
+   "chave": "out_K24",
+   "celula": "K24",
+   "rotulo": "5 – 7 – 9 – 2 – 8 – 4 – 6 — Sequência"
+  },
+  {
+   "chave": "out_F25",
+   "celula": "F25",
+   "rotulo": "5 – 8 – 1 – 9 – 2 – 6 – 4 – 7"
+  },
+  {
+   "chave": "out_K25",
+   "celula": "K25",
+   "rotulo": "Se preferir, preencha APENAS os Totais!"
+  },
+  {
+   "chave": "out_N25",
+   "celula": "N25",
+   "rotulo": "Se preferir, preencha APENAS os Totais!"
+  },
+  {
+   "chave": "out_K26",
+   "celula": "K26",
+   "rotulo": "5 – 9 – 3 – 6 – 7 – 2 – 4 – 3"
+  },
+  {
+   "chave": "out_F27",
+   "celula": "F27",
+   "rotulo": "5 – 3 – 8 – 7 – 1 – 2 – 4 – 6 – 9"
+  },
+  {
+   "chave": "out_K27",
+   "celula": "K27",
+   "rotulo": "5 – 3 – 8 – 7 – 1 – 2 – 4 – 6 – 9"
+  },
+  {
+   "chave": "out_N27",
+   "celula": "N27",
+   "rotulo": "5 – 3 – 8 – 7 – 1 – 2 – 4 – 6 – 9"
+  },
+  {
+   "chave": "out_K28",
+   "celula": "K28",
+   "rotulo": "4 – 2 – 6 – 8 – 1 – 7 – 9 – 3 – 5"
+  },
+  {
+   "chave": "out_F31",
+   "celula": "F31",
+   "rotulo": "Pontuação-Padrão"
+  },
+  {
+   "chave": "out_D32",
+   "celula": "D32",
+   "rotulo": "Pontuação — Pontos Brutos"
+  },
+  {
+   "chave": "out_E32",
+   "celula": "E32",
+   "rotulo": "Pontuação — Pontuação-Padrão"
+  },
+  {
+   "chave": "out_F32",
+   "celula": "F32",
+   "rotulo": "Pontuação"
+  },
+  {
+   "chave": "out_H32",
+   "celula": "H32",
+   "rotulo": "Pontuação — Média"
+  },
+  {
+   "chave": "out_I32",
+   "celula": "I32",
+   "rotulo": "Pontuação — Desvio Padrão"
+  },
+  {
+   "chave": "out_J32",
+   "celula": "J32",
+   "rotulo": "Pontuação — Z Score"
+  },
+  {
+   "chave": "out_K32",
+   "celula": "K32",
+   "rotulo": "Pontuação — Pontos Ponderados"
+  },
+  {
+   "chave": "out_L32",
+   "celula": "L32",
+   "rotulo": "Pontuação — Percentil"
+  },
+  {
+   "chave": "out_M32",
+   "celula": "M32",
+   "rotulo": "Pontuação — Classificação (Sistema Guilmette)"
+  },
+  {
+   "chave": "out_D33",
+   "celula": "D33",
+   "rotulo": "Span — Pontos Brutos"
+  },
+  {
+   "chave": "out_E33",
+   "celula": "E33",
+   "rotulo": "Span — Pontuação-Padrão"
+  },
+  {
+   "chave": "out_F33",
+   "celula": "F33",
+   "rotulo": "Span"
+  },
+  {
+   "chave": "out_H33",
+   "celula": "H33",
+   "rotulo": "Span — Média"
+  },
+  {
+   "chave": "out_I33",
+   "celula": "I33",
+   "rotulo": "Span — Desvio Padrão"
+  },
+  {
+   "chave": "out_J33",
+   "celula": "J33",
+   "rotulo": "Span — Z Score"
+  },
+  {
+   "chave": "out_K33",
+   "celula": "K33",
+   "rotulo": "Span — Pontos Ponderados"
+  },
+  {
+   "chave": "out_L33",
+   "celula": "L33",
+   "rotulo": "Span — Percentil"
+  },
+  {
+   "chave": "out_M33",
+   "celula": "M33",
+   "rotulo": "Span — Classificação (Sistema Guilmette)"
+  },
+  {
+   "chave": "out_C34",
+   "celula": "C34",
+   "rotulo": "Span"
+  },
+  {
+   "chave": "out_D34",
+   "celula": "D34",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_E34",
+   "celula": "E34",
+   "rotulo": "Pontuação-Padrão"
+  },
+  {
+   "chave": "out_H34",
+   "celula": "H34",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_I34",
+   "celula": "I34",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_J34",
+   "celula": "J34",
+   "rotulo": "Z Score"
+  },
+  {
+   "chave": "out_K34",
+   "celula": "K34",
+   "rotulo": "Pontos Ponderados"
+  },
+  {
+   "chave": "out_L34",
+   "celula": "L34",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M34",
+   "celula": "M34",
+   "rotulo": "Classificação (Sistema Guilmette)"
+  },
+  {
+   "chave": "out_D35",
+   "celula": "D35",
+   "rotulo": "Pontuação — Pontos Brutos"
+  },
+  {
+   "chave": "out_E35",
+   "celula": "E35",
+   "rotulo": "Pontuação — Pontuação-Padrão"
+  },
+  {
+   "chave": "out_F35",
+   "celula": "F35",
+   "rotulo": "Pontuação"
+  },
+  {
+   "chave": "out_H35",
+   "celula": "H35",
+   "rotulo": "Pontuação — Média"
+  },
+  {
+   "chave": "out_I35",
+   "celula": "I35",
+   "rotulo": "Pontuação — Desvio Padrão"
+  },
+  {
+   "chave": "out_J35",
+   "celula": "J35",
+   "rotulo": "Pontuação — Z Score"
+  },
+  {
+   "chave": "out_K35",
+   "celula": "K35",
+   "rotulo": "Pontuação — Pontos Ponderados"
+  },
+  {
+   "chave": "out_L35",
+   "celula": "L35",
+   "rotulo": "Pontuação — Percentil"
+  },
+  {
+   "chave": "out_M35",
+   "celula": "M35",
+   "rotulo": "Pontuação — Classificação (Sistema Guilmette)"
+  },
+  {
+   "chave": "out_D36",
+   "celula": "D36",
+   "rotulo": "Span — Pontos Brutos"
+  },
+  {
+   "chave": "out_E36",
+   "celula": "E36",
+   "rotulo": "Span — Pontuação-Padrão"
+  },
+  {
+   "chave": "out_F36",
+   "celula": "F36",
+   "rotulo": "Span"
+  },
+  {
+   "chave": "out_H36",
+   "celula": "H36",
+   "rotulo": "Span — Média"
+  },
+  {
+   "chave": "out_I36",
+   "celula": "I36",
+   "rotulo": "Span — Desvio Padrão"
+  },
+  {
+   "chave": "out_J36",
+   "celula": "J36",
+   "rotulo": "Span — Z Score"
+  },
+  {
+   "chave": "out_K36",
+   "celula": "K36",
+   "rotulo": "Span — Pontos Ponderados"
+  },
+  {
+   "chave": "out_L36",
+   "celula": "L36",
+   "rotulo": "Span — Percentil"
+  },
+  {
+   "chave": "out_M36",
+   "celula": "M36",
+   "rotulo": "Span — Classificação (Sistema Guilmette)"
+  },
+  {
+   "chave": "out_C37",
+   "celula": "C37",
+   "rotulo": "Span"
+  },
+  {
+   "chave": "out_D37",
+   "celula": "D37",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_E37",
+   "celula": "E37",
+   "rotulo": "Pontuação-Padrão"
+  },
+  {
+   "chave": "out_H37",
+   "celula": "H37",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_I37",
+   "celula": "I37",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_J37",
+   "celula": "J37",
+   "rotulo": "Z Score"
+  },
+  {
+   "chave": "out_K37",
+   "celula": "K37",
+   "rotulo": "Pontos Ponderados"
+  },
+  {
+   "chave": "out_L37",
+   "celula": "L37",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_M37",
+   "celula": "M37",
+   "rotulo": "Classificação (Sistema Guilmette)"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Span",
+    "Pontos Brutos",
+    "Pontuação-Padrão",
+    "Span",
+    "G",
+    "Média",
+    "Desvio Padrão",
+    "Z Score",
+    "Sequência",
+    "Percentil",
+    "Classificação (Sistema Guilmette)",
+    "Span"
+   ],
+   "linhas": [
+    {
+     "rotulo": "8 – 5",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F13",
+      "out_G13",
+      null,
+      null,
+      null,
+      "out_K13",
+      null,
+      null,
+      "out_N13"
+     ]
+    },
+    {
+     "rotulo": "6 – 4",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K14",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "4 – 7 – 2",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F15",
+      null,
+      null,
+      null,
+      null,
+      "out_K15",
+      null,
+      null,
+      "out_N15"
+     ]
+    },
+    {
+     "rotulo": "8 – 1 – 5",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K16",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "3 – 4 – 1 – 7",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F17",
+      null,
+      null,
+      null,
+      null,
+      "out_K17",
+      null,
+      null,
+      "out_N17"
+     ]
+    },
+    {
+     "rotulo": "6 – 1 – 5 – 8",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K18",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5 – 2 – 1 – 8 – 6",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F19",
+      null,
+      null,
+      null,
+      null,
+      "out_K19",
+      null,
+      null,
+      "out_N19"
+     ]
+    },
+    {
+     "rotulo": "4 – 2 – 7 – 3 – 1",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K20",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "3 – 9 – 2 – 4 – 8 – 7",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F21",
+      null,
+      null,
+      null,
+      null,
+      "out_K21",
+      null,
+      null,
+      "out_N21"
+     ]
+    },
+    {
+     "rotulo": "3 – 7 – 8 – 2 – 9 – 4",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K22",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5 – 9 – 1 – 7 – 4 – 2 – 8",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F23",
+      null,
+      null,
+      null,
+      null,
+      "out_K23",
+      null,
+      null,
+      "out_N23"
+     ]
+    },
+    {
+     "rotulo": "5 – 7 – 9 – 2 – 8 – 4 – 6",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K24",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5 – 8 – 1 – 9 – 2 – 6 – 4 – 7",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F25",
+      null,
+      null,
+      null,
+      null,
+      "out_K25",
+      null,
+      null,
+      "out_N25"
+     ]
+    },
+    {
+     "rotulo": "5 – 9 – 3 – 6 – 7 – 2 – 4 – 3",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K26",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "5 – 3 – 8 – 7 – 1 – 2 – 4 – 6 – 9",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F27",
+      null,
+      null,
+      null,
+      null,
+      "out_K27",
+      null,
+      null,
+      "out_N27"
+     ]
+    },
+    {
+     "rotulo": "4 – 2 – 6 – 8 – 1 – 7 – 9 – 3 – 5",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_K28",
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação-Padrão",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_F31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação",
+     "valores": [
+      null,
+      "out_D32",
+      "out_E32",
+      "out_F32",
+      null,
+      "out_H32",
+      "out_I32",
+      "out_J32",
+      "out_K32",
+      "out_L32",
+      "out_M32",
+      null
+     ]
+    },
+    {
+     "rotulo": "Span",
+     "valores": [
+      null,
+      "out_D33",
+      "out_E33",
+      "out_F33",
+      null,
+      "out_H33",
+      "out_I33",
+      "out_J33",
+      "out_K33",
+      "out_L33",
+      "out_M33",
+      null
+     ]
+    },
+    {
+     "rotulo": "34",
+     "valores": [
+      "out_C34",
+      "out_D34",
+      "out_E34",
+      null,
+      null,
+      "out_H34",
+      "out_I34",
+      "out_J34",
+      "out_K34",
+      "out_L34",
+      "out_M34",
+      null
+     ]
+    },
+    {
+     "rotulo": "Pontuação",
+     "valores": [
+      null,
+      "out_D35",
+      "out_E35",
+      "out_F35",
+      null,
+      "out_H35",
+      "out_I35",
+      "out_J35",
+      "out_K35",
+      "out_L35",
+      "out_M35",
+      null
+     ]
+    },
+    {
+     "rotulo": "Span",
+     "valores": [
+      null,
+      "out_D36",
+      "out_E36",
+      "out_F36",
+      null,
+      "out_H36",
+      "out_I36",
+      "out_J36",
+      "out_K36",
+      "out_L36",
+      "out_M36",
+      null
+     ]
+    },
+    {
+     "rotulo": "37",
+     "valores": [
+      "out_C37",
+      "out_D37",
+      "out_E37",
+      null,
+      null,
+      "out_H37",
+      "out_I37",
+      "out_J37",
+      "out_K37",
+      "out_L37",
+      "out_M37",
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

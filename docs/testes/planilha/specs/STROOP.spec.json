@@ -1,0 +1,387 @@
+{
+ "sigla": "STROOP",
+ "nome": "Teste de Stroop",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "Stroop (3 cartões: cor, palavra, incongruência): tempo e erros convertidos em Z, pontos ponderados, percentil e classificação por idade/escolaridade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "STROOP, J. R. Studies of interference in serial verbal reactions. 1935 (normas conforme planilha da psicóloga).",
+ "aba": "STROOP",
+ "idade": [
+  7,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "tempo1",
+   "celula": "D11",
+   "rotulo": "Cartão 1 — Cor — tempo (s)",
+   "grupo": "Tempo",
+   "min": 0,
+   "max": 300
+  },
+  {
+   "chave": "tempo2",
+   "celula": "D12",
+   "rotulo": "Cartão 2 — Palavra — tempo (s)",
+   "grupo": "Tempo",
+   "min": 0,
+   "max": 300
+  },
+  {
+   "chave": "tempo3",
+   "celula": "D13",
+   "rotulo": "Cartão 3 — Incongruência — tempo (s)",
+   "grupo": "Tempo",
+   "min": 0,
+   "max": 300
+  },
+  {
+   "chave": "erros1",
+   "celula": "D18",
+   "rotulo": "Cartão 1 — Cor — erros",
+   "grupo": "Erros",
+   "min": 0,
+   "max": 50
+  },
+  {
+   "chave": "erros2",
+   "celula": "D19",
+   "rotulo": "Cartão 2 — Palavra — erros",
+   "grupo": "Erros",
+   "min": 0,
+   "max": 50
+  },
+  {
+   "chave": "erros3",
+   "celula": "D20",
+   "rotulo": "Cartão 3 — Incongruência — erros",
+   "grupo": "Erros",
+   "min": 0,
+   "max": 50
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "t1_media",
+   "celula": "F11",
+   "rotulo": "Cartão 1 — Cor — Média",
+   "casas": 2
+  },
+  {
+   "chave": "t1_dp",
+   "celula": "H11",
+   "rotulo": "Cartão 1 — Cor — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "t1_z",
+   "celula": "J11",
+   "rotulo": "Cartão 1 — Cor — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "t1_pond",
+   "celula": "L11",
+   "rotulo": "Cartão 1 — Cor — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "t1_perc",
+   "celula": "N11",
+   "rotulo": "Cartão 1 — Cor — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "t1_class",
+   "celula": "P11",
+   "rotulo": "Cartão 1 — Cor — Classificação"
+  },
+  {
+   "chave": "t2_media",
+   "celula": "F12",
+   "rotulo": "Cartão 2 — Palavra — Média",
+   "casas": 2
+  },
+  {
+   "chave": "t2_dp",
+   "celula": "H12",
+   "rotulo": "Cartão 2 — Palavra — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "t2_z",
+   "celula": "J12",
+   "rotulo": "Cartão 2 — Palavra — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "t2_pond",
+   "celula": "L12",
+   "rotulo": "Cartão 2 — Palavra — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "t2_perc",
+   "celula": "N12",
+   "rotulo": "Cartão 2 — Palavra — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "t2_class",
+   "celula": "P12",
+   "rotulo": "Cartão 2 — Palavra — Classificação"
+  },
+  {
+   "chave": "t3_media",
+   "celula": "F13",
+   "rotulo": "Cartão 3 — Incongruência — Média",
+   "casas": 2
+  },
+  {
+   "chave": "t3_dp",
+   "celula": "H13",
+   "rotulo": "Cartão 3 — Incongruência — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "t3_z",
+   "celula": "J13",
+   "rotulo": "Cartão 3 — Incongruência — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "t3_pond",
+   "celula": "L13",
+   "rotulo": "Cartão 3 — Incongruência — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "t3_perc",
+   "celula": "N13",
+   "rotulo": "Cartão 3 — Incongruência — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "t3_class",
+   "celula": "P13",
+   "rotulo": "Cartão 3 — Incongruência — Classificação"
+  },
+  {
+   "chave": "e1_media",
+   "celula": "F18",
+   "rotulo": "Cartão 1 — Cor — Média",
+   "casas": 2
+  },
+  {
+   "chave": "e1_dp",
+   "celula": "H18",
+   "rotulo": "Cartão 1 — Cor — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "e1_z",
+   "celula": "J18",
+   "rotulo": "Cartão 1 — Cor — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "e1_pond",
+   "celula": "L18",
+   "rotulo": "Cartão 1 — Cor — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "e1_perc",
+   "celula": "N18",
+   "rotulo": "Cartão 1 — Cor — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "e1_class",
+   "celula": "P18",
+   "rotulo": "Cartão 1 — Cor — Classificação"
+  },
+  {
+   "chave": "e2_media",
+   "celula": "F19",
+   "rotulo": "Cartão 2 — Palavra — Média",
+   "casas": 2
+  },
+  {
+   "chave": "e2_dp",
+   "celula": "H19",
+   "rotulo": "Cartão 2 — Palavra — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "e2_z",
+   "celula": "J19",
+   "rotulo": "Cartão 2 — Palavra — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "e2_pond",
+   "celula": "L19",
+   "rotulo": "Cartão 2 — Palavra — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "e2_perc",
+   "celula": "N19",
+   "rotulo": "Cartão 2 — Palavra — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "e2_class",
+   "celula": "P19",
+   "rotulo": "Cartão 2 — Palavra — Classificação"
+  },
+  {
+   "chave": "e3_media",
+   "celula": "F20",
+   "rotulo": "Cartão 3 — Incongruência — Média",
+   "casas": 2
+  },
+  {
+   "chave": "e3_dp",
+   "celula": "H20",
+   "rotulo": "Cartão 3 — Incongruência — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "e3_z",
+   "celula": "J20",
+   "rotulo": "Cartão 3 — Incongruência — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "e3_pond",
+   "celula": "L20",
+   "rotulo": "Cartão 3 — Incongruência — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "e3_perc",
+   "celula": "N20",
+   "rotulo": "Cartão 3 — Incongruência — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "e3_class",
+   "celula": "P20",
+   "rotulo": "Cartão 3 — Incongruência — Classificação"
+  },
+  {
+   "chave": "normas",
+   "celula": "S11",
+   "rotulo": "Norma usada"
+  },
+  {
+   "chave": "idade_calc",
+   "celula": "N6",
+   "rotulo": "Idade para cálculo (anos)"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Tempo",
+   "colunas": [
+    "Média",
+    "Desvio-padrão",
+    "Z-score",
+    "Pontos ponderados",
+    "Percentil",
+    "Classificação"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Cartão 1 — Cor",
+     "valores": [
+      "t1_media",
+      "t1_dp",
+      "t1_z",
+      "t1_pond",
+      "t1_perc",
+      "t1_class"
+     ]
+    },
+    {
+     "rotulo": "Cartão 2 — Palavra",
+     "valores": [
+      "t2_media",
+      "t2_dp",
+      "t2_z",
+      "t2_pond",
+      "t2_perc",
+      "t2_class"
+     ]
+    },
+    {
+     "rotulo": "Cartão 3 — Incongruência",
+     "valores": [
+      "t3_media",
+      "t3_dp",
+      "t3_z",
+      "t3_pond",
+      "t3_perc",
+      "t3_class"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Erros",
+   "colunas": [
+    "Média",
+    "Desvio-padrão",
+    "Z-score",
+    "Pontos ponderados",
+    "Percentil",
+    "Classificação"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Cartão 1 — Cor",
+     "valores": [
+      "e1_media",
+      "e1_dp",
+      "e1_z",
+      "e1_pond",
+      "e1_perc",
+      "e1_class"
+     ]
+    },
+    {
+     "rotulo": "Cartão 2 — Palavra",
+     "valores": [
+      "e2_media",
+      "e2_dp",
+      "e2_z",
+      "e2_pond",
+      "e2_perc",
+      "e2_class"
+     ]
+    },
+    {
+     "rotulo": "Cartão 3 — Incongruência",
+     "valores": [
+      "e3_media",
+      "e3_dp",
+      "e3_z",
+      "e3_pond",
+      "e3_perc",
+      "e3_class"
+     ]
+    }
+   ]
+  }
+ ]
+}

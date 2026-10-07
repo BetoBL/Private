@@ -1,0 +1,164 @@
+{
+ "sigla": "AC",
+ "nome": "AC — Teste de Atenção Concentrada",
+ "dominio": "ATENCAO",
+ "descricao": "Atenção concentrada (AC): acertos, erros e omissões convertidos em percentil, Z, ponderado e classificação pela tabela normativa escolhida (criança/adolescente por escolaridade ou idade; adulto por região). Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "CAMBRAIA, S. V. Teste de Atenção Concentrada (AC).",
+ "aba": "AC",
+ "idade": [
+  6,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "O3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_C16",
+   "celula": "C16",
+   "rotulo": "Acertos (A)",
+   "min": 0
+  },
+  {
+   "chave": "in_D16",
+   "celula": "D16",
+   "rotulo": "Erros (E)",
+   "min": 0
+  },
+  {
+   "chave": "in_E16",
+   "celula": "E16",
+   "rotulo": "Omissões (O)",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_J3",
+   "celula": "J3",
+   "rotulo": "Tabela Normativa:",
+   "valores": [
+    "Criança/Adolescente - Idade",
+    "Criança/Adolescente - Escolaridade",
+    "Criança - Idade",
+    "Criança - escolaridade",
+    "Criança - Escolaridade",
+    "Adulto - Região Sul",
+    "Adulto - Região Sul - Total",
+    "Adulto - Região Sudeste",
+    "Adulto - Região Sudeste - Total",
+    "Adulto - Região Centro-Oeste",
+    "Adulto - Região Centro-Oeste - Total",
+    "Adulto - Região Nordeste",
+    "Adulto - Região Nordeste - Total",
+    "Adulto - Região Norte",
+    "Adulto - Região Norte - Total",
+    "Adulto - Amostra Geral",
+    "Adulto -Amostra Geral",
+    "Adulto - Amostra Geral - Total"
+   ],
+   "padrao": 0
+  },
+  {
+   "chave": "opcao_D6",
+   "celula": "D6",
+   "rotulo": "Tipo de Escola",
+   "valores": [
+    "Privada",
+    "Pública"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_B16",
+   "celula": "B16",
+   "rotulo": "Amostra (n)"
+  },
+  {
+   "chave": "out_F16",
+   "celula": "F16",
+   "rotulo": "Pontos (A - E - O)"
+  },
+  {
+   "chave": "out_G16",
+   "celula": "G16",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_H16",
+   "celula": "H16",
+   "rotulo": "Classificação"
+  },
+  {
+   "chave": "out_J16",
+   "celula": "J16",
+   "rotulo": "Média"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "Desvio Padrão"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "Z-Score"
+  },
+  {
+   "chave": "out_M16",
+   "celula": "M16",
+   "rotulo": "Pts Ponder."
+  },
+  {
+   "chave": "out_N16",
+   "celula": "N16",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "out_O16",
+   "celula": "O16",
+   "rotulo": "* Classificação (Guilmette)"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Amostra (n)",
+    "Pontos (A - E - O)",
+    "Percentil",
+    "Classificação",
+    "Média",
+    "Desvio Padrão",
+    "Z-Score",
+    "Pts Ponder.",
+    "Percentil",
+    "* Classificação (Guilmette)"
+   ],
+   "linhas": [
+    {
+     "rotulo": "16",
+     "valores": [
+      "out_B16",
+      "out_F16",
+      "out_G16",
+      "out_H16",
+      "out_J16",
+      "out_K16",
+      "out_L16",
+      "out_M16",
+      "out_N16",
+      "out_O16"
+     ]
+    }
+   ]
+  }
+ ]
+}

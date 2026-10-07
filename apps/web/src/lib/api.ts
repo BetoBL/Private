@@ -164,7 +164,9 @@ export type ResultadoCalculado =
   | { modo: "soma"; escoreBrutoTotal: number; faixa: FaixaConversao | null }
   // valorBruto null = campo derivado que não pôde ser calculado porque falta algum campo-fonte
   // (ex: índice do WISC-IV com subteste principal não lançado) — ver motorCalculo.ts.
-  | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number | null; faixa: FaixaConversao | null }>; extras?: Record<string, unknown> };
+  | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number | null; faixa: FaixaConversao | null }>; extras?: Record<string, unknown> }
+  // motor de planilha: valor de cada saída configurada no teste (null = vazio/erro da fórmula)
+  | { modo: "planilha"; saidas: Record<string, string | number | boolean | null>; erros?: string[] };
 
 // Quem produziu os escores. PACIENTE cobre autorrelato e teste de aplicação direta (WISC-IV,
 // RAVLT), onde não existe informante. Ver enum TipoRespondente no schema.

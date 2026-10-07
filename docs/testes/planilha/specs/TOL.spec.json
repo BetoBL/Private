@@ -1,0 +1,1320 @@
+{
+ "sigla": "TOL",
+ "nome": "Torre de Londres",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "Torre de Londres (planejamento): pontuações convertidas em Z, ponderado, percentil e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "Torre de Londres (normas conforme planilha da psicóloga).",
+ "aba": "TOL",
+ "idade": [
+  7,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_D13",
+   "celula": "D13",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E13",
+   "celula": "E13",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F13",
+   "celula": "F13",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I13",
+   "celula": "I13",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J13",
+   "celula": "J13",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K13",
+   "celula": "K13",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N13",
+   "celula": "N13",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O13",
+   "celula": "O13",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P13",
+   "celula": "P13",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D14",
+   "celula": "D14",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E14",
+   "celula": "E14",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F14",
+   "celula": "F14",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I14",
+   "celula": "I14",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J14",
+   "celula": "J14",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K14",
+   "celula": "K14",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N14",
+   "celula": "N14",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O14",
+   "celula": "O14",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P14",
+   "celula": "P14",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D15",
+   "celula": "D15",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E15",
+   "celula": "E15",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F15",
+   "celula": "F15",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I15",
+   "celula": "I15",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J15",
+   "celula": "J15",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K15",
+   "celula": "K15",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N15",
+   "celula": "N15",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O15",
+   "celula": "O15",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P15",
+   "celula": "P15",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D16",
+   "celula": "D16",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E16",
+   "celula": "E16",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F16",
+   "celula": "F16",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I16",
+   "celula": "I16",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J16",
+   "celula": "J16",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K16",
+   "celula": "K16",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N16",
+   "celula": "N16",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O16",
+   "celula": "O16",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P16",
+   "celula": "P16",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D17",
+   "celula": "D17",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E17",
+   "celula": "E17",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F17",
+   "celula": "F17",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I17",
+   "celula": "I17",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J17",
+   "celula": "J17",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K17",
+   "celula": "K17",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N17",
+   "celula": "N17",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O17",
+   "celula": "O17",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P17",
+   "celula": "P17",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D18",
+   "celula": "D18",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E18",
+   "celula": "E18",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F18",
+   "celula": "F18",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I18",
+   "celula": "I18",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J18",
+   "celula": "J18",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K18",
+   "celula": "K18",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N18",
+   "celula": "N18",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O18",
+   "celula": "O18",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P18",
+   "celula": "P18",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D19",
+   "celula": "D19",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E19",
+   "celula": "E19",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F19",
+   "celula": "F19",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I19",
+   "celula": "I19",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J19",
+   "celula": "J19",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K19",
+   "celula": "K19",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N19",
+   "celula": "N19",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O19",
+   "celula": "O19",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P19",
+   "celula": "P19",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D20",
+   "celula": "D20",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E20",
+   "celula": "E20",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F20",
+   "celula": "F20",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I20",
+   "celula": "I20",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J20",
+   "celula": "J20",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K20",
+   "celula": "K20",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N20",
+   "celula": "N20",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O20",
+   "celula": "O20",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P20",
+   "celula": "P20",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D21",
+   "celula": "D21",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E21",
+   "celula": "E21",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F21",
+   "celula": "F21",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I21",
+   "celula": "I21",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J21",
+   "celula": "J21",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K21",
+   "celula": "K21",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N21",
+   "celula": "N21",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O21",
+   "celula": "O21",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P21",
+   "celula": "P21",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D22",
+   "celula": "D22",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E22",
+   "celula": "E22",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F22",
+   "celula": "F22",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I22",
+   "celula": "I22",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J22",
+   "celula": "J22",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K22",
+   "celula": "K22",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N22",
+   "celula": "N22",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O22",
+   "celula": "O22",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P22",
+   "celula": "P22",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D23",
+   "celula": "D23",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_E23",
+   "celula": "E23",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F23",
+   "celula": "F23",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I23",
+   "celula": "I23",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_J23",
+   "celula": "J23",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K23",
+   "celula": "K23",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N23",
+   "celula": "N23",
+   "rotulo": "Resposta (N° de movts)",
+   "min": 0
+  },
+  {
+   "chave": "in_O23",
+   "celula": "O23",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P23",
+   "celula": "P23",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_D24",
+   "celula": "D24",
+   "rotulo": "D24",
+   "min": 0
+  },
+  {
+   "chave": "in_E24",
+   "celula": "E24",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_F24",
+   "celula": "F24",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_I24",
+   "celula": "I24",
+   "rotulo": "I24",
+   "min": 0
+  },
+  {
+   "chave": "in_J24",
+   "celula": "J24",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_K24",
+   "celula": "K24",
+   "rotulo": "Total",
+   "min": 0
+  },
+  {
+   "chave": "in_N24",
+   "celula": "N24",
+   "rotulo": "N24",
+   "min": 0
+  },
+  {
+   "chave": "in_O24",
+   "celula": "O24",
+   "rotulo": "Iniciar o1º Movto",
+   "min": 0
+  },
+  {
+   "chave": "in_P24",
+   "celula": "P24",
+   "rotulo": "Total",
+   "min": 0
+  }
+ ],
+ "opcoes": [],
+ "saidas": [
+  {
+   "chave": "out_G13",
+   "celula": "G13",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_H13",
+   "celula": "H13",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_L13",
+   "celula": "L13",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_M13",
+   "celula": "M13",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_Q13",
+   "celula": "Q13",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_R13",
+   "celula": "R13",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_S13",
+   "celula": "S13",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G14",
+   "celula": "G14",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q14",
+   "celula": "Q14",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S14",
+   "celula": "S14",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G15",
+   "celula": "G15",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_H15",
+   "celula": "H15",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_L15",
+   "celula": "L15",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_M15",
+   "celula": "M15",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_Q15",
+   "celula": "Q15",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_R15",
+   "celula": "R15",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_S15",
+   "celula": "S15",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G16",
+   "celula": "G16",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q16",
+   "celula": "Q16",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S16",
+   "celula": "S16",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G17",
+   "celula": "G17",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_H17",
+   "celula": "H17",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_M17",
+   "celula": "M17",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_Q17",
+   "celula": "Q17",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_R17",
+   "celula": "R17",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_S17",
+   "celula": "S17",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G18",
+   "celula": "G18",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L18",
+   "celula": "L18",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q18",
+   "celula": "Q18",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S18",
+   "celula": "S18",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G19",
+   "celula": "G19",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L19",
+   "celula": "L19",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q19",
+   "celula": "Q19",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S19",
+   "celula": "S19",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G20",
+   "celula": "G20",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q20",
+   "celula": "Q20",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S20",
+   "celula": "S20",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G21",
+   "celula": "G21",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_H21",
+   "celula": "H21",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_M21",
+   "celula": "M21",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_Q21",
+   "celula": "Q21",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_R21",
+   "celula": "R21",
+   "rotulo": "Tempo Médio"
+  },
+  {
+   "chave": "out_S21",
+   "celula": "S21",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G22",
+   "celula": "G22",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L22",
+   "celula": "L22",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q22",
+   "celula": "Q22",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S22",
+   "celula": "S22",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G23",
+   "celula": "G23",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L23",
+   "celula": "L23",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q23",
+   "celula": "Q23",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S23",
+   "celula": "S23",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_G24",
+   "celula": "G24",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_L24",
+   "celula": "L24",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_Q24",
+   "celula": "Q24",
+   "rotulo": "Execução"
+  },
+  {
+   "chave": "out_S24",
+   "celula": "S24",
+   "rotulo": "Pontos Brutos"
+  },
+  {
+   "chave": "out_S25",
+   "celula": "S25",
+   "rotulo": "Total de Pontos (Máximo=36)"
+  },
+  {
+   "chave": "out_C29",
+   "celula": "C29",
+   "rotulo": "TOTAL — Pontos Brutos"
+  },
+  {
+   "chave": "out_D29",
+   "celula": "D29",
+   "rotulo": "TOTAL — Pontuação Padrão (Ptos Compostos)"
+  },
+  {
+   "chave": "out_F29",
+   "celula": "F29",
+   "rotulo": "TOTAL — Classificação"
+  },
+  {
+   "chave": "out_H29",
+   "celula": "H29",
+   "rotulo": "TOTAL — Média"
+  },
+  {
+   "chave": "out_J29",
+   "celula": "J29",
+   "rotulo": "TOTAL — Desvio Padrão"
+  },
+  {
+   "chave": "out_L29",
+   "celula": "L29",
+   "rotulo": "TOTAL — Z-Score"
+  },
+  {
+   "chave": "out_N29",
+   "celula": "N29",
+   "rotulo": "TOTAL — Pontos Ponderados"
+  },
+  {
+   "chave": "out_P29",
+   "celula": "P29",
+   "rotulo": "TOTAL — Percentil"
+  },
+  {
+   "chave": "out_R29",
+   "celula": "R29",
+   "rotulo": "TOTAL — Classificação"
+  },
+  {
+   "chave": "out_D31",
+   "celula": "D31",
+   "rotulo": "Normas: — Pontuação Padrão (Ptos Compostos)"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Pontos Brutos",
+    "Pontuação Padrão (Ptos Compostos)",
+    "Classificação",
+    "Execução",
+    "Tempo Médio",
+    "Desvio Padrão",
+    "Execução",
+    "Tempo Médio",
+    "Pontos Ponderados",
+    "Percentil",
+    "Execução",
+    "Tempo Médio",
+    "Pontos Brutos"
+   ],
+   "linhas": [
+    {
+     "rotulo": "13",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G13",
+      "out_H13",
+      null,
+      "out_L13",
+      "out_M13",
+      null,
+      null,
+      "out_Q13",
+      "out_R13",
+      "out_S13"
+     ]
+    },
+    {
+     "rotulo": "14",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G14",
+      null,
+      null,
+      "out_L14",
+      null,
+      null,
+      null,
+      "out_Q14",
+      null,
+      "out_S14"
+     ]
+    },
+    {
+     "rotulo": "15",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G15",
+      "out_H15",
+      null,
+      "out_L15",
+      "out_M15",
+      null,
+      null,
+      "out_Q15",
+      "out_R15",
+      "out_S15"
+     ]
+    },
+    {
+     "rotulo": "16",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G16",
+      null,
+      null,
+      "out_L16",
+      null,
+      null,
+      null,
+      "out_Q16",
+      null,
+      "out_S16"
+     ]
+    },
+    {
+     "rotulo": "17",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G17",
+      "out_H17",
+      null,
+      "out_L17",
+      "out_M17",
+      null,
+      null,
+      "out_Q17",
+      "out_R17",
+      "out_S17"
+     ]
+    },
+    {
+     "rotulo": "18",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G18",
+      null,
+      null,
+      "out_L18",
+      null,
+      null,
+      null,
+      "out_Q18",
+      null,
+      "out_S18"
+     ]
+    },
+    {
+     "rotulo": "19",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G19",
+      null,
+      null,
+      "out_L19",
+      null,
+      null,
+      null,
+      "out_Q19",
+      null,
+      "out_S19"
+     ]
+    },
+    {
+     "rotulo": "20",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G20",
+      null,
+      null,
+      "out_L20",
+      null,
+      null,
+      null,
+      "out_Q20",
+      null,
+      "out_S20"
+     ]
+    },
+    {
+     "rotulo": "21",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G21",
+      "out_H21",
+      null,
+      "out_L21",
+      "out_M21",
+      null,
+      null,
+      "out_Q21",
+      "out_R21",
+      "out_S21"
+     ]
+    },
+    {
+     "rotulo": "22",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G22",
+      null,
+      null,
+      "out_L22",
+      null,
+      null,
+      null,
+      "out_Q22",
+      null,
+      "out_S22"
+     ]
+    },
+    {
+     "rotulo": "23",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G23",
+      null,
+      null,
+      "out_L23",
+      null,
+      null,
+      null,
+      "out_Q23",
+      null,
+      "out_S23"
+     ]
+    },
+    {
+     "rotulo": "24",
+     "valores": [
+      null,
+      null,
+      null,
+      "out_G24",
+      null,
+      null,
+      "out_L24",
+      null,
+      null,
+      null,
+      "out_Q24",
+      null,
+      "out_S24"
+     ]
+    },
+    {
+     "rotulo": "Total de Pontos (Máximo=36)",
+     "valores": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_S25"
+     ]
+    },
+    {
+     "rotulo": "TOTAL",
+     "valores": [
+      "out_C29",
+      "out_D29",
+      "out_F29",
+      null,
+      "out_H29",
+      "out_J29",
+      "out_L29",
+      null,
+      "out_N29",
+      "out_P29",
+      null,
+      "out_R29",
+      null
+     ]
+    },
+    {
+     "rotulo": "Normas:",
+     "valores": [
+      null,
+      "out_D31",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

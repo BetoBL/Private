@@ -44,7 +44,7 @@ const SUBSTITUTO: Record<string, string> = {
   ar: "suplementar — pode substituir um do IMO", ca: "suplementar — pode substituir um do IVP",
 };
 
-const fmt = (n: number | null | undefined, casas = 1) => (n === null || n === undefined ? "—" : n.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas }));
+export const fmt = (n: number | null | undefined, casas = 1) => (n === null || n === undefined ? "—" : n.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas }));
 const nome = (c: string) => NOME_SUBTESTE_WISC4[c] ?? c.toUpperCase();
 
 export function TesteWiscIV({ teste, aplicacao, escoresBrutos, onEscoresChange, onSalvar, sessaoId, testeId, erro, salvando = false, abaInicial }: Props) {
@@ -213,7 +213,7 @@ function linhasIndice(itens: Array<[string, string, string]>, indices: Record<st
   return itens.map(([chave, sigla, rotulo]) => ({ ...indices[chave], sigla, rotulo, falta: indices[chave].composto === null ? "faltam subtestes" : null }));
 }
 
-function Seletor<T extends string>({ rotulo, valor, opcoes, onChange }: { rotulo: string; valor: T; opcoes: T[]; onChange: (v: T) => void }) {
+export function Seletor<T extends string>({ rotulo, valor, opcoes, onChange }: { rotulo: string; valor: T; opcoes: T[]; onChange: (v: T) => void }) {
   return (
     <div className="flex items-center gap-2">
       <span className="text-ink/50">{rotulo}:</span>
@@ -248,7 +248,7 @@ function CampoBruto({ chave, sub, valor, onChange, ponderado }: { chave: string;
   );
 }
 
-function Vazio({ children }: { children: React.ReactNode }) {
+export function Vazio({ children }: { children: React.ReactNode }) {
   return (
     <div className="rounded-xl border border-dashed border-mist bg-paper px-6 py-10 text-center">
       <p className="mx-auto max-w-md text-sm text-ink/60">{children}</p>
@@ -256,12 +256,12 @@ function Vazio({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Selo({ texto, cor }: { texto: string; cor: string }) {
+export function Selo({ texto, cor }: { texto: string; cor: string }) {
   return <span className="inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold text-white" style={{ background: cor }}>{texto}</span>;
 }
-const corSimNao = (v: string) => (v === "Sim" || v === "SIM" ? "#3f8f5b" : "#8a8a85");
+export const corSimNao = (v: string) => (v === "Sim" || v === "SIM" ? "#3f8f5b" : "#8a8a85");
 
-function Tabela({ cabecalho, children }: { cabecalho: string[]; children: React.ReactNode }) {
+export function Tabela({ cabecalho, children }: { cabecalho: string[]; children: React.ReactNode }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-mist">
       <table className="w-full text-sm">
@@ -277,7 +277,7 @@ function Tabela({ cabecalho, children }: { cabecalho: string[]; children: React.
     </div>
   );
 }
-const Titulo = ({ children }: { children: React.ReactNode }) => <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-sage-deep">{children}</h3>;
+export const Titulo = ({ children }: { children: React.ReactNode }) => <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-sage-deep">{children}</h3>;
 
 // ---- 2. Ponderados: perfil em barras + tabela + soma por índice ----
 function Ponderados({ ponderados, extras }: { ponderados: ReturnType<typeof lerPonderados>; extras: ExtrasWisc4 }) {

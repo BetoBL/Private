@@ -7,6 +7,8 @@ import { SeletorPaciente } from "../components/SeletorPaciente";
 import { TesteGenerico } from "../components/TesteGenerico";
 import { TesteWaisIII } from "../components/TesteWaisIII";
 import { TesteWiscIV } from "../components/TesteWiscIV";
+import { TesteWasi } from "../components/TesteWasi";
+import { TestePlanilha } from "../components/TestePlanilha";
 import { useAuth } from "../context/AuthContext";
 import { escolherComponenteTeste } from "../lib/construtorAbas";
 import {
@@ -113,6 +115,12 @@ export function LancamentoTeste() {
 
     if (componente === "waisIII") {
       return <TesteWaisIII {...props} sessaoId={sessaoId || undefined} testeId={testeId || undefined} />;
+    }
+    if (componente === "planilha") {
+      return <TestePlanilha {...props} sessaoId={sessaoId || undefined} testeId={testeId || undefined} />;
+    }
+    if (componente === "wasi") {
+      return <TesteWasi {...props} sessaoId={sessaoId || undefined} testeId={testeId || undefined} />;
     }
     if (componente === "wiscIV") {
       return <TesteWiscIV {...props} sessaoId={sessaoId || undefined} testeId={testeId || undefined} />;

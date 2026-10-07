@@ -1,0 +1,92 @@
+[
+ {
+  "aba": "AC",
+  "sigla": "AC",
+  "nome": "AC — Teste de Atenção Concentrada",
+  "dominio": "ATENCAO",
+  "idade": [
+   6,
+   89
+  ],
+  "descricao": "Atenção concentrada (AC): acertos, erros e omissões convertidos em percentil, Z, ponderado e classificação pela tabela normativa escolhida (criança/adolescente por escolaridade ou idade; adulto por região). Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+  "referencia": "CAMBRAIA, S. V. Teste de Atenção Concentrada (AC)."
+ },
+ {
+  "aba": "AC-15",
+  "sigla": "AC-15",
+  "nome": "AC-15 — Atenção Concentrada",
+  "dominio": "ATENCAO",
+  "idade": [
+   18,
+   89
+  ],
+  "descricao": "Atenção concentrada AC-15: questões examinadas e erros em 5, 10 e 15 minutos; pontos, percentil, Z, ponderado e classificação pela tabela normativa escolhida (região e escolaridade). Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+  "referencia": "Teste de Atenção Concentrada AC-15 (normas conforme planilha da psicóloga)."
+ },
+ {
+  "aba": "Corsi",
+  "sigla": "CORSI",
+  "nome": "Blocos de Corsi",
+  "dominio": "MEMORIA",
+  "idade": [
+   4,
+   89
+  ],
+  "descricao": "Blocos de Corsi (memória visuoespacial): pontuação e span em ordem direta e inversa, pontuação-padrão, Z, ponderado, percentil e classificação por idade/escolaridade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+  "referencia": "Blocos de Corsi (normas conforme planilha da psicóloga).",
+  "grupoPorColuna": {
+   "E": "Ordem direta",
+   "F": "Ordem direta",
+   "M": "Ordem inversa",
+   "N": "Ordem inversa"
+  }
+ },
+ {
+  "aba": "TOL",
+  "sigla": "TOL",
+  "nome": "Torre de Londres",
+  "dominio": "FUNCOES_EXECUTIVAS",
+  "idade": [
+   7,
+   89
+  ],
+  "descricao": "Torre de Londres (planejamento): pontuações convertidas em Z, ponderado, percentil e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+  "referencia": "Torre de Londres (normas conforme planilha da psicóloga)."
+ },
+ {
+  "aba": "TFV",
+  "sigla": "TFV",
+  "nome": "Fluência Verbal (TFV)",
+  "dominio": "LINGUAGEM_APRENDIZAGEM",
+  "idade": [
+   6,
+   89
+  ],
+  "descricao": "Teste de Fluência Verbal: palavras por categoria/minuto, agrupamentos e trocas convertidos em Z, ponderado, percentil e classificação por idade/escolaridade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+  "referencia": "Teste de Fluência Verbal (normas conforme planilha da psicóloga)."
+ },
+ {
+  "aba": "GO-NO GO",
+  "sigla": "GO-NO-GO",
+  "nome": "Go / No-Go",
+  "dominio": "FUNCOES_EXECUTIVAS",
+  "idade": [
+   6,
+   89
+  ],
+  "descricao": "Go/No-Go (controle inibitório): acertos, erros e tempos convertidos em Z, ponderado, percentil e classificação. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+  "referencia": "Go/No-Go (normas conforme planilha da psicóloga)."
+ },
+ {
+  "aba": "FigRey",
+  "sigla": "FIGREY",
+  "nome": "Figuras Complexas de Rey",
+  "dominio": "MEMORIA",
+  "idade": [
+   5,
+   89
+  ],
+  "descricao": "Figura Complexa de Rey (cópia e memória): pontuações e tempo convertidos em percentil, Z, ponderado e classificação por idade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+  "referencia": "REY, A. Figuras Complexas de Rey (normas conforme planilha da psicóloga)."
+ }
+]

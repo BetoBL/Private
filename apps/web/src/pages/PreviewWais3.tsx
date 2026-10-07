@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { TesteWaisIII } from "../components/TesteWaisIII";
 import { TesteWiscIV } from "../components/TesteWiscIV";
+import { TesteWasi } from "../components/TesteWasi";
+import { TestePlanilha } from "../components/TestePlanilha";
 import { api, type Teste } from "../lib/api";
 
 const BRUTOS: Record<string, string> = {
@@ -17,22 +19,38 @@ const BRUTOS_WISC: Record<string, string> = { sm: "14", vc: "22", co: "14", cb: 
 export function PreviewWais3() {
   const [params] = useSearchParams();
   const wisc = params.get("teste") === "wisc";
+  const wasi = params.get("teste") === "wasi";
+  const siglaPlanilha = params.get("sigla");
   const [ctx, setCtx] = useState<{ teste: Teste; sessaoId: string } | null>(null);
   const [erro, setErro] = useState<string | null>(null);
-  const [escores, setEscores] = useState<Record<string, string>>(wisc ? BRUTOS_WISC : params.get("vazio") ? {} : params.get("aba") === "processo" ? { ...BRUTOS, digitosSpamDireta: "7", digitosSpamInversa: "5", digitosPontosDireta: "8", digitosPontosInversa: "6" } : BRUTOS);
+  const [escores, setEscores] = useState<Record<string, string>>(wasi ? { vc: "45", sm: "30", cb: "40", rm: "25" } : wisc ? BRUTOS_WISC : params.get("vazio") ? {} : params.get("aba") === "processo" ? { ...BRUTOS, digitosSpamDireta: "7", digitosSpamInversa: "5", digitosPontosDireta: "8", digitosPontosInversa: "6" } : BRUTOS);
 
   useEffect(() => {
     (async () => {
       const prof = await api.login("dev@mentessence.local", "dev12345");
-      const paciente = await api.createPaciente({ profissionalId: prof.id, nome: `Prévia ${Date.now()}`, dataNascimento: wisc ? "2018-03-10" : "1991-08-27", sexo: "MASCULINO" });
+      const paciente = await api.createPaciente({ profissionalId: prof.id, nome: `Prévia ${Date.now()}`, dataNascimento: siglaPlanilha ? (params.get("nasc") ?? "2012-04-10") : wasi ? "1985-05-20" : wisc ? "2018-03-10" : "1991-08-27", sexo: "MASCULINO" });
       const sessao = await api.createSessao({ pacienteId: paciente.id, dataHora: "2026-07-28T12:00:00.000Z" });
       const testes = await api.listTestes();
-      setCtx({ teste: testes.find((t) => t.sigla === (wisc ? "WISC-IV" : "WAIS-III"))!, sessaoId: sessao.id });
+      setCtx({ teste: testes.find((t) => t.sigla === (siglaPlanilha ?? (wasi ? "WASI" : wisc ? "WISC-IV" : "WAIS-III")))!, sessaoId: sessao.id });
     })().catch((e) => setErro(String(e)));
   }, []);
 
   if (erro) return <pre className="p-6 text-ember">{erro}</pre>;
   if (!ctx) return <p className="p-6">Preparando prévia…</p>;
+  if (siglaPlanilha) {
+    return (
+      <div className="mx-auto max-w-5xl p-6">
+        <PrevPlanilha teste={ctx.teste} sessaoId={ctx.sessaoId} />
+      </div>
+    );
+  }
+  if (wasi) {
+    return (
+      <div className="mx-auto max-w-5xl p-6">
+        <TesteWasi teste={ctx.teste} sessaoId={ctx.sessaoId} testeId={ctx.teste.id} escoresBrutos={escores} onEscoresChange={setEscores} onSalvar={async () => {}} abaInicial={(params.get("aba") as never) ?? undefined} />
+      </div>
+    );
+  }
   if (wisc) {
     return (
       <div className="mx-auto max-w-5xl p-6">
@@ -53,4 +71,16 @@ export function PreviewWais3() {
       />
     </div>
   );
+}
+
+// Prévia genérica do motor de planilha: preenche todas as entradas com um valor de exemplo (?valor=NN).
+function PrevPlanilha({ teste, sessaoId }: { teste: Teste; sessaoId: string }) {
+  const [params] = useSearchParams();
+  const layout = (teste.algoritmoCorrecao as unknown as { layout: { entradas: Array<{ chave: string }>; opcoes: Array<{ chave: string }> } }).layout;
+  const valor = params.get("valor") ?? "20";
+  const inicial: Record<string, string> = {};
+  for (const e of layout.entradas) inicial[e.chave] = valor;
+  for (const o of layout.opcoes) inicial[o.chave] = params.get("opcao") ?? "0";
+  const [escores, setEscores] = useState<Record<string, string>>(inicial);
+  return <TestePlanilha teste={teste} sessaoId={sessaoId} testeId={teste.id} escoresBrutos={escores} onEscoresChange={setEscores} onSalvar={async () => {}} />;
 }

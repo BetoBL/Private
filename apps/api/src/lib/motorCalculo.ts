@@ -18,6 +18,8 @@
 // continua controlando o modo de cálculo.
 
 import { calcularWais3, type Wais3Planilha } from "./wais3";
+import { calcularPlanilha, type ContextoPlanilha, type DefinicaoPlanilha, type ResultadoPlanilha } from "./planilha/motor";
+import { calcularWasi, type WasiPlanilha } from "./wasi";
 import { calcularWisc4, type OpcoesWisc4, type Wisc4Planilha } from "./wisc4";
 
 export interface FaixaConversao {
@@ -72,7 +74,8 @@ export interface ResultadoPorCampo {
 
 export type ResultadoCalculado =
   | { modo: "soma"; escoreBrutoTotal: number; faixa: FaixaConversao | null }
-  | { modo: "por_campo"; porCampo: Record<string, ResultadoPorCampo>; extras?: Record<string, unknown> };
+  | { modo: "por_campo"; porCampo: Record<string, ResultadoPorCampo>; extras?: Record<string, unknown> }
+  | ResultadoPlanilha;
 
 export function localizarFaixa(valor: number, faixas: FaixaConversao[]): FaixaConversao | null {
   return (
@@ -90,6 +93,8 @@ export interface ContextoCalculo {
   dataReferencia?: Date;
   // Opções da tela do WISC-IV (intervalo de confiança e base de comparação das discrepâncias).
   opcoesWisc4?: OpcoesWisc4;
+  // Dados do paciente usados pelo motor de planilha (escolaridade, sexo, nome).
+  paciente?: { escolaridade?: string | null; sexo?: string | null; nome?: string | null };
 }
 
 export function calcularResultado(
@@ -97,9 +102,17 @@ export function calcularResultado(
   conversao: ConversaoNormativa,
   contexto: ContextoCalculo = {}
 ): ResultadoCalculado {
+  if (conversao.tipo === "planilha") {
+    const ctx: ContextoPlanilha = { dataNascimento: contexto.dataNascimento, dataReferencia: contexto.dataReferencia, ...contexto.paciente };
+    return calcularPlanilha(conversao as unknown as DefinicaoPlanilha, escoresBrutos, ctx);
+  }
   if (conversao.tipo === "wisc4_planilha") {
     if (!contexto.dataNascimento || !contexto.dataReferencia) return { modo: "por_campo", porCampo: {} };
     return calcularWisc4(escoresBrutos, conversao as unknown as Wisc4Planilha, contexto.dataNascimento, contexto.dataReferencia, contexto.opcoesWisc4);
+  }
+  if (conversao.tipo === "wasi_planilha") {
+    if (!contexto.dataNascimento || !contexto.dataReferencia) return { modo: "por_campo", porCampo: {} };
+    return calcularWasi(escoresBrutos, conversao as unknown as WasiPlanilha, contexto.dataNascimento, contexto.dataReferencia);
   }
   if (conversao.tipo === "wais3_planilha") {
     return calcularWais3(escoresBrutos, conversao as unknown as Wais3Planilha, contexto.idadeDias ?? 0, contexto.idadeAnos);

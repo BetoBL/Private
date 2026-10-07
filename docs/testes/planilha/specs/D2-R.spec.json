@@ -1,0 +1,663 @@
+{
+ "sigla": "D2-R",
+ "nome": "D2-R — Teste de Atenção Concentrada",
+ "dominio": "ATENCAO",
+ "descricao": "Atenção concentrada (D2-R): 12 linhas de 14 s em 4 blocos. Objetos processados (OAP), erros de omissão (EO) e de troca (ET) geram o desempenho concentrado (DC = OAP − EO − ET) e o E% = (EO+ET)/OAP×100, convertidos em percentil/Z/ponderado pela tabela por idade ou escolaridade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "BRICKENKAMP, R.; ZILLMER, E. d2-R: teste de atenção concentrada. Adaptação brasileira.",
+ "aba": "D2-R",
+ "idade": [
+  7,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "Q2",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3",
+  "anoSerie": "CADASTRO!D8"
+ },
+ "entradas": [
+  {
+   "chave": "l2_oap",
+   "celula": "D8",
+   "rotulo": "Linha 2 — Objetos processados (OAP)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l2_eo",
+   "celula": "E8",
+   "rotulo": "Linha 2 — Erros de omissão (EO)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l2_et",
+   "celula": "F8",
+   "rotulo": "Linha 2 — Erros de troca (ET)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l3_oap",
+   "celula": "D9",
+   "rotulo": "Linha 3 — Objetos processados (OAP)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l3_eo",
+   "celula": "E9",
+   "rotulo": "Linha 3 — Erros de omissão (EO)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l3_et",
+   "celula": "F9",
+   "rotulo": "Linha 3 — Erros de troca (ET)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l4_oap",
+   "celula": "D10",
+   "rotulo": "Linha 4 — Objetos processados (OAP)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l4_eo",
+   "celula": "E10",
+   "rotulo": "Linha 4 — Erros de omissão (EO)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l4_et",
+   "celula": "F10",
+   "rotulo": "Linha 4 — Erros de troca (ET)",
+   "grupo": "Bloco 1",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l5_oap",
+   "celula": "D11",
+   "rotulo": "Linha 5 — Objetos processados (OAP)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l5_eo",
+   "celula": "E11",
+   "rotulo": "Linha 5 — Erros de omissão (EO)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l5_et",
+   "celula": "F11",
+   "rotulo": "Linha 5 — Erros de troca (ET)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l6_oap",
+   "celula": "D12",
+   "rotulo": "Linha 6 — Objetos processados (OAP)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l6_eo",
+   "celula": "E12",
+   "rotulo": "Linha 6 — Erros de omissão (EO)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l6_et",
+   "celula": "F12",
+   "rotulo": "Linha 6 — Erros de troca (ET)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l7_oap",
+   "celula": "D13",
+   "rotulo": "Linha 7 — Objetos processados (OAP)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l7_eo",
+   "celula": "E13",
+   "rotulo": "Linha 7 — Erros de omissão (EO)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l7_et",
+   "celula": "F13",
+   "rotulo": "Linha 7 — Erros de troca (ET)",
+   "grupo": "Bloco 2",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l8_oap",
+   "celula": "D14",
+   "rotulo": "Linha 8 — Objetos processados (OAP)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l8_eo",
+   "celula": "E14",
+   "rotulo": "Linha 8 — Erros de omissão (EO)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l8_et",
+   "celula": "F14",
+   "rotulo": "Linha 8 — Erros de troca (ET)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l9_oap",
+   "celula": "D15",
+   "rotulo": "Linha 9 — Objetos processados (OAP)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l9_eo",
+   "celula": "E15",
+   "rotulo": "Linha 9 — Erros de omissão (EO)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l9_et",
+   "celula": "F15",
+   "rotulo": "Linha 9 — Erros de troca (ET)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l10_oap",
+   "celula": "D16",
+   "rotulo": "Linha 10 — Objetos processados (OAP)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l10_eo",
+   "celula": "E16",
+   "rotulo": "Linha 10 — Erros de omissão (EO)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l10_et",
+   "celula": "F16",
+   "rotulo": "Linha 10 — Erros de troca (ET)",
+   "grupo": "Bloco 3",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l11_oap",
+   "celula": "D17",
+   "rotulo": "Linha 11 — Objetos processados (OAP)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l11_eo",
+   "celula": "E17",
+   "rotulo": "Linha 11 — Erros de omissão (EO)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l11_et",
+   "celula": "F17",
+   "rotulo": "Linha 11 — Erros de troca (ET)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l12_oap",
+   "celula": "D18",
+   "rotulo": "Linha 12 — Objetos processados (OAP)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l12_eo",
+   "celula": "E18",
+   "rotulo": "Linha 12 — Erros de omissão (EO)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l12_et",
+   "celula": "F18",
+   "rotulo": "Linha 12 — Erros de troca (ET)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l13_oap",
+   "celula": "D19",
+   "rotulo": "Linha 13 — Objetos processados (OAP)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l13_eo",
+   "celula": "E19",
+   "rotulo": "Linha 13 — Erros de omissão (EO)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  },
+  {
+   "chave": "l13_et",
+   "celula": "F19",
+   "rotulo": "Linha 13 — Erros de troca (ET)",
+   "grupo": "Bloco 4",
+   "min": 0,
+   "max": 60
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "tabela",
+   "celula": "Q5",
+   "rotulo": "Tabela normativa",
+   "valores": [
+    "Idade",
+    "Escolaridade"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "oap_total",
+   "celula": "N8",
+   "rotulo": "Total",
+   "casas": 2
+  },
+  {
+   "chave": "oap_padrao",
+   "celula": "N10",
+   "rotulo": "Z-padrão (média 100, DP 15)"
+  },
+  {
+   "chave": "oap_percentil",
+   "celula": "N12",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "oap_class_manual",
+   "celula": "N14",
+   "rotulo": "Classificação (manual)"
+  },
+  {
+   "chave": "oap_z",
+   "celula": "N16",
+   "rotulo": "Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "oap_ponderado",
+   "celula": "N18",
+   "rotulo": "Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "oap_class",
+   "celula": "N20",
+   "rotulo": "Classificação (Guilmette)"
+  },
+  {
+   "chave": "dc_total",
+   "celula": "P8",
+   "rotulo": "Total",
+   "casas": 2
+  },
+  {
+   "chave": "dc_padrao",
+   "celula": "P10",
+   "rotulo": "Z-padrão (média 100, DP 15)"
+  },
+  {
+   "chave": "dc_percentil",
+   "celula": "P12",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "dc_class_manual",
+   "celula": "P14",
+   "rotulo": "Classificação (manual)"
+  },
+  {
+   "chave": "dc_z",
+   "celula": "P16",
+   "rotulo": "Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "dc_ponderado",
+   "celula": "P18",
+   "rotulo": "Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "dc_class",
+   "celula": "P20",
+   "rotulo": "Classificação (Guilmette)"
+  },
+  {
+   "chave": "epc_total",
+   "celula": "R8",
+   "rotulo": "Total",
+   "casas": 2
+  },
+  {
+   "chave": "epc_padrao",
+   "celula": "R10",
+   "rotulo": "Z-padrão (média 100, DP 15)"
+  },
+  {
+   "chave": "epc_percentil",
+   "celula": "R12",
+   "rotulo": "Percentil"
+  },
+  {
+   "chave": "epc_class_manual",
+   "celula": "R14",
+   "rotulo": "Classificação (manual)"
+  },
+  {
+   "chave": "epc_z",
+   "celula": "R16",
+   "rotulo": "Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "epc_ponderado",
+   "celula": "R18",
+   "rotulo": "Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "epc_class",
+   "celula": "R20",
+   "rotulo": "Classificação (Guilmette)"
+  },
+  {
+   "chave": "b8_oap",
+   "celula": "G8",
+   "rotulo": "Bloco 1 — OAP"
+  },
+  {
+   "chave": "b8_eo",
+   "celula": "H8",
+   "rotulo": "Bloco 1 — EO"
+  },
+  {
+   "chave": "b8_et",
+   "celula": "I8",
+   "rotulo": "Bloco 1 — ET"
+  },
+  {
+   "chave": "b8_dc",
+   "celula": "J8",
+   "rotulo": "Bloco 1 — DC"
+  },
+  {
+   "chave": "b11_oap",
+   "celula": "G11",
+   "rotulo": "Bloco 2 — OAP"
+  },
+  {
+   "chave": "b11_eo",
+   "celula": "H11",
+   "rotulo": "Bloco 2 — EO"
+  },
+  {
+   "chave": "b11_et",
+   "celula": "I11",
+   "rotulo": "Bloco 2 — ET"
+  },
+  {
+   "chave": "b11_dc",
+   "celula": "J11",
+   "rotulo": "Bloco 2 — DC"
+  },
+  {
+   "chave": "b14_oap",
+   "celula": "G14",
+   "rotulo": "Bloco 3 — OAP"
+  },
+  {
+   "chave": "b14_eo",
+   "celula": "H14",
+   "rotulo": "Bloco 3 — EO"
+  },
+  {
+   "chave": "b14_et",
+   "celula": "I14",
+   "rotulo": "Bloco 3 — ET"
+  },
+  {
+   "chave": "b14_dc",
+   "celula": "J14",
+   "rotulo": "Bloco 3 — DC"
+  },
+  {
+   "chave": "b17_oap",
+   "celula": "G17",
+   "rotulo": "Bloco 4 — OAP"
+  },
+  {
+   "chave": "b17_eo",
+   "celula": "H17",
+   "rotulo": "Bloco 4 — EO"
+  },
+  {
+   "chave": "b17_et",
+   "celula": "I17",
+   "rotulo": "Bloco 4 — ET"
+  },
+  {
+   "chave": "b17_dc",
+   "celula": "J17",
+   "rotulo": "Bloco 4 — DC"
+  },
+  {
+   "chave": "tot_oap",
+   "celula": "G20",
+   "rotulo": "Total — OAP"
+  },
+  {
+   "chave": "tot_eo",
+   "celula": "H20",
+   "rotulo": "Total — EO"
+  },
+  {
+   "chave": "tot_et",
+   "celula": "I20",
+   "rotulo": "Total — ET"
+  },
+  {
+   "chave": "tot_dc",
+   "celula": "J20",
+   "rotulo": "Total — DC"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "OAP",
+    "DC",
+    "E%"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Total",
+     "valores": [
+      "oap_total",
+      "dc_total",
+      "epc_total"
+     ]
+    },
+    {
+     "rotulo": "Z-padrão",
+     "valores": [
+      "oap_padrao",
+      "dc_padrao",
+      "epc_padrao"
+     ]
+    },
+    {
+     "rotulo": "Percentil",
+     "valores": [
+      "oap_percentil",
+      "dc_percentil",
+      "epc_percentil"
+     ]
+    },
+    {
+     "rotulo": "Classificação (manual)",
+     "valores": [
+      "oap_class_manual",
+      "dc_class_manual",
+      "epc_class_manual"
+     ]
+    },
+    {
+     "rotulo": "Z-score",
+     "valores": [
+      "oap_z",
+      "dc_z",
+      "epc_z"
+     ]
+    },
+    {
+     "rotulo": "Pontos ponderados",
+     "valores": [
+      "oap_ponderado",
+      "dc_ponderado",
+      "epc_ponderado"
+     ]
+    },
+    {
+     "rotulo": "Classificação (Guilmette)",
+     "valores": [
+      "oap_class",
+      "dc_class",
+      "epc_class"
+     ]
+    }
+   ]
+  },
+  {
+   "titulo": "Totais por bloco",
+   "colunas": [
+    "OAP",
+    "EO",
+    "ET",
+    "DC"
+   ],
+   "linhas": [
+    {
+     "rotulo": "Bloco 1",
+     "valores": [
+      "b8_oap",
+      "b8_eo",
+      "b8_et",
+      "b8_dc"
+     ]
+    },
+    {
+     "rotulo": "Bloco 2",
+     "valores": [
+      "b11_oap",
+      "b11_eo",
+      "b11_et",
+      "b11_dc"
+     ]
+    },
+    {
+     "rotulo": "Bloco 3",
+     "valores": [
+      "b14_oap",
+      "b14_eo",
+      "b14_et",
+      "b14_dc"
+     ]
+    },
+    {
+     "rotulo": "Bloco 4",
+     "valores": [
+      "b17_oap",
+      "b17_eo",
+      "b17_et",
+      "b17_dc"
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      "tot_oap",
+      "tot_eo",
+      "tot_et",
+      "tot_dc"
+     ]
+    }
+   ]
+  }
+ ]
+}

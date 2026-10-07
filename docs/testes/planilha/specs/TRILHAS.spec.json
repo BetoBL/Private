@@ -1,0 +1,457 @@
+{
+ "sigla": "TRILHAS",
+ "nome": "Teste de Trilhas",
+ "dominio": "FUNCOES_EXECUTIVAS",
+ "descricao": "Teste de Trilhas (Trilhas Pré-Escolares, Seabra, TMT Infantil/Adulto e Trilhas Coloridas): pontos brutos de cada parte convertidos em pontuação padrão, Z, ponderado, percentil e classificação (Wechsler e Heaton) conforme o teste escolhido e a idade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "MONTIEL, J. M.; SEABRA, A. G. Teste de Trilhas: avaliação da atenção e das funções executivas.",
+ "aba": "TRILHAS",
+ "idade": [
+  4,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "a_tempo",
+   "celula": "D12",
+   "rotulo": "Parte A — tempo / sequências",
+   "grupo": "Pontos brutos",
+   "min": 0,
+   "max": 300
+  },
+  {
+   "chave": "a_erros",
+   "celula": "D13",
+   "rotulo": "Parte A — erros / conexões",
+   "grupo": "Pontos brutos",
+   "min": 0,
+   "max": 300
+  },
+  {
+   "chave": "b_tempo",
+   "celula": "D14",
+   "rotulo": "Parte B — tempo / sequências",
+   "grupo": "Pontos brutos",
+   "min": 0,
+   "max": 300
+  },
+  {
+   "chave": "b_erros",
+   "celula": "D15",
+   "rotulo": "Parte B — erros / conexões",
+   "grupo": "Pontos brutos",
+   "min": 0,
+   "max": 300
+  },
+  {
+   "chave": "b_altern",
+   "celula": "D16",
+   "rotulo": "Parte B — erros de alternância",
+   "grupo": "Pontos brutos",
+   "min": 0,
+   "max": 300
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "teste",
+   "celula": "Q3",
+   "rotulo": "Teste aplicado",
+   "valores": [
+    "Trilhas Pré-Escolares",
+    "Teste de Trilhas - Seabra",
+    "TMT - Infantil",
+    "TMT - Adulto",
+    "Trilhas Coloridas - Adulto"
+   ],
+   "padrao": 1
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "rot_a_tempo",
+   "celula": "B12",
+   "rotulo": "Rótulo da linha"
+  },
+  {
+   "chave": "a_tempo_padrao",
+   "celula": "E12",
+   "rotulo": "Parte A — tempo / sequências — Pontuação padrão (manual)"
+  },
+  {
+   "chave": "a_tempo_class_manual",
+   "celula": "F12",
+   "rotulo": "Parte A — tempo / sequências — Classificação (manual)"
+  },
+  {
+   "chave": "a_tempo_media",
+   "celula": "G12",
+   "rotulo": "Parte A — tempo / sequências — Média",
+   "casas": 2
+  },
+  {
+   "chave": "a_tempo_dp",
+   "celula": "H12",
+   "rotulo": "Parte A — tempo / sequências — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "a_tempo_z",
+   "celula": "I12",
+   "rotulo": "Parte A — tempo / sequências — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "a_tempo_pond",
+   "celula": "J12",
+   "rotulo": "Parte A — tempo / sequências — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "a_tempo_perc",
+   "celula": "K12",
+   "rotulo": "Parte A — tempo / sequências — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "a_tempo_class_wechsler",
+   "celula": "L12",
+   "rotulo": "Parte A — tempo / sequências — Classificação (Wechsler)"
+  },
+  {
+   "chave": "a_tempo_class_heaton",
+   "celula": "P12",
+   "rotulo": "Parte A — tempo / sequências — Classificação (Heaton)"
+  },
+  {
+   "chave": "rot_a_erros",
+   "celula": "B13",
+   "rotulo": "Rótulo da linha"
+  },
+  {
+   "chave": "a_erros_padrao",
+   "celula": "E13",
+   "rotulo": "Parte A — erros / conexões — Pontuação padrão (manual)"
+  },
+  {
+   "chave": "a_erros_class_manual",
+   "celula": "F13",
+   "rotulo": "Parte A — erros / conexões — Classificação (manual)"
+  },
+  {
+   "chave": "a_erros_media",
+   "celula": "G13",
+   "rotulo": "Parte A — erros / conexões — Média",
+   "casas": 2
+  },
+  {
+   "chave": "a_erros_dp",
+   "celula": "H13",
+   "rotulo": "Parte A — erros / conexões — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "a_erros_z",
+   "celula": "I13",
+   "rotulo": "Parte A — erros / conexões — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "a_erros_pond",
+   "celula": "J13",
+   "rotulo": "Parte A — erros / conexões — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "a_erros_perc",
+   "celula": "K13",
+   "rotulo": "Parte A — erros / conexões — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "a_erros_class_wechsler",
+   "celula": "L13",
+   "rotulo": "Parte A — erros / conexões — Classificação (Wechsler)"
+  },
+  {
+   "chave": "a_erros_class_heaton",
+   "celula": "P13",
+   "rotulo": "Parte A — erros / conexões — Classificação (Heaton)"
+  },
+  {
+   "chave": "rot_b_tempo",
+   "celula": "B14",
+   "rotulo": "Rótulo da linha"
+  },
+  {
+   "chave": "b_tempo_padrao",
+   "celula": "E14",
+   "rotulo": "Parte B — tempo / sequências — Pontuação padrão (manual)"
+  },
+  {
+   "chave": "b_tempo_class_manual",
+   "celula": "F14",
+   "rotulo": "Parte B — tempo / sequências — Classificação (manual)"
+  },
+  {
+   "chave": "b_tempo_media",
+   "celula": "G14",
+   "rotulo": "Parte B — tempo / sequências — Média",
+   "casas": 2
+  },
+  {
+   "chave": "b_tempo_dp",
+   "celula": "H14",
+   "rotulo": "Parte B — tempo / sequências — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "b_tempo_z",
+   "celula": "I14",
+   "rotulo": "Parte B — tempo / sequências — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "b_tempo_pond",
+   "celula": "J14",
+   "rotulo": "Parte B — tempo / sequências — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "b_tempo_perc",
+   "celula": "K14",
+   "rotulo": "Parte B — tempo / sequências — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "b_tempo_class_wechsler",
+   "celula": "L14",
+   "rotulo": "Parte B — tempo / sequências — Classificação (Wechsler)"
+  },
+  {
+   "chave": "b_tempo_class_heaton",
+   "celula": "P14",
+   "rotulo": "Parte B — tempo / sequências — Classificação (Heaton)"
+  },
+  {
+   "chave": "rot_b_erros",
+   "celula": "B15",
+   "rotulo": "Rótulo da linha"
+  },
+  {
+   "chave": "b_erros_padrao",
+   "celula": "E15",
+   "rotulo": "Parte B — erros / conexões — Pontuação padrão (manual)"
+  },
+  {
+   "chave": "b_erros_class_manual",
+   "celula": "F15",
+   "rotulo": "Parte B — erros / conexões — Classificação (manual)"
+  },
+  {
+   "chave": "b_erros_media",
+   "celula": "G15",
+   "rotulo": "Parte B — erros / conexões — Média",
+   "casas": 2
+  },
+  {
+   "chave": "b_erros_dp",
+   "celula": "H15",
+   "rotulo": "Parte B — erros / conexões — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "b_erros_z",
+   "celula": "I15",
+   "rotulo": "Parte B — erros / conexões — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "b_erros_pond",
+   "celula": "J15",
+   "rotulo": "Parte B — erros / conexões — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "b_erros_perc",
+   "celula": "K15",
+   "rotulo": "Parte B — erros / conexões — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "b_erros_class_wechsler",
+   "celula": "L15",
+   "rotulo": "Parte B — erros / conexões — Classificação (Wechsler)"
+  },
+  {
+   "chave": "b_erros_class_heaton",
+   "celula": "P15",
+   "rotulo": "Parte B — erros / conexões — Classificação (Heaton)"
+  },
+  {
+   "chave": "rot_b_altern",
+   "celula": "B16",
+   "rotulo": "Rótulo da linha"
+  },
+  {
+   "chave": "b_altern_padrao",
+   "celula": "E16",
+   "rotulo": "Parte B — erros de alternância — Pontuação padrão (manual)"
+  },
+  {
+   "chave": "b_altern_class_manual",
+   "celula": "F16",
+   "rotulo": "Parte B — erros de alternância — Classificação (manual)"
+  },
+  {
+   "chave": "b_altern_media",
+   "celula": "G16",
+   "rotulo": "Parte B — erros de alternância — Média",
+   "casas": 2
+  },
+  {
+   "chave": "b_altern_dp",
+   "celula": "H16",
+   "rotulo": "Parte B — erros de alternância — Desvio-padrão",
+   "casas": 2
+  },
+  {
+   "chave": "b_altern_z",
+   "celula": "I16",
+   "rotulo": "Parte B — erros de alternância — Z-score",
+   "casas": 3
+  },
+  {
+   "chave": "b_altern_pond",
+   "celula": "J16",
+   "rotulo": "Parte B — erros de alternância — Pontos ponderados",
+   "casas": 1
+  },
+  {
+   "chave": "b_altern_perc",
+   "celula": "K16",
+   "rotulo": "Parte B — erros de alternância — Percentil",
+   "casas": 1
+  },
+  {
+   "chave": "b_altern_class_wechsler",
+   "celula": "L16",
+   "rotulo": "Parte B — erros de alternância — Classificação (Wechsler)"
+  },
+  {
+   "chave": "b_altern_class_heaton",
+   "celula": "P16",
+   "rotulo": "Parte B — erros de alternância — Classificação (Heaton)"
+  },
+  {
+   "chave": "aviso",
+   "celula": "B8",
+   "rotulo": "Aviso"
+  },
+  {
+   "chave": "nota",
+   "celula": "B17",
+   "rotulo": "Observação"
+  },
+  {
+   "chave": "referencia",
+   "celula": "B20",
+   "rotulo": "Referência"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Pontuação padrão (manual)",
+    "Classificação (manual)",
+    "Média",
+    "Desvio-padrão",
+    "Z-score",
+    "Pontos ponderados",
+    "Percentil",
+    "Classificação (Wechsler)",
+    "Classificação (Heaton)"
+   ],
+   "linhas": [
+    {
+     "rotulo": "=rot_a_tempo",
+     "valores": [
+      "a_tempo_padrao",
+      "a_tempo_class_manual",
+      "a_tempo_media",
+      "a_tempo_dp",
+      "a_tempo_z",
+      "a_tempo_pond",
+      "a_tempo_perc",
+      "a_tempo_class_wechsler",
+      "a_tempo_class_heaton"
+     ]
+    },
+    {
+     "rotulo": "=rot_a_erros",
+     "valores": [
+      "a_erros_padrao",
+      "a_erros_class_manual",
+      "a_erros_media",
+      "a_erros_dp",
+      "a_erros_z",
+      "a_erros_pond",
+      "a_erros_perc",
+      "a_erros_class_wechsler",
+      "a_erros_class_heaton"
+     ]
+    },
+    {
+     "rotulo": "=rot_b_tempo",
+     "valores": [
+      "b_tempo_padrao",
+      "b_tempo_class_manual",
+      "b_tempo_media",
+      "b_tempo_dp",
+      "b_tempo_z",
+      "b_tempo_pond",
+      "b_tempo_perc",
+      "b_tempo_class_wechsler",
+      "b_tempo_class_heaton"
+     ]
+    },
+    {
+     "rotulo": "=rot_b_erros",
+     "valores": [
+      "b_erros_padrao",
+      "b_erros_class_manual",
+      "b_erros_media",
+      "b_erros_dp",
+      "b_erros_z",
+      "b_erros_pond",
+      "b_erros_perc",
+      "b_erros_class_wechsler",
+      "b_erros_class_heaton"
+     ]
+    },
+    {
+     "rotulo": "=rot_b_altern",
+     "valores": [
+      "b_altern_padrao",
+      "b_altern_class_manual",
+      "b_altern_media",
+      "b_altern_dp",
+      "b_altern_z",
+      "b_altern_pond",
+      "b_altern_perc",
+      "b_altern_class_wechsler",
+      "b_altern_class_heaton"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -45,21 +45,34 @@ function ehAdmin(req: { profissional?: { papel: string } }): boolean {
   return req.profissional?.papel === "ADMIN";
 }
 
+// As conversões de alguns testes são grandes (o motor de planilha chega a centenas de KB) e o cálculo ao vivo roda a cada tecla:
+// busca só os critérios de seleção da tabela e guarda a conversão em memória (as tabelas são recriadas com id novo a cada atualização).
+const cacheConversao = new Map<string, unknown>();
+async function conversaoDaTabela(id: string): Promise<unknown> {
+  if (!cacheConversao.has(id)) {
+    const t = await prisma.tabelaNormativa.findUnique({ where: { id }, select: { conversao: true } });
+    cacheConversao.set(id, t?.conversao ?? null);
+  }
+  return cacheConversao.get(id);
+}
+
 async function recalcular(
   testeId: string,
   clinicaId: string,
   escoresBrutos: Record<string, number>,
-  criterios: { idadeAnos: number; idadeMeses?: number; idadeDias?: number; dataNascimento?: Date; dataReferencia?: Date; sexo?: "MASCULINO" | "FEMININO" | null; opcoesWisc4?: OpcoesWisc4 }
+  criterios: { idadeAnos: number; idadeMeses?: number; idadeDias?: number; dataNascimento?: Date; dataReferencia?: Date; sexo?: "MASCULINO" | "FEMININO" | null; opcoesWisc4?: OpcoesWisc4; paciente?: { escolaridade?: string | null; sexo?: string | null; nome?: string | null } }
 ) {
-  const teste = await prisma.teste.findUnique({ where: { id: testeId }, include: { tabelasNormativas: true } });
+  const teste = await prisma.teste.findUnique({ where: { id: testeId }, include: { tabelasNormativas: { select: { id: true, criterio: true, faixaMin: true, faixaMax: true, faixaLabel: true, sexo: true } } } });
   if (!teste) return null;
   // Normativa customizada ativa da clínica que cubra o paciente tem precedência sobre a norma
   // padrão do teste; se nenhuma cobrir, usa a padrão (ver escolherNormativaCustomizada).
   const customizadas = await prisma.normativaCustomizada.findMany({ where: { clinicaId, testeId, ativo: true } });
   const tabela =
     escolherNormativaCustomizada(criterios, customizadas) ?? escolherTabelaNormativa(criterios, teste.tabelasNormativas);
-  return tabela
-    ? calcularResultado(escoresBrutos, tabela.conversao as unknown as ConversaoNormativa, { idadeDias: criterios.idadeDias, idadeAnos: criterios.idadeAnos, dataNascimento: criterios.dataNascimento, dataReferencia: criterios.dataReferencia, opcoesWisc4: criterios.opcoesWisc4 })
+  if (!tabela) return null;
+  const conversao = "conversao" in tabela ? tabela.conversao : await conversaoDaTabela(tabela.id);
+  return conversao
+    ? calcularResultado(escoresBrutos, conversao as unknown as ConversaoNormativa, { idadeDias: criterios.idadeDias, idadeAnos: criterios.idadeAnos, dataNascimento: criterios.dataNascimento, dataReferencia: criterios.dataReferencia, opcoesWisc4: criterios.opcoesWisc4, paciente: criterios.paciente })
     : null;
 }
 
@@ -98,6 +111,7 @@ aplicacoesDeTesteRouter.post(
       dataNascimento: sessao.paciente.dataNascimento,
       dataReferencia: sessao.dataHora,
       sexo: sessao.paciente.sexo,
+      paciente: { escolaridade: sessao.paciente.escolaridade, sexo: sessao.paciente.sexo, nome: sessao.paciente.nome },
     });
 
     const aplicacao = await prisma.aplicacaoDeTeste.create({
@@ -141,6 +155,7 @@ aplicacoesDeTesteRouter.post(
       dataNascimento: sessao.paciente.dataNascimento,
       dataReferencia: sessao.dataHora,
       sexo: sessao.paciente.sexo,
+      paciente: { escolaridade: sessao.paciente.escolaridade, sexo: sessao.paciente.sexo, nome: sessao.paciente.nome },
       opcoesWisc4: { confianca, base },
     });
     res.json({
@@ -152,6 +167,7 @@ aplicacoesDeTesteRouter.post(
         nome: sessao.paciente.nome,
         escolaridade: sessao.paciente.escolaridade,
         sexo: sessao.paciente.sexo,
+      paciente: { escolaridade: sessao.paciente.escolaridade, sexo: sessao.paciente.sexo, nome: sessao.paciente.nome },
         dataNascimento: sessao.paciente.dataNascimento,
       },
       dataAplicacao: sessao.dataHora,

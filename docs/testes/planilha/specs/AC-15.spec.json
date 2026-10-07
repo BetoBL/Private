@@ -1,0 +1,531 @@
+{
+ "sigla": "AC-15",
+ "nome": "AC-15 — Atenção Concentrada",
+ "dominio": "ATENCAO",
+ "descricao": "Atenção concentrada AC-15: questões examinadas e erros em 5, 10 e 15 minutos; pontos, percentil, Z, ponderado e classificação pela tabela normativa escolhida (região e escolaridade). Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "Teste de Atenção Concentrada AC-15 (normas conforme planilha da psicóloga).",
+ "aba": "AC-15",
+ "idade": [
+  18,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N3",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_C13",
+   "celula": "C13",
+   "rotulo": "5 Min — Questões examinadas (QE)",
+   "min": 0
+  },
+  {
+   "chave": "in_D13",
+   "celula": "D13",
+   "rotulo": "5 Min — Erros",
+   "min": 0
+  },
+  {
+   "chave": "in_C14",
+   "celula": "C14",
+   "rotulo": "10 Min — Questões examinadas (QE)",
+   "min": 0
+  },
+  {
+   "chave": "in_D14",
+   "celula": "D14",
+   "rotulo": "10 Min — Erros",
+   "min": 0
+  },
+  {
+   "chave": "in_C15",
+   "celula": "C15",
+   "rotulo": "15 min — Questões examinadas (QE)",
+   "min": 0
+  },
+  {
+   "chave": "in_D15",
+   "celula": "D15",
+   "rotulo": "15 min — Erros",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_I3",
+   "celula": "I3",
+   "rotulo": "Tabela:",
+   "valores": [
+    "Região Sul - Ensino Médio",
+    "Região Centro-Oeste - Ensino Médio",
+    "Região Centro-Oeste - Ensino Superior",
+    "Região Centro-Oeste - Amostra Total",
+    "Região Sudeste - Ensino Médio",
+    "Região Sudeste - Ensino Superior",
+    "Região Sudeste - Amostra Total",
+    "Região Sul - Ensino Superior",
+    "Região Sul - Amostra Total",
+    "Amostra Total - Ensino Médio",
+    "Amostra Total - Ensino Superior",
+    "Amostra Total - Tabela Geral"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_E13",
+   "celula": "E13",
+   "rotulo": "5 Min — Acertos (QE - Erros)"
+  },
+  {
+   "chave": "out_F13",
+   "celula": "F13",
+   "rotulo": "5 Min — Pontos (Acertos - Erros)"
+  },
+  {
+   "chave": "out_G13",
+   "celula": "G13",
+   "rotulo": "5 Min — Percentil"
+  },
+  {
+   "chave": "out_H13",
+   "celula": "H13",
+   "rotulo": "5 Min — Classificação"
+  },
+  {
+   "chave": "out_I13",
+   "celula": "I13",
+   "rotulo": "5 Min — Média"
+  },
+  {
+   "chave": "out_J13",
+   "celula": "J13",
+   "rotulo": "5 Min — Desvio Padrão"
+  },
+  {
+   "chave": "out_K13",
+   "celula": "K13",
+   "rotulo": "5 Min — Z-Score"
+  },
+  {
+   "chave": "out_L13",
+   "celula": "L13",
+   "rotulo": "5 Min — Pts Ponderados"
+  },
+  {
+   "chave": "out_M13",
+   "celula": "M13",
+   "rotulo": "5 Min — Percentil"
+  },
+  {
+   "chave": "out_N13",
+   "celula": "N13",
+   "rotulo": "5 Min — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E14",
+   "celula": "E14",
+   "rotulo": "10 Min — Acertos (QE - Erros)"
+  },
+  {
+   "chave": "out_F14",
+   "celula": "F14",
+   "rotulo": "10 Min — Pontos (Acertos - Erros)"
+  },
+  {
+   "chave": "out_G14",
+   "celula": "G14",
+   "rotulo": "10 Min — Percentil"
+  },
+  {
+   "chave": "out_H14",
+   "celula": "H14",
+   "rotulo": "10 Min — Classificação"
+  },
+  {
+   "chave": "out_I14",
+   "celula": "I14",
+   "rotulo": "10 Min — Média"
+  },
+  {
+   "chave": "out_J14",
+   "celula": "J14",
+   "rotulo": "10 Min — Desvio Padrão"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "10 Min — Z-Score"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "10 Min — Pts Ponderados"
+  },
+  {
+   "chave": "out_M14",
+   "celula": "M14",
+   "rotulo": "10 Min — Percentil"
+  },
+  {
+   "chave": "out_N14",
+   "celula": "N14",
+   "rotulo": "10 Min — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E15",
+   "celula": "E15",
+   "rotulo": "15 min — Acertos (QE - Erros)"
+  },
+  {
+   "chave": "out_F15",
+   "celula": "F15",
+   "rotulo": "15 min — Pontos (Acertos - Erros)"
+  },
+  {
+   "chave": "out_G15",
+   "celula": "G15",
+   "rotulo": "15 min — Percentil"
+  },
+  {
+   "chave": "out_H15",
+   "celula": "H15",
+   "rotulo": "15 min — Classificação"
+  },
+  {
+   "chave": "out_I15",
+   "celula": "I15",
+   "rotulo": "15 min — Média"
+  },
+  {
+   "chave": "out_J15",
+   "celula": "J15",
+   "rotulo": "15 min — Desvio Padrão"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "15 min — Z-Score"
+  },
+  {
+   "chave": "out_L15",
+   "celula": "L15",
+   "rotulo": "15 min — Pts Ponderados"
+  },
+  {
+   "chave": "out_M15",
+   "celula": "M15",
+   "rotulo": "15 min — Percentil"
+  },
+  {
+   "chave": "out_N15",
+   "celula": "N15",
+   "rotulo": "15 min — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_C16",
+   "celula": "C16",
+   "rotulo": "Total — Questões examinadas (QE)"
+  },
+  {
+   "chave": "out_D16",
+   "celula": "D16",
+   "rotulo": "Total — Erros"
+  },
+  {
+   "chave": "out_E16",
+   "celula": "E16",
+   "rotulo": "Total — Acertos (QE - Erros)"
+  },
+  {
+   "chave": "out_F16",
+   "celula": "F16",
+   "rotulo": "Total — Pontos (Acertos - Erros)"
+  },
+  {
+   "chave": "out_G16",
+   "celula": "G16",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_H16",
+   "celula": "H16",
+   "rotulo": "Total — Classificação"
+  },
+  {
+   "chave": "out_I16",
+   "celula": "I16",
+   "rotulo": "Total — Média"
+  },
+  {
+   "chave": "out_J16",
+   "celula": "J16",
+   "rotulo": "Total — Desvio Padrão"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "Total — Z-Score"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "Total — Pts Ponderados"
+  },
+  {
+   "chave": "out_M16",
+   "celula": "M16",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_N16",
+   "celula": "N16",
+   "rotulo": "Total — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_C17",
+   "celula": "C17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Questões examinadas (QE)"
+  },
+  {
+   "chave": "out_G17",
+   "celula": "G17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Percentil"
+  },
+  {
+   "chave": "out_H17",
+   "celula": "H17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Classificação"
+  },
+  {
+   "chave": "out_I17",
+   "celula": "I17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Média"
+  },
+  {
+   "chave": "out_J17",
+   "celula": "J17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Desvio Padrão"
+  },
+  {
+   "chave": "out_K17",
+   "celula": "K17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Z-Score"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Pts Ponderados"
+  },
+  {
+   "chave": "out_M17",
+   "celula": "M17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — Percentil"
+  },
+  {
+   "chave": "out_N17",
+   "celula": "N17",
+   "rotulo": "Consistência (Pts 15' - Pts 5') — * Classificação (Guilmette)"
+  },
+  {
+   "chave": "out_E22",
+   "celula": "E22",
+   "rotulo": "5 Min — Acertos (QE - Erros)"
+  },
+  {
+   "chave": "out_E23",
+   "celula": "E23",
+   "rotulo": "10 Min"
+  },
+  {
+   "chave": "out_E24",
+   "celula": "E24",
+   "rotulo": "15 min"
+  },
+  {
+   "chave": "out_E25",
+   "celula": "E25",
+   "rotulo": "Total"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Questões examinadas (QE)",
+    "Erros",
+    "Acertos (QE - Erros)",
+    "Pontos (Acertos - Erros)",
+    "Percentil",
+    "Classificação",
+    "Média",
+    "Desvio Padrão",
+    "Z-Score",
+    "Pts Ponderados",
+    "Percentil",
+    "* Classificação (Guilmette)"
+   ],
+   "linhas": [
+    {
+     "rotulo": "5 Min",
+     "valores": [
+      null,
+      null,
+      "out_E13",
+      "out_F13",
+      "out_G13",
+      "out_H13",
+      "out_I13",
+      "out_J13",
+      "out_K13",
+      "out_L13",
+      "out_M13",
+      "out_N13"
+     ]
+    },
+    {
+     "rotulo": "10 Min",
+     "valores": [
+      null,
+      null,
+      "out_E14",
+      "out_F14",
+      "out_G14",
+      "out_H14",
+      "out_I14",
+      "out_J14",
+      "out_K14",
+      "out_L14",
+      "out_M14",
+      "out_N14"
+     ]
+    },
+    {
+     "rotulo": "15 min",
+     "valores": [
+      null,
+      null,
+      "out_E15",
+      "out_F15",
+      "out_G15",
+      "out_H15",
+      "out_I15",
+      "out_J15",
+      "out_K15",
+      "out_L15",
+      "out_M15",
+      "out_N15"
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      "out_C16",
+      "out_D16",
+      "out_E16",
+      "out_F16",
+      "out_G16",
+      "out_H16",
+      "out_I16",
+      "out_J16",
+      "out_K16",
+      "out_L16",
+      "out_M16",
+      "out_N16"
+     ]
+    },
+    {
+     "rotulo": "Consistência (Pts 15' - Pts 5')",
+     "valores": [
+      "out_C17",
+      null,
+      null,
+      null,
+      "out_G17",
+      "out_H17",
+      "out_I17",
+      "out_J17",
+      "out_K17",
+      "out_L17",
+      "out_M17",
+      "out_N17"
+     ]
+    },
+    {
+     "rotulo": "5 Min",
+     "valores": [
+      null,
+      null,
+      "out_E22",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "10 Min",
+     "valores": [
+      null,
+      null,
+      "out_E23",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "15 min",
+     "valores": [
+      null,
+      null,
+      "out_E24",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      null,
+      "out_E25",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,4 +1,4 @@
-// Atualiza SÓ o WAIS-III e o WISC-IV do catálogo fixo (campos, descrição e tabela normativa) para a versão da planilha,
+// Atualiza SÓ o WAIS-III, o WISC-IV e o WASI do catálogo fixo (campos, descrição e tabela normativa) para a versão da planilha,
 // SEM apagar lançamentos (o seed completo apaga AplicacaoDeTeste do catálogo fixo — nunca rode o seed em produção).
 // Nenhuma tabela aponta para TabelaNormativa por chave estrangeira, então trocar a tabela não mexe nos lançamentos antigos;
 // ao reabrir um lançamento antigo, o resultado salvo continua o mesmo até alguém recalcular.
@@ -8,10 +8,12 @@
 //   npx tsx prisma/atualizar-wechsler.ts --aplicar  → grava (dentro de uma transação)
 // Confira DATABASE_URL antes: o .env da API aponta para o banco de PRODUÇÃO.
 import { EscopoTeste, PrismaClient } from "@prisma/client";
+import { carregarTestesPlanilha } from "./planilhas-seed";
 import { TESTES_PLACEHOLDER } from "./seed";
 
 const prisma = new PrismaClient();
-const SIGLAS = ["WAIS-III", "WISC-IV"];
+// Wechsler + todos os testes do motor de planilha (docs/testes/planilha). Cria o que ainda não existe no banco.
+const SIGLAS = ["WAIS-III", "WISC-IV", "WASI", ...carregarTestesPlanilha().map((p) => p.sigla)];
 
 async function main() {
   const aplicar = process.argv.includes("--aplicar");
@@ -23,7 +25,17 @@ async function main() {
     if (!novo) throw new Error(`${sigla} não está no seed`);
     const atual = await prisma.teste.findFirst({ where: { sigla, escopo: EscopoTeste.FIXO }, include: { tabelasNormativas: true } });
     if (!atual) {
-      console.log(`- ${sigla}: não existe no banco (nada a atualizar; rode o seed só em ambiente de dev).`);
+      console.log(`- ${sigla}: não existe no banco → ${aplicar ? "criando" : "seria criado"}.`);
+      if (aplicar) {
+        await prisma.teste.create({
+          data: {
+            nome: novo.nome, sigla, dominio: novo.dominio, escopo: EscopoTeste.FIXO, descricao: novo.descricao, algoritmoCorrecao: novo.algoritmoCorrecao as never,
+            referenciaBibliografica: novo.referenciaBibliografica, isPlaceholder: novo.isPlaceholder ?? true, direcao: novo.direcao ?? "NEUTRO",
+            tabelasNormativas: { create: novo.tabelasNormativas.map((f) => ({ criterio: f.criterio, faixaMin: f.faixaMin, faixaMax: f.faixaMax, faixaLabel: f.faixaLabel, sexo: f.sexo, conversao: f.conversao as never })) },
+          },
+        });
+        console.log(`  ✓ ${sigla} criado.`);
+      }
       continue;
     }
     const lancamentos = await prisma.aplicacaoDeTeste.count({ where: { testeId: atual.id } });

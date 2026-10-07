@@ -1,0 +1,2464 @@
+{
+ "sigla": "TFV",
+ "nome": "Fluência Verbal (TFV)",
+ "dominio": "LINGUAGEM_APRENDIZAGEM",
+ "descricao": "Teste de Fluência Verbal: palavras por categoria/minuto, agrupamentos e trocas convertidos em Z, ponderado, percentil e classificação por idade/escolaridade. Cálculo executado a partir das fórmulas da planilha da psicóloga.",
+ "referencia": "Teste de Fluência Verbal (normas conforme planilha da psicóloga).",
+ "aba": "TFV",
+ "idade": [
+  6,
+  89
+ ],
+ "escolaridadePadrao": "Ensino Médio",
+ "contexto": {
+  "dataAplicacao": "N4",
+  "dataNascimento": "CADASTRO!D4",
+  "escolaridade": "CADASTRO!D6",
+  "sexo": "CADASTRO!D5",
+  "nome": "CADASTRO!D3"
+ },
+ "entradas": [
+  {
+   "chave": "in_E13",
+   "celula": "E13",
+   "rotulo": "00 - 30 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E14",
+   "celula": "E14",
+   "rotulo": "30 - 60 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E15",
+   "celula": "E15",
+   "rotulo": "60 - 90 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E16",
+   "celula": "E16",
+   "rotulo": "90 - 120 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E17",
+   "celula": "E17",
+   "rotulo": "120 - 150 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E18",
+   "celula": "E18",
+   "rotulo": "Total — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E19",
+   "celula": "E19",
+   "rotulo": "Total de Erros — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E22",
+   "celula": "E22",
+   "rotulo": "Clusters Temáticos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E23",
+   "celula": "E23",
+   "rotulo": "Clusters Taxonômicos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E24",
+   "celula": "E24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E25",
+   "celula": "E25",
+   "rotulo": "Clusters Mistos",
+   "min": 0
+  },
+  {
+   "chave": "in_E26",
+   "celula": "E26",
+   "rotulo": "Intersections",
+   "min": 0
+  },
+  {
+   "chave": "in_E27",
+   "celula": "E27",
+   "rotulo": "Returns",
+   "min": 0
+  },
+  {
+   "chave": "in_E31",
+   "celula": "E31",
+   "rotulo": "00 - 30 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E32",
+   "celula": "E32",
+   "rotulo": "30 - 60 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E33",
+   "celula": "E33",
+   "rotulo": "60 - 90 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E34",
+   "celula": "E34",
+   "rotulo": "90 - 120seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E35",
+   "celula": "E35",
+   "rotulo": "Total — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E36",
+   "celula": "E36",
+   "rotulo": "Total de Erros — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E39",
+   "celula": "E39",
+   "rotulo": "Clusters Temáticos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E40",
+   "celula": "E40",
+   "rotulo": "Clusters Taxonômicos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E41",
+   "celula": "E41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E42",
+   "celula": "E42",
+   "rotulo": "Clusters Mistos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E43",
+   "celula": "E43",
+   "rotulo": "Intersections",
+   "min": 0
+  },
+  {
+   "chave": "in_E44",
+   "celula": "E44",
+   "rotulo": "Returns",
+   "min": 0
+  },
+  {
+   "chave": "in_E48",
+   "celula": "E48",
+   "rotulo": "00 - 30 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E49",
+   "celula": "E49",
+   "rotulo": "30 - 60 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E50",
+   "celula": "E50",
+   "rotulo": "60 - 90 seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E51",
+   "celula": "E51",
+   "rotulo": "90 - 120seg. — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E52",
+   "celula": "E52",
+   "rotulo": "Total — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E53",
+   "celula": "E53",
+   "rotulo": "Total de Erros — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E56",
+   "celula": "E56",
+   "rotulo": "Clusters Taxonômicos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E57",
+   "celula": "E57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E58",
+   "celula": "E58",
+   "rotulo": "Clusters Mistos — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E59",
+   "celula": "E59",
+   "rotulo": "Intersections — Pontos Brutos",
+   "min": 0
+  },
+  {
+   "chave": "in_E60",
+   "celula": "E60",
+   "rotulo": "Returns",
+   "min": 0
+  }
+ ],
+ "opcoes": [
+  {
+   "chave": "opcao_J4",
+   "celula": "J4",
+   "rotulo": "Tipo de Amostra:",
+   "valores": [
+    "Adultos (>18 anos) - Faixa etária",
+    "Adultos (>18 anos) - Baixa escolaridade",
+    "Adultos (>18 anos) - Alta escolaridade"
+   ],
+   "padrao": 0
+  }
+ ],
+ "saidas": [
+  {
+   "chave": "out_F13",
+   "celula": "F13",
+   "rotulo": "00 - 30 seg. — Percentil Manual"
+  },
+  {
+   "chave": "out_G13",
+   "celula": "G13",
+   "rotulo": "00 - 30 seg. — Média"
+  },
+  {
+   "chave": "out_H13",
+   "celula": "H13",
+   "rotulo": "00 - 30 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I13",
+   "celula": "I13",
+   "rotulo": "00 - 30 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J13",
+   "celula": "J13",
+   "rotulo": "00 - 30 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K13",
+   "celula": "K13",
+   "rotulo": "00 - 30 seg. — Percentil"
+  },
+  {
+   "chave": "out_L13",
+   "celula": "L13",
+   "rotulo": "00 - 30 seg. — Classificação"
+  },
+  {
+   "chave": "out_P13",
+   "celula": "P13",
+   "rotulo": "Bloco 1 — Percentil"
+  },
+  {
+   "chave": "out_F14",
+   "celula": "F14",
+   "rotulo": "30 - 60 seg. — Percentil Manual"
+  },
+  {
+   "chave": "out_G14",
+   "celula": "G14",
+   "rotulo": "30 - 60 seg. — Média"
+  },
+  {
+   "chave": "out_H14",
+   "celula": "H14",
+   "rotulo": "30 - 60 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I14",
+   "celula": "I14",
+   "rotulo": "30 - 60 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J14",
+   "celula": "J14",
+   "rotulo": "30 - 60 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K14",
+   "celula": "K14",
+   "rotulo": "30 - 60 seg. — Percentil"
+  },
+  {
+   "chave": "out_L14",
+   "celula": "L14",
+   "rotulo": "30 - 60 seg. — Classificação"
+  },
+  {
+   "chave": "out_P14",
+   "celula": "P14",
+   "rotulo": "Bloco 2 — Percentil"
+  },
+  {
+   "chave": "out_F15",
+   "celula": "F15",
+   "rotulo": "60 - 90 seg. — Percentil Manual"
+  },
+  {
+   "chave": "out_G15",
+   "celula": "G15",
+   "rotulo": "60 - 90 seg. — Média"
+  },
+  {
+   "chave": "out_H15",
+   "celula": "H15",
+   "rotulo": "60 - 90 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I15",
+   "celula": "I15",
+   "rotulo": "60 - 90 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J15",
+   "celula": "J15",
+   "rotulo": "60 - 90 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K15",
+   "celula": "K15",
+   "rotulo": "60 - 90 seg. — Percentil"
+  },
+  {
+   "chave": "out_L15",
+   "celula": "L15",
+   "rotulo": "60 - 90 seg. — Classificação"
+  },
+  {
+   "chave": "out_P15",
+   "celula": "P15",
+   "rotulo": "Bloco 3 — Percentil"
+  },
+  {
+   "chave": "out_F16",
+   "celula": "F16",
+   "rotulo": "90 - 120 seg. — Percentil Manual"
+  },
+  {
+   "chave": "out_G16",
+   "celula": "G16",
+   "rotulo": "90 - 120 seg. — Média"
+  },
+  {
+   "chave": "out_H16",
+   "celula": "H16",
+   "rotulo": "90 - 120 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I16",
+   "celula": "I16",
+   "rotulo": "90 - 120 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J16",
+   "celula": "J16",
+   "rotulo": "90 - 120 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K16",
+   "celula": "K16",
+   "rotulo": "90 - 120 seg. — Percentil"
+  },
+  {
+   "chave": "out_L16",
+   "celula": "L16",
+   "rotulo": "90 - 120 seg. — Classificação"
+  },
+  {
+   "chave": "out_P16",
+   "celula": "P16",
+   "rotulo": "Bloco 4 — Percentil"
+  },
+  {
+   "chave": "out_F17",
+   "celula": "F17",
+   "rotulo": "120 - 150 seg. — Percentil Manual"
+  },
+  {
+   "chave": "out_G17",
+   "celula": "G17",
+   "rotulo": "120 - 150 seg. — Média"
+  },
+  {
+   "chave": "out_H17",
+   "celula": "H17",
+   "rotulo": "120 - 150 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I17",
+   "celula": "I17",
+   "rotulo": "120 - 150 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J17",
+   "celula": "J17",
+   "rotulo": "120 - 150 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K17",
+   "celula": "K17",
+   "rotulo": "120 - 150 seg. — Percentil"
+  },
+  {
+   "chave": "out_L17",
+   "celula": "L17",
+   "rotulo": "120 - 150 seg. — Classificação"
+  },
+  {
+   "chave": "out_P17",
+   "celula": "P17",
+   "rotulo": "Bloco 5 — Percentil"
+  },
+  {
+   "chave": "out_F18",
+   "celula": "F18",
+   "rotulo": "Total — Percentil Manual"
+  },
+  {
+   "chave": "out_G18",
+   "celula": "G18",
+   "rotulo": "Total — Média"
+  },
+  {
+   "chave": "out_H18",
+   "celula": "H18",
+   "rotulo": "Total — Dv. Pd."
+  },
+  {
+   "chave": "out_I18",
+   "celula": "I18",
+   "rotulo": "Total — Z-Score"
+  },
+  {
+   "chave": "out_J18",
+   "celula": "J18",
+   "rotulo": "Total — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K18",
+   "celula": "K18",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_L18",
+   "celula": "L18",
+   "rotulo": "Total — Classificação"
+  },
+  {
+   "chave": "out_P18",
+   "celula": "P18",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_F19",
+   "celula": "F19",
+   "rotulo": "Total de Erros — Percentil Manual"
+  },
+  {
+   "chave": "out_P19",
+   "celula": "P19",
+   "rotulo": "TS — Percentil"
+  },
+  {
+   "chave": "out_E20",
+   "celula": "E20",
+   "rotulo": "Total de Switches — Pontos Brutos"
+  },
+  {
+   "chave": "out_F20",
+   "celula": "F20",
+   "rotulo": "Total de Switches — Percentil Manual"
+  },
+  {
+   "chave": "out_G20",
+   "celula": "G20",
+   "rotulo": "Total de Switches — Média"
+  },
+  {
+   "chave": "out_H20",
+   "celula": "H20",
+   "rotulo": "Total de Switches — Dv. Pd."
+  },
+  {
+   "chave": "out_I20",
+   "celula": "I20",
+   "rotulo": "Total de Switches — Z-Score"
+  },
+  {
+   "chave": "out_J20",
+   "celula": "J20",
+   "rotulo": "Total de Switches — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K20",
+   "celula": "K20",
+   "rotulo": "Total de Switches — Percentil"
+  },
+  {
+   "chave": "out_L20",
+   "celula": "L20",
+   "rotulo": "Total de Switches — Classificação"
+  },
+  {
+   "chave": "out_P20",
+   "celula": "P20",
+   "rotulo": "TC — Percentil"
+  },
+  {
+   "chave": "out_E21",
+   "celula": "E21",
+   "rotulo": "Total de Clusters — Pontos Brutos"
+  },
+  {
+   "chave": "out_F21",
+   "celula": "F21",
+   "rotulo": "Total de Clusters — Percentil Manual"
+  },
+  {
+   "chave": "out_G21",
+   "celula": "G21",
+   "rotulo": "Total de Clusters — Média"
+  },
+  {
+   "chave": "out_H21",
+   "celula": "H21",
+   "rotulo": "Total de Clusters — Dv. Pd."
+  },
+  {
+   "chave": "out_I21",
+   "celula": "I21",
+   "rotulo": "Total de Clusters — Z-Score"
+  },
+  {
+   "chave": "out_J21",
+   "celula": "J21",
+   "rotulo": "Total de Clusters — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K21",
+   "celula": "K21",
+   "rotulo": "Total de Clusters — Percentil"
+  },
+  {
+   "chave": "out_L21",
+   "celula": "L21",
+   "rotulo": "Total de Clusters — Classificação"
+  },
+  {
+   "chave": "out_P21",
+   "celula": "P21",
+   "rotulo": "CTe — Percentil"
+  },
+  {
+   "chave": "out_F22",
+   "celula": "F22",
+   "rotulo": "Clusters Temáticos — Percentil Manual"
+  },
+  {
+   "chave": "out_G22",
+   "celula": "G22",
+   "rotulo": "Clusters Temáticos — Média"
+  },
+  {
+   "chave": "out_H22",
+   "celula": "H22",
+   "rotulo": "Clusters Temáticos — Dv. Pd."
+  },
+  {
+   "chave": "out_I22",
+   "celula": "I22",
+   "rotulo": "Clusters Temáticos — Z-Score"
+  },
+  {
+   "chave": "out_J22",
+   "celula": "J22",
+   "rotulo": "Clusters Temáticos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K22",
+   "celula": "K22",
+   "rotulo": "Clusters Temáticos — Percentil"
+  },
+  {
+   "chave": "out_L22",
+   "celula": "L22",
+   "rotulo": "Clusters Temáticos — Classificação"
+  },
+  {
+   "chave": "out_P22",
+   "celula": "P22",
+   "rotulo": "CTx — Percentil"
+  },
+  {
+   "chave": "out_F23",
+   "celula": "F23",
+   "rotulo": "Clusters Taxonômicos — Percentil Manual"
+  },
+  {
+   "chave": "out_G23",
+   "celula": "G23",
+   "rotulo": "Clusters Taxonômicos — Média"
+  },
+  {
+   "chave": "out_H23",
+   "celula": "H23",
+   "rotulo": "Clusters Taxonômicos — Dv. Pd."
+  },
+  {
+   "chave": "out_I23",
+   "celula": "I23",
+   "rotulo": "Clusters Taxonômicos — Z-Score"
+  },
+  {
+   "chave": "out_J23",
+   "celula": "J23",
+   "rotulo": "Clusters Taxonômicos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K23",
+   "celula": "K23",
+   "rotulo": "Clusters Taxonômicos — Percentil"
+  },
+  {
+   "chave": "out_L23",
+   "celula": "L23",
+   "rotulo": "Clusters Taxonômicos — Classificação"
+  },
+  {
+   "chave": "out_P23",
+   "celula": "P23",
+   "rotulo": "CFO — Percentil"
+  },
+  {
+   "chave": "out_F24",
+   "celula": "F24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Percentil Manual"
+  },
+  {
+   "chave": "out_G24",
+   "celula": "G24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Média"
+  },
+  {
+   "chave": "out_H24",
+   "celula": "H24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Dv. Pd."
+  },
+  {
+   "chave": "out_I24",
+   "celula": "I24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Z-Score"
+  },
+  {
+   "chave": "out_J24",
+   "celula": "J24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K24",
+   "celula": "K24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Percentil"
+  },
+  {
+   "chave": "out_L24",
+   "celula": "L24",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Classificação"
+  },
+  {
+   "chave": "out_P24",
+   "celula": "P24",
+   "rotulo": "CM — Percentil"
+  },
+  {
+   "chave": "out_F25",
+   "celula": "F25",
+   "rotulo": "Clusters Mistos"
+  },
+  {
+   "chave": "out_G25",
+   "celula": "G25",
+   "rotulo": "Clusters Mistos"
+  },
+  {
+   "chave": "out_H25",
+   "celula": "H25",
+   "rotulo": "Clusters Mistos"
+  },
+  {
+   "chave": "out_I25",
+   "celula": "I25",
+   "rotulo": "Clusters Mistos"
+  },
+  {
+   "chave": "out_J25",
+   "celula": "J25",
+   "rotulo": "Clusters Mistos"
+  },
+  {
+   "chave": "out_K25",
+   "celula": "K25",
+   "rotulo": "Clusters Mistos"
+  },
+  {
+   "chave": "out_L25",
+   "celula": "L25",
+   "rotulo": "Clusters Mistos"
+  },
+  {
+   "chave": "out_P25",
+   "celula": "P25",
+   "rotulo": "Inter"
+  },
+  {
+   "chave": "out_F26",
+   "celula": "F26",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_G26",
+   "celula": "G26",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_H26",
+   "celula": "H26",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_I26",
+   "celula": "I26",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_J26",
+   "celula": "J26",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_K26",
+   "celula": "K26",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_L26",
+   "celula": "L26",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_P26",
+   "celula": "P26",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_F27",
+   "celula": "F27",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_G27",
+   "celula": "G27",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_H27",
+   "celula": "H27",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_I27",
+   "celula": "I27",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_J27",
+   "celula": "J27",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_K27",
+   "celula": "K27",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_L27",
+   "celula": "L27",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_F31",
+   "celula": "F31",
+   "rotulo": "00 - 30 seg. — Percentil"
+  },
+  {
+   "chave": "out_G31",
+   "celula": "G31",
+   "rotulo": "00 - 30 seg. — Média"
+  },
+  {
+   "chave": "out_H31",
+   "celula": "H31",
+   "rotulo": "00 - 30 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I31",
+   "celula": "I31",
+   "rotulo": "00 - 30 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J31",
+   "celula": "J31",
+   "rotulo": "00 - 30 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K31",
+   "celula": "K31",
+   "rotulo": "00 - 30 seg. — Percentil"
+  },
+  {
+   "chave": "out_L31",
+   "celula": "L31",
+   "rotulo": "00 - 30 seg. — Classificação"
+  },
+  {
+   "chave": "out_P31",
+   "celula": "P31",
+   "rotulo": "Bloco 1 — Percentil"
+  },
+  {
+   "chave": "out_F32",
+   "celula": "F32",
+   "rotulo": "30 - 60 seg. — Percentil"
+  },
+  {
+   "chave": "out_G32",
+   "celula": "G32",
+   "rotulo": "30 - 60 seg. — Média"
+  },
+  {
+   "chave": "out_H32",
+   "celula": "H32",
+   "rotulo": "30 - 60 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I32",
+   "celula": "I32",
+   "rotulo": "30 - 60 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J32",
+   "celula": "J32",
+   "rotulo": "30 - 60 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K32",
+   "celula": "K32",
+   "rotulo": "30 - 60 seg. — Percentil"
+  },
+  {
+   "chave": "out_L32",
+   "celula": "L32",
+   "rotulo": "30 - 60 seg. — Classificação"
+  },
+  {
+   "chave": "out_P32",
+   "celula": "P32",
+   "rotulo": "Bloco 2 — Percentil"
+  },
+  {
+   "chave": "out_F33",
+   "celula": "F33",
+   "rotulo": "60 - 90 seg. — Percentil"
+  },
+  {
+   "chave": "out_G33",
+   "celula": "G33",
+   "rotulo": "60 - 90 seg. — Média"
+  },
+  {
+   "chave": "out_H33",
+   "celula": "H33",
+   "rotulo": "60 - 90 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I33",
+   "celula": "I33",
+   "rotulo": "60 - 90 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J33",
+   "celula": "J33",
+   "rotulo": "60 - 90 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K33",
+   "celula": "K33",
+   "rotulo": "60 - 90 seg. — Percentil"
+  },
+  {
+   "chave": "out_L33",
+   "celula": "L33",
+   "rotulo": "60 - 90 seg. — Classificação"
+  },
+  {
+   "chave": "out_P33",
+   "celula": "P33",
+   "rotulo": "Bloco 3 — Percentil"
+  },
+  {
+   "chave": "out_F34",
+   "celula": "F34",
+   "rotulo": "90 - 120seg. — Percentil"
+  },
+  {
+   "chave": "out_G34",
+   "celula": "G34",
+   "rotulo": "90 - 120seg. — Média"
+  },
+  {
+   "chave": "out_H34",
+   "celula": "H34",
+   "rotulo": "90 - 120seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I34",
+   "celula": "I34",
+   "rotulo": "90 - 120seg. — Z-Score"
+  },
+  {
+   "chave": "out_J34",
+   "celula": "J34",
+   "rotulo": "90 - 120seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K34",
+   "celula": "K34",
+   "rotulo": "90 - 120seg. — Percentil"
+  },
+  {
+   "chave": "out_L34",
+   "celula": "L34",
+   "rotulo": "90 - 120seg. — Classificação"
+  },
+  {
+   "chave": "out_P34",
+   "celula": "P34",
+   "rotulo": "Bloco 4 — Percentil"
+  },
+  {
+   "chave": "out_F35",
+   "celula": "F35",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_G35",
+   "celula": "G35",
+   "rotulo": "Total — Média"
+  },
+  {
+   "chave": "out_H35",
+   "celula": "H35",
+   "rotulo": "Total — Dv. Pd."
+  },
+  {
+   "chave": "out_I35",
+   "celula": "I35",
+   "rotulo": "Total — Z-Score"
+  },
+  {
+   "chave": "out_J35",
+   "celula": "J35",
+   "rotulo": "Total — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K35",
+   "celula": "K35",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_L35",
+   "celula": "L35",
+   "rotulo": "Total — Classificação"
+  },
+  {
+   "chave": "out_P35",
+   "celula": "P35",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_F36",
+   "celula": "F36",
+   "rotulo": "Total de Erros — Percentil"
+  },
+  {
+   "chave": "out_P36",
+   "celula": "P36",
+   "rotulo": "TS — Percentil"
+  },
+  {
+   "chave": "out_E37",
+   "celula": "E37",
+   "rotulo": "Total de Switches — Pontos Brutos"
+  },
+  {
+   "chave": "out_F37",
+   "celula": "F37",
+   "rotulo": "Total de Switches — Percentil"
+  },
+  {
+   "chave": "out_G37",
+   "celula": "G37",
+   "rotulo": "Total de Switches — Média"
+  },
+  {
+   "chave": "out_H37",
+   "celula": "H37",
+   "rotulo": "Total de Switches — Dv. Pd."
+  },
+  {
+   "chave": "out_I37",
+   "celula": "I37",
+   "rotulo": "Total de Switches — Z-Score"
+  },
+  {
+   "chave": "out_J37",
+   "celula": "J37",
+   "rotulo": "Total de Switches — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K37",
+   "celula": "K37",
+   "rotulo": "Total de Switches — Percentil"
+  },
+  {
+   "chave": "out_L37",
+   "celula": "L37",
+   "rotulo": "Total de Switches — Classificação"
+  },
+  {
+   "chave": "out_P37",
+   "celula": "P37",
+   "rotulo": "TC — Percentil"
+  },
+  {
+   "chave": "out_E38",
+   "celula": "E38",
+   "rotulo": "Total de Clusters — Pontos Brutos"
+  },
+  {
+   "chave": "out_F38",
+   "celula": "F38",
+   "rotulo": "Total de Clusters — Percentil"
+  },
+  {
+   "chave": "out_G38",
+   "celula": "G38",
+   "rotulo": "Total de Clusters — Média"
+  },
+  {
+   "chave": "out_H38",
+   "celula": "H38",
+   "rotulo": "Total de Clusters — Dv. Pd."
+  },
+  {
+   "chave": "out_I38",
+   "celula": "I38",
+   "rotulo": "Total de Clusters — Z-Score"
+  },
+  {
+   "chave": "out_J38",
+   "celula": "J38",
+   "rotulo": "Total de Clusters — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K38",
+   "celula": "K38",
+   "rotulo": "Total de Clusters — Percentil"
+  },
+  {
+   "chave": "out_L38",
+   "celula": "L38",
+   "rotulo": "Total de Clusters — Classificação"
+  },
+  {
+   "chave": "out_P38",
+   "celula": "P38",
+   "rotulo": "CTe — Percentil"
+  },
+  {
+   "chave": "out_F39",
+   "celula": "F39",
+   "rotulo": "Clusters Temáticos — Percentil"
+  },
+  {
+   "chave": "out_G39",
+   "celula": "G39",
+   "rotulo": "Clusters Temáticos — Média"
+  },
+  {
+   "chave": "out_H39",
+   "celula": "H39",
+   "rotulo": "Clusters Temáticos — Dv. Pd."
+  },
+  {
+   "chave": "out_I39",
+   "celula": "I39",
+   "rotulo": "Clusters Temáticos — Z-Score"
+  },
+  {
+   "chave": "out_J39",
+   "celula": "J39",
+   "rotulo": "Clusters Temáticos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K39",
+   "celula": "K39",
+   "rotulo": "Clusters Temáticos — Percentil"
+  },
+  {
+   "chave": "out_L39",
+   "celula": "L39",
+   "rotulo": "Clusters Temáticos — Classificação"
+  },
+  {
+   "chave": "out_P39",
+   "celula": "P39",
+   "rotulo": "CTx — Percentil"
+  },
+  {
+   "chave": "out_F40",
+   "celula": "F40",
+   "rotulo": "Clusters Taxonômicos — Percentil"
+  },
+  {
+   "chave": "out_G40",
+   "celula": "G40",
+   "rotulo": "Clusters Taxonômicos — Média"
+  },
+  {
+   "chave": "out_H40",
+   "celula": "H40",
+   "rotulo": "Clusters Taxonômicos — Dv. Pd."
+  },
+  {
+   "chave": "out_I40",
+   "celula": "I40",
+   "rotulo": "Clusters Taxonômicos — Z-Score"
+  },
+  {
+   "chave": "out_J40",
+   "celula": "J40",
+   "rotulo": "Clusters Taxonômicos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K40",
+   "celula": "K40",
+   "rotulo": "Clusters Taxonômicos — Percentil"
+  },
+  {
+   "chave": "out_L40",
+   "celula": "L40",
+   "rotulo": "Clusters Taxonômicos — Classificação"
+  },
+  {
+   "chave": "out_P40",
+   "celula": "P40",
+   "rotulo": "CFO — Percentil"
+  },
+  {
+   "chave": "out_F41",
+   "celula": "F41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Percentil"
+  },
+  {
+   "chave": "out_G41",
+   "celula": "G41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Média"
+  },
+  {
+   "chave": "out_H41",
+   "celula": "H41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Dv. Pd."
+  },
+  {
+   "chave": "out_I41",
+   "celula": "I41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Z-Score"
+  },
+  {
+   "chave": "out_J41",
+   "celula": "J41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K41",
+   "celula": "K41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Percentil"
+  },
+  {
+   "chave": "out_L41",
+   "celula": "L41",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Classificação"
+  },
+  {
+   "chave": "out_P41",
+   "celula": "P41",
+   "rotulo": "CM — Percentil"
+  },
+  {
+   "chave": "out_F42",
+   "celula": "F42",
+   "rotulo": "Clusters Mistos — Percentil"
+  },
+  {
+   "chave": "out_G42",
+   "celula": "G42",
+   "rotulo": "Clusters Mistos — Média"
+  },
+  {
+   "chave": "out_H42",
+   "celula": "H42",
+   "rotulo": "Clusters Mistos — Dv. Pd."
+  },
+  {
+   "chave": "out_I42",
+   "celula": "I42",
+   "rotulo": "Clusters Mistos — Z-Score"
+  },
+  {
+   "chave": "out_J42",
+   "celula": "J42",
+   "rotulo": "Clusters Mistos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K42",
+   "celula": "K42",
+   "rotulo": "Clusters Mistos — Percentil"
+  },
+  {
+   "chave": "out_L42",
+   "celula": "L42",
+   "rotulo": "Clusters Mistos — Classificação"
+  },
+  {
+   "chave": "out_P42",
+   "celula": "P42",
+   "rotulo": "Inter — Percentil"
+  },
+  {
+   "chave": "out_F43",
+   "celula": "F43",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_G43",
+   "celula": "G43",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_H43",
+   "celula": "H43",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_I43",
+   "celula": "I43",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_J43",
+   "celula": "J43",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_K43",
+   "celula": "K43",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_L43",
+   "celula": "L43",
+   "rotulo": "Intersections"
+  },
+  {
+   "chave": "out_P43",
+   "celula": "P43",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_F44",
+   "celula": "F44",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_G44",
+   "celula": "G44",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_H44",
+   "celula": "H44",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_I44",
+   "celula": "I44",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_J44",
+   "celula": "J44",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_K44",
+   "celula": "K44",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_L44",
+   "celula": "L44",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_F48",
+   "celula": "F48",
+   "rotulo": "00 - 30 seg. — Percentil"
+  },
+  {
+   "chave": "out_G48",
+   "celula": "G48",
+   "rotulo": "00 - 30 seg. — Média"
+  },
+  {
+   "chave": "out_H48",
+   "celula": "H48",
+   "rotulo": "00 - 30 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I48",
+   "celula": "I48",
+   "rotulo": "00 - 30 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J48",
+   "celula": "J48",
+   "rotulo": "00 - 30 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K48",
+   "celula": "K48",
+   "rotulo": "00 - 30 seg. — Percentil"
+  },
+  {
+   "chave": "out_L48",
+   "celula": "L48",
+   "rotulo": "00 - 30 seg. — Classificação"
+  },
+  {
+   "chave": "out_P48",
+   "celula": "P48",
+   "rotulo": "Bloco 1 — Percentil"
+  },
+  {
+   "chave": "out_F49",
+   "celula": "F49",
+   "rotulo": "30 - 60 seg. — Percentil"
+  },
+  {
+   "chave": "out_G49",
+   "celula": "G49",
+   "rotulo": "30 - 60 seg. — Média"
+  },
+  {
+   "chave": "out_H49",
+   "celula": "H49",
+   "rotulo": "30 - 60 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I49",
+   "celula": "I49",
+   "rotulo": "30 - 60 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J49",
+   "celula": "J49",
+   "rotulo": "30 - 60 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K49",
+   "celula": "K49",
+   "rotulo": "30 - 60 seg. — Percentil"
+  },
+  {
+   "chave": "out_L49",
+   "celula": "L49",
+   "rotulo": "30 - 60 seg. — Classificação"
+  },
+  {
+   "chave": "out_P49",
+   "celula": "P49",
+   "rotulo": "Bloco 2 — Percentil"
+  },
+  {
+   "chave": "out_F50",
+   "celula": "F50",
+   "rotulo": "60 - 90 seg. — Percentil"
+  },
+  {
+   "chave": "out_G50",
+   "celula": "G50",
+   "rotulo": "60 - 90 seg. — Média"
+  },
+  {
+   "chave": "out_H50",
+   "celula": "H50",
+   "rotulo": "60 - 90 seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I50",
+   "celula": "I50",
+   "rotulo": "60 - 90 seg. — Z-Score"
+  },
+  {
+   "chave": "out_J50",
+   "celula": "J50",
+   "rotulo": "60 - 90 seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K50",
+   "celula": "K50",
+   "rotulo": "60 - 90 seg. — Percentil"
+  },
+  {
+   "chave": "out_L50",
+   "celula": "L50",
+   "rotulo": "60 - 90 seg. — Classificação"
+  },
+  {
+   "chave": "out_P50",
+   "celula": "P50",
+   "rotulo": "Bloco 3 — Percentil"
+  },
+  {
+   "chave": "out_F51",
+   "celula": "F51",
+   "rotulo": "90 - 120seg. — Percentil"
+  },
+  {
+   "chave": "out_G51",
+   "celula": "G51",
+   "rotulo": "90 - 120seg. — Média"
+  },
+  {
+   "chave": "out_H51",
+   "celula": "H51",
+   "rotulo": "90 - 120seg. — Dv. Pd."
+  },
+  {
+   "chave": "out_I51",
+   "celula": "I51",
+   "rotulo": "90 - 120seg. — Z-Score"
+  },
+  {
+   "chave": "out_J51",
+   "celula": "J51",
+   "rotulo": "90 - 120seg. — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K51",
+   "celula": "K51",
+   "rotulo": "90 - 120seg. — Percentil"
+  },
+  {
+   "chave": "out_L51",
+   "celula": "L51",
+   "rotulo": "90 - 120seg. — Classificação"
+  },
+  {
+   "chave": "out_P51",
+   "celula": "P51",
+   "rotulo": "Bloco 4 — Percentil"
+  },
+  {
+   "chave": "out_F52",
+   "celula": "F52",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_G52",
+   "celula": "G52",
+   "rotulo": "Total — Média"
+  },
+  {
+   "chave": "out_H52",
+   "celula": "H52",
+   "rotulo": "Total — Dv. Pd."
+  },
+  {
+   "chave": "out_I52",
+   "celula": "I52",
+   "rotulo": "Total — Z-Score"
+  },
+  {
+   "chave": "out_J52",
+   "celula": "J52",
+   "rotulo": "Total — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K52",
+   "celula": "K52",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_L52",
+   "celula": "L52",
+   "rotulo": "Total — Classificação"
+  },
+  {
+   "chave": "out_P52",
+   "celula": "P52",
+   "rotulo": "Total — Percentil"
+  },
+  {
+   "chave": "out_F53",
+   "celula": "F53",
+   "rotulo": "Total de Erros — Percentil"
+  },
+  {
+   "chave": "out_P53",
+   "celula": "P53",
+   "rotulo": "TS — Percentil"
+  },
+  {
+   "chave": "out_E54",
+   "celula": "E54",
+   "rotulo": "Total de Switches — Pontos Brutos"
+  },
+  {
+   "chave": "out_F54",
+   "celula": "F54",
+   "rotulo": "Total de Switches — Percentil"
+  },
+  {
+   "chave": "out_G54",
+   "celula": "G54",
+   "rotulo": "Total de Switches — Média"
+  },
+  {
+   "chave": "out_H54",
+   "celula": "H54",
+   "rotulo": "Total de Switches — Dv. Pd."
+  },
+  {
+   "chave": "out_I54",
+   "celula": "I54",
+   "rotulo": "Total de Switches — Z-Score"
+  },
+  {
+   "chave": "out_J54",
+   "celula": "J54",
+   "rotulo": "Total de Switches — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K54",
+   "celula": "K54",
+   "rotulo": "Total de Switches — Percentil"
+  },
+  {
+   "chave": "out_L54",
+   "celula": "L54",
+   "rotulo": "Total de Switches — Classificação"
+  },
+  {
+   "chave": "out_P54",
+   "celula": "P54",
+   "rotulo": "TC — Percentil"
+  },
+  {
+   "chave": "out_E55",
+   "celula": "E55",
+   "rotulo": "Total de Clusters — Pontos Brutos"
+  },
+  {
+   "chave": "out_F55",
+   "celula": "F55",
+   "rotulo": "Total de Clusters — Percentil"
+  },
+  {
+   "chave": "out_G55",
+   "celula": "G55",
+   "rotulo": "Total de Clusters — Média"
+  },
+  {
+   "chave": "out_H55",
+   "celula": "H55",
+   "rotulo": "Total de Clusters — Dv. Pd."
+  },
+  {
+   "chave": "out_I55",
+   "celula": "I55",
+   "rotulo": "Total de Clusters — Z-Score"
+  },
+  {
+   "chave": "out_J55",
+   "celula": "J55",
+   "rotulo": "Total de Clusters — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K55",
+   "celula": "K55",
+   "rotulo": "Total de Clusters — Percentil"
+  },
+  {
+   "chave": "out_L55",
+   "celula": "L55",
+   "rotulo": "Total de Clusters — Classificação"
+  },
+  {
+   "chave": "out_P55",
+   "celula": "P55",
+   "rotulo": "CTx — Percentil"
+  },
+  {
+   "chave": "out_F56",
+   "celula": "F56",
+   "rotulo": "Clusters Taxonômicos — Percentil"
+  },
+  {
+   "chave": "out_G56",
+   "celula": "G56",
+   "rotulo": "Clusters Taxonômicos — Média"
+  },
+  {
+   "chave": "out_H56",
+   "celula": "H56",
+   "rotulo": "Clusters Taxonômicos — Dv. Pd."
+  },
+  {
+   "chave": "out_I56",
+   "celula": "I56",
+   "rotulo": "Clusters Taxonômicos — Z-Score"
+  },
+  {
+   "chave": "out_J56",
+   "celula": "J56",
+   "rotulo": "Clusters Taxonômicos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K56",
+   "celula": "K56",
+   "rotulo": "Clusters Taxonômicos — Percentil"
+  },
+  {
+   "chave": "out_L56",
+   "celula": "L56",
+   "rotulo": "Clusters Taxonômicos — Classificação"
+  },
+  {
+   "chave": "out_P56",
+   "celula": "P56",
+   "rotulo": "CFO — Percentil"
+  },
+  {
+   "chave": "out_F57",
+   "celula": "F57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Percentil"
+  },
+  {
+   "chave": "out_G57",
+   "celula": "G57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Média"
+  },
+  {
+   "chave": "out_H57",
+   "celula": "H57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Dv. Pd."
+  },
+  {
+   "chave": "out_I57",
+   "celula": "I57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Z-Score"
+  },
+  {
+   "chave": "out_J57",
+   "celula": "J57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K57",
+   "celula": "K57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Percentil"
+  },
+  {
+   "chave": "out_L57",
+   "celula": "L57",
+   "rotulo": "Clusters Fonêmicos-Ortográficos — Classificação"
+  },
+  {
+   "chave": "out_P57",
+   "celula": "P57",
+   "rotulo": "CM — Percentil"
+  },
+  {
+   "chave": "out_F58",
+   "celula": "F58",
+   "rotulo": "Clusters Mistos — Percentil"
+  },
+  {
+   "chave": "out_G58",
+   "celula": "G58",
+   "rotulo": "Clusters Mistos — Média"
+  },
+  {
+   "chave": "out_H58",
+   "celula": "H58",
+   "rotulo": "Clusters Mistos — Dv. Pd."
+  },
+  {
+   "chave": "out_I58",
+   "celula": "I58",
+   "rotulo": "Clusters Mistos — Z-Score"
+  },
+  {
+   "chave": "out_J58",
+   "celula": "J58",
+   "rotulo": "Clusters Mistos — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K58",
+   "celula": "K58",
+   "rotulo": "Clusters Mistos — Percentil"
+  },
+  {
+   "chave": "out_L58",
+   "celula": "L58",
+   "rotulo": "Clusters Mistos — Classificação"
+  },
+  {
+   "chave": "out_P58",
+   "celula": "P58",
+   "rotulo": "Inter — Percentil"
+  },
+  {
+   "chave": "out_F59",
+   "celula": "F59",
+   "rotulo": "Intersections — Percentil"
+  },
+  {
+   "chave": "out_G59",
+   "celula": "G59",
+   "rotulo": "Intersections — Média"
+  },
+  {
+   "chave": "out_H59",
+   "celula": "H59",
+   "rotulo": "Intersections — Dv. Pd."
+  },
+  {
+   "chave": "out_I59",
+   "celula": "I59",
+   "rotulo": "Intersections — Z-Score"
+  },
+  {
+   "chave": "out_J59",
+   "celula": "J59",
+   "rotulo": "Intersections — Pontos Ponderados"
+  },
+  {
+   "chave": "out_K59",
+   "celula": "K59",
+   "rotulo": "Intersections — Percentil"
+  },
+  {
+   "chave": "out_L59",
+   "celula": "L59",
+   "rotulo": "Intersections — Classificação"
+  },
+  {
+   "chave": "out_P59",
+   "celula": "P59",
+   "rotulo": "Returns — Percentil"
+  },
+  {
+   "chave": "out_F60",
+   "celula": "F60",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_G60",
+   "celula": "G60",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_H60",
+   "celula": "H60",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_I60",
+   "celula": "I60",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_J60",
+   "celula": "J60",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_K60",
+   "celula": "K60",
+   "rotulo": "Returns"
+  },
+  {
+   "chave": "out_L60",
+   "celula": "L60",
+   "rotulo": "Returns"
+  }
+ ],
+ "tabelas": [
+  {
+   "titulo": "Resultado",
+   "colunas": [
+    "Pontos Brutos",
+    "Percentil Manual",
+    "Média",
+    "Dv. Pd.",
+    "Z-Score",
+    "Pontos Ponderados",
+    "Percentil",
+    "Classificação",
+    "Percentil"
+   ],
+   "linhas": [
+    {
+     "rotulo": "00 - 30 seg.",
+     "valores": [
+      null,
+      "out_F13",
+      "out_G13",
+      "out_H13",
+      "out_I13",
+      "out_J13",
+      "out_K13",
+      "out_L13",
+      "out_P13"
+     ]
+    },
+    {
+     "rotulo": "30 - 60 seg.",
+     "valores": [
+      null,
+      "out_F14",
+      "out_G14",
+      "out_H14",
+      "out_I14",
+      "out_J14",
+      "out_K14",
+      "out_L14",
+      "out_P14"
+     ]
+    },
+    {
+     "rotulo": "60 - 90 seg.",
+     "valores": [
+      null,
+      "out_F15",
+      "out_G15",
+      "out_H15",
+      "out_I15",
+      "out_J15",
+      "out_K15",
+      "out_L15",
+      "out_P15"
+     ]
+    },
+    {
+     "rotulo": "90 - 120 seg.",
+     "valores": [
+      null,
+      "out_F16",
+      "out_G16",
+      "out_H16",
+      "out_I16",
+      "out_J16",
+      "out_K16",
+      "out_L16",
+      "out_P16"
+     ]
+    },
+    {
+     "rotulo": "120 - 150 seg.",
+     "valores": [
+      null,
+      "out_F17",
+      "out_G17",
+      "out_H17",
+      "out_I17",
+      "out_J17",
+      "out_K17",
+      "out_L17",
+      "out_P17"
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      "out_F18",
+      "out_G18",
+      "out_H18",
+      "out_I18",
+      "out_J18",
+      "out_K18",
+      "out_L18",
+      "out_P18"
+     ]
+    },
+    {
+     "rotulo": "Total de Erros",
+     "valores": [
+      null,
+      "out_F19",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_P19"
+     ]
+    },
+    {
+     "rotulo": "Total de Switches",
+     "valores": [
+      "out_E20",
+      "out_F20",
+      "out_G20",
+      "out_H20",
+      "out_I20",
+      "out_J20",
+      "out_K20",
+      "out_L20",
+      "out_P20"
+     ]
+    },
+    {
+     "rotulo": "Total de Clusters",
+     "valores": [
+      "out_E21",
+      "out_F21",
+      "out_G21",
+      "out_H21",
+      "out_I21",
+      "out_J21",
+      "out_K21",
+      "out_L21",
+      "out_P21"
+     ]
+    },
+    {
+     "rotulo": "Clusters Temáticos",
+     "valores": [
+      null,
+      "out_F22",
+      "out_G22",
+      "out_H22",
+      "out_I22",
+      "out_J22",
+      "out_K22",
+      "out_L22",
+      "out_P22"
+     ]
+    },
+    {
+     "rotulo": "Clusters Taxonômicos",
+     "valores": [
+      null,
+      "out_F23",
+      "out_G23",
+      "out_H23",
+      "out_I23",
+      "out_J23",
+      "out_K23",
+      "out_L23",
+      "out_P23"
+     ]
+    },
+    {
+     "rotulo": "Clusters Fonêmicos-Ortográficos",
+     "valores": [
+      null,
+      "out_F24",
+      "out_G24",
+      "out_H24",
+      "out_I24",
+      "out_J24",
+      "out_K24",
+      "out_L24",
+      "out_P24"
+     ]
+    },
+    {
+     "rotulo": "Clusters Mistos",
+     "valores": [
+      null,
+      "out_F25",
+      "out_G25",
+      "out_H25",
+      "out_I25",
+      "out_J25",
+      "out_K25",
+      "out_L25",
+      "out_P25"
+     ]
+    },
+    {
+     "rotulo": "Intersections",
+     "valores": [
+      null,
+      "out_F26",
+      "out_G26",
+      "out_H26",
+      "out_I26",
+      "out_J26",
+      "out_K26",
+      "out_L26",
+      "out_P26"
+     ]
+    },
+    {
+     "rotulo": "Returns",
+     "valores": [
+      null,
+      "out_F27",
+      "out_G27",
+      "out_H27",
+      "out_I27",
+      "out_J27",
+      "out_K27",
+      "out_L27",
+      null
+     ]
+    },
+    {
+     "rotulo": "00 - 30 seg.",
+     "valores": [
+      null,
+      "out_F31",
+      "out_G31",
+      "out_H31",
+      "out_I31",
+      "out_J31",
+      "out_K31",
+      "out_L31",
+      "out_P31"
+     ]
+    },
+    {
+     "rotulo": "30 - 60 seg.",
+     "valores": [
+      null,
+      "out_F32",
+      "out_G32",
+      "out_H32",
+      "out_I32",
+      "out_J32",
+      "out_K32",
+      "out_L32",
+      "out_P32"
+     ]
+    },
+    {
+     "rotulo": "60 - 90 seg.",
+     "valores": [
+      null,
+      "out_F33",
+      "out_G33",
+      "out_H33",
+      "out_I33",
+      "out_J33",
+      "out_K33",
+      "out_L33",
+      "out_P33"
+     ]
+    },
+    {
+     "rotulo": "90 - 120seg.",
+     "valores": [
+      null,
+      "out_F34",
+      "out_G34",
+      "out_H34",
+      "out_I34",
+      "out_J34",
+      "out_K34",
+      "out_L34",
+      "out_P34"
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      "out_F35",
+      "out_G35",
+      "out_H35",
+      "out_I35",
+      "out_J35",
+      "out_K35",
+      "out_L35",
+      "out_P35"
+     ]
+    },
+    {
+     "rotulo": "Total de Erros",
+     "valores": [
+      null,
+      "out_F36",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_P36"
+     ]
+    },
+    {
+     "rotulo": "Total de Switches",
+     "valores": [
+      "out_E37",
+      "out_F37",
+      "out_G37",
+      "out_H37",
+      "out_I37",
+      "out_J37",
+      "out_K37",
+      "out_L37",
+      "out_P37"
+     ]
+    },
+    {
+     "rotulo": "Total de Clusters",
+     "valores": [
+      "out_E38",
+      "out_F38",
+      "out_G38",
+      "out_H38",
+      "out_I38",
+      "out_J38",
+      "out_K38",
+      "out_L38",
+      "out_P38"
+     ]
+    },
+    {
+     "rotulo": "Clusters Temáticos",
+     "valores": [
+      null,
+      "out_F39",
+      "out_G39",
+      "out_H39",
+      "out_I39",
+      "out_J39",
+      "out_K39",
+      "out_L39",
+      "out_P39"
+     ]
+    },
+    {
+     "rotulo": "Clusters Taxonômicos",
+     "valores": [
+      null,
+      "out_F40",
+      "out_G40",
+      "out_H40",
+      "out_I40",
+      "out_J40",
+      "out_K40",
+      "out_L40",
+      "out_P40"
+     ]
+    },
+    {
+     "rotulo": "Clusters Fonêmicos-Ortográficos",
+     "valores": [
+      null,
+      "out_F41",
+      "out_G41",
+      "out_H41",
+      "out_I41",
+      "out_J41",
+      "out_K41",
+      "out_L41",
+      "out_P41"
+     ]
+    },
+    {
+     "rotulo": "Clusters Mistos",
+     "valores": [
+      null,
+      "out_F42",
+      "out_G42",
+      "out_H42",
+      "out_I42",
+      "out_J42",
+      "out_K42",
+      "out_L42",
+      "out_P42"
+     ]
+    },
+    {
+     "rotulo": "Intersections",
+     "valores": [
+      null,
+      "out_F43",
+      "out_G43",
+      "out_H43",
+      "out_I43",
+      "out_J43",
+      "out_K43",
+      "out_L43",
+      "out_P43"
+     ]
+    },
+    {
+     "rotulo": "Returns",
+     "valores": [
+      null,
+      "out_F44",
+      "out_G44",
+      "out_H44",
+      "out_I44",
+      "out_J44",
+      "out_K44",
+      "out_L44",
+      null
+     ]
+    },
+    {
+     "rotulo": "00 - 30 seg.",
+     "valores": [
+      null,
+      "out_F48",
+      "out_G48",
+      "out_H48",
+      "out_I48",
+      "out_J48",
+      "out_K48",
+      "out_L48",
+      "out_P48"
+     ]
+    },
+    {
+     "rotulo": "30 - 60 seg.",
+     "valores": [
+      null,
+      "out_F49",
+      "out_G49",
+      "out_H49",
+      "out_I49",
+      "out_J49",
+      "out_K49",
+      "out_L49",
+      "out_P49"
+     ]
+    },
+    {
+     "rotulo": "60 - 90 seg.",
+     "valores": [
+      null,
+      "out_F50",
+      "out_G50",
+      "out_H50",
+      "out_I50",
+      "out_J50",
+      "out_K50",
+      "out_L50",
+      "out_P50"
+     ]
+    },
+    {
+     "rotulo": "90 - 120seg.",
+     "valores": [
+      null,
+      "out_F51",
+      "out_G51",
+      "out_H51",
+      "out_I51",
+      "out_J51",
+      "out_K51",
+      "out_L51",
+      "out_P51"
+     ]
+    },
+    {
+     "rotulo": "Total",
+     "valores": [
+      null,
+      "out_F52",
+      "out_G52",
+      "out_H52",
+      "out_I52",
+      "out_J52",
+      "out_K52",
+      "out_L52",
+      "out_P52"
+     ]
+    },
+    {
+     "rotulo": "Total de Erros",
+     "valores": [
+      null,
+      "out_F53",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "out_P53"
+     ]
+    },
+    {
+     "rotulo": "Total de Switches",
+     "valores": [
+      "out_E54",
+      "out_F54",
+      "out_G54",
+      "out_H54",
+      "out_I54",
+      "out_J54",
+      "out_K54",
+      "out_L54",
+      "out_P54"
+     ]
+    },
+    {
+     "rotulo": "Total de Clusters",
+     "valores": [
+      "out_E55",
+      "out_F55",
+      "out_G55",
+      "out_H55",
+      "out_I55",
+      "out_J55",
+      "out_K55",
+      "out_L55",
+      "out_P55"
+     ]
+    },
+    {
+     "rotulo": "Clusters Taxonômicos",
+     "valores": [
+      null,
+      "out_F56",
+      "out_G56",
+      "out_H56",
+      "out_I56",
+      "out_J56",
+      "out_K56",
+      "out_L56",
+      "out_P56"
+     ]
+    },
+    {
+     "rotulo": "Clusters Fonêmicos-Ortográficos",
+     "valores": [
+      null,
+      "out_F57",
+      "out_G57",
+      "out_H57",
+      "out_I57",
+      "out_J57",
+      "out_K57",
+      "out_L57",
+      "out_P57"
+     ]
+    },
+    {
+     "rotulo": "Clusters Mistos",
+     "valores": [
+      null,
+      "out_F58",
+      "out_G58",
+      "out_H58",
+      "out_I58",
+      "out_J58",
+      "out_K58",
+      "out_L58",
+      "out_P58"
+     ]
+    },
+    {
+     "rotulo": "Intersections",
+     "valores": [
+      null,
+      "out_F59",
+      "out_G59",
+      "out_H59",
+      "out_I59",
+      "out_J59",
+      "out_K59",
+      "out_L59",
+      "out_P59"
+     ]
+    },
+    {
+     "rotulo": "Returns",
+     "valores": [
+      null,
+      "out_F60",
+      "out_G60",
+      "out_H60",
+      "out_I60",
+      "out_J60",
+      "out_K60",
+      "out_L60",
+      null
+     ]
+    }
+   ]
+  }
+ ]
+}
