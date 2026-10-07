@@ -73,3 +73,19 @@ anexosRouter.delete(
     res.status(204).send();
   })
 );
+
+const anexoUpdateSchema = z.object({ tipo: z.string().min(1).optional(), url: z.string().url().optional(), descricao: z.string().nullable().optional() });
+
+anexosRouter.patch(
+  "/:id",
+  validateBody(anexoUpdateSchema),
+  asyncHandler(async (req, res) => {
+    const anexo = await prisma.anexo.findUnique({ where: { id: req.params.id }, include: { paciente: true } });
+    if (!anexo || anexo.paciente.clinicaId !== req.profissional!.clinicaId || (!ehAdmin(req) && anexo.paciente.profissionalId !== req.profissional!.sub)) {
+      res.status(404).json({ error: "Anexo não encontrado" });
+      return;
+    }
+    const atualizado = await prisma.anexo.update({ where: { id: anexo.id }, data: { tipo: req.body.tipo, url: req.body.url, descricao: req.body.descricao === null ? null : req.body.descricao } });
+    res.json(atualizado);
+  })
+);

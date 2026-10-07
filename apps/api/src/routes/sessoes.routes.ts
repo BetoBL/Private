@@ -2,6 +2,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
+import { recalcularAplicacoesDaSessao } from "./aplicacoesDeTeste.routes";
 
 const sessaoCreateSchema = z.object({
   pacienteId: z.string().uuid(),
@@ -70,5 +71,48 @@ sessoesRouter.get(
       return;
     }
     res.json(sessao);
+  })
+);
+
+const sessaoUpdateSchema = z.object({ dataHora: z.coerce.date().optional(), observacoes: z.string().nullable().optional() });
+
+async function sessaoDoUsuario(req: { params: { id: string }; profissional?: { clinicaId: string; papel: string; sub: string } }) {
+  const sessao = await prisma.sessao.findUnique({ where: { id: req.params.id }, include: { paciente: true, aplicacoesTeste: { select: { id: true } }, salasVirtuais: { select: { id: true } }, eventoAgenda: { select: { id: true } } } });
+  if (!sessao || sessao.paciente.clinicaId !== req.profissional!.clinicaId) return null;
+  if (!ehAdmin(req) && sessao.paciente.profissionalId !== req.profissional!.sub) return null;
+  return sessao;
+}
+
+// Corrige a data/hora (ou observações) da sessão. Mudar a data muda a idade do paciente na aplicação: os testes já lançados são recalculados.
+sessoesRouter.patch(
+  "/:id",
+  validateBody(sessaoUpdateSchema),
+  asyncHandler(async (req, res) => {
+    const sessao = await sessaoDoUsuario(req as never);
+    if (!sessao) {
+      res.status(404).json({ error: "Sessão não encontrada" });
+      return;
+    }
+    const atualizada = await prisma.sessao.update({ where: { id: sessao.id }, data: { dataHora: req.body.dataHora, observacoes: req.body.observacoes === null ? null : req.body.observacoes } });
+    const recalculados = req.body.dataHora ? await recalcularAplicacoesDaSessao(sessao.id, req.profissional!.clinicaId) : 0;
+    res.json({ ...atualizada, testesRecalculados: recalculados });
+  })
+);
+
+// Só apaga sessão sem testes, sala virtual nem evento de agenda ligados (para não perder resultado sem querer).
+sessoesRouter.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const sessao = await sessaoDoUsuario(req as never);
+    if (!sessao) {
+      res.status(404).json({ error: "Sessão não encontrada" });
+      return;
+    }
+    if (sessao.aplicacoesTeste.length > 0 || sessao.salasVirtuais.length > 0 || sessao.eventoAgenda) {
+      res.status(409).json({ error: "Esta sessão tem testes lançados, sala virtual ou evento na agenda. Remova esses itens antes de excluir a sessão." });
+      return;
+    }
+    await prisma.sessao.delete({ where: { id: sessao.id } });
+    res.status(204).send();
   })
 );

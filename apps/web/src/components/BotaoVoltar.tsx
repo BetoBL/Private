@@ -1,17 +1,5 @@
-import { useNavigate } from "react-router-dom";
-
+// Substituído pela seta "Voltar" do cabeçalho (components/Layout.tsx), que volta à etapa anterior em todas as telas.
+// Mantido como componente vazio para não mexer em cada página que ainda o importa.
 export function BotaoVoltar() {
-  const navigate = useNavigate();
-
-  return (
-    <button
-      onClick={() => navigate("/")}
-      className="mb-6 flex items-center gap-2 text-sm font-semibold text-sage-deep hover:text-sage-deep/80 transition-colors"
-    >
-      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-        <path d="M19 12H5M12 19l-7-7 7-7" />
-      </svg>
-      Voltar para Painel do dia
-    </button>
-  );
+  return null;
 }

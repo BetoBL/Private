@@ -518,6 +518,11 @@ export const api = {
   createAnexo: (data: { pacienteId: string; tipo: string; url: string; descricao?: string }) =>
     request<Anexo>("/anexos", { method: "POST", body: JSON.stringify(data) }),
   deleteAnexo: (id: string) => request<void>(`/anexos/${id}`, { method: "DELETE" }),
+  updateAnexo: (id: string, data: { tipo?: string; url?: string; descricao?: string | null }) => request<Anexo>(`/anexos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  // sessões: corrigir data/hora (os testes lançados são recalculados) e excluir sessão vazia
+  updateSessao: (id: string, data: { dataHora?: string; observacoes?: string | null }) => request<Sessao & { testesRecalculados: number }>(`/sessoes/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  deleteSessao: (id: string) => request<void>(`/sessoes/${id}`, { method: "DELETE" }),
+  deleteAplicacao: (id: string) => request<void>(`/aplicacoes-teste/${id}`, { method: "DELETE" }),
 
   listTestes: () => request<Teste[]>("/testes"),
 

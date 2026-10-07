@@ -261,3 +261,40 @@ aplicacoesDeTesteRouter.patch(
     res.json(aplicacao);
   })
 );
+
+// Recalcula todos os lançamentos de uma sessão (usado quando a data da sessão muda: a idade do paciente muda e, com ela, a norma).
+export async function recalcularAplicacoesDaSessao(sessaoId: string, clinicaId: string) {
+  const sessao = await prisma.sessao.findUnique({ where: { id: sessaoId }, include: { paciente: true, aplicacoesTeste: true } });
+  if (!sessao) return 0;
+  for (const a of sessao.aplicacoesTeste) {
+    const resultado = await recalcular(a.testeId, clinicaId, a.escoresBrutos as Record<string, number>, {
+      idadeAnos: calcularIdadeEmAnos(sessao.paciente.dataNascimento, sessao.dataHora),
+      idadeMeses: calcularIdadeEmMeses(sessao.paciente.dataNascimento, sessao.dataHora),
+      idadeDias: calcularIdadeEmDias(sessao.paciente.dataNascimento, sessao.dataHora),
+      dataNascimento: sessao.paciente.dataNascimento,
+      dataReferencia: sessao.dataHora,
+      sexo: sessao.paciente.sexo,
+      paciente: { escolaridade: sessao.paciente.escolaridade, sexo: sessao.paciente.sexo, nome: sessao.paciente.nome },
+    });
+    await prisma.aplicacaoDeTeste.update({ where: { id: a.id }, data: { resultadoCalculado: resultado ? (resultado as unknown as Prisma.InputJsonValue) : Prisma.DbNull, calculadoEm: resultado ? new Date() : null } });
+  }
+  return sessao.aplicacoesTeste.length;
+}
+
+// Remove um lançamento de teste (o profissional lançou no teste errado ou no paciente errado).
+aplicacoesDeTesteRouter.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const existente = await prisma.aplicacaoDeTeste.findUnique({ where: { id: req.params.id }, include: { sessao: { include: { paciente: true } } } });
+    if (!existente || existente.sessao.paciente.clinicaId !== req.profissional!.clinicaId) {
+      res.status(404).json({ error: "Aplicação de teste não encontrada" });
+      return;
+    }
+    if (!ehAdmin(req) && existente.sessao.paciente.profissionalId !== req.profissional!.sub) {
+      res.status(404).json({ error: "Aplicação de teste não encontrada" });
+      return;
+    }
+    await prisma.aplicacaoDeTeste.delete({ where: { id: req.params.id } });
+    res.status(204).send();
+  })
+);

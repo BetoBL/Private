@@ -184,6 +184,69 @@ export function FichaPaciente() {
     }
   }
 
+  // --- editar/excluir o que já foi lançado ---
+  const [editandoSessaoId, setEditandoSessaoId] = useState<string | null>(null);
+  const [dataSessaoEdit, setDataSessaoEdit] = useState("");
+
+  function iniciarEdicaoSessao(s: Sessao) {
+    const d = new Date(s.dataHora);
+    d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+    setDataSessaoEdit(d.toISOString().slice(0, 16));
+    setEditandoSessaoId(s.id);
+  }
+
+  async function salvarDataSessao(sessaoId: string) {
+    setErro(null);
+    try {
+      const r = await api.updateSessao(sessaoId, { dataHora: new Date(dataSessaoEdit).toISOString() });
+      setSessoes((prev) => prev.map((s) => (s.id === sessaoId ? { ...s, dataHora: r.dataHora } : s)));
+      if (r.testesRecalculados > 0 && id) api.listAplicacoesPorPaciente(id).then(setAplicacoes).catch(() => undefined);
+      setEditandoSessaoId(null);
+      setMensagem(r.testesRecalculados > 0 ? `Data da sessão corrigida. ${r.testesRecalculados} teste(s) recalculado(s) com a nova idade.` : "Data da sessão corrigida.");
+    } catch (e) {
+      setErro((e as Error).message);
+    }
+  }
+
+  async function excluirSessao(sessaoId: string) {
+    if (!window.confirm("Excluir esta sessão? Só é possível se ela não tiver testes lançados.")) return;
+    setErro(null);
+    try {
+      await api.deleteSessao(sessaoId);
+      setSessoes((prev) => prev.filter((s) => s.id !== sessaoId));
+      setMensagem("Sessão excluída.");
+    } catch (e) {
+      setErro((e as Error).message);
+    }
+  }
+
+  async function excluirLancamento(aplicacaoId: string, sigla: string) {
+    if (!window.confirm(`Excluir o lançamento de ${sigla} desta sessão? Os escores e o resultado serão apagados.`)) return;
+    setErro(null);
+    try {
+      await api.deleteAplicacao(aplicacaoId);
+      setAplicacoes((prev) => prev.filter((a) => a.id !== aplicacaoId));
+      setMensagem(`Lançamento de ${sigla} excluído.`);
+    } catch (e) {
+      setErro((e as Error).message);
+    }
+  }
+
+  async function editarAnexo(a: Anexo) {
+    const nova = window.prompt("Descrição do anexo:", a.descricao ?? "");
+    if (nova === null) return;
+    const url = window.prompt("Link (URL) do anexo:", a.url);
+    if (url === null) return;
+    setErro(null);
+    try {
+      const atualizado = await api.updateAnexo(a.id, { descricao: nova.trim() === "" ? null : nova.trim(), url: url.trim() });
+      setAnexos((prev) => prev.map((x) => (x.id === a.id ? atualizado : x)));
+      setMensagem("Anexo atualizado.");
+    } catch (e) {
+      setErro((e as Error).message);
+    }
+  }
+
   async function removerAnexo(anexoId: string) {
     setErro(null);
     try {
@@ -542,7 +605,21 @@ export function FichaPaciente() {
           {timeline.map(({ sessao, testes }) => (
             <div key={sessao.id} className="relative">
               <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full border-2 border-paper bg-sage" />
-              <div className="mb-0.5 text-xs font-bold text-sage-deep">{new Date(sessao.dataHora).toLocaleString("pt-BR")}</div>
+              <div className="mb-0.5 flex flex-wrap items-center gap-x-3 text-xs font-bold text-sage-deep">
+                {editandoSessaoId === sessao.id ? (
+                  <>
+                    <input type="datetime-local" className="rounded-md border border-mist px-2 py-1 text-xs font-normal text-ink" value={dataSessaoEdit} onChange={(e) => setDataSessaoEdit(e.target.value)} />
+                    <button className="font-semibold text-sage-deep" onClick={() => salvarDataSessao(sessao.id)}>salvar</button>
+                    <button className="font-semibold text-ink/50" onClick={() => setEditandoSessaoId(null)}>cancelar</button>
+                  </>
+                ) : (
+                  <>
+                    <span>{new Date(sessao.dataHora).toLocaleString("pt-BR")}</span>
+                    <button className="font-semibold text-ink/50 hover:text-sage-deep" onClick={() => iniciarEdicaoSessao(sessao)}>editar data</button>
+                    <button className="font-semibold text-ink/50 hover:text-ember" onClick={() => excluirSessao(sessao.id)}>excluir sessão</button>
+                  </>
+                )}
+              </div>
               {testes.length === 0 ? (
                 <div className="text-sm text-ink/60">Sessão sem testes lançados.</div>
               ) : (
@@ -568,6 +645,7 @@ export function FichaPaciente() {
                     >
                       Abrir tela completa
                     </button>
+                    <button className="text-xs font-semibold text-ink/50 hover:text-ember" onClick={() => excluirLancamento(t.id, t.teste.sigla)}>excluir lançamento</button>
                   </div>
                 ))
               )}
@@ -731,9 +809,10 @@ export function FichaPaciente() {
                 <a href={a.url} target="_blank" rel="noreferrer" className="text-sage-deep hover:underline">
                   📎 {a.descricao || a.url} <span className="text-ink/40">({a.tipo})</span>
                 </a>
-                <button className="text-xs font-semibold text-ember" onClick={() => removerAnexo(a.id)}>
-                  remover
-                </button>
+                <span className="flex items-center gap-3">
+                  <button className="text-xs font-semibold text-sage-deep" onClick={() => editarAnexo(a)}>editar</button>
+                  <button className="text-xs font-semibold text-ember" onClick={() => removerAnexo(a.id)}>remover</button>
+                </span>
               </div>
             ))}
             {anexos.length === 0 && <p className="text-sm text-ink/50">Nenhum anexo ainda.</p>}
