@@ -1,3 +1,4 @@
+import { instrumentos as instrumentosPlural } from "../lib/plural";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { api, type Teste } from "../lib/api";
@@ -243,7 +244,7 @@ export function BibliotecaDeTestes() {
                   <span className="min-w-0 flex-1">
                     <span className="block font-serif text-[17px] font-semibold leading-tight">{cat.label}</span>
                     <span className="mt-1 block text-[11px] uppercase tracking-wide text-[#b3a899]">
-                      {filtrados.length} instrumento{filtrados.length !== 1 ? "s" : ""}
+                      {instrumentosPlural(filtrados.length)}
                     </span>
                   </span>
                   <Chevron aberto={aberto} />

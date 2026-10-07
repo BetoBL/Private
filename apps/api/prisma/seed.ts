@@ -9,6 +9,8 @@ import {
   WISC4_PRINCIPAIS,
   WISC4_SUPLEMENTARES,
 } from "./wisc4-normas";
+import { WISC4_PLANILHA_CALCULADOS, WISC4_PLANILHA_CAMPOS, WISC4_PLANILHA_CONVERSAO, WISC4_PLANILHA_IDADE_MAX, WISC4_PLANILHA_IDADE_MIN } from "./wisc4-planilha";
+import { WAIS3_CAMPOS, WAIS3_CAMPOS_CALCULADOS, WAIS3_CONVERSAO, WAIS3_IDADE_MAX, WAIS3_IDADE_MIN } from "./wais3-normas";
 import { FDT_CAMPOS_DERIVADOS, FDT_FAIXAS_ETARIAS, FDT_FONTE, campoErros, campoTempo } from "./fdt-normas";
 import { SRS2_CAMPOS_DERIVADOS, SRS2_FONTE, SRS2_FORMULARIOS } from "./srs2-normas";
 
@@ -695,50 +697,43 @@ function criarFaixasSONR_QI(): Prisma.InputJsonValue[] {
   }));
 }
 
-const TESTES_PLACEHOLDER: TesteSeed[] = [
+export const TESTES_PLACEHOLDER: TesteSeed[] = [
   {
     nome: "Escala Wechsler de Inteligência para Adultos — 3ª ed.",
     sigla: "WAIS-III",
     dominio: DominioCognitivo.INTELIGENCIA,
     direcao: "MAIOR_MELHOR",
     descricao:
-      "Avalia o funcionamento intelectual em 4 índices fatoriais (Compreensão Verbal, Organização " +
-      "Perceptual, Memória Operacional, Velocidade de Processamento) + QI Total. Classificação real " +
-      "da Tabela 5.24 do manual brasileiro (amostra N=788).",
+      "Escala de inteligência para adultos (16 a 89 anos). 14 subtestes → QI Verbal, QI Execução, " +
+      "QI Total, os 4 índices fatoriais (ICV, IOP, IMO, IVP) e o Índice de Habilidades Gerais. " +
+      "Cálculo espelhando a planilha da psicóloga: bruto → ponderado pela faixa etária (8 faixas), " +
+      "soma → ponto composto + percentil + IC 90/95, classificação pelo percentil.",
     algoritmoCorrecao: {
-      // Modelo de 4 índices fatoriais (o que a prática clínica real usa), não o antigo QI Verbal/Execução.
-      // O profissional lança os índices já convertidos pelas tabelas do manual oficial (proprietário,
-      // 7 faixas etárias x 13 subtestes — ver docs/testes/WAIS-III.md) — este motor só converte
-      // índice -> percentil/classificação, não agrega subtestes brutos.
-      indicesFatoriais: {
-        ICV: ["Vocabulário", "Semelhanças", "Informação"],
-        IOP: ["Cubos", "Raciocínio Matricial"],
-        IMO: ["Dígitos", "Sequência de Números e Letras"],
-        IVP: ["Código", "Procurar Símbolos"],
-      },
-      campos: [
-        { chave: "icv", label: "ICV — Índice de Compreensão Verbal" },
-        { chave: "iop", label: "IOP — Índice de Organização Perceptual" },
-        { chave: "imo", label: "IMO — Índice de Memória Operacional" },
-        { chave: "ivp", label: "IVP — Índice de Velocidade de Processamento" },
-        { chave: "qit", label: "QIT — Quociente Intelectual Total" },
+      aviso:
+        "Cada índice só é calculado quando TODOS os subtestes que o compõem forem lançados (a " +
+        "planilha original soma o que houver; aqui um índice incompleto volta 'não calculado'). " +
+        "Substituições da planilha: Sequência de Números e Letras só entra no QI Verbal se Dígitos " +
+        "faltar; Procurar Símbolos só entra no QI Execução se Códigos faltar; Armar Objetos entra no " +
+        "lugar de UM subteste de Execução que falte.",
+      etapas: [
+        "1. Idade em dias na data de aplicação → faixa etária (16-17, 18-19, 20-29, 30-39, 40-49, 50-59, 60-64, 65-89).",
+        "2. Bruto de cada subteste → ponderado (1-19) pela tabela da faixa.",
+        "3. Soma dos ponderados de cada escala/índice.",
+        "4. Soma → ponto composto, percentil e IC 90/95; classificação pelo percentil.",
       ],
+      campos: WAIS3_CAMPOS,
+      camposCalculados: WAIS3_CAMPOS_CALCULADOS,
     },
     referenciaBibliografica: "WECHSLER, D.; NASCIMENTO, E. Escala de Inteligência Wechsler para Adultos – WAIS-III: manual técnico. São Paulo: CasaPsi Livraria e Editora, 2004.",
     isPlaceholder: false,
     tabelasNormativas: [
       {
-        // Classificação é a mesma para QIT/QIV/QIE e para os 4 índices fatoriais, independente da
-        // idade exata dentro da faixa normatizada (16-89 anos) — por isso uma única tabela "geral"
-        // basta aqui, mesmo com escolherTabelaNormativa aceitando faixaMin/faixaMax.
+        // Uma única tabela cobre as 8 faixas etárias: a faixa é escolhida por DIAS de vida dentro do
+        // cálculo (lib/wais3.ts), como a planilha faz.
         criterio: "geral",
-        faixaMin: 16,
-        faixaMax: 89,
-        conversao: {
-          tipo: "percentil_por_campo",
-          fonte: "Tabela 5.24 do manual (WECHSLER & NASCIMENTO, 2004), amostra brasileira N=788 — percentil = ponto médio da faixa acumulada de cada classificação.",
-          faixas: WECHSLER_CLASSIFICACAO_FAIXAS,
-        },
+        faixaMin: WAIS3_IDADE_MIN,
+        faixaMax: WAIS3_IDADE_MAX,
+        conversao: WAIS3_CONVERSAO,
       },
     ],
   },
@@ -1499,76 +1494,37 @@ const TESTES_PLACEHOLDER: TesteSeed[] = [
     dominio: DominioCognitivo.INTELIGENCIA,
     direcao: "MAIOR_MELHOR",
     descricao:
-      "Escala de inteligência para 6;0 a 16;11 anos. 15 subtestes (10 principais + 5 " +
-      "suplementares) em 4 Índices Fatoriais — ICV, IOP, IMO, IVP — mais o QI Total. Ao " +
-      "contrário do WAIS-III, não tem mais QI Verbal/Execução. Cálculo em 2 etapas: bruto → " +
-      "ponto ponderado pela tabela da faixa etária (Tabelas A.1.x, 33 faixas de 4 meses), " +
-      "depois soma dos ponderados → Ponto Composto + percentil + IC (Tabelas A.2-A.6). Normas " +
-      "da amostra brasileira. Ver docs/testes/WISC-IV.md.",
+      "Escala de inteligência para 6;0 a 16;11 anos. 15 subtestes (10 principais + 5 suplementares) em 4 índices " +
+      "fatoriais — ICV, IOP, IMO, IVP — mais QI Total, GAI e CPI. Cálculo espelhando a planilha da psicóloga: bruto → ponderado pela " +
+      "faixa etária (33 faixas de 4 meses, idade em dias com mês de 30 dias), soma → ponto composto + percentil + IC 90/95, e as análises " +
+      "avançadas (discrepâncias, facilidades/dificuldades, escores de processo, clusters, habilidades compartilhadas e idade mental).",
     algoritmoCorrecao: {
       aviso:
-        "Os 4 índices e o QI Total só são calculados quando TODOS os subtestes principais que os " +
-        "compõem forem lançados — um índice com subteste faltando volta 'não calculado' em vez de " +
-        "um número somando 0 no lugar do que falta. Substituição de subteste principal por " +
-        "suplementar (Tabela 5 do manual) e soma pró-rata (Tabela A.7) ainda NÃO são aplicadas " +
-        "automaticamente: nesses casos o índice fica sem valor e cabe ao profissional calcular à " +
-        "mão. O manual também não traz tabela de classificação qualitativa da adaptação " +
-        "brasileira (está no Manual Técnico, que não temos) — a classificação sai do percentil, " +
-        "pelo sistema escolhido no Perfil de Atuação.",
+        "Cada índice só é calculado quando TODOS os subtestes que o compõem forem lançados (a planilha original soma o que houver e " +
+        "converte mesmo assim). Substituição da planilha: o suplementar (CF→IOP, CA→IVP, AR→IMO) entra no lugar de UM principal que falte. " +
+        "A classificação dos índices sai do ponto composto e a dos subtestes do ponderado, como na planilha.",
       etapas: [
-        "1. Idade cronológica na data de aplicação (o manual usa mês = 30 dias, sem arredondar).",
-        "2. Bruto de cada subteste → ponto ponderado (1-19), pela Tabela A.1.x da faixa etária.",
-        "3. Soma dos ponderados dos principais de cada índice (ICV/IOP: 3; IMO/IVP: 2; QIT: os 10).",
-        "4. Soma → Ponto Composto + Rank Percentil + IC 90/95 (Tabelas A.2 a A.6).",
+        "1. Idade em dias na data de aplicação (anos×365 + meses×30 + dias) → faixa de 4 meses (6:0 a 16:11).",
+        "2. Bruto de cada subteste → ponderado (1-19) pela tabela da faixa.",
+        "3. Soma dos ponderados de cada índice → ponto composto, percentil e IC 90/95; QIT = soma dos 4 índices; GAI = ICV+IOP; CPI = IMO+IVP.",
+        "4. Análises: discrepâncias, facilidades/dificuldades, escores de processo, clusters, habilidades compartilhadas e idade mental.",
       ],
-      invalidacao:
-        "Se a criança zerar 2 dos 3 subtestes de ICV/IOP, ou os 2 de IMO/IVP, aquele índice e o " +
-        "QI Total ficam invalidados pelo manual — não é 'habilidade zero', é 'não foi possível " +
-        "medir'. Essa regra não é detectada automaticamente; conferir no protocolo.",
-      campos: [
-        ...WISC4_PRINCIPAIS.map((chave) => ({
-          chave,
-          label: `${chave.toUpperCase()} — ${WISC4_LABEL_SUBTESTE[chave]} (principal, escore bruto)`,
-        })),
-        ...WISC4_SUPLEMENTARES.map((chave) => ({
-          chave,
-          label: `${chave.toUpperCase()} — ${WISC4_LABEL_SUBTESTE[chave]} (suplementar, escore bruto)`,
-        })),
-      ],
-      camposCalculados: WISC4_INDICES.map((i) => ({ chave: i.chave, label: i.label })),
+      campos: WISC4_PLANILHA_CAMPOS,
+      camposCalculados: WISC4_PLANILHA_CALCULADOS,
     },
     referenciaBibliografica:
-      "WECHSLER, D. WISC-IV: Escala Wechsler de Inteligência para Crianças — Manual de " +
-      "Instruções para Aplicação e Avaliação. Adaptação e padronização brasileira: Fabián " +
-      "Javier Marín Rueda, Ana Paula Porto Noronha, Fermino Fernandes Sisto, Acácia Aparecida " +
-      "Angeli dos Santos, Nelimar Ribeiro de Castro. 1. ed. São Paulo: Casa do Psicólogo, 2013.",
+      "WECHSLER, D. WISC-IV: Escala Wechsler de Inteligência para Crianças — Manual de Instruções para Aplicação e Avaliação. " +
+      "Adaptação e padronização brasileira: Fabián Javier Marín Rueda, Ana Paula Porto Noronha, Fermino Fernandes Sisto, " +
+      "Acácia Aparecida Angeli dos Santos, Nelimar Ribeiro de Castro. 1. ed. São Paulo: Casa do Psicólogo, 2013.",
     isPlaceholder: false,
-    // As Tabelas A.2-A.6 (soma → composto) não variam por faixa etária, mas uma AplicacaoDeTeste
-    // resolve UMA tabela normativa só (escolherTabelaNormativa). Por isso as faixas dos índices
-    // são repetidas dentro de cada uma das 33 tabelas etárias — mesmo padrão já usado no SON-R
-    // para a Tabela 76.
-    tabelasNormativas: WISC4_FAIXAS_ETARIAS.map((faixa) => ({
-      criterio: "idade_meses",
-      faixaMin: faixa.faixaMin,
-      faixaMax: faixa.faixaMax,
-      faixaLabel: `${faixa.faixaLabel} anos`,
-      conversao: {
-        tipo: "ponderado_e_composto_por_campo",
-        fonte:
-          `WISC-IV, normas brasileiras (Casa do Psicólogo, 2013): Tabela A.1.x da faixa ` +
-          `${faixa.faixaLabel} para bruto→ponderado, Tabelas A.2-A.6 para soma→composto.`,
-        faixasPorCampo: {
-          ...faixa.faixasPorSubteste,
-          ...Object.fromEntries(WISC4_INDICES.map((i) => [i.chave, i.faixas])),
-        },
-        camposDerivados: Object.fromEntries(
-          WISC4_INDICES.map((i) => [
-            i.chave,
-            { fontes: i.fontes, campoValor: "ponderado", exigeTodasFontes: true },
-          ])
-        ),
+    tabelasNormativas: [
+      {
+        criterio: "geral",
+        faixaMin: WISC4_PLANILHA_IDADE_MIN,
+        faixaMax: WISC4_PLANILHA_IDADE_MAX,
+        conversao: WISC4_PLANILHA_CONVERSAO,
       },
-    })),
+    ],
   },
 ];
 
@@ -1580,6 +1536,7 @@ async function main() {
   // referenciam o catálogo FIXO (ex: pacientes de teste criados durante verificação manual) —
   // sem isso o deleteMany do Teste falha por FK.
   await prisma.aplicacaoDeTeste.deleteMany({ where: { teste: { escopo: EscopoTeste.FIXO } } });
+  await prisma.normativaCustomizada.deleteMany({ where: { teste: { escopo: EscopoTeste.FIXO } } });
   await prisma.tabelaNormativa.deleteMany({ where: { teste: { escopo: EscopoTeste.FIXO } } });
   await prisma.teste.deleteMany({ where: { escopo: EscopoTeste.FIXO } });
 
@@ -1642,7 +1599,8 @@ async function main() {
   }
 }
 
-main()
+// Só roda como script (npx tsx prisma/seed.ts); importar este arquivo (ex.: atualizar-wechsler.ts) não executa o seed.
+if (require.main === module) main()
   .catch((e) => {
     console.error(e);
     process.exit(1);

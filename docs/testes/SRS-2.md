@@ -2,7 +2,7 @@
 
 > **FONTE ÚNICA, SEM CONFERÊNCIA CRUZADA.** Não temos o manual do SRS-2 em PDF no acervo
 > (`Manuais/` não tem nenhum arquivo SRS-2) — a única fonte normativa é a aba `SRS2-Normas` do
-> Excel legado da psicóloga (`Diego de Melo.xlsm`), transcrita em 05/10/2026 por
+> Excel legado da psicóloga (`planilha-da-psicologa.xlsm`), transcrita em 05/10/2026 por
 > `scripts/extrair-normas-srs2.mjs` para `SRS-2-tabelas.json`. Ver [[project_neurologic_riscos_normas]]
 > (memória do usuário) — mesma ressalva do FDT.
 >

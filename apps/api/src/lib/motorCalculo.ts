@@ -17,6 +17,9 @@
 // única por campo; ao trocar por normas reais, o `tipo`/`faixasPorCampo` de cada TabelaNormativa
 // continua controlando o modo de cálculo.
 
+import { calcularWais3, type Wais3Planilha } from "./wais3";
+import { calcularWisc4, type OpcoesWisc4, type Wisc4Planilha } from "./wisc4";
+
 export interface FaixaConversao {
   min?: number;
   max?: number;
@@ -69,7 +72,7 @@ export interface ResultadoPorCampo {
 
 export type ResultadoCalculado =
   | { modo: "soma"; escoreBrutoTotal: number; faixa: FaixaConversao | null }
-  | { modo: "por_campo"; porCampo: Record<string, ResultadoPorCampo> };
+  | { modo: "por_campo"; porCampo: Record<string, ResultadoPorCampo>; extras?: Record<string, unknown> };
 
 export function localizarFaixa(valor: number, faixas: FaixaConversao[]): FaixaConversao | null {
   return (
@@ -77,10 +80,30 @@ export function localizarFaixa(valor: number, faixas: FaixaConversao[]): FaixaCo
   );
 }
 
+export interface ContextoCalculo {
+  // Dias de vida na data da sessão. Só o WAIS-III precisa (a planilha escolhe a faixa etária por dias).
+  idadeDias?: number;
+  // Anos completos na data da sessão (WAIS-III: escolhe o valor crítico da análise avançada).
+  idadeAnos?: number;
+  // Datas de nascimento e da sessão (WISC-IV: a planilha calcula a idade com mês de 30 dias a partir delas).
+  dataNascimento?: Date;
+  dataReferencia?: Date;
+  // Opções da tela do WISC-IV (intervalo de confiança e base de comparação das discrepâncias).
+  opcoesWisc4?: OpcoesWisc4;
+}
+
 export function calcularResultado(
   escoresBrutos: Record<string, number>,
-  conversao: ConversaoNormativa
+  conversao: ConversaoNormativa,
+  contexto: ContextoCalculo = {}
 ): ResultadoCalculado {
+  if (conversao.tipo === "wisc4_planilha") {
+    if (!contexto.dataNascimento || !contexto.dataReferencia) return { modo: "por_campo", porCampo: {} };
+    return calcularWisc4(escoresBrutos, conversao as unknown as Wisc4Planilha, contexto.dataNascimento, contexto.dataReferencia, contexto.opcoesWisc4);
+  }
+  if (conversao.tipo === "wais3_planilha") {
+    return calcularWais3(escoresBrutos, conversao as unknown as Wais3Planilha, contexto.idadeDias ?? 0, contexto.idadeAnos);
+  }
   const modoSoma = /soma/i.test(conversao.tipo);
 
   if (modoSoma) {
@@ -157,6 +180,28 @@ export function escolherTabelaNormativa<
   return porIdade ?? base[0];
 }
 
+/**
+ * Versão ESTRITA de escolherTabelaNormativa para normativas customizadas da clínica: só devolve
+ * uma tabela que realmente cobre o paciente (sexo compatível e idade dentro da faixa; faixa
+ * nula nos dois extremos = cobre qualquer idade). Nunca cai para "a mais próxima" — nesse caso
+ * retorna `undefined` e o chamador usa a norma padrão do teste, em vez de aplicar silenciosamente
+ * uma norma customizada fora da população para a qual ela foi feita.
+ */
+export function escolherNormativaCustomizada<
+  T extends { criterio: string; faixaMin: number | null; faixaMax: number | null; sexo?: Sexo | null }
+>(criterios: CriteriosSelecaoTabela, tabelas: T[]): T | undefined {
+  const cobre = (t: T) => {
+    if (t.sexo && t.sexo !== criterios.sexo) return false;
+    if (t.faixaMin === null && t.faixaMax === null) return true;
+    const idade = t.criterio === "idade_meses" ? criterios.idadeMeses : criterios.idadeAnos;
+    if (idade === undefined) return false;
+    return (t.faixaMin === null || idade >= t.faixaMin) && (t.faixaMax === null || idade <= t.faixaMax);
+  };
+  // Mais específica primeiro: com sexo definido e com faixa de idade definida vencem as genéricas.
+  const especificidade = (t: T) => (t.sexo ? 2 : 0) + (t.faixaMin !== null || t.faixaMax !== null ? 1 : 0);
+  return tabelas.filter(cobre).sort((a, b) => especificidade(b) - especificidade(a))[0];
+}
+
 export function calcularIdadeEmAnos(dataNascimento: Date, dataReferencia: Date): number {
   let idade = dataReferencia.getFullYear() - dataNascimento.getFullYear();
   const aniversarioJaPassou =
@@ -164,6 +209,30 @@ export function calcularIdadeEmAnos(dataNascimento: Date, dataReferencia: Date):
     (dataReferencia.getMonth() === dataNascimento.getMonth() && dataReferencia.getDate() >= dataNascimento.getDate());
   if (!aniversarioJaPassou) idade -= 1;
   return idade;
+}
+
+// Idade como a planilha mostra: "34a, 11m, 1d" (DATEDIF y / ym / md), pelas datas de calendário.
+export function formatarIdadeCompleta(dataNascimento: Date, dataReferencia: Date): string {
+  const n = { a: dataNascimento.getUTCFullYear(), m: dataNascimento.getUTCMonth(), d: dataNascimento.getUTCDate() };
+  const r = { a: dataReferencia.getUTCFullYear(), m: dataReferencia.getUTCMonth(), d: dataReferencia.getUTCDate() };
+  let anos = r.a - n.a;
+  let meses = r.m - n.m;
+  let dias = r.d - n.d;
+  if (dias < 0) {
+    meses -= 1;
+    dias += new Date(Date.UTC(r.a, r.m, 0)).getUTCDate(); // dias do mês anterior ao de referência
+  }
+  if (meses < 0) {
+    anos -= 1;
+    meses += 12;
+  }
+  return `${anos}a, ${meses}m, ${dias}d`;
+}
+
+// Dias corridos entre as DATAS (sem a hora), como a planilha faz (data de aplicação - nascimento).
+export function calcularIdadeEmDias(dataNascimento: Date, dataReferencia: Date): number {
+  const utc = (d: Date) => Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+  return Math.round((utc(dataReferencia) - utc(dataNascimento)) / 86_400_000);
 }
 
 // Total de meses completos entre nascimento e a data de referência (ex: 2 anos e 7 meses = 31).

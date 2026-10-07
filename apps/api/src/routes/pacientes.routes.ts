@@ -3,6 +3,12 @@ import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
+// String vazia (campo de formulário limpo) vira null; campo AUSENTE continua ausente — num PATCH
+// parcial isso não pode apagar o dado que já existe.
+function textoOuNull(max: number) {
+  return z.preprocess((v) => (typeof v === "string" && v.trim() === "" ? null : v), z.string().trim().max(max).nullable().optional());
+}
+
 const pacienteCreateSchema = z.object({
   profissionalId: z.string().uuid(),
   nome: z.string().min(1),
@@ -12,7 +18,12 @@ const pacienteCreateSchema = z.object({
   responsavelLegal: z.string().optional(),
   contato: z.string().optional(),
   escolaridade: z.string().optional(),
-  convenioId: z.string().uuid().optional(),
+  // Plano de saúde. `null` limpa o campo (paciente particular); string vazia vinda de <input> vira null.
+  convenioId: z.string().uuid().nullable().optional(),
+  convenioNumeroCarteira: textoOuNull(60),
+  convenioPlano: textoOuNull(120),
+  convenioValidade: z.preprocess((v) => (v === "" ? null : v), z.coerce.date().nullable().optional()),
+  convenioTitular: textoOuNull(200),
   anamnese: z.record(z.string(), z.unknown()).optional(),
   preferenciasAgenda: z.record(z.string(), z.unknown()).optional(),
   // Resolução CFP nº 09/2024: consentimentoTDICData registra QUANDO o consentimento foi dado —
@@ -23,6 +34,13 @@ const pacienteCreateSchema = z.object({
 const pacienteUpdateSchema = pacienteCreateSchema.partial();
 
 export const pacientesRouter = Router();
+
+// undefined/null (sem convênio ou limpando o campo) é válido; id informado precisa ser da clínica.
+async function convenioDaClinica(convenioId: string | null | undefined, clinicaId: string): Promise<boolean> {
+  if (!convenioId) return true;
+  const convenio = await prisma.convenio.findUnique({ where: { id: convenioId } });
+  return !!convenio && convenio.clinicaId === clinicaId;
+}
 
 function ehAdmin(req: { profissional?: { papel: string } }): boolean {
   return req.profissional?.papel === "ADMIN";
@@ -42,6 +60,10 @@ pacientesRouter.post(
     const profissionalDestino = await prisma.profissional.findUnique({ where: { id: req.body.profissionalId } });
     if (!profissionalDestino || profissionalDestino.clinicaId !== req.profissional!.clinicaId) {
       res.status(400).json({ error: "profissionalId inválido para esta clínica" });
+      return;
+    }
+    if (!(await convenioDaClinica(req.body.convenioId, req.profissional!.clinicaId))) {
+      res.status(400).json({ error: "convenioId inválido para esta clínica" });
       return;
     }
     const paciente = await prisma.paciente.create({
@@ -113,6 +135,10 @@ pacientesRouter.patch(
         res.status(400).json({ error: "profissionalId inválido para esta clínica" });
         return;
       }
+    }
+    if (!(await convenioDaClinica(req.body.convenioId, req.profissional!.clinicaId))) {
+      res.status(400).json({ error: "convenioId inválido para esta clínica" });
+      return;
     }
     // Carimba/limpa a data de consentimento só quando o valor realmente muda de estado —
     // reenviar "true" sem alterar nada não deve resetar a data original do consentimento.

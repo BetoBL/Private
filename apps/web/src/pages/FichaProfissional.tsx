@@ -1,3 +1,4 @@
+import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -21,7 +22,7 @@ export function FichaProfissional() {
 
   const [dados, setDados] = useState<Profissional | null>(null);
   const [erro, setErro] = useState<string | null>(null);
-  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useAviso();
 
   const [form, setForm] = useState({ nome: "", crp: "", telefone: "", enderecoParticular: "", formacao: "" });
   const [especialidades, setEspecialidades] = useState<string[]>([]);

@@ -1,9 +1,14 @@
+import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
 import { ResultadoResumo } from "../components/ResultadoResumo";
 import { SeletorPaciente } from "../components/SeletorPaciente";
+import { TesteGenerico } from "../components/TesteGenerico";
+import { TesteWaisIII } from "../components/TesteWaisIII";
+import { TesteWiscIV } from "../components/TesteWiscIV";
 import { useAuth } from "../context/AuthContext";
+import { escolherComponenteTeste } from "../lib/construtorAbas";
 import {
   api,
   ROTULO_RESPONDENTE,
@@ -39,7 +44,7 @@ export function LancamentoTeste() {
   const [respondenteRelacao, setRespondenteRelacao] = useState("");
 
   const [aplicacoes, setAplicacoes] = useState<AplicacaoDeTeste[]>([]);
-  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useAviso();
 
   useEffect(() => {
     api.listPacientes().then(setPacientes).catch((e) => setErro(e.message));
@@ -90,6 +95,31 @@ export function LancamentoTeste() {
   const sessoesFiltradas = buscaData
     ? sessoes.filter((s) => new Date(s.dataHora).toLocaleDateString("pt-BR").includes(buscaData))
     : sessoes;
+
+  function renderizarComponenteTeste() {
+    if (!teste) return null;
+
+    const componente = escolherComponenteTeste(teste);
+    const props = {
+      teste,
+      aplicacao: undefined,
+      escoresBrutos: escores,
+      onEscoresChange: setEscores,
+      onSalvar: salvarLancamento,
+      mensagem,
+      erro,
+      salvando: false,
+    };
+
+    if (componente === "waisIII") {
+      return <TesteWaisIII {...props} sessaoId={sessaoId || undefined} testeId={testeId || undefined} />;
+    }
+    if (componente === "wiscIV") {
+      return <TesteWiscIV {...props} sessaoId={sessaoId || undefined} testeId={testeId || undefined} />;
+    }
+
+    return <TesteGenerico {...props} />;
+  }
 
   async function criarPaciente() {
     if (!profissional || !novoPacienteNome || !novoPacienteNascimento) return;
@@ -345,19 +375,10 @@ export function LancamentoTeste() {
         </section>
       )}
 
-      {/* Formulário genérico dirigido por metadado */}
+      {/* Renderiza o componente apropriado (genérico ou customizado por teste) */}
       {teste && (
         <section className="mb-8 rounded-2xl border border-mist bg-white p-5">
-          <div className="mb-3 flex items-center justify-between">
-            <div className="text-xs font-bold uppercase tracking-wide text-sage-deep">
-              4. {editandoAplicacaoId ? "Editar lançamento" : "Lançamento de escores"} — {teste.sigla}
-            </div>
-            {teste.isPlaceholder && <PlaceholderBadge />}
-          </div>
-          {/* Quem respondeu. Fica ANTES dos escores de propósito: em escala de informante, a
-              mesma criança pode ser avaliada por mãe, pai e professor, e cada protocolo é um
-              lançamento. Saber de quem são os números antes de digitá-los evita atribuir a
-              resposta à pessoa errada — e depois não há como descobrir. */}
+          {/* Quem respondeu (ANTES do componente de teste) */}
           <div className="mb-5 rounded-xl border border-mist bg-paper/50 p-4">
             <span className="mb-2 block text-sm font-semibold text-ink/70">Quem respondeu?</span>
             <div className="flex flex-wrap gap-2">
@@ -394,41 +415,8 @@ export function LancamentoTeste() {
             )}
           </div>
 
-          {campos.length === 0 ? (
-            <p className="text-sm text-ink/60">Este teste não tem campos de lançamento definidos.</p>
-          ) : (
-            <div className="grid grid-cols-2 gap-4">
-              {campos.map((campo) => (
-                <label key={campo.chave} className="text-sm">
-                  <span className="mb-1 block font-semibold text-ink/70">{campo.label}</span>
-                  <input
-                    type="number"
-                    className="w-full rounded-lg border border-mist px-3 py-2"
-                    value={escores[campo.chave] ?? ""}
-                    onChange={(e) => setEscores((prev) => ({ ...prev, [campo.chave]: e.target.value }))}
-                  />
-                </label>
-              ))}
-            </div>
-          )}
-          <div className="mt-4 flex items-center gap-3">
-            <button className="rounded-lg bg-sage-deep px-5 py-2.5 text-sm font-semibold text-paper" onClick={salvarLancamento}>
-              {editandoAplicacaoId ? "Salvar edição" : "Salvar lançamento"}
-            </button>
-            {editandoAplicacaoId && (
-              <button
-                className="text-sm text-ink/60"
-                onClick={() => {
-                  setEditandoAplicacaoId(null);
-                  setEscores({});
-                  setTesteId("");
-                }}
-              >
-                Cancelar edição
-              </button>
-            )}
-          </div>
-          {mensagem && <p className="mt-3 text-sm font-semibold text-sage-deep">{mensagem}</p>}
+          {/* Renderiza componente apropriado */}
+          {renderizarComponenteTeste()}
         </section>
       )}
     </div>

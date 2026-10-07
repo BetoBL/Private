@@ -1,3 +1,4 @@
+import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { api, type RespostaPerfil, type SistemaClassificacaoPercentil } from "../lib/api";
 
@@ -92,7 +93,7 @@ const PERGUNTAS_PESSOAIS: PerguntaPessoal[] = [
 
 export function PerfilAtuacao() {
   const [erro, setErro] = useState<string | null>(null);
-  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useAviso();
   const [form, setForm] = useState(CAMPO_INICIAL);
   const [presetsAtivos, setPresetsAtivos] = useState<Record<string, string[]>>({});
   const [respostas, setRespostas] = useState<Record<string, RespostaPerfil>>({});
@@ -156,6 +157,25 @@ export function PerfilAtuacao() {
         Orienta como a IA redige os rascunhos de laudo no seu estilo — abordagem teórica, tom, vocabulário e cuidados clínicos. Escolha uma
         ou mais sugestões rápidas (elas ficam marcadas) e complete com suas próprias palavras se quiser.
       </p>
+
+      {/* Seção de impacto da IA */}
+      <div className="mb-8 rounded-2xl border-2 border-clay/50 bg-clay/5 p-5">
+        <div className="mb-3 flex items-start gap-3">
+          <span className="text-2xl">🤖</span>
+          <div className="flex-1">
+            <div className="mb-1 font-semibold text-ink">Como a IA usa seu perfil</div>
+            <div className="text-xs text-ink/70">
+              Quando você gera um rascunho de laudo, a IA injeta seu perfil diretamente no prompt, garantindo que o texto reflete sua abordagem:
+            </div>
+            <div className="mt-2 space-y-1 text-xs text-ink/60">
+              <div>✓ <strong>Abordagem teórica</strong> — texto cita conceitos da sua escola</div>
+              <div>✓ <strong>Tom de escrita</strong> — ajusta formalidade e acessibilidade</div>
+              <div>✓ <strong>Regras de prudência</strong> — ressalvas clínicas aparecem automaticamente</div>
+              <div>✓ <strong>Vocabulário</strong> — usa suas expressões e termos recorrentes</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {mensagem && <div className="mb-6 rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}

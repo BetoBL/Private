@@ -3,12 +3,16 @@ import { Router } from "express";
 import { z } from "zod";
 import {
   calcularIdadeEmAnos,
+  calcularIdadeEmDias,
   calcularIdadeEmMeses,
   calcularResultado,
+  formatarIdadeCompleta,
+  escolherNormativaCustomizada,
   escolherTabelaNormativa,
   type ConversaoNormativa,
 } from "../lib/motorCalculo";
 import { prisma } from "../lib/prisma";
+import type { OpcoesWisc4 } from "../lib/wisc4";
 import { asyncHandler, validateBody } from "../lib/validate";
 
 // Campos de respondente — ver enum TipoRespondente no schema. Opcionais na entrada: quem não
@@ -43,13 +47,20 @@ function ehAdmin(req: { profissional?: { papel: string } }): boolean {
 
 async function recalcular(
   testeId: string,
+  clinicaId: string,
   escoresBrutos: Record<string, number>,
-  criterios: { idadeAnos: number; idadeMeses?: number; sexo?: "MASCULINO" | "FEMININO" | null }
+  criterios: { idadeAnos: number; idadeMeses?: number; idadeDias?: number; dataNascimento?: Date; dataReferencia?: Date; sexo?: "MASCULINO" | "FEMININO" | null; opcoesWisc4?: OpcoesWisc4 }
 ) {
   const teste = await prisma.teste.findUnique({ where: { id: testeId }, include: { tabelasNormativas: true } });
   if (!teste) return null;
-  const tabela = escolherTabelaNormativa(criterios, teste.tabelasNormativas);
-  return tabela ? calcularResultado(escoresBrutos, tabela.conversao as unknown as ConversaoNormativa) : null;
+  // Normativa customizada ativa da clínica que cubra o paciente tem precedência sobre a norma
+  // padrão do teste; se nenhuma cobrir, usa a padrão (ver escolherNormativaCustomizada).
+  const customizadas = await prisma.normativaCustomizada.findMany({ where: { clinicaId, testeId, ativo: true } });
+  const tabela =
+    escolherNormativaCustomizada(criterios, customizadas) ?? escolherTabelaNormativa(criterios, teste.tabelasNormativas);
+  return tabela
+    ? calcularResultado(escoresBrutos, tabela.conversao as unknown as ConversaoNormativa, { idadeDias: criterios.idadeDias, idadeAnos: criterios.idadeAnos, dataNascimento: criterios.dataNascimento, dataReferencia: criterios.dataReferencia, opcoesWisc4: criterios.opcoesWisc4 })
+    : null;
 }
 
 // Cria o lançamento de escores brutos de um teste nesta sessão e já calcula o resultado
@@ -80,9 +91,12 @@ aplicacoesDeTesteRouter.post(
 
     const idadeAnos = calcularIdadeEmAnos(sessao.paciente.dataNascimento, sessao.dataHora);
     const idadeMeses = calcularIdadeEmMeses(sessao.paciente.dataNascimento, sessao.dataHora);
-    const resultadoCalculado = await recalcular(testeId, escoresBrutos, {
+    const resultadoCalculado = await recalcular(testeId, req.profissional!.clinicaId, escoresBrutos, {
       idadeAnos,
       idadeMeses,
+      idadeDias: calcularIdadeEmDias(sessao.paciente.dataNascimento, sessao.dataHora),
+      dataNascimento: sessao.paciente.dataNascimento,
+      dataReferencia: sessao.dataHora,
       sexo: sessao.paciente.sexo,
     });
 
@@ -100,6 +114,48 @@ aplicacoesDeTesteRouter.post(
       include: { teste: true },
     });
     res.status(201).json(aplicacao);
+  })
+);
+
+// Calcula SEM gravar: a tela mostra o resultado enquanto o profissional digita os brutos. Usa
+// exatamente o mesmo caminho do salvar (normativa customizada, faixa etária, idade em dias), então
+// o que aparece na tela é o que será gravado.
+aplicacoesDeTesteRouter.post(
+  "/calcular",
+  validateBody(z.object({ sessaoId: z.string().uuid(), testeId: z.string().uuid(), escoresBrutos: z.record(z.string(), z.number()), confianca: z.enum(["90%", "95%"]).optional(), base: z.enum(["Amostra Geral", "Nível de Habilidade"]).optional() })),
+  asyncHandler(async (req, res) => {
+    const { sessaoId, testeId, escoresBrutos, confianca, base } = req.body;
+    const sessao = await prisma.sessao.findUnique({ where: { id: sessaoId }, include: { paciente: true } });
+    if (!sessao || sessao.paciente.clinicaId !== req.profissional!.clinicaId) {
+      res.status(400).json({ error: "sessaoId inválido para esta clínica" });
+      return;
+    }
+    if (!ehAdmin(req) && sessao.paciente.profissionalId !== req.profissional!.sub) {
+      res.status(403).json({ error: "Você só pode calcular testes de seus próprios pacientes" });
+      return;
+    }
+    const resultadoCalculado = await recalcular(testeId, req.profissional!.clinicaId, escoresBrutos, {
+      idadeAnos: calcularIdadeEmAnos(sessao.paciente.dataNascimento, sessao.dataHora),
+      idadeMeses: calcularIdadeEmMeses(sessao.paciente.dataNascimento, sessao.dataHora),
+      idadeDias: calcularIdadeEmDias(sessao.paciente.dataNascimento, sessao.dataHora),
+      dataNascimento: sessao.paciente.dataNascimento,
+      dataReferencia: sessao.dataHora,
+      sexo: sessao.paciente.sexo,
+      opcoesWisc4: { confianca, base },
+    });
+    res.json({
+      resultadoCalculado,
+      idadeDias: calcularIdadeEmDias(sessao.paciente.dataNascimento, sessao.dataHora),
+      idadeAnos: calcularIdadeEmAnos(sessao.paciente.dataNascimento, sessao.dataHora),
+      idadeTexto: formatarIdadeCompleta(sessao.paciente.dataNascimento, sessao.dataHora),
+      paciente: {
+        nome: sessao.paciente.nome,
+        escolaridade: sessao.paciente.escolaridade,
+        sexo: sessao.paciente.sexo,
+        dataNascimento: sessao.paciente.dataNascimento,
+      },
+      dataAplicacao: sessao.dataHora,
+    });
   })
 );
 
@@ -165,9 +221,12 @@ aplicacoesDeTesteRouter.patch(
 
     const idadeAnos = calcularIdadeEmAnos(existente.sessao.paciente.dataNascimento, existente.sessao.dataHora);
     const idadeMeses = calcularIdadeEmMeses(existente.sessao.paciente.dataNascimento, existente.sessao.dataHora);
-    const resultadoCalculado = await recalcular(existente.testeId, req.body.escoresBrutos, {
+    const resultadoCalculado = await recalcular(existente.testeId, req.profissional!.clinicaId, req.body.escoresBrutos, {
       idadeAnos,
       idadeMeses,
+      idadeDias: calcularIdadeEmDias(existente.sessao.paciente.dataNascimento, existente.sessao.dataHora),
+      dataNascimento: existente.sessao.paciente.dataNascimento,
+      dataReferencia: existente.sessao.dataHora,
       sexo: existente.sessao.paciente.sexo,
     });
 

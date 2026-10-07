@@ -5,16 +5,21 @@ import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 import { exigirAutenticacao } from "./middleware/auth";
 import { anexosRouter } from "./routes/anexos.routes";
 import { aplicacoesDeTesteRouter } from "./routes/aplicacoesDeTeste.routes";
+import { atendimentosRouter } from "./routes/atendimentos.routes";
 import { authRouter } from "./routes/auth.routes";
 import { clinicasRouter } from "./routes/clinicas.routes";
+import { conveniosRouter } from "./routes/convenios.routes";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
 import { laudosRouter } from "./routes/laudos.routes";
+import { normativasCustomizadasRouter } from "./routes/normativasCustomizadas.routes";
 import { pacientesRouter } from "./routes/pacientes.routes";
 import { painelDoDiaRouter } from "./routes/painelDoDia.routes";
 import { perfisDeAtuacaoRouter } from "./routes/perfilDeAtuacao.routes";
 import { profissionaisRouter } from "./routes/profissionais.routes";
+import { salasVirtuaisRouter } from "./routes/salasVirtuais.routes";
 import { sessoesRouter } from "./routes/sessoes.routes";
 import { testesRouter } from "./routes/testes.routes";
+import { tiposAtendimentoRouter } from "./routes/tiposAtendimento";
 
 const app = express();
 
@@ -42,6 +47,11 @@ app.use("/laudos", exigirAutenticacao, laudosRouter);
 app.use("/perfil-atuacao", exigirAutenticacao, perfisDeAtuacaoRouter);
 app.use("/painel-do-dia", exigirAutenticacao, painelDoDiaRouter);
 app.use("/anexos", exigirAutenticacao, anexosRouter);
+app.use("/tipos-atendimento", exigirAutenticacao, tiposAtendimentoRouter);
+app.use("/atendimentos", exigirAutenticacao, atendimentosRouter);
+app.use("/convenios", exigirAutenticacao, conveniosRouter);
+app.use("/salas-virtuais", exigirAutenticacao, salasVirtuaisRouter);
+app.use("/normativas-customizadas", exigirAutenticacao, normativasCustomizadasRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

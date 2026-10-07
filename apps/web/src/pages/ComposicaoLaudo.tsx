@@ -1,3 +1,4 @@
+import { useAviso } from "../lib/aviso";
 import { useEffect, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { PlaceholderBadge } from "../components/PlaceholderBadge";
@@ -18,7 +19,7 @@ export function ComposicaoLaudo() {
   const [searchParams] = useSearchParams();
   const [pacientes, setPacientes] = useState<Paciente[]>([]);
   const [erro, setErro] = useState<string | null>(null);
-  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useAviso();
   const [gerando, setGerando] = useState(false);
 
   const [pacienteId, setPacienteId] = useState(searchParams.get("pacienteId") ?? "");
@@ -236,23 +237,41 @@ export function ComposicaoLaudo() {
               <div className="flex items-center gap-3">
                 <button
                   className="rounded-lg bg-clay px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
-                  disabled={gerando}
+                  disabled={gerando || !laudo.iaUtilizada}
+                  title={!laudo.iaUtilizada ? "Gere um rascunho com IA primeiro" : ""}
                   onClick={gerarRascunho}
                 >
                   {gerando ? "Gerando..." : "✦ Gerar rascunho com IA"}
                 </button>
-                <button className="rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep" onClick={baixarDocx}>
+                <button
+                  className="rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep disabled:opacity-40 disabled:cursor-not-allowed"
+                  disabled={!laudo.iaRevisadaPeloProf}
+                  title={!laudo.iaRevisadaPeloProf ? "Marque 'Revisei o rascunho de IA' antes de exportar" : ""}
+                  onClick={baixarDocx}
+                >
                   Baixar DOCX
                 </button>
-                <button className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper" onClick={finalizar}>
+                <button className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper disabled:opacity-40" disabled={!laudo.iaRevisadaPeloProf} onClick={finalizar}>
                   Finalizar
                 </button>
               </div>
             </div>
-            <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" checked={laudo.iaRevisadaPeloProf} onChange={(e) => alternarRevisao(e.target.checked)} />
-              Revisei o rascunho de IA (obrigatório para finalizar)
-            </label>
+            {laudo.iaUtilizada && (
+              <div className="rounded-lg border border-clay/30 bg-clay/5 p-3">
+                <label className="flex items-center gap-3 text-sm">
+                  <input
+                    type="checkbox"
+                    checked={laudo.iaRevisadaPeloProf}
+                    onChange={(e) => alternarRevisao(e.target.checked)}
+                    className="h-4 w-4"
+                  />
+                  <div>
+                    <strong>Conformidade CFP nº 09/2024 (TDICs)</strong>
+                    <p className="mt-0.5 text-xs text-ink/70">Confirmo que revisei o rascunho gerado por IA e aprovo o conteúdo antes de exportar/finalizar.</p>
+                  </div>
+                </label>
+              </div>
+            )}
           </section>
 
           <section className="rounded-2xl border border-mist bg-white p-5">

@@ -1,0 +1,61 @@
+// Atualiza SÓ o WAIS-III e o WISC-IV do catálogo fixo (campos, descrição e tabela normativa) para a versão da planilha,
+// SEM apagar lançamentos (o seed completo apaga AplicacaoDeTeste do catálogo fixo — nunca rode o seed em produção).
+// Nenhuma tabela aponta para TabelaNormativa por chave estrangeira, então trocar a tabela não mexe nos lançamentos antigos;
+// ao reabrir um lançamento antigo, o resultado salvo continua o mesmo até alguém recalcular.
+//
+// Uso:
+//   npx tsx prisma/atualizar-wechsler.ts            → SIMULAÇÃO (só mostra o que mudaria e quantos lançamentos existem)
+//   npx tsx prisma/atualizar-wechsler.ts --aplicar  → grava (dentro de uma transação)
+// Confira DATABASE_URL antes: o .env da API aponta para o banco de PRODUÇÃO.
+import { EscopoTeste, PrismaClient } from "@prisma/client";
+import { TESTES_PLACEHOLDER } from "./seed";
+
+const prisma = new PrismaClient();
+const SIGLAS = ["WAIS-III", "WISC-IV"];
+
+async function main() {
+  const aplicar = process.argv.includes("--aplicar");
+  const host = (process.env.DATABASE_URL ?? "").replace(/^.*@/, "").replace(/\/.*$/, "");
+  console.log(`Banco: ${host || "(DATABASE_URL não definida)"} — modo ${aplicar ? "APLICAR" : "simulação"}`);
+
+  for (const sigla of SIGLAS) {
+    const novo = TESTES_PLACEHOLDER.find((t) => t.sigla === sigla);
+    if (!novo) throw new Error(`${sigla} não está no seed`);
+    const atual = await prisma.teste.findFirst({ where: { sigla, escopo: EscopoTeste.FIXO }, include: { tabelasNormativas: true } });
+    if (!atual) {
+      console.log(`- ${sigla}: não existe no banco (nada a atualizar; rode o seed só em ambiente de dev).`);
+      continue;
+    }
+    const lancamentos = await prisma.aplicacaoDeTeste.count({ where: { testeId: atual.id } });
+    const customizadas = await prisma.normativaCustomizada.count({ where: { testeId: atual.id } });
+    console.log(`- ${sigla}: ${atual.tabelasNormativas.length} tabela(s) normativa(s) hoje → ${novo.tabelasNormativas.length}; ${lancamentos} lançamento(s) existente(s); ${customizadas} normativa(s) customizada(s).`);
+    if (!aplicar) continue;
+    await prisma.$transaction(async (tx) => {
+      await tx.teste.update({
+        where: { id: atual.id },
+        data: {
+          nome: novo.nome,
+          dominio: novo.dominio,
+          descricao: novo.descricao,
+          algoritmoCorrecao: novo.algoritmoCorrecao as never,
+          referenciaBibliografica: novo.referenciaBibliografica,
+          isPlaceholder: novo.isPlaceholder ?? true,
+          direcao: novo.direcao ?? "NEUTRO",
+        },
+      });
+      await tx.tabelaNormativa.deleteMany({ where: { testeId: atual.id } });
+      await tx.tabelaNormativa.createMany({
+        data: novo.tabelasNormativas.map((f) => ({ testeId: atual.id, criterio: f.criterio, faixaMin: f.faixaMin, faixaMax: f.faixaMax, faixaLabel: f.faixaLabel, sexo: f.sexo, conversao: f.conversao as never })),
+      });
+    });
+    console.log(`  ✓ ${sigla} atualizado.`);
+  }
+  if (!aplicar) console.log("\nSimulação concluída. Para gravar: npx tsx prisma/atualizar-wechsler.ts --aplicar");
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(() => prisma.$disconnect());

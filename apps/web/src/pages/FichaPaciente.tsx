@@ -1,11 +1,15 @@
+import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { DashboardResultados } from "../components/DashboardResultados";
+import { SalaVirtualComponent } from "../components/SalaVirtual";
 import {
   api,
   ROTULO_RESPONDENTE,
   type AnamneseData,
   type AplicacaoDeTeste,
   type Anexo,
+  type Convenio,
   type EventoAgenda,
   type Laudo,
   type Paciente,
@@ -14,7 +18,7 @@ import {
   type Sexo,
 } from "../lib/api";
 
-type Aba = "dados" | "anamnese" | "linha" | "laudos" | "agenda" | "anexos";
+type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
@@ -26,7 +30,7 @@ export function FichaPaciente() {
   const [paciente, setPaciente] = useState<Paciente | null>(null);
   const [aba, setAba] = useState<Aba>("dados");
   const [erro, setErro] = useState<string | null>(null);
-  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useAviso();
 
   const [dadosForm, setDadosForm] = useState<{
     nome: string;
@@ -36,7 +40,26 @@ export function FichaPaciente() {
     contato: string;
     escolaridade: string;
     consentimentoTDIC: boolean;
-  }>({ nome: "", dataNascimento: "", sexo: "", responsavelLegal: "", contato: "", escolaridade: "", consentimentoTDIC: false });
+    convenioId: string;
+    convenioPlano: string;
+    convenioNumeroCarteira: string;
+    convenioValidade: string;
+    convenioTitular: string;
+  }>({
+    nome: "",
+    dataNascimento: "",
+    sexo: "",
+    responsavelLegal: "",
+    contato: "",
+    escolaridade: "",
+    consentimentoTDIC: false,
+    convenioId: "",
+    convenioPlano: "",
+    convenioNumeroCarteira: "",
+    convenioValidade: "",
+    convenioTitular: "",
+  });
+  const [convenios, setConvenios] = useState<Convenio[]>([]);
   const [anamneseForm, setAnamneseForm] = useState<AnamneseData>({});
   const [preferenciasForm, setPreferenciasForm] = useState<PreferenciasAgenda>({});
 
@@ -48,6 +71,8 @@ export function FichaPaciente() {
 
   const [laudos, setLaudos] = useState<Laudo[]>([]);
   const [eventos, setEventos] = useState<EventoAgenda[]>([]);
+  const [mostrarFormEvento, setMostrarFormEvento] = useState(false);
+  const [novoEvento, setNovoEvento] = useState({ titulo: "", tipo: "avaliacao", inicio: "", fim: "", observacoes: "" });
 
   useEffect(() => {
     if (!id) return;
@@ -67,6 +92,11 @@ export function FichaPaciente() {
           contato: p.contato ?? "",
           escolaridade: p.escolaridade ?? "",
           consentimentoTDIC: p.consentimentoTDIC,
+          convenioId: p.convenioId ?? "",
+          convenioPlano: p.convenioPlano ?? "",
+          convenioNumeroCarteira: p.convenioNumeroCarteira ?? "",
+          convenioValidade: p.convenioValidade ? p.convenioValidade.slice(0, 10) : "",
+          convenioTitular: p.convenioTitular ?? "",
         });
         setAnamneseForm(p.anamnese ?? {});
         setPreferenciasForm(p.preferenciasAgenda ?? {});
@@ -74,6 +104,7 @@ export function FichaPaciente() {
       .catch((e) => !cancelado && setErro(e.message));
     api.listSessoes(id).then((s) => !cancelado && setSessoes(s)).catch((e) => !cancelado && setErro(e.message));
     api.listAplicacoesPorPaciente(id).then((a) => !cancelado && setAplicacoes(a)).catch((e) => !cancelado && setErro(e.message));
+    api.listConvenios({ todos: true }).then((c) => !cancelado && setConvenios(c)).catch((e) => !cancelado && setErro(e.message));
     api.listAnexos(id).then((a) => !cancelado && setAnexos(a)).catch((e) => !cancelado && setErro(e.message));
     api.listLaudos(id).then((l) => !cancelado && setLaudos(l)).catch((e) => !cancelado && setErro(e.message));
     api.listEventosAgenda({ pacienteId: id }).then((ev) => !cancelado && setEventos(ev)).catch((e) => !cancelado && setErro(e.message));
@@ -87,7 +118,17 @@ export function FichaPaciente() {
     setErro(null);
     setMensagem(null);
     try {
-      const atualizado = await api.updatePaciente(id, { ...dadosForm, sexo: dadosForm.sexo || undefined });
+      // Campo do plano em branco vira null (limpa no servidor); sem convênio, o resto do plano não faz sentido.
+      const semPlano = !dadosForm.convenioId;
+      const atualizado = await api.updatePaciente(id, {
+        ...dadosForm,
+        sexo: dadosForm.sexo || undefined,
+        convenioId: dadosForm.convenioId || null,
+        convenioPlano: semPlano ? null : dadosForm.convenioPlano || null,
+        convenioNumeroCarteira: semPlano ? null : dadosForm.convenioNumeroCarteira || null,
+        convenioValidade: semPlano ? null : dadosForm.convenioValidade || null,
+        convenioTitular: semPlano ? null : dadosForm.convenioTitular || null,
+      });
       setPaciente(atualizado);
       setMensagem("Dados salvos.");
     } catch (e) {
@@ -153,6 +194,33 @@ export function FichaPaciente() {
     }
   }
 
+  async function criarEventoAgenda() {
+    if (!id || !novoEvento.titulo || !novoEvento.inicio || !novoEvento.fim) return;
+    setErro(null);
+    setMensagem(null);
+    try {
+      const resultado = await api.criarEventoAgenda({
+        pacienteId: id,
+        titulo: novoEvento.titulo,
+        tipo: novoEvento.tipo,
+        inicio: new Date(novoEvento.inicio).toISOString(),
+        fim: new Date(novoEvento.fim).toISOString(),
+        observacoes: novoEvento.observacoes || undefined,
+        forcar: false,
+      });
+      if (resultado.conflito) {
+        setErro("Conflito de horário! Verifique a agenda.");
+        return;
+      }
+      setEventos((prev) => [...prev, resultado.evento]);
+      setNovoEvento({ titulo: "", tipo: "avaliacao", inicio: "", fim: "", observacoes: "" });
+      setMostrarFormEvento(false);
+      setMensagem("Evento criado com sucesso.");
+    } catch (e) {
+      setErro((e as Error).message);
+    }
+  }
+
   if (!paciente) {
     return <div className="px-6 py-10 text-sm text-ink/60">{erro ?? "Carregando..."}</div>;
   }
@@ -202,6 +270,7 @@ export function FichaPaciente() {
           ["dados", "Dados"],
           ["anamnese", "Anamnese"],
           ["linha", "Linha do tempo"],
+          ["dashboard", "Dashboard"],
           ["laudos", "Laudos"],
           ["agenda", "Agenda"],
           ["anexos", "Anexos"],
@@ -276,26 +345,123 @@ export function FichaPaciente() {
             </label>
           </div>
 
-          <label className="mt-4 flex items-start gap-2.5 rounded-2xl border border-mist bg-white p-4 text-sm">
-            <input
-              type="checkbox"
-              className="mt-0.5"
-              checked={dadosForm.consentimentoTDIC}
-              onChange={(e) => setDadosForm((f) => ({ ...f, consentimentoTDIC: e.target.checked }))}
-            />
-            <span>
-              <span className="block font-semibold text-ink/70">
-                Paciente informado(a) sobre os recursos tecnológicos usados no atendimento (incluindo IA)
-              </span>
-              <span className="mt-0.5 block text-xs text-ink/50">
-                Conforme Resolução CFP nº 09/2024 — inclui o uso de Inteligência Artificial como apoio na redação do rascunho do laudo,
-                sempre revisado pelo profissional responsável antes de finalizado.
-                {paciente.consentimentoTDICData && (
-                  <> Consentimento registrado em {new Date(paciente.consentimentoTDICData).toLocaleDateString("pt-BR")}.</>
+          <div className="mt-6 rounded-2xl border border-mist p-5">
+            <div className="mb-1 font-semibold text-ink">Plano de saúde</div>
+            <div className="mb-3 text-xs text-ink/60">
+              Deixe em "Particular" se o atendimento não for por convênio. Os convênios disponíveis são os aceitos pela clínica (Cadastro · Clínica).
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <label className="text-sm">
+                <span className="mb-1 block font-semibold text-ink/70">Convênio</span>
+                <select
+                  className="w-full rounded-lg border border-mist px-3 py-2"
+                  value={dadosForm.convenioId}
+                  onChange={(e) => setDadosForm((f) => ({ ...f, convenioId: e.target.value }))}
+                >
+                  <option value="">Particular (sem convênio)</option>
+                  {convenios
+                    .filter((c) => c.ativo || c.id === dadosForm.convenioId)
+                    .map((c) => (
+                      <option key={c.id} value={c.id}>
+                        {c.nomeOperadora}
+                        {c.ativo ? "" : " (inativo)"}
+                      </option>
+                    ))}
+                </select>
+              </label>
+              {dadosForm.convenioId && (
+                <>
+                  <label className="text-sm">
+                    <span className="mb-1 block font-semibold text-ink/70">Plano</span>
+                    <input
+                      className="w-full rounded-lg border border-mist px-3 py-2"
+                      placeholder="Ex: Amil 400, Nacional Flex"
+                      value={dadosForm.convenioPlano}
+                      onChange={(e) => setDadosForm((f) => ({ ...f, convenioPlano: e.target.value }))}
+                    />
+                  </label>
+                  <label className="text-sm">
+                    <span className="mb-1 block font-semibold text-ink/70">Nº da carteirinha</span>
+                    <input
+                      className="w-full rounded-lg border border-mist px-3 py-2"
+                      value={dadosForm.convenioNumeroCarteira}
+                      onChange={(e) => setDadosForm((f) => ({ ...f, convenioNumeroCarteira: e.target.value }))}
+                    />
+                  </label>
+                  <label className="text-sm">
+                    <span className="mb-1 block font-semibold text-ink/70">Validade da carteirinha</span>
+                    <input
+                      type="date"
+                      className="w-full rounded-lg border border-mist px-3 py-2"
+                      value={dadosForm.convenioValidade}
+                      onChange={(e) => setDadosForm((f) => ({ ...f, convenioValidade: e.target.value }))}
+                    />
+                  </label>
+                  <label className="col-span-2 text-sm">
+                    <span className="mb-1 block font-semibold text-ink/70">Titular do plano (se o paciente for dependente)</span>
+                    <input
+                      className="w-full rounded-lg border border-mist px-3 py-2"
+                      value={dadosForm.convenioTitular}
+                      onChange={(e) => setDadosForm((f) => ({ ...f, convenioTitular: e.target.value }))}
+                    />
+                  </label>
+                </>
+              )}
+            </div>
+            {dadosForm.convenioId && dadosForm.convenioValidade && new Date(dadosForm.convenioValidade) < new Date() && (
+              <div className="mt-3 rounded-lg border border-ember/30 bg-ember/10 px-3 py-2 text-xs text-ember">
+                A carteirinha está vencida. Confira a validade antes de faturar no convênio.
+              </div>
+            )}
+          </div>
+
+          <div className="mt-6 rounded-2xl border-2 border-clay/50 bg-clay/5 p-5">
+            <div className="mb-3 flex items-start gap-3">
+              <span className="mt-1 text-lg">⚙️</span>
+              <div className="flex-1">
+                <div className="mb-1 font-semibold text-ink">Tecnologias Usadas Nesta Avaliação</div>
+                <div className="mb-3 text-xs text-ink/70">
+                  Conforme Resolução CFP nº 09/2024 — Você autoriza o uso das tecnologias abaixo neste atendimento?
+                </div>
+
+                <div className="mb-3 space-y-2 text-xs">
+                  <div className="flex items-start gap-2 rounded-lg bg-white/50 p-2">
+                    <span className="text-sm">🤖</span>
+                    <div>
+                      <strong>Inteligência Artificial (Claude)</strong>
+                      <p className="mt-0.5 text-ink/60">Usada como apoio para rascunho do laudo. O profissional SEMPRE revisa antes de finalizar.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2 rounded-lg bg-white/50 p-2">
+                    <span className="text-sm">☁️</span>
+                    <div>
+                      <strong>Armazenamento em Nuvem</strong>
+                      <p className="mt-0.5 text-ink/60">Dados criptografados e respaldados automaticamente. Sempre seguindo LGPD.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <label className="flex items-start gap-3 rounded-lg border border-sage-deep/30 bg-sage-deep/5 p-3">
+                  <input
+                    type="checkbox"
+                    className="mt-0.5"
+                    checked={dadosForm.consentimentoTDIC}
+                    onChange={(e) => setDadosForm((f) => ({ ...f, consentimentoTDIC: e.target.checked }))}
+                  />
+                  <span className="text-xs">
+                    <strong>Concordo em usar essas tecnologias</strong>
+                    <p className="mt-0.5 text-ink/70">Entendo que são ferramentas de apoio, e que o profissional é responsável por todas as decisões.</p>
+                  </span>
+                </label>
+
+                {paciente?.consentimentoTDICData && (
+                  <div className="mt-2 rounded-lg bg-white/50 p-2 text-xs text-sage-deep/70">
+                    ✓ Consentimento registrado em {new Date(paciente.consentimentoTDICData).toLocaleDateString("pt-BR")}
+                  </div>
                 )}
-              </span>
-            </span>
-          </label>
+              </div>
+            </div>
+          </div>
 
           <button className="mt-4 rounded-lg border border-mist px-4 py-2 text-sm font-semibold text-ink/70" onClick={salvarDados}>
             Salvar dados
@@ -401,6 +567,8 @@ export function FichaPaciente() {
         </div>
       )}
 
+      {aba === "dashboard" && <DashboardResultados aplicacoes={aplicacoes} />}
+
       {aba === "laudos" && (
         <div className="flex flex-col gap-2">
           {laudos.length === 0 && <p className="text-sm text-ink/50">Nenhum laudo criado ainda para este paciente.</p>}
@@ -424,22 +592,119 @@ export function FichaPaciente() {
       )}
 
       {aba === "agenda" && (
-        <div className="flex flex-col gap-2">
-          {eventos.length === 0 && <p className="text-sm text-ink/50">Nenhum evento de agenda para este paciente.</p>}
-          {[...eventos]
-            .sort((a, b) => new Date(b.inicio).getTime() - new Date(a.inicio).getTime())
-            .map((ev) => (
-              <div key={ev.id} className="rounded-lg border border-mist bg-white px-4 py-3 text-sm">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold">{ev.titulo}</span>
-                  <span className="text-xs text-ink/50">{new Date(ev.inicio).toLocaleString("pt-BR")}</span>
-                </div>
-                {ev.observacoes && <p className="mt-0.5 text-xs text-ink/60">{ev.observacoes}</p>}
+        <div className="flex flex-col gap-4">
+          {mostrarFormEvento && (
+            <div className="rounded-2xl border border-mist bg-white p-4">
+              <h3 className="mb-3 font-semibold text-ink">Novo evento para {paciente?.nome}</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <label className="text-sm">
+                  <span className="mb-1 block font-semibold text-ink/70">Título</span>
+                  <input
+                    className="w-full rounded-lg border border-mist px-3 py-2"
+                    value={novoEvento.titulo}
+                    onChange={(e) => setNovoEvento((f) => ({ ...f, titulo: e.target.value }))}
+                  />
+                </label>
+                <label className="text-sm">
+                  <span className="mb-1 block font-semibold text-ink/70">Tipo</span>
+                  <select
+                    className="w-full rounded-lg border border-mist px-3 py-2"
+                    value={novoEvento.tipo}
+                    onChange={(e) => setNovoEvento((f) => ({ ...f, tipo: e.target.value }))}
+                  >
+                    <option value="avaliacao">Avaliação</option>
+                    <option value="outro">Outro compromisso</option>
+                    <option value="bloqueio">Bloqueio (indisponível)</option>
+                  </select>
+                </label>
+                <label className="text-sm">
+                  <span className="mb-1 block font-semibold text-ink/70">Início</span>
+                  <input
+                    type="datetime-local"
+                    className="w-full rounded-lg border border-mist px-3 py-2"
+                    value={novoEvento.inicio}
+                    onChange={(e) => setNovoEvento((f) => ({ ...f, inicio: e.target.value }))}
+                  />
+                </label>
+                <label className="text-sm">
+                  <span className="mb-1 block font-semibold text-ink/70">Fim</span>
+                  <input
+                    type="datetime-local"
+                    className="w-full rounded-lg border border-mist px-3 py-2"
+                    value={novoEvento.fim}
+                    onChange={(e) => setNovoEvento((f) => ({ ...f, fim: e.target.value }))}
+                  />
+                </label>
+                <label className="col-span-2 text-sm">
+                  <span className="mb-1 block font-semibold text-ink/70">Observações</span>
+                  <input
+                    className="w-full rounded-lg border border-mist px-3 py-2"
+                    value={novoEvento.observacoes}
+                    onChange={(e) => setNovoEvento((f) => ({ ...f, observacoes: e.target.value }))}
+                  />
+                </label>
               </div>
-            ))}
-          <Link to="/agenda" className="mt-2 self-start text-sm font-semibold text-sage-deep hover:underline">
-            Ir para a agenda completa →
-          </Link>
+              <div className="mt-3 flex gap-2">
+                <button
+                  className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper disabled:opacity-40"
+                  disabled={!novoEvento.titulo || !novoEvento.inicio || !novoEvento.fim}
+                  onClick={criarEventoAgenda}
+                >
+                  Criar evento
+                </button>
+                <button className="text-sm text-ink/60" onClick={() => setMostrarFormEvento(false)}>
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-col gap-4">
+            <div>
+              <div className="mb-2 text-sm font-bold text-sage-deep">Sessões de Avaliação</div>
+              <div className="flex flex-col gap-2">
+                {sessoes.length === 0 && <p className="text-sm text-ink/50">Nenhuma sessão marcada.</p>}
+                {sessoes.map((s) => (
+                  <div key={s.id} className="rounded-lg border border-sage-deep/30 bg-sage-deep/5 p-3">
+                    <div className="mb-2 text-xs font-bold text-sage-deep">{new Date(s.dataHora).toLocaleString("pt-BR")}</div>
+                    <SalaVirtualComponent sessaoId={s.id} dataHora={s.dataHora} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-2 text-sm font-bold text-sage-deep">Eventos de Agenda</div>
+              <div className="flex flex-col gap-2">
+                {eventos.length === 0 && <p className="text-sm text-ink/50">Nenhum evento de agenda.</p>}
+                {[...eventos]
+                  .sort((a, b) => new Date(b.inicio).getTime() - new Date(a.inicio).getTime())
+                  .map((ev) => (
+                    <div key={ev.id} className="rounded-lg border border-mist bg-white px-4 py-3 text-sm">
+                      <div className="flex items-center justify-between">
+                        <span className="font-semibold">{ev.titulo}</span>
+                        <span className="text-xs text-ink/50">{new Date(ev.inicio).toLocaleString("pt-BR")}</span>
+                      </div>
+                      {ev.observacoes && <p className="mt-0.5 text-xs text-ink/60">{ev.observacoes}</p>}
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-2">
+            {!mostrarFormEvento && (
+              <button
+                className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper"
+                onClick={() => setMostrarFormEvento(true)}
+              >
+                + Novo evento
+              </button>
+            )}
+            <Link to="/agenda" className="text-sm font-semibold text-sage-deep hover:underline">
+              Ver agenda completa →
+            </Link>
+          </div>
         </div>
       )}
 

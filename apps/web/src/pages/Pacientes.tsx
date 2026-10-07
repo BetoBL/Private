@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BotaoVoltar } from "../components/BotaoVoltar";
 import { useAuth } from "../context/AuthContext";
 import { api, type Paciente, type Sexo } from "../lib/api";
 
@@ -54,6 +55,7 @@ export function Pacientes() {
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-10">
+      <BotaoVoltar />
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="mb-1 font-serif text-2xl text-ink">Pacientes</h1>

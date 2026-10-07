@@ -1,3 +1,5 @@
+import { avisarSeSemAviso } from "./aviso";
+
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3333";
 const TOKEN_STORAGE_KEY = "neurologic_token";
 const PROFISSIONAL_STORAGE_KEY = "neurologic_profissional";
@@ -25,7 +27,20 @@ export interface Paciente {
   preferenciasAgenda: PreferenciasAgenda | null;
   consentimentoTDIC: boolean;
   consentimentoTDICData: string | null;
+  convenioId: string | null;
+  convenioNumeroCarteira: string | null;
+  convenioPlano: string | null;
+  convenioValidade: string | null;
+  convenioTitular: string | null;
   criadoEm: string;
+}
+
+export interface Convenio {
+  id: string;
+  clinicaId: string;
+  nomeOperadora: string;
+  codigoPrestador: string | null;
+  ativo: boolean;
 }
 
 export type PapelProfissional = "ADMIN" | "PSICOLOGO";
@@ -117,6 +132,7 @@ export interface EventoAgenda {
   inicio: string;
   fim: string;
   observacoes: string | null;
+  sessaoId?: string | null;
   criadoEm: string;
 }
 
@@ -148,7 +164,7 @@ export type ResultadoCalculado =
   | { modo: "soma"; escoreBrutoTotal: number; faixa: FaixaConversao | null }
   // valorBruto null = campo derivado que não pôde ser calculado porque falta algum campo-fonte
   // (ex: índice do WISC-IV com subteste principal não lançado) — ver motorCalculo.ts.
-  | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number | null; faixa: FaixaConversao | null }> };
+  | { modo: "por_campo"; porCampo: Record<string, { valorBruto: number | null; faixa: FaixaConversao | null }>; extras?: Record<string, unknown> };
 
 // Quem produziu os escores. PACIENTE cobre autorrelato e teste de aplicação direta (WISC-IV,
 // RAVLT), onde não existe informante. Ver enum TipoRespondente no schema.
@@ -232,6 +248,64 @@ export interface PerfilDeAtuacao {
   sistemaClassificacaoPercentil: SistemaClassificacaoPercentil;
 }
 
+export interface NormativaCustomizada {
+  id: string;
+  clinicaId: string;
+  testeId: string;
+  teste?: Teste;
+  nomeNormativa: string;
+  descricao: string | null;
+  fonte: string | null;
+  criterio: string;
+  faixaMin: number | null;
+  faixaMax: number | null;
+  faixaLabel: string | null;
+  sexo: "MASCULINO" | "FEMININO" | null;
+  conversao: Record<string, unknown>;
+  ativo: boolean;
+  criadoEm: string;
+  atualizadoEm: string;
+}
+
+export type NormativaCustomizadaInput = {
+  testeId: string;
+  nomeNormativa: string;
+  descricao?: string;
+  fonte?: string;
+  criterio: string;
+  faixaMin?: number;
+  faixaMax?: number;
+  faixaLabel?: string;
+  sexo?: "MASCULINO" | "FEMININO";
+  conversao: Record<string, unknown>;
+};
+
+export interface TipoAtendimento {
+  id: string;
+  clinicaId: string;
+  nome: string;
+  descricao: string | null;
+  numeroSessoes: number;
+  testeIds: string[];
+  criadoEm: string;
+  atualizadoEm: string;
+}
+
+export interface SalaVirtual {
+  id: string;
+  sessaoId: string;
+  urlJitsi: string;
+  codigoSala: string;
+  statusSala: "agendada" | "em_andamento" | "encerrada";
+  inicioAgendado: string;
+  inicioReal: string | null;
+  fimReal: string | null;
+  profissionalPresente: boolean;
+  pacientePresente: boolean;
+  criadoEm: string;
+  atualizadoEm: string;
+}
+
 // --- Sessão de autenticação ---
 
 let authToken: string | null = localStorage.getItem(TOKEN_STORAGE_KEY);
@@ -299,8 +373,19 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     },
   });
   if (!res.ok) await tratarRespostaSemOk(res);
+  avisarGravacao(path, init?.method);
   if (res.status === 204) return undefined as T;
   return res.json();
+}
+
+// Chamadas que usam POST/PATCH mas não são "salvar algo": login, geração de rascunho por IA,
+// humor do painel e presença na sala virtual.
+const SEM_AVISO_DE_GRAVACAO = [/^\/auth\//, /\/gerar-rascunho$/, /^\/painel-do-dia\//, /^\/salas-virtuais/];
+
+// Gravação bem-sucedida sem aviso próprio da tela vira um "Salvo" discreto (ver lib/aviso.ts).
+function avisarGravacao(path: string, method?: string) {
+  if (!method || method === "GET" || SEM_AVISO_DE_GRAVACAO.some((r) => r.test(path))) return;
+  avisarSeSemAviso(method === "DELETE" ? "Removido" : "Salvo");
 }
 
 export type ResultadoEventoAgenda = { conflito: false; evento: EventoAgenda } | { conflito: true; conflitos: ConflitoAgenda[] };
@@ -319,7 +404,43 @@ async function enviarEventoAgenda(path: string, method: "POST" | "PATCH", data: 
     return { conflito: true, conflitos: body.conflitos as ConflitoAgenda[] };
   }
   if (!res.ok) await tratarRespostaSemOk(res);
+  avisarGravacao(path, method);
   return { conflito: false, evento: await res.json() };
+}
+
+export interface ConflitoCronograma {
+  sessao: number;
+  titulo: string;
+  inicio: string;
+  fim: string;
+  paciente: string | null;
+}
+
+export type ResultadoIniciarAtendimento =
+  | { conflito: false; tipo: TipoAtendimento; sessoes: Sessao[]; eventos: EventoAgenda[]; mensagem: string }
+  | { conflito: true; conflitos: ConflitoCronograma[] };
+
+async function enviarAtendimento(data: {
+  pacienteId: string;
+  tipoAtendimentoId: string;
+  dataPrimeiraSessao?: string;
+  intervaloDias?: number;
+  duracaoMinutos?: number;
+  sessoes?: { dataHora: string }[];
+  forcar?: boolean;
+}): Promise<ResultadoIniciarAtendimento> {
+  const res = await fetch(`${API_URL}/atendimentos`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}) },
+    body: JSON.stringify(data),
+  });
+  if (res.status === 409) {
+    const body = await res.json();
+    return { conflito: true, conflitos: body.conflitos };
+  }
+  if (!res.ok) await tratarRespostaSemOk(res);
+  avisarGravacao("/atendimentos", "POST");
+  return { conflito: false, ...(await res.json()) };
 }
 
 export const api = {
@@ -352,6 +473,12 @@ export const api = {
       preferenciasAgenda: PreferenciasAgenda;
       consentimentoTDIC: boolean;
       profissionalId: string;
+      // null limpa o campo (paciente particular / sem plano)
+      convenioId: string | null;
+      convenioNumeroCarteira: string | null;
+      convenioPlano: string | null;
+      convenioValidade: string | null;
+      convenioTitular: string | null;
     }>
   ) => request<Paciente>(`/pacientes/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
 
@@ -397,6 +524,19 @@ export const api = {
   createSessao: (data: { pacienteId: string; dataHora: string }) =>
     request<Sessao>("/sessoes", { method: "POST", body: JSON.stringify(data) }),
 
+  // Calcula SEM gravar (mesmo caminho do salvar), para a tela mostrar o resultado ao vivo.
+  calcularAplicacao: (data: { sessaoId: string; testeId: string; escoresBrutos: Record<string, number>; confianca?: "90%" | "95%"; base?: "Amostra Geral" | "Nível de Habilidade" }) =>
+    request<{
+      resultadoCalculado: ResultadoCalculado | null;
+      idadeDias: number;
+      idadeAnos: number;
+      idadeTexto: string;
+      paciente: { nome: string; escolaridade: string | null; sexo: Sexo | null; dataNascimento: string };
+      dataAplicacao: string;
+    }>("/aplicacoes-teste/calcular", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
   listAplicacoes: (sessaoId: string) => request<AplicacaoDeTeste[]>(`/aplicacoes-teste?sessaoId=${sessaoId}`),
   listAplicacoesPorPaciente: (pacienteId: string) =>
     request<AplicacaoDeTeste[]>(`/aplicacoes-teste?pacienteId=${pacienteId}`),
@@ -460,4 +600,33 @@ export const api = {
     respostas?: Record<string, RespostaPerfil>;
     sistemaClassificacaoPercentil?: SistemaClassificacaoPercentil;
   }) => request<PerfilDeAtuacao>("/perfil-atuacao", { method: "PUT", body: JSON.stringify(data) }),
+
+  listTiposAtendimento: () => request<TipoAtendimento[]>("/tipos-atendimento"),
+  createTipoAtendimento: (data: { nome: string; descricao?: string; numeroSessoes: number; testeIds: string[] }) =>
+    request<TipoAtendimento>("/tipos-atendimento", { method: "POST", body: JSON.stringify(data) }),
+  updateTipoAtendimento: (id: string, data: Partial<Omit<TipoAtendimento, "id" | "clinicaId" | "criadoEm" | "atualizadoEm">>) =>
+    request<TipoAtendimento>(`/tipos-atendimento/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  deleteTipoAtendimento: (id: string) => request<void>(`/tipos-atendimento/${id}`, { method: "DELETE" }),
+  listNormativasCustomizadas: () => request<NormativaCustomizada[]>("/normativas-customizadas"),
+  createNormativaCustomizada: (data: NormativaCustomizadaInput) =>
+    request<NormativaCustomizada>("/normativas-customizadas", { method: "POST", body: JSON.stringify(data) }),
+  updateNormativaCustomizada: (id: string, data: Partial<NormativaCustomizadaInput>) =>
+    request<NormativaCustomizada>(`/normativas-customizadas/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  deleteNormativaCustomizada: (id: string) => request<void>(`/normativas-customizadas/${id}`, { method: "DELETE" }),
+
+  iniciarAtendimento: enviarAtendimento,
+
+  listConvenios: (opcoes?: { todos?: boolean }) => request<Convenio[]>(`/convenios${opcoes?.todos ? "?todos=1" : ""}`),
+  createConvenio: (data: { nomeOperadora: string; codigoPrestador?: string }) =>
+    request<Convenio>("/convenios", { method: "POST", body: JSON.stringify(data) }),
+  updateConvenio: (id: string, data: Partial<{ nomeOperadora: string; codigoPrestador: string; ativo: boolean }>) =>
+    request<Convenio>(`/convenios/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  deleteConvenio: (id: string) => request<void>(`/convenios/${id}`, { method: "DELETE" }),
+
+  criarSalaVirtual: (data: { sessaoId: string }) =>
+    request<SalaVirtual>("/salas-virtuais", { method: "POST", body: JSON.stringify(data) }),
+  listSalasVirtuais: (sessaoId: string) =>
+    request<SalaVirtual[]>(`/salas-virtuais/sessao/${sessaoId}`),
+  atualizarSalaVirtual: (id: string, data: Partial<Pick<SalaVirtual, "statusSala" | "inicioReal" | "fimReal" | "profissionalPresente" | "pacientePresente">>) =>
+    request<SalaVirtual>(`/salas-virtuais/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
 };

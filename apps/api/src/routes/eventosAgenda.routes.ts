@@ -148,7 +148,13 @@ eventosAgendaRouter.patch(
           if (conflitos.length > 0 && !forcar) {
             throw new ConflitoAgendaError(paraConflitos(conflitos));
           }
-          return tx.eventoAgenda.update({ where: { id: req.params.id }, data: dados, include: { paciente: true } });
+          const atualizado = await tx.eventoAgenda.update({ where: { id: req.params.id }, data: dados, include: { paciente: true } });
+          // Evento nascido de um atendimento: mover o horário move também a Sessao clínica, que é
+          // o que alimenta a idade do paciente "na data da sessão" e a ficha dele.
+          if (existente.sessaoId && dados.inicio) {
+            await tx.sessao.update({ where: { id: existente.sessaoId }, data: { dataHora: dados.inicio } });
+          }
+          return atualizado;
         },
         { isolationLevel: Prisma.TransactionIsolationLevel.Serializable }
       );

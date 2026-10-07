@@ -4,6 +4,7 @@ import {
   calcularIdadeEmAnos,
   calcularIdadeEmMeses,
   calcularResultado,
+  escolherNormativaCustomizada,
   escolherTabelaNormativa,
   localizarFaixa,
   type ConversaoNormativa,
@@ -409,4 +410,46 @@ test("calcularIdadeEmMeses: nascimento e referência no mesmo dia do mês result
   const nascimento = new Date(2023, 5, 10); // 10/jun/2023
   const referencia = new Date(2023, 11, 10); // 10/dez/2023
   assert.equal(calcularIdadeEmMeses(nascimento, referencia), 6);
+});
+
+// --- escolherNormativaCustomizada ---
+
+test("escolherNormativaCustomizada: só devolve tabela que realmente cobre o paciente (nunca a 'mais próxima')", () => {
+  const tabelas = [{ id: "6-8", criterio: "idade", faixaMin: 6, faixaMax: 8 }];
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 7 }, tabelas)?.id, "6-8");
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 30 }, tabelas), undefined);
+});
+
+test("escolherNormativaCustomizada: faixa nula nos dois extremos cobre qualquer idade; extremo aberto vale um lado só", () => {
+  assert.equal(
+    escolherNormativaCustomizada({ idadeAnos: 90 }, [{ id: "todas", criterio: "idade", faixaMin: null, faixaMax: null }])?.id,
+    "todas"
+  );
+  const aberta = [{ id: "60+", criterio: "idade", faixaMin: 60, faixaMax: null }];
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 75 }, aberta)?.id, "60+");
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 59 }, aberta), undefined);
+});
+
+test("escolherNormativaCustomizada: sexo definido que não bate com o paciente não cobre", () => {
+  const tabelas = [{ id: "F", criterio: "idade", faixaMin: 5, faixaMax: 9, sexo: "FEMININO" as const }];
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 7, sexo: "MASCULINO" }, tabelas), undefined);
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 7, sexo: null }, tabelas), undefined);
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 7, sexo: "FEMININO" }, tabelas)?.id, "F");
+});
+
+test("escolherNormativaCustomizada: a mais específica (sexo + faixa) vence a genérica", () => {
+  const tabelas = [
+    { id: "geral", criterio: "idade", faixaMin: null, faixaMax: null },
+    { id: "faixa", criterio: "idade", faixaMin: 5, faixaMax: 9 },
+    { id: "faixa-F", criterio: "idade", faixaMin: 5, faixaMax: 9, sexo: "FEMININO" as const },
+  ];
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 7, sexo: "FEMININO" }, tabelas)?.id, "faixa-F");
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 7, sexo: "MASCULINO" }, tabelas)?.id, "faixa");
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 40, sexo: "MASCULINO" }, tabelas)?.id, "geral");
+});
+
+test("escolherNormativaCustomizada: criterio idade_meses compara contra idadeMeses", () => {
+  const tabelas = [{ id: "30-35m", criterio: "idade_meses", faixaMin: 30, faixaMax: 35 }];
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 2, idadeMeses: 31 }, tabelas)?.id, "30-35m");
+  assert.equal(escolherNormativaCustomizada({ idadeAnos: 2 }, tabelas), undefined);
 });

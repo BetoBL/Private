@@ -6,14 +6,17 @@ import { api, type Clinica } from "../lib/api";
 const LINKS = [
   { to: "/", label: "Painel do dia", end: true },
   { to: "/pacientes", label: "Pacientes" },
+  { to: "/iniciar-atendimento", label: "Iniciar Atendimento" },
+  { to: "/agenda", label: "Agenda" },
+  { to: "/clinica", label: "Cadastro · Clínica" },
+  { to: "/profissionais", label: "Cadastro · Profissional" },
+  { to: "/tipos-atendimento", label: "Cadastro · Tipos de Atendimento" },
+  { to: "/normativas", label: "Cadastro · Normativas" },
+  { to: "/perfil-atuacao", label: "Meu Perfil de Atuação" },
   // Abre em aba nova, de propósito: a Biblioteca de Instrumentos é um ambiente visual próprio
   // (ver pages/BibliotecaDeTestes.tsx), não uma rota dentro desta casca de sidebar escura.
   { to: "/biblioteca", label: "Testes & Correção", novaAba: true },
   { to: "/laudo", label: "Laudo" },
-  { to: "/agenda", label: "Agenda" },
-  { to: "/perfil-atuacao", label: "Meu Perfil de Atuação" },
-  { to: "/clinica", label: "Cadastro · Clínica" },
-  { to: "/profissionais", label: "Cadastro · Profissional" },
 ];
 
 export function Layout() {

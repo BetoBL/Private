@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api, type Laudo, type Paciente, type Sessao } from "../lib/api";
+import { laudos as laudosPlural, sessoes as sessoesPlural } from "../lib/plural";
 
 const HUMORES = [
   { emoji: "😔", label: "Difícil" },
@@ -89,7 +90,7 @@ export function PainelDoDia() {
             {saudacao()}, {profissional?.nome.split(" ")[0]} ✦
           </h1>
           <p className="text-sm text-ink/60">
-            Você tem {sessoesHoje.length} sessão(ões) hoje e {laudosAguardandoRevisao.length} laudo(s) aguardando revisão.
+            Você tem {sessoesPlural(sessoesHoje.length)} hoje e {laudosPlural(laudosAguardandoRevisao.length)} aguardando revisão.
           </p>
         </div>
         <div className="rounded-full bg-mist px-3.5 py-1.5 text-xs font-semibold text-sage-deep">

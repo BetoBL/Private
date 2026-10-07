@@ -2,7 +2,7 @@
 
 > **FONTE ÚNICA, SEM CONFERÊNCIA CRUZADA.** Diferente do BRIEF2/WISC-IV, não temos o manual do FDT
 > em PDF no acervo (`Manuais/` não tem nenhum arquivo FDT) — a única fonte normativa disponível é a
-> aba `FDT - NORMAS` do Excel legado da psicóloga (`Diego de Melo.xlsm`), transcrita em 05/10/2026
+> aba `FDT - NORMAS` do Excel legado da psicóloga (`planilha-da-psicologa.xlsm`), transcrita em 05/10/2026
 > por `scripts/extrair-normas-fdt.mjs` para `FDT-tabelas.json`. Ver [[project_neurologic_riscos_normas]]
 > (memória do usuário) — "verificado" aqui quer dizer só "lido certo da planilha dela", não
 > "conferido contra o manual impresso" como BRIEF2/WISC-IV.

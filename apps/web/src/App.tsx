@@ -5,17 +5,23 @@ import { Agenda } from "./pages/Agenda";
 import { BibliotecaDeTestes } from "./pages/BibliotecaDeTestes";
 import { CadastroClinica } from "./pages/CadastroClinica";
 import { CadastroProfissional } from "./pages/CadastroProfissional";
+import { CadastroNormativas } from "./pages/CadastroNormativas";
+import { CadastroTiposAtendimento } from "./pages/CadastroTiposAtendimento";
 import { ComposicaoLaudo } from "./pages/ComposicaoLaudo";
 import { FichaPaciente } from "./pages/FichaPaciente";
 import { FichaProfissional } from "./pages/FichaProfissional";
+import { IniciarAtendimento } from "./pages/IniciarAtendimento";
 import { LancamentoTeste } from "./pages/LancamentoTeste";
 import { Login } from "./pages/Login";
 import { PainelDoDia } from "./pages/PainelDoDia";
 import { PerfilAtuacao } from "./pages/PerfilAtuacao";
 import { Pacientes } from "./pages/Pacientes";
+import { PreviewWais3 } from "./pages/PreviewWais3";
 
 function App() {
   const { profissional } = useAuth();
+
+  if (import.meta.env.DEV && window.location.pathname === "/preview-wais3") return <PreviewWais3 />;
 
   if (!profissional) {
     return <Login />;
@@ -30,6 +36,7 @@ function App() {
         <Route path="/" element={<PainelDoDia />} />
         <Route path="/pacientes" element={<Pacientes />} />
         <Route path="/pacientes/:id" element={<FichaPaciente />} />
+        <Route path="/iniciar-atendimento" element={<IniciarAtendimento />} />
         <Route path="/testes" element={<LancamentoTeste />} />
         <Route path="/laudo" element={<ComposicaoLaudo />} />
         <Route path="/agenda" element={<Agenda />} />
@@ -37,6 +44,8 @@ function App() {
         <Route path="/clinica" element={<CadastroClinica />} />
         <Route path="/profissionais" element={<CadastroProfissional />} />
         <Route path="/profissionais/:id" element={<FichaProfissional />} />
+        <Route path="/tipos-atendimento" element={<CadastroTiposAtendimento />} />
+        <Route path="/normativas" element={<CadastroNormativas />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

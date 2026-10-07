@@ -1,5 +1,7 @@
+import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BotaoVoltar } from "../components/BotaoVoltar";
 import { SeletorPaciente } from "../components/SeletorPaciente";
 import { useAuth } from "../context/AuthContext";
 import { api, type ConflitoAgenda, type EventoAgenda, type Paciente, type Profissional } from "../lib/api";
@@ -39,15 +41,52 @@ export function Agenda() {
   const [eventos, setEventos] = useState<EventoAgenda[]>([]);
   const [pacientes, setPacientes] = useState<Paciente[]>([]);
   const [colegas, setColegas] = useState<Profissional[]>([]);
-  const [profissionalFiltro, setProfissionalFiltro] = useState<string>("");
+  const [profissionalFiltro, setProfissionalFiltro] = useState<string>(logado?.id ?? "");
   const [erro, setErro] = useState<string | null>(null);
-  const [mensagem, setMensagem] = useState<string | null>(null);
+  const [mensagem, setMensagem] = useAviso();
 
   const [mostrarForm, setMostrarForm] = useState(false);
   const [editandoId, setEditandoId] = useState<string | null>(null);
   const [conflitos, setConflitos] = useState<ConflitoAgenda[]>([]);
   const [salvando, setSalvando] = useState(false);
-  const [form, setForm] = useState({ pacienteId: "", titulo: "", tipo: "avaliacao", inicio: "", fim: "", observacoes: "" });
+  const [form, setForm] = useState({ pacienteId: "", titulo: "", tipo: "avaliacao", inicio: "", fim: "", observacoes: "", profissionalId: logado?.id ?? "" });
+
+  function atualizarPacienteComPreferencias(pacienteId: string) {
+    setForm((f) => {
+      const paciente = pacientes.find((p) => p.id === pacienteId);
+      const prefs = paciente?.preferenciasAgenda;
+      let novoForm = { ...f, pacienteId };
+
+      if (prefs?.horarioPreferido && !f.inicio) {
+        const [horas, minutos] = prefs.horarioPreferido.split(":").map(Number);
+        const inicio = new Date();
+        inicio.setHours(horas, minutos, 0, 0);
+        const fim = new Date(inicio);
+        fim.setHours(fim.getHours() + 1);
+        novoForm = { ...novoForm, inicio: paraInputLocal(inicio), fim: paraInputLocal(fim) };
+      }
+      return novoForm;
+    });
+  }
+
+  function abrirNovoEventoComProfissional(data?: Date, profId?: string) {
+    setEditandoId(null);
+    setConflitos([]);
+    const base = data ? new Date(data) : new Date();
+    base.setHours(9, 0, 0, 0);
+    const fim = new Date(base);
+    fim.setHours(base.getHours() + 1);
+    setForm({
+      pacienteId: "",
+      titulo: "",
+      tipo: "avaliacao",
+      inicio: paraInputLocal(base),
+      fim: paraInputLocal(fim),
+      observacoes: "",
+      profissionalId: profId ?? logado?.id ?? "",
+    });
+    setMostrarForm(true);
+  }
 
   const segunda = inicioDaSemana(referencia);
   const domingo = new Date(segunda);
@@ -89,17 +128,6 @@ export function Agenda() {
       .sort((a, b) => new Date(a.inicio).getTime() - new Date(b.inicio).getTime());
   }
 
-  function abrirNovoEvento(data?: Date) {
-    setEditandoId(null);
-    setConflitos([]);
-    const base = data ? new Date(data) : new Date();
-    base.setHours(9, 0, 0, 0);
-    const fim = new Date(base);
-    fim.setHours(base.getHours() + 1);
-    setForm({ pacienteId: "", titulo: "", tipo: "avaliacao", inicio: paraInputLocal(base), fim: paraInputLocal(fim), observacoes: "" });
-    setMostrarForm(true);
-  }
-
   function abrirEdicao(ev: EventoAgenda) {
     setEditandoId(ev.id);
     setConflitos([]);
@@ -110,6 +138,7 @@ export function Agenda() {
       inicio: paraInputLocal(new Date(ev.inicio)),
       fim: paraInputLocal(new Date(ev.fim)),
       observacoes: ev.observacoes ?? "",
+      profissionalId: ev.profissionalId,
     });
     setMostrarForm(true);
   }
@@ -126,6 +155,7 @@ export function Agenda() {
       fim: new Date(form.fim).toISOString(),
       observacoes: form.observacoes || undefined,
       pacienteId: form.pacienteId || undefined,
+      profissionalId: form.profissionalId || logado?.id,
       forcar,
     };
     try {
@@ -163,8 +193,28 @@ export function Agenda() {
     }
   }
 
+  function duplicarEvento(id: string) {
+    const evento = eventos.find((e) => e.id === id);
+    if (!evento) return;
+    setEditandoId(null);
+    setConflitos([]);
+    const inicio = new Date(evento.inicio);
+    const fim = new Date(evento.fim);
+    setForm({
+      pacienteId: evento.pacienteId ?? "",
+      titulo: evento.titulo,
+      tipo: evento.tipo,
+      inicio: paraInputLocal(inicio),
+      fim: paraInputLocal(fim),
+      observacoes: evento.observacoes ?? "",
+      profissionalId: evento.profissionalId,
+    });
+    setMostrarForm(true);
+  }
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
+      <BotaoVoltar />
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="mb-1 font-serif text-2xl text-ink">Agenda</h1>
@@ -205,7 +255,7 @@ export function Agenda() {
           <button
             className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper disabled:opacity-40"
             disabled={salvando}
-            onClick={() => abrirNovoEvento()}
+            onClick={() => abrirNovoEventoComProfissional()}
           >
             + Novo evento
           </button>
@@ -242,11 +292,26 @@ export function Agenda() {
               </select>
             </label>
             <label className="text-sm">
+              <span className="mb-1 block font-semibold text-ink/70">Profissional Responsável</span>
+              <select
+                className="w-full rounded-lg border border-mist px-3 py-2"
+                value={form.profissionalId}
+                onChange={(e) => setForm((f) => ({ ...f, profissionalId: e.target.value }))}
+              >
+                <option value={logado?.id ?? ""}>{logado?.nome} (você)</option>
+                {colegas.filter((c) => c.id !== logado?.id).map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.nome}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="text-sm">
               <span className="mb-1 block font-semibold text-ink/70">Paciente (opcional)</span>
               <SeletorPaciente
                 pacientes={pacientes}
                 value={form.pacienteId}
-                onChange={(id) => setForm((f) => ({ ...f, pacienteId: id }))}
+                onChange={atualizarPacienteComPreferencias}
                 placeholder="Buscar paciente..."
               />
             </label>
@@ -320,9 +385,14 @@ export function Agenda() {
               {salvando ? "Salvando..." : "Salvar"}
             </button>
             {editandoId && (
-              <button className="text-sm font-semibold text-ember" onClick={() => excluir(editandoId)}>
-                Excluir
-              </button>
+              <>
+                <button className="text-sm font-semibold text-sage-deep" onClick={() => duplicarEvento(editandoId)}>
+                  Duplicar
+                </button>
+                <button className="text-sm font-semibold text-ember" onClick={() => excluir(editandoId)}>
+                  Excluir
+                </button>
+              </>
             )}
             <button
               className="text-sm text-ink/60"
@@ -344,7 +414,7 @@ export function Agenda() {
               <h4 className="font-serif text-sm">
                 {label} {data.getDate()}
               </h4>
-              <button className="text-xs text-ink/40 hover:text-sage-deep" onClick={() => abrirNovoEvento(data)}>
+              <button className="text-xs text-ink/40 hover:text-sage-deep" onClick={() => abrirNovoEventoComProfissional(data)}>
                 +
               </button>
             </div>

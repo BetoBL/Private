@@ -140,7 +140,7 @@ function main() {
     _fonte:
       "Constantino, J. N.; Gruber, C. P. Social Responsiveness Scale, Second Edition (SRS-2): " +
       "manual. Torrance, CA: Western Psychological Services, 2012. Transcrito em 05/10/2026 da " +
-      "aba 'SRS2-Normas' do Excel legado da psicóloga (arquivo 'Diego de Melo.xlsm'). SEM " +
+      "aba 'SRS2-Normas' do Excel legado da psicóloga (arquivo 'planilha-da-psicologa.xlsm'). SEM " +
       "CONFERÊNCIA CONTRA O MANUAL IMPRESSO — não temos o PDF do SRS-2 no acervo; esta é fonte " +
       "única (ver project_neurologic_riscos_normas na memória). 'Comunicação e Interação Social' " +
       "e 'Pontuação SRS-2 Total' são SOMA das outras subescalas, confirmado numericamente " +

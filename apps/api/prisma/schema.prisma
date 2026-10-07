@@ -111,9 +111,11 @@ model Clinica {
   corSecundaria String?
   criadoEm      DateTime       @default(now())
 
-  profissionais Profissional[]
-  pacientes     Paciente[]
-  convenios     Convenio[]
+  profissionais      Profissional[]
+  pacientes          Paciente[]
+  convenios          Convenio[]
+  tiposAtendimento   TipoAtendimento[]
+  normativasCustomizadas NormativaCustomizada[]
 }
 
 model Profissional {
@@ -185,6 +187,10 @@ model Paciente {
 
   convenioId      String?
   convenio        Convenio?  @relation(fields: [convenioId], references: [id])
+  convenioNumeroCarteira String?   // número da carteirinha
+  convenioPlano          String?   // ex: "Amil 400", "Bradesco Saúde Nacional"
+  convenioValidade       DateTime? // validade da carteirinha
+  convenioTitular        String?   // quando o paciente é dependente: nome do titular do plano
 
   anamnese        Json?      // estrutura livre: queixa, histórico escolar/médico/familiar
   preferenciasAgenda Json?   // melhores dias/horários do paciente para agendamento
@@ -221,6 +227,8 @@ model Sessao {
   dataHora        DateTime
   observacoes     String?   @db.Text
   aplicacoesTeste AplicacaoDeTeste[]
+  salasVirtuais   SalaVirtual[]
+  eventoAgenda    EventoAgenda?
 
   criadoEm        DateTime  @default(now())
 }
@@ -234,6 +242,11 @@ model EventoAgenda {
   profissional    Profissional @relation(fields: [profissionalId], references: [id])
   pacienteId      String?
   paciente        Paciente?    @relation(fields: [pacienteId], references: [id])
+
+  // Quando o evento nasceu do cronograma de um atendimento, aponta para a Sessao correspondente;
+  // mudar o horário do evento move também a Sessao.dataHora.
+  sessaoId        String?      @unique
+  sessao          Sessao?      @relation(fields: [sessaoId], references: [id])
 
   titulo          String
   tipo            String       // "avaliacao" | "outro" — texto livre por enquanto
@@ -285,6 +298,7 @@ model Teste {
   direcao                   DirecaoMelhorPior @default(NEUTRO)
 
   tabelasNormativas         TabelaNormativa[]
+  normativasCustomizadas    NormativaCustomizada[]
   aplicacoes                AplicacaoDeTeste[]
 
   criadoEm                  DateTime          @default(now())
@@ -302,6 +316,33 @@ model TabelaNormativa {
   faixaLabel    String?  // ex: "6º ao 9º ano" quando não é numérico
   sexo          Sexo?    // preenchido só quando o critério estratifica por sexo (ex: ETDAH-PAIS)
   conversao     Json     // mapeamento escore bruto -> percentil/escore padronizado/classificação
+}
+
+// Normativa customizada — clínica pode fazer upload de suas próprias tabelas
+// Sobrescreve TabelaNormativa para esse teste na clínica específica
+model NormativaCustomizada {
+  id            String   @id @default(uuid())
+  clinicaId     String
+  clinica       Clinica  @relation(fields: [clinicaId], references: [id])
+  testeId       String
+  teste         Teste    @relation(fields: [testeId], references: [id])
+
+  nomeNormativa String   // ex: "Amostra brasileira 2020 - adaptação local"
+  descricao     String?  @db.Text
+  fonte         String?  // ex: "Universidade X" ou "Pesquisa em andamento"
+
+  criterio      String   // ex: "idade", "idade+sexo"
+  faixaMin      Float?
+  faixaMax      Float?
+  faixaLabel    String?
+  sexo          Sexo?
+  conversao     Json     // tabela de conversão (mesma estrutura de TabelaNormativa)
+
+  ativo         Boolean  @default(true) // Clínica pode desativar sem deletar
+  criadoEm      DateTime @default(now())
+  atualizadoEm  DateTime @updatedAt
+
+  @@unique([clinicaId, testeId, criterio, faixaLabel]) // Evita duplicatas
 }
 
 model AplicacaoDeTeste {
@@ -359,6 +400,48 @@ model Laudo {
   atualizadoEm      DateTime     @updatedAt
 }
 
+// Tipo de atendimento (modelo, template) — ex: "Laudo de Avaliação Neuropsicológica"
+// Agrupa número de sessões + lista de testes obrigatórios para facilitar criação de atendimentos
+model TipoAtendimento {
+  id                String   @id @default(uuid())
+  clinicaId         String
+  clinica           Clinica  @relation(fields: [clinicaId], references: [id])
+
+  nome              String   // ex: "Laudo de Avaliação Neuropsicológica"
+  descricao         String?  @db.Text
+  numeroSessoes     Int      @default(1)
+  testeIds          String[] @default([]) // IDs dos testes associados (Teste.id)
+
+  criadoEm          DateTime @default(now())
+  atualizadoEm      DateTime @updatedAt
+
+  @@unique([clinicaId, nome]) // Um nome de tipo por clínica
+}
+
+// Sala virtual para telepsicologia — Resolução CFP nº 11/2018 + nº 09/2024
+// Usa Jitsi Meet (open source, criptografado ponta-a-ponta, sem armazenamento)
+model SalaVirtual {
+  id                String    @id @default(uuid())
+  sessaoId          String
+  sessao            Sessao    @relation(fields: [sessaoId], references: [id])
+
+  // URL de acesso (gerada automaticamente — formato Jitsi: https://meet.jit.si/NomeUnico)
+  urlJitsi          String    @unique
+  codigoSala        String    @unique  // Identificador único para Jitsi (ex: neurologic-{uuid})
+
+  statusSala        String    @default("agendada") // agendada, em_andamento, encerrada
+  inicioAgendado    DateTime  // Quando a sessão estava marcada
+  inicioReal        DateTime? // Quando entrou de fato
+  fimReal           DateTime? // Quando saiu
+
+  // Registro para conformidade CFP 11/2018
+  profissionalPresente  Boolean @default(false)
+  pacientePresente      Boolean @default(false)
+
+  criadoEm          DateTime  @default(now())
+  atualizadoEm      DateTime  @updatedAt
+}
+
 // --- Módulo de convênio (V2/V3 — deixado previsto no schema, não implementar ainda) ---
 
 model Convenio {
@@ -368,9 +451,12 @@ model Convenio {
 
   nomeOperadora  String    // ex: "Amil"
   codigoPrestador String?
+  ativo          Boolean   @default(true) // desativar em vez de apagar: pacientes antigos continuam apontando para ele
   pacientes      Paciente[]
   profissionais  ProfissionalConvenio[]
   tabelaValores  TabelaValorConvenio[]
+
+  @@unique([clinicaId, nomeOperadora])
 }
 
 model ProfissionalConvenio {
