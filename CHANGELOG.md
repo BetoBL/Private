@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-10-08 - Noite] Caso de demonstração do laudo na produção
+
+- **Caso fictício "Helena Exemplo Prado" criado na produção** (`apps/api/prisma/exemplo-laudo.ts`, copiado da base local): paciente com anamnese preenchida pelo formulário, 1 sessão com 8 testes lançados (WAIS-III, RAVLT, FDT, BPA, BFP, SRS-2 adultos, BAI, BDI-II) e o laudo completo (análise por domínio, interpretações, hipótese, conclusão e sugestões). Pertence a um profissional de DEMONSTRAÇÃO sem acesso (`demonstracao@mentessence.invalid`, senha aleatória), visível ao administrador. Para refazer: `--refazer`.
+- **Tipo de atendimento "Avaliação neuropsicológica de adulto (modelo)"** criado com esses 8 testes.
+- **Timbrado da clínica**: só foram preenchidos os campos que estavam vazios (logotipo, marca-d'água, frase, WhatsApp, Instagram); nada existente foi alterado.
+- Pesquisa de modelos padrão: o Manual Orientativo do CFP (2025), Apêndice 3, traz as estruturas oficiais de declaração, atestado, relatório (psicológico e multiprofissional), laudo e parecer.
+
 ## [2026-10-08 - Tarde] Textos originais, anamnese por formulário e espaços por paciente
 
 - **Textos-padrão do laudo devolvidos à redação original da psicóloga** (palavra por palavra): antes, 19 dos 39 textos-padrão tinham sido reescritos por mim sem aviso (definições de funções executivas e atencionais, visuoconstrução, memória episódica, BAI, BDI-II, BFP, referencial, descrição dos instrumentos e seus nomes). Agora 41 de 42 são idênticos; o 42º é o aviso de IA (exigência do CFP). Cada definição de função executiva/atencional voltou a vir seguida da sua linha de resultado. Possíveis deslizes dela (ex.: "As Escala", "quantitativa") ficam como estão e foram listados em `PERGUNTAS-PARA-LETICIA.md`, seção 10.
