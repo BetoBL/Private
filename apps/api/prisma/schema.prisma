@@ -122,6 +122,8 @@ model Clinica {
   normativasCustomizadas NormativaCustomizada[]
   modelosLaudo       ModeloLaudo[]
   modeloLaudoPadraoId String?      // modelo de laudo padrão da clínica (vale para quem não escolheu o seu)
+  configFiscal       ConfigFiscal?
+  notasFiscais       NotaFiscal[]
 }
 
 model Profissional {
@@ -473,6 +475,15 @@ model Convenio {
 
   nomeOperadora  String    // ex: "Amil"
   codigoPrestador String?
+  // dados para faturar o convênio (tomador da nota e regras de fechamento)
+  cnpj           String?
+  razaoSocial    String?
+  registroAns    String?   // registro da operadora na ANS
+  formaFaturamento String? // INDIVIDUAL (nota caso a caso) | LOTE_MENSAL (junta os casos do mês); vazio = o padrão da configuração fiscal
+  diaFechamento  Int?      // dia do mês em que o faturamento fecha
+  prazoPagamentoDias Int?
+  exigeTiss      Boolean   @default(false) // envia guias/lote em XML TISS
+  observacoesFaturamento String? @db.Text
   ativo          Boolean   @default(true) // desativar em vez de apagar: pacientes antigos continuam apontando para ele
   pacientes      Paciente[]
   cobrancas      Cobranca[]
@@ -519,6 +530,12 @@ model Cobranca {
   valorPago      Decimal?  @db.Decimal(10, 2) // menor que o valor = glosa/desconto (a diferença fica visível)
   pagoEm         DateTime? @db.Date
   formaPagamento String?   // pix, dinheiro, cartão, transferência, repasse do convênio...
+  // dados de convênio (guia/lote) e vínculo com a nota fiscal
+  numeroGuia     String?
+  senhaAutorizacao String?
+  codigoTuss     String?
+  notaFiscalId   String?
+  notaFiscal     NotaFiscal? @relation(fields: [notaFiscalId], references: [id])
   observacoes    String?   @db.Text
 
   criadoEm       DateTime  @default(now())
@@ -565,4 +582,76 @@ model ResumoDoDia {
   atualizadoEm   DateTime @updatedAt
 
   @@unique([profissionalId, data])
+}
+
+// Configuração fiscal da clínica (NFS-e). Tudo é configurável: nada de município, código de serviço, alíquota ou texto fixo no código.
+model ConfigFiscal {
+  id             String   @id @default(uuid())
+  clinicaId      String   @unique
+  clinica        Clinica  @relation(fields: [clinicaId], references: [id])
+
+  emissaoAtiva   Boolean  @default(false) // enquanto desligada, o sistema só prepara (rascunho); não emite
+  ambiente       String   @default("HOMOLOGACAO") // HOMOLOGACAO | PRODUCAO
+  regime         String   @default("SIMPLES_NACIONAL") // SIMPLES_NACIONAL | MEI | LUCRO_PRESUMIDO | LUCRO_REAL
+  inscricaoMunicipal String?
+  codigoMunicipioIbge String?
+  localPrestacaoIbge String? // vazio = o município da clínica
+
+  // serviço
+  cTribNac       String?  // código de tributação nacional (ex.: 04.16.01)
+  nbs            String?
+  descricaoPadrao String  @default("Prestação de serviços em atendimento de Psicologia {{sessao.data}}") @db.Text
+
+  // imposto
+  aliquotaModo   String   @default("FIXA") // FIXA | SIMPLES (calculada pela receita dos últimos 12 meses)
+  aliquotaIss    Decimal? @db.Decimal(5, 2)
+  rbt12          Decimal? @db.Decimal(14, 2)
+  issRetido      Boolean  @default(false)
+
+  // numeração (a série e o próximo número seguem o que já foi emitido fora do sistema)
+  serieDps       String   @default("1")
+  proximoNumeroDps Int    @default(1)
+
+  // quando e como emitir
+  modoParticular String   @default("POR_SESSAO") // POR_SESSAO | POR_LAUDO | MANUAL
+  quandoEmitir   String   @default("MANUAL") // NA_BAIXA (ao receber) | NA_COBRANCA | MANUAL
+  modoConvenio   String   @default("INDIVIDUAL") // INDIVIDUAL | LOTE_MENSAL (cada convênio pode mudar)
+  exigeDataPagamento Boolean @default(true)
+
+  atualizadoEm   DateTime @updatedAt
+}
+
+// Nota fiscal de serviço (rascunho, emitida, rejeitada ou cancelada). O tomador é gravado como estava na emissão.
+model NotaFiscal {
+  id             String   @id @default(uuid())
+  clinicaId      String
+  clinica        Clinica  @relation(fields: [clinicaId], references: [id])
+
+  origem         String   // SESSAO | LAUDO | CONVENIO_CASO | CONVENIO_LOTE | MANUAL
+  status         String   @default("RASCUNHO") // RASCUNHO | EMITIDA | REJEITADA | CANCELADA
+  ambiente       String   @default("HOMOLOGACAO")
+  serie          String?
+  numero         Int?
+  competencia    DateTime @db.Date
+
+  tomadorNome    String
+  tomadorDocumento String?
+  tomadorConvenioId String?
+  tomadorEndereco Json?
+
+  valor          Decimal  @db.Decimal(10, 2)
+  descricao      String   @db.Text
+  datasServico   Json?    // datas das sessões cobertas
+
+  chaveAcesso    String?
+  protocolo      String?
+  erro           String?  @db.Text
+  emitidaEm      DateTime?
+
+  cobrancas      Cobranca[]
+  criadoEm       DateTime @default(now())
+  atualizadoEm   DateTime @updatedAt
+
+  @@unique([clinicaId, ambiente, serie, numero])
+  @@index([clinicaId, status, competencia])
 }

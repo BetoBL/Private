@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
 // Tela única de configurações e cadastros: o menu lateral fica só com o trabalho do dia a dia.
-export const ROTAS_CONFIGURACOES = ["/configuracoes", "/clinica", "/profissionais", "/tipos-atendimento", "/normativas", "/modelos-laudo", "/perfil-atuacao"];
+export const ROTAS_CONFIGURACOES = ["/configuracoes", "/clinica", "/profissionais", "/tipos-atendimento", "/normativas", "/modelos-laudo", "/perfil-atuacao", "/fiscal"];
 
 const GRUPOS: Array<{ titulo: string; itens: Array<{ to: string; nome: string; texto: string }> }> = [
   {
     titulo: "Clínica",
     itens: [
       { to: "/clinica", nome: "Dados da clínica", texto: "Nome, endereço, logotipo e papel timbrado dos documentos, e convênios aceitos." },
+      { to: "/fiscal", nome: "Dados fiscais", texto: "Nota fiscal de serviço: município, código do serviço, imposto, numeração e quando emitir." },
       { to: "/profissionais", nome: "Profissionais", texto: "Quem atende na clínica, com CRP, assinatura e acesso ao sistema." },
     ],
   },

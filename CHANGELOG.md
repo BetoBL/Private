@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026-10-08 - Madrugada] NF, passo 1: dados fiscais configuráveis e base de faturamento de convênio
+
+- **Dados fiscais** (Configurações › Clínica): `ConfigFiscal` por clínica, tudo configurável (município/IBGE, inscrição, regime, código de serviço e NBS, descrição da nota com variáveis como `{{sessao.data}}`, ISS fixo ou pelo Simples, série e próximo número, ambiente, emissão ativa/desligada, regras particular por sessão/laudo/manual, convênio por caso/lote mensal, momento de emitir, exigir data de pagamento). Lista de pendências para emitir. Só o administrador altera. Certificado A1: ainda não (etapa da emissão).
+- **Convênios**: CNPJ (tomador), razão social, ANS, forma de faturar (caso a caso / lote mensal), dia de fechamento, prazo, exige TISS, observações. `Cobranca` ganhou guia, senha de autorização, TUSS e vínculo com a nota. Modelo `NotaFiscal` criado (rascunho/emitida/rejeitada/cancelada), sem emissão ainda.
+- `prisma/preencher-fiscal.ts` preenche os dados da Mentessence (NFS-e 229) só onde está vazio; série 49998 e próximo número 235 são PROVISÓRIOS (confirmar com a Letícia e o contador). 125 testes passam.
+
 ## [2026-10-08 - Madrugada] Menu reorganizado: Configurações
 
 - Menu lateral com 7 itens do dia a dia (Painel do dia, Pacientes, Agenda, Iniciar atendimento, Laudos, Financeiro, Testes e correção) e o botão **Configurações** no rodapé, que abre uma tela de cartões (Clínica, Atendimento, Minha conta). Sem "Cadastro ·" nos nomes; as rotas antigas continuam as mesmas; o botão fica destacado dentro de qualquer tela de configuração.

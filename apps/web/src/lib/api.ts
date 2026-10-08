@@ -61,12 +61,28 @@ export interface Paciente {
   criadoEm: string;
 }
 
-export interface Convenio {
+export interface DadosFaturamentoConvenio {
+  cnpj: string | null; razaoSocial: string | null; registroAns: string | null; formaFaturamento: "INDIVIDUAL" | "LOTE_MENSAL" | null;
+  diaFechamento: number | null; prazoPagamentoDias: number | null; exigeTiss: boolean; observacoesFaturamento: string | null;
+}
+export interface Convenio extends DadosFaturamentoConvenio {
   id: string;
   clinicaId: string;
   nomeOperadora: string;
   codigoPrestador: string | null;
   ativo: boolean;
+}
+
+export interface ConfigFiscal {
+  emissaoAtiva: boolean; ambiente: "HOMOLOGACAO" | "PRODUCAO"; regime: string; inscricaoMunicipal: string | null; codigoMunicipioIbge: string | null; localPrestacaoIbge: string | null;
+  cTribNac: string | null; nbs: string | null; descricaoPadrao: string; aliquotaModo: "FIXA" | "SIMPLES"; aliquotaIss: string | number | null; rbt12: string | number | null; issRetido: boolean;
+  serieDps: string; proximoNumeroDps: number; modoParticular: string; quandoEmitir: string; modoConvenio: string; exigeDataPagamento: boolean;
+}
+export interface RespostaFiscal {
+  config: ConfigFiscal | null;
+  clinica: { razaoSocial: string; nomeFantasia: string | null; cnpj: string | null; endereco: string | null; bairro: string | null; cep: string | null; cidade: string | null; estado: string | null; telefone: string | null };
+  exemploDescricao: string; variaveis: Array<{ variavel: string; descricao: string }>;
+  pendencias: Array<{ campo: string; mensagem: string; onde: "clinica" | "fiscal" | "certificado" }>; prontoParaTeste: boolean; prontoParaEmitir: boolean;
 }
 
 export type StatusCobranca = "ABERTA" | "PAGA" | "CANCELADA";
@@ -675,6 +691,9 @@ export const api = {
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
   exportarLaudoDocx: (id: string) => baixarArquivo(`/laudos/${id}/exportar-docx`),
 
+  getFiscal: () => request<RespostaFiscal>("/fiscal/config"),
+  salvarFiscal: (data: Partial<ConfigFiscal>) => request<RespostaFiscal>("/fiscal/config", { method: "PUT", body: JSON.stringify(data) }),
+
   listModelosLaudo: () => request<ModeloLaudo[]>("/modelos-laudo"),
   getModeloLaudo: (id: string) => request<ModeloLaudo>(`/modelos-laudo/${id}`),
   marcadoresModelo: () => request<{ marcadores: Array<{ marcador: string; descricao: string }>; tiposDeSecao: TipoSecao[]; tiposDeModelo: Array<{ valor: string; rotulo: string }> }>("/modelos-laudo/marcadores"),
@@ -765,9 +784,9 @@ export const api = {
   reabrirCobranca: (id: string) => request<Cobranca>("/financeiro/" + id + "/reabrir", { method: "POST" }),
   cancelarCobranca: (id: string) => request<void>("/financeiro/" + id, { method: "DELETE" }),
   listConvenios: (opcoes?: { todos?: boolean }) => request<Convenio[]>(`/convenios${opcoes?.todos ? "?todos=1" : ""}`),
-  createConvenio: (data: { nomeOperadora: string; codigoPrestador?: string }) =>
+  createConvenio: (data: { nomeOperadora: string; codigoPrestador?: string } & Partial<DadosFaturamentoConvenio>) =>
     request<Convenio>("/convenios", { method: "POST", body: JSON.stringify(data) }),
-  updateConvenio: (id: string, data: Partial<{ nomeOperadora: string; codigoPrestador: string; ativo: boolean }>) =>
+  updateConvenio: (id: string, data: Partial<{ nomeOperadora: string; codigoPrestador: string; ativo: boolean }> & Partial<DadosFaturamentoConvenio>) =>
     request<Convenio>(`/convenios/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
   deleteConvenio: (id: string) => request<void>(`/convenios/${id}`, { method: "DELETE" }),
 

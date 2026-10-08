@@ -234,6 +234,8 @@ export function CadastroClinica() {
   );
 }
 
+const FAT_VAZIO = { cnpj: "", razaoSocial: "", registroAns: "", formaFaturamento: "", diaFechamento: "", prazoPagamentoDias: "", exigeTiss: false, observacoesFaturamento: "" };
+
 function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
   const [convenios, setConvenios] = useState<Convenio[]>([]);
   const [erro, setErro] = useState<string | null>(null);
@@ -241,6 +243,8 @@ function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
   const [editandoId, setEditandoId] = useState<string | null>(null);
   const [nome, setNome] = useState("");
   const [codigo, setCodigo] = useState("");
+  const [fat, setFat] = useState(FAT_VAZIO);
+  const dadosFat = () => ({ cnpj: fat.cnpj, razaoSocial: fat.razaoSocial, registroAns: fat.registroAns, formaFaturamento: (fat.formaFaturamento || null) as "INDIVIDUAL" | "LOTE_MENSAL" | null, diaFechamento: fat.diaFechamento ? Number(fat.diaFechamento) : null, prazoPagamentoDias: fat.prazoPagamentoDias ? Number(fat.prazoPagamentoDias) : null, exigeTiss: fat.exigeTiss, observacoesFaturamento: fat.observacoesFaturamento });
 
   async function carregar() {
     try {
@@ -258,6 +262,7 @@ function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
     setEditandoId(null);
     setNome("");
     setCodigo("");
+    setFat(FAT_VAZIO);
   }
 
   async function salvar() {
@@ -269,10 +274,10 @@ function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
     setMensagem(null);
     try {
       if (editandoId) {
-        await api.updateConvenio(editandoId, { nomeOperadora: nome.trim(), codigoPrestador: codigo.trim() });
+        await api.updateConvenio(editandoId, { nomeOperadora: nome.trim(), codigoPrestador: codigo.trim(), ...dadosFat() });
         setMensagem("Convênio atualizado.");
       } else {
-        await api.createConvenio({ nomeOperadora: nome.trim(), codigoPrestador: codigo.trim() || undefined });
+        await api.createConvenio({ nomeOperadora: nome.trim(), codigoPrestador: codigo.trim() || undefined, ...dadosFat() });
         setMensagem("Convênio adicionado.");
       }
       limparForm();
@@ -305,7 +310,8 @@ function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
       {mensagem && <div className="mb-4 rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}
 
       {ehAdmin && (
-        <div className="mb-4 grid grid-cols-[1fr_1fr_auto] items-end gap-3 rounded-2xl border border-mist bg-white p-4">
+        <div className="mb-4 rounded-2xl border border-mist bg-white p-4">
+        <div className="grid grid-cols-[1fr_1fr_auto] items-end gap-3">
           <label className="text-sm">
             <span className="mb-1 block font-semibold text-ink/70">Operadora</span>
             <input
@@ -330,6 +336,26 @@ function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
             )}
           </div>
         </div>
+        <details className="mt-4" open={!!editandoId}>
+          <summary className="cursor-pointer text-sm font-semibold text-ink/70">Dados de faturamento (nota fiscal e fechamento)</summary>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">CNPJ do convênio (tomador da nota)</span><input className="w-full rounded-lg border border-mist px-3 py-2" value={fat.cnpj} onChange={(e) => setFat({ ...fat, cnpj: e.target.value })} /></label>
+            <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">Razão social</span><input className="w-full rounded-lg border border-mist px-3 py-2" value={fat.razaoSocial} onChange={(e) => setFat({ ...fat, razaoSocial: e.target.value })} /></label>
+            <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">Registro na ANS</span><input className="w-full rounded-lg border border-mist px-3 py-2" value={fat.registroAns} onChange={(e) => setFat({ ...fat, registroAns: e.target.value })} /></label>
+            <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">Como faturar</span>
+              <select className="w-full rounded-lg border border-mist px-3 py-2" value={fat.formaFaturamento} onChange={(e) => setFat({ ...fat, formaFaturamento: e.target.value })}>
+                <option value="">Usar o padrão da configuração fiscal</option>
+                <option value="INDIVIDUAL">Uma nota por caso</option>
+                <option value="LOTE_MENSAL">Uma nota por mês, juntando os casos</option>
+              </select>
+            </label>
+            <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">Dia de fechamento do mês</span><input type="number" min={1} max={31} className="w-full rounded-lg border border-mist px-3 py-2" value={fat.diaFechamento} onChange={(e) => setFat({ ...fat, diaFechamento: e.target.value })} /></label>
+            <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">Prazo de pagamento (dias)</span><input type="number" min={0} className="w-full rounded-lg border border-mist px-3 py-2" value={fat.prazoPagamentoDias} onChange={(e) => setFat({ ...fat, prazoPagamentoDias: e.target.value })} /></label>
+            <label className="flex items-center gap-2 text-sm text-ink/75 sm:col-span-2"><input type="checkbox" className="h-4 w-4" checked={fat.exigeTiss} onChange={(e) => setFat({ ...fat, exigeTiss: e.target.checked })} />Este convênio exige guias/lote em XML TISS</label>
+            <label className="text-sm sm:col-span-2"><span className="mb-1 block font-semibold text-ink/70">Observações de faturamento (medição, documentos a enviar…)</span><textarea className="w-full rounded-lg border border-mist px-3 py-2" rows={2} value={fat.observacoesFaturamento} onChange={(e) => setFat({ ...fat, observacoesFaturamento: e.target.value })} /></label>
+          </div>
+        </details>
+        </div>
       )}
 
       <div className="space-y-2">
@@ -346,6 +372,7 @@ function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
                 {!c.ativo && <span className="ml-2 text-xs font-normal text-ink/60">(inativo)</span>}
               </div>
               {c.codigoPrestador && <div className="text-xs text-ink/60">Prestador: {c.codigoPrestador}</div>}
+              {(c.cnpj || c.formaFaturamento) && <div className="text-xs text-ink/60">{[c.cnpj && `CNPJ ${c.cnpj}`, c.formaFaturamento === "LOTE_MENSAL" ? "nota mensal" : c.formaFaturamento === "INDIVIDUAL" ? "nota por caso" : "", c.exigeTiss ? "TISS" : ""].filter(Boolean).join(" · ")}</div>}
             </div>
             {ehAdmin && (
               <div className="flex shrink-0 gap-2">
@@ -355,6 +382,7 @@ function ConveniosAceitos({ ehAdmin }: { ehAdmin: boolean }) {
                     setEditandoId(c.id);
                     setNome(c.nomeOperadora);
                     setCodigo(c.codigoPrestador ?? "");
+                    setFat({ cnpj: c.cnpj ?? "", razaoSocial: c.razaoSocial ?? "", registroAns: c.registroAns ?? "", formaFaturamento: c.formaFaturamento ?? "", diaFechamento: c.diaFechamento ? String(c.diaFechamento) : "", prazoPagamentoDias: c.prazoPagamentoDias !== null && c.prazoPagamentoDias !== undefined ? String(c.prazoPagamentoDias) : "", exigeTiss: !!c.exigeTiss, observacoesFaturamento: c.observacoesFaturamento ?? "" });
                   }}
                 >
                   Editar

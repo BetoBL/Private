@@ -5,13 +5,23 @@ import { asyncHandler, validateBody } from "../lib/validate";
 
 export const conveniosRouter = Router();
 
+// vazio vira null; ausente continua ausente (num PATCH parcial não pode apagar o dado)
+const vazioNulo = (v: unknown) => (typeof v === "string" && v.trim() === "" ? null : v);
+const textoOpc = (max: number) => z.preprocess(vazioNulo, z.string().trim().max(max).nullable().optional());
+const inteiroOpc = (min: number, max: number) => z.preprocess((v) => (v === "" || v === null ? null : v === undefined ? undefined : Number(v)), z.number().int().min(min).max(max).nullable().optional());
+
 const convenioCreateSchema = z.object({
   nomeOperadora: z.string().trim().min(1),
-  // vazio vira null; ausente continua ausente (num PATCH parcial não pode apagar o código)
-  codigoPrestador: z.preprocess(
-    (v) => (typeof v === "string" && v.trim() === "" ? null : v),
-    z.string().trim().max(60).nullable().optional()
-  ),
+  codigoPrestador: textoOpc(60),
+  // dados para faturar: tomador da nota e regras de fechamento
+  cnpj: textoOpc(20),
+  razaoSocial: textoOpc(200),
+  registroAns: textoOpc(20),
+  formaFaturamento: z.preprocess(vazioNulo, z.enum(["INDIVIDUAL", "LOTE_MENSAL"]).nullable().optional()),
+  diaFechamento: inteiroOpc(1, 31),
+  prazoPagamentoDias: inteiroOpc(0, 365),
+  exigeTiss: z.boolean().optional(),
+  observacoesFaturamento: textoOpc(2000),
 });
 const convenioUpdateSchema = convenioCreateSchema.partial().extend({ ativo: z.boolean().optional() });
 
