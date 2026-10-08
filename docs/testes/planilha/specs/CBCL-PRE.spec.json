@@ -10427,5 +10427,139 @@
    ]
   }
  ],
- "graficos": true
+ "graficos": true,
+ "graficosIgnorarExcel": true,
+ "graficosProprios": [
+  {
+   "tipo": "line",
+   "eixo": {
+    "min": 30,
+    "max": 100
+   },
+   "categorias": [
+    "Ansiedade/Depressão",
+    "Retraimento",
+    "Queixas Somáticas",
+    "Comportamento Disruptivo",
+    "Comportamento Agressivo",
+    "Problemas Sociais",
+    "Alterações de Pensamento",
+    "Problemas de Atenção"
+   ],
+   "titulo": "Perfil de T-score — CBCL (cuidadores)",
+   "series": [
+    {
+     "nome": "CBCL 1",
+     "celulas": [
+      "F158",
+      "F163",
+      "F168",
+      "F178",
+      "F183",
+      "F193",
+      "F198",
+      "F203"
+     ]
+    },
+    {
+     "nome": "CBCL 2",
+     "celulas": [
+      "G158",
+      "G163",
+      "G168",
+      "G178",
+      "G183",
+      "G193",
+      "G198",
+      "G203"
+     ]
+    },
+    {
+     "nome": "CBCL 3",
+     "celulas": [
+      "H158",
+      "H163",
+      "H168",
+      "H178",
+      "H183",
+      "H193",
+      "H198",
+      "H203"
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "line",
+   "eixo": {
+    "min": 30,
+    "max": 100
+   },
+   "categorias": [
+    "Ansiedade/Depressão",
+    "Retraimento",
+    "Queixas Somáticas",
+    "Comportamento Disruptivo",
+    "Comportamento Agressivo",
+    "Problemas Sociais",
+    "Alterações de Pensamento",
+    "Problemas de Atenção"
+   ],
+   "titulo": "Perfil de T-score — C-TRF (professores)",
+   "series": [
+    {
+     "nome": "C-TRF 1",
+     "celulas": [
+      "J158",
+      "J163",
+      "J168",
+      "J178",
+      "J183",
+      "J193",
+      "J198",
+      "J203"
+     ]
+    },
+    {
+     "nome": "C-TRF 2",
+     "celulas": [
+      "K158",
+      "K163",
+      "K168",
+      "K178",
+      "K183",
+      "K193",
+      "K198",
+      "K203"
+     ]
+    },
+    {
+     "nome": "C-TRF 3",
+     "celulas": [
+      "L158",
+      "L163",
+      "L168",
+      "L178",
+      "L183",
+      "L193",
+      "L198",
+      "L203"
+     ]
+    },
+    {
+     "nome": "C-TRF 4",
+     "celulas": [
+      "M158",
+      "M163",
+      "M168",
+      "M178",
+      "M183",
+      "M193",
+      "M198",
+      "M203"
+     ]
+    }
+   ]
+  }
+ ]
 }

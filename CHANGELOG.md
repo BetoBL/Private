@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-10-07 - Noite 2] CBCL pré-escolar: gráficos próprios e marcação de provisório
+
+- **Achado**: a aba "CBCL-Pre" da planilha é uma CÓPIA da aba do CBCL 6–18 (título "Escolar 6-18 ano", usa `CBCL-Normas` com cortes <12/≥12 anos e várias linhas de total marcadas "EM CONSTRUÇÃO — faltam tabelas"). Os 24 gráficos dela apontam para a aba do CBCL 6–18. Ou seja, o CBCL pré-escolar do catálogo calculava criança de 1,5 a 5 anos com norma de escolar. → **Adicionar à lista de defeitos da Leticia.**
+- **CBCL-PRE agora é PROVISÓRIO** (selo na tela + aviso na descrição, via `PROVISORIOS` em `planilhas-seed.ts`) até a planilha ter as normas de 1,5 a 5 anos.
+- **Gráficos próprios** (`spec.graficosProprios` no construtor, `graficosIgnorarExcel`): 2 perfis de T-score por escala (CBCL cuidadores 1–3 e C-TRF 1–4) para o CBCL-PRE, já que nenhum gráfico do Excel serve. Os do Excel foram desligados nesse teste.
+- Religar os gráficos copiados às células da própria aba foi testado e DESCARTADO (endereços não correspondem às escalas). Vineland Extensivo Pais (2) e Professores (4) seguem de fora pelo mesmo motivo.
+- Esclarecimento: CBCL 6–18 tem os 13 gráficos; Vineland Extensivo Entrevista 18/18, Pais 16/18, Professores 18/22.
+
 ## [2026-10-07 - Noite] Modelos antigos concluídos, gráficos e tabelas como no Excel
 
 - **BFP, RAVLT, SCARED, SRS-2 (Adultos/Escolar/Pré-escolar) e E-TDAH Pais** passam para o motor de planilha, item a item, com as **duas formas de lançar** (botão "Item a item / Só os totais"). O teste `duas-formas.test.ts` confirma que os dois dão o mesmo resultado (exceção: falso positivo do RAVLT, que só vem da lista S/N de reconhecimento, como na planilha).

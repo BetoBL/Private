@@ -14,11 +14,17 @@ export interface TesteSeedPlanilha {
   descricao: string;
   algoritmoCorrecao: Record<string, unknown>;
   referenciaBibliografica: string;
-  isPlaceholder: false;
+  isPlaceholder: boolean;
   direcao: "MAIOR_MELHOR";
   instrumento?: string;
   tabelasNormativas: Array<{ criterio: string; faixaMin: number; faixaMax: number; conversao: Record<string, unknown> }>;
 }
+
+// Testes cuja aba da planilha ainda não está pronta: entram no catálogo como PROVISÓRIOS (a tela mostra o selo) e a descrição diz por quê.
+const PROVISORIOS: Record<string, string> = {
+  "CBCL-PRE":
+    "ATENÇÃO — PROVISÓRIO: a aba do CBCL pré-escolar na planilha é uma cópia do CBCL 6–18 (usa as normas de 6 a 18 anos; vários totais estão marcados 'em construção — faltam tabelas'). Não use o resultado como definitivo até a planilha receber as normas de 1,5 a 5 anos.",
+};
 
 export function carregarTestesPlanilha(): TesteSeedPlanilha[] {
   return readdirSync(pasta)
@@ -32,7 +38,7 @@ export function carregarTestesPlanilha(): TesteSeedPlanilha[] {
         nome,
         sigla: def.sigla,
         dominio: dominio as DominioCognitivo,
-        descricao,
+        descricao: PROVISORIOS[def.sigla] ? `${PROVISORIOS[def.sigla]} ${descricao ?? ""}`.trim() : descricao,
         algoritmoCorrecao: {
           aviso: "Cálculo executado a partir das fórmulas da planilha da psicóloga (motor de planilha). Campos em branco não entram no cálculo.",
           campos: def.entradas.map((e: { chave: string; rotulo: string }) => ({ chave: e.chave, label: e.rotulo })),
@@ -41,7 +47,7 @@ export function carregarTestesPlanilha(): TesteSeedPlanilha[] {
           layout: { entradas: def.entradas, opcoes: def.opcoes, tabelas: def.tabelas, ...(def.cabecalhos ? { cabecalhos: def.cabecalhos } : {}), ...(def.graficos ? { graficos: def.graficos } : {}) },
         },
         referenciaBibliografica: referencia ?? "",
-        isPlaceholder: false as const,
+        isPlaceholder: (PROVISORIOS[def.sigla] ? true : false) as boolean,
         direcao: "MAIOR_MELHOR" as const,
         // formulários do mesmo instrumento (informantes diferentes) compartilham a chave de instrumento
         ...(String(def.sigla).startsWith("VINELAND3-") ? { instrumento: "VINELAND3" } : {}),

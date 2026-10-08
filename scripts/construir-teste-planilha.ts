@@ -128,7 +128,7 @@ const chaveDe = (end: string) => {
   if (!s) { s = { chave: "out_" + end, celula: end, rotulo: end }; saidasFinais.push(s); }
   return s.chave;
 };
-if (spec.graficos) {
+if (spec.graficos && !spec.graficosIgnorarExcel) {
   const arqG = join(dirTmp, "graficos.json");
   execFileSync("node", ["scripts/extrair-graficos-xlsm.mjs", xlsm, arqG, spec.aba], { stdio: "pipe" });
   const brutos = JSON.parse(readFileSync(arqG, "utf8"))[spec.aba] as Array<{ titulo: string; eixo: { min?: number; max?: number }; ancora: { linha: number; coluna: number }; series: Array<{ tipo: string; direcao?: string; nome: { ref?: string; texto?: string } | null; cat: string | null; val: string }> }>;
@@ -163,6 +163,14 @@ if (spec.graficos) {
     graficos.push({ titulo: g.titulo, eixo: g.eixo, ancora: g.ancora, series });
   }
   console.log("  " + graficos.length + " gráfico(s) do Excel");
+}
+// gráficos PRÓPRIOS (spec.graficosProprios): para testes cujos gráficos do Excel não servem. Cada série lista as células calculadas.
+//   { titulo, tipo: "line"|"bar", eixo: {min,max}, categorias: ["texto", ...], series: [{ nome, celulas: ["F158", ...] }] }
+for (const g of spec.graficosProprios ?? []) {
+  graficos.push({
+    titulo: g.titulo, eixo: g.eixo ?? {}, ancora: { linha: 9999, coluna: 1 },
+    series: g.series.map((s: { nome: string; celulas: string[] }) => ({ tipo: g.tipo ?? "line", nome: s.nome, cats: g.categorias, vals: s.celulas.map((e) => (porEnd.get(e)?.f ? chaveDe(e) : null)) })),
+  });
 }
 
 // 6) tabelas por BLOCOS (iguais ao desenho da planilha): cada bloco = linhas + colunas da aba, linha de cabeçalho e coluna de rótulo.
