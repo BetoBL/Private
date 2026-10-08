@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Sessao" ADD COLUMN     "tipo" TEXT NOT NULL DEFAULT 'AVALIACAO';

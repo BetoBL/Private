@@ -1,5 +1,9 @@
 # Changelog
 
+## [2026-10-08 - Madrugada] Anamnese como sessão no Iniciar Atendimento
+
+- `Sessao.tipo` (AVALIACAO | ANAMNESE, migration `sessao_tipo_anamnese`). No Iniciar Atendimento, a opção "Incluir a sessão de anamnese" cria uma sessão própria, com horário próprio (padrão: 1 h antes da 1ª sessão), no mesmo dia ou em outro; entra na Agenda como "Anamnese — tipo" e participa da checagem de conflito de horário. Na ficha do paciente aparece com a etiqueta "Anamnese" e atalho para a aba Anamnese.
+
 ## [2026-10-08 - Madrugada] Modelos de Laudo (cadastro, editor, importação de Word, modelo Word da clínica)
 
 - **Novo cadastro "Modelos de Laudo"** (menu): lista, editor e "Salvar como". Os modelos do SISTEMA são somente leitura (API devolve 403 ao tentar alterar/apagar); quem quer mudar algo grava uma cópia com **outro nome** (nome repetido ou igual a um do sistema é recusado), que passa a ser da pessoa (ou da clínica, para o administrador) e pode virar o **padrão** (`Profissional.modeloLaudoPadraoId` / `Clinica.modeloLaudoPadraoId`). Apagar = desativar; laudos que já usam o modelo continuam saindo com ele.

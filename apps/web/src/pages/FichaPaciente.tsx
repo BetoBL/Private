@@ -617,14 +617,16 @@ export function FichaPaciente() {
                   </>
                 ) : (
                   <>
+                    {sessao.tipo === "ANAMNESE" && <span className="rounded-full bg-sage-deep px-2 py-0.5 text-[10px] font-bold text-paper">Anamnese</span>}
                     <span>{new Date(sessao.dataHora).toLocaleString("pt-BR")}</span>
+                    {sessao.tipo === "ANAMNESE" && <button className="font-semibold text-sage-deep hover:underline" onClick={() => setAba("anamnese")}>preencher anamnese</button>}
                     <button className="font-semibold text-ink/50 hover:text-sage-deep" onClick={() => iniciarEdicaoSessao(sessao)}>editar data</button>
                     <button className="font-semibold text-ink/50 hover:text-ember" onClick={() => excluirSessao(sessao.id)}>excluir sessão</button>
                   </>
                 )}
               </div>
               {testes.length === 0 ? (
-                <div className="text-sm text-ink/60">Sessão sem testes lançados.</div>
+                <div className="text-sm text-ink/60">{sessao.tipo === "ANAMNESE" ? "Sessão de anamnese (sem testes)." : "Sessão sem testes lançados."}</div>
               ) : (
                 testes.map((t) => {
                   // reavaliação: aplicação anterior do mesmo teste (e do mesmo informante) em sessão mais antiga
@@ -778,7 +780,7 @@ export function FichaPaciente() {
                 {sessoes.length === 0 && <p className="text-sm text-ink/50">Nenhuma sessão marcada.</p>}
                 {sessoes.map((s) => (
                   <div key={s.id} className="rounded-lg border border-sage-deep/30 bg-sage-deep/5 p-3">
-                    <div className="mb-2 text-xs font-bold text-sage-deep">{new Date(s.dataHora).toLocaleString("pt-BR")}</div>
+                    <div className="mb-2 text-xs font-bold text-sage-deep">{s.tipo === "ANAMNESE" && <span className="mr-2 rounded-full bg-sage-deep px-2 py-0.5 text-[10px] text-paper">Anamnese</span>}{new Date(s.dataHora).toLocaleString("pt-BR")}</div>
                     <SalaVirtualComponent sessaoId={s.id} dataHora={s.dataHora} />
                   </div>
                 ))}

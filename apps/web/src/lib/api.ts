@@ -186,6 +186,7 @@ export interface Sessao {
   pacienteId: string;
   profissionalId: string;
   dataHora: string;
+  tipo?: "AVALIACAO" | "ANAMNESE";
 }
 
 export interface EventoAgenda {
@@ -527,6 +528,7 @@ async function enviarAtendimento(data: {
   duracaoMinutos?: number;
   sessoes?: { dataHora: string }[];
   forcar?: boolean;
+  anamnese?: { dataHora: string };
 }): Promise<ResultadoIniciarAtendimento> {
   const res = await fetch(`${API_URL}/atendimentos`, {
     method: "POST",

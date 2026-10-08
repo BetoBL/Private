@@ -238,6 +238,7 @@ model Sessao {
   profissional    Profissional @relation(fields: [profissionalId], references: [id])
 
   dataHora        DateTime
+  tipo            String    @default("AVALIACAO") // AVALIACAO | ANAMNESE (a anamnese é uma sessão, com horário próprio no mesmo dia)
   observacoes     String?   @db.Text
   aplicacoesTeste AplicacaoDeTeste[]
   salasVirtuais   SalaVirtual[]

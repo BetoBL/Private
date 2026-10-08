@@ -34,6 +34,10 @@ export function IniciarAtendimento() {
   // intervalo ou o tipo recalcula o cronograma e descarta esses ajustes.
   const [editadas, setEditadas] = useState<Record<number, string>>({});
 
+  // anamnese como sessão: horário próprio (padrão: 1 h antes da 1ª sessão, no mesmo dia)
+  const [comAnamnese, setComAnamnese] = useState(false);
+  const [anamneseEditada, setAnamneseEditada] = useState("");
+
   const [criando, setCriando] = useState(false);
   const [conflitos, setConflitos] = useState<ConflitoCronograma[]>([]);
   const [resultado, setResultado] = useState<{ mensagem: string; total: number } | null>(null);
@@ -57,6 +61,14 @@ export function IniciarAtendimento() {
     });
   }, [tipoEscolhido, primeira, intervaloDias, editadas]);
 
+  const dataAnamnese = useMemo(() => {
+    if (anamneseEditada) return anamneseEditada;
+    const d = new Date(datas[0] || (primeira ? primeira : paraInputLocal(dataPadrao())));
+    if (Number.isNaN(d.getTime())) return "";
+    d.setHours(d.getHours() - 1);
+    return paraInputLocal(d);
+  }, [anamneseEditada, datas, primeira]);
+
   function recalcular<T>(setter: (v: T) => void, valor: T) {
     setter(valor);
     setEditadas({});
@@ -69,6 +81,10 @@ export function IniciarAtendimento() {
       setErro("Preencha uma data e hora válidas para todas as sessões.");
       return;
     }
+    if (comAnamnese && (!dataAnamnese || Number.isNaN(new Date(dataAnamnese).getTime()))) {
+      setErro("Preencha uma data e hora válidas para a anamnese.");
+      return;
+    }
     setErro(null);
     setCriando(true);
     try {
@@ -78,6 +94,7 @@ export function IniciarAtendimento() {
         duracaoMinutos,
         sessoes: datas.map((d) => ({ dataHora: new Date(d).toISOString() })),
         forcar,
+        anamnese: comAnamnese ? { dataHora: new Date(dataAnamnese).toISOString() } : undefined,
       });
       if (r.conflito) {
         setConflitos(r.conflitos);
@@ -198,6 +215,20 @@ export function IniciarAtendimento() {
                 </label>
               </div>
 
+              <div className="mb-3 rounded-lg border border-mist p-3">
+                <label className="flex items-center gap-2 text-sm font-semibold text-ink/80">
+                  <input type="checkbox" className="h-4 w-4" checked={comAnamnese} onChange={(e) => { setComAnamnese(e.target.checked); setConflitos([]); }} />
+                  Incluir a sessão de anamnese
+                </label>
+                {comAnamnese && (
+                  <div className="mt-2 flex items-center gap-3">
+                    <div className="w-24 shrink-0 text-sm font-semibold text-ink">Anamnese</div>
+                    <input type="datetime-local" className="flex-1 rounded-lg border border-mist bg-white px-3 py-1.5 text-sm" value={dataAnamnese} onChange={(e) => { setAnamneseEditada(e.target.value); setConflitos([]); }} />
+                  </div>
+                )}
+                {comAnamnese && <p className="mt-2 text-xs text-ink/50">Pode ser no mesmo dia de outra sessão: o que separa as duas é o horário. O formulário é preenchido na ficha do paciente, aba Anamnese.</p>}
+              </div>
+
               <div className="space-y-2">
                 {datas.map((d, i) => (
                   <div key={i} className="flex items-center gap-3 rounded-lg bg-paper px-3 py-2">
@@ -228,7 +259,7 @@ export function IniciarAtendimento() {
               <ul className="mb-3 list-disc pl-5">
                 {conflitos.map((c, i) => (
                   <li key={i}>
-                    Sessão {c.sessao} × {c.titulo}
+                    {c.sessao === 0 ? "Anamnese" : `Sessão ${c.sessao}`} × {c.titulo}
                     {c.paciente && ` — ${c.paciente}`} ({new Date(c.inicio).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" })})
                   </li>
                 ))}
