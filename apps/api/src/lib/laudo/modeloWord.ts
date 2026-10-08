@@ -20,7 +20,7 @@ export function valoresDasSecoes(e: EstruturaModelo, t: TextosDoLaudo, d: DadosM
   for (const s of e.secoes) {
     const fixo = Array.isArray(s.texto) ? s.texto.join("\n") : s.texto ?? "";
     const base: Record<string, string> = { demanda: t.demanda, anamnese: t.anamnese, observacao: t.observacao, instrumentos: textoSimples(t.instrumentos), analise: textoSimples(t.analise), conclusao: textoSimples(t.conclusao), referencias: t.referencias };
-    v[`secao.${s.id}`] = s.tipo === "livre" ? resolverMarcadores((t.extras[s.id] ?? "").trim() ? t.extras[s.id] : fixo, d) : s.tipo in base ? base[s.tipo] : resolverMarcadores(fixo, d);
+    v[`secao.${s.id}`] = (s.tipo === "livre" || s.tipo === "documento") ? resolverMarcadores((t.extras[s.id] ?? "").trim() ? t.extras[s.id] : fixo, d) : s.tipo in base ? base[s.tipo] : resolverMarcadores(fixo, d);
   }
   return v;
 }

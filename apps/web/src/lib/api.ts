@@ -307,13 +307,13 @@ export interface Laudo {
 }
 
 // ---- modelos de laudo (estrutura de seções, domínios e blocos) ----
-export type TipoSecao = "identificacao" | "demanda" | "anamnese" | "observacao" | "instrumentos" | "referencial" | "analise" | "conclusao" | "sugestoes" | "referencias" | "fecho" | "aviso_sigilo" | "aviso_validade" | "aviso_ia" | "texto" | "livre";
+export type TipoSecao = "identificacao" | "demanda" | "anamnese" | "observacao" | "instrumentos" | "referencial" | "analise" | "conclusao" | "sugestoes" | "referencias" | "fecho" | "aviso_sigilo" | "aviso_validade" | "aviso_ia" | "texto" | "livre" | "documento";
 export interface BlocoIdentificacao { tipo: "profissional" | "paciente" | "campos"; titulo?: string; campos?: Array<{ id: string; rotulo: string }> }
 export interface SecaoModelo { id: string; tipo: TipoSecao; titulo: string; ativo?: boolean; texto?: string | string[]; orientacao?: string; quebraPagina?: boolean; classificacao?: boolean; identificacao?: BlocoIdentificacao[] }
 export interface DominioModelo { chave: string; titulo?: string; intro?: string; ativo?: boolean }
 export interface ItemExtraModelo { dominio: string; teste: string; fonte: { linha?: string; campo?: string }; descricao: string; rotulo?: string }
 export interface BlocoModelo { dominio: string; teste: string; tipo: "tabela" | "grafico" | "resultados"; ref?: string }
-export interface EstruturaModelo { cabecalho: string[]; abertura?: string; numerar: boolean; secoes: SecaoModelo[]; dominios?: DominioModelo[]; itensExtras?: ItemExtraModelo[]; blocos?: BlocoModelo[] }
+export interface EstruturaModelo { cabecalho: string[]; abertura?: string; numerar: boolean; secoes: SecaoModelo[]; dominios?: DominioModelo[]; itensExtras?: ItemExtraModelo[]; blocos?: BlocoModelo[]; testes?: string[]; tipoAtendimentoId?: string }
 export interface ModeloLaudo {
   id: string; nome: string; tipo: string; rotuloTipo: string; descricao: string | null; fonte: string | null;
   sistema: boolean; escopo: "sistema" | "clinica" | "profissional"; origemId: string | null; temArquivoWord: boolean; ehPadrao: boolean;

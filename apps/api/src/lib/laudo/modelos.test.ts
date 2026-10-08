@@ -131,3 +131,21 @@ test("modelo Word da clínica: marcadores em runs separados são preenchidos e o
   assert.match(texto, /\{\{marcador\.inventado\}\}/);
   assert.ok((await JSZip.loadAsync(saida)).files["word/document.xml"]);
 });
+
+test("seção 'documento': campos do paciente, linha de resultado e bloco só entram se o teste foi feito", async () => {
+  const estrutura: EstruturaModelo = {
+    cabecalho: ["RELATÓRIO"], numerar: false,
+    secoes: [{ id: "doc", tipo: "documento", titulo: "", texto: "# Resultados\n{{paciente.primeiroNome}} fez a avaliação.\n[[linha:WAIS-III|c:vocabulario]]\n[[linha:RAVLT|c:a1]]\n[[tabela:resultados|BAI]]\nFim." }, { id: "fecho", tipo: "fecho", titulo: "" }],
+  };
+  const wais: AplicacaoLaudo = { sigla: "WAIS-III", nome: "WAIS", descricao: null, referenciaBibliografica: null, dataSessao: new Date("2026-07-01"), resultado: { modo: "por_campo", porCampo: { vocabulario: { valorBruto: 30, faixa: { percentil: 63 } } } } };
+  const d = dados(estrutura);
+  d.aplicacoes = [wais];
+  const t = await textoDoDocx(await gerarDocxLaudoCompleto(d));
+  assert.match(t, /Resultados/);
+  assert.match(t, /Helena fez a avaliação\./);
+  assert.match(t, /vocabulario: percentil 63% /);
+  assert.doesNotMatch(t, /a1: percentil/); // RAVLT não foi aplicado
+  assert.match(t, /Fim\./);
+  const editado = await textoDoDocx(await gerarDocxLaudoCompleto(dados(estrutura, { doc: "Texto ajustado para {{paciente.nome}}." })));
+  assert.match(editado, /Texto ajustado para Helena Exemplo Prado\./);
+});

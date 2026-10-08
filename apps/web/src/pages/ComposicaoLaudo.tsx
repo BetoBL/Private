@@ -288,7 +288,7 @@ export function ComposicaoLaudo() {
       case "conclusao": return !!sug.conclusao.trim();
       case "sugestoes": return !!sug.sugestoes.trim();
       case "referencias": return !!laudo.referencias.trim();
-      case "livre": return !!valorLivre(s).trim();
+      case "livre": case "documento": return !!valorLivre(s).trim();
       case "identificacao": return (s.identificacao ?? []).every((b) => b.tipo !== "campos" || (b.campos ?? []).every((c) => !!(extras[c.id] ?? "").trim()));
       default: return true;
     }
@@ -358,6 +358,7 @@ export function ComposicaoLaudo() {
       case "texto":
         return <Cartao key={s.id} id={s.id} numero={num} titulo={titulo || "Texto do modelo"} ajuda={ajuda ?? "Texto fixo do modelo, igual em todos os laudos."} preenchido><p className="whitespace-pre-line text-sm leading-relaxed text-ink/60">{textoFixo(s)}</p></Cartao>;
       case "livre":
+      case "documento":
         return (
           <Cartao key={s.id} id={s.id} numero={num} titulo={titulo || "Texto do documento"} ajuda={ajuda ?? "Parte do modelo; ajuste para este paciente. Trechos como {{paciente.nome}} são trocados pelos dados ao gerar o documento."} preenchido={preenchidoDe(s)}
             acao={extras[s.id] !== undefined ? <button className="text-xs font-semibold text-ink/55 hover:text-sage-deep" onClick={() => { editarExtra(s.id, textoFixo(s)); salvarExtra(s.id, textoFixo(s)); }}>voltar ao texto do modelo</button> : undefined}>

@@ -3,10 +3,10 @@ import {
   Paragraph, ShadingType, Table, TableCell, TableRow, TextRun, TextWrappingType, VerticalAlign, VerticalPositionAlign, VerticalPositionRelativeFrom, WidthType,
 } from "docx";
 import { obterTabelaClassificacaoPercentil, type SistemaClassificacaoPercentil } from "../classificacaoPercentil";
-import { classificarPercentil } from "./classificacao";
+import { classificarPercentil, formatarPercentil } from "./classificacao";
 import { siglasDe } from "./dominios";
 import { pngDoGrafico, PALETA, type GraficoImg } from "./graficoSvg";
-import type { AplicacaoLaudo } from "./montar";
+import { percentilDe, type AplicacaoLaudo } from "./montar";
 import { estruturaDoSistema, MODELO_PADRAO_ID, resolverMarcadores, type EstruturaModelo } from "./modelos";
 
 // Modelo completo de laudo (MentEssence): 10 seções, papel timbrado do cadastro da clínica, tabelas e gráficos como imagem.
@@ -209,9 +209,21 @@ function tabelaGenerica(ctx: Ctx, sigla: string, ref: string | null): Array<Para
   return [legenda(`Tabela ${++ctx.nTabela}: Resultados ${app.sigla}`), tabela(["RESULTADO", "BRUTO", "ESCORE", "PERCENTIL", "CLASSIFICAÇÃO"], linhas, [3000, 1100, 1300, 1300, 2938]), espaco()];
 }
 
+// Uma linha de resultado de um teste, no estilo do laudo: "**Rótulo:** percentil **NN% Classificação**."  (token [[linha:SIGLA|l:Linha]] ou [[linha:SIGLA|c:campo]])
+function linhaDeResultado(ctx: Ctx, sigla: string, fonte: string): Array<Paragraph | Table> {
+  const app = maisRecente(ctx.apps, sigla);
+  if (!app) return [];
+  const campo = fonte.startsWith("c:");
+  const nome = fonte.slice(2);
+  const p = percentilDe(app, campo ? { campo: nome } : { linha: nome });
+  if (p === null) return [];
+  return [corpo(`**${nome}:** percentil **${formatarPercentil(p)}% ${classificarPercentil(p, ctx.sistema)}**.`)];
+}
+
 function resolverToken(token: string, ctx: Ctx): Array<Paragraph | Table> {
   const [tipo, resto] = [token.slice(0, token.indexOf(":")), token.slice(token.indexOf(":") + 1)];
   // interpretação do profissional para o domínio: parágrafos livres (linhas em branco separam)
+  if (tipo === "linha") { const [sigla, fonte] = resto.split("|"); return sigla && fonte ? linhaDeResultado(ctx, sigla, fonte) : []; }
   if (tipo === "interpretacao") return (ctx.interpretacoes[resto] ?? "").split(/\n+/).filter((l) => l.trim()).map(corpo);
   if (tipo === "tabela") {
     if (resto === "wais-indices") return tabelaWaisIndices(ctx);
@@ -238,6 +250,7 @@ function renderMarkdown(md: string, ctx: Ctx, numerarSub?: string): Array<Paragr
     if (!t) continue;
     const tok = /^\[\[([^\]]+)\]\]$/.exec(t);
     if (tok) out.push(...resolverToken(tok[1], ctx));
+    else if (t.startsWith("# ")) out.push(titulo(t.slice(2)));
     else if (t.startsWith("## ")) out.push(subtitulo(`${numerarSub ? `${numerarSub}${++n} ` : ""}${numerarSub ? t.slice(3).toUpperCase() : t.slice(3)}`));
     else if (t.startsWith("- ")) out.push(bullet(t.slice(2)));
     else out.push(corpo(t));
@@ -284,6 +297,7 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
 
   // ---- corpo: seções na ordem, com os títulos e textos do modelo ----
   const modelo = d.modelo ?? estruturaDoSistema(MODELO_PADRAO_ID)!;
+  if (!modelo.secoes.some((s) => s.tipo === "referencial" && s.classificacao && s.ativo !== false)) ctx.nTabela = 0; // a Tabela 1 só é reservada se o modelo traz a de classificação
   const extras = d.laudo.secoesExtras ?? {};
   const marc = (t: string) => resolverMarcadores(t, d);
   const paragrafosDe = (t?: string | string[]) => (Array.isArray(t) ? t : (t ?? "").split(/\n+/)).map((l) => marc(l)).filter((l) => l.trim());
@@ -360,6 +374,7 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
       case "aviso_validade": corpoDoc.push(...paragrafosDe(s.texto).map((t) => new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, keepLines: true, children: [new TextRun({ text: t, font: FONTE, size: 16 })] }))); break;
       case "aviso_ia": corpoDoc.push(...paragrafosDe(s.texto).map((t) => new Paragraph({ alignment: AlignmentType.JUSTIFIED, children: [new TextRun({ text: t, font: FONTE, size: 16, italics: true })] }))); break;
       case "texto": corpoDoc.push(...cab, ...paragrafosDe(s.texto).map(corpo)); break;
+      case "documento": corpoDoc.push(...cab, ...renderMarkdown(marc((extras[s.id] ?? "").trim() ? extras[s.id] : Array.isArray(s.texto) ? s.texto.join("\n") : s.texto ?? ""), ctx, undefined)); break;
       case "livre": corpoDoc.push(...cab, ...paragrafosDe((extras[s.id] ?? "").trim() ? extras[s.id] : s.texto).map(corpo)); break;
     }
   }

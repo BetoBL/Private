@@ -19,6 +19,7 @@ export type TipoSecao =
   | "fecho" // local, data, assinatura, nome e CRP
   | "aviso_sigilo" | "aviso_validade" | "aviso_ia" // avisos em letra pequena (texto do modelo)
   | "texto" // texto fixo do modelo (aceita marcadores {{...}})
+  | "documento" // texto do modelo com campos {{...}} e blocos [[...]] dos testes (montado no editor); cada paciente pode ajustar
   | "livre"; // texto por paciente, guardado em Laudo.secoesExtras (o `texto` do modelo é o ponto de partida)
 
 export interface BlocoIdentificacao {
@@ -57,6 +58,9 @@ export interface EstruturaModelo {
   dominios?: DominioModelo[];
   itensExtras?: ItemExtraModelo[];
   blocos?: BlocoModelo[];
+  // testes deste modelo (siglas): limitam o que o editor oferece. Vazio/ausente = todos os testes do catálogo
+  testes?: string[];
+  tipoAtendimentoId?: string;
 }
 
 export type TipoModelo = "LAUDO_NEURO" | "LAUDO" | "RELATORIO" | "PARECER" | "DECLARACAO" | "ATESTADO" | "PERSONALIZADO";
@@ -268,7 +272,7 @@ export async function sincronizarModelosDoSistema(prisma: PrismaClient): Promise
 }
 
 // ---------- validação de uma estrutura vinda do navegador ----------
-const TIPOS: TipoSecao[] = ["identificacao", "demanda", "anamnese", "observacao", "instrumentos", "referencial", "analise", "conclusao", "sugestoes", "referencias", "fecho", "aviso_sigilo", "aviso_validade", "aviso_ia", "texto", "livre"];
+const TIPOS: TipoSecao[] = ["identificacao", "demanda", "anamnese", "observacao", "instrumentos", "referencial", "analise", "conclusao", "sugestoes", "referencias", "fecho", "aviso_sigilo", "aviso_validade", "aviso_ia", "texto", "livre", "documento"];
 export const TIPOS_SECAO = TIPOS;
 
 export function estruturaValida(e: unknown): string | null {

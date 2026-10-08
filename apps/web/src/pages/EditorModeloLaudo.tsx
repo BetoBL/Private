@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { api, type BibliotecaTeste, type BlocoIdentificacao, type DominioModelo, type DominioPadrao, type EstruturaModelo, type ModeloLaudo, type ResultadoImportacaoModelo, type SecaoModelo, type TipoSecao } from "../lib/api";
+import { DocumentoModelo } from "../components/DocumentoModelo";
+import { api, type BibliotecaTeste, type Teste, type TipoAtendimento, type BlocoIdentificacao, type DominioModelo, type DominioPadrao, type EstruturaModelo, type ModeloLaudo, type ResultadoImportacaoModelo, type SecaoModelo, type TipoSecao } from "../lib/api";
 import { useAviso } from "../lib/aviso";
 import { arquivoParaBase64 } from "./ModelosLaudo";
 
@@ -10,10 +11,10 @@ const ROTULO_SECAO: Record<TipoSecao, string> = {
   instrumentos: "Instrumentos / procedimento (montado dos testes)", referencial: "Texto fixo com tabela de classificação", analise: "Análise por domínios (montada dos testes)",
   conclusao: "Conclusão (texto do paciente)", sugestoes: "Sugestões e encaminhamentos (texto do paciente)", referencias: "Referências (montadas dos testes)",
   fecho: "Local, data e assinatura", aviso_sigilo: "Aviso de sigilo (letra pequena)", aviso_validade: "Aviso de validade (letra pequena)", aviso_ia: "Aviso de uso de IA (só sai se usou IA)",
-  texto: "Texto fixo do modelo", livre: "Texto livre, escrito a cada paciente",
+  documento: "Documento com campos e blocos dos testes", texto: "Texto fixo do modelo", livre: "Texto livre, escrito a cada paciente",
 };
-const REPETIVEIS: TipoSecao[] = ["texto", "livre"];
-const NOVOS: Array<[TipoSecao, string]> = [["texto", "Texto fixo (igual em todos os laudos)"], ["livre", "Texto livre (escrito a cada paciente)"], ["demanda", "Demanda"], ["anamnese", "Anamnese"], ["observacao", "Observação clínica"], ["instrumentos", "Instrumentos / procedimento"], ["referencial", "Referencial teórico com tabela de classificação"], ["analise", "Análise dos resultados"], ["conclusao", "Conclusão"], ["sugestoes", "Sugestões e encaminhamentos"], ["referencias", "Referências"], ["identificacao", "Identificação"], ["fecho", "Local, data e assinatura"], ["aviso_sigilo", "Aviso de sigilo"], ["aviso_validade", "Aviso de validade"], ["aviso_ia", "Aviso de uso de IA"]];
+const REPETIVEIS: TipoSecao[] = ["texto", "livre", "documento"];
+const NOVOS: Array<[TipoSecao, string]> = [["documento", "Documento com campos e blocos dos testes"], ["texto", "Texto fixo (igual em todos os laudos)"], ["livre", "Texto livre (escrito a cada paciente)"], ["demanda", "Demanda"], ["anamnese", "Anamnese"], ["observacao", "Observação clínica"], ["instrumentos", "Instrumentos / procedimento"], ["referencial", "Referencial teórico com tabela de classificação"], ["analise", "Análise dos resultados"], ["conclusao", "Conclusão"], ["sugestoes", "Sugestões e encaminhamentos"], ["referencias", "Referências"], ["identificacao", "Identificação"], ["fecho", "Local, data e assinatura"], ["aviso_sigilo", "Aviso de sigilo"], ["aviso_validade", "Aviso de validade"], ["aviso_ia", "Aviso de uso de IA"]];
 const TEM_TEXTO: TipoSecao[] = ["texto", "livre", "referencial", "aviso_sigilo", "aviso_validade", "aviso_ia"];
 
 const inputCls = "w-full rounded-lg border border-mist bg-white px-3 py-2 text-sm outline-none focus:border-sage-deep";
@@ -108,6 +109,7 @@ function AbaEstrutura({ est, setEst, marcadores, aviso }: { est: EstruturaModelo
             </div>
             {aberta === s.id && (
               <div className="space-y-3 border-t border-mist bg-paper/40 px-4 py-4">
+                {s.tipo === "documento" && <p className="text-sm text-ink/60">O texto deste documento, com os campos e os blocos dos testes, é montado na aba <b>Documento</b>.</p>}
                 {s.tipo === "identificacao" && <EditorIdentificacao blocos={s.identificacao ?? []} onChange={(b) => setSecao(i, { identificacao: b })} />}
                 {TEM_TEXTO.includes(s.tipo) && (
                   <label className="block">
@@ -141,6 +143,46 @@ function AbaEstrutura({ est, setEst, marcadores, aviso }: { est: EstruturaModelo
           {marcadores.map((m) => <button key={m.marcador} title={m.descricao} className="rounded-full border border-mist px-3 py-1 font-mono text-xs text-ink/70 hover:bg-paper" onClick={() => copiar(`{{${m.marcador}}}`, aviso)}>{`{{${m.marcador}}}`}</button>)}
         </div>
       </details>
+    </div>
+  );
+}
+
+// ---------- aba Testes do modelo ----------
+function AbaTestes({ est, setEst, biblioteca }: { est: EstruturaModelo; setEst: (e: EstruturaModelo) => void; biblioteca: BibliotecaTeste[] }) {
+  const [tipos, setTipos] = useState<TipoAtendimento[]>([]);
+  const [catalogo, setCatalogo] = useState<Teste[]>([]);
+  useEffect(() => { api.listTiposAtendimento().then(setTipos).catch(() => undefined); api.listTestes().then(setCatalogo).catch(() => undefined); }, []);
+  const lista = est.testes ?? [];
+  const nomeDe = (sigla: string) => biblioteca.find((b) => b.sigla === sigla)?.nome ?? sigla;
+  function doTipo(id: string) {
+    const t = tipos.find((x) => x.id === id);
+    if (!t) return;
+    const siglas = t.testeIds.map((tid) => catalogo.find((c) => c.id === tid)?.sigla).filter((s): s is string => !!s);
+    setEst({ ...est, testes: [...new Set([...lista, ...siglas])], tipoAtendimentoId: id });
+  }
+  return (
+    <div className="space-y-5">
+      <p className="text-sm leading-relaxed text-ink/60">Escolha os testes que fazem parte deste modelo. O editor de documento e a aba Blocos e itens mostram <b>só</b> estes testes, para não haver centenas de opções. Sem nenhum teste escolhido, aparecem todos.</p>
+      <div className="rounded-xl border border-mist bg-white p-4">
+        <div className="mb-2 text-sm font-semibold text-ink/75">Copiar de um tipo de atendimento</div>
+        <select className={inputCls} value="" onChange={(e) => doTipo(e.target.value)}>
+          <option value="">Escolha um tipo (acrescenta os testes dele à lista)…</option>
+          {tipos.map((t) => <option key={t.id} value={t.id}>{t.nome} — {t.testeIds.length} teste(s)</option>)}
+        </select>
+      </div>
+      <div className="rounded-xl border border-mist bg-white p-4">
+        <div className="mb-2 text-sm font-semibold text-ink/75">Testes deste modelo ({lista.length})</div>
+        <div className="mb-3 flex flex-wrap gap-2">
+          {lista.length === 0 && <span className="text-sm text-ink/45">Nenhum teste escolhido.</span>}
+          {lista.map((s) => (
+            <span key={s} title={nomeDe(s)} className="inline-flex items-center gap-1.5 rounded-full border border-sage-deep/30 bg-sage-deep/5 px-3 py-1 text-xs font-semibold text-sage-deep">{s}<button aria-label="Remover" className="text-sage-deep/60 hover:text-ember" onClick={() => setEst({ ...est, testes: lista.filter((x) => x !== s) })}>×</button></span>
+          ))}
+        </div>
+        <select className={inputCls} value="" onChange={(e) => e.target.value && setEst({ ...est, testes: [...lista, e.target.value] })}>
+          <option value="">+ acrescentar um teste…</option>
+          {biblioteca.filter((b) => !lista.includes(b.sigla)).map((b) => <option key={b.sigla} value={b.sigla}>{b.sigla} — {b.nome}</option>)}
+        </select>
+      </div>
     </div>
   );
 }
@@ -190,9 +232,10 @@ function AbaDominios({ est, setEst, padrao }: { est: EstruturaModelo; setEst: (e
 }
 
 // ---------- aba Blocos e itens ----------
-function AbaBlocos({ est, setEst, padrao, biblioteca }: { est: EstruturaModelo; setEst: (e: EstruturaModelo) => void; padrao: DominioPadrao[]; biblioteca: BibliotecaTeste[] }) {
+function AbaBlocos({ est, setEst, padrao, biblioteca: bibliotecaTotal }: { est: EstruturaModelo; setEst: (e: EstruturaModelo) => void; padrao: DominioPadrao[]; biblioteca: BibliotecaTeste[] }) {
   const dominios = (est.dominios?.length ? est.dominios : padrao.map((d): DominioModelo => ({ chave: d.chave }))).filter((d) => d.ativo !== false).map((d) => ({ chave: d.chave, titulo: d.titulo ?? padrao.find((p) => p.chave === d.chave)?.titulo ?? d.chave }));
   const tituloDe = (chave: string) => dominios.find((d) => d.chave === chave)?.titulo ?? chave;
+  const biblioteca = est.testes?.length ? bibliotecaTotal.filter((b) => est.testes!.includes(b.sigla)) : bibliotecaTotal;
   const [bloco, setBloco] = useState({ dominio: "", teste: "", tipo: "tabela" as "tabela" | "grafico" | "resultados", ref: "" });
   const [item, setItem] = useState({ dominio: "", teste: "", fonte: "", descricao: "", rotulo: "" });
   const teste = (sigla: string) => biblioteca.find((b) => b.sigla === sigla);
@@ -303,7 +346,7 @@ export function EditorModeloLaudo() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { profissional } = useAuth();
-  const { state } = useLocation() as { state: { importacao?: ResultadoImportacaoModelo; nomeSugerido?: string } | null };
+  const { state } = useLocation() as { state: { importacao?: ResultadoImportacaoModelo; estruturaInicial?: EstruturaModelo; aba?: "testes" | "word"; nomeSugerido?: string } | null };
   const novo = id === "novo";
   const importacao = state?.importacao;
   const [erro, setErro] = useState<string | null>(null);
@@ -313,7 +356,7 @@ export function EditorModeloLaudo() {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [tipo, setTipo] = useState("PERSONALIZADO");
-  const [aba, setAba] = useState<"estrutura" | "dominios" | "blocos" | "word">("estrutura");
+  const [aba, setAba] = useState<"estrutura" | "testes" | "documento" | "dominios" | "blocos" | "word">("estrutura");
   const [paraClinica, setParaClinica] = useState(false);
   const [tornarPadrao, setTornarPadrao] = useState(true);
   const [marcadores, setMarcadores] = useState<Array<{ marcador: string; descricao: string }>>([]);
@@ -329,8 +372,9 @@ export function EditorModeloLaudo() {
   }
   useEffect(() => {
     if (novo) {
-      if (!importacao) { navigate("/modelos-laudo", { replace: true }); return; }
-      setEst(importacao.estrutura); setNome(state?.nomeSugerido ?? ""); setAlterado(true);
+      const inicial = importacao?.estrutura ?? state?.estruturaInicial;
+      if (!inicial) { navigate("/modelos-laudo", { replace: true }); return; }
+      setEst(inicial); setNome(state?.nomeSugerido ?? ""); setAlterado(true); if (state?.aba) setAba(state.aba);
     } else carregar();
     api.marcadoresModelo().then((r) => { setMarcadores(r.marcadores); setTipos(r.tiposDeModelo); }).catch(() => undefined);
     api.dominiosPadraoModelo().then(setPadrao).catch(() => undefined);
@@ -362,12 +406,14 @@ export function EditorModeloLaudo() {
   }
 
   if (!est) return <div className="px-6 py-10 text-sm text-ink/55">{erro ?? "Carregando o modelo…"}</div>;
-  const abas: Array<[typeof aba, string]> = [["estrutura", "Estrutura"], ["dominios", "Domínios"], ["blocos", "Blocos e itens"], ["word", "Modelo Word"]];
+  const temDocumento = est.secoes.some((s) => s.tipo === "documento");
+  const abas: Array<[typeof aba, string]> = [["estrutura", "Estrutura"], ["testes", "Testes do modelo"], ...(temDocumento ? [["documento", "Documento"] as [typeof aba, string]] : []), ["dominios", "Domínios"], ["blocos", "Blocos e itens"], ["word", "Modelo Word"]];
+  const testesDoModelo = est.testes?.length ? biblioteca.filter((b) => est.testes!.includes(b.sigla)) : [];
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-8">
       <div className="mb-1 text-sm"><Link to="/modelos-laudo" className="font-semibold text-sage-deep hover:underline">← Modelos de laudo</Link></div>
-      <h1 className="font-serif text-3xl text-ink">{novo ? "Novo modelo a partir do Word" : modelo?.sistema ? modelo.nome : nome || modelo?.nome}</h1>
+      <h1 className="font-serif text-3xl text-ink">{novo ? (importacao ? "Novo modelo a partir do Word" : "Novo modelo") : modelo?.sistema ? modelo.nome : nome || modelo?.nome}</h1>
 
       {modelo?.sistema && <div className="mt-3 rounded-xl border border-sage-deep/30 bg-sage-deep/[0.06] px-4 py-3 text-sm leading-relaxed text-ink/75">Este é um modelo do sistema e <b>não é alterado</b>. Você pode mexer à vontade aqui; para guardar, salve com um nome seu. A cópia passa a ser sua e o original continua intacto.{modelo.fonte && <span className="mt-1 block text-xs text-ink/55">{modelo.fonte}</span>}</div>}
 
@@ -406,6 +452,17 @@ export function EditorModeloLaudo() {
       </div>
       <div className="mt-5">
         {aba === "estrutura" && <AbaEstrutura est={est} setEst={mudar} marcadores={marcadores} aviso={setMensagem} />}
+        {aba === "testes" && <AbaTestes est={est} setEst={mudar} biblioteca={biblioteca} />}
+        {aba === "documento" && (
+          <div className="space-y-8">
+            {est.secoes.filter((s) => s.tipo === "documento").map((s) => (
+              <div key={s.id}>
+                {est.secoes.filter((x) => x.tipo === "documento").length > 1 && <div className="mb-2 text-sm font-semibold text-ink/70">{s.titulo || "Documento"}</div>}
+                <DocumentoModelo valor={textoDe(s.texto)} onChange={(v) => mudar({ ...est, secoes: est.secoes.map((x) => (x.id === s.id ? { ...x, texto: v } : x)) })} testes={testesDoModelo} marcadores={marcadores} biblioteca={biblioteca} />
+              </div>
+            ))}
+          </div>
+        )}
         {aba === "dominios" && <AbaDominios est={est} setEst={mudar} padrao={padrao} />}
         {aba === "blocos" && <AbaBlocos est={est} setEst={mudar} padrao={padrao} biblioteca={biblioteca} />}
         {aba === "word" && <AbaWord modelo={modelo} est={est} marcadores={marcadores} aviso={setMensagem} recarregar={carregar} />}

@@ -27,7 +27,7 @@ function Cartao({ m, onPadrao, onApagar }: { m: ModeloLaudo; onPadrao: () => voi
       {m.descricao && <p className="mt-1 text-sm leading-relaxed text-ink/65">{m.descricao}</p>}
       {secoes.length > 0 && <p className="mt-3 text-xs leading-relaxed text-ink/50">{secoes.map((s) => s.titulo.toLowerCase()).join(" · ")}</p>}
       <div className="mt-auto flex flex-wrap items-center gap-2 pt-4">
-        <Link to={`/modelos-laudo/${m.id}`} className="rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-paper">{m.sistema ? "Ver e criar a partir dele" : "Abrir e editar"}</Link>
+        {m.tipo !== "LAUDO_NEURO" && <Link to={`/modelos-laudo/${m.id}`} className="rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-paper">{m.sistema ? "Ver e criar a partir dele" : "Abrir e editar"}</Link>}
         {!m.ehPadrao && <button className="rounded-lg border border-sage-deep px-3 py-2 text-sm font-semibold text-sage-deep hover:bg-sage-deep/5" onClick={onPadrao}>Usar como meu padrão</button>}
         {!m.sistema && <button className="ml-auto rounded-lg px-3 py-2 text-sm font-semibold text-ember hover:bg-ember/10" onClick={onApagar}>Apagar</button>}
       </div>
@@ -55,6 +55,19 @@ export function ModelosLaudo() {
     setErro(null);
     try { await api.apagarModeloLaudo(m.id); carregar(); } catch (e) { setErro((e as Error).message); }
   }
+  function montarNoEditor() {
+    navigate("/modelos-laudo/novo", { state: { aba: "testes", nomeSugerido: "", estruturaInicial: {
+      cabecalho: ["TÍTULO DO DOCUMENTO"], numerar: false, testes: [],
+      secoes: [
+        { id: "documento", tipo: "documento", titulo: "", texto: "# Identificação\n**Paciente:** {{paciente.nome}}\n**CPF:** {{paciente.cpf}}\n**Idade:** {{paciente.idade}}\n\n# Resultados\n" },
+        { id: "fecho", tipo: "fecho", titulo: "" },
+      ],
+    } } });
+  }
+  async function usarMeuWord() {
+    setErro(null);
+    try { const base = await api.getModeloLaudo("sistema-laudo-psicologico"); navigate("/modelos-laudo/novo", { state: { aba: "word", nomeSugerido: "", estruturaInicial: base.estrutura } }); } catch (e) { setErro((e as Error).message); }
+  }
   async function importar(arquivo: File) {
     setErro(null); setLendo(true);
     try {
@@ -74,11 +87,26 @@ const ORDEM = ["LAUDO_NEURO", "LAUDO", "RELATORIO", "PARECER", "DECLARACAO", "AT
           <h1 className="font-serif text-3xl text-ink">Modelos de laudo</h1>
           <p className="mt-1 text-sm leading-relaxed text-ink/60">Os modelos do sistema ficam sempre intactos. Para ajustar um, abra-o e salve com um nome seu: a cópia passa a ser sua e você escolhe qual é o padrão para os próximos laudos.</p>
         </div>
-        <div>
-          <input ref={seletor} type="file" accept=".docx" className="hidden" onChange={(e) => e.target.files?.[0] && importar(e.target.files[0])} />
-          <button className="rounded-lg border border-sage-deep px-4 py-2.5 text-sm font-semibold text-sage-deep hover:bg-sage-deep/5 disabled:opacity-50" disabled={lendo} onClick={() => seletor.current?.click()}>{lendo ? "Lendo o documento…" : "Criar a partir de um laudo em Word"}</button>
-        </div>
       </div>
+
+      <section className="mb-8">
+        <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Criar um modelo novo</h2>
+        <input ref={seletor} type="file" accept=".docx" className="hidden" onChange={(e) => e.target.files?.[0] && importar(e.target.files[0])} />
+        <div className="grid gap-3 md:grid-cols-3">
+          <div className="flex flex-col rounded-2xl border border-mist bg-white p-4">
+            <button className="rounded-lg bg-sage-deep px-4 py-2.5 text-sm font-semibold text-paper" onClick={montarNoEditor}>Montar no editor</button>
+            <p className="mt-2 text-xs leading-relaxed text-ink/55">Escreva o documento e insira, com um clique, os campos do paciente e as tabelas, gráficos e resultados dos testes, como numa mala direta.</p>
+          </div>
+          <div className="flex flex-col rounded-2xl border border-mist bg-white p-4">
+            <button className="rounded-lg border border-sage-deep px-4 py-2.5 text-sm font-semibold text-sage-deep hover:bg-sage-deep/5 disabled:opacity-50" disabled={lendo} onClick={() => seletor.current?.click()}>{lendo ? "Lendo o documento…" : "Ler um laudo em Word"}</button>
+            <p className="mt-2 text-xs leading-relaxed text-ink/55">Envie um laudo seu: o sistema lê os títulos, monta as seções e troca os dados do paciente por marcadores. Você revisa antes de salvar.</p>
+          </div>
+          <div className="flex flex-col rounded-2xl border border-mist bg-white p-4">
+            <button className="rounded-lg border border-sage-deep px-4 py-2.5 text-sm font-semibold text-sage-deep hover:bg-sage-deep/5" onClick={usarMeuWord}>Usar meu Word com marcadores</button>
+            <p className="mt-2 text-xs leading-relaxed text-ink/55">Mantenha o seu documento e o seu papel timbrado em Word; o sistema preenche os marcadores que você colocou nele.</p>
+          </div>
+        </div>
+      </section>
 
       {erro && <div className="mb-4 rounded-xl border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {mensagem && <div className="mb-4 rounded-xl border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}

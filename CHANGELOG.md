@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-10-08 - Madrugada] Três formas de criar modelo, testes por modelo e editor "mala direta"
+
+- **Lista de modelos:** três botões lado a lado (Montar no editor / Ler um laudo em Word / Usar meu Word com marcadores), cada um com uma frase explicando. O modelo da Letícia deixou de ter o botão "Ver e criar a partir dele".
+- **Testes do modelo** (nova aba): cada modelo tem a sua lista de testes (copiável de um Tipo de Atendimento); o editor de documento e a aba Blocos e itens só oferecem esses testes (`EstruturaModelo.testes`).
+- **Editor de documento** (nova seção `documento`, aba "Documento"): texto com **negrito**, # título, ## subtítulo, - item, campos `{{...}}` e blocos `[[tabela:...]]`, `[[grafico:...]]` e `[[linha:TESTE|c:campo]]` (resultado individual) inseridos com um clique pela paleta, com visualização dos campos destacados. No laudo o paciente pode ajustar o texto; tabela/gráfico só saem se o teste foi aplicado. Busca (máx. 40 itens) nos resultados individuais.
+- A Tabela 1 só é reservada quando o modelo traz a tabela de classificação. 122 testes passam.
+
 ## [2026-10-08 - Madrugada] Anamnese como sessão no Iniciar Atendimento
 
 - `Sessao.tipo` (AVALIACAO | ANAMNESE, migration `sessao_tipo_anamnese`). No Iniciar Atendimento, a opção "Incluir a sessão de anamnese" cria uma sessão própria, com horário próprio (padrão: 1 h antes da 1ª sessão), no mesmo dia ou em outro; entra na Agenda como "Anamnese — tipo" e participa da checagem de conflito de horário. Na ficha do paciente aparece com a etiqueta "Anamnese" e atalho para a aba Anamnese.
