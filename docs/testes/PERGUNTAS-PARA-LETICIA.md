@@ -38,3 +38,13 @@ O Boston não é uma aba separada na planilha. Ele faz parte da **Nomeação (Se
 ## 7. Prioridade
 
 Do menu da planilha, quais testes ela usa de verdade? Serve só para ordenar o refinamento das telas (nenhum teste deixa de existir por isso).
+
+## 8. Modelo de laudo (08/10/2026)
+
+Itens levantados na leitura do laudo-modelo (páginas do PDF entre parênteses). São detalhes, não erros graves:
+
+1. **Gráfico 2, curva do RAVLT (p. 7):** a legenda diz "Percentil %", mas os valores plotados são o **número de palavras evocadas** (5, 7, 8, 13, 12…). Qual é a intenção: manter "Percentil %" ou trocar por "Número de palavras evocadas"? *(marcado para conversar com ela)*
+2. **Gráfico 1, índices do WAIS-III (p. 5, embaixo):** as "hastes" finas no topo de cada barra são barras de erro, todas do mesmo tamanho (±7,5 pontos) para qualquer índice. O sistema calcula o intervalo de confiança de cada índice. Ela prefere o IC real (90% ou 95%) ou manter o tamanho fixo?
+3. **Tabela 1, classificação por percentil (p. 4):** os cortes ">98" e "<2" estão certos. As faixas escritas são inteiras, então o percentil **exatamente 98** e o **exatamente 2** (e valores com decimais, como 8,5 ou 90,5) não pertencem a nenhuma. Como o sistema deve classificar esses casos?
+4. **Nomes das classificações:** a Tabela 1 usa "Média superior / Dentro da média / Média inferior" e o texto do laudo usa "Médio Superior / Médio / Médio Inferior" (p. 6: Dígitos e SNL, Informação; p. 7: RAVLT A6 "33% Médio", FDT "70% Médio", Raciocínio Matricial; p. 8: Compreensão, BPA concentrada). A Tabela 2 (p. 5) usa "Média Superior" e "Média". Qual padrão o sistema deve gerar?
+5. **Gráficos padrão e textos-definição:** quais gráficos novos entram por padrão (BFP, FDT, BPA, SRS-2)? Os textos que definem cada domínio (funções executivas, atenção etc.) podem virar blocos padrão editáveis?
