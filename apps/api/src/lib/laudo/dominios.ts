@@ -36,7 +36,7 @@ export interface ItemMapa {
 }
 
 export interface GrupoMapa {
-  dominio: DominioChave;
+  dominio: string; // chave de DominioChave ou de um domínio criado no modelo
   chave: string;
   intro?: string;
   itens: ItemMapa[];

@@ -1,5 +1,17 @@
 # Changelog
 
+## [2026-10-08 - Madrugada] Modelos de Laudo (cadastro, editor, importação de Word, modelo Word da clínica)
+
+- **Novo cadastro "Modelos de Laudo"** (menu): lista, editor e "Salvar como". Os modelos do SISTEMA são somente leitura (API devolve 403 ao tentar alterar/apagar); quem quer mudar algo grava uma cópia com **outro nome** (nome repetido ou igual a um do sistema é recusado), que passa a ser da pessoa (ou da clínica, para o administrador) e pode virar o **padrão** (`Profissional.modeloLaudoPadraoId` / `Clinica.modeloLaudoPadraoId`). Apagar = desativar; laudos que já usam o modelo continuam saindo com ele.
+- **6 modelos do sistema** (`lib/laudo/modelos.ts`, sincronizados na subida da API): Laudo neuropsicológico completo (o da Letícia, textos palavra por palavra, agora como dados do modelo e não mais fixos no código), Laudo, Relatório e Parecer psicológicos (estrutura CFP, Res. 06/2019 e Manual Orientativo 2025 — textos de redação própria), Declaração e Atestado.
+- **Editor** (`EditorModeloLaudo.tsx`): estrutura (seções em ordem, títulos, textos fixos, texto por paciente, avisos, identificação com campos por paciente), **domínios** (renomear, reordenar, ocultar, criar, introdução própria), **blocos e itens** (tabela/gráfico/quadro de resultados e linhas de resultado de qualquer teste colocados em qualquer domínio; biblioteca em `GET /modelos-laudo/biblioteca`) e **modelo Word**.
+- **Marcadores `{{paciente.nome}}`** etc. (16, ver `MARCADORES`) em textos do modelo e no Word da clínica.
+- **Importar de um Word** (`importarWord.ts`): títulos viram seções (tipo reconhecido pelo nome), campos comuns viram marcadores, testes e domínios citados são detectados; tela de revisão antes de salvar. Não lê imagens/gráficos/desenho de tabelas (avisado na tela).
+- **Modelo Word da clínica** (`modeloWord.ts`, jszip): .docx com marcadores `{{...}}` e `{{secao.<id>}}`; o sistema preenche (inclui cabeçalho/rodapé). Serve a documentos de texto; o laudo com tabelas/gráficos usa a estrutura do modelo.
+- **Laudo**: seletor de modelo na criação e na barra; as seções seguem o modelo escolhido; `Laudo.modeloId` e `Laudo.secoesExtras`. Revisão de IA só é exigida quando houve rascunho de IA (declaração/atestado não passam por IA). Numeração agora sem buraco quando "Sugestões" fica vazia (antes "Referências" era sempre 10).
+- Migrations `adiciona_modelo_laudo` e `modelo_laudo_padrao_no_dono`. 121 testes passam. **PDF no servidor: não feito** (exige LibreOffice no servidor; hoje o PDF sai do Word).
+
+
 ## [2026-10-08 - Noite] Caso de demonstração do laudo na produção
 
 - **Caso fictício "Helena Exemplo Prado" criado na produção** (`apps/api/prisma/exemplo-laudo.ts`, copiado da base local): paciente com anamnese preenchida pelo formulário, 1 sessão com 8 testes lançados (WAIS-III, RAVLT, FDT, BPA, BFP, SRS-2 adultos, BAI, BDI-II) e o laudo completo (análise por domínio, interpretações, hipótese, conclusão e sugestões). Pertence a um profissional de DEMONSTRAÇÃO sem acesso (`demonstracao@mentessence.invalid`, senha aleatória), visível ao administrador. Para refazer: `--refazer`.

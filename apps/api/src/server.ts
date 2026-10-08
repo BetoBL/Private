@@ -13,6 +13,9 @@ import { conveniosRouter } from "./routes/convenios.routes";
 import { financeiroRouter } from "./routes/financeiro.routes";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
 import { laudosRouter } from "./routes/laudos.routes";
+import { modelosLaudoRouter } from "./routes/modelosLaudo.routes";
+import { sincronizarModelosDoSistema } from "./lib/laudo/modelos";
+import { prisma } from "./lib/prisma";
 import { normativasCustomizadasRouter } from "./routes/normativasCustomizadas.routes";
 import { pacientesRouter } from "./routes/pacientes.routes";
 import { painelDoDiaRouter } from "./routes/painelDoDia.routes";
@@ -27,6 +30,7 @@ const app = express();
 
 app.use(cors());
 app.use(compression()); // listas de testes e resultados são grandes (motor de planilha)
+app.use("/modelos-laudo", express.json({ limit: "15mb" })); // laudo em Word enviado em base64
 app.use(express.json({ limit: "4mb" })); // cadastros com logotipo/assinatura em data URL
 
 app.get("/health", (_req, res) => {
@@ -47,6 +51,7 @@ app.use("/sessoes", exigirAutenticacao, sessoesRouter);
 app.use("/eventos-agenda", exigirAutenticacao, eventosAgendaRouter);
 app.use("/aplicacoes-teste", exigirAutenticacao, aplicacoesDeTesteRouter);
 app.use("/laudos", exigirAutenticacao, laudosRouter);
+app.use("/modelos-laudo", exigirAutenticacao, modelosLaudoRouter);
 app.use("/perfil-atuacao", exigirAutenticacao, perfisDeAtuacaoRouter);
 app.use("/painel-do-dia", exigirAutenticacao, painelDoDiaRouter);
 app.use("/anexos", exigirAutenticacao, anexosRouter);
@@ -63,4 +68,6 @@ app.use(errorHandler);
 const PORT = process.env.PORT ?? 3333;
 app.listen(PORT, () => {
   console.log(`API rodando em http://localhost:${PORT}`);
+  // os modelos do sistema (somente leitura) acompanham a versão do código
+  sincronizarModelosDoSistema(prisma).then((n) => console.log(`Modelos de laudo do sistema sincronizados: ${n}`)).catch((e) => console.error("Falha ao sincronizar os modelos de laudo:", e));
 });

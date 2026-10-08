@@ -13,6 +13,7 @@ const LINKS = [
   { to: "/profissionais", label: "Cadastro · Profissional" },
   { to: "/tipos-atendimento", label: "Cadastro · Tipos de Atendimento" },
   { to: "/normativas", label: "Cadastro · Normativas" },
+  { to: "/modelos-laudo", label: "Cadastro · Modelos de Laudo" },
   { to: "/perfil-atuacao", label: "Meu Perfil de Atuação" },
   // Abre em aba nova, de propósito: a Biblioteca de Instrumentos é um ambiente visual próprio
   // (ver pages/BibliotecaDeTestes.tsx), não uma rota dentro desta casca de sidebar escura.

@@ -296,12 +296,39 @@ export interface Laudo {
   observacaoClinica: string;
   hipoteseDiagnostica: string;
   interpretacoes: Record<string, string> | null;
+  modeloId: string | null;
+  secoesExtras: Record<string, string> | null;
   status: StatusLaudo;
   iaUtilizada: boolean;
   iaRevisadaPeloProf: boolean;
   criadoEm: string;
   atualizadoEm: string;
 }
+
+// ---- modelos de laudo (estrutura de seções, domínios e blocos) ----
+export type TipoSecao = "identificacao" | "demanda" | "anamnese" | "observacao" | "instrumentos" | "referencial" | "analise" | "conclusao" | "sugestoes" | "referencias" | "fecho" | "aviso_sigilo" | "aviso_validade" | "aviso_ia" | "texto" | "livre";
+export interface BlocoIdentificacao { tipo: "profissional" | "paciente" | "campos"; titulo?: string; campos?: Array<{ id: string; rotulo: string }> }
+export interface SecaoModelo { id: string; tipo: TipoSecao; titulo: string; ativo?: boolean; texto?: string | string[]; orientacao?: string; quebraPagina?: boolean; classificacao?: boolean; identificacao?: BlocoIdentificacao[] }
+export interface DominioModelo { chave: string; titulo?: string; intro?: string; ativo?: boolean }
+export interface ItemExtraModelo { dominio: string; teste: string; fonte: { linha?: string; campo?: string }; descricao: string; rotulo?: string }
+export interface BlocoModelo { dominio: string; teste: string; tipo: "tabela" | "grafico" | "resultados"; ref?: string }
+export interface EstruturaModelo { cabecalho: string[]; abertura?: string; numerar: boolean; secoes: SecaoModelo[]; dominios?: DominioModelo[]; itensExtras?: ItemExtraModelo[]; blocos?: BlocoModelo[] }
+export interface ModeloLaudo {
+  id: string; nome: string; tipo: string; rotuloTipo: string; descricao: string | null; fonte: string | null;
+  sistema: boolean; escopo: "sistema" | "clinica" | "profissional"; origemId: string | null; temArquivoWord: boolean; ehPadrao: boolean;
+  estrutura: EstruturaModelo; atualizadoEm: string;
+}
+export interface ResultadoImportacaoModelo {
+  estrutura: EstruturaModelo;
+  secoesLidas: Array<{ titulo: string; tipo: TipoSecao; motivo: string }>;
+  testesDetectados: Array<{ sigla: string; nome: string; secao: string }>;
+  dominiosDetectados: string[];
+  marcadoresInseridos: Array<{ marcador: string; trecho: string }>;
+  avisos: string[];
+}
+export interface BibliotecaTeste { sigla: string; nome: string; tabelas: string[]; graficos: string[]; linhas: string[]; campos: Array<{ chave: string; label: string }> }
+export interface DominioPadrao { chave: string; titulo: string; intro: string; testes: string[] }
+export interface DadosGravarModelo { nome: string; tipo: string; descricao?: string | null; origemId?: string | null; escopo?: "profissional" | "clinica"; estrutura: EstruturaModelo; tornarPadrao?: boolean }
 
 export interface RespostaPerfil {
   opcoes: string[];
@@ -636,14 +663,29 @@ export const api = {
     procedimento?: string;
     anamnese?: string;
     observacaoClinica?: string;
+    modeloId?: string | null;
   }) => request<Laudo>("/laudos", { method: "POST", body: JSON.stringify(data) }),
-  updateLaudo: (id: string, data: Partial<Pick<Laudo, "anamnese" | "observacaoClinica" | "hipoteseDiagnostica" | "interpretacoes" | "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
+  updateLaudo: (id: string, data: Partial<Pick<Laudo, "modeloId" | "secoesExtras" | "anamnese" | "observacaoClinica" | "hipoteseDiagnostica" | "interpretacoes" | "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
     request<Laudo>(`/laudos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
   montarAnamneseLaudo: (id: string) => request<Laudo>(`/laudos/${id}/montar-anamnese`, { method: "POST" }),
   montarEstruturaLaudo: (id: string, aplicacaoIds?: string[]) => request<{ laudo: Laudo; semMapa: string[] }>(`/laudos/${id}/montar-estrutura`, { method: "POST", body: JSON.stringify({ aplicacaoIds }) }),
   previaLaudo: (id: string) => request<{ html: string }>(`/laudos/${id}/previa`),
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
   exportarLaudoDocx: (id: string) => baixarArquivo(`/laudos/${id}/exportar-docx`),
+
+  listModelosLaudo: () => request<ModeloLaudo[]>("/modelos-laudo"),
+  getModeloLaudo: (id: string) => request<ModeloLaudo>(`/modelos-laudo/${id}`),
+  marcadoresModelo: () => request<{ marcadores: Array<{ marcador: string; descricao: string }>; tiposDeSecao: TipoSecao[]; tiposDeModelo: Array<{ valor: string; rotulo: string }> }>("/modelos-laudo/marcadores"),
+  dominiosPadraoModelo: () => request<DominioPadrao[]>("/modelos-laudo/dominios-padrao"),
+  bibliotecaModelo: () => request<BibliotecaTeste[]>("/modelos-laudo/biblioteca"),
+  criarModeloLaudo: (data: DadosGravarModelo) => request<ModeloLaudo>("/modelos-laudo", { method: "POST", body: JSON.stringify(data) }),
+  atualizarModeloLaudo: (id: string, data: Partial<Pick<DadosGravarModelo, "nome" | "tipo" | "descricao" | "estrutura" | "tornarPadrao">>) => request<ModeloLaudo>(`/modelos-laudo/${id}`, { method: "PUT", body: JSON.stringify(data) }),
+  apagarModeloLaudo: (id: string) => request<{ ok: true }>(`/modelos-laudo/${id}`, { method: "DELETE" }),
+  definirModeloPadrao: (id: string, paraClinica = false) => request<{ ok: true }>(`/modelos-laudo/${id}/padrao`, { method: "POST", body: JSON.stringify({ paraClinica }) }),
+  importarModeloWord: (arquivoBase64: string) => request<ResultadoImportacaoModelo>("/modelos-laudo/importar-word", { method: "POST", body: JSON.stringify({ arquivoBase64 }) }),
+  enviarArquivoWordModelo: (id: string, arquivoBase64: string) => request<{ ok: true; marcadores: string[]; desconhecidos: string[] }>(`/modelos-laudo/${id}/arquivo-word`, { method: "PUT", body: JSON.stringify({ arquivoBase64 }) }),
+  removerArquivoWordModelo: (id: string) => request<{ ok: true }>(`/modelos-laudo/${id}/arquivo-word`, { method: "DELETE" }),
+  baixarArquivoWordModelo: (id: string) => baixarArquivo(`/modelos-laudo/${id}/arquivo-word`),
 
   listEventosAgenda: (params: { inicio?: string; fim?: string; profissionalId?: string; pacienteId?: string } = {}) => {
     const query = new URLSearchParams(Object.entries(params).filter(([, v]) => v !== undefined) as [string, string][]);

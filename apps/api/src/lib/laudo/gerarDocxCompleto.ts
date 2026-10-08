@@ -7,13 +7,15 @@ import { classificarPercentil } from "./classificacao";
 import { siglasDe } from "./dominios";
 import { pngDoGrafico, PALETA, type GraficoImg } from "./graficoSvg";
 import type { AplicacaoLaudo } from "./montar";
+import { estruturaDoSistema, MODELO_PADRAO_ID, resolverMarcadores, type EstruturaModelo } from "./modelos";
 
 // Modelo completo de laudo (MentEssence): 10 seções, papel timbrado do cadastro da clínica, tabelas e gráficos como imagem.
 export interface DadosLaudoCompleto {
   clinica: { nome: string; endereco?: string | null; bairro?: string | null; cidade?: string | null; estado?: string | null; cep?: string | null; telefone?: string | null; whatsapp?: string | null; instagram?: string | null; slogan?: string | null; logoUrl?: string | null; marcaDaguaUrl?: string | null; corPrimaria?: string | null; corSecundaria?: string | null };
   profissional: { nome: string; crp: string; email?: string | null; formacao?: string | null; especialidades: string[]; assinaturaUrl?: string | null; tituloLaudo?: string | null };
   paciente: { nome: string; cpf?: string | null; dataNascimento: Date; idadeTexto: string };
-  laudo: { descricaoDemanda: string; anamnese: string; observacaoClinica: string; procedimento: string; analise: string; conclusao: string; referencias: string; iaUtilizada: boolean; interpretacoes?: Record<string, string>; hipoteseDiagnostica?: string };
+  laudo: { descricaoDemanda: string; anamnese: string; observacaoClinica: string; procedimento: string; analise: string; conclusao: string; referencias: string; iaUtilizada: boolean; interpretacoes?: Record<string, string>; hipoteseDiagnostica?: string; secoesExtras?: Record<string, string> };
+  modelo?: EstruturaModelo; // estrutura do modelo escolhido; sem ele vale a do laudo neuropsicológico padrão
   aplicacoes: AplicacaoLaudo[];
   sistema: SistemaClassificacaoPercentil;
   data: Date;
@@ -178,6 +180,35 @@ function tabelaSrs(ctx: Ctx): Array<Paragraph | Table> {
   return [];
 }
 
+const humanizar = (k: string) => k.replace(/([a-z])([A-Z0-9])/g, "$1 $2").replace(/^./, (c) => c.toUpperCase());
+const fmtNum = (v: unknown): string => { const x = numero(v); return x === null ? String(v ?? "") : Number.isInteger(x) ? String(x) : String(Math.round(x * 100) / 100).replace(".", ","); };
+
+// Tabela de um teste qualquer, montada do que o teste calcula: tabelas do layout (filtradas por título) ou, nos demais modos, o resumo dos resultados.
+function tabelaGenerica(ctx: Ctx, sigla: string, ref: string | null): Array<Paragraph | Table> {
+  const app = maisRecente(ctx.apps, sigla);
+  if (!app?.resultado) return [];
+  const r = app.resultado;
+  if (r.modo === "planilha") {
+    const alvo = ref ? norm(ref) : "";
+    const out: Array<Paragraph | Table> = [];
+    for (const t of app.layout?.tabelas ?? []) {
+      if (alvo && !norm(t.titulo).includes(alvo)) continue;
+      const linhas = t.linhas.map((l) => [l.rotulo, ...t.colunas.map((_, i) => { const k = l.valores[i]; return k ? fmtNum(r.saidas[k]) : ""; })]).filter((l) => l.slice(1).some((c) => c !== "") && !l[0].startsWith("="));
+      if (linhas.length === 0) continue;
+      const nCol = t.colunas.length + 1, primeira = nCol > 4 ? 2600 : 3200, resto = Math.floor((LARG_PAG - primeira) / (nCol - 1));
+      out.push(legenda(`Tabela ${++ctx.nTabela}: ${app.sigla}${t.titulo && t.titulo !== "Resultado" ? ` – ${t.titulo}` : ""}`), tabela([t.titulo || "Resultado", ...t.colunas], linhas, [primeira, ...t.colunas.map(() => resto)]), espaco());
+      if (alvo) break;
+    }
+    return out;
+  }
+  if (r.modo === "soma") {
+    return [legenda(`Tabela ${++ctx.nTabela}: Resultados ${app.sigla}`), tabela(["ESCORE TOTAL", "CLASSIFICAÇÃO"], [[String(r.escoreBrutoTotal), String(r.faixa?.classificacao ?? "—")]], [3000, 4000]), espaco()];
+  }
+  const linhas = Object.entries(r.porCampo).map(([k, v]) => { const f = v.faixa ?? {}; return [humanizar(k), fmtNum(v.valorBruto), fmtNum(f.ponderado ?? f.composto ?? f.tScore ?? ""), fmtNum(f.percentil ?? ""), String(f.classificacao ?? "")]; }).filter((l) => l[1] !== "" || l[3] !== "");
+  if (linhas.length === 0) return [];
+  return [legenda(`Tabela ${++ctx.nTabela}: Resultados ${app.sigla}`), tabela(["RESULTADO", "BRUTO", "ESCORE", "PERCENTIL", "CLASSIFICAÇÃO"], linhas, [3000, 1100, 1300, 1300, 2938]), espaco()];
+}
+
 function resolverToken(token: string, ctx: Ctx): Array<Paragraph | Table> {
   const [tipo, resto] = [token.slice(0, token.indexOf(":")), token.slice(token.indexOf(":") + 1)];
   // interpretação do profissional para o domínio: parágrafos livres (linhas em branco separam)
@@ -187,6 +218,8 @@ function resolverToken(token: string, ctx: Ctx): Array<Paragraph | Table> {
     if (resto === "bai") return tabelaBeck(ctx, "BAI", "Ansiedade");
     if (resto === "bdi") return tabelaBeck(ctx, "BDI-II", "Depressão");
     if (resto === "srs2") return tabelaSrs(ctx);
+    const [modo, sigla, ref] = resto.split("|");
+    if ((modo === "layout" || modo === "resultados") && sigla) return tabelaGenerica(ctx, sigla, ref || null);
   }
   if (tipo === "grafico") {
     if (resto === "wais-indices") return graficoWaisIndices(ctx);
@@ -211,15 +244,6 @@ function renderMarkdown(md: string, ctx: Ctx, numerarSub?: string): Array<Paragr
   }
   return out;
 }
-
-// redação original do laudo-modelo, palavra por palavra (ver dominios.ts)
-const TEXTO_REFERENCIAL = [
-  "Miotto (2017) define a Neuropsicologia como uma ciência interdisciplinar que tem como objetivo o estudo da cognição e do comportamento de um indivíduo em relação ao seu Sistema Nervoso Central (SNC). Miotto, Campanholo, Trevisan e Serrão (2018) compreendem a avaliação neuropsicológica como um processo técnico e científico em que se obtêm informações a partir de instrumentos, técnicas e métodos específicos, nas quais são realizadas interpretações das informações obtidas. Assim como os dados quantitativos obtidos na testagem cognitiva, é importante realizar uma análise quantitativa que envolve observação clínica das verbalizações, gestos, humor, tom de voz, hábitos e demais idiossincrasias que podem oferecer informações acerca do ajustamento comportamental, dinâmica familiar e estilo de vida do paciente (Campanholo & Serrão, 2018). Lezak, Howieson & Loring (2004) propõem seis objetivos principais para a avaliação neuropsicológica: pesquisa, resposta a solicitação forense, diagnóstico, cuidado com paciente, identificação das necessidades e eficácia do tratamento.",
-  "A análise de tarefas qualitativas, fundamentada em estudos preliminares, foi integrada aos textos interpretativos deste relatório, com as referências sendo inseridas no final do relatório. A classificação foi conduzida segundo os critérios delineados na tabela a seguir.",
-];
-const AVISO_SIGILO = "Este laudo não poderá ser utilizado para fins diferentes do apontado no item de identificação, o mesmo possui caráter sigiloso e se trata de documento extrajudicial e a autora não se responsabiliza pelo uso dado ao laudo por parte solicitante, após a sua entrega em entrevista devolutiva, conforme normas éticas propostas pelo Conselho Federal de Psicologia.";
-const AVISO_VALIDADE = "VALIDADE: Conforme normas do Conselho Federal de Psicologia, o documento possui validade de 05 anos. Porém, o desenvolvimento das funções cognitivas é dinâmico e fluido, suscetível a modificações no decorrer do tempo. Desta forma, as informações e resultados deste relatório referem-se ao padrão de funcionamento cognitivo atual, mantendo fidedignidade (confiabilidade) por aproximadamente 1 ano. Ou seja, após aproximadamente 1 ano da presente avaliação, os resultados aqui descritos podem não representar adequadamente o padrão de funcionamento cognitivo do(a) paciente.";
-const AVISO_IA = "Este laudo contou com apoio de Inteligência Artificial na redação de rascunho de partes do texto, integralmente revisado e assumido pelo(a) profissional responsável, conforme a Resolução CFP nº 09/2024 e a cartilha do CFP sobre o uso de IA.";
 
 export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buffer> {
   const ctx: Ctx = { apps: d.aplicacoes, sistema: d.sistema, nTabela: 1, nGrafico: 0, interpretacoes: d.laudo.interpretacoes ?? {} }; // a Tabela 1 é a de classificação
@@ -258,7 +282,11 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
     ] })] }),
   ] });
 
-  // ---- corpo ----
+  // ---- corpo: seções na ordem, com os títulos e textos do modelo ----
+  const modelo = d.modelo ?? estruturaDoSistema(MODELO_PADRAO_ID)!;
+  const extras = d.laudo.secoesExtras ?? {};
+  const marc = (t: string) => resolverMarcadores(t, d);
+  const paragrafosDe = (t?: string | string[]) => (Array.isArray(t) ? t : (t ?? "").split(/\n+/)).map((l) => marc(l)).filter((l) => l.trim());
   // linha sob o nome: a que o profissional escreveu no cadastro; sem ela, uma neutra montada com as especialidades
   const titEspecialista = d.profissional.tituloLaudo?.trim() || `Psicólogo(a)${d.profissional.especialidades.length ? ` especialista em ${d.profissional.especialidades.join(", ")}` : ""}`;
   const rotuloAutor = /^psic[oó]loga/i.test(titEspecialista) ? "Autora" : /^psic[oó]logo\b/i.test(titEspecialista) ? "Autor" : "Autor(a)";
@@ -274,42 +302,70 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
     linhaSimples(`**Data de nascimento:** ${nasc}`),
   ];
   const textoOuTraco = (t: string) => (t.trim() ? t.split(/\n+/).filter((l) => l.trim()).map(corpo) : [corpo("—")]);
+  const mdOuTraco = (md: string, sub?: string) => { const r = md.trim() ? renderMarkdown(md, ctx, sub) : []; return r.length ? r : [corpo("—")]; };
   const dataExtenso = d.data.toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
   const assinatura = imagemInline(d.profissional.assinaturaUrl, 1.8, 7);
   const refs = d.laudo.referencias.split("\n").filter((l) => l.trim());
 
   const corpoDoc: Array<Paragraph | Table> = [
-    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 200 }, children: [new TextRun({ text: "LAUDO PSICOLÓGICO", bold: true, font: FONTE, size: 22 })] }),
-    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 240 }, children: [new TextRun({ text: "COM ENFOQUE NEUROPSICOLÓGICO", bold: true, font: FONTE, size: 22 })] }),
-    new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { line: 300, after: 160 }, children: [new TextRun({ text: "Laudo realizado de acordo com as resoluções 06/2019 e 09/2018, do Conselho Federal de Psicologia (CFP), as quais constituem o Manual de Elaboração de Documentos escritos pelo (a) Psicólogo (a), decorrentes de avaliação psicológica, interpretação e análise de dados obtidos por meio de técnicas e instrumentos reconhecidos cientificamente para o uso na prática profissional.", bold: true, font: FONTE, size: 22 })] }),
-
-    titulo("1. IDENTIFICAÇÃO"), subtitulo("1.1 IDENTIFICAÇÃO PROFISSIONAL"), ...identificacaoProf, subtitulo("1.2 IDENTIFICAÇÃO DO(A) PACIENTE"), ...identificacaoPac,
-    titulo("2. DEMANDA"), ...textoOuTraco(d.laudo.descricaoDemanda),
-    titulo("3. DADOS DE ANAMNESE"), ...textoOuTraco(d.laudo.anamnese),
-    titulo("4. OBSERVAÇÃO CLÍNICA"), ...textoOuTraco(d.laudo.observacaoClinica),
-    titulo("5. INSTRUMENTOS CLÍNICOS"), ...renderMarkdown(d.laudo.procedimento, ctx, "5."),
-    titulo("6. REFERENCIAL TEÓRICO E METODOLÓGICO"), ...TEXTO_REFERENCIAL.map(corpo),
-    legenda("Tabela 1: classificação por percentil"),
-    tabela(["CLASSIFICAÇÃO", "PERCENTIL %"], tabelaClass.linhas.map(([a, b]) => [a, b]), [3800, 2400], { centroDe: 0 }), espaco(),
-    titulo("7. ANÁLISE DOS RESULTADOS"), ...renderMarkdown(d.laudo.analise, ctx, "7."),
-    titulo("8. CONCLUSÃO"), ...renderMarkdown(conclusao, ctx, undefined),
-    ...(d.laudo.hipoteseDiagnostica?.trim() ? [new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { line: 360, after: 80 }, indent: { firstLine: 567 }, children: [new TextRun({ text: "Hipótese Diagnóstica: ", bold: true, font: FONTE, size: 22 }), ...runs(d.laudo.hipoteseDiagnostica.trim())] })] : []),
-    ...(sugestoes ? [titulo("9. SUGESTÕES E ENCAMINHAMENTOS"), ...renderMarkdown(sugestoes, ctx)] : []),
-    new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before: 360, after: 360 }, children: [new TextRun({ text: `${d.clinica.cidade ? `${d.clinica.cidade}, ` : ""}${dataExtenso}.`, font: FONTE, size: 22 })] }),
-    ...(assinatura ? [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 0 }, children: [assinatura] })] : [new Paragraph({ spacing: { before: 400 }, children: [] })]),
-    new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "___________________________________________________", font: FONTE, size: 22 })] }),
-    new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: d.profissional.nome, bold: true, font: FONTE, size: 22 })] }),
-    new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: titEspecialista, bold: true, font: FONTE, size: 22 })] }),
-    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 240 }, children: [new TextRun({ text: `CRP ${d.profissional.crp}`, bold: true, font: FONTE, size: 22 })] }),
-    new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, keepLines: true, keepNext: true, children: [new TextRun({ text: AVISO_SIGILO, font: FONTE, size: 16 })] }),
-    new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, keepLines: true, children: [new TextRun({ text: AVISO_VALIDADE, font: FONTE, size: 16 })] }),
-    ...(d.laudo.iaUtilizada ? [new Paragraph({ alignment: AlignmentType.JUSTIFIED, children: [new TextRun({ text: AVISO_IA, font: FONTE, size: 16, italics: true })] })] : []),
-    new Paragraph({ pageBreakBefore: true, children: [new TextRun({ text: "10. REFERÊNCIAS BIBLIOGRÁFICAS", bold: true, font: FONTE, size: 22 })], spacing: { after: 160 } }),
-    ...(refs.length ? refs.map((r) => new Paragraph({ children: [new TextRun({ text: r, font: FONTE, size: 22 })], alignment: AlignmentType.JUSTIFIED, spacing: { line: 336, after: 100 } })) : [corpo("—")]),
+    ...modelo.cabecalho.map((linha, i) => new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: i === 0 ? 200 : 0, after: i === modelo.cabecalho.length - 1 ? 240 : 0 }, children: [new TextRun({ text: linha, bold: true, font: FONTE, size: 22 })] })),
+    ...(modelo.abertura ? [new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { line: 300, after: 160 }, children: [new TextRun({ text: marc(modelo.abertura), bold: true, font: FONTE, size: 22 })] })] : []),
   ];
+  let n = 0;
+  for (const s of modelo.secoes) {
+    if (s.ativo === false) continue;
+    if ((s.tipo === "sugestoes" && !sugestoes) || (s.tipo === "aviso_ia" && !d.laudo.iaUtilizada)) continue;
+    const numero = s.titulo && modelo.numerar ? `${++n}.` : "";
+    const rotulo = `${numero ? `${numero} ` : ""}${s.titulo}`;
+    const cab = s.titulo ? [s.quebraPagina ? new Paragraph({ pageBreakBefore: true, children: [new TextRun({ text: rotulo, bold: true, font: FONTE, size: 22 })], spacing: { after: 160 } }) : titulo(rotulo)] : [];
+    const sub = numero || undefined;
+    switch (s.tipo) {
+      case "identificacao": {
+        let k = 0;
+        corpoDoc.push(...cab);
+        for (const b of s.identificacao ?? []) {
+          if (b.titulo) corpoDoc.push(subtitulo(`${numero ? `${numero}${++k} ` : ""}${b.titulo}`));
+          if (b.tipo === "profissional") corpoDoc.push(...identificacaoProf);
+          else if (b.tipo === "paciente") corpoDoc.push(...identificacaoPac);
+          else for (const c of b.campos ?? []) corpoDoc.push(linhaSimples(`**${c.rotulo}:** ${(extras[c.id] ?? "").trim() || "—"}`));
+        }
+        break;
+      }
+      case "demanda": corpoDoc.push(...cab, ...textoOuTraco(d.laudo.descricaoDemanda)); break;
+      case "anamnese": corpoDoc.push(...cab, ...textoOuTraco(d.laudo.anamnese)); break;
+      case "observacao": corpoDoc.push(...cab, ...textoOuTraco(d.laudo.observacaoClinica)); break;
+      case "instrumentos": corpoDoc.push(...cab, ...mdOuTraco(d.laudo.procedimento, sub)); break;
+      case "referencial":
+        corpoDoc.push(...cab, ...paragrafosDe(s.texto).map(corpo));
+        if (s.classificacao) corpoDoc.push(legenda("Tabela 1: classificação por percentil"), tabela(["CLASSIFICAÇÃO", "PERCENTIL %"], tabelaClass.linhas.map(([a, b]) => [a, b]), [3800, 2400], { centroDe: 0 }), espaco());
+        break;
+      case "analise": corpoDoc.push(...cab, ...mdOuTraco(d.laudo.analise, sub)); break;
+      case "conclusao":
+        corpoDoc.push(...cab, ...mdOuTraco(conclusao));
+        if (d.laudo.hipoteseDiagnostica?.trim()) corpoDoc.push(new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { line: 360, after: 80 }, indent: { firstLine: 567 }, children: [new TextRun({ text: "Hipótese Diagnóstica: ", bold: true, font: FONTE, size: 22 }), ...runs(d.laudo.hipoteseDiagnostica.trim())] }));
+        break;
+      case "sugestoes": corpoDoc.push(...cab, ...renderMarkdown(sugestoes, ctx)); break;
+      case "referencias": corpoDoc.push(...cab, ...(refs.length ? refs.map((r) => new Paragraph({ children: [new TextRun({ text: r, font: FONTE, size: 22 })], alignment: AlignmentType.JUSTIFIED, spacing: { line: 336, after: 100 } })) : [corpo("—")])); break;
+      case "fecho":
+        corpoDoc.push(
+          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before: 360, after: 360 }, children: [new TextRun({ text: `${d.clinica.cidade ? `${d.clinica.cidade}, ` : ""}${dataExtenso}.`, font: FONTE, size: 22 })] }),
+          ...(assinatura ? [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 0 }, children: [assinatura] })] : [new Paragraph({ spacing: { before: 400 }, children: [] })]),
+          new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: "___________________________________________________", font: FONTE, size: 22 })] }),
+          new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: d.profissional.nome, bold: true, font: FONTE, size: 22 })] }),
+          new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: titEspecialista, bold: true, font: FONTE, size: 22 })] }),
+          new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 240 }, children: [new TextRun({ text: `CRP ${d.profissional.crp}`, bold: true, font: FONTE, size: 22 })] })
+        );
+        break;
+      case "aviso_sigilo": corpoDoc.push(...paragrafosDe(s.texto).map((t) => new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, keepLines: true, keepNext: true, children: [new TextRun({ text: t, font: FONTE, size: 16 })] }))); break;
+      case "aviso_validade": corpoDoc.push(...paragrafosDe(s.texto).map((t) => new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, keepLines: true, children: [new TextRun({ text: t, font: FONTE, size: 16 })] }))); break;
+      case "aviso_ia": corpoDoc.push(...paragrafosDe(s.texto).map((t) => new Paragraph({ alignment: AlignmentType.JUSTIFIED, children: [new TextRun({ text: t, font: FONTE, size: 16, italics: true })] }))); break;
+      case "texto": corpoDoc.push(...cab, ...paragrafosDe(s.texto).map(corpo)); break;
+      case "livre": corpoDoc.push(...cab, ...paragrafosDe((extras[s.id] ?? "").trim() ? extras[s.id] : s.texto).map(corpo)); break;
+    }
+  }
 
   const doc = new Document({
-    creator: d.profissional.nome, title: `Laudo psicológico — ${d.paciente.nome}`,
+    creator: d.profissional.nome, title: `${modelo.cabecalho[0] ?? "Laudo psicológico"} — ${d.paciente.nome}`,
     numbering: { config: [{ reference: "setas", levels: [{ level: 0, format: LevelFormat.BULLET, text: "➢", alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 567, hanging: 340 } }, run: { color: "00B050", font: "Segoe UI Symbol" } } }] }] },
     styles: { default: { document: { run: { font: FONTE, size: 22 } } } },
     sections: [{ properties: { page: { margin: { top: 2100, bottom: 1700, left: 1134, right: 1134, header: 300, footer: 300 } } }, headers: { default: new Header({ children: filhosCabecalho }) }, footers: { default: rodape }, children: corpoDoc }],

@@ -3,10 +3,12 @@ import { Router } from "express";
 import { z } from "zod";
 import mammoth from "mammoth";
 import { carregarAplicacoesLaudo, dadosDoLaudoCompleto } from "../lib/laudo/carregar";
-import { gerarDocxLaudoCompleto } from "../lib/laudo/gerarDocxCompleto";
+import { gerarDocxLaudoCompleto, type DadosLaudoCompleto } from "../lib/laudo/gerarDocxCompleto";
+import { preencherModeloWord } from "../lib/laudo/modeloWord";
 import { gerarTextoAnamnese, type AnamneseForm } from "../lib/laudo/anamnese";
 import { idadeEmAnos } from "../lib/laudo/carregar";
 import { montarEstruturaLaudo } from "../lib/laudo/montar";
+import { modeloDoLaudo } from "../lib/laudo/modeloDoLaudo";
 import { DESCRICAO_RESPONDENTE, gerarRascunhoLaudo } from "../lib/gerarRascunhoLaudo";
 import { pacienteTemTestePlaceholder } from "../lib/placeholderCheck";
 import { prisma } from "../lib/prisma";
@@ -16,7 +18,8 @@ import { asyncHandler, validateBody } from "../lib/validate";
 // e nenhum teste placeholder na bateria (ver memória do projeto project_placeholder_tests_policy).
 async function motivoBloqueioFinalizacao(laudo: Laudo, iaRevisadaOverride?: boolean): Promise<string | null> {
   const iaRevisada = iaRevisadaOverride ?? laudo.iaRevisadaPeloProf;
-  if (!iaRevisada) {
+  // a revisão só é exigida quando houve rascunho de IA (documentos curtos, como declaração, não passam por IA)
+  if (laudo.iaUtilizada && !iaRevisada) {
     return "o rascunho de IA ainda não foi revisado pelo profissional";
   }
   const temPlaceholder = await pacienteTemTestePlaceholder(laudo.pacienteId);
@@ -39,16 +42,32 @@ async function buscarLaudoDaClinica(id: string, req: { profissional?: { clinicaI
   return laudo;
 }
 
+// Word do laudo: o gerador completo (tabelas e gráficos) ou, se o modelo tem arquivo Word com marcadores, o arquivo da clínica preenchido
+async function gerarBufferDoLaudo(laudo: Laudo, dados: DadosLaudoCompleto): Promise<Buffer> {
+  const pac = await prisma.paciente.findUnique({ where: { id: laudo.pacienteId }, select: { clinicaId: true } });
+  const modelo = await modeloDoLaudo(laudo, laudo.profissionalId, pac!.clinicaId);
+  if (!modelo.arquivoDocx) return gerarDocxLaudoCompleto(dados);
+  const l = dados.laudo;
+  return preencherModeloWord(modelo.arquivoDocx, modelo.estrutura, { demanda: l.descricaoDemanda, anamnese: l.anamnese, observacao: l.observacaoClinica, instrumentos: l.procedimento, analise: l.analise, conclusao: l.conclusao, referencias: l.referencias, extras: l.secoesExtras ?? {} }, dados);
+}
+
+// o modelo escolhido precisa ser do sistema ou da clínica de quem está logado
+async function modeloPermitido(modeloId: string | null | undefined, clinicaId: string): Promise<boolean> {
+  if (!modeloId) return true;
+  return !!(await prisma.modeloLaudo.findFirst({ where: { id: modeloId, ativo: true, OR: [{ sistema: true }, { clinicaId }] } }));
+}
+
 const laudoCreateSchema = z.object({
   pacienteId: z.string().uuid(),
   identificacao: z.record(z.string(), z.unknown()),
-  descricaoDemanda: z.string().min(1),
+  descricaoDemanda: z.string().optional().default(""),
   procedimento: z.string().optional().default(""),
   analise: z.string().optional().default(""),
   conclusao: z.string().optional().default(""),
   referencias: z.string().optional().default(""),
   anamnese: z.string().optional().default(""),
   observacaoClinica: z.string().optional().default(""),
+  modeloId: z.string().nullable().optional(),
 });
 
 const laudoUpdateSchema = z.object({
@@ -62,6 +81,8 @@ const laudoUpdateSchema = z.object({
   observacaoClinica: z.string().optional(),
   hipoteseDiagnostica: z.string().optional(),
   interpretacoes: z.record(z.string(), z.string()).optional(),
+  secoesExtras: z.record(z.string(), z.string()).optional(),
+  modeloId: z.string().nullable().optional(),
   status: z.nativeEnum(StatusLaudo).optional(),
   iaRevisadaPeloProf: z.boolean().optional(),
   dataDevolutiva: z.coerce.date().optional(),
@@ -80,6 +101,10 @@ laudosRouter.post(
     }
     if (!ehAdmin(req) && paciente.profissionalId !== req.profissional!.sub) {
       res.status(403).json({ error: "Você só pode criar laudos para seus próprios pacientes" });
+      return;
+    }
+    if (!(await modeloPermitido(req.body.modeloId, paciente.clinicaId))) {
+      res.status(400).json({ error: "Modelo de laudo inválido para esta clínica" });
       return;
     }
     const laudo = await prisma.laudo.create({
@@ -133,6 +158,10 @@ laudosRouter.patch(
       return;
     }
 
+    if (req.body.modeloId !== undefined && !(await modeloPermitido(req.body.modeloId, req.profissional!.clinicaId))) {
+      res.status(400).json({ error: "Modelo de laudo inválido para esta clínica" });
+      return;
+    }
     if (req.body.status === StatusLaudo.FINALIZADO) {
       const motivo = await motivoBloqueioFinalizacao(existente, req.body.iaRevisadaPeloProf);
       if (motivo) {
@@ -163,7 +192,8 @@ laudosRouter.post(
       res.status(409).json({ error: "O paciente ainda não tem testes lançados para montar o laudo." });
       return;
     }
-    const estrutura = montarEstruturaLaudo(apps, { sistema: perfil?.sistemaClassificacaoPercentil ?? "MIOTTO_2017", primeiroNome: laudo.paciente.nome.split(" ")[0] });
+    const modelo = await modeloDoLaudo(laudo, laudo.profissionalId, laudo.paciente.clinicaId);
+    const estrutura = montarEstruturaLaudo(apps, { sistema: perfil?.sistemaClassificacaoPercentil ?? "MIOTTO_2017", primeiroNome: laudo.paciente.nome.split(" ")[0], config: modelo.estrutura });
     const atualizado = await prisma.laudo.update({ where: { id: laudo.id }, data: { procedimento: estrutura.procedimento, analise: estrutura.analise, referencias: estrutura.referencias } });
     res.json({ laudo: atualizado, semMapa: estrutura.semMapa });
   })
@@ -207,7 +237,7 @@ laudosRouter.get(
       res.status(404).json({ error: "Clínica ou profissional não encontrado" });
       return;
     }
-    const buffer = await gerarDocxLaudoCompleto(dados);
+    const buffer = await gerarBufferDoLaudo(laudo, dados);
     const { value } = await mammoth.convertToHtml({ buffer });
     res.json({ html: value });
   })
@@ -305,7 +335,7 @@ laudosRouter.get(
       return;
     }
     const paciente = laudo.paciente;
-    const buffer = await gerarDocxLaudoCompleto(dados);
+    const buffer = await gerarBufferDoLaudo(laudo, dados);
 
     const nomeArquivo = `laudo-${paciente.nome.replace(/\s+/g, "-").toLowerCase()}.docx`;
     res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");

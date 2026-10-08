@@ -120,6 +120,8 @@ model Clinica {
   convenios          Convenio[]
   tiposAtendimento   TipoAtendimento[]
   normativasCustomizadas NormativaCustomizada[]
+  modelosLaudo       ModeloLaudo[]
+  modeloLaudoPadraoId String?      // modelo de laudo padrão da clínica (vale para quem não escolheu o seu)
 }
 
 model Profissional {
@@ -145,6 +147,8 @@ model Profissional {
   pacientes         Paciente[]
   sessoes           Sessao[]
   laudos            Laudo[]
+  modelosLaudo      ModeloLaudo[]
+  modeloLaudoPadraoId String?        // modelo de laudo padrão deste profissional
   testesCriados     Teste[]           @relation("TestesCriadosPeloProfissional")
   convenios         ProfissionalConvenio[]
   eventosAgenda     EventoAgenda[]
@@ -400,6 +404,9 @@ model Laudo {
   observacaoClinica String       @default("") @db.Text // seção 4
   interpretacoes    Json?        // interpretação do profissional por domínio ({ "executivas": "texto", … }); sobrevive a "montar de novo"
   hipoteseDiagnostica String     @default("") @db.Text // parágrafo "Hipótese diagnóstica" (com CID), no fim da conclusão
+  modeloId          String?      // modelo de laudo usado (estrutura das seções); sem ele vale o padrão do profissional, da clínica ou do sistema
+  modelo            ModeloLaudo? @relation(fields: [modeloId], references: [id])
+  secoesExtras      Json?        // texto por paciente das seções livres do modelo ({ "<id da seção>": "texto" })
 
   status            StatusLaudo  @default(RASCUNHO_IA)
   dataDevolutiva    DateTime?
@@ -518,4 +525,29 @@ model Cobranca {
 
   @@index([clinicaId, status, vencimento])
   @@index([pacienteId])
+}
+
+// Modelo de laudo/documento: estrutura de seções, textos fixos, mapa de domínios e blocos. Os do SISTEMA (sistema=true, clinicaId nulo) são
+// somente leitura: quem quer mudar algo grava uma cópia com outro nome (origemId aponta para o modelo de partida). `padrao` marca o modelo
+// que cada profissional (Profissional.modeloLaudoPadraoId) ou a clínica (Clinica.modeloLaudoPadraoId) usa por padrão.
+model ModeloLaudo {
+  id             String        @id @default(uuid())
+  clinicaId      String?
+  clinica        Clinica?      @relation(fields: [clinicaId], references: [id])
+  profissionalId String?
+  profissional   Profissional? @relation(fields: [profissionalId], references: [id])
+
+  nome           String
+  tipo           String        // LAUDO_NEURO | LAUDO | RELATORIO | PARECER | DECLARACAO | ATESTADO | PERSONALIZADO
+  descricao      String?       @db.Text
+  fonte          String?       // de onde veio a estrutura (resolução/manual citado)
+  sistema        Boolean       @default(false)
+  origemId       String?
+  estrutura      Json
+  arquivoDocx    String?       @db.Text // modelo Word com marcadores {{...}} (base64), quando a clínica sobe o próprio
+  ativo          Boolean       @default(true)
+
+  laudos         Laudo[]
+  criadoEm       DateTime      @default(now())
+  atualizadoEm   DateTime      @updatedAt
 }

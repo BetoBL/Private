@@ -1,6 +1,7 @@
 import type { SistemaClassificacaoPercentil } from "../classificacaoPercentil";
 import { abaixoDaMedia, classificarPercentil, formatarPercentil } from "./classificacao";
-import { COMPLEMENTARES, DOMINIOS, GRUPOS, siglasDe, type Fonte, type ItemMapa } from "./dominios";
+import { COMPLEMENTARES, DOMINIOS, GRUPOS, siglasDe, type Fonte, type GrupoMapa, type ItemMapa } from "./dominios";
+import type { BlocoModelo, DominioModelo, ItemExtraModelo } from "./modelos";
 import { descricaoParaLaudo, nomeParaLaudo, referenciaParaLaudo } from "./descricoes";
 
 // Estruturas mínimas (só o que o laudo lê): evita acoplar o laudo ao motor de cálculo.
@@ -65,8 +66,35 @@ export interface EstruturaLaudo {
   semMapa: string[]; // testes aplicados que ainda não têm linha no mapa de domínios
 }
 
-export function montarEstruturaLaudo(apps: AplicacaoLaudo[], opcoes: { sistema: SistemaClassificacaoPercentil; primeiroNome: string }): EstruturaLaudo {
-  const { sistema, primeiroNome } = opcoes;
+// Parte do modelo que muda a análise por domínio: nomes/ordem/introdução dos domínios, itens extras e blocos (tabela/gráfico/resultados de um teste).
+export interface ConfigAnalise { dominios?: DominioModelo[]; itensExtras?: ItemExtraModelo[]; blocos?: BlocoModelo[] }
+
+// domínios na ordem do modelo (ou a padrão), já com nome e introdução próprios
+export function dominiosDoModelo(config?: ConfigAnalise): Array<{ chave: string; titulo: string; intro?: string }> {
+  const padrao = new Map(DOMINIOS.map((d) => [d.chave as string, d]));
+  if (!config?.dominios?.length) return DOMINIOS.map((d) => ({ ...d }));
+  return config.dominios.filter((d) => d.ativo !== false).map((d) => {
+    const base = padrao.get(d.chave);
+    const intro = d.intro !== undefined ? d.intro : base?.intro;
+    return { chave: d.chave, titulo: d.titulo?.trim() || base?.titulo || d.chave, intro: intro || undefined };
+  });
+}
+
+// itens extras e blocos do modelo viram grupos como os do mapa padrão
+function gruposExtras(config?: ConfigAnalise): GrupoMapa[] {
+  const porDominio = new Map<string, GrupoMapa>();
+  const grupo = (dominio: string) => { let g = porDominio.get(dominio); if (!g) { g = { dominio, chave: "extras-" + dominio, itens: [], blocos: [] }; porDominio.set(dominio, g); } return g; };
+  for (const i of config?.itensExtras ?? []) grupo(i.dominio).itens.push({ teste: i.teste, fonte: i.fonte.campo ? { campo: i.fonte.campo } : { linha: i.fonte.linha ?? "" }, descricao: i.descricao, rotulo: i.rotulo });
+  for (const b of config?.blocos ?? []) {
+    const token = b.tipo === "grafico" ? `grafico:${b.teste}|${b.ref ?? ""}` : b.tipo === "tabela" ? `tabela:layout|${b.teste}|${b.ref ?? ""}` : `tabela:resultados|${b.teste}`;
+    grupo(b.dominio).blocos!.push({ teste: b.teste, token });
+  }
+  return [...porDominio.values()];
+}
+
+export function montarEstruturaLaudo(apps: AplicacaoLaudo[], opcoes: { sistema: SistemaClassificacaoPercentil; primeiroNome: string; config?: ConfigAnalise }): EstruturaLaudo {
+  const { sistema, primeiroNome, config } = opcoes;
+  const todosGrupos = [...GRUPOS, ...gruposExtras(config)];
   const usadas = new Set<string>();
 
   // ---- seção 5: instrumentos ----
@@ -85,8 +113,8 @@ export function montarEstruturaLaudo(apps: AplicacaoLaudo[], opcoes: { sistema: 
 
   // ---- seção 7: análise por domínio ----
   const blocos: string[] = [];
-  for (const dom of DOMINIOS) {
-    const grupos = GRUPOS.filter((g) => g.dominio === dom.chave);
+  for (const dom of dominiosDoModelo(config)) {
+    const grupos = todosGrupos.filter((g) => g.dominio === dom.chave);
     const partes: string[] = [];
     const sintese: Array<{ rotulo: string; p: number }> = [];
     for (const g of grupos) {

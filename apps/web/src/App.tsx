@@ -18,6 +18,8 @@ import { PerfilAtuacao } from "./pages/PerfilAtuacao";
 import { Pacientes } from "./pages/Pacientes";
 import { TesteCompleto } from "./pages/TesteCompleto";
 import { Financeiro } from "./pages/Financeiro";
+import { ModelosLaudo } from "./pages/ModelosLaudo";
+import { EditorModeloLaudo } from "./pages/EditorModeloLaudo";
 
 function App() {
   const { profissional } = useAuth();
@@ -49,6 +51,8 @@ function App() {
         <Route path="/profissionais/:id" element={<FichaProfissional />} />
         <Route path="/tipos-atendimento" element={<CadastroTiposAtendimento />} />
         <Route path="/normativas" element={<CadastroNormativas />} />
+        <Route path="/modelos-laudo" element={<ModelosLaudo />} />
+        <Route path="/modelos-laudo/:id" element={<EditorModeloLaudo />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
