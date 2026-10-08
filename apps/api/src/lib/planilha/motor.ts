@@ -18,6 +18,8 @@ export interface EntradaPlanilha {
   grupo?: string;
   // resposta por letra (ex.: N/A/F): o sistema envia o número (1 = primeira letra) e a célula recebe a letra
   letras?: string[];
+  // célula "porta" (ex.: nome/grau do informante) que este campo preenche sozinho quando tem valor
+  porta?: string;
   min?: number;
   max?: number;
 }
@@ -33,6 +35,13 @@ export interface SaidaPlanilha {
   celula: string;
   rotulo: string;
   casas?: number;
+}
+export type RefGrafico = string | { k: string } | null;
+export interface GraficoPlanilha {
+  titulo: string;
+  eixo: { min?: number; max?: number };
+  ancora: { linha: number; coluna: number };
+  series: Array<{ tipo: string; direcao?: string; nome: RefGrafico; cats: RefGrafico[]; vals: Array<string | null> }>;
 }
 export interface TabelaPlanilha {
   titulo: string;
@@ -51,11 +60,15 @@ export interface DefinicaoPlanilha {
   entradas: EntradaPlanilha[];
   // coluna da planilha → célula "porta" (ex.: nome/grau do informante) que precisa estar preenchida para a coluna ser calculada
   portas?: Record<string, string>;
+  // coluna da planilha → célula da DATA de aplicação daquele informante: recebe a data da sessão quando a coluna tem resposta
+  datas?: Record<string, string>;
   // rótulos das colunas dos campos de entrada (letra da coluna → nome), só para a tela
   cabecalhos?: Record<string, string>;
   opcoes: OpcaoPlanilha[];
   saidas: SaidaPlanilha[];
   tabelas: TabelaPlanilha[];
+  // gráficos do Excel: séries com categorias (texto fixo ou chave de saída) e valores (chaves de saída)
+  graficos?: GraficoPlanilha[];
 }
 
 export interface ContextoPlanilha {
@@ -146,8 +159,10 @@ export function calcularPlanilha(def: DefinicaoPlanilha, escores: Record<string,
       por(`${def.aba}!${e.celula}`, e.letras[v - 1]);
     } else por(`${def.aba}!${e.celula}`, v);
     colunasUsadas.add(/^[A-Z]+/.exec(e.celula)![0]);
+    if (e.porta) por(`${def.aba}!${e.porta}`, (Object.values(def.datas ?? {}).includes(e.porta) || e.porta === def.contexto.dataAplicacao) && ctx.dataReferencia ? serial(ctx.dataReferencia) : "x");
   }
   for (const [col, cel] of Object.entries(def.portas ?? {})) if (colunasUsadas.has(col)) por(`${def.aba}!${cel}`, "x");
+  if (ctx.dataReferencia) for (const [col, cel] of Object.entries(def.datas ?? {})) if (colunasUsadas.has(col)) por(`${def.aba}!${cel}`, serial(ctx.dataReferencia));
 
   const saidas: Record<string, ValorSaida> = {};
   const erros: string[] = [];

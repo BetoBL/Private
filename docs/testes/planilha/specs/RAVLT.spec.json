@@ -21,1755 +21,1564 @@
   {
    "chave": "in_C11",
    "celula": "C11",
-   "rotulo": "Balão — A1",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D11",
    "celula": "D11",
-   "rotulo": "Balão — A2",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E11",
    "celula": "E11",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F11",
    "celula": "F11",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G11",
    "celula": "G11",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I11",
    "celula": "I11",
-   "rotulo": "Carro — B1",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J11",
    "celula": "J11",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K11",
    "celula": "K11",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Balão (A) / Carro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C12",
    "celula": "C12",
-   "rotulo": "Flor — A1",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D12",
    "celula": "D12",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E12",
    "celula": "E12",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F12",
    "celula": "F12",
-   "rotulo": "Flor — A4",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G12",
    "celula": "G12",
-   "rotulo": "Flor — A5",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I12",
    "celula": "I12",
-   "rotulo": "Meia — B1",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J12",
    "celula": "J12",
-   "rotulo": "Meia — A6",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K12",
    "celula": "K12",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Flor (A) / Meia (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C13",
    "celula": "C13",
-   "rotulo": "Sala — A1",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D13",
    "celula": "D13",
-   "rotulo": "Sala — A2",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E13",
    "celula": "E13",
-   "rotulo": "Sala — A3",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F13",
    "celula": "F13",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G13",
    "celula": "G13",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I13",
    "celula": "I13",
-   "rotulo": "Pato — B1",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J13",
    "celula": "J13",
-   "rotulo": "Pato — A6",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K13",
    "celula": "K13",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Sala (A) / Pato (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C14",
    "celula": "C14",
-   "rotulo": "Boca — A1",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D14",
    "celula": "D14",
-   "rotulo": "Boca — A2",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E14",
    "celula": "E14",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F14",
    "celula": "F14",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G14",
    "celula": "G14",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I14",
    "celula": "I14",
-   "rotulo": "Fogo — B1",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J14",
    "celula": "J14",
-   "rotulo": "Fogo — A6",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K14",
    "celula": "K14",
-   "rotulo": "Fogo — A7",
-   "min": 0
+   "rotulo": "Boca (A) / Fogo (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C15",
    "celula": "C15",
-   "rotulo": "Chuva — A1",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D15",
    "celula": "D15",
-   "rotulo": "Chuva — A2",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E15",
    "celula": "E15",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F15",
    "celula": "F15",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G15",
    "celula": "G15",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I15",
    "celula": "I15",
-   "rotulo": "Sofá — B1",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J15",
    "celula": "J15",
-   "rotulo": "Sofá — A6",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K15",
    "celula": "K15",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chuva (A) / Sofá (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C16",
    "celula": "C16",
-   "rotulo": "Mãe — A1",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D16",
    "celula": "D16",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E16",
    "celula": "E16",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F16",
    "celula": "F16",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G16",
    "celula": "G16",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I16",
    "celula": "I16",
-   "rotulo": "Doce — B1",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J16",
    "celula": "J16",
-   "rotulo": "Doce — A6",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K16",
    "celula": "K16",
-   "rotulo": "Doce — A7",
-   "min": 0
+   "rotulo": "Mãe (A) / Doce (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C17",
    "celula": "C17",
-   "rotulo": "Circo — A1",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D17",
    "celula": "D17",
-   "rotulo": "Circo — A2",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E17",
    "celula": "E17",
-   "rotulo": "Circo — A3",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F17",
    "celula": "F17",
-   "rotulo": "Circo — A4",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G17",
    "celula": "G17",
-   "rotulo": "Circo — A5",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I17",
    "celula": "I17",
-   "rotulo": "Ponto — B1",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J17",
    "celula": "J17",
-   "rotulo": "Ponto — A6",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K17",
    "celula": "K17",
-   "rotulo": "Ponto — A7",
-   "min": 0
+   "rotulo": "Circo (A) / Ponto (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C18",
    "celula": "C18",
-   "rotulo": "Peixe — A1",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D18",
    "celula": "D18",
-   "rotulo": "Peixe — A2",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E18",
    "celula": "E18",
-   "rotulo": "Peixe — A3",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F18",
    "celula": "F18",
-   "rotulo": "Peixe — A4",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G18",
    "celula": "G18",
-   "rotulo": "Peixe — A5",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I18",
    "celula": "I18",
-   "rotulo": "Vaso — B1",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J18",
    "celula": "J18",
-   "rotulo": "Vaso — A6",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K18",
    "celula": "K18",
-   "rotulo": "Vaso — A7",
-   "min": 0
+   "rotulo": "Peixe (A) / Vaso (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C19",
    "celula": "C19",
-   "rotulo": "Lua — A1",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D19",
    "celula": "D19",
-   "rotulo": "Lua — A2",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E19",
    "celula": "E19",
-   "rotulo": "Lua — A3",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F19",
    "celula": "F19",
-   "rotulo": "Lua — A4",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G19",
    "celula": "G19",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I19",
    "celula": "I19",
-   "rotulo": "Livro — B1",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J19",
    "celula": "J19",
-   "rotulo": "Livro — A6",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K19",
    "celula": "K19",
-   "rotulo": "Livro — A7",
-   "min": 0
+   "rotulo": "Lua (A) / Livro (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C20",
    "celula": "C20",
-   "rotulo": "Corpo — A1",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D20",
    "celula": "D20",
-   "rotulo": "Corpo — A2",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E20",
    "celula": "E20",
-   "rotulo": "Corpo — A3",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F20",
    "celula": "F20",
-   "rotulo": "Corpo — A4",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G20",
    "celula": "G20",
-   "rotulo": "Corpo — A5",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I20",
    "celula": "I20",
-   "rotulo": "Porta — B1",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J20",
    "celula": "J20",
-   "rotulo": "Porta — A6",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K20",
    "celula": "K20",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Corpo (A) / Porta (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C21",
    "celula": "C21",
-   "rotulo": "Cesta — A1",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D21",
    "celula": "D21",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E21",
    "celula": "E21",
-   "rotulo": "Cesta — A3",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F21",
    "celula": "F21",
-   "rotulo": "Cesta — A4",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G21",
    "celula": "G21",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I21",
    "celula": "I21",
-   "rotulo": "Índio — B1",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J21",
    "celula": "J21",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K21",
    "celula": "K21",
-   "rotulo": "Índio — A7",
-   "min": 0
+   "rotulo": "Cesta (A) / Índio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C22",
    "celula": "C22",
-   "rotulo": "Lápis — A1",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D22",
    "celula": "D22",
-   "rotulo": "Lápis — A2",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E22",
    "celula": "E22",
-   "rotulo": "Lápis — A3",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F22",
    "celula": "F22",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G22",
    "celula": "G22",
-   "rotulo": "Lápis — A5",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I22",
    "celula": "I22",
-   "rotulo": "Vaca — B1",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J22",
    "celula": "J22",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K22",
    "celula": "K22",
-   "rotulo": "Vaca — A7",
-   "min": 0
+   "rotulo": "Lápis (A) / Vaca (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C23",
    "celula": "C23",
-   "rotulo": "Mesa",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D23",
    "celula": "D23",
-   "rotulo": "Mesa",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E23",
    "celula": "E23",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F23",
    "celula": "F23",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G23",
    "celula": "G23",
-   "rotulo": "Mesa",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I23",
    "celula": "I23",
-   "rotulo": "Roupa",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J23",
    "celula": "J23",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K23",
    "celula": "K23",
-   "rotulo": "Roupa",
-   "min": 0
+   "rotulo": "Mesa (A) / Roupa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C24",
    "celula": "C24",
-   "rotulo": "Chapéu",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D24",
    "celula": "D24",
-   "rotulo": "Chapéu",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E24",
    "celula": "E24",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F24",
    "celula": "F24",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G24",
    "celula": "G24",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I24",
    "celula": "I24",
-   "rotulo": "Caixa",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J24",
    "celula": "J24",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K24",
    "celula": "K24",
-   "rotulo": "Caixa",
-   "min": 0
+   "rotulo": "Chapéu (A) / Caixa (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_C25",
    "celula": "C25",
-   "rotulo": "Milho",
-   "min": 0
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_D25",
    "celula": "D25",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_E25",
    "celula": "E25",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_F25",
    "celula": "F25",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_G25",
    "celula": "G25",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_I25",
    "celula": "I25",
-   "rotulo": "Rio",
-   "min": 0
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_J25",
    "celula": "J25",
-   "rotulo": "Item 1",
-   "min": 0
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
   },
   {
    "chave": "in_K25",
    "celula": "K25",
-   "rotulo": "Item 1",
+   "rotulo": "Milho (A) / Rio (B)",
+   "min": 0,
+   "grupo": "Evocação das palavras (digite a ordem em que cada palavra foi lembrada)"
+  },
+  {
+   "chave": "in_C45",
+   "celula": "C45",
+   "rotulo": "Lua (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E45",
+   "celula": "E45",
+   "rotulo": "Cor (FA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G45",
+   "celula": "G45",
+   "rotulo": "Ponto (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I45",
+   "celula": "I45",
+   "rotulo": "Vaca (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K45",
+   "celula": "K45",
+   "rotulo": "Meia (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C46",
+   "celula": "C46",
+   "rotulo": "Galo (SB)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E46",
+   "celula": "E46",
+   "rotulo": "Índio (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G46",
+   "celula": "G46",
+   "rotulo": "Flor (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I46",
+   "celula": "I46",
+   "rotulo": "Sala (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K46",
+   "celula": "K46",
+   "rotulo": "Jardim (SA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C47",
+   "celula": "C47",
+   "rotulo": "Fogo (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E47",
+   "celula": "E47",
+   "rotulo": "Balão (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G47",
+   "celula": "G47",
+   "rotulo": "Isca (SA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I47",
+   "celula": "I47",
+   "rotulo": "Filho (SA/FA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K47",
+   "celula": "K47",
+   "rotulo": "Sofá (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C48",
+   "celula": "C48",
+   "rotulo": "Chapéu (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E48",
+   "celula": "E48",
+   "rotulo": "Rua (FA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G48",
+   "celula": "G48",
+   "rotulo": "Boca (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I48",
+   "celula": "I48",
+   "rotulo": "Bola (FA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K48",
+   "celula": "K48",
+   "rotulo": "Festa (FA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C49",
+   "celula": "C49",
+   "rotulo": "Vaso (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E49",
+   "celula": "E49",
+   "rotulo": "Planta (AS/SB)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G49",
+   "celula": "G49",
+   "rotulo": "Chuva (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I49",
+   "celula": "I49",
+   "rotulo": "Aula (SA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K49",
+   "celula": "K49",
+   "rotulo": "Doce (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C50",
+   "celula": "C50",
+   "rotulo": "Mesa (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E50",
+   "celula": "E50",
+   "rotulo": "Roupa (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G50",
+   "celula": "G50",
+   "rotulo": "Caixa (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I50",
+   "celula": "I50",
+   "rotulo": "Milho (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K50",
+   "celula": "K50",
+   "rotulo": "Sol (SA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C51",
+   "celula": "C51",
+   "rotulo": "Lago (SB)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E51",
+   "celula": "E51",
+   "rotulo": "Corpo (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G51",
+   "celula": "G51",
+   "rotulo": "Rosa (SA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I51",
+   "celula": "I51",
+   "rotulo": "Bolo (SB)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K51",
+   "celula": "K51",
+   "rotulo": "Mãe (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C52",
+   "celula": "C52",
+   "rotulo": "Porta (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E52",
+   "celula": "E52",
+   "rotulo": "Pato (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G52",
+   "celula": "G52",
+   "rotulo": "Circo (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I52",
+   "celula": "I52",
+   "rotulo": "Peixe (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K52",
+   "celula": "K52",
+   "rotulo": "Papel (FA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C53",
+   "celula": "C53",
+   "rotulo": "Dente (AS)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E53",
+   "celula": "E53",
+   "rotulo": "Cesta (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G53",
+   "celula": "G53",
+   "rotulo": "Carro (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I53",
+   "celula": "I53",
+   "rotulo": "Botão (FA)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K53",
+   "celula": "K53",
+   "rotulo": "Mar (SB)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C54",
+   "celula": "C54",
+   "rotulo": "Rio (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_E54",
+   "celula": "E54",
+   "rotulo": "Livro (B)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_G54",
+   "celula": "G54",
+   "rotulo": "Lápis (A)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_I54",
+   "celula": "I54",
+   "rotulo": "Leite (AS)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_K54",
+   "celula": "K54",
+   "rotulo": "Vento (FB)",
+   "letras": [
+    "S",
+    "N"
+   ],
+   "grupo": "Lista de reconhecimento (S = reconheceu a palavra, N = não)",
+   "min": 1,
+   "max": 2
+  },
+  {
+   "chave": "in_C40",
+   "celula": "C40",
+   "rotulo": "Intrusões em A1 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
+   "min": 0
+  },
+  {
+   "chave": "in_D40",
+   "celula": "D40",
+   "rotulo": "Intrusões em A2 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
+   "min": 0
+  },
+  {
+   "chave": "in_E40",
+   "celula": "E40",
+   "rotulo": "Intrusões em A3 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
+   "min": 0
+  },
+  {
+   "chave": "in_F40",
+   "celula": "F40",
+   "rotulo": "Intrusões em A4 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
+   "min": 0
+  },
+  {
+   "chave": "in_G40",
+   "celula": "G40",
+   "rotulo": "Intrusões em A5 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
+   "min": 0
+  },
+  {
+   "chave": "in_I40",
+   "celula": "I40",
+   "rotulo": "Intrusões em B1 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
+   "min": 0
+  },
+  {
+   "chave": "in_J40",
+   "celula": "J40",
+   "rotulo": "Intrusões em A6 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
+   "min": 0
+  },
+  {
+   "chave": "in_K40",
+   "celula": "K40",
+   "rotulo": "Intrusões em A7 (quantidade de palavras fora da lista)",
+   "grupo": "Intrusões",
    "min": 0
   },
   {
    "chave": "in_C28",
    "celula": "C28",
-   "rotulo": "TOTAL (manual)",
+   "rotulo": "Total A1 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_D28",
    "celula": "D28",
-   "rotulo": "TOTAL (manual)",
+   "rotulo": "Total A2 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_E28",
    "celula": "E28",
-   "rotulo": "TOTAL (manual)",
+   "rotulo": "Total A3 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_F28",
    "celula": "F28",
-   "rotulo": "TOTAL (manual)",
+   "rotulo": "Total A4 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_G28",
    "celula": "G28",
-   "rotulo": "TOTAL (manual)",
+   "rotulo": "Total A5 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_I28",
    "celula": "I28",
-   "rotulo": "TOTAL (manual)",
+   "rotulo": "Total B1 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_J28",
    "celula": "J28",
-   "rotulo": "TOTAL (manual)",
+   "rotulo": "Total A6 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_K28",
    "celula": "K28",
-   "rotulo": "TOTAL (manual)",
-   "min": 0
-  },
-  {
-   "chave": "in_C30",
-   "celula": "C30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_D30",
-   "celula": "D30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_E30",
-   "celula": "E30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_F30",
-   "celula": "F30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_G30",
-   "celula": "G30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_I30",
-   "celula": "I30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_J30",
-   "celula": "J30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_K30",
-   "celula": "K30",
-   "rotulo": "INTRUSÕES (Digite as palavras que NÃO fa",
-   "min": 0
-  },
-  {
-   "chave": "in_C31",
-   "celula": "C31",
-   "rotulo": "C31",
-   "min": 0
-  },
-  {
-   "chave": "in_D31",
-   "celula": "D31",
-   "rotulo": "D31",
-   "min": 0
-  },
-  {
-   "chave": "in_E31",
-   "celula": "E31",
-   "rotulo": "E31",
-   "min": 0
-  },
-  {
-   "chave": "in_F31",
-   "celula": "F31",
-   "rotulo": "F31",
-   "min": 0
-  },
-  {
-   "chave": "in_G31",
-   "celula": "G31",
-   "rotulo": "G31",
-   "min": 0
-  },
-  {
-   "chave": "in_I31",
-   "celula": "I31",
-   "rotulo": "I31",
-   "min": 0
-  },
-  {
-   "chave": "in_J31",
-   "celula": "J31",
-   "rotulo": "J31",
-   "min": 0
-  },
-  {
-   "chave": "in_K31",
-   "celula": "K31",
-   "rotulo": "K31",
-   "min": 0
-  },
-  {
-   "chave": "in_C32",
-   "celula": "C32",
-   "rotulo": "C32",
-   "min": 0
-  },
-  {
-   "chave": "in_D32",
-   "celula": "D32",
-   "rotulo": "D32",
-   "min": 0
-  },
-  {
-   "chave": "in_E32",
-   "celula": "E32",
-   "rotulo": "E32",
-   "min": 0
-  },
-  {
-   "chave": "in_F32",
-   "celula": "F32",
-   "rotulo": "F32",
-   "min": 0
-  },
-  {
-   "chave": "in_G32",
-   "celula": "G32",
-   "rotulo": "G32",
-   "min": 0
-  },
-  {
-   "chave": "in_I32",
-   "celula": "I32",
-   "rotulo": "I32",
-   "min": 0
-  },
-  {
-   "chave": "in_J32",
-   "celula": "J32",
-   "rotulo": "J32",
-   "min": 0
-  },
-  {
-   "chave": "in_K32",
-   "celula": "K32",
-   "rotulo": "K32",
-   "min": 0
-  },
-  {
-   "chave": "in_C33",
-   "celula": "C33",
-   "rotulo": "C33",
-   "min": 0
-  },
-  {
-   "chave": "in_D33",
-   "celula": "D33",
-   "rotulo": "D33",
-   "min": 0
-  },
-  {
-   "chave": "in_E33",
-   "celula": "E33",
-   "rotulo": "E33",
-   "min": 0
-  },
-  {
-   "chave": "in_F33",
-   "celula": "F33",
-   "rotulo": "F33",
-   "min": 0
-  },
-  {
-   "chave": "in_G33",
-   "celula": "G33",
-   "rotulo": "G33",
-   "min": 0
-  },
-  {
-   "chave": "in_I33",
-   "celula": "I33",
-   "rotulo": "I33",
-   "min": 0
-  },
-  {
-   "chave": "in_J33",
-   "celula": "J33",
-   "rotulo": "J33",
-   "min": 0
-  },
-  {
-   "chave": "in_K33",
-   "celula": "K33",
-   "rotulo": "K33",
-   "min": 0
-  },
-  {
-   "chave": "in_C34",
-   "celula": "C34",
-   "rotulo": "C34",
-   "min": 0
-  },
-  {
-   "chave": "in_D34",
-   "celula": "D34",
-   "rotulo": "D34",
-   "min": 0
-  },
-  {
-   "chave": "in_E34",
-   "celula": "E34",
-   "rotulo": "E34",
-   "min": 0
-  },
-  {
-   "chave": "in_F34",
-   "celula": "F34",
-   "rotulo": "F34",
-   "min": 0
-  },
-  {
-   "chave": "in_G34",
-   "celula": "G34",
-   "rotulo": "G34",
-   "min": 0
-  },
-  {
-   "chave": "in_I34",
-   "celula": "I34",
-   "rotulo": "I34",
-   "min": 0
-  },
-  {
-   "chave": "in_J34",
-   "celula": "J34",
-   "rotulo": "J34",
-   "min": 0
-  },
-  {
-   "chave": "in_K34",
-   "celula": "K34",
-   "rotulo": "K34",
-   "min": 0
-  },
-  {
-   "chave": "in_C35",
-   "celula": "C35",
-   "rotulo": "C35",
-   "min": 0
-  },
-  {
-   "chave": "in_D35",
-   "celula": "D35",
-   "rotulo": "D35",
-   "min": 0
-  },
-  {
-   "chave": "in_E35",
-   "celula": "E35",
-   "rotulo": "E35",
-   "min": 0
-  },
-  {
-   "chave": "in_F35",
-   "celula": "F35",
-   "rotulo": "F35",
-   "min": 0
-  },
-  {
-   "chave": "in_G35",
-   "celula": "G35",
-   "rotulo": "G35",
-   "min": 0
-  },
-  {
-   "chave": "in_I35",
-   "celula": "I35",
-   "rotulo": "I35",
-   "min": 0
-  },
-  {
-   "chave": "in_J35",
-   "celula": "J35",
-   "rotulo": "J35",
-   "min": 0
-  },
-  {
-   "chave": "in_K35",
-   "celula": "K35",
-   "rotulo": "K35",
-   "min": 0
-  },
-  {
-   "chave": "in_C36",
-   "celula": "C36",
-   "rotulo": "C36",
-   "min": 0
-  },
-  {
-   "chave": "in_D36",
-   "celula": "D36",
-   "rotulo": "D36",
-   "min": 0
-  },
-  {
-   "chave": "in_E36",
-   "celula": "E36",
-   "rotulo": "E36",
-   "min": 0
-  },
-  {
-   "chave": "in_F36",
-   "celula": "F36",
-   "rotulo": "F36",
-   "min": 0
-  },
-  {
-   "chave": "in_G36",
-   "celula": "G36",
-   "rotulo": "G36",
-   "min": 0
-  },
-  {
-   "chave": "in_I36",
-   "celula": "I36",
-   "rotulo": "I36",
-   "min": 0
-  },
-  {
-   "chave": "in_J36",
-   "celula": "J36",
-   "rotulo": "J36",
-   "min": 0
-  },
-  {
-   "chave": "in_K36",
-   "celula": "K36",
-   "rotulo": "K36",
-   "min": 0
-  },
-  {
-   "chave": "in_C37",
-   "celula": "C37",
-   "rotulo": "C37",
-   "min": 0
-  },
-  {
-   "chave": "in_D37",
-   "celula": "D37",
-   "rotulo": "D37",
-   "min": 0
-  },
-  {
-   "chave": "in_E37",
-   "celula": "E37",
-   "rotulo": "E37",
-   "min": 0
-  },
-  {
-   "chave": "in_F37",
-   "celula": "F37",
-   "rotulo": "F37",
-   "min": 0
-  },
-  {
-   "chave": "in_G37",
-   "celula": "G37",
-   "rotulo": "G37",
-   "min": 0
-  },
-  {
-   "chave": "in_I37",
-   "celula": "I37",
-   "rotulo": "I37",
-   "min": 0
-  },
-  {
-   "chave": "in_J37",
-   "celula": "J37",
-   "rotulo": "J37",
-   "min": 0
-  },
-  {
-   "chave": "in_K37",
-   "celula": "K37",
-   "rotulo": "K37",
-   "min": 0
-  },
-  {
-   "chave": "in_C38",
-   "celula": "C38",
-   "rotulo": "C38",
-   "min": 0
-  },
-  {
-   "chave": "in_D38",
-   "celula": "D38",
-   "rotulo": "D38",
-   "min": 0
-  },
-  {
-   "chave": "in_E38",
-   "celula": "E38",
-   "rotulo": "E38",
-   "min": 0
-  },
-  {
-   "chave": "in_F38",
-   "celula": "F38",
-   "rotulo": "F38",
-   "min": 0
-  },
-  {
-   "chave": "in_G38",
-   "celula": "G38",
-   "rotulo": "G38",
-   "min": 0
-  },
-  {
-   "chave": "in_I38",
-   "celula": "I38",
-   "rotulo": "I38",
-   "min": 0
-  },
-  {
-   "chave": "in_J38",
-   "celula": "J38",
-   "rotulo": "J38",
-   "min": 0
-  },
-  {
-   "chave": "in_K38",
-   "celula": "K38",
-   "rotulo": "K38",
-   "min": 0
-  },
-  {
-   "chave": "in_C39",
-   "celula": "C39",
-   "rotulo": "C39",
-   "min": 0
-  },
-  {
-   "chave": "in_D39",
-   "celula": "D39",
-   "rotulo": "D39",
-   "min": 0
-  },
-  {
-   "chave": "in_E39",
-   "celula": "E39",
-   "rotulo": "E39",
-   "min": 0
-  },
-  {
-   "chave": "in_F39",
-   "celula": "F39",
-   "rotulo": "F39",
-   "min": 0
-  },
-  {
-   "chave": "in_G39",
-   "celula": "G39",
-   "rotulo": "G39",
-   "min": 0
-  },
-  {
-   "chave": "in_I39",
-   "celula": "I39",
-   "rotulo": "I39",
-   "min": 0
-  },
-  {
-   "chave": "in_J39",
-   "celula": "J39",
-   "rotulo": "J39",
-   "min": 0
-  },
-  {
-   "chave": "in_K39",
-   "celula": "K39",
-   "rotulo": "K39",
+   "rotulo": "Total A7 (manual)",
+   "modo": "totais",
    "min": 0
   },
   {
    "chave": "in_F60",
    "celula": "F60",
-   "rotulo": "TOTAL DE ACERTOS (MANUAL) — Livro (B)",
+   "rotulo": "Total de acertos do reconhecimento (manual)",
+   "modo": "totais",
    "min": 0
   }
  ],
- "opcoes": [
-  {
-   "chave": "opcao_C45",
-   "celula": "C45",
-   "rotulo": "Preencha a coluna à Esquerda da Lista de reconheci",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_E45",
-   "celula": "E45",
-   "rotulo": "Lua (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G45",
-   "celula": "G45",
-   "rotulo": "Cor (FA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I45",
-   "celula": "I45",
-   "rotulo": "Ponto (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K45",
-   "celula": "K45",
-   "rotulo": "Vaca (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C46",
-   "celula": "C46",
-   "rotulo": "LISTA PARA RECONHECIMENTO",
-   "valores": [
-    "S",
-    "N"
-   ]
-  },
-  {
-   "chave": "opcao_E46",
-   "celula": "E46",
-   "rotulo": "Galo (SB)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G46",
-   "celula": "G46",
-   "rotulo": "Índio (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I46",
-   "celula": "I46",
-   "rotulo": "Flor (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K46",
-   "celula": "K46",
-   "rotulo": "Sala (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C47",
-   "celula": "C47",
-   "rotulo": "LISTA PARA RECONHECIMENTO",
-   "valores": [
-    "S",
-    "N"
-   ]
-  },
-  {
-   "chave": "opcao_E47",
-   "celula": "E47",
-   "rotulo": "Fogo (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G47",
-   "celula": "G47",
-   "rotulo": "Balão (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I47",
-   "celula": "I47",
-   "rotulo": "Isca (SA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K47",
-   "celula": "K47",
-   "rotulo": "Filho (SA/FA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C48",
-   "celula": "C48",
-   "rotulo": "LISTA PARA RECONHECIMENTO",
-   "valores": [
-    "S",
-    "N"
-   ]
-  },
-  {
-   "chave": "opcao_E48",
-   "celula": "E48",
-   "rotulo": "Chapéu (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G48",
-   "celula": "G48",
-   "rotulo": "Rua (FA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I48",
-   "celula": "I48",
-   "rotulo": "Boca (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K48",
-   "celula": "K48",
-   "rotulo": "Bola (FA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C49",
-   "celula": "C49",
-   "rotulo": "LISTA PARA RECONHECIMENTO",
-   "valores": [
-    "S",
-    "N"
-   ]
-  },
-  {
-   "chave": "opcao_E49",
-   "celula": "E49",
-   "rotulo": "Vaso (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G49",
-   "celula": "G49",
-   "rotulo": "Planta (AS/SB)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I49",
-   "celula": "I49",
-   "rotulo": "Chuva (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K49",
-   "celula": "K49",
-   "rotulo": "Aula (SA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C50",
-   "celula": "C50",
-   "rotulo": "LISTA PARA RECONHECIMENTO",
-   "valores": [
-    "S",
-    "N"
-   ]
-  },
-  {
-   "chave": "opcao_E50",
-   "celula": "E50",
-   "rotulo": "Mesa (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G50",
-   "celula": "G50",
-   "rotulo": "Roupa (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I50",
-   "celula": "I50",
-   "rotulo": "Caixa (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K50",
-   "celula": "K50",
-   "rotulo": "Milho (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C51",
-   "celula": "C51",
-   "rotulo": "C51",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_E51",
-   "celula": "E51",
-   "rotulo": "Lago (SB)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G51",
-   "celula": "G51",
-   "rotulo": "Corpo (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I51",
-   "celula": "I51",
-   "rotulo": "Rosa (SA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K51",
-   "celula": "K51",
-   "rotulo": "Bolo (SB)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C52",
-   "celula": "C52",
-   "rotulo": "C52",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_E52",
-   "celula": "E52",
-   "rotulo": "Porta (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G52",
-   "celula": "G52",
-   "rotulo": "Pato (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I52",
-   "celula": "I52",
-   "rotulo": "Circo (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K52",
-   "celula": "K52",
-   "rotulo": "Peixe (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C53",
-   "celula": "C53",
-   "rotulo": "C53",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_E53",
-   "celula": "E53",
-   "rotulo": "Dente (AS)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G53",
-   "celula": "G53",
-   "rotulo": "Cesta (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I53",
-   "celula": "I53",
-   "rotulo": "Carro (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K53",
-   "celula": "K53",
-   "rotulo": "Botão (FA)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_C54",
-   "celula": "C54",
-   "rotulo": "C54",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_E54",
-   "celula": "E54",
-   "rotulo": "Rio (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_G54",
-   "celula": "G54",
-   "rotulo": "Livro (B)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_I54",
-   "celula": "I54",
-   "rotulo": "Lápis (A)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  },
-  {
-   "chave": "opcao_K54",
-   "celula": "K54",
-   "rotulo": "Leite (AS)",
-   "valores": [
-    "S",
-    "N"
-   ],
-   "padrao": 0
-  }
- ],
+ "opcoes": [],
  "saidas": [
   {
    "chave": "out_C26",
@@ -5962,6 +5771,94 @@
      ]
     }
    ]
+  }
+ ],
+ "graficos": true,
+ "cabecalhos": {
+  "C": "A1",
+  "D": "A2",
+  "E": "A3",
+  "F": "A4",
+  "G": "A5",
+  "I": "B1",
+  "J": "A6",
+  "K": "A7"
+ },
+ "blocos": [
+  {
+   "titulo": "Total de palavras por tentativa",
+   "linhas": [
+    26,
+    29,
+    40,
+    41
+   ],
+   "colunas": [
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "I",
+    "J",
+    "K"
+   ],
+   "cabecalho": 10,
+   "rotulo": "B",
+   "rotulos": [
+    "Total evocado",
+    "Efeito (primazia / recência)",
+    "Total de intrusões",
+    "Total + intrusões"
+   ]
+  },
+  {
+   "titulo": "Reconhecimento",
+   "linhas": [
+    55,
+    59
+   ],
+   "colunas": [
+    "F"
+   ],
+   "cabecalhos": [
+    "Resultado"
+   ],
+   "rotulo": "C"
+  },
+  {
+   "titulo": "Pontos brutos, conversão e classificação",
+   "linhas": [
+    99,
+    113
+   ],
+   "colunas": [
+    "C",
+    "D",
+    "E",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L"
+   ],
+   "cabecalho": 98,
+   "rotulo": "B"
+  },
+  {
+   "titulo": "Efeito de posição (primazia, intermediário, recência)",
+   "linhas": [
+    77,
+    80
+   ],
+   "colunas": [
+    "G"
+   ],
+   "cabecalhos": [
+    "% das palavras"
+   ],
+   "rotulo": "F"
   }
  ]
 }

@@ -4,12 +4,14 @@ import { COR_CLASSIFICACAO } from "../lib/wechsler";
 import { faltamCampos } from "../lib/plural";
 import { PlaceholderBadge } from "./PlaceholderBadge";
 import { Tabela, Titulo, Vazio } from "./TesteWiscIV";
+import { GraficosPlanilha, type GraficoDef } from "./GraficosPlanilha";
 
 // Tela genérica dos testes do "motor de planilha": o servidor roda as fórmulas da planilha da psicóloga e esta tela só
 // mostra as entradas (por grupo), as opções (ex.: tabela normativa) e as tabelas de resultado descritas no layout do teste.
 interface Layout {
-  entradas: Array<{ chave: string; rotulo: string; grupo?: string; min?: number; max?: number; letras?: string[] }>;
+  entradas: Array<{ chave: string; rotulo: string; grupo?: string; min?: number; max?: number; letras?: string[]; modo?: "totais"; porta?: string }>;
   cabecalhos?: Record<string, string>; // letra da coluna da planilha → nome (ex.: informante)
+  graficos?: GraficoDef[]; // gráficos do Excel
   opcoes: Array<{ chave: string; rotulo: string; valores: string[]; padrao?: number }>;
   tabelas: Array<{ titulo: string; colunas: string[]; linhas: Array<{ rotulo: string; valores: Array<string | null> }> }>;
 }
@@ -49,7 +51,7 @@ function agruparLinhas(itens: Entrada[]): Linha[] {
 
 // Rótulos numerados ("001. …", "A) …") viram o título do bloco: do primeiro ao último item.
 function tituloDoBloco(linhas: Linha[], n: number) {
-  const num = (r: string) => /^\s*(\d{1,3})[.)]/.exec(r)?.[1];
+  const num = (r: string) => /^\s*(?:Item\s+)?(\d{1,3})(?:[.)]|\s|$)/.exec(r)?.[1];
   const a = num(linhas[0].rotulo), b = num(linhas[linhas.length - 1].rotulo);
   return a && b && a !== b ? "Itens " + a + " a " + b : "Bloco " + n;
 }
@@ -62,9 +64,9 @@ const colunaTemValor = (t: Layout["tabelas"][number], i: number, saidas: Record<
 export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange, onSalvar, sessaoId, testeId, erro, salvando = false }: Props) {
   const layout = (teste.algoritmoCorrecao as unknown as { layout?: Layout }).layout;
   const campos = teste.algoritmoCorrecao.campos ?? [];
+  const lancados = campos.filter((c) => (escoresBrutos[c.chave] ?? "").trim() !== "");
   type Info = Awaited<ReturnType<typeof api.calcularAplicacao>>;
   const [calc, setCalc] = useState<{ resultado: ResultadoCalculado | null; info?: Info; carregando: boolean; erro?: string }>({ resultado: null, carregando: false });
-  const lancados = campos.filter((c) => (escoresBrutos[c.chave] ?? "").trim() !== "");
 
   useEffect(() => {
     const numeros: Record<string, number> = {};
@@ -89,12 +91,23 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
 
   const resultado = calc.resultado ?? (lancados.length > 0 ? aplicacao?.resultadoCalculado ?? null : null);
   const saidas = resultado && resultado.modo === "planilha" ? resultado.saidas : {};
+  const chavesTotais = new Set((layout?.entradas ?? []).filter((e) => e.modo === "totais").map((e) => e.chave));
+  const temTotais = (layout?.entradas ?? []).some((e) => e.modo === "totais");
+  const [modoEntrada, setModoEntrada] = useState<"itens" | "totais">(() => {
+    // abre direto nos totais quando o lançamento salvo só tem totais
+    const t = (layout?.entradas ?? []).filter((e) => e.modo === "totais"), i = (layout?.entradas ?? []).filter((e) => e.modo !== "totais");
+    const f = (es: typeof t) => es.some((e) => (escoresBrutos[e.chave] ?? "").trim() !== "");
+    return f(t) && !f(i) ? "totais" : "itens";
+  });
   const grupos = useMemo(() => {
     const m = new Map<string, NonNullable<Layout["entradas"]>>();
-    for (const e of layout?.entradas ?? []) m.set(e.grupo ?? "Escores brutos", [...(m.get(e.grupo ?? "Escores brutos") ?? []), e]);
+    for (const e of (layout?.entradas ?? []).filter((x) => (x.modo === "totais") === (modoEntrada === "totais"))) m.set(e.grupo ?? "Escores brutos", [...(m.get(e.grupo ?? "Escores brutos") ?? []), e]);
     return [...m.entries()];
-  }, [layout]);
-  const pct = Math.round((lancados.length / Math.max(1, campos.length)) * 100);
+  }, [layout, modoEntrada]);
+  // conta só os campos do modo de lançamento ativo (com totais separados, o outro modo não é "pendência")
+  const camposAtivos = campos.filter((c) => chavesTotais.size === 0 || chavesTotais.has(c.chave) === (modoEntrada === "totais"));
+  const lancadosAtivos = camposAtivos.filter((c) => (escoresBrutos[c.chave] ?? "").trim() !== "");
+  const pct = Math.round((lancadosAtivos.length / Math.max(1, camposAtivos.length)) * 100);
 
   if (!layout) return <Vazio>Este teste ainda não tem o layout do motor de planilha. Reaplique a atualização do catálogo.</Vazio>;
 
@@ -117,7 +130,7 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
         )}
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <div className="h-1.5 min-w-[120px] flex-1 overflow-hidden rounded-full bg-mist"><div className="h-full rounded-full bg-sage-deep transition-all duration-500" style={{ width: `${pct}%` }} /></div>
-          <span className="text-xs tabular-nums text-ink/60">{lancados.length} de {campos.length} campos</span>
+          <span className="text-xs tabular-nums text-ink/60">{lancadosAtivos.length} de {camposAtivos.length} campos</span>
           {calc.carregando && <span className="text-xs text-ink/40">calculando…</span>}
         </div>
       </div>
@@ -145,17 +158,28 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
             })}
           </div>
         )}
+        {temTotais && (
+          <div className="mb-4 flex flex-wrap items-center gap-3 text-xs">
+            <span className="text-ink/50">Como lançar:</span>
+            <div className="inline-flex rounded-full border border-mist p-0.5 font-semibold">
+              {([["itens", "Item a item"], ["totais", "Só os totais"]] as const).map(([v, rot]) => (
+                <button key={v} onClick={() => setModoEntrada(v)} className={`rounded-full px-3 py-1 transition-colors ${modoEntrada === v ? "bg-ink text-paper" : "text-ink/60"}`}>{rot}</button>
+              ))}
+            </div>
+            <span className="text-ink/50">{modoEntrada === "totais" ? "Os totais digitados valem no lugar do cálculo pelos itens." : "Os totais são calculados pelos itens."}</span>
+          </div>
+        )}
         <div className="space-y-5">
           {grupos.map(([grupo, itens]) => (
             <section key={grupo}>
               <div className="mb-2 text-[11px] font-bold uppercase tracking-wide text-ink/45">{grupo}</div>
-              <BlocosDeCampos itens={itens} cabecalhos={layout.cabecalhos} valores={escoresBrutos} onChange={(chave, v) => onEscoresChange({ ...escoresBrutos, [chave]: v })} />
+              <BlocosDeCampos itens={itens} semSecoes={grupo !== "Escores brutos"} cabecalhos={layout.cabecalhos} valores={escoresBrutos} onChange={(chave, v) => onEscoresChange({ ...escoresBrutos, [chave]: v })} />
             </section>
           ))}
         </div>
         <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-mist pt-4">
           <button className="rounded-lg bg-sage-deep px-5 py-2.5 text-sm font-semibold text-paper transition-opacity disabled:opacity-40" onClick={onSalvar} disabled={salvando || lancados.length === 0}>{salvando ? "Salvando…" : "Salvar lançamento"}</button>
-          {lancados.length > 0 && lancados.length < campos.length && <span className="text-xs text-ink/55">{faltamCampos(campos.length - lancados.length)} — o que ficar vazio não entra no cálculo.</span>}
+          {lancadosAtivos.length > 0 && lancadosAtivos.length < camposAtivos.length && <span className="text-xs text-ink/55">{faltamCampos(camposAtivos.length - lancadosAtivos.length)} — o que ficar vazio não entra no cálculo.</span>}
         </div>
       </div>
 
@@ -185,6 +209,13 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
           ))}
         </div>
       )}
+
+      {(layout.graficos?.length ?? 0) > 0 && Object.values(saidas).some((v) => v !== null) && (
+        <div className="wais-entra rounded-2xl border border-mist bg-white p-5">
+          <Titulo>Gráficos</Titulo>
+          <GraficosPlanilha graficos={layout.graficos!} saidas={saidas} />
+        </div>
+      )}
     </div>
   );
 }
@@ -193,7 +224,7 @@ function CampoNumero({ e, valor, onChange, rotulo }: { e: Entrada; valor: string
   if (e.letras) {
     // resposta por letra (ex.: N/A/F): o valor guardado é o número da letra (1, 2, 3)
     return (
-      <select aria-label={rotulo ?? e.rotulo} title={rotulo ?? e.rotulo} className="w-14 rounded-lg border border-mist bg-paper px-1.5 py-1 text-center text-sm outline-none focus:border-sage-deep" value={valor} onChange={(ev) => onChange(ev.target.value)}>
+      <select aria-label={rotulo ?? e.rotulo} title={rotulo ?? e.rotulo} className="w-16 rounded-lg border border-mist bg-paper px-1.5 py-1 text-center text-sm outline-none focus:border-sage-deep" value={valor} onChange={(ev) => onChange(ev.target.value)}>
         <option value="">—</option>
         {e.letras.map((l, i) => <option key={l} value={String(i + 1)}>{l}</option>)}
       </select>
@@ -203,7 +234,7 @@ function CampoNumero({ e, valor, onChange, rotulo }: { e: Entrada; valor: string
 }
 
 // Campos de um grupo: poucos (≤ POR_BLOCO linhas) ficam em grade; muitos viram blocos recolhíveis que abrem sozinhos quando têm algo lançado.
-function BlocosDeCampos({ itens, valores, onChange, cabecalhos }: { itens: Entrada[]; valores: Record<string, string>; onChange: (chave: string, v: string) => void; cabecalhos?: Record<string, string> }) {
+function BlocosDeCampos({ itens, valores, onChange, cabecalhos, semSecoes }: { itens: Entrada[]; valores: Record<string, string>; onChange: (chave: string, v: string) => void; cabecalhos?: Record<string, string>; semSecoes?: boolean }) {
   // Formulários diferentes na mesma aba (ex.: CBCL / autorrelato / professor) ocupam colunas diferentes da planilha: cada conjunto de colunas vira uma seção própria.
   const secoes = useMemo(() => {
     const num = (c: string) => [...c].reduce((n, ch) => n * 26 + ch.charCodeAt(0) - 64, 0);
@@ -220,7 +251,7 @@ function BlocosDeCampos({ itens, valores, onChange, cabecalhos }: { itens: Entra
     }
     return [...m.values()];
   }, [itens]);
-  if (secoes.length > 1 && secoes.every((es) => es.length > 3)) {
+  if (!semSecoes && secoes.length > 1 && secoes.every((es) => es.length > 3)) {
     return (
       <div className="space-y-4">
         {secoes.map((es, i) => (
@@ -238,14 +269,14 @@ function BlocosDeCampos({ itens, valores, onChange, cabecalhos }: { itens: Entra
 function LinhasEmBlocos({ itens, valores, onChange, cabecalhos }: { itens: Entrada[]; valores: Record<string, string>; onChange: (chave: string, v: string) => void; cabecalhos?: Record<string, string> }) {
   const linhas = useMemo(() => agruparLinhas(itens), [itens]);
   const largura = Math.max(...linhas.map((l) => l.campos.length));
-  const colunaDe = (e: Entrada) => /^in_([A-Z]+)d+$/.exec(e.chave)?.[1] ?? "";
+  const colunaDe = (e: Entrada) => /^in_([A-Z]+)\d+$/.exec(e.chave)?.[1] ?? "";
   const nomes = cabecalhos && largura > 1 ? linhas.find((l) => l.campos.length === largura)?.campos.map((e) => cabecalhos[colunaDe(e)] ?? "") : undefined;
   const desenha = (ls: Linha[]) => (
     <div className={largura > 1 ? "divide-y divide-mist/70 rounded-xl border border-mist" : "grid gap-2 sm:grid-cols-2 lg:grid-cols-3"}>
       {nomes && (
         <div className="flex items-end gap-3 bg-paper px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-ink/50">
           <span className="flex-1">Item</span>
-          <span className="flex shrink-0 gap-1.5">{nomes.map((n, i) => <span key={i} className="w-14 text-center leading-tight">{n}</span>)}</span>
+          <span className="flex shrink-0 gap-1.5">{nomes.map((n, i) => <span key={i} className="w-16 break-words text-center text-[9px] normal-case leading-tight tracking-normal">{n}</span>)}</span>
         </div>
       )}
       {ls.map((l) => (

@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-07 - Noite] Modelos antigos concluídos, gráficos e tabelas como no Excel
+
+- **BFP, RAVLT, SCARED, SRS-2 (Adultos/Escolar/Pré-escolar) e E-TDAH Pais** passam para o motor de planilha, item a item, com as **duas formas de lançar** (botão "Item a item / Só os totais"). O teste `duas-formas.test.ts` confirma que os dois dão o mesmo resultado (exceção: falso positivo do RAVLT, que só vem da lista S/N de reconhecimento, como na planilha).
+- **Gráficos do Excel** (`scripts/extrair-graficos-xlsm.mjs` + `GraficosPlanilha.tsx`): lê as definições dos gráficos da planilha (linha, barras vertical/horizontal/combinadas, radar, pizza) e desenha em SVG a partir das mesmas células. Ligado em TODAS as 55 definições (`graficos: true` nas specs). Gráficos cuja série aponta para outra aba (CBCL, CBCL-PRE, Vineland Extensivo) são ignorados na construção e aparecem no log — pendente.
+- **Tabelas por blocos** (`spec.blocos`): linhas, colunas e linha de cabeçalho da aba, como o desenho da planilha. Aplicado a BFP, RAVLT, SCARED, SRS-2 e E-TDAH Pais; os demais testes mantêm a tabela automática.
+- **Motor**: entradas com `letras`, `portas` (célula-porta por coluna), `porta` por campo, `datas` (data da sessão por informante), `cabecalhos`, `modo:"totais"`.
+- **Catálogo**: SCARED-AUTORRELATO/PAIS, SRS-2-* e BRIEF2-PAIS saem do seed e são removidos do banco por `atualizar-wechsler.ts` SE não tiverem lançamento (senão ficam, com aviso).
+- Corrigido: regex sem barra invertida (`\d`) no cabeçalho de colunas, aplicado por heredoc.
+- Não publicado no Render.
+
 ## [2026-10-07] Financeiro (fase 1): cobranças, baixa e resumo
 
 - **Modelo `Cobranca`** (migration `20261007202348_adiciona_cobranca`): paciente, sessão (opcional), convênio (vazio = particular), descrição, valor, vencimento, status (ABERTA/PAGA/CANCELADA), valor pago, data e forma do pagamento. Cancelar não apaga.

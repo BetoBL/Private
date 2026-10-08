@@ -19,1006 +19,1625 @@
  },
  "entradas": [
   {
-   "chave": "in_T8",
-   "celula": "T8",
-   "rotulo": "Grau de relacionamento:",
-   "min": 0
-  },
-  {
-   "chave": "in_T9",
-   "celula": "T9",
-   "rotulo": "Grau de relacionamento:",
-   "min": 0
-  },
-  {
-   "chave": "in_T10",
-   "celula": "T10",
-   "rotulo": "Grau de relacionamento:",
-   "min": 0
-  },
-  {
    "chave": "in_C14",
    "celula": "C14",
    "rotulo": "Item 1",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D14",
    "celula": "D14",
-   "rotulo": "D14",
-   "min": 0
+   "rotulo": "Item 1",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E14",
    "celula": "E14",
-   "rotulo": "E14",
-   "min": 0
+   "rotulo": "Item 1",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F14",
    "celula": "F14",
-   "rotulo": "F14",
-   "min": 0
+   "rotulo": "Item 1",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C15",
    "celula": "C15",
    "rotulo": "Item 2",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D15",
    "celula": "D15",
-   "rotulo": "D15",
-   "min": 0
+   "rotulo": "Item 2",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E15",
    "celula": "E15",
-   "rotulo": "E15",
-   "min": 0
+   "rotulo": "Item 2",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F15",
    "celula": "F15",
-   "rotulo": "F15",
-   "min": 0
+   "rotulo": "Item 2",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C16",
    "celula": "C16",
    "rotulo": "Item 3",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D16",
    "celula": "D16",
-   "rotulo": "D16",
-   "min": 0
+   "rotulo": "Item 3",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E16",
    "celula": "E16",
-   "rotulo": "E16",
-   "min": 0
+   "rotulo": "Item 3",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F16",
    "celula": "F16",
-   "rotulo": "F16",
-   "min": 0
+   "rotulo": "Item 3",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C17",
    "celula": "C17",
    "rotulo": "Item 4",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D17",
    "celula": "D17",
-   "rotulo": "D17",
-   "min": 0
+   "rotulo": "Item 4",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E17",
    "celula": "E17",
-   "rotulo": "E17",
-   "min": 0
+   "rotulo": "Item 4",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F17",
    "celula": "F17",
-   "rotulo": "F17",
-   "min": 0
+   "rotulo": "Item 4",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C18",
    "celula": "C18",
    "rotulo": "Item 5",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D18",
    "celula": "D18",
-   "rotulo": "D18",
-   "min": 0
+   "rotulo": "Item 5",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E18",
    "celula": "E18",
-   "rotulo": "E18",
-   "min": 0
+   "rotulo": "Item 5",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F18",
    "celula": "F18",
-   "rotulo": "F18",
-   "min": 0
+   "rotulo": "Item 5",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C19",
    "celula": "C19",
    "rotulo": "Item 6",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D19",
    "celula": "D19",
-   "rotulo": "D19",
-   "min": 0
+   "rotulo": "Item 6",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E19",
    "celula": "E19",
-   "rotulo": "E19",
-   "min": 0
+   "rotulo": "Item 6",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F19",
    "celula": "F19",
-   "rotulo": "F19",
-   "min": 0
+   "rotulo": "Item 6",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C20",
    "celula": "C20",
    "rotulo": "Item 7",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D20",
    "celula": "D20",
-   "rotulo": "D20",
-   "min": 0
+   "rotulo": "Item 7",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E20",
    "celula": "E20",
-   "rotulo": "E20",
-   "min": 0
+   "rotulo": "Item 7",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F20",
    "celula": "F20",
-   "rotulo": "F20",
-   "min": 0
+   "rotulo": "Item 7",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C21",
    "celula": "C21",
    "rotulo": "Item 8",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D21",
    "celula": "D21",
-   "rotulo": "D21",
-   "min": 0
+   "rotulo": "Item 8",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E21",
    "celula": "E21",
-   "rotulo": "E21",
-   "min": 0
+   "rotulo": "Item 8",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F21",
    "celula": "F21",
-   "rotulo": "F21",
-   "min": 0
+   "rotulo": "Item 8",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C22",
    "celula": "C22",
    "rotulo": "Item 9",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D22",
    "celula": "D22",
-   "rotulo": "D22",
-   "min": 0
+   "rotulo": "Item 9",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E22",
    "celula": "E22",
-   "rotulo": "E22",
-   "min": 0
+   "rotulo": "Item 9",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F22",
    "celula": "F22",
-   "rotulo": "F22",
-   "min": 0
+   "rotulo": "Item 9",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C23",
    "celula": "C23",
    "rotulo": "Item 10",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D23",
    "celula": "D23",
-   "rotulo": "D23",
-   "min": 0
+   "rotulo": "Item 10",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E23",
    "celula": "E23",
-   "rotulo": "E23",
-   "min": 0
+   "rotulo": "Item 10",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F23",
    "celula": "F23",
-   "rotulo": "F23",
-   "min": 0
+   "rotulo": "Item 10",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C24",
    "celula": "C24",
    "rotulo": "Item 11",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D24",
    "celula": "D24",
-   "rotulo": "D24",
-   "min": 0
+   "rotulo": "Item 11",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E24",
    "celula": "E24",
-   "rotulo": "E24",
-   "min": 0
+   "rotulo": "Item 11",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F24",
    "celula": "F24",
-   "rotulo": "F24",
-   "min": 0
+   "rotulo": "Item 11",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C25",
    "celula": "C25",
    "rotulo": "Item 12",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D25",
    "celula": "D25",
-   "rotulo": "D25",
-   "min": 0
+   "rotulo": "Item 12",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E25",
    "celula": "E25",
-   "rotulo": "E25",
-   "min": 0
+   "rotulo": "Item 12",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F25",
    "celula": "F25",
-   "rotulo": "F25",
-   "min": 0
+   "rotulo": "Item 12",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C26",
    "celula": "C26",
    "rotulo": "Item 13",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D26",
    "celula": "D26",
-   "rotulo": "D26",
-   "min": 0
+   "rotulo": "Item 13",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E26",
    "celula": "E26",
-   "rotulo": "E26",
-   "min": 0
+   "rotulo": "Item 13",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F26",
    "celula": "F26",
-   "rotulo": "F26",
-   "min": 0
+   "rotulo": "Item 13",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C27",
    "celula": "C27",
    "rotulo": "Item 14",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D27",
    "celula": "D27",
-   "rotulo": "D27",
-   "min": 0
+   "rotulo": "Item 14",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E27",
    "celula": "E27",
-   "rotulo": "E27",
-   "min": 0
+   "rotulo": "Item 14",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F27",
    "celula": "F27",
-   "rotulo": "F27",
-   "min": 0
+   "rotulo": "Item 14",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C28",
    "celula": "C28",
    "rotulo": "Item 15",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D28",
    "celula": "D28",
-   "rotulo": "D28",
-   "min": 0
+   "rotulo": "Item 15",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E28",
    "celula": "E28",
-   "rotulo": "E28",
-   "min": 0
+   "rotulo": "Item 15",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F28",
    "celula": "F28",
-   "rotulo": "F28",
-   "min": 0
+   "rotulo": "Item 15",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C29",
    "celula": "C29",
    "rotulo": "Item 16",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D29",
    "celula": "D29",
-   "rotulo": "D29",
-   "min": 0
+   "rotulo": "Item 16",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E29",
    "celula": "E29",
-   "rotulo": "E29",
-   "min": 0
+   "rotulo": "Item 16",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F29",
    "celula": "F29",
-   "rotulo": "F29",
-   "min": 0
+   "rotulo": "Item 16",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C30",
    "celula": "C30",
    "rotulo": "Item 17",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D30",
    "celula": "D30",
-   "rotulo": "D30",
-   "min": 0
+   "rotulo": "Item 17",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E30",
    "celula": "E30",
-   "rotulo": "E30",
-   "min": 0
+   "rotulo": "Item 17",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F30",
    "celula": "F30",
-   "rotulo": "F30",
-   "min": 0
+   "rotulo": "Item 17",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C31",
    "celula": "C31",
    "rotulo": "Item 18",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D31",
    "celula": "D31",
-   "rotulo": "D31",
-   "min": 0
+   "rotulo": "Item 18",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E31",
    "celula": "E31",
-   "rotulo": "E31",
-   "min": 0
+   "rotulo": "Item 18",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F31",
    "celula": "F31",
-   "rotulo": "F31",
-   "min": 0
+   "rotulo": "Item 18",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C32",
    "celula": "C32",
    "rotulo": "Item 19",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D32",
    "celula": "D32",
-   "rotulo": "D32",
-   "min": 0
+   "rotulo": "Item 19",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E32",
    "celula": "E32",
-   "rotulo": "E32",
-   "min": 0
+   "rotulo": "Item 19",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F32",
    "celula": "F32",
-   "rotulo": "F32",
-   "min": 0
+   "rotulo": "Item 19",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C33",
    "celula": "C33",
    "rotulo": "Item 20",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D33",
    "celula": "D33",
-   "rotulo": "D33",
-   "min": 0
+   "rotulo": "Item 20",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E33",
    "celula": "E33",
-   "rotulo": "E33",
-   "min": 0
+   "rotulo": "Item 20",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F33",
    "celula": "F33",
-   "rotulo": "F33",
-   "min": 0
+   "rotulo": "Item 20",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C34",
    "celula": "C34",
    "rotulo": "Item 21",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D34",
    "celula": "D34",
-   "rotulo": "D34",
-   "min": 0
+   "rotulo": "Item 21",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E34",
    "celula": "E34",
-   "rotulo": "E34",
-   "min": 0
+   "rotulo": "Item 21",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F34",
    "celula": "F34",
-   "rotulo": "F34",
-   "min": 0
+   "rotulo": "Item 21",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C35",
    "celula": "C35",
    "rotulo": "Item 22",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D35",
    "celula": "D35",
-   "rotulo": "D35",
-   "min": 0
+   "rotulo": "Item 22",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E35",
    "celula": "E35",
-   "rotulo": "E35",
-   "min": 0
+   "rotulo": "Item 22",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F35",
    "celula": "F35",
-   "rotulo": "F35",
-   "min": 0
+   "rotulo": "Item 22",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C36",
    "celula": "C36",
    "rotulo": "Item 23",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D36",
    "celula": "D36",
-   "rotulo": "D36",
-   "min": 0
+   "rotulo": "Item 23",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E36",
    "celula": "E36",
-   "rotulo": "E36",
-   "min": 0
+   "rotulo": "Item 23",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F36",
    "celula": "F36",
-   "rotulo": "F36",
-   "min": 0
+   "rotulo": "Item 23",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C37",
    "celula": "C37",
    "rotulo": "Item 24",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D37",
    "celula": "D37",
-   "rotulo": "D37",
-   "min": 0
+   "rotulo": "Item 24",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E37",
    "celula": "E37",
-   "rotulo": "E37",
-   "min": 0
+   "rotulo": "Item 24",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F37",
    "celula": "F37",
-   "rotulo": "F37",
-   "min": 0
+   "rotulo": "Item 24",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C38",
    "celula": "C38",
    "rotulo": "Item 25",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D38",
    "celula": "D38",
-   "rotulo": "D38",
-   "min": 0
+   "rotulo": "Item 25",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E38",
    "celula": "E38",
-   "rotulo": "E38",
-   "min": 0
+   "rotulo": "Item 25",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F38",
    "celula": "F38",
-   "rotulo": "F38",
-   "min": 0
+   "rotulo": "Item 25",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C39",
    "celula": "C39",
    "rotulo": "Item 26",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D39",
    "celula": "D39",
-   "rotulo": "D39",
-   "min": 0
+   "rotulo": "Item 26",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E39",
    "celula": "E39",
-   "rotulo": "E39",
-   "min": 0
+   "rotulo": "Item 26",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F39",
    "celula": "F39",
-   "rotulo": "F39",
-   "min": 0
+   "rotulo": "Item 26",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C40",
    "celula": "C40",
    "rotulo": "Item 27",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D40",
    "celula": "D40",
-   "rotulo": "D40",
-   "min": 0
+   "rotulo": "Item 27",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E40",
    "celula": "E40",
-   "rotulo": "E40",
-   "min": 0
+   "rotulo": "Item 27",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F40",
    "celula": "F40",
-   "rotulo": "F40",
-   "min": 0
+   "rotulo": "Item 27",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C41",
    "celula": "C41",
    "rotulo": "Item 28",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D41",
    "celula": "D41",
-   "rotulo": "D41",
-   "min": 0
+   "rotulo": "Item 28",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E41",
    "celula": "E41",
-   "rotulo": "E41",
-   "min": 0
+   "rotulo": "Item 28",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F41",
    "celula": "F41",
-   "rotulo": "F41",
-   "min": 0
+   "rotulo": "Item 28",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C42",
    "celula": "C42",
    "rotulo": "Item 29",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D42",
    "celula": "D42",
-   "rotulo": "D42",
-   "min": 0
+   "rotulo": "Item 29",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E42",
    "celula": "E42",
-   "rotulo": "E42",
-   "min": 0
+   "rotulo": "Item 29",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F42",
    "celula": "F42",
-   "rotulo": "F42",
-   "min": 0
+   "rotulo": "Item 29",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C43",
    "celula": "C43",
    "rotulo": "Item 30",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D43",
    "celula": "D43",
-   "rotulo": "D43",
-   "min": 0
+   "rotulo": "Item 30",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E43",
    "celula": "E43",
-   "rotulo": "E43",
-   "min": 0
+   "rotulo": "Item 30",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F43",
    "celula": "F43",
-   "rotulo": "F43",
-   "min": 0
+   "rotulo": "Item 30",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C44",
    "celula": "C44",
    "rotulo": "Item 31",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D44",
    "celula": "D44",
-   "rotulo": "D44",
-   "min": 0
+   "rotulo": "Item 31",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E44",
    "celula": "E44",
-   "rotulo": "E44",
-   "min": 0
+   "rotulo": "Item 31",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F44",
    "celula": "F44",
-   "rotulo": "F44",
-   "min": 0
+   "rotulo": "Item 31",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C45",
    "celula": "C45",
    "rotulo": "Item 32",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D45",
    "celula": "D45",
-   "rotulo": "D45",
-   "min": 0
+   "rotulo": "Item 32",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E45",
    "celula": "E45",
-   "rotulo": "E45",
-   "min": 0
+   "rotulo": "Item 32",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F45",
    "celula": "F45",
-   "rotulo": "F45",
-   "min": 0
+   "rotulo": "Item 32",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C46",
    "celula": "C46",
    "rotulo": "Item 33",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D46",
    "celula": "D46",
-   "rotulo": "D46",
-   "min": 0
+   "rotulo": "Item 33",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E46",
    "celula": "E46",
-   "rotulo": "E46",
-   "min": 0
+   "rotulo": "Item 33",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F46",
    "celula": "F46",
-   "rotulo": "F46",
-   "min": 0
+   "rotulo": "Item 33",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C47",
    "celula": "C47",
    "rotulo": "Item 34",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D47",
    "celula": "D47",
-   "rotulo": "D47",
-   "min": 0
+   "rotulo": "Item 34",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E47",
    "celula": "E47",
-   "rotulo": "E47",
-   "min": 0
+   "rotulo": "Item 34",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F47",
    "celula": "F47",
-   "rotulo": "F47",
-   "min": 0
+   "rotulo": "Item 34",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C48",
    "celula": "C48",
    "rotulo": "Item 35",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D48",
    "celula": "D48",
-   "rotulo": "D48",
-   "min": 0
+   "rotulo": "Item 35",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E48",
    "celula": "E48",
-   "rotulo": "E48",
-   "min": 0
+   "rotulo": "Item 35",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F48",
    "celula": "F48",
-   "rotulo": "F48",
-   "min": 0
+   "rotulo": "Item 35",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C49",
    "celula": "C49",
    "rotulo": "Item 36",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D49",
    "celula": "D49",
-   "rotulo": "D49",
-   "min": 0
+   "rotulo": "Item 36",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E49",
    "celula": "E49",
-   "rotulo": "E49",
-   "min": 0
+   "rotulo": "Item 36",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F49",
    "celula": "F49",
-   "rotulo": "F49",
-   "min": 0
+   "rotulo": "Item 36",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C50",
    "celula": "C50",
    "rotulo": "Item 37",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D50",
    "celula": "D50",
-   "rotulo": "D50",
-   "min": 0
+   "rotulo": "Item 37",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E50",
    "celula": "E50",
-   "rotulo": "E50",
-   "min": 0
+   "rotulo": "Item 37",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F50",
    "celula": "F50",
-   "rotulo": "F50",
-   "min": 0
+   "rotulo": "Item 37",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C51",
    "celula": "C51",
    "rotulo": "Item 38",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D51",
    "celula": "D51",
-   "rotulo": "D51",
-   "min": 0
+   "rotulo": "Item 38",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E51",
    "celula": "E51",
-   "rotulo": "E51",
-   "min": 0
+   "rotulo": "Item 38",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F51",
    "celula": "F51",
-   "rotulo": "F51",
-   "min": 0
+   "rotulo": "Item 38",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C52",
    "celula": "C52",
    "rotulo": "Item 39",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D52",
    "celula": "D52",
-   "rotulo": "D52",
-   "min": 0
+   "rotulo": "Item 39",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E52",
    "celula": "E52",
-   "rotulo": "E52",
-   "min": 0
+   "rotulo": "Item 39",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F52",
    "celula": "F52",
-   "rotulo": "F52",
-   "min": 0
+   "rotulo": "Item 39",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C53",
    "celula": "C53",
    "rotulo": "Item 40",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D53",
    "celula": "D53",
-   "rotulo": "D53",
-   "min": 0
+   "rotulo": "Item 40",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E53",
    "celula": "E53",
-   "rotulo": "E53",
-   "min": 0
+   "rotulo": "Item 40",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F53",
    "celula": "F53",
-   "rotulo": "F53",
-   "min": 0
+   "rotulo": "Item 40",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
   },
   {
    "chave": "in_C54",
    "celula": "C54",
    "rotulo": "Item 41",
-   "min": 0
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2
   },
   {
    "chave": "in_D54",
    "celula": "D54",
-   "rotulo": "D54",
-   "min": 0
+   "rotulo": "Item 41",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T8"
   },
   {
    "chave": "in_E54",
    "celula": "E54",
-   "rotulo": "E54",
-   "min": 0
+   "rotulo": "Item 41",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T9"
   },
   {
    "chave": "in_F54",
    "celula": "F54",
-   "rotulo": "F54",
+   "rotulo": "Item 41",
+   "grupo": "Itens (0 = quase nunca verdadeiro, 1 = às vezes verdadeiro, 2 = muito verdadeiro ou frequente)",
+   "min": 0,
+   "max": 2,
+   "porta": "T10"
+  },
+  {
+   "chave": "tot_M14",
+   "celula": "M14",
+   "rotulo": "Auto-relato — Pânico/Sintomas Somáticos (pontos brutos)",
+   "modo": "totais",
    "min": 0
+  },
+  {
+   "chave": "tot_M15",
+   "celula": "M15",
+   "rotulo": "Auto-relato — Ansiedade Generalizada (pontos brutos)",
+   "modo": "totais",
+   "min": 0
+  },
+  {
+   "chave": "tot_M16",
+   "celula": "M16",
+   "rotulo": "Auto-relato — Ansiedade de Separação (pontos brutos)",
+   "modo": "totais",
+   "min": 0
+  },
+  {
+   "chave": "tot_M17",
+   "celula": "M17",
+   "rotulo": "Auto-relato — Fobia Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0
+  },
+  {
+   "chave": "tot_M18",
+   "celula": "M18",
+   "rotulo": "Auto-relato — Evitação Escolar (pontos brutos)",
+   "modo": "totais",
+   "min": 0
+  },
+  {
+   "chave": "tot_M19",
+   "celula": "M19",
+   "rotulo": "Auto-relato — Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0
+  },
+  {
+   "chave": "tot_M23",
+   "celula": "M23",
+   "rotulo": "Cuidador 1 — Pânico/Sintomas Somáticos (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T8"
+  },
+  {
+   "chave": "tot_M24",
+   "celula": "M24",
+   "rotulo": "Cuidador 1 — Ansiedade Generalizada (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T8"
+  },
+  {
+   "chave": "tot_M25",
+   "celula": "M25",
+   "rotulo": "Cuidador 1 — Ansiedade de Separação (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T8"
+  },
+  {
+   "chave": "tot_M26",
+   "celula": "M26",
+   "rotulo": "Cuidador 1 — Fobia Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T8"
+  },
+  {
+   "chave": "tot_M27",
+   "celula": "M27",
+   "rotulo": "Cuidador 1 — Evitação Escolar (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T8"
+  },
+  {
+   "chave": "tot_M28",
+   "celula": "M28",
+   "rotulo": "Cuidador 1 — Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T8"
+  },
+  {
+   "chave": "tot_M29",
+   "celula": "M29",
+   "rotulo": "Cuidador 2 — Pânico/Sintomas Somáticos (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T9"
+  },
+  {
+   "chave": "tot_M30",
+   "celula": "M30",
+   "rotulo": "Cuidador 2 — Ansiedade Generalizada (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T9"
+  },
+  {
+   "chave": "tot_M31",
+   "celula": "M31",
+   "rotulo": "Cuidador 2 — Ansiedade de Separação (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T9"
+  },
+  {
+   "chave": "tot_M32",
+   "celula": "M32",
+   "rotulo": "Cuidador 2 — Fobia Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T9"
+  },
+  {
+   "chave": "tot_M33",
+   "celula": "M33",
+   "rotulo": "Cuidador 2 — Evitação Escolar (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T9"
+  },
+  {
+   "chave": "tot_M34",
+   "celula": "M34",
+   "rotulo": "Cuidador 2 — Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T9"
+  },
+  {
+   "chave": "tot_M35",
+   "celula": "M35",
+   "rotulo": "Cuidador 3 — Pânico/Sintomas Somáticos (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T10"
+  },
+  {
+   "chave": "tot_M36",
+   "celula": "M36",
+   "rotulo": "Cuidador 3 — Ansiedade Generalizada (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T10"
+  },
+  {
+   "chave": "tot_M37",
+   "celula": "M37",
+   "rotulo": "Cuidador 3 — Ansiedade de Separação (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T10"
+  },
+  {
+   "chave": "tot_M38",
+   "celula": "M38",
+   "rotulo": "Cuidador 3 — Fobia Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T10"
+  },
+  {
+   "chave": "tot_M39",
+   "celula": "M39",
+   "rotulo": "Cuidador 3 — Evitação Escolar (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T10"
+  },
+  {
+   "chave": "tot_M40",
+   "celula": "M40",
+   "rotulo": "Cuidador 3 — Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "T10"
   }
  ],
  "opcoes": [],
@@ -3384,6 +4003,87 @@
      ]
     }
    ]
+  }
+ ],
+ "cabecalhos": {
+  "C": "Auto-relato",
+  "D": "Cuidador 1",
+  "E": "Cuidador 2",
+  "F": "Cuidador 3"
+ },
+ "graficos": true,
+ "blocos": [
+  {
+   "titulo": "Auto-relato — escalas, normas e classificação",
+   "linhas": [
+    14,
+    19
+   ],
+   "colunas": [
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S"
+   ],
+   "cabecalho": 12,
+   "rotulo": "L"
+  },
+  {
+   "titulo": "Cuidador 1 — pontos, nota de corte e percentual",
+   "linhas": [
+    23,
+    28
+   ],
+   "colunas": [
+    "M",
+    "N",
+    "O",
+    "Q",
+    "R",
+    "S",
+    "T"
+   ],
+   "cabecalho": 21,
+   "rotulo": "L"
+  },
+  {
+   "titulo": "Cuidador 2 — pontos, nota de corte e percentual",
+   "linhas": [
+    29,
+    34
+   ],
+   "colunas": [
+    "M",
+    "N",
+    "O",
+    "Q",
+    "R",
+    "S",
+    "T"
+   ],
+   "cabecalho": 21,
+   "rotulo": "L"
+  },
+  {
+   "titulo": "Cuidador 3 — pontos, nota de corte e percentual",
+   "linhas": [
+    35,
+    40
+   ],
+   "colunas": [
+    "M",
+    "N",
+    "O",
+    "Q",
+    "R",
+    "S",
+    "T"
+   ],
+   "cabecalho": 21,
+   "rotulo": "L"
   }
  ]
 }

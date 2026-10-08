@@ -19,1066 +19,1666 @@
  },
  "entradas": [
   {
-   "chave": "in_J11",
-   "celula": "J11",
-   "rotulo": "Grau de relacionamento:",
-   "min": 0
-  },
-  {
-   "chave": "in_J12",
-   "celula": "J12",
-   "rotulo": "Grau de relacionamento:",
-   "min": 0
-  },
-  {
-   "chave": "in_J13",
-   "celula": "J13",
-   "rotulo": "Grau de relacionamento:",
-   "min": 0
-  },
-  {
    "chave": "in_H17",
    "celula": "H17",
-   "rotulo": "Faz amizade, mas não consegue mantê-las — INFORMANTE",
-   "min": 0
+   "rotulo": "1. Faz amizade, mas não consegue mantê-las",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I17",
    "celula": "I17",
-   "rotulo": "Faz amizade, mas não consegue mantê-las",
-   "min": 0
+   "rotulo": "1. Faz amizade, mas não consegue mantê-las",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J17",
    "celula": "J17",
-   "rotulo": "Faz amizade, mas não consegue mantê-las",
-   "min": 0
+   "rotulo": "1. Faz amizade, mas não consegue mantê-las",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H18",
    "celula": "H18",
-   "rotulo": "Implica com tudo — INFORMANTE",
-   "min": 0
+   "rotulo": "2. Implica com tudo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I18",
    "celula": "I18",
-   "rotulo": "Implica com tudo",
-   "min": 0
+   "rotulo": "2. Implica com tudo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J18",
    "celula": "J18",
-   "rotulo": "Implica com tudo",
-   "min": 0
+   "rotulo": "2. Implica com tudo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H19",
    "celula": "H19",
-   "rotulo": "Tem fortes reações emocionais (explosões — INFORMANTE",
-   "min": 0
+   "rotulo": "3. Tem fortes reações emocionais (explosões de raiva)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I19",
    "celula": "I19",
-   "rotulo": "Tem fortes reações emocionais (explosões",
-   "min": 0
+   "rotulo": "3. Tem fortes reações emocionais (explosões de raiva)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J19",
    "celula": "J19",
-   "rotulo": "Tem fortes reações emocionais (explosões",
-   "min": 0
+   "rotulo": "3. Tem fortes reações emocionais (explosões de raiva)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H20",
    "celula": "H20",
-   "rotulo": "É irritadiço (Tudo o incomoda) — INFORMANTE",
-   "min": 0
+   "rotulo": "4. É irritadiço (Tudo o incomoda)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I20",
    "celula": "I20",
-   "rotulo": "É irritadiço (Tudo o incomoda)",
-   "min": 0
+   "rotulo": "4. É irritadiço (Tudo o incomoda)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J20",
    "celula": "J20",
-   "rotulo": "É irritadiço (Tudo o incomoda)",
-   "min": 0
+   "rotulo": "4. É irritadiço (Tudo o incomoda)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H21",
    "celula": "H21",
-   "rotulo": "Muda facilmente de humor — INFORMANTE",
-   "min": 0
+   "rotulo": "5. Muda facilmente de humor",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I21",
    "celula": "I21",
-   "rotulo": "Muda facilmente de humor",
-   "min": 0
+   "rotulo": "5. Muda facilmente de humor",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J21",
    "celula": "J21",
-   "rotulo": "Muda facilmente de humor",
-   "min": 0
+   "rotulo": "5. Muda facilmente de humor",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H22",
    "celula": "H22",
-   "rotulo": "Explode com facilidade (é tipo \"pavio cu — INFORMANTE",
-   "min": 0
+   "rotulo": "6. Explode com facilidade (é tipo \"pavio curto\")",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I22",
    "celula": "I22",
-   "rotulo": "Explode com facilidade (é tipo \"pavio cu",
-   "min": 0
+   "rotulo": "6. Explode com facilidade (é tipo \"pavio curto\")",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J22",
    "celula": "J22",
-   "rotulo": "Explode com facilidade (é tipo \"pavio cu",
-   "min": 0
+   "rotulo": "6. Explode com facilidade (é tipo \"pavio curto\")",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H23",
    "celula": "H23",
-   "rotulo": "Da a impressão de estar sempre insatisfe — INFORMANTE",
-   "min": 0
+   "rotulo": "7. Da a impressão de estar sempre insatisfeito",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I23",
    "celula": "I23",
-   "rotulo": "Da a impressão de estar sempre insatisfe",
-   "min": 0
+   "rotulo": "7. Da a impressão de estar sempre insatisfeito",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J23",
    "celula": "J23",
-   "rotulo": "Da a impressão de estar sempre insatisfe",
-   "min": 0
+   "rotulo": "7. Da a impressão de estar sempre insatisfeito",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H24",
    "celula": "H24",
-   "rotulo": "É rebelde (Não aceita nada) — INFORMANTE",
-   "min": 0
+   "rotulo": "8. É rebelde (Não aceita nada)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I24",
    "celula": "I24",
-   "rotulo": "É rebelde (Não aceita nada)",
-   "min": 0
+   "rotulo": "8. É rebelde (Não aceita nada)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J24",
    "celula": "J24",
-   "rotulo": "É rebelde (Não aceita nada)",
-   "min": 0
+   "rotulo": "8. É rebelde (Não aceita nada)",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H25",
    "celula": "H25",
-   "rotulo": "É agressivo — INFORMANTE",
-   "min": 0
+   "rotulo": "9. É agressivo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I25",
    "celula": "I25",
-   "rotulo": "É agressivo",
-   "min": 0
+   "rotulo": "9. É agressivo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J25",
    "celula": "J25",
-   "rotulo": "É agressivo",
-   "min": 0
+   "rotulo": "9. É agressivo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H26",
    "celula": "H26",
-   "rotulo": "Sente-se infeliz — INFORMANTE",
-   "min": 0
+   "rotulo": "10. Sente-se infeliz",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I26",
    "celula": "I26",
-   "rotulo": "Sente-se infeliz",
-   "min": 0
+   "rotulo": "10. Sente-se infeliz",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J26",
    "celula": "J26",
-   "rotulo": "Sente-se infeliz",
-   "min": 0
+   "rotulo": "10. Sente-se infeliz",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H27",
    "celula": "H27",
-   "rotulo": "Faz birra quando quer algo — INFORMANTE",
-   "min": 0
+   "rotulo": "11. Faz birra quando quer algo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I27",
    "celula": "I27",
-   "rotulo": "Faz birra quando quer algo",
-   "min": 0
+   "rotulo": "11. Faz birra quando quer algo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J27",
    "celula": "J27",
-   "rotulo": "Faz birra quando quer algo",
-   "min": 0
+   "rotulo": "11. Faz birra quando quer algo",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H28",
    "celula": "H28",
-   "rotulo": "Mostra-se tenso e rígido",
-   "min": 0
+   "rotulo": "12. Mostra-se tenso e rígido",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I28",
    "celula": "I28",
-   "rotulo": "Mostra-se tenso e rígido",
-   "min": 0
+   "rotulo": "12. Mostra-se tenso e rígido",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J28",
    "celula": "J28",
-   "rotulo": "Mostra-se tenso e rígido",
-   "min": 0
+   "rotulo": "12. Mostra-se tenso e rígido",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H29",
    "celula": "H29",
-   "rotulo": "Implica com os irmãos",
-   "min": 0
+   "rotulo": "13. Implica com os irmãos",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I29",
    "celula": "I29",
-   "rotulo": "Implica com os irmãos",
-   "min": 0
+   "rotulo": "13. Implica com os irmãos",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J29",
    "celula": "J29",
-   "rotulo": "Implica com os irmãos",
-   "min": 0
+   "rotulo": "13. Implica com os irmãos",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H30",
    "celula": "H30",
-   "rotulo": "As atividades e reuniões são desagradáve",
-   "min": 0
+   "rotulo": "14. As atividades e reuniões são desagradáveis",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I30",
    "celula": "I30",
-   "rotulo": "As atividades e reuniões são desagradáve",
-   "min": 0
+   "rotulo": "14. As atividades e reuniões são desagradáveis",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J30",
    "celula": "J30",
-   "rotulo": "As atividades e reuniões são desagradáve",
-   "min": 0
+   "rotulo": "14. As atividades e reuniões são desagradáveis",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H31",
    "celula": "H31",
-   "rotulo": "Todos têm que fazer o que ele quer",
-   "min": 0
+   "rotulo": "15. Todos têm que fazer o que ele quer",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I31",
    "celula": "I31",
-   "rotulo": "Todos têm que fazer o que ele quer",
-   "min": 0
+   "rotulo": "15. Todos têm que fazer o que ele quer",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J31",
    "celula": "J31",
-   "rotulo": "Todos têm que fazer o que ele quer",
-   "min": 0
+   "rotulo": "15. Todos têm que fazer o que ele quer",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H32",
    "celula": "H32",
-   "rotulo": "A hora de acordar e das refeições é desa",
-   "min": 0
+   "rotulo": "16. A hora de acordar e das refeições é desagradável",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I32",
    "celula": "I32",
-   "rotulo": "A hora de acordar e das refeições é desa",
-   "min": 0
+   "rotulo": "16. A hora de acordar e das refeições é desagradável",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J32",
    "celula": "J32",
-   "rotulo": "A hora de acordar e das refeições é desa",
-   "min": 0
+   "rotulo": "16. A hora de acordar e das refeições é desagradável",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H33",
    "celula": "H33",
-   "rotulo": "Exige mais tempo e atenção dos pais do q",
-   "min": 0
+   "rotulo": "17. Exige mais tempo e atenção dos pais do que outros filhos",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I33",
    "celula": "I33",
-   "rotulo": "Exige mais tempo e atenção dos pais do q",
-   "min": 0
+   "rotulo": "17. Exige mais tempo e atenção dos pais do que outros filhos",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J33",
    "celula": "J33",
-   "rotulo": "Exige mais tempo e atenção dos pais do q",
-   "min": 0
+   "rotulo": "17. Exige mais tempo e atenção dos pais do que outros filhos",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H34",
    "celula": "H34",
-   "rotulo": "Tem dificuldade para se adaptar às mudan",
-   "min": 0
+   "rotulo": "18. Tem dificuldade para se adaptar às mudanças",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I34",
    "celula": "I34",
-   "rotulo": "Tem dificuldade para se adaptar às mudan",
-   "min": 0
+   "rotulo": "18. Tem dificuldade para se adaptar às mudanças",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J34",
    "celula": "J34",
-   "rotulo": "Tem dificuldade para se adaptar às mudan",
-   "min": 0
+   "rotulo": "18. Tem dificuldade para se adaptar às mudanças",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H35",
    "celula": "H35",
-   "rotulo": "É sensível",
-   "min": 0
+   "rotulo": "19. É sensível",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I35",
    "celula": "I35",
-   "rotulo": "É sensível",
-   "min": 0
+   "rotulo": "19. É sensível",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J35",
    "celula": "J35",
-   "rotulo": "É sensível",
-   "min": 0
+   "rotulo": "19. É sensível",
+   "grupo": "Fator 1 — Regulação emocional",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H39",
    "celula": "H39",
-   "rotulo": "Movimenta-se muito (...)",
-   "min": 0
+   "rotulo": "1. Movimenta-se muito (...)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I39",
    "celula": "I39",
-   "rotulo": "Movimenta-se muito (...)",
-   "min": 0
+   "rotulo": "1. Movimenta-se muito (...)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J39",
    "celula": "J39",
-   "rotulo": "Movimenta-se muito (...)",
-   "min": 0
+   "rotulo": "1. Movimenta-se muito (...)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H40",
    "celula": "H40",
-   "rotulo": "É inquieto e agitado",
-   "min": 0
+   "rotulo": "2. É inquieto e agitado",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I40",
    "celula": "I40",
-   "rotulo": "É inquieto e agitado",
-   "min": 0
+   "rotulo": "2. É inquieto e agitado",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J40",
    "celula": "J40",
-   "rotulo": "É inquieto e agitado",
-   "min": 0
+   "rotulo": "2. É inquieto e agitado",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H41",
    "celula": "H41",
-   "rotulo": "Mexe-se e contorce-se durante as refeiçõ",
-   "min": 0
+   "rotulo": "3. Mexe-se e contorce-se durante as refeições (...)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I41",
    "celula": "I41",
-   "rotulo": "Mexe-se e contorce-se durante as refeiçõ",
-   "min": 0
+   "rotulo": "3. Mexe-se e contorce-se durante as refeições (...)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J41",
    "celula": "J41",
-   "rotulo": "Mexe-se e contorce-se durante as refeiçõ",
-   "min": 0
+   "rotulo": "3. Mexe-se e contorce-se durante as refeições (...)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H42",
    "celula": "H42",
-   "rotulo": "Tem sempre muita pressa",
-   "min": 0
+   "rotulo": "4. Tem sempre muita pressa",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I42",
    "celula": "I42",
-   "rotulo": "Tem sempre muita pressa",
-   "min": 0
+   "rotulo": "4. Tem sempre muita pressa",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J42",
    "celula": "J42",
-   "rotulo": "Tem sempre muita pressa",
-   "min": 0
+   "rotulo": "4. Tem sempre muita pressa",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H43",
    "celula": "H43",
-   "rotulo": "Age sem pensar ( é impulsivo)",
-   "min": 0
+   "rotulo": "5. Age sem pensar ( é impulsivo)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I43",
    "celula": "I43",
-   "rotulo": "Age sem pensar ( é impulsivo)",
-   "min": 0
+   "rotulo": "5. Age sem pensar ( é impulsivo)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J43",
    "celula": "J43",
-   "rotulo": "Age sem pensar ( é impulsivo)",
-   "min": 0
+   "rotulo": "5. Age sem pensar ( é impulsivo)",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H44",
    "celula": "H44",
-   "rotulo": "É inconsequente",
-   "min": 0
+   "rotulo": "6. É inconsequente",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I44",
    "celula": "I44",
-   "rotulo": "É inconsequente",
-   "min": 0
+   "rotulo": "6. É inconsequente",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J44",
    "celula": "J44",
-   "rotulo": "É inconsequente",
-   "min": 0
+   "rotulo": "6. É inconsequente",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H45",
    "celula": "H45",
-   "rotulo": "Intromete-se em assuntos que não lhe diz",
-   "min": 0
+   "rotulo": "7. Intromete-se em assuntos que não lhe dizem respeito",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I45",
    "celula": "I45",
-   "rotulo": "Intromete-se em assuntos que não lhe diz",
-   "min": 0
+   "rotulo": "7. Intromete-se em assuntos que não lhe dizem respeito",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J45",
    "celula": "J45",
-   "rotulo": "Intromete-se em assuntos que não lhe diz",
-   "min": 0
+   "rotulo": "7. Intromete-se em assuntos que não lhe dizem respeito",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H46",
    "celula": "H46",
-   "rotulo": "Responde antes de ouvir a pergunta intei",
-   "min": 0
+   "rotulo": "8. Responde antes de ouvir a pergunta inteira",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I46",
    "celula": "I46",
-   "rotulo": "Responde antes de ouvir a pergunta intei",
-   "min": 0
+   "rotulo": "8. Responde antes de ouvir a pergunta inteira",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J46",
    "celula": "J46",
-   "rotulo": "Responde antes de ouvir a pergunta intei",
-   "min": 0
+   "rotulo": "8. Responde antes de ouvir a pergunta inteira",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H47",
    "celula": "H47",
-   "rotulo": "É imprudente",
-   "min": 0
+   "rotulo": "9. É imprudente",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I47",
    "celula": "I47",
-   "rotulo": "É imprudente",
-   "min": 0
+   "rotulo": "9. É imprudente",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J47",
    "celula": "J47",
-   "rotulo": "É imprudente",
-   "min": 0
+   "rotulo": "9. É imprudente",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H48",
    "celula": "H48",
-   "rotulo": "Irrita os outros com suas palhaçadas",
-   "min": 0
+   "rotulo": "10. Irrita os outros com suas palhaçadas",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I48",
    "celula": "I48",
-   "rotulo": "Irrita os outros com suas palhaçadas",
-   "min": 0
+   "rotulo": "10. Irrita os outros com suas palhaçadas",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J48",
    "celula": "J48",
-   "rotulo": "Irrita os outros com suas palhaçadas",
-   "min": 0
+   "rotulo": "10. Irrita os outros com suas palhaçadas",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H49",
    "celula": "H49",
-   "rotulo": "Tende a discordar com as regras e normas",
-   "min": 0
+   "rotulo": "11. Tende a discordar com as regras e normas de jogos",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I49",
    "celula": "I49",
-   "rotulo": "Tende a discordar com as regras e normas",
-   "min": 0
+   "rotulo": "11. Tende a discordar com as regras e normas de jogos",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J49",
    "celula": "J49",
-   "rotulo": "Tende a discordar com as regras e normas",
-   "min": 0
+   "rotulo": "11. Tende a discordar com as regras e normas de jogos",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H50",
    "celula": "H50",
-   "rotulo": "É persistente e insiste diante de uma id",
-   "min": 0
+   "rotulo": "12. É persistente e insiste diante de uma ideia",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I50",
    "celula": "I50",
-   "rotulo": "É persistente e insiste diante de uma id",
-   "min": 0
+   "rotulo": "12. É persistente e insiste diante de uma ideia",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J50",
    "celula": "J50",
-   "rotulo": "É persistente e insiste diante de uma id",
-   "min": 0
+   "rotulo": "12. É persistente e insiste diante de uma ideia",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H51",
    "celula": "H51",
-   "rotulo": "Faz os deveres escolares rápido demais",
-   "min": 0
+   "rotulo": "13. Faz os deveres escolares rápido demais",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I51",
    "celula": "I51",
-   "rotulo": "Faz os deveres escolares rápido demais",
-   "min": 0
+   "rotulo": "13. Faz os deveres escolares rápido demais",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J51",
    "celula": "J51",
-   "rotulo": "Faz os deveres escolares rápido demais",
-   "min": 0
+   "rotulo": "13. Faz os deveres escolares rápido demais",
+   "grupo": "Fator 2 — Hiperatividade / impulsividade",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H55",
    "celula": "H55",
-   "rotulo": "Aceita facilmente regras, normas e limit",
-   "min": 0
+   "rotulo": "1. Aceita facilmente regras, normas e limites",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I55",
    "celula": "I55",
-   "rotulo": "Aceita facilmente regras, normas e limit",
-   "min": 0
+   "rotulo": "1. Aceita facilmente regras, normas e limites",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J55",
    "celula": "J55",
-   "rotulo": "Aceita facilmente regras, normas e limit",
-   "min": 0
+   "rotulo": "1. Aceita facilmente regras, normas e limites",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H56",
    "celula": "H56",
-   "rotulo": "Parece ser uma criança tranquila e sosse",
-   "min": 0
+   "rotulo": "2. Parece ser uma criança tranquila e sossegada",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I56",
    "celula": "I56",
-   "rotulo": "Parece ser uma criança tranquila e sosse",
-   "min": 0
+   "rotulo": "2. Parece ser uma criança tranquila e sossegada",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J56",
    "celula": "J56",
-   "rotulo": "Parece ser uma criança tranquila e sosse",
-   "min": 0
+   "rotulo": "2. Parece ser uma criança tranquila e sossegada",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H57",
    "celula": "H57",
-   "rotulo": "É tolerante, quando preciso",
-   "min": 0
+   "rotulo": "3. É tolerante, quando preciso",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I57",
    "celula": "I57",
-   "rotulo": "É tolerante, quando preciso",
-   "min": 0
+   "rotulo": "3. É tolerante, quando preciso",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J57",
    "celula": "J57",
-   "rotulo": "É tolerante, quando preciso",
-   "min": 0
+   "rotulo": "3. É tolerante, quando preciso",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H58",
    "celula": "H58",
-   "rotulo": "Respeita normas e regras",
-   "min": 0
+   "rotulo": "4. Respeita normas e regras",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I58",
    "celula": "I58",
-   "rotulo": "Respeita normas e regras",
-   "min": 0
+   "rotulo": "4. Respeita normas e regras",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J58",
    "celula": "J58",
-   "rotulo": "Respeita normas e regras",
-   "min": 0
+   "rotulo": "4. Respeita normas e regras",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H59",
    "celula": "H59",
-   "rotulo": "É obediente",
-   "min": 0
+   "rotulo": "5. É obediente",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I59",
    "celula": "I59",
-   "rotulo": "É obediente",
-   "min": 0
+   "rotulo": "5. É obediente",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J59",
    "celula": "J59",
-   "rotulo": "É obediente",
-   "min": 0
+   "rotulo": "5. É obediente",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H60",
    "celula": "H60",
-   "rotulo": "Obedece aos pais e as normas da casa",
-   "min": 0
+   "rotulo": "6. Obedece aos pais e as normas da casa",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I60",
    "celula": "I60",
-   "rotulo": "Obedece aos pais e as normas da casa",
-   "min": 0
+   "rotulo": "6. Obedece aos pais e as normas da casa",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J60",
    "celula": "J60",
-   "rotulo": "Obedece aos pais e as normas da casa",
-   "min": 0
+   "rotulo": "6. Obedece aos pais e as normas da casa",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H61",
    "celula": "H61",
-   "rotulo": "Sabe aguardar sua vez ( é paciente)",
-   "min": 0
+   "rotulo": "7. Sabe aguardar sua vez ( é paciente)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I61",
    "celula": "I61",
-   "rotulo": "Sabe aguardar sua vez ( é paciente)",
-   "min": 0
+   "rotulo": "7. Sabe aguardar sua vez ( é paciente)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J61",
    "celula": "J61",
-   "rotulo": "Sabe aguardar sua vez ( é paciente)",
-   "min": 0
+   "rotulo": "7. Sabe aguardar sua vez ( é paciente)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H62",
    "celula": "H62",
-   "rotulo": "Faz suas tarefas e almoça com bastante t",
-   "min": 0
+   "rotulo": "8. Faz suas tarefas e almoça com bastante tranquilidade",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I62",
    "celula": "I62",
-   "rotulo": "Faz suas tarefas e almoça com bastante t",
-   "min": 0
+   "rotulo": "8. Faz suas tarefas e almoça com bastante tranquilidade",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J62",
    "celula": "J62",
-   "rotulo": "Faz suas tarefas e almoça com bastante t",
-   "min": 0
+   "rotulo": "8. Faz suas tarefas e almoça com bastante tranquilidade",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H63",
    "celula": "H63",
-   "rotulo": "Faz as coisas com muito cuidado (...)",
-   "min": 0
+   "rotulo": "9. Faz as coisas com muito cuidado (...)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I63",
    "celula": "I63",
-   "rotulo": "Faz as coisas com muito cuidado (...)",
-   "min": 0
+   "rotulo": "9. Faz as coisas com muito cuidado (...)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J63",
    "celula": "J63",
-   "rotulo": "Faz as coisas com muito cuidado (...)",
-   "min": 0
+   "rotulo": "9. Faz as coisas com muito cuidado (...)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H64",
    "celula": "H64",
-   "rotulo": "Seu comportamento é adequando socialment",
-   "min": 0
+   "rotulo": "10. Seu comportamento é adequando socialmente",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I64",
    "celula": "I64",
-   "rotulo": "Seu comportamento é adequando socialment",
-   "min": 0
+   "rotulo": "10. Seu comportamento é adequando socialmente",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J64",
    "celula": "J64",
-   "rotulo": "Seu comportamento é adequando socialment",
-   "min": 0
+   "rotulo": "10. Seu comportamento é adequando socialmente",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H65",
    "celula": "H65",
-   "rotulo": "Fala pouco",
-   "min": 0
+   "rotulo": "11. Fala pouco",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I65",
    "celula": "I65",
-   "rotulo": "Fala pouco",
-   "min": 0
+   "rotulo": "11. Fala pouco",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J65",
    "celula": "J65",
-   "rotulo": "Fala pouco",
-   "min": 0
+   "rotulo": "11. Fala pouco",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H66",
    "celula": "H66",
-   "rotulo": "A criança permite que o ambiente familia",
-   "min": 0
+   "rotulo": "12. A criança permite que o ambiente familiar seja tranquilo (...)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I66",
    "celula": "I66",
-   "rotulo": "A criança permite que o ambiente familia",
-   "min": 0
+   "rotulo": "12. A criança permite que o ambiente familiar seja tranquilo (...)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J66",
    "celula": "J66",
-   "rotulo": "A criança permite que o ambiente familia",
-   "min": 0
+   "rotulo": "12. A criança permite que o ambiente familiar seja tranquilo (...)",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H67",
    "celula": "H67",
-   "rotulo": "Consegue expressar claramente os seus pe",
-   "min": 0
+   "rotulo": "13. Consegue expressar claramente os seus pensamentos",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I67",
    "celula": "I67",
-   "rotulo": "Consegue expressar claramente os seus pe",
-   "min": 0
+   "rotulo": "13. Consegue expressar claramente os seus pensamentos",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J67",
    "celula": "J67",
-   "rotulo": "Consegue expressar claramente os seus pe",
-   "min": 0
+   "rotulo": "13. Consegue expressar claramente os seus pensamentos",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H68",
    "celula": "H68",
-   "rotulo": "É atento quando conversa com alguém",
-   "min": 0
+   "rotulo": "14. É atento quando conversa com alguém",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I68",
    "celula": "I68",
-   "rotulo": "É atento quando conversa com alguém",
-   "min": 0
+   "rotulo": "14. É atento quando conversa com alguém",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J68",
    "celula": "J68",
-   "rotulo": "É atento quando conversa com alguém",
-   "min": 0
+   "rotulo": "14. É atento quando conversa com alguém",
+   "grupo": "Fator 3 — Comportamento adaptativo",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H72",
    "celula": "H72",
-   "rotulo": "É independente para realizar suas tarefa",
-   "min": 0
+   "rotulo": "1. É independente para realizar suas tarefas de casa",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I72",
    "celula": "I72",
-   "rotulo": "É independente para realizar suas tarefa",
-   "min": 0
+   "rotulo": "1. É independente para realizar suas tarefas de casa",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J72",
    "celula": "J72",
-   "rotulo": "É independente para realizar suas tarefa",
-   "min": 0
+   "rotulo": "1. É independente para realizar suas tarefas de casa",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H73",
    "celula": "H73",
-   "rotulo": "É distraído com quase tudo",
-   "min": 0
+   "rotulo": "2. É distraído com quase tudo",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I73",
    "celula": "I73",
-   "rotulo": "É distraído com quase tudo",
-   "min": 0
+   "rotulo": "2. É distraído com quase tudo",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J73",
    "celula": "J73",
-   "rotulo": "É distraído com quase tudo",
-   "min": 0
+   "rotulo": "2. É distraído com quase tudo",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H74",
    "celula": "H74",
-   "rotulo": "Evita atividades que exigem esforço ment",
-   "min": 0
+   "rotulo": "3. Evita atividades que exigem esforço mental constante",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I74",
    "celula": "I74",
-   "rotulo": "Evita atividades que exigem esforço ment",
-   "min": 0
+   "rotulo": "3. Evita atividades que exigem esforço mental constante",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J74",
    "celula": "J74",
-   "rotulo": "Evita atividades que exigem esforço ment",
-   "min": 0
+   "rotulo": "3. Evita atividades que exigem esforço mental constante",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H75",
    "celula": "H75",
-   "rotulo": "Esquece rápido o que acabou de ser dito",
-   "min": 0
+   "rotulo": "4. Esquece rápido o que acabou de ser dito",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I75",
    "celula": "I75",
-   "rotulo": "Esquece rápido o que acabou de ser dito",
-   "min": 0
+   "rotulo": "4. Esquece rápido o que acabou de ser dito",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J75",
    "celula": "J75",
-   "rotulo": "Esquece rápido o que acabou de ser dito",
-   "min": 0
+   "rotulo": "4. Esquece rápido o que acabou de ser dito",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H76",
    "celula": "H76",
-   "rotulo": "Inicia uma atividade com entusiasmo e fa",
-   "min": 0
+   "rotulo": "5. Inicia uma atividade com entusiasmo e facilmente chega ao final",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I76",
    "celula": "I76",
-   "rotulo": "Inicia uma atividade com entusiasmo e fa",
-   "min": 0
+   "rotulo": "5. Inicia uma atividade com entusiasmo e facilmente chega ao final",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J76",
    "celula": "J76",
-   "rotulo": "Inicia uma atividade com entusiasmo e fa",
-   "min": 0
+   "rotulo": "5. Inicia uma atividade com entusiasmo e facilmente chega ao final",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H77",
    "celula": "H77",
-   "rotulo": "Tem dificuldade para realizar as coisas ",
-   "min": 0
+   "rotulo": "6. Tem dificuldade para realizar as coisas importantes",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I77",
    "celula": "I77",
-   "rotulo": "Tem dificuldade para realizar as coisas ",
-   "min": 0
+   "rotulo": "6. Tem dificuldade para realizar as coisas importantes",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J77",
    "celula": "J77",
-   "rotulo": "Tem dificuldade para realizar as coisas ",
-   "min": 0
+   "rotulo": "6. Tem dificuldade para realizar as coisas importantes",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H78",
    "celula": "H78",
-   "rotulo": "Não termina o que começa",
-   "min": 0
+   "rotulo": "7. Não termina o que começa",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I78",
    "celula": "I78",
-   "rotulo": "Não termina o que começa",
-   "min": 0
+   "rotulo": "7. Não termina o que começa",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J78",
    "celula": "J78",
-   "rotulo": "Não termina o que começa",
-   "min": 0
+   "rotulo": "7. Não termina o que começa",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H79",
    "celula": "H79",
-   "rotulo": "Parece sonhar acordado (estar no mundo d",
-   "min": 0
+   "rotulo": "8. Parece sonhar acordado (estar no mundo da lua",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I79",
    "celula": "I79",
-   "rotulo": "Parece sonhar acordado (estar no mundo d",
-   "min": 0
+   "rotulo": "8. Parece sonhar acordado (estar no mundo da lua",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J79",
    "celula": "J79",
-   "rotulo": "Parece sonhar acordado (estar no mundo d",
-   "min": 0
+   "rotulo": "8. Parece sonhar acordado (estar no mundo da lua",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H80",
    "celula": "H80",
-   "rotulo": "Mostra-se concentrado, apenas em ativida",
-   "min": 0
+   "rotulo": "9. Mostra-se concentrado, apenas em atividades de seu interesse",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I80",
    "celula": "I80",
-   "rotulo": "Mostra-se concentrado, apenas em ativida",
-   "min": 0
+   "rotulo": "9. Mostra-se concentrado, apenas em atividades de seu interesse",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J80",
    "celula": "J80",
-   "rotulo": "Mostra-se concentrado, apenas em ativida",
-   "min": 0
+   "rotulo": "9. Mostra-se concentrado, apenas em atividades de seu interesse",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H81",
    "celula": "H81",
-   "rotulo": "Da impressão de que não ouve bem ( só es",
-   "min": 0
+   "rotulo": "10. Da impressão de que não ouve bem ( só escuta o que quer)",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I81",
    "celula": "I81",
-   "rotulo": "Da impressão de que não ouve bem ( só es",
-   "min": 0
+   "rotulo": "10. Da impressão de que não ouve bem ( só escuta o que quer)",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J81",
    "celula": "J81",
-   "rotulo": "Da impressão de que não ouve bem ( só es",
-   "min": 0
+   "rotulo": "10. Da impressão de que não ouve bem ( só escuta o que quer)",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H82",
    "celula": "H82",
-   "rotulo": "Dificilmente observa detalhes",
-   "min": 0
+   "rotulo": "11. Dificilmente observa detalhes",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I82",
    "celula": "I82",
-   "rotulo": "Dificilmente observa detalhes",
-   "min": 0
+   "rotulo": "11. Dificilmente observa detalhes",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J82",
    "celula": "J82",
-   "rotulo": "Dificilmente observa detalhes",
-   "min": 0
+   "rotulo": "11. Dificilmente observa detalhes",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
   },
   {
    "chave": "in_H83",
    "celula": "H83",
-   "rotulo": "Ocorrem discussões entre os pais e a cri",
-   "min": 0
+   "rotulo": "12. Ocorrem discussões entre os pais e a criança (...)",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J11"
   },
   {
    "chave": "in_I83",
    "celula": "I83",
-   "rotulo": "Ocorrem discussões entre os pais e a cri",
-   "min": 0
+   "rotulo": "12. Ocorrem discussões entre os pais e a criança (...)",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J12"
   },
   {
    "chave": "in_J83",
    "celula": "J83",
-   "rotulo": "Ocorrem discussões entre os pais e a cri",
-   "min": 0
+   "rotulo": "12. Ocorrem discussões entre os pais e a criança (...)",
+   "grupo": "Fator 4 — Atenção",
+   "min": 1,
+   "max": 6,
+   "porta": "J13"
+  },
+  {
+   "chave": "tot_H36",
+   "celula": "H36",
+   "rotulo": "Informante 1 — Fator 1 — Regulação emocional (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J11"
+  },
+  {
+   "chave": "tot_I36",
+   "celula": "I36",
+   "rotulo": "Informante 2 — Fator 1 — Regulação emocional (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J12"
+  },
+  {
+   "chave": "tot_J36",
+   "celula": "J36",
+   "rotulo": "Informante 3 — Fator 1 — Regulação emocional (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J13"
+  },
+  {
+   "chave": "tot_H52",
+   "celula": "H52",
+   "rotulo": "Informante 1 — Fator 2 — Hiperatividade / impulsividade (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J11"
+  },
+  {
+   "chave": "tot_I52",
+   "celula": "I52",
+   "rotulo": "Informante 2 — Fator 2 — Hiperatividade / impulsividade (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J12"
+  },
+  {
+   "chave": "tot_J52",
+   "celula": "J52",
+   "rotulo": "Informante 3 — Fator 2 — Hiperatividade / impulsividade (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J13"
+  },
+  {
+   "chave": "tot_H69",
+   "celula": "H69",
+   "rotulo": "Informante 1 — Fator 3 — Comportamento adaptativo (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J11"
+  },
+  {
+   "chave": "tot_I69",
+   "celula": "I69",
+   "rotulo": "Informante 2 — Fator 3 — Comportamento adaptativo (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J12"
+  },
+  {
+   "chave": "tot_J69",
+   "celula": "J69",
+   "rotulo": "Informante 3 — Fator 3 — Comportamento adaptativo (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J13"
+  },
+  {
+   "chave": "tot_H84",
+   "celula": "H84",
+   "rotulo": "Informante 1 — Fator 4 — Atenção (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J11"
+  },
+  {
+   "chave": "tot_I84",
+   "celula": "I84",
+   "rotulo": "Informante 2 — Fator 4 — Atenção (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J12"
+  },
+  {
+   "chave": "tot_J84",
+   "celula": "J84",
+   "rotulo": "Informante 3 — Fator 4 — Atenção (total de pontos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "J13"
   }
  ],
  "opcoes": [],
@@ -3932,6 +4532,98 @@
      ]
     }
    ]
+  }
+ ],
+ "cabecalhos": {
+  "H": "Informante 1",
+  "I": "Informante 2",
+  "J": "Informante 3"
+ },
+ "graficos": true,
+ "blocos": [
+  {
+   "titulo": "Informante 1",
+   "linhas": [
+    88,
+    92
+   ],
+   "colunas": [
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S"
+   ],
+   "cabecalho": 87,
+   "rotulo": "D"
+  },
+  {
+   "titulo": "Informante 2",
+   "linhas": [
+    93,
+    97
+   ],
+   "colunas": [
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S"
+   ],
+   "cabecalho": 87,
+   "rotulo": "D"
+  },
+  {
+   "titulo": "Informante 3",
+   "linhas": [
+    98,
+    102
+   ],
+   "colunas": [
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S"
+   ],
+   "cabecalho": 87,
+   "rotulo": "D"
+  },
+  {
+   "titulo": "Comparação entre informantes (percentil)",
+   "linhas": [
+    106,
+    110
+   ],
+   "colunas": [
+    "E",
+    "F",
+    "G"
+   ],
+   "cabecalhos": [
+    "Informante 1",
+    "Informante 2",
+    "Informante 3"
+   ],
+   "rotulo": "D"
   }
  ]
 }

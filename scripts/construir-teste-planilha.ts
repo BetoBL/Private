@@ -117,9 +117,77 @@ for (const r of todasRefs) {
 planilhas[spec.aba].celulas = [...incluidas.values()];
 for (const [nome, m] of mantidasExt) planilhas[nome] = { colunas: compactar([...m.values()]) };
 
+// 5) gráficos: os do Excel (scripts/extrair-graficos-xlsm.mjs) com as referências de célula trocadas por chaves de saída.
+// Célula com fórmula vira saída (acrescentada se ainda não for); célula fixa (rótulo) vira texto literal.
+type Ref1 = string | { k: string } | null;
+interface GraficoDef { titulo: string; eixo: { min?: number; max?: number }; ancora: { linha: number; coluna: number }; series: Array<{ tipo: string; direcao?: string; nome: Ref1; cats: Ref1[]; vals: Array<string | null> }> }
+const saidasFinais: Array<{ chave: string; celula: string; rotulo: string; casas?: number }> = [...spec.saidas];
+let graficos: GraficoDef[] = [];
+const chaveDe = (end: string) => {
+  let s = saidasFinais.find((x) => x.celula === end);
+  if (!s) { s = { chave: "out_" + end, celula: end, rotulo: end }; saidasFinais.push(s); }
+  return s.chave;
+};
+if (spec.graficos) {
+  const arqG = join(dirTmp, "graficos.json");
+  execFileSync("node", ["scripts/extrair-graficos-xlsm.mjs", xlsm, arqG, spec.aba], { stdio: "pipe" });
+  const brutos = JSON.parse(readFileSync(arqG, "utf8"))[spec.aba] as Array<{ titulo: string; eixo: { min?: number; max?: number }; ancora: { linha: number; coluna: number }; series: Array<{ tipo: string; direcao?: string; nome: { ref?: string; texto?: string } | null; cat: string | null; val: string }> }>;
+  // "'Aba'!$A$1:$B$3" → células da própria aba (linha a linha); null se a referência é de outra aba ou não é intervalo simples
+  const celulasDe = (ref: string): string[][] | null => {
+    const m = /^(?:'((?:[^']|'')+)'|([^!']+))!\$?([A-Z]{1,3})\$?(\d+)(?::\$?([A-Z]{1,3})\$?(\d+))?$/.exec(ref.trim());
+    if (!m) return null;
+    if ((m[1]?.replace(/''/g, "'") ?? m[2]) !== spec.aba) return null;
+    const a = parseEnd(m[3] + m[4]), b = parseEnd((m[5] ?? m[3]) + (m[6] ?? m[4]));
+    const linhas: string[][] = [];
+    for (let r = Math.min(a.r, b.r); r <= Math.max(a.r, b.r); r++) { const l: string[] = []; for (let c = Math.min(a.c, b.c); c <= Math.max(a.c, b.c); c++) l.push(numCol(c) + r); linhas.push(l); }
+    return linhas;
+  };
+  const textoDe = (end: string): Ref1 => {
+    const c = porEnd.get(end);
+    if (c?.f) return { k: chaveDe(end) };
+    return c && c.v !== "" && c.v !== null ? String(c.v).replace(/\s+/g, " ").trim() : null;
+  };
+  for (const g of brutos) {
+    const series: GraficoDef["series"] = [];
+    let ok = true;
+    for (const s of g.series) {
+      const vals = celulasDe(s.val)?.flat();
+      const cats = s.cat ? celulasDe(s.cat) : null;
+      if (!vals || (s.cat && !cats)) { ok = false; break; }
+      // categorias em mais de uma coluna (ex.: rótulo em duas células mescladas): usa a primeira célula preenchida da linha
+      const rotulos: Ref1[] = (cats ?? vals.map((_, i) => [String(i + 1)])).map((linha) => { for (const e of linha) { const t = textoDe(e); if (t !== null) return t; } return null; });
+      const nome: Ref1 = s.nome?.texto ?? (s.nome?.ref ? (celulasDe(s.nome.ref) ? textoDe(celulasDe(s.nome.ref)![0][0]) : null) : null);
+      series.push({ tipo: s.tipo, ...(s.direcao ? { direcao: s.direcao } : {}), nome, cats: rotulos, vals: vals.map((e) => { const c = porEnd.get(e); return c?.f ? chaveDe(e) : null; }) });
+    }
+    if (!ok) { console.log("  (gráfico ignorado, referência fora da aba: " + (g.titulo || "sem título") + ")"); continue; }
+    graficos.push({ titulo: g.titulo, eixo: g.eixo, ancora: g.ancora, series });
+  }
+  console.log("  " + graficos.length + " gráfico(s) do Excel");
+}
+
+// 6) tabelas por BLOCOS (iguais ao desenho da planilha): cada bloco = linhas + colunas da aba, linha de cabeçalho e coluna de rótulo.
+//    spec.blocos: [{ titulo, linhas: [r1, r2] | [r, r, ...], colunas: ["F","G"], cabecalho?: <linha>, rotulo?: "B", cabecalhos?: ["a","b"] }]
+let tabelasFinais = spec.tabelas ?? [];
+if (spec.blocos) {
+  const textoFixo = (end: string) => { const c = porEnd.get(end); return c && !c.f && c.v !== "" && c.v !== null && (c.t === "s" || c.t === "str" || Number.isNaN(Number(c.v))) ? String(c.v).replace(/\s+/g, " ").trim() : ""; };
+  tabelasFinais = spec.blocos.map((b: { titulo: string; linhas: number[]; colunas: string[]; cabecalho?: number; rotulo?: string; cabecalhos?: string[]; rotulos?: string[] }) => {
+    const linhas = b.linhas.length === 2 && b.linhas[1] - b.linhas[0] > 1 ? Array.from({ length: b.linhas[1] - b.linhas[0] + 1 }, (_, i) => b.linhas[0] + i) : b.linhas;
+    return {
+      titulo: b.titulo,
+      colunas: b.cabecalhos ?? b.colunas.map((c) => (b.cabecalho ? textoFixo(c + b.cabecalho) : "")),
+      linhas: linhas.map((r, i) => {
+        const rotEnd = b.rotulo ? b.rotulo + r : "";
+        const rotCel = rotEnd ? porEnd.get(rotEnd) : undefined;
+        const rotulo = b.rotulos?.[i] ?? (rotCel?.f ? "=" + chaveDe(rotEnd) : rotEnd ? textoFixo(rotEnd) : "");
+        return { rotulo, valores: b.colunas.map((c) => (porEnd.get(c + r)?.f ? chaveDe(c + r) : null)) };
+      }),
+    };
+  });
+}
+
 const def: DefinicaoPlanilha = {
   tipo: "planilha", versao: new Date().toISOString().slice(0, 10), sigla: spec.sigla, aba: spec.aba, planilhas,
-  contexto: spec.contexto ?? {}, ...(spec.portas ? { portas: spec.portas } : {}), ...(spec.cabecalhos ? { cabecalhos: spec.cabecalhos } : {}), entradas: spec.entradas, opcoes: spec.opcoes ?? [], saidas: spec.saidas, tabelas: spec.tabelas ?? [],
+  contexto: spec.contexto ?? {}, ...(spec.portas ? { portas: spec.portas } : {}), ...(spec.datas ? { datas: spec.datas } : {}), ...(spec.cabecalhos ? { cabecalhos: spec.cabecalhos } : {}), entradas: spec.entradas, opcoes: spec.opcoes ?? [], saidas: saidasFinais, tabelas: tabelasFinais, ...(graficos.length ? { graficos } : {}),
 };
 mkdirSync(dirname(saida), { recursive: true });
 writeFileSync(saida, JSON.stringify({ _fonte: `Planilha da psicóloga (aba ${spec.aba}) — extraído por scripts/construir-teste-planilha.ts. Referência de RESULTADO.`, nome: spec.nome, dominio: spec.dominio, descricao: spec.descricao, referencia: spec.referencia, idade: spec.idade, ...def }));

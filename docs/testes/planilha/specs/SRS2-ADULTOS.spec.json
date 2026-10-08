@@ -19,1606 +19,2308 @@
  },
  "entradas": [
   {
-   "chave": "in_R3",
-   "celula": "R3",
-   "rotulo": "Autorrelato 1:",
-   "min": 0
-  },
-  {
-   "chave": "in_R4",
-   "celula": "R4",
-   "rotulo": "Heterorrelato 1:",
-   "min": 0
-  },
-  {
-   "chave": "in_Z4",
-   "celula": "Z4",
-   "rotulo": "Data de aplicação 2:",
-   "min": 0
-  },
-  {
-   "chave": "in_R5",
-   "celula": "R5",
-   "rotulo": "Heterorrelato 2:",
-   "min": 0
-  },
-  {
-   "chave": "in_Z5",
-   "celula": "Z5",
-   "rotulo": "Data de aplicação 3:",
-   "min": 0
-  },
-  {
-   "chave": "in_R6",
-   "celula": "R6",
-   "rotulo": "Heterorrelato 3:",
-   "min": 0
-  },
-  {
-   "chave": "in_Z6",
-   "celula": "Z6",
-   "rotulo": "Data de aplicação 4:",
-   "min": 0
-  },
-  {
    "chave": "in_Y13",
    "celula": "Y13",
-   "rotulo": "Eu fico muito mais desconfortável em sit — Resp",
-   "min": 0
+   "rotulo": "1. Eu fico muito mais desconfortável em situações sociais do que quando estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB13",
    "celula": "AB13",
-   "rotulo": "Eu fico muito mais desconfortável em sit — Resp",
-   "min": 0
+   "rotulo": "1. Eu fico muito mais desconfortável em situações sociais do que quando estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE13",
    "celula": "AE13",
-   "rotulo": "Eu fico muito mais desconfortável em sit — Resp",
-   "min": 0
+   "rotulo": "1. Eu fico muito mais desconfortável em situações sociais do que quando estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH13",
    "celula": "AH13",
-   "rotulo": "Eu fico muito mais desconfortável em sit — Resp",
-   "min": 0
+   "rotulo": "1. Eu fico muito mais desconfortável em situações sociais do que quando estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y14",
    "celula": "Y14",
-   "rotulo": "Minhas expressões passam uma mensagem er — Resp",
-   "min": 0
+   "rotulo": "2. Minhas expressões passam uma mensagem errada aos outros sobre como eu realmente me sinto",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB14",
    "celula": "AB14",
-   "rotulo": "Minhas expressões passam uma mensagem er — Resp",
-   "min": 0
+   "rotulo": "2. Minhas expressões passam uma mensagem errada aos outros sobre como eu realmente me sinto",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE14",
    "celula": "AE14",
-   "rotulo": "Minhas expressões passam uma mensagem er — Resp",
-   "min": 0
+   "rotulo": "2. Minhas expressões passam uma mensagem errada aos outros sobre como eu realmente me sinto",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH14",
    "celula": "AH14",
-   "rotulo": "Minhas expressões passam uma mensagem er — Resp",
-   "min": 0
+   "rotulo": "2. Minhas expressões passam uma mensagem errada aos outros sobre como eu realmente me sinto",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y15",
    "celula": "Y15",
-   "rotulo": "Eu me sinto confiante (ou seguro) quando — Resp",
-   "min": 0
+   "rotulo": "3. Eu me sinto confiante (ou seguro) quando estou interagindo com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB15",
    "celula": "AB15",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "3. Eu me sinto confiante (ou seguro) quando estou interagindo com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE15",
    "celula": "AE15",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "3. Eu me sinto confiante (ou seguro) quando estou interagindo com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH15",
    "celula": "AH15",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "3. Eu me sinto confiante (ou seguro) quando estou interagindo com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y16",
    "celula": "Y16",
-   "rotulo": "Quando estou sob estresse, tenho um comp — Resp",
-   "min": 0
+   "rotulo": "4. Quando estou sob estresse, tenho um comportamento rígido e inflexível...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB16",
    "celula": "AB16",
-   "rotulo": "Quando estou sob estresse, tenho um comp — Resp",
-   "min": 0
+   "rotulo": "4. Quando estou sob estresse, tenho um comportamento rígido e inflexível...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE16",
    "celula": "AE16",
-   "rotulo": "Quando estou sob estresse, tenho um comp — Resp",
-   "min": 0
+   "rotulo": "4. Quando estou sob estresse, tenho um comportamento rígido e inflexível...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH16",
    "celula": "AH16",
-   "rotulo": "Quando estou sob estresse, tenho um comp — Resp",
-   "min": 0
+   "rotulo": "4. Quando estou sob estresse, tenho um comportamento rígido e inflexível...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y17",
    "celula": "Y17",
-   "rotulo": "Eu não reconheço quando os outros estão  — Resp",
-   "min": 0
+   "rotulo": "5. Eu não reconheço quando os outros estão tentando tirar vantagem sobre mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB17",
    "celula": "AB17",
-   "rotulo": "Eu não reconheço quando os outros estão  — Resp",
-   "min": 0
+   "rotulo": "5. Eu não reconheço quando os outros estão tentando tirar vantagem sobre mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE17",
    "celula": "AE17",
-   "rotulo": "Eu não reconheço quando os outros estão  — Resp",
-   "min": 0
+   "rotulo": "5. Eu não reconheço quando os outros estão tentando tirar vantagem sobre mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH17",
    "celula": "AH17",
-   "rotulo": "Eu não reconheço quando os outros estão  — Resp",
-   "min": 0
+   "rotulo": "5. Eu não reconheço quando os outros estão tentando tirar vantagem sobre mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y18",
    "celula": "Y18",
-   "rotulo": "Prefiro estar sozinho do que com os outr — Resp",
-   "min": 0
+   "rotulo": "6. Prefiro estar sozinho do que com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB18",
    "celula": "AB18",
-   "rotulo": "Prefiro estar sozinho do que com os outr — Resp",
-   "min": 0
+   "rotulo": "6. Prefiro estar sozinho do que com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE18",
    "celula": "AE18",
-   "rotulo": "Prefiro estar sozinho do que com os outr — Resp",
-   "min": 0
+   "rotulo": "6. Prefiro estar sozinho do que com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH18",
    "celula": "AH18",
-   "rotulo": "Prefiro estar sozinho do que com os outr — Resp",
-   "min": 0
+   "rotulo": "6. Prefiro estar sozinho do que com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y19",
    "celula": "Y19",
-   "rotulo": "Normalmente eu consigo perceber como os  — Resp",
-   "min": 0
+   "rotulo": "7. Normalmente eu consigo perceber como os outros estão se sentindo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB19",
    "celula": "AB19",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "7. Normalmente eu consigo perceber como os outros estão se sentindo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE19",
    "celula": "AE19",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "7. Normalmente eu consigo perceber como os outros estão se sentindo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH19",
    "celula": "AH19",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "7. Normalmente eu consigo perceber como os outros estão se sentindo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y20",
    "celula": "Y20",
-   "rotulo": "Eu me comporto de maneiras que parecem e — Resp",
-   "min": 0
+   "rotulo": "8. Eu me comporto de maneiras que parecem estranhas ou esquisitas aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB20",
    "celula": "AB20",
-   "rotulo": "Eu me comporto de maneiras que parecem e — Resp",
-   "min": 0
+   "rotulo": "8. Eu me comporto de maneiras que parecem estranhas ou esquisitas aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE20",
    "celula": "AE20",
-   "rotulo": "Eu me comporto de maneiras que parecem e — Resp",
-   "min": 0
+   "rotulo": "8. Eu me comporto de maneiras que parecem estranhas ou esquisitas aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH20",
    "celula": "AH20",
-   "rotulo": "Eu me comporto de maneiras que parecem e — Resp",
-   "min": 0
+   "rotulo": "8. Eu me comporto de maneiras que parecem estranhas ou esquisitas aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y21",
    "celula": "Y21",
-   "rotulo": "Eu sou excessivamente dependente dos out — Resp",
-   "min": 0
+   "rotulo": "9. Eu sou excessivamente dependente dos outros para me ajudar entender as minhas necessidades diárias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB21",
    "celula": "AB21",
-   "rotulo": "Eu sou excessivamente dependente dos out — Resp",
-   "min": 0
+   "rotulo": "9. Eu sou excessivamente dependente dos outros para me ajudar entender as minhas necessidades diárias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE21",
    "celula": "AE21",
-   "rotulo": "Eu sou excessivamente dependente dos out — Resp",
-   "min": 0
+   "rotulo": "9. Eu sou excessivamente dependente dos outros para me ajudar entender as minhas necessidades diárias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH21",
    "celula": "AH21",
-   "rotulo": "Eu sou excessivamente dependente dos out — Resp",
-   "min": 0
+   "rotulo": "9. Eu sou excessivamente dependente dos outros para me ajudar entender as minhas necessidades diárias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y22",
    "celula": "Y22",
-   "rotulo": "Eu levo as coisas muito \"ao pé da letra\" — Resp",
-   "min": 0
+   "rotulo": "10. Eu levo as coisas muito \"ao pé da letra\", e por causa disso, eu interpreto mal o significado pretendido ...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB22",
    "celula": "AB22",
-   "rotulo": "Eu levo as coisas muito \"ao pé da letra\" — Resp",
-   "min": 0
+   "rotulo": "10. Eu levo as coisas muito \"ao pé da letra\", e por causa disso, eu interpreto mal o significado pretendido ...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE22",
    "celula": "AE22",
-   "rotulo": "Eu levo as coisas muito \"ao pé da letra\" — Resp",
-   "min": 0
+   "rotulo": "10. Eu levo as coisas muito \"ao pé da letra\", e por causa disso, eu interpreto mal o significado pretendido ...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH22",
    "celula": "AH22",
-   "rotulo": "Eu levo as coisas muito \"ao pé da letra\" — Resp",
-   "min": 0
+   "rotulo": "10. Eu levo as coisas muito \"ao pé da letra\", e por causa disso, eu interpreto mal o significado pretendido ...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y23",
    "celula": "Y23",
-   "rotulo": "Eu sou autoconfiante. — Resp",
-   "min": 0
+   "rotulo": "11. Eu sou autoconfiante.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB23",
    "celula": "AB23",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "11. Eu sou autoconfiante.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE23",
    "celula": "AE23",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "11. Eu sou autoconfiante.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH23",
    "celula": "AH23",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "11. Eu sou autoconfiante.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y24",
    "celula": "Y24",
-   "rotulo": "Eu sou capaz de comunicar meus sentiment — Resp",
-   "min": 0
+   "rotulo": "12. Eu sou capaz de comunicar meus sentimentos aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB24",
    "celula": "AB24",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "12. Eu sou capaz de comunicar meus sentimentos aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE24",
    "celula": "AE24",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "12. Eu sou capaz de comunicar meus sentimentos aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH24",
    "celula": "AH24",
-   "rotulo": "inv — Resp",
-   "min": 0
+   "rotulo": "12. Eu sou capaz de comunicar meus sentimentos aos outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y25",
    "celula": "Y25",
-   "rotulo": "Eu fico estranho nas interações com os c",
-   "min": 0
+   "rotulo": "13. Eu fico estranho nas interações com os colegas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB25",
    "celula": "AB25",
-   "rotulo": "Eu fico estranho nas interações com os c",
-   "min": 0
+   "rotulo": "13. Eu fico estranho nas interações com os colegas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE25",
    "celula": "AE25",
-   "rotulo": "Eu fico estranho nas interações com os c",
-   "min": 0
+   "rotulo": "13. Eu fico estranho nas interações com os colegas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH25",
    "celula": "AH25",
-   "rotulo": "Eu fico estranho nas interações com os c",
-   "min": 0
+   "rotulo": "13. Eu fico estranho nas interações com os colegas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y26",
    "celula": "Y26",
-   "rotulo": "Eu não sou bem coordenado.",
-   "min": 0
+   "rotulo": "14. Eu não sou bem coordenado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB26",
    "celula": "AB26",
-   "rotulo": "Eu não sou bem coordenado.",
-   "min": 0
+   "rotulo": "14. Eu não sou bem coordenado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE26",
    "celula": "AE26",
-   "rotulo": "Eu não sou bem coordenado.",
-   "min": 0
+   "rotulo": "14. Eu não sou bem coordenado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH26",
    "celula": "AH26",
-   "rotulo": "Eu não sou bem coordenado.",
-   "min": 0
+   "rotulo": "14. Eu não sou bem coordenado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y27",
    "celula": "Y27",
-   "rotulo": "Quando as pessoas mudam seu tom ou expre",
-   "min": 0
+   "rotulo": "15. Quando as pessoas mudam seu tom ou expressão facial, eu normalmente entendo o que isso significa",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB27",
    "celula": "AB27",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "15. Quando as pessoas mudam seu tom ou expressão facial, eu normalmente entendo o que isso significa",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE27",
    "celula": "AE27",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "15. Quando as pessoas mudam seu tom ou expressão facial, eu normalmente entendo o que isso significa",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH27",
    "celula": "AH27",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "15. Quando as pessoas mudam seu tom ou expressão facial, eu normalmente entendo o que isso significa",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y28",
    "celula": "Y28",
-   "rotulo": "Eu evito contato visual ou me dizem que ",
-   "min": 0
+   "rotulo": "16. Eu evito contato visual ou me dizem que tenho contato visual diferente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB28",
    "celula": "AB28",
-   "rotulo": "Eu evito contato visual ou me dizem que ",
-   "min": 0
+   "rotulo": "16. Eu evito contato visual ou me dizem que tenho contato visual diferente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE28",
    "celula": "AE28",
-   "rotulo": "Eu evito contato visual ou me dizem que ",
-   "min": 0
+   "rotulo": "16. Eu evito contato visual ou me dizem que tenho contato visual diferente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH28",
    "celula": "AH28",
-   "rotulo": "Eu evito contato visual ou me dizem que ",
-   "min": 0
+   "rotulo": "16. Eu evito contato visual ou me dizem que tenho contato visual diferente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y29",
    "celula": "Y29",
-   "rotulo": "Eu reconheço quando algo é injusto.",
-   "min": 0
+   "rotulo": "17. Eu reconheço quando algo é injusto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB29",
    "celula": "AB29",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "17. Eu reconheço quando algo é injusto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE29",
    "celula": "AE29",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "17. Eu reconheço quando algo é injusto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH29",
    "celula": "AH29",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "17. Eu reconheço quando algo é injusto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y30",
    "celula": "Y30",
-   "rotulo": "Eu tenho dificuldades em fazer amigos, m",
-   "min": 0
+   "rotulo": "18. Eu tenho dificuldades em fazer amigos, mesmo quando eu tento dar o melhor de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB30",
    "celula": "AB30",
-   "rotulo": "Eu tenho dificuldades em fazer amigos, m",
-   "min": 0
+   "rotulo": "18. Eu tenho dificuldades em fazer amigos, mesmo quando eu tento dar o melhor de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE30",
    "celula": "AE30",
-   "rotulo": "Eu tenho dificuldades em fazer amigos, m",
-   "min": 0
+   "rotulo": "18. Eu tenho dificuldades em fazer amigos, mesmo quando eu tento dar o melhor de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH30",
    "celula": "AH30",
-   "rotulo": "Eu tenho dificuldades em fazer amigos, m",
-   "min": 0
+   "rotulo": "18. Eu tenho dificuldades em fazer amigos, mesmo quando eu tento dar o melhor de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y31",
    "celula": "Y31",
-   "rotulo": "Eu fico frustrado tentando expressar min",
-   "min": 0
+   "rotulo": "19. Eu fico frustrado tentando expressar minhas ideias em uma conversa.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB31",
    "celula": "AB31",
-   "rotulo": "Eu fico frustrado tentando expressar min",
-   "min": 0
+   "rotulo": "19. Eu fico frustrado tentando expressar minhas ideias em uma conversa.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE31",
    "celula": "AE31",
-   "rotulo": "Eu fico frustrado tentando expressar min",
-   "min": 0
+   "rotulo": "19. Eu fico frustrado tentando expressar minhas ideias em uma conversa.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH31",
    "celula": "AH31",
-   "rotulo": "Eu fico frustrado tentando expressar min",
-   "min": 0
+   "rotulo": "19. Eu fico frustrado tentando expressar minhas ideias em uma conversa.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y32",
    "celula": "Y32",
-   "rotulo": "Eu tenho interesses sensoriais que os ou",
-   "min": 0
+   "rotulo": "20. Eu tenho interesses sensoriais que os outros acham diferentes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB32",
    "celula": "AB32",
-   "rotulo": "Eu tenho interesses sensoriais que os ou",
-   "min": 0
+   "rotulo": "20. Eu tenho interesses sensoriais que os outros acham diferentes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE32",
    "celula": "AE32",
-   "rotulo": "Eu tenho interesses sensoriais que os ou",
-   "min": 0
+   "rotulo": "20. Eu tenho interesses sensoriais que os outros acham diferentes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH32",
    "celula": "AH32",
-   "rotulo": "Eu tenho interesses sensoriais que os ou",
-   "min": 0
+   "rotulo": "20. Eu tenho interesses sensoriais que os outros acham diferentes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y33",
    "celula": "Y33",
-   "rotulo": "Eu sou capaz de imitar as ações e expres",
-   "min": 0
+   "rotulo": "21. Eu sou capaz de imitar as ações e expressões dos outros...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB33",
    "celula": "AB33",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "21. Eu sou capaz de imitar as ações e expressões dos outros...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE33",
    "celula": "AE33",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "21. Eu sou capaz de imitar as ações e expressões dos outros...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH33",
    "celula": "AH33",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "21. Eu sou capaz de imitar as ações e expressões dos outros...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y34",
    "celula": "Y34",
-   "rotulo": "Eu interajo apropriadamente com os outro",
-   "min": 0
+   "rotulo": "22. Eu interajo apropriadamente com os outros adultos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB34",
    "celula": "AB34",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "22. Eu interajo apropriadamente com os outros adultos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE34",
    "celula": "AE34",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "22. Eu interajo apropriadamente com os outros adultos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH34",
    "celula": "AH34",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "22. Eu interajo apropriadamente com os outros adultos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y35",
    "celula": "Y35",
-   "rotulo": "Eu não participo de atividades em grupo ",
-   "min": 0
+   "rotulo": "23. Eu não participo de atividades em grupo ou eventos sociais a menos que seja obrigado a fazê-lo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB35",
    "celula": "AB35",
-   "rotulo": "Eu não participo de atividades em grupo ",
-   "min": 0
+   "rotulo": "23. Eu não participo de atividades em grupo ou eventos sociais a menos que seja obrigado a fazê-lo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE35",
    "celula": "AE35",
-   "rotulo": "Eu não participo de atividades em grupo ",
-   "min": 0
+   "rotulo": "23. Eu não participo de atividades em grupo ou eventos sociais a menos que seja obrigado a fazê-lo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH35",
    "celula": "AH35",
-   "rotulo": "Eu não participo de atividades em grupo ",
-   "min": 0
+   "rotulo": "23. Eu não participo de atividades em grupo ou eventos sociais a menos que seja obrigado a fazê-lo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y36",
    "celula": "Y36",
-   "rotulo": "Eu tem mais dificuldade que os outros co",
-   "min": 0
+   "rotulo": "24. Eu tem mais dificuldade que os outros com mudanças na minha rotina.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB36",
    "celula": "AB36",
-   "rotulo": "Eu tem mais dificuldade que os outros co",
-   "min": 0
+   "rotulo": "24. Eu tem mais dificuldade que os outros com mudanças na minha rotina.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE36",
    "celula": "AE36",
-   "rotulo": "Eu tem mais dificuldade que os outros co",
-   "min": 0
+   "rotulo": "24. Eu tem mais dificuldade que os outros com mudanças na minha rotina.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH36",
    "celula": "AH36",
-   "rotulo": "Eu tem mais dificuldade que os outros co",
-   "min": 0
+   "rotulo": "24. Eu tem mais dificuldade que os outros com mudanças na minha rotina.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y37",
    "celula": "Y37",
-   "rotulo": "Eu não me importo em estar \"na mesma ond",
-   "min": 0
+   "rotulo": "25. Eu não me importo em estar \"na mesma onda\" ou fora de sintonia com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB37",
    "celula": "AB37",
-   "rotulo": "Eu não me importo em estar \"na mesma ond",
-   "min": 0
+   "rotulo": "25. Eu não me importo em estar \"na mesma onda\" ou fora de sintonia com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE37",
    "celula": "AE37",
-   "rotulo": "Eu não me importo em estar \"na mesma ond",
-   "min": 0
+   "rotulo": "25. Eu não me importo em estar \"na mesma onda\" ou fora de sintonia com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH37",
    "celula": "AH37",
-   "rotulo": "Eu não me importo em estar \"na mesma ond",
-   "min": 0
+   "rotulo": "25. Eu não me importo em estar \"na mesma onda\" ou fora de sintonia com os outros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y38",
    "celula": "Y38",
-   "rotulo": "Eu ofereço conforto aos outros quando es",
-   "min": 0
+   "rotulo": "26. Eu ofereço conforto aos outros quando estão tristes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB38",
    "celula": "AB38",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "26. Eu ofereço conforto aos outros quando estão tristes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE38",
    "celula": "AE38",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "26. Eu ofereço conforto aos outros quando estão tristes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH38",
    "celula": "AH38",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "26. Eu ofereço conforto aos outros quando estão tristes.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y39",
    "celula": "Y39",
-   "rotulo": "Eu evito iniciar interações sociais com ",
-   "min": 0
+   "rotulo": "27. Eu evito iniciar interações sociais com outros adultos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB39",
    "celula": "AB39",
-   "rotulo": "Eu evito iniciar interações sociais com ",
-   "min": 0
+   "rotulo": "27. Eu evito iniciar interações sociais com outros adultos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE39",
    "celula": "AE39",
-   "rotulo": "Eu evito iniciar interações sociais com ",
-   "min": 0
+   "rotulo": "27. Eu evito iniciar interações sociais com outros adultos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH39",
    "celula": "AH39",
-   "rotulo": "Eu evito iniciar interações sociais com ",
-   "min": 0
+   "rotulo": "27. Eu evito iniciar interações sociais com outros adultos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y40",
    "celula": "Y40",
-   "rotulo": "Eu penso ou falo sobre a mesma coisa rep",
-   "min": 0
+   "rotulo": "28. Eu penso ou falo sobre a mesma coisa repeditamente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB40",
    "celula": "AB40",
-   "rotulo": "Eu penso ou falo sobre a mesma coisa rep",
-   "min": 0
+   "rotulo": "28. Eu penso ou falo sobre a mesma coisa repeditamente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE40",
    "celula": "AE40",
-   "rotulo": "Eu penso ou falo sobre a mesma coisa rep",
-   "min": 0
+   "rotulo": "28. Eu penso ou falo sobre a mesma coisa repeditamente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH40",
    "celula": "AH40",
-   "rotulo": "Eu penso ou falo sobre a mesma coisa rep",
-   "min": 0
+   "rotulo": "28. Eu penso ou falo sobre a mesma coisa repeditamente.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y41",
    "celula": "Y41",
-   "rotulo": "Eu sou considerado pelos outros como est",
-   "min": 0
+   "rotulo": "29. Eu sou considerado pelos outros como estranho ou esquisito.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB41",
    "celula": "AB41",
-   "rotulo": "Eu sou considerado pelos outros como est",
-   "min": 0
+   "rotulo": "29. Eu sou considerado pelos outros como estranho ou esquisito.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE41",
    "celula": "AE41",
-   "rotulo": "Eu sou considerado pelos outros como est",
-   "min": 0
+   "rotulo": "29. Eu sou considerado pelos outros como estranho ou esquisito.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH41",
    "celula": "AH41",
-   "rotulo": "Eu sou considerado pelos outros como est",
-   "min": 0
+   "rotulo": "29. Eu sou considerado pelos outros como estranho ou esquisito.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y42",
    "celula": "Y42",
-   "rotulo": "Eu fico perturbado em uma situação com m",
-   "min": 0
+   "rotulo": "30. Eu fico perturbado em uma situação com muitas coisas acontecendo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB42",
    "celula": "AB42",
-   "rotulo": "Eu fico perturbado em uma situação com m",
-   "min": 0
+   "rotulo": "30. Eu fico perturbado em uma situação com muitas coisas acontecendo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE42",
    "celula": "AE42",
-   "rotulo": "Eu fico perturbado em uma situação com m",
-   "min": 0
+   "rotulo": "30. Eu fico perturbado em uma situação com muitas coisas acontecendo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH42",
    "celula": "AH42",
-   "rotulo": "Eu fico perturbado em uma situação com m",
-   "min": 0
+   "rotulo": "30. Eu fico perturbado em uma situação com muitas coisas acontecendo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y43",
    "celula": "Y43",
-   "rotulo": "Eu não consigo tirar algo de minha mente",
-   "min": 0
+   "rotulo": "31. Eu não consigo tirar algo de minha mente uma vez que começo a pensar sobre isso.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB43",
    "celula": "AB43",
-   "rotulo": "Eu não consigo tirar algo de minha mente",
-   "min": 0
+   "rotulo": "31. Eu não consigo tirar algo de minha mente uma vez que começo a pensar sobre isso.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE43",
    "celula": "AE43",
-   "rotulo": "Eu não consigo tirar algo de minha mente",
-   "min": 0
+   "rotulo": "31. Eu não consigo tirar algo de minha mente uma vez que começo a pensar sobre isso.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH43",
    "celula": "AH43",
-   "rotulo": "Eu não consigo tirar algo de minha mente",
-   "min": 0
+   "rotulo": "31. Eu não consigo tirar algo de minha mente uma vez que começo a pensar sobre isso.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y44",
    "celula": "Y44",
-   "rotulo": "Eu tenho boa higiene pessoal.",
-   "min": 0
+   "rotulo": "32. Eu tenho boa higiene pessoal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB44",
    "celula": "AB44",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "32. Eu tenho boa higiene pessoal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE44",
    "celula": "AE44",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "32. Eu tenho boa higiene pessoal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH44",
    "celula": "AH44",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "32. Eu tenho boa higiene pessoal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y45",
    "celula": "Y45",
-   "rotulo": "Meu comportamento é socialmente desajeit",
-   "min": 0
+   "rotulo": "33. Meu comportamento é socialmente desajeitado, mesmo quando tento ser educado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB45",
    "celula": "AB45",
-   "rotulo": "Meu comportamento é socialmente desajeit",
-   "min": 0
+   "rotulo": "33. Meu comportamento é socialmente desajeitado, mesmo quando tento ser educado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE45",
    "celula": "AE45",
-   "rotulo": "Meu comportamento é socialmente desajeit",
-   "min": 0
+   "rotulo": "33. Meu comportamento é socialmente desajeitado, mesmo quando tento ser educado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH45",
    "celula": "AH45",
-   "rotulo": "Meu comportamento é socialmente desajeit",
-   "min": 0
+   "rotulo": "33. Meu comportamento é socialmente desajeitado, mesmo quando tento ser educado.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y46",
    "celula": "Y46",
-   "rotulo": "Eu evito pessoas que querem ser emociona",
-   "min": 0
+   "rotulo": "34. Eu evito pessoas que querem ser emocionalmente próximas de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB46",
    "celula": "AB46",
-   "rotulo": "Eu evito pessoas que querem ser emociona",
-   "min": 0
+   "rotulo": "34. Eu evito pessoas que querem ser emocionalmente próximas de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE46",
    "celula": "AE46",
-   "rotulo": "Eu evito pessoas que querem ser emociona",
-   "min": 0
+   "rotulo": "34. Eu evito pessoas que querem ser emocionalmente próximas de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH46",
    "celula": "AH46",
-   "rotulo": "Eu evito pessoas que querem ser emociona",
-   "min": 0
+   "rotulo": "34. Eu evito pessoas que querem ser emocionalmente próximas de mim.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y47",
    "celula": "Y47",
-   "rotulo": "Eu tenho dificuldade em acompanhar o flu",
-   "min": 0
+   "rotulo": "35. Eu tenho dificuldade em acompanhar o fluxo de uma conversa normal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB47",
    "celula": "AB47",
-   "rotulo": "Eu tenho dificuldade em acompanhar o flu",
-   "min": 0
+   "rotulo": "35. Eu tenho dificuldade em acompanhar o fluxo de uma conversa normal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE47",
    "celula": "AE47",
-   "rotulo": "Eu tenho dificuldade em acompanhar o flu",
-   "min": 0
+   "rotulo": "35. Eu tenho dificuldade em acompanhar o fluxo de uma conversa normal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH47",
    "celula": "AH47",
-   "rotulo": "Eu tenho dificuldade em acompanhar o flu",
-   "min": 0
+   "rotulo": "35. Eu tenho dificuldade em acompanhar o fluxo de uma conversa normal.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y48",
    "celula": "Y48",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "36. Eu tenho dificuldade em me relacionar com os membros de minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB48",
    "celula": "AB48",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "36. Eu tenho dificuldade em me relacionar com os membros de minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE48",
    "celula": "AE48",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "36. Eu tenho dificuldade em me relacionar com os membros de minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH48",
    "celula": "AH48",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "36. Eu tenho dificuldade em me relacionar com os membros de minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y49",
    "celula": "Y49",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "37. Eu tenho dificuldade em me relacionar com pessoas que não são da minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB49",
    "celula": "AB49",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "37. Eu tenho dificuldade em me relacionar com pessoas que não são da minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE49",
    "celula": "AE49",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "37. Eu tenho dificuldade em me relacionar com pessoas que não são da minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH49",
    "celula": "AH49",
-   "rotulo": "Eu tenho dificuldade em me relacionar co",
-   "min": 0
+   "rotulo": "37. Eu tenho dificuldade em me relacionar com pessoas que não são da minha família.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y50",
    "celula": "Y50",
-   "rotulo": "Eu respondo adequadamente às mudanças de",
-   "min": 0
+   "rotulo": "38. Eu respondo adequadamente às mudanças de humor das outras pessoas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB50",
    "celula": "AB50",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "38. Eu respondo adequadamente às mudanças de humor das outras pessoas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE50",
    "celula": "AE50",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "38. Eu respondo adequadamente às mudanças de humor das outras pessoas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH50",
    "celula": "AH50",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "38. Eu respondo adequadamente às mudanças de humor das outras pessoas...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y51",
    "celula": "Y51",
-   "rotulo": "As pessoas me acham muito interessado em",
-   "min": 0
+   "rotulo": "39. As pessoas me acham muito interessado em poucos assuntos ou que eu ''me deixo'' levar por esses assuntos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB51",
    "celula": "AB51",
-   "rotulo": "As pessoas me acham muito interessado em",
-   "min": 0
+   "rotulo": "39. As pessoas me acham muito interessado em poucos assuntos ou que eu ''me deixo'' levar por esses assuntos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE51",
    "celula": "AE51",
-   "rotulo": "As pessoas me acham muito interessado em",
-   "min": 0
+   "rotulo": "39. As pessoas me acham muito interessado em poucos assuntos ou que eu ''me deixo'' levar por esses assuntos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH51",
    "celula": "AH51",
-   "rotulo": "As pessoas me acham muito interessado em",
-   "min": 0
+   "rotulo": "39. As pessoas me acham muito interessado em poucos assuntos ou que eu ''me deixo'' levar por esses assuntos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y52",
    "celula": "Y52",
-   "rotulo": "Eu sou imaginativo.",
-   "min": 0
+   "rotulo": "40. Eu sou imaginativo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB52",
    "celula": "AB52",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "40. Eu sou imaginativo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE52",
    "celula": "AE52",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "40. Eu sou imaginativo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH52",
    "celula": "AH52",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "40. Eu sou imaginativo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y53",
    "celula": "Y53",
-   "rotulo": "Eu às vezes mudo de uma atividade para o",
-   "min": 0
+   "rotulo": "41. Eu às vezes mudo de uma atividade para outra sem nenhuma razão.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB53",
    "celula": "AB53",
-   "rotulo": "Eu às vezes mudo de uma atividade para o",
-   "min": 0
+   "rotulo": "41. Eu às vezes mudo de uma atividade para outra sem nenhuma razão.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE53",
    "celula": "AE53",
-   "rotulo": "Eu às vezes mudo de uma atividade para o",
-   "min": 0
+   "rotulo": "41. Eu às vezes mudo de uma atividade para outra sem nenhuma razão.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH53",
    "celula": "AH53",
-   "rotulo": "Eu às vezes mudo de uma atividade para o",
-   "min": 0
+   "rotulo": "41. Eu às vezes mudo de uma atividade para outra sem nenhuma razão.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y54",
    "celula": "Y54",
-   "rotulo": "Eu sou excessivamente sensível a certos ",
-   "min": 0
+   "rotulo": "42. Eu sou excessivamente sensível a certos sons, texturas ou cheiros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB54",
    "celula": "AB54",
-   "rotulo": "Eu sou excessivamente sensível a certos ",
-   "min": 0
+   "rotulo": "42. Eu sou excessivamente sensível a certos sons, texturas ou cheiros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE54",
    "celula": "AE54",
-   "rotulo": "Eu sou excessivamente sensível a certos ",
-   "min": 0
+   "rotulo": "42. Eu sou excessivamente sensível a certos sons, texturas ou cheiros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH54",
    "celula": "AH54",
-   "rotulo": "Eu sou excessivamente sensível a certos ",
-   "min": 0
+   "rotulo": "42. Eu sou excessivamente sensível a certos sons, texturas ou cheiros.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y55",
    "celula": "Y55",
-   "rotulo": "Eu gosto de conversas (conversas casuais",
-   "min": 0
+   "rotulo": "43. Eu gosto de conversas (conversas casuais com os outros).",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB55",
    "celula": "AB55",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "43. Eu gosto de conversas (conversas casuais com os outros).",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE55",
    "celula": "AE55",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "43. Eu gosto de conversas (conversas casuais com os outros).",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH55",
    "celula": "AH55",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "43. Eu gosto de conversas (conversas casuais com os outros).",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y56",
    "celula": "Y56",
-   "rotulo": "Eu tenho mais problemas do que a maioria",
-   "min": 0
+   "rotulo": "44. Eu tenho mais problemas do que a maioria das pessoas com o entendimento da causalidade...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB56",
    "celula": "AB56",
-   "rotulo": "Eu tenho mais problemas do que a maioria",
-   "min": 0
+   "rotulo": "44. Eu tenho mais problemas do que a maioria das pessoas com o entendimento da causalidade...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE56",
    "celula": "AE56",
-   "rotulo": "Eu tenho mais problemas do que a maioria",
-   "min": 0
+   "rotulo": "44. Eu tenho mais problemas do que a maioria das pessoas com o entendimento da causalidade...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH56",
    "celula": "AH56",
-   "rotulo": "Eu tenho mais problemas do que a maioria",
-   "min": 0
+   "rotulo": "44. Eu tenho mais problemas do que a maioria das pessoas com o entendimento da causalidade...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y57",
    "celula": "Y57",
-   "rotulo": "Quando os outros ao redor de mim estão p",
-   "min": 0
+   "rotulo": "45. Quando os outros ao redor de mim estão prestando atenção em algo, eu fico interessado no que eles estão atentos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB57",
    "celula": "AB57",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "45. Quando os outros ao redor de mim estão prestando atenção em algo, eu fico interessado no que eles estão atentos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE57",
    "celula": "AE57",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "45. Quando os outros ao redor de mim estão prestando atenção em algo, eu fico interessado no que eles estão atentos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH57",
    "celula": "AH57",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "45. Quando os outros ao redor de mim estão prestando atenção em algo, eu fico interessado no que eles estão atentos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y58",
    "celula": "Y58",
-   "rotulo": "Os outros sentem que eu tenho expressões",
-   "min": 0
+   "rotulo": "46. Os outros sentem que eu tenho expressões faciais excessivamente sérias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB58",
    "celula": "AB58",
-   "rotulo": "Os outros sentem que eu tenho expressões",
-   "min": 0
+   "rotulo": "46. Os outros sentem que eu tenho expressões faciais excessivamente sérias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE58",
    "celula": "AE58",
-   "rotulo": "Os outros sentem que eu tenho expressões",
-   "min": 0
+   "rotulo": "46. Os outros sentem que eu tenho expressões faciais excessivamente sérias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH58",
    "celula": "AH58",
-   "rotulo": "Os outros sentem que eu tenho expressões",
-   "min": 0
+   "rotulo": "46. Os outros sentem que eu tenho expressões faciais excessivamente sérias.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y59",
    "celula": "Y59",
-   "rotulo": "Eu dou risadas em momentos inapropriados",
-   "min": 0
+   "rotulo": "47. Eu dou risadas em momentos inapropriados.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB59",
    "celula": "AB59",
-   "rotulo": "Eu dou risadas em momentos inapropriados",
-   "min": 0
+   "rotulo": "47. Eu dou risadas em momentos inapropriados.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE59",
    "celula": "AE59",
-   "rotulo": "Eu dou risadas em momentos inapropriados",
-   "min": 0
+   "rotulo": "47. Eu dou risadas em momentos inapropriados.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH59",
    "celula": "AH59",
-   "rotulo": "Eu dou risadas em momentos inapropriados",
-   "min": 0
+   "rotulo": "47. Eu dou risadas em momentos inapropriados.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y60",
    "celula": "Y60",
-   "rotulo": "Eu tenho um bom senso de humor e consigo",
-   "min": 0
+   "rotulo": "48. Eu tenho um bom senso de humor e consigo entender as piadas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB60",
    "celula": "AB60",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "48. Eu tenho um bom senso de humor e consigo entender as piadas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE60",
    "celula": "AE60",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "48. Eu tenho um bom senso de humor e consigo entender as piadas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH60",
    "celula": "AH60",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "48. Eu tenho um bom senso de humor e consigo entender as piadas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y61",
    "celula": "Y61",
-   "rotulo": "Sou extremamente bom em certos tipos de ",
-   "min": 0
+   "rotulo": "49. Sou extremamente bom em certos tipos de tarefas intelectuais, mas não sou tão bom na maioria das outras tarefas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB61",
    "celula": "AB61",
-   "rotulo": "Sou extremamente bom em certos tipos de ",
-   "min": 0
+   "rotulo": "49. Sou extremamente bom em certos tipos de tarefas intelectuais, mas não sou tão bom na maioria das outras tarefas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE61",
    "celula": "AE61",
-   "rotulo": "Sou extremamente bom em certos tipos de ",
-   "min": 0
+   "rotulo": "49. Sou extremamente bom em certos tipos de tarefas intelectuais, mas não sou tão bom na maioria das outras tarefas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH61",
    "celula": "AH61",
-   "rotulo": "Sou extremamente bom em certos tipos de ",
-   "min": 0
+   "rotulo": "49. Sou extremamente bom em certos tipos de tarefas intelectuais, mas não sou tão bom na maioria das outras tarefas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y62",
    "celula": "Y62",
-   "rotulo": "Eu tenho comportamentos repetitivos que ",
-   "min": 0
+   "rotulo": "50. Eu tenho comportamentos repetitivos que as outras pessoas consideram estranhos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB62",
    "celula": "AB62",
-   "rotulo": "Eu tenho comportamentos repetitivos que ",
-   "min": 0
+   "rotulo": "50. Eu tenho comportamentos repetitivos que as outras pessoas consideram estranhos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE62",
    "celula": "AE62",
-   "rotulo": "Eu tenho comportamentos repetitivos que ",
-   "min": 0
+   "rotulo": "50. Eu tenho comportamentos repetitivos que as outras pessoas consideram estranhos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH62",
    "celula": "AH62",
-   "rotulo": "Eu tenho comportamentos repetitivos que ",
-   "min": 0
+   "rotulo": "50. Eu tenho comportamentos repetitivos que as outras pessoas consideram estranhos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y63",
    "celula": "Y63",
-   "rotulo": "Eu tenho dificuldades de responder pergu",
-   "min": 0
+   "rotulo": "51. Eu tenho dificuldades de responder perguntas diretamente e acabo discursando sobre o assunto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB63",
    "celula": "AB63",
-   "rotulo": "Eu tenho dificuldades de responder pergu",
-   "min": 0
+   "rotulo": "51. Eu tenho dificuldades de responder perguntas diretamente e acabo discursando sobre o assunto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE63",
    "celula": "AE63",
-   "rotulo": "Eu tenho dificuldades de responder pergu",
-   "min": 0
+   "rotulo": "51. Eu tenho dificuldades de responder perguntas diretamente e acabo discursando sobre o assunto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH63",
    "celula": "AH63",
-   "rotulo": "Eu tenho dificuldades de responder pergu",
-   "min": 0
+   "rotulo": "51. Eu tenho dificuldades de responder perguntas diretamente e acabo discursando sobre o assunto.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y64",
    "celula": "Y64",
-   "rotulo": "Eu falo muito alto sem perceber.",
-   "min": 0
+   "rotulo": "52. Eu falo muito alto sem perceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB64",
    "celula": "AB64",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "52. Eu falo muito alto sem perceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE64",
    "celula": "AE64",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "52. Eu falo muito alto sem perceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH64",
    "celula": "AH64",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "52. Eu falo muito alto sem perceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y65",
    "celula": "Y65",
-   "rotulo": "Eu tenho tendência a falar com uma voz m",
-   "min": 0
+   "rotulo": "53. Eu tenho tendência a falar com uma voz monótona...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB65",
    "celula": "AB65",
-   "rotulo": "Eu tenho tendência a falar com uma voz m",
-   "min": 0
+   "rotulo": "53. Eu tenho tendência a falar com uma voz monótona...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE65",
    "celula": "AE65",
-   "rotulo": "Eu tenho tendência a falar com uma voz m",
-   "min": 0
+   "rotulo": "53. Eu tenho tendência a falar com uma voz monótona...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH65",
    "celula": "AH65",
-   "rotulo": "Eu tenho tendência a falar com uma voz m",
-   "min": 0
+   "rotulo": "53. Eu tenho tendência a falar com uma voz monótona...",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y66",
    "celula": "Y66",
-   "rotulo": "Eu tenho uma tendência a pensar sobre as",
-   "min": 0
+   "rotulo": "54. Eu tenho uma tendência a pensar sobre as pessoas do mesmo jeito que eu faço com os objetos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB66",
    "celula": "AB66",
-   "rotulo": "Eu tenho uma tendência a pensar sobre as",
-   "min": 0
+   "rotulo": "54. Eu tenho uma tendência a pensar sobre as pessoas do mesmo jeito que eu faço com os objetos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE66",
    "celula": "AE66",
-   "rotulo": "Eu tenho uma tendência a pensar sobre as",
-   "min": 0
+   "rotulo": "54. Eu tenho uma tendência a pensar sobre as pessoas do mesmo jeito que eu faço com os objetos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH66",
    "celula": "AH66",
-   "rotulo": "Eu tenho uma tendência a pensar sobre as",
-   "min": 0
+   "rotulo": "54. Eu tenho uma tendência a pensar sobre as pessoas do mesmo jeito que eu faço com os objetos.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y67",
    "celula": "Y67",
-   "rotulo": "Eu fico muito perto dos outros ou invado",
-   "min": 0
+   "rotulo": "55. Eu fico muito perto dos outros ou invado o espaço pessoal deles sem preceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB67",
    "celula": "AB67",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "55. Eu fico muito perto dos outros ou invado o espaço pessoal deles sem preceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE67",
    "celula": "AE67",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "55. Eu fico muito perto dos outros ou invado o espaço pessoal deles sem preceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH67",
    "celula": "AH67",
-   "rotulo": "inv",
-   "min": 0
+   "rotulo": "55. Eu fico muito perto dos outros ou invado o espaço pessoal deles sem preceber.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y68",
    "celula": "Y68",
-   "rotulo": "Às vezes eu cometo o erro de andar entre",
-   "min": 0
+   "rotulo": "56. Às vezes eu cometo o erro de andar entre duas pessoas que estão tentando conversar uma com a outra.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB68",
    "celula": "AB68",
-   "rotulo": "Às vezes eu cometo o erro de andar entre",
-   "min": 0
+   "rotulo": "56. Às vezes eu cometo o erro de andar entre duas pessoas que estão tentando conversar uma com a outra.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE68",
    "celula": "AE68",
-   "rotulo": "Às vezes eu cometo o erro de andar entre",
-   "min": 0
+   "rotulo": "56. Às vezes eu cometo o erro de andar entre duas pessoas que estão tentando conversar uma com a outra.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH68",
    "celula": "AH68",
-   "rotulo": "Às vezes eu cometo o erro de andar entre",
-   "min": 0
+   "rotulo": "56. Às vezes eu cometo o erro de andar entre duas pessoas que estão tentando conversar uma com a outra.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y69",
    "celula": "Y69",
-   "rotulo": "Eu tenho uma tendência a me isolar.",
-   "min": 0
+   "rotulo": "57. Eu tenho uma tendência a me isolar.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB69",
    "celula": "AB69",
-   "rotulo": "Eu tenho uma tendência a me isolar.",
-   "min": 0
+   "rotulo": "57. Eu tenho uma tendência a me isolar.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE69",
    "celula": "AE69",
-   "rotulo": "Eu tenho uma tendência a me isolar.",
-   "min": 0
+   "rotulo": "57. Eu tenho uma tendência a me isolar.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH69",
    "celula": "AH69",
-   "rotulo": "Eu tenho uma tendência a me isolar.",
-   "min": 0
+   "rotulo": "57. Eu tenho uma tendência a me isolar.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y70",
    "celula": "Y70",
-   "rotulo": "Eu me concentro demais nas partes das co",
-   "min": 0
+   "rotulo": "58. Eu me concentro demais nas partes das coisas ao invés de ver a figura como um todo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB70",
    "celula": "AB70",
-   "rotulo": "Eu me concentro demais nas partes das co",
-   "min": 0
+   "rotulo": "58. Eu me concentro demais nas partes das coisas ao invés de ver a figura como um todo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE70",
    "celula": "AE70",
-   "rotulo": "Eu me concentro demais nas partes das co",
-   "min": 0
+   "rotulo": "58. Eu me concentro demais nas partes das coisas ao invés de ver a figura como um todo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH70",
    "celula": "AH70",
-   "rotulo": "Eu me concentro demais nas partes das co",
-   "min": 0
+   "rotulo": "58. Eu me concentro demais nas partes das coisas ao invés de ver a figura como um todo.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y71",
    "celula": "Y71",
-   "rotulo": "Eu sou mais desconfiado que a maioria da",
-   "min": 0
+   "rotulo": "59. Eu sou mais desconfiado que a maioria das pessoas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB71",
    "celula": "AB71",
-   "rotulo": "Eu sou mais desconfiado que a maioria da",
-   "min": 0
+   "rotulo": "59. Eu sou mais desconfiado que a maioria das pessoas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE71",
    "celula": "AE71",
-   "rotulo": "Eu sou mais desconfiado que a maioria da",
-   "min": 0
+   "rotulo": "59. Eu sou mais desconfiado que a maioria das pessoas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH71",
    "celula": "AH71",
-   "rotulo": "Eu sou mais desconfiado que a maioria da",
-   "min": 0
+   "rotulo": "59. Eu sou mais desconfiado que a maioria das pessoas.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y72",
    "celula": "Y72",
-   "rotulo": "As outras pessoas me acham emocionalment",
-   "min": 0
+   "rotulo": "60. As outras pessoas me acham emocionalmente distante e que não demonstro meus sentimentos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB72",
    "celula": "AB72",
-   "rotulo": "As outras pessoas me acham emocionalment",
-   "min": 0
+   "rotulo": "60. As outras pessoas me acham emocionalmente distante e que não demonstro meus sentimentos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE72",
    "celula": "AE72",
-   "rotulo": "As outras pessoas me acham emocionalment",
-   "min": 0
+   "rotulo": "60. As outras pessoas me acham emocionalmente distante e que não demonstro meus sentimentos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH72",
    "celula": "AH72",
-   "rotulo": "As outras pessoas me acham emocionalment",
-   "min": 0
+   "rotulo": "60. As outras pessoas me acham emocionalmente distante e que não demonstro meus sentimentos",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y73",
    "celula": "Y73",
-   "rotulo": "Eu tenho uma tendência a ser inflexível.",
-   "min": 0
+   "rotulo": "61. Eu tenho uma tendência a ser inflexível.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB73",
    "celula": "AB73",
-   "rotulo": "Eu tenho uma tendência a ser inflexível.",
-   "min": 0
+   "rotulo": "61. Eu tenho uma tendência a ser inflexível.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE73",
    "celula": "AE73",
-   "rotulo": "Eu tenho uma tendência a ser inflexível.",
-   "min": 0
+   "rotulo": "61. Eu tenho uma tendência a ser inflexível.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH73",
    "celula": "AH73",
-   "rotulo": "Eu tenho uma tendência a ser inflexível.",
-   "min": 0
+   "rotulo": "61. Eu tenho uma tendência a ser inflexível.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y74",
    "celula": "Y74",
-   "rotulo": "Quando eu conto a alguém a minha razão p",
-   "min": 0
+   "rotulo": "62. Quando eu conto a alguém a minha razão para fazer alguma coisa, a pessoa acha que é incomum, sem lógica.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB74",
    "celula": "AB74",
-   "rotulo": "Quando eu conto a alguém a minha razão p",
-   "min": 0
+   "rotulo": "62. Quando eu conto a alguém a minha razão para fazer alguma coisa, a pessoa acha que é incomum, sem lógica.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE74",
    "celula": "AE74",
-   "rotulo": "Quando eu conto a alguém a minha razão p",
-   "min": 0
+   "rotulo": "62. Quando eu conto a alguém a minha razão para fazer alguma coisa, a pessoa acha que é incomum, sem lógica.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH74",
    "celula": "AH74",
-   "rotulo": "Quando eu conto a alguém a minha razão p",
-   "min": 0
+   "rotulo": "62. Quando eu conto a alguém a minha razão para fazer alguma coisa, a pessoa acha que é incomum, sem lógica.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y75",
    "celula": "Y75",
-   "rotulo": "Meu jeito de cumprimentar uma outra pess",
-   "min": 0
+   "rotulo": "63. Meu jeito de cumprimentar uma outra pessoa é incomum.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB75",
    "celula": "AB75",
-   "rotulo": "Meu jeito de cumprimentar uma outra pess",
-   "min": 0
+   "rotulo": "63. Meu jeito de cumprimentar uma outra pessoa é incomum.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE75",
    "celula": "AE75",
-   "rotulo": "Meu jeito de cumprimentar uma outra pess",
-   "min": 0
+   "rotulo": "63. Meu jeito de cumprimentar uma outra pessoa é incomum.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH75",
    "celula": "AH75",
-   "rotulo": "Meu jeito de cumprimentar uma outra pess",
-   "min": 0
+   "rotulo": "63. Meu jeito de cumprimentar uma outra pessoa é incomum.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y76",
    "celula": "Y76",
-   "rotulo": "Eu sou muito mais tenso em situações soc",
-   "min": 0
+   "rotulo": "64. Eu sou muito mais tenso em situações sociais do que quando eu estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB76",
    "celula": "AB76",
-   "rotulo": "Eu sou muito mais tenso em situações soc",
-   "min": 0
+   "rotulo": "64. Eu sou muito mais tenso em situações sociais do que quando eu estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE76",
    "celula": "AE76",
-   "rotulo": "Eu sou muito mais tenso em situações soc",
-   "min": 0
+   "rotulo": "64. Eu sou muito mais tenso em situações sociais do que quando eu estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH76",
    "celula": "AH76",
-   "rotulo": "Eu sou muito mais tenso em situações soc",
-   "min": 0
+   "rotulo": "64. Eu sou muito mais tenso em situações sociais do que quando eu estou sozinho.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_Y77",
    "celula": "Y77",
-   "rotulo": "Eu me pego olhando fixo para o espaço.",
-   "min": 0
+   "rotulo": "65. Eu me pego olhando fixo para o espaço.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AB77",
    "celula": "AB77",
-   "rotulo": "Eu me pego olhando fixo para o espaço.",
-   "min": 0
+   "rotulo": "65. Eu me pego olhando fixo para o espaço.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AE77",
    "celula": "AE77",
-   "rotulo": "Eu me pego olhando fixo para o espaço.",
-   "min": 0
+   "rotulo": "65. Eu me pego olhando fixo para o espaço.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
   },
   {
    "chave": "in_AH77",
    "celula": "AH77",
-   "rotulo": "Eu me pego olhando fixo para o espaço.",
-   "min": 0
+   "rotulo": "65. Eu me pego olhando fixo para o espaço.",
+   "grupo": "Itens (1 = não é verdadeiro, 2 = às vezes verdadeiro, 3 = muitas vezes verdadeiro, 4 = quase sempre verdadeiro)",
+   "min": 1,
+   "max": 4
+  },
+  {
+   "chave": "tot_I81",
+   "celula": "I81",
+   "rotulo": "Autorrelato — Percepção Social (Perc.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z3"
+  },
+  {
+   "chave": "tot_I82",
+   "celula": "I82",
+   "rotulo": "Autorrelato — Cognição Social (Cog.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z3"
+  },
+  {
+   "chave": "tot_I83",
+   "celula": "I83",
+   "rotulo": "Autorrelato — Comunicação Social (Com.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z3"
+  },
+  {
+   "chave": "tot_I84",
+   "celula": "I84",
+   "rotulo": "Autorrelato — Motivação Social (Mot.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z3"
+  },
+  {
+   "chave": "tot_I85",
+   "celula": "I85",
+   "rotulo": "Autorrelato — Padrões Restritos e Repetitivos (PRR) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z3"
+  },
+  {
+   "chave": "tot_I86",
+   "celula": "I86",
+   "rotulo": "Autorrelato — Comunicação e Interação Social (CIS) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z3"
+  },
+  {
+   "chave": "tot_I87",
+   "celula": "I87",
+   "rotulo": "Autorrelato — Pontuação SRS-2 Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z3"
+  },
+  {
+   "chave": "tot_I91",
+   "celula": "I91",
+   "rotulo": "Heterorrelato 1 — Percepção Social (Perc.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z4"
+  },
+  {
+   "chave": "tot_I92",
+   "celula": "I92",
+   "rotulo": "Heterorrelato 1 — Cognição Social (Cog.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z4"
+  },
+  {
+   "chave": "tot_I93",
+   "celula": "I93",
+   "rotulo": "Heterorrelato 1 — Comunicação Social (Cog.S) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z4"
+  },
+  {
+   "chave": "tot_I94",
+   "celula": "I94",
+   "rotulo": "Heterorrelato 1 — Motivação Social (Mot.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z4"
+  },
+  {
+   "chave": "tot_I95",
+   "celula": "I95",
+   "rotulo": "Heterorrelato 1 — Padrões Restritos e Repetitivos (PRR) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z4"
+  },
+  {
+   "chave": "tot_I96",
+   "celula": "I96",
+   "rotulo": "Heterorrelato 1 — Comunicação e Interação Social (CIS) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z4"
+  },
+  {
+   "chave": "tot_I97",
+   "celula": "I97",
+   "rotulo": "Heterorrelato 1 — Pontuação SRS-2 Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z4"
+  },
+  {
+   "chave": "tot_I101",
+   "celula": "I101",
+   "rotulo": "Heterorrelato 2 — Percepção Social (Perc.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z5"
+  },
+  {
+   "chave": "tot_I102",
+   "celula": "I102",
+   "rotulo": "Heterorrelato 2 — Cognição Social(Cog.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z5"
+  },
+  {
+   "chave": "tot_I103",
+   "celula": "I103",
+   "rotulo": "Heterorrelato 2 — Comunicação Social (Com.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z5"
+  },
+  {
+   "chave": "tot_I104",
+   "celula": "I104",
+   "rotulo": "Heterorrelato 2 — Motivação Social (Mot.S.) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z5"
+  },
+  {
+   "chave": "tot_I105",
+   "celula": "I105",
+   "rotulo": "Heterorrelato 2 — Padrões Restritos e Repetitivos (PRR) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z5"
+  },
+  {
+   "chave": "tot_I106",
+   "celula": "I106",
+   "rotulo": "Heterorrelato 2 — Comunicação e Interação Social (CIS) (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z5"
+  },
+  {
+   "chave": "tot_I107",
+   "celula": "I107",
+   "rotulo": "Heterorrelato 2 — Pontuação SRS-2 Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z5"
+  },
+  {
+   "chave": "tot_I111",
+   "celula": "I111",
+   "rotulo": "Heterorrelato 3 — Percepção Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z6"
+  },
+  {
+   "chave": "tot_I112",
+   "celula": "I112",
+   "rotulo": "Heterorrelato 3 — Cognição Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z6"
+  },
+  {
+   "chave": "tot_I113",
+   "celula": "I113",
+   "rotulo": "Heterorrelato 3 — Comunicação Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z6"
+  },
+  {
+   "chave": "tot_I114",
+   "celula": "I114",
+   "rotulo": "Heterorrelato 3 — Motivação Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z6"
+  },
+  {
+   "chave": "tot_I115",
+   "celula": "I115",
+   "rotulo": "Heterorrelato 3 — Padrões Restritos e Repetitivos (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z6"
+  },
+  {
+   "chave": "tot_I116",
+   "celula": "I116",
+   "rotulo": "Heterorrelato 3 — Comunicação e Interação Social (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z6"
+  },
+  {
+   "chave": "tot_I117",
+   "celula": "I117",
+   "rotulo": "Heterorrelato 3 — Pontuação SRS-2 Total (pontos brutos)",
+   "modo": "totais",
+   "min": 0,
+   "porta": "Z6"
   }
  ],
  "opcoes": [],
@@ -6945,6 +7647,113 @@
      ]
     }
    ]
+  }
+ ],
+ "datas": {
+  "AB": "Z4",
+  "AE": "Z5",
+  "AH": "Z6"
+ },
+ "cabecalhos": {
+  "Y": "Autorrelato",
+  "AB": "Heterorrelato 1",
+  "AE": "Heterorrelato 2",
+  "AH": "Heterorrelato 3"
+ },
+ "graficos": true,
+ "blocos": [
+  {
+   "titulo": "Autorrelato",
+   "linhas": [
+    81,
+    87
+   ],
+   "colunas": [
+    "I",
+    "K",
+    "M",
+    "O",
+    "Q",
+    "S"
+   ],
+   "cabecalho": 80,
+   "rotulo": "C"
+  },
+  {
+   "titulo": "Heterorrelato 1",
+   "linhas": [
+    91,
+    97
+   ],
+   "colunas": [
+    "I",
+    "K",
+    "M",
+    "O",
+    "Q",
+    "S"
+   ],
+   "cabecalho": 90,
+   "rotulo": "C"
+  },
+  {
+   "titulo": "Heterorrelato 2",
+   "linhas": [
+    101,
+    107
+   ],
+   "colunas": [
+    "I",
+    "K",
+    "M",
+    "O",
+    "Q",
+    "S"
+   ],
+   "cabecalho": 100,
+   "rotulo": "C"
+  },
+  {
+   "titulo": "Heterorrelato 3",
+   "linhas": [
+    111,
+    117
+   ],
+   "colunas": [
+    "I",
+    "K",
+    "M",
+    "O",
+    "Q",
+    "S"
+   ],
+   "cabecalho": 110,
+   "rotulo": "C"
+  },
+  {
+   "titulo": "Discrepância entre respondentes (T-score)",
+   "linhas": [
+    146,
+    147,
+    148,
+    149,
+    151,
+    152,
+    153
+   ],
+   "colunas": [
+    "I",
+    "J",
+    "K",
+    "L"
+   ],
+   "cabecalhos": [
+    "Autorrelato",
+    "Heterorrelato 1",
+    "Heterorrelato 2",
+    "Heterorrelato 3"
+   ],
+   "rotulo": "H"
   }
  ]
 }

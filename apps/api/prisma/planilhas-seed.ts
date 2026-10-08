@@ -38,7 +38,7 @@ export function carregarTestesPlanilha(): TesteSeedPlanilha[] {
           campos: def.entradas.map((e: { chave: string; rotulo: string }) => ({ chave: e.chave, label: e.rotulo })),
           camposCalculados: def.saidas.map((s: { chave: string; rotulo: string }) => ({ chave: s.chave, label: s.rotulo })),
           // Layout da tela genérica (entradas por grupo, opções e tabelas de resultado)
-          layout: { entradas: def.entradas, opcoes: def.opcoes, tabelas: def.tabelas, ...(def.cabecalhos ? { cabecalhos: def.cabecalhos } : {}) },
+          layout: { entradas: def.entradas, opcoes: def.opcoes, tabelas: def.tabelas, ...(def.cabecalhos ? { cabecalhos: def.cabecalhos } : {}), ...(def.graficos ? { graficos: def.graficos } : {}) },
         },
         referenciaBibliografica: referencia ?? "",
         isPlaceholder: false as const,

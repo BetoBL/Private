@@ -1521,9 +1521,19 @@ for (const p of carregarTestesPlanilha()) {
   else TESTES_PLACEHOLDER.push(p as unknown as TesteSeed);
 }
 // o BRIEF-2 completo (pais, professores e auto-relato, pela planilha) substitui o BRIEF2-PAIS antigo (só pais, sem índices)
-if (TESTES_PLACEHOLDER.some((x) => x.sigla === "BRIEF2")) {
-  const j = TESTES_PLACEHOLDER.findIndex((x) => x.sigla === "BRIEF2-PAIS");
-  if (j >= 0) TESTES_PLACEHOLDER.splice(j, 1);
+const SUBSTITUIDOS: Record<string, string[]> = {
+  BRIEF2: ["BRIEF2-PAIS"],
+  SCARED: ["SCARED-AUTORRELATO", "SCARED-PAIS"],
+  "SRS2-ADULTOS": ["SRS-2-AUTORRELATO", "SRS-2-HETERORRELATO"],
+  "SRS2-ESCOLAR": ["SRS-2-ESCOLAR-FEMININO", "SRS-2-ESCOLAR-MASCULINO"],
+  "SRS2-PRE-ESCOLAR": ["SRS-2-PRE-ESCOLAR"],
+};
+for (const [novo, antigos] of Object.entries(SUBSTITUIDOS)) {
+  if (!TESTES_PLACEHOLDER.some((x) => x.sigla === novo)) continue;
+  for (const sigla of antigos) {
+    const j = TESTES_PLACEHOLDER.findIndex((x) => x.sigla === sigla);
+    if (j >= 0) TESTES_PLACEHOLDER.splice(j, 1);
+  }
 }
 
 async function main() {

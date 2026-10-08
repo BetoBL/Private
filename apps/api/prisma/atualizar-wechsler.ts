@@ -18,6 +18,15 @@ const TODAS = ["WAIS-III", "WISC-IV", "WASI", ...carregarTestesPlanilha().map((p
 const filtro = (process.env.SO_SIGLAS ?? "").split(",").map((s) => s.trim()).filter(Boolean);
 const SIGLAS = filtro.length ? TODAS.filter((s) => filtro.includes(s)) : TODAS;
 
+// Versões antigas (só totais) que o teste novo, item a item, substitui. Só são removidas do banco se NÃO tiverem lançamento nem normativa customizada.
+export const LEGADO_SUBSTITUIDO: Record<string, string[]> = {
+  BRIEF2: ["BRIEF2-PAIS"],
+  SCARED: ["SCARED-AUTORRELATO", "SCARED-PAIS"],
+  "SRS2-ADULTOS": ["SRS-2-AUTORRELATO", "SRS-2-HETERORRELATO"],
+  "SRS2-ESCOLAR": ["SRS-2-ESCOLAR-FEMININO", "SRS-2-ESCOLAR-MASCULINO"],
+  "SRS2-PRE-ESCOLAR": ["SRS-2-PRE-ESCOLAR"],
+};
+
 async function main() {
   const aplicar = process.argv.includes("--aplicar");
   const host = (process.env.DATABASE_URL ?? "").replace(/^.*@/, "").replace(/\/.*$/, "");
@@ -64,6 +73,18 @@ async function main() {
       });
     }, { timeout: 180000, maxWait: 30000 }); // definições grandes (NEPSY-II ~7 MB) passam dos 5 s padrão em banco remoto
     console.log(`  ✓ ${sigla} atualizado.`);
+  }
+  for (const [novo, antigos] of Object.entries(LEGADO_SUBSTITUIDO)) {
+    if (!SIGLAS.includes(novo)) continue;
+    for (const sigla of antigos) {
+      const velho = await prisma.teste.findFirst({ where: { sigla, escopo: EscopoTeste.FIXO } });
+      if (!velho) continue;
+      const lancamentos = await prisma.aplicacaoDeTeste.count({ where: { testeId: velho.id } });
+      const customizadas = await prisma.normativaCustomizada.count({ where: { testeId: velho.id } });
+      if (lancamentos > 0 || customizadas > 0) { console.log(`- ${sigla} (substituído por ${novo}): MANTIDO, tem ${lancamentos} lançamento(s) e ${customizadas} normativa(s) customizada(s).`); continue; }
+      console.log(`- ${sigla} (substituído por ${novo}): sem lançamentos → ${aplicar ? "removendo" : "seria removido"}.`);
+      if (aplicar) await prisma.$transaction([prisma.tabelaNormativa.deleteMany({ where: { testeId: velho.id } }), prisma.teste.delete({ where: { id: velho.id } })]);
+    }
   }
   if (!aplicar) console.log("\nSimulação concluída. Para gravar: npx tsx prisma/atualizar-wechsler.ts --aplicar");
 }
