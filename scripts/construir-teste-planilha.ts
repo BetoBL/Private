@@ -155,7 +155,7 @@ if (spec.graficos && !spec.graficosIgnorarExcel) {
       const cats = s.cat ? celulasDe(s.cat) : null;
       if (!vals || (s.cat && !cats)) { ok = false; break; }
       // categorias em mais de uma coluna (ex.: rótulo em duas células mescladas): usa a primeira célula preenchida da linha
-      const rotulos: Ref1[] = (cats ?? vals.map((_, i) => [String(i + 1)])).map((linha) => { for (const e of linha) { const t = textoDe(e); if (t !== null) return t; } return null; });
+      const rotulos: Ref1[] = (cats ?? vals.map((_, i) => [String(i + 1)])).map((linha) => { for (const e of [...linha].reverse()) { const t = textoDe(e); if (t !== null) return t; } return null; }); // 2 colunas (ex.: "Subescalas" | "Perc.S"): vale a da direita
       const nome: Ref1 = s.nome?.texto ?? (s.nome?.ref ? (celulasDe(s.nome.ref) ? textoDe(celulasDe(s.nome.ref)![0][0]) : null) : null);
       series.push({ tipo: s.tipo, ...(s.direcao ? { direcao: s.direcao } : {}), nome, cats: rotulos, vals: vals.map((e) => { const c = porEnd.get(e); return c?.f ? chaveDe(e) : null; }) });
     }
