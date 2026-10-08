@@ -38,12 +38,15 @@ export async function dadosDoLaudoCompleto(laudoId: string, sistema: SistemaClas
   ]);
   if (!clinica || !profissional) return null;
   const hoje = new Date();
+  const aplicacoes = await carregarAplicacoesLaudo(laudo.pacienteId);
+  // a idade que vale no laudo é a da avaliação (data da última sessão com teste), não a de hoje
+  const dataAvaliacao = aplicacoes.length ? new Date(Math.max(...aplicacoes.map((a) => a.dataSessao.getTime()))) : hoje;
   return {
     clinica: { nome: clinica.nomeFantasia || clinica.razaoSocial, endereco: clinica.endereco, bairro: clinica.bairro, cidade: clinica.cidade, estado: clinica.estado, cep: clinica.cep, telefone: clinica.telefone, whatsapp: clinica.whatsapp, instagram: clinica.instagram, slogan: clinica.slogan, logoUrl: clinica.logoUrl, marcaDaguaUrl: clinica.marcaDaguaUrl, corPrimaria: clinica.corPrimaria, corSecundaria: clinica.corSecundaria },
     profissional: { nome: profissional.nome, crp: profissional.crp, email: profissional.email, formacao: profissional.formacao, especialidades: profissional.especialidades, assinaturaUrl: profissional.assinaturaUrl },
-    paciente: { nome: laudo.paciente.nome, cpf: laudo.paciente.cpf, dataNascimento: laudo.paciente.dataNascimento, idadeTexto: idadeEmTexto(laudo.paciente.dataNascimento, hoje) },
+    paciente: { nome: laudo.paciente.nome, cpf: laudo.paciente.cpf, dataNascimento: laudo.paciente.dataNascimento, idadeTexto: idadeEmTexto(laudo.paciente.dataNascimento, dataAvaliacao) },
     laudo: { descricaoDemanda: laudo.descricaoDemanda, anamnese: laudo.anamnese, observacaoClinica: laudo.observacaoClinica, procedimento: laudo.procedimento, analise: laudo.analise, conclusao: laudo.conclusao, referencias: laudo.referencias, iaUtilizada: laudo.iaUtilizada },
-    aplicacoes: await carregarAplicacoesLaudo(laudo.pacienteId),
+    aplicacoes,
     sistema,
     data: hoje,
   };

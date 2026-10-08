@@ -115,7 +115,7 @@ function graficoWaisIndices(ctx: Ctx): Array<Paragraph> {
   const pares = INDICES_WAIS.map(([k, rot]) => [rot, numero(pc[k]?.faixa?.composto)] as const).filter((x) => x[1] !== null);
   if (pares.length === 0) return [];
   // barra de erro FIXA de ±7,5 pontos, como no gráfico do laudo-modelo (decisão de 08/10/2026; a psicóloga será avisada)
-  const g: GraficoImg = { tipo: "colunas", categorias: pares.map((p) => p[0]), series: [{ nome: "Pontos", tipo: "bar", valores: pares.map((p) => p[1]) }], eixo: { min: 40, max: 160 }, barraErro: 7.5, coresPorPonto: ["#7EA1D4", "#D17B79", "#B6CC83", "#9B86B8", "#7BC3D6", "#F9AE6C", "#3E5F8E", "#8E3E3B"], rotulos: "base", legenda: false, altura: 290 };
+  const g: GraficoImg = { tipo: "colunas", categorias: pares.map((p) => p[0]), series: [{ nome: "Pontos", tipo: "bar", valores: pares.map((p) => p[1]) }], eixo: { min: 40, max: 160 }, barraErro: 7.5, coresPorPonto: ["#7EA1D4", "#D17B79", "#B6CC83", "#9B86B8", "#7BC3D6", "#F9AE6C", "#3E5F8E", "#8E3E3B"], rotulos: "base", legenda: false, altura: 255 };
   return imagemDoGrafico(ctx, g, "Índices fatoriais WAIS-III");
 }
 
@@ -146,10 +146,12 @@ function graficoDoLayout(ctx: Ctx, teste: string, trecho: string): Paragraph[] {
   const tipo: GraficoImg["tipo"] = tipo0 === "radar" ? "radar" : tipo0 === "pie" ? "pizza" : tipo0 === "bar" ? (series[0].direcao === "bar" ? "barras-h" : "colunas") : "linhas";
   const cats = (series[0].cats ?? []).map((c) => rotuloRef(c, saidas));
   const cores = ["#FFC000", "#1F3864", ...PALETA];
+  const manter = cats.map((c, i) => c !== "" || series.some((s) => numero(saidas[s.vals[i] ?? ""]) !== null));
+  const filtra = <T,>(a: T[]) => a.filter((_, i) => manter[i] ?? true);
   const g: GraficoImg = {
-    tipo, categorias: cats,
-    series: series.map((s, i) => ({ nome: rotuloRef(s.nome, saidas) || `Série ${i + 1}`, tipo: s.tipo === "bar" ? "bar" : "line", cor: /quantidade de palavras/i.test(def.titulo) ? cores[i] : PALETA[i % PALETA.length], marcador: /quantidade de palavras/i.test(def.titulo) ? i === 0 : undefined, valores: s.vals.map((k) => (k ? numero(saidas[k]) : null)) })),
-    eixo: def.eixo, rotulos: tipo === "colunas" ? "topo" : "nenhum", altura: 300,
+    tipo, categorias: filtra(cats),
+    series: series.map((s, i) => ({ nome: rotuloRef(s.nome, saidas) || `Série ${i + 1}`, tipo: s.tipo === "bar" ? "bar" : "line", cor: /quantidade de palavras/i.test(def.titulo) ? cores[i] : PALETA[i % PALETA.length], marcador: /quantidade de palavras/i.test(def.titulo) ? i === 0 : undefined, valores: filtra(s.vals.map((k) => (k ? numero(saidas[k]) : null))) })),
+    eixo: def.eixo, rotulos: tipo === "colunas" ? "topo" : "nenhum", altura: tipo === "radar" || tipo === "pizza" ? 300 : 250,
   };
   const leg = LEGENDA_GRAFICO.find(([re]) => re.test(def.titulo))?.[1] ?? `${app.sigla} – ${def.titulo || "gráfico"}`;
   return imagemDoGrafico(ctx, g, leg);
@@ -293,8 +295,8 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
     new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: d.profissional.nome, bold: true, font: FONTE, size: 22 })] }),
     new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: titEspecialista, bold: true, font: FONTE, size: 22 })] }),
     new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 240 }, children: [new TextRun({ text: `CRP ${d.profissional.crp}`, bold: true, font: FONTE, size: 22 })] }),
-    new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, children: [new TextRun({ text: AVISO_SIGILO, font: FONTE, size: 16 })] }),
-    new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, children: [new TextRun({ text: AVISO_VALIDADE, font: FONTE, size: 16 })] }),
+    new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, keepLines: true, keepNext: true, children: [new TextRun({ text: AVISO_SIGILO, font: FONTE, size: 16 })] }),
+    new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { after: 100 }, keepLines: true, children: [new TextRun({ text: AVISO_VALIDADE, font: FONTE, size: 16 })] }),
     ...(d.laudo.iaUtilizada ? [new Paragraph({ alignment: AlignmentType.JUSTIFIED, children: [new TextRun({ text: AVISO_IA, font: FONTE, size: 16, italics: true })] })] : []),
     new Paragraph({ pageBreakBefore: true, children: [new TextRun({ text: "10. REFERÊNCIAS BIBLIOGRÁFICAS", bold: true, font: FONTE, size: 22 })], spacing: { after: 160 } }),
     ...(refs.length ? refs.map((r) => new Paragraph({ children: [new TextRun({ text: r, font: FONTE, size: 22 })], alignment: AlignmentType.JUSTIFIED, spacing: { line: 336, after: 100 } })) : [corpo("—")]),
