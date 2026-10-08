@@ -1,5 +1,10 @@
 # Changelog
 
+## [2026-10-08 - Madrugada] Word com marcadores de bloco + resumo do dia guardado
+
+- **Modelo Word da clínica aceita blocos dos testes:** um parágrafo só com `{{tabela:resultados|SIGLA}}`, `{{tabela:layout|SIGLA|título}}`, `{{grafico:SIGLA|título}}`, `{{linha:SIGLA|c:campo}}`, `{{tabela:wais-indices}}` ou `{{grafico:wais-indices}}` é trocado pela tabela/gráfico gerados (imagens e relações copiadas para o pacote do Word; teste não aplicado = marcador some). **Word de exemplo com guia** (`GET /modelos-laudo/guia-word?modeloId=`), com os marcadores prontos dos testes do modelo, e passo a passo na aba Modelo Word. Ainda NÃO validado abrindo no Word de verdade (só por leitura automática).
+- **Resumo do Painel do Dia guardado** (`ResumoDoDia`, migration `resumo_do_dia`): um por profissional e por dia; só é refeito (IA) se a agenda do dia ou as revisões pendentes mudarem; link "atualizar" força. O navegador mostra a cópia na hora. 123 testes passam.
+
 ## [2026-10-08 - Madrugada] Três formas de criar modelo, testes por modelo e editor "mala direta"
 
 - **Lista de modelos:** três botões lado a lado (Montar no editor / Ler um laudo em Word / Usar meu Word com marcadores), cada um com uma frase explicando. O modelo da Letícia deixou de ter o botão "Ver e criar a partir dele".

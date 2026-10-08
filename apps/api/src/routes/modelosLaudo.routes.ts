@@ -3,7 +3,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { DOMINIOS, GRUPOS } from "../lib/laudo/dominios";
 import { importarLaudoWord } from "../lib/laudo/importarWord";
-import { marcadoresDoArquivo } from "../lib/laudo/modeloWord";
+import { gerarWordDeExemplo, marcadoresDoArquivo, type TesteDoGuia } from "../lib/laudo/modeloWord";
 import { estruturaValida, MARCADORES, ROTULO_TIPO, TIPOS_SECAO, type EstruturaModelo, type TipoModelo } from "../lib/laudo/modelos";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -63,6 +63,21 @@ modelosLaudoRouter.get("/biblioteca", asyncHandler(async (_req, res) => {
     const campos = [...(alg.campos ?? []), ...(alg.camposCalculados ?? [])].map((c) => ({ chave: c.chave, label: c.label ?? c.chave }));
     return { sigla: t.sigla, nome: t.nome, tabelas: unico((alg.layout?.tabelas ?? []).map((x) => x.titulo)), graficos: unico((alg.layout?.graficos ?? []).map((x) => x.titulo)), linhas, campos };
   }));
+}));
+
+// Word de exemplo com o guia de marcadores (e os marcadores prontos dos testes do modelo, quando há modelo)
+modelosLaudoRouter.get("/guia-word", asyncHandler(async (req, res) => {
+  const m = typeof req.query.modeloId === "string" ? await buscar(req.query.modeloId, req) : null;
+  const est = (m?.estrutura as unknown as EstruturaModelo | undefined) ?? null;
+  const siglas = est?.testes ?? [];
+  const testes = siglas.length ? await prisma.teste.findMany({ where: { escopo: EscopoTeste.FIXO, sigla: { in: siglas } }, select: { sigla: true, nome: true, algoritmoCorrecao: true }, orderBy: { sigla: "asc" } }) : [];
+  type Alg = { layout?: { tabelas?: Array<{ titulo: string }>; graficos?: Array<{ titulo: string }> }; campos?: Array<{ chave: string; label?: string }>; camposCalculados?: Array<{ chave: string; label?: string }> };
+  const unico = (a: string[]) => [...new Set(a.filter(Boolean))];
+  const guia: TesteDoGuia[] = testes.map((t) => { const alg = (t.algoritmoCorrecao as Alg | null) ?? {}; return { sigla: t.sigla, nome: t.nome, tabelas: unico((alg.layout?.tabelas ?? []).map((x) => x.titulo)), graficos: unico((alg.layout?.graficos ?? []).map((x) => x.titulo)), campos: [...(alg.campos ?? []), ...(alg.camposCalculados ?? [])].map((c) => ({ chave: c.chave, label: c.label ?? c.chave })) }; });
+  const buffer = await gerarWordDeExemplo(m?.nome ?? "seu modelo", est, guia);
+  res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+  res.setHeader("Content-Disposition", 'attachment; filename="word-de-exemplo-com-marcadores.docx"');
+  res.send(buffer);
 }));
 
 const corpoModelo = z.object({

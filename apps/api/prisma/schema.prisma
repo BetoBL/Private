@@ -552,3 +552,17 @@ model ModeloLaudo {
   criadoEm       DateTime      @default(now())
   atualizadoEm   DateTime      @updatedAt
 }
+
+// Resumo do Painel do Dia guardado por profissional e por dia (data = AAAA-MM-DD no fuso de São Paulo). `assinatura` identifica o que entrou no
+// resumo (agenda do dia e revisões pendentes): se mudou, o resumo é refeito; se não, a IA não é chamada de novo a cada abertura do painel.
+model ResumoDoDia {
+  id             String   @id @default(uuid())
+  profissionalId String
+  data           String
+  conteudo       String   @db.Text
+  assinatura     String
+  criadoEm       DateTime @default(now())
+  atualizadoEm   DateTime @updatedAt
+
+  @@unique([profissionalId, data])
+}

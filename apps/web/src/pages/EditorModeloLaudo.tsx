@@ -313,6 +313,15 @@ function AbaWord({ modelo, est, marcadores, aviso, recarregar }: { modelo: Model
   return (
     <div className="space-y-5">
       <p className="text-sm leading-relaxed text-ink/60">Se a clínica já tem um papel timbrado ou um documento padrão em Word, envie-o com marcadores como <span className="font-mono text-xs">{"{{paciente.nome}}"}</span> e o sistema preenche. Serve a documentos de texto (declaração, atestado, parecer, relatório curto). Para o laudo com tabelas e gráficos dos testes, use a estrutura do modelo, que gera o documento completo.</p>
+      <div className="rounded-xl border border-sage-deep/30 bg-sage-deep/[0.05] p-4">
+        <div className="mb-1 text-sm font-semibold text-ink">Como fazer</div>
+        <ol className="list-decimal space-y-1 pl-5 text-sm leading-relaxed text-ink/70">
+          <li>Baixe o <b>Word de exemplo</b> abaixo. Ele já tem o guia e, se este modelo tem testes escolhidos, os marcadores prontos de cada um.</li>
+          <li>Abra no Word, ponha o seu papel timbrado e o seu texto, e deixe os marcadores onde quer o conteúdo. Tabelas, gráficos e resultados vão <b>sozinhos num parágrafo</b>, por exemplo <span className="font-mono text-xs">{"{{grafico:RAVLT|Quantidade de palavras}}"}</span>.</li>
+          <li>Salve o modelo (botão no alto), volte a esta aba e envie o arquivo.</li>
+        </ol>
+        <button className="mt-3 rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep hover:bg-sage-deep/5" onClick={async () => { try { const r = await api.baixarWordDeExemplo(modelo?.id); const u = URL.createObjectURL(r.blob); const a = document.createElement("a"); a.href = u; a.download = r.filename; a.click(); URL.revokeObjectURL(u); } catch (e) { setErro((e as Error).message); } }}>Baixar o Word de exemplo</button>
+      </div>
       {!podeEnviar && <div className="rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">Salve este modelo com o seu nome primeiro (botão “Salvar como meu modelo”); depois você envia o arquivo Word.</div>}
       {podeEnviar && (
         <div className="rounded-xl border border-mist bg-white p-4">

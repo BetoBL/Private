@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { Router } from "express";
 import { z } from "zod";
 import { gerarRespostaHumor } from "../lib/gerarRespostaHumor";
@@ -58,13 +59,27 @@ painelDoDiaRouter.get(
       where: { profissionalId, iaUtilizada: true, iaRevisadaPeloProf: false },
     });
 
+    // um resumo por dia: só é refeito (nova chamada de IA) se a agenda ou as revisões pendentes mudaram, ou se o usuário pedir
+    const data = new Date().toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
+    const assinatura = createHash("sha256").update(JSON.stringify({ profissional: profissional.nome, casosDeHoje, totalLaudosAguardandoRevisao })).digest("hex");
+    const guardado = await prisma.resumoDoDia.findUnique({ where: { profissionalId_data: { profissionalId, data } } });
+    if (guardado && guardado.assinatura === assinatura && req.query.atualizar !== "1") {
+      res.json({ resumo: guardado.conteudo, geradoEm: guardado.atualizadoEm, doDia: true });
+      return;
+    }
+
     const resumo = await gerarResumoDoDia({
       profissionalNome: profissional.nome,
       casosDeHoje,
       totalLaudosAguardandoRevisao,
     });
 
-    res.json({ resumo });
+    const salvo = await prisma.resumoDoDia.upsert({
+      where: { profissionalId_data: { profissionalId, data } },
+      update: { conteudo: resumo, assinatura },
+      create: { profissionalId, data, conteudo: resumo, assinatura },
+    });
+    res.json({ resumo, geradoEm: salvo.atualizadoEm, doDia: false });
   })
 );
 

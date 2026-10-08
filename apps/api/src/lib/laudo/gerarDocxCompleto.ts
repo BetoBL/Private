@@ -387,3 +387,15 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
   });
   return Packer.toBuffer(doc);
 }
+
+// Blocos soltos (um .docx por marcador) para encaixar em um Word da clínica. A numeração de tabelas e gráficos segue a ordem dos marcadores.
+// Devolve null quando o bloco não tem o que mostrar (teste não aplicado).
+export async function gerarBlocosDocx(d: DadosLaudoCompleto, tokens: string[]): Promise<Array<Buffer | null>> {
+  const ctx: Ctx = { apps: d.aplicacoes, sistema: d.sistema, nTabela: 0, nGrafico: 0, interpretacoes: d.laudo.interpretacoes ?? {} };
+  const saida: Array<Buffer | null> = [];
+  for (const tk of tokens) {
+    const filhos = resolverToken(tk, ctx);
+    saida.push(filhos.length ? await Packer.toBuffer(new Document({ styles: { default: { document: { run: { font: FONTE, size: 22 } } } }, sections: [{ children: filhos }] })) : null);
+  }
+  return saida;
+}

@@ -34,6 +34,8 @@ export function PainelDoDia() {
 
   const [resumo, setResumo] = useState<string | null>(null);
   const [carregandoResumo, setCarregandoResumo] = useState(true);
+  const [geradoEm, setGeradoEm] = useState<string | null>(null);
+  const [atualizandoResumo, setAtualizandoResumo] = useState(false);
 
   const [humorAberto, setHumorAberto] = useState(true);
   const [humorEscolhido, setHumorEscolhido] = useState<string | null>(null);
@@ -48,15 +50,34 @@ export function PainelDoDia() {
     api.listTodasSessoes().then(setSessoes).catch(() => {});
     api.listTodosLaudos().then(setLaudos).catch(() => {});
     let cancelado = false;
+    // o resumo do dia fica guardado: aparece na hora (cópia do navegador) e o servidor só refaz se a agenda mudou
+    const chave = `resumo-do-dia:${new Date().toLocaleDateString("sv-SE")}`;
+    try {
+      const guardado = JSON.parse(localStorage.getItem(chave) ?? "null") as { resumo: string; geradoEm?: string } | null;
+      if (guardado?.resumo) { setResumo(guardado.resumo); setGeradoEm(guardado.geradoEm ?? null); setCarregandoResumo(false); }
+    } catch { /* sem cópia local */ }
     api
       .getResumoDoDia()
-      .then((r) => !cancelado && setResumo(r.resumo))
-      .catch(() => !cancelado && setResumo(null))
+      .then((r) => {
+        if (cancelado) return;
+        setResumo(r.resumo); setGeradoEm(r.geradoEm ?? null);
+        try { localStorage.setItem(chave, JSON.stringify({ resumo: r.resumo, geradoEm: r.geradoEm })); } catch { /* ignora */ }
+      })
+      .catch(() => !cancelado && setResumo((atual) => atual))
       .finally(() => !cancelado && setCarregandoResumo(false));
     return () => {
       cancelado = true;
     };
   }, []);
+
+  async function atualizarResumo() {
+    setAtualizandoResumo(true);
+    try {
+      const r = await api.getResumoDoDia(true);
+      setResumo(r.resumo); setGeradoEm(r.geradoEm ?? null);
+      try { localStorage.setItem(`resumo-do-dia:${new Date().toLocaleDateString("sv-SE")}`, JSON.stringify({ resumo: r.resumo, geradoEm: r.geradoEm })); } catch { /* ignora */ }
+    } catch { /* mantém o resumo atual */ } finally { setAtualizandoResumo(false); }
+  }
 
   function escolherHumor(label: string) {
     setHumorEscolhido(label);
@@ -99,7 +120,13 @@ export function PainelDoDia() {
       </div>
 
       <section className="relative mb-10 overflow-hidden rounded-2xl bg-ink px-8 py-7 text-paper">
-        <div className="mb-3 text-xs font-bold uppercase tracking-wide text-clay">Resumo do seu dia</div>
+        <div className="mb-3 flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-wide text-clay">
+          <span>Resumo do seu dia</span>
+          <span className="flex items-center gap-3 font-semibold normal-case tracking-normal text-paper/50">
+            {geradoEm && <span>gerado às {new Date(geradoEm).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</span>}
+            <button className="underline-offset-2 hover:text-paper hover:underline disabled:opacity-50" disabled={atualizandoResumo} onClick={atualizarResumo}>{atualizandoResumo ? "atualizando…" : "atualizar"}</button>
+          </span>
+        </div>
         {carregandoResumo ? (
           <p className="font-serif text-lg leading-relaxed opacity-60">Preparando seu resumo...</p>
         ) : (

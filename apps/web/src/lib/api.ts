@@ -687,6 +687,7 @@ export const api = {
   importarModeloWord: (arquivoBase64: string) => request<ResultadoImportacaoModelo>("/modelos-laudo/importar-word", { method: "POST", body: JSON.stringify({ arquivoBase64 }) }),
   enviarArquivoWordModelo: (id: string, arquivoBase64: string) => request<{ ok: true; marcadores: string[]; desconhecidos: string[] }>(`/modelos-laudo/${id}/arquivo-word`, { method: "PUT", body: JSON.stringify({ arquivoBase64 }) }),
   removerArquivoWordModelo: (id: string) => request<{ ok: true }>(`/modelos-laudo/${id}/arquivo-word`, { method: "DELETE" }),
+  baixarWordDeExemplo: (modeloId?: string) => baixarArquivo(`/modelos-laudo/guia-word${modeloId ? `?modeloId=${modeloId}` : ""}`),
   baixarArquivoWordModelo: (id: string) => baixarArquivo(`/modelos-laudo/${id}/arquivo-word`),
 
   listEventosAgenda: (params: { inicio?: string; fim?: string; profissionalId?: string; pacienteId?: string } = {}) => {
@@ -718,7 +719,7 @@ export const api = {
   ) => enviarEventoAgenda(`/eventos-agenda/${id}`, "PATCH", data),
   deletarEventoAgenda: (id: string) => request<void>(`/eventos-agenda/${id}`, { method: "DELETE" }),
 
-  getResumoDoDia: () => request<{ resumo: string }>("/painel-do-dia/resumo"),
+  getResumoDoDia: (atualizar = false) => request<{ resumo: string; geradoEm?: string; doDia?: boolean }>(`/painel-do-dia/resumo${atualizar ? "?atualizar=1" : ""}`),
   enviarHumor: (humor: string) => request<{ resposta: string }>("/painel-do-dia/humor", { method: "POST", body: JSON.stringify({ humor }) }),
 
   getPerfilDeAtuacao: () => request<PerfilDeAtuacao | null>("/perfil-atuacao"),

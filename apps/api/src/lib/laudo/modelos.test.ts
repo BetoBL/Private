@@ -149,3 +149,25 @@ test("seção 'documento': campos do paciente, linha de resultado e bloco só en
   const editado = await textoDoDocx(await gerarDocxLaudoCompleto(dados(estrutura, { doc: "Texto ajustado para {{paciente.nome}}." })));
   assert.match(editado, /Texto ajustado para Helena Exemplo Prado\./);
 });
+
+test("Word da clínica com blocos: tabela e gráfico entram no lugar do marcador; teste não aplicado some; o arquivo continua válido", async () => {
+  const buf = await Packer.toBuffer(new Document({ sections: [{ children: [
+    new Paragraph({ children: [new TextRun("Relatório de {{paciente.nome}}")] }),
+    new Paragraph({ children: [new TextRun("{{tabela:wais-indices}}")] }),
+    new Paragraph({ children: [new TextRun("{{grafico:wais-"), new TextRun("indices}}")] }),
+    new Paragraph({ children: [new TextRun("{{tabela:resultados|RAVLT}}")] }),
+    new Paragraph({ children: [new TextRun("Fim.")] }),
+  ] }] }));
+  const wais: AplicacaoLaudo = { sigla: "WAIS-III", nome: "WAIS", descricao: null, referenciaBibliografica: null, dataSessao: new Date("2026-07-01"), resultado: { modo: "por_campo", porCampo: { icv: { valorBruto: 1, faixa: { composto: 120, percentil: 91 } }, iop: { valorBruto: 1, faixa: { composto: 111, percentil: 77 } }, qit: { valorBruto: 1, faixa: { composto: 115, percentil: 84 } } } } };
+  const d = dados(MODELOS_DO_SISTEMA[1].estrutura);
+  d.aplicacoes = [wais];
+  const saida = await preencherModeloWord(buf.toString("base64"), MODELOS_DO_SISTEMA[1].estrutura, { demanda: "", anamnese: "", observacao: "", instrumentos: "", analise: "", conclusao: "", referencias: "", extras: {} }, d);
+  const texto = await textoDoDocx(saida);
+  assert.match(texto, /Relatório de Helena Exemplo Prado/);
+  assert.match(texto, /Índices Fatoriais do WAIS-III[\s\S]*ICV[\s\S]*120/);
+  assert.doesNotMatch(texto, /\{\{|RAVLT/);
+  assert.match(texto, /Fim\./);
+  const zip = await JSZip.loadAsync(saida);
+  assert.ok(Object.keys(zip.files).some((n) => /^word\/media\/blk\d+_\d+\.png$/.test(n)), "imagem do gráfico copiada");
+  assert.match(await zip.files["word/_rels/document.xml.rels"].async("string"), /rIdBlk/);
+});
