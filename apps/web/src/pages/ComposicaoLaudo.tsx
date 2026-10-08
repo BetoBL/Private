@@ -33,6 +33,14 @@ const BLOCOS_POR_TESTE: Array<[RegExp, string[]]> = [
   [/^SRS2/, ["tabela:srs2", "grafico:SRS2|Autorrelato"]],
 ];
 
+const CHAVE_DO_DOMINIO: Record<string, string> = {
+  "funções intelectuais": "intelectuais", linguagem: "linguagem", memória: "memoria", "funções executivas": "executivas", "funções atencionais": "atencionais",
+  "funções visuoconstrutivas e praxia": "visuoconstrutivas", "aspectos emocionais": "emocionais", "aspectos psicoafetivos": "psicoafetivos", "outras escalas": "outras",
+};
+function dominiosDaAnalise(analise: string): Array<{ chave: string; titulo: string }> {
+  return [...analise.matchAll(/^##\s*(.+)$/gm)].map((m) => ({ titulo: m[1].trim(), chave: CHAVE_DO_DOMINIO[m[1].trim().toLowerCase()] })).filter((d) => !!d.chave);
+}
+
 const SECAO_SUGESTOES = /\n*##\s*Sugest[^\n]*\n?/i;
 function separarConclusao(texto: string): { conclusao: string; sugestoes: string } {
   const m = SECAO_SUGESTOES.exec(texto);
@@ -148,7 +156,9 @@ export function ComposicaoLaudo() {
     for (const [re, blocos] of BLOCOS_POR_TESTE) if ([...siglas].some((s) => re.test(s))) out.push(...blocos);
     return out;
   }, [aplicacoes]);
-  const blocosNoTexto = useMemo(() => [...(laudo?.analise ?? "").matchAll(/\[\[([^\]]+)\]\]/g)].map((m) => m[1]), [laudo?.analise]);
+  const blocosNoTexto = useMemo(() => [...(laudo?.analise ?? "").matchAll(/\[\[([^\]]+)\]\]/g)].map((m) => m[1]).filter((b) => !b.startsWith("interpretacao:")), [laudo?.analise]);
+  const dominios = useMemo(() => dominiosDaAnalise(laudo?.analise ?? ""), [laudo?.analise]);
+  const temEspacos = (laudo?.analise ?? "").includes("[[interpretacao:");
 
   function atualizarLaudo(l: Laudo) {
     setLaudo(l);
@@ -181,6 +191,19 @@ export function ComposicaoLaudo() {
     const ids = aplicacoes.filter((a) => !excluidas.has(a.id)).map((a) => a.id);
     const r = await executar("montar", () => api.montarEstruturaLaudo(laudo.id, ids), "Análise montada a partir dos resultados. Revise e complete com sua interpretação.");
     if (r) { atualizarLaudo(r.laudo); setSemMapa(r.semMapa); setPrevia(null); }
+  }
+  async function montarAnamnese() {
+    if (!laudo) return;
+    if (laudo.anamnese.trim() && !confirm("Montar a partir da ficha vai substituir o texto atual da anamnese. Continuar?")) return;
+    const r = await executar(null, () => api.montarAnamneseLaudo(laudo.id), "Anamnese montada a partir da ficha do paciente. Revise e complete.");
+    if (r) { atualizarLaudo(r); setPrevia(null); }
+  }
+  const interp = (chave: string) => laudo?.interpretacoes?.[chave] ?? "";
+  function editarInterp(chave: string, v: string) { if (laudo) setLaudo({ ...laudo, interpretacoes: { ...(laudo.interpretacoes ?? {}), [chave]: v } }); }
+  async function salvarInterp(chave: string, v: string) {
+    if (!laudo) return;
+    const r = await executar(null, () => api.updateLaudo(laudo.id, { interpretacoes: { ...(laudo.interpretacoes ?? {}), [chave]: v } }));
+    if (r) { atualizarLaudo(r); setPrevia(null); }
   }
   async function rascunhoIA() {
     if (!laudo) return;
@@ -304,7 +327,8 @@ export function ComposicaoLaudo() {
                 <Cartao id="demanda" numero="2" titulo="Demanda" preenchido={!!laudo.descricaoDemanda.trim()}>
                   <Texto valor={laudo.descricaoDemanda} onChange={(v) => editar("descricaoDemanda", v)} onSalvar={(v) => salvar("descricaoDemanda", v)} />
                 </Cartao>
-                <Cartao id="anamnese" numero="3" titulo="Dados de anamnese" ajuda="Histórico, queixas, desenvolvimento, rotina e histórico familiar." preenchido={!!laudo.anamnese.trim()}>
+                <Cartao id="anamnese" numero="3" titulo="Dados de anamnese" ajuda="Preencha o formulário na ficha do paciente e monte o texto aqui; depois escreva o que quiser por cima." preenchido={!!laudo.anamnese.trim()}
+                  acao={<div className="flex items-center gap-2">{paciente && <Link to={`/pacientes/${paciente.id}`} className="text-xs font-semibold text-ink/55 hover:text-sage-deep">abrir ficha</Link>}<button className="rounded-lg border border-sage-deep px-3 py-1.5 text-xs font-semibold text-sage-deep hover:bg-sage-deep/5 disabled:opacity-50" disabled={ocupado !== null} onClick={montarAnamnese}>Montar a partir da ficha</button></div>}>
                   <Texto formatacao="basica" valor={laudo.anamnese} onChange={(v) => editar("anamnese", v)} onSalvar={(v) => salvar("anamnese", v)} placeholder="Escreva em parágrafos. Linhas em branco separam os parágrafos no laudo." />
                 </Cartao>
                 <Cartao id="observacao" numero="4" titulo="Observação clínica" preenchido={!!laudo.observacaoClinica.trim()}>
@@ -349,12 +373,30 @@ export function ComposicaoLaudo() {
                       </select>
                     )}
                   </div>
+                  {dominios.length > 0 && (
+                    <div className="mb-4 rounded-xl border border-sage-deep/25 bg-sage-deep/[0.03] p-4">
+                      <div className="mb-1 text-sm font-semibold text-ink">Sua interpretação por domínio</div>
+                      <p className="mb-3 text-xs text-ink/55">{temEspacos ? "O que você escrever aqui entra no fim de cada domínio e não se perde ao montar de novo." : "Clique em “Montar a partir dos resultados” para criar o espaço de cada domínio no laudo."}</p>
+                      <div className="space-y-3">
+                        {dominios.map((d) => (
+                          <label key={d.chave} className="block text-sm">
+                            <span className="mb-1 block font-semibold text-ink/70">{d.titulo}</span>
+                            <textarea className="w-full resize-y rounded-lg border border-mist bg-white px-3 py-2 text-sm leading-relaxed outline-none focus:border-sage-deep" rows={2} placeholder="Interpretação clínica deste domínio (opcional)" value={interp(d.chave)} onChange={(e) => editarInterp(d.chave, e.target.value)} onBlur={(e) => salvarInterp(d.chave, e.target.value)} />
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   <Texto formatacao="completa" valor={laudo.analise} onChange={(v) => editar("analise", v)} onSalvar={(v) => salvar("analise", v)} linhas={Math.min(30, Math.max(8, laudo.analise.split("\n").length + 1))} placeholder='Clique em "Montar a partir dos resultados" para começar.' />
                 </Cartao>
 
                 <Cartao id="conclusao" numero="8" titulo="Conclusão" ajuda="Síntese dos achados com a anamnese e a hipótese diagnóstica (com CID), sempre para validação médica." preenchido={!!sug.conclusao.trim()}
                   acao={<button className="rounded-lg border border-ink/20 px-3 py-1.5 text-xs font-semibold text-ink/70 hover:bg-paper disabled:opacity-50" disabled={ocupado !== null} onClick={rascunhoIA}>{ocupado === "ia" ? "Gerando…" : "✨ Rascunho com IA"}</button>}>
                   <Texto formatacao="basica" valor={sug.conclusao} onChange={(v) => setSug((s) => ({ ...s, conclusao: v }))} onSalvar={(v) => salvarConclusao(v, sug.sugestoes)} />
+                  <label className="mt-4 block text-sm">
+                    <span className="mb-1 block font-semibold text-ink/70">Hipótese diagnóstica (com CID) <span className="font-normal text-ink/45">entra no fim da conclusão, com o título em negrito</span></span>
+                    <textarea className="w-full resize-y rounded-xl border border-mist bg-paper/60 px-4 py-3 text-[15px] leading-relaxed outline-none focus:border-sage-deep focus:bg-white" rows={3} placeholder="Ex.: Os resultados são compatíveis com …, conforme os critérios do (CID-11: …)." value={laudo.hipoteseDiagnostica} onChange={(e) => setLaudo({ ...laudo, hipoteseDiagnostica: e.target.value })} onBlur={(e) => salvar("hipoteseDiagnostica" as never, e.target.value)} />
+                  </label>
                   {laudo.iaUtilizada && <p className="mt-2 text-xs text-ink/55">Parte deste laudo teve rascunho de IA. A revisão é obrigatória e o aviso entra no documento (Res. CFP 09/2024).</p>}
                 </Cartao>
                 <Cartao id="sugestoes" numero="9" titulo="Sugestões e encaminhamentos" ajuda='Uma por linha, começando com "- ".' preenchido={!!sug.sugestoes.trim()}>

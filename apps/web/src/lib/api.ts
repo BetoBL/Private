@@ -5,10 +5,35 @@ const TOKEN_STORAGE_KEY = "neurologic_token";
 const PROFISSIONAL_STORAGE_KEY = "neurologic_profissional";
 
 export interface AnamneseData {
-  queixaPrincipal?: string;
+  queixaPrincipal?: string; // motivo da busca pela avaliação
   historicoEscolar?: string;
   historicoMedico?: string;
   historicoFamiliar?: string;
+  informante?: string;
+  irmaos?: string;
+  reside?: string;
+  caracteristicasInfancia?: string;
+  acompanhamentoPrevio?: string;
+  idadeAlfabetizacao?: string;
+  rendimentoEscolar?: string;
+  escolaridadeAtual?: string;
+  planosFuturos?: string;
+  diagnosticosClinicos?: string;
+  medicacao?: string;
+  sintomasFisicos?: string;
+  perfilSocial?: string;
+  atencaoRelato?: string;
+  humor?: string;
+  habilidadesSociais?: string;
+  sonoDormir?: string;
+  sonoAcordar?: string;
+  atividadesFisicas?: string;
+  alimentacao?: string;
+  gestacao?: string;
+  parto?: string;
+  amamentacao?: string;
+  desenvolvimento?: string;
+  textoLivre?: string;
 }
 
 export type Sexo = "MASCULINO" | "FEMININO";
@@ -90,6 +115,7 @@ export interface Profissional {
   especialidades: string[];
   papel: PapelProfissional;
   temAssinatura?: boolean;
+  tituloLaudo?: string | null;
   criadoEm: string;
 }
 
@@ -268,6 +294,8 @@ export interface Laudo {
   referencias: string;
   anamnese: string;
   observacaoClinica: string;
+  hipoteseDiagnostica: string;
+  interpretacoes: Record<string, string> | null;
   status: StatusLaudo;
   iaUtilizada: boolean;
   iaRevisadaPeloProf: boolean;
@@ -535,6 +563,7 @@ export const api = {
   updateProfissional: (
     id: string,
     data: Partial<{
+      tituloLaudo: string;
       assinaturaUrl: string; // data URL; "" remove
       nome: string;
       crp: string;
@@ -608,8 +637,9 @@ export const api = {
     anamnese?: string;
     observacaoClinica?: string;
   }) => request<Laudo>("/laudos", { method: "POST", body: JSON.stringify(data) }),
-  updateLaudo: (id: string, data: Partial<Pick<Laudo, "anamnese" | "observacaoClinica" | "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
+  updateLaudo: (id: string, data: Partial<Pick<Laudo, "anamnese" | "observacaoClinica" | "hipoteseDiagnostica" | "interpretacoes" | "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
     request<Laudo>(`/laudos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  montarAnamneseLaudo: (id: string) => request<Laudo>(`/laudos/${id}/montar-anamnese`, { method: "POST" }),
   montarEstruturaLaudo: (id: string, aplicacaoIds?: string[]) => request<{ laudo: Laudo; semMapa: string[] }>(`/laudos/${id}/montar-estrutura`, { method: "POST", body: JSON.stringify({ aplicacaoIds }) }),
   previaLaudo: (id: string) => request<{ html: string }>(`/laudos/${id}/previa`),
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),

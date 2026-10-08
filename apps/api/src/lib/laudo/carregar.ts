@@ -22,10 +22,15 @@ export async function carregarAplicacoesLaudo(pacienteId: string, aplicacaoIds?:
     }));
 }
 
-export function idadeEmTexto(nascimento: Date, ref: Date): string {
+export function idadeEmAnos(nascimento: Date, ref: Date): number {
   let anos = ref.getUTCFullYear() - nascimento.getUTCFullYear();
   const m = ref.getUTCMonth() - nascimento.getUTCMonth();
   if (m < 0 || (m === 0 && ref.getUTCDate() < nascimento.getUTCDate())) anos--;
+  return anos;
+}
+
+export function idadeEmTexto(nascimento: Date, ref: Date): string {
+  const anos = idadeEmAnos(nascimento, ref);
   return anos === 1 ? "1 ano" : `${anos} anos`;
 }
 
@@ -43,9 +48,9 @@ export async function dadosDoLaudoCompleto(laudoId: string, sistema: SistemaClas
   const dataAvaliacao = aplicacoes.length ? new Date(Math.max(...aplicacoes.map((a) => a.dataSessao.getTime()))) : hoje;
   return {
     clinica: { nome: clinica.nomeFantasia || clinica.razaoSocial, endereco: clinica.endereco, bairro: clinica.bairro, cidade: clinica.cidade, estado: clinica.estado, cep: clinica.cep, telefone: clinica.telefone, whatsapp: clinica.whatsapp, instagram: clinica.instagram, slogan: clinica.slogan, logoUrl: clinica.logoUrl, marcaDaguaUrl: clinica.marcaDaguaUrl, corPrimaria: clinica.corPrimaria, corSecundaria: clinica.corSecundaria },
-    profissional: { nome: profissional.nome, crp: profissional.crp, email: profissional.email, formacao: profissional.formacao, especialidades: profissional.especialidades, assinaturaUrl: profissional.assinaturaUrl },
+    profissional: { nome: profissional.nome, crp: profissional.crp, email: profissional.email, formacao: profissional.formacao, especialidades: profissional.especialidades, assinaturaUrl: profissional.assinaturaUrl, tituloLaudo: profissional.tituloLaudo },
     paciente: { nome: laudo.paciente.nome, cpf: laudo.paciente.cpf, dataNascimento: laudo.paciente.dataNascimento, idadeTexto: idadeEmTexto(laudo.paciente.dataNascimento, dataAvaliacao) },
-    laudo: { descricaoDemanda: laudo.descricaoDemanda, anamnese: laudo.anamnese, observacaoClinica: laudo.observacaoClinica, procedimento: laudo.procedimento, analise: laudo.analise, conclusao: laudo.conclusao, referencias: laudo.referencias, iaUtilizada: laudo.iaUtilizada },
+    laudo: { descricaoDemanda: laudo.descricaoDemanda, anamnese: laudo.anamnese, observacaoClinica: laudo.observacaoClinica, procedimento: laudo.procedimento, analise: laudo.analise, conclusao: laudo.conclusao, referencias: laudo.referencias, iaUtilizada: laudo.iaUtilizada, interpretacoes: (laudo.interpretacoes as Record<string, string> | null) ?? {}, hipoteseDiagnostica: laudo.hipoteseDiagnostica },
     aplicacoes,
     sistema,
     data: hoje,

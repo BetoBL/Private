@@ -131,6 +131,7 @@ model Profissional {
   fotoUrl           String?
   // assinatura escaneada/desenhada (data URL de imagem), usada no fecho do laudo; fica de fora das listas (ver profissionais.routes)
   assinaturaUrl     String?           @db.Text
+  tituloLaudo       String?           // linha sob o nome no fecho do laudo (ex.: "Psicóloga especialista em Neuropsicologia")
   crp               String
   telefone          String?
   enderecoParticular String?
@@ -397,6 +398,8 @@ model Laudo {
   referencias       String       @db.Text
   anamnese          String       @default("") @db.Text // seção 3 do modelo completo de laudo
   observacaoClinica String       @default("") @db.Text // seção 4
+  interpretacoes    Json?        // interpretação do profissional por domínio ({ "executivas": "texto", … }); sobrevive a "montar de novo"
+  hipoteseDiagnostica String     @default("") @db.Text // parágrafo "Hipótese diagnóstica" (com CID), no fim da conclusão
 
   status            StatusLaudo  @default(RASCUNHO_IA)
   dataDevolutiva    DateTime?

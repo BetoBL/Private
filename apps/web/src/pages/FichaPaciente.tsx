@@ -1,3 +1,4 @@
+import { FormularioAnamnese } from "../components/FormularioAnamnese";
 import { ComparacaoReavaliacao } from "../components/ComparacaoReavaliacao";
 import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
@@ -591,25 +592,11 @@ export function FichaPaciente() {
 
       {aba === "anamnese" && (
         <div>
-          <div className="flex flex-col gap-4">
-            {([
-              ["queixaPrincipal", "Queixa principal"],
-              ["historicoEscolar", "Histórico escolar"],
-              ["historicoMedico", "Histórico médico"],
-              ["historicoFamiliar", "Histórico familiar"],
-            ] as const).map(([chave, label]) => (
-              <label key={chave} className="text-sm">
-                <span className="mb-1 block font-semibold text-ink/70">{label}</span>
-                <textarea
-                  className="w-full rounded-lg border border-mist px-3 py-2"
-                  rows={3}
-                  value={anamneseForm[chave] ?? ""}
-                  onChange={(e) => setAnamneseForm((f) => ({ ...f, [chave]: e.target.value }))}
-                />
-              </label>
-            ))}
-          </div>
-          <button className="mt-4 rounded-lg border border-mist px-4 py-2 text-sm font-semibold text-ink/70" onClick={salvarAnamnese}>
+          <p className="mb-4 rounded-xl bg-paper px-4 py-3 text-sm text-ink/70">
+            Preencha só o que a pessoa informou. No laudo, o botão <b>“Montar a partir da ficha”</b> junta estes campos em parágrafos, e você ainda edita o texto final.
+          </p>
+          <FormularioAnamnese valor={anamneseForm} onChange={setAnamneseForm} />
+          <button className="mt-5 rounded-lg bg-sage-deep px-6 py-2.5 text-sm font-semibold text-paper" onClick={salvarAnamnese}>
             Salvar anamnese
           </button>
         </div>

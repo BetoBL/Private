@@ -4,6 +4,8 @@ import { z } from "zod";
 import mammoth from "mammoth";
 import { carregarAplicacoesLaudo, dadosDoLaudoCompleto } from "../lib/laudo/carregar";
 import { gerarDocxLaudoCompleto } from "../lib/laudo/gerarDocxCompleto";
+import { gerarTextoAnamnese, type AnamneseForm } from "../lib/laudo/anamnese";
+import { idadeEmAnos } from "../lib/laudo/carregar";
 import { montarEstruturaLaudo } from "../lib/laudo/montar";
 import { DESCRICAO_RESPONDENTE, gerarRascunhoLaudo } from "../lib/gerarRascunhoLaudo";
 import { pacienteTemTestePlaceholder } from "../lib/placeholderCheck";
@@ -58,6 +60,8 @@ const laudoUpdateSchema = z.object({
   referencias: z.string().optional(),
   anamnese: z.string().optional(),
   observacaoClinica: z.string().optional(),
+  hipoteseDiagnostica: z.string().optional(),
+  interpretacoes: z.record(z.string(), z.string()).optional(),
   status: z.nativeEnum(StatusLaudo).optional(),
   iaRevisadaPeloProf: z.boolean().optional(),
   dataDevolutiva: z.coerce.date().optional(),
@@ -162,6 +166,29 @@ laudosRouter.post(
     const estrutura = montarEstruturaLaudo(apps, { sistema: perfil?.sistemaClassificacaoPercentil ?? "MIOTTO_2017", primeiroNome: laudo.paciente.nome.split(" ")[0] });
     const atualizado = await prisma.laudo.update({ where: { id: laudo.id }, data: { procedimento: estrutura.procedimento, analise: estrutura.analise, referencias: estrutura.referencias } });
     res.json({ laudo: atualizado, semMapa: estrutura.semMapa });
+  })
+);
+
+// Monta o texto da anamnese (seção 3) a partir do formulário de anamnese da ficha do paciente. O texto fica editável no laudo.
+laudosRouter.post(
+  "/:id/montar-anamnese",
+  asyncHandler(async (req, res) => {
+    const laudo = await buscarLaudoDaClinica(req.params.id, req);
+    if (!laudo) {
+      res.status(404).json({ error: "Laudo não encontrado" });
+      return;
+    }
+    const form = (laudo.paciente.anamnese as AnamneseForm | null) ?? {};
+    // a idade que vale é a da avaliação (última sessão com teste); sem testes, a de hoje
+    const apps = await carregarAplicacoesLaudo(laudo.pacienteId);
+    const dataAvaliacao = apps.length ? new Date(Math.max(...apps.map((a) => a.dataSessao.getTime()))) : new Date();
+    const texto = gerarTextoAnamnese(form, { nome: laudo.paciente.nome, sexo: laudo.paciente.sexo, idadeAnos: idadeEmAnos(laudo.paciente.dataNascimento, dataAvaliacao) });
+    if (!texto.trim()) {
+      res.status(409).json({ error: "A anamnese do paciente ainda está em branco. Preencha o formulário na ficha do paciente (aba Anamnese)." });
+      return;
+    }
+    const atualizado = await prisma.laudo.update({ where: { id: laudo.id }, data: { anamnese: texto } });
+    res.json(atualizado);
   })
 );
 

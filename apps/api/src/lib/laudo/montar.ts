@@ -1,7 +1,7 @@
 import type { SistemaClassificacaoPercentil } from "../classificacaoPercentil";
 import { abaixoDaMedia, classificarPercentil, formatarPercentil } from "./classificacao";
 import { COMPLEMENTARES, DOMINIOS, GRUPOS, siglasDe, type Fonte, type ItemMapa } from "./dominios";
-import { descricaoParaLaudo, referenciaParaLaudo } from "./descricoes";
+import { descricaoParaLaudo, nomeParaLaudo, referenciaParaLaudo } from "./descricoes";
 
 // Estruturas mínimas (só o que o laudo lê): evita acoplar o laudo ao motor de cálculo.
 export interface LayoutResumo {
@@ -72,7 +72,7 @@ export function montarEstruturaLaudo(apps: AplicacaoLaudo[], opcoes: { sistema: 
   // ---- seção 5: instrumentos ----
   const unicos = new Map<string, AplicacaoLaudo>();
   for (const a of [...apps].sort((x, y) => y.dataSessao.getTime() - x.dataSessao.getTime())) if (!unicos.has(norm(a.sigla))) unicos.set(norm(a.sigla), a);
-  const linhaInstr = (a: AplicacaoLaudo) => `- **${a.nome};** ${descricaoParaLaudo(a.sigla, a.descricao)}`.trim();
+  const linhaInstr = (a: AplicacaoLaudo) => `- **${nomeParaLaudo(a.sigla, a.nome)};** ${descricaoParaLaudo(a.sigla, a.descricao)}`.trim();
   const principais = [...unicos.values()].filter((a) => !COMPLEMENTARES.has(a.sigla) && !COMPLEMENTARES.has(a.sigla.replace(/-(ADULTOS|ESCOLAR|PRE-ESCOLAR)$/, "")));
   const complementares = [...unicos.values()].filter((a) => !principais.includes(a));
   const procedimento = [
@@ -115,7 +115,8 @@ export function montarEstruturaLaudo(apps: AplicacaoLaudo[], opcoes: { sistema: 
           : `De acordo com os resultados acima, ${primeiroNome} não apresenta dificuldades. Resultados dentro do esperado foram encontrados em ${todos.join(", ")}.`
       );
     }
-    blocos.push([`## ${dom.titulo}`, dom.intro && !grupos.some((g) => g.intro) ? dom.intro : "", ...partes].filter(Boolean).join("\n"));
+    // [[interpretacao:domínio]] marca onde entra a interpretação escrita pelo profissional (fica guardada à parte e sobrevive a "montar de novo")
+    blocos.push([`## ${dom.titulo}`, dom.intro && !grupos.some((g) => g.intro) ? dom.intro : "", ...partes, `[[interpretacao:${dom.chave}]]`].filter(Boolean).join("\n"));
   }
   const semMapa = [...unicos.values()].filter((a) => !usadas.has(norm(a.sigla))).map((a) => a.nome);
 

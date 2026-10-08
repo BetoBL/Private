@@ -25,7 +25,7 @@ export function FichaProfissional() {
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
 
-  const [form, setForm] = useState({ nome: "", crp: "", telefone: "", enderecoParticular: "", formacao: "" });
+  const [form, setForm] = useState({ nome: "", crp: "", telefone: "", enderecoParticular: "", formacao: "", tituloLaudo: "" });
   const [especialidades, setEspecialidades] = useState<string[]>([]);
   const [novaEspecialidade, setNovaEspecialidade] = useState("");
   const [papel, setPapel] = useState<PapelProfissional>("PSICOLOGO");
@@ -50,6 +50,7 @@ export function FichaProfissional() {
           telefone: p.telefone ?? "",
           enderecoParticular: p.enderecoParticular ?? "",
           formacao: p.formacao ?? "",
+          tituloLaudo: p.tituloLaudo ?? "",
         });
         setEspecialidades(p.especialidades);
         setPapel(p.papel);
@@ -200,6 +201,17 @@ export function FichaProfissional() {
               value={form.formacao}
               onChange={(e) => setForm((f) => ({ ...f, formacao: e.target.value }))}
             />
+          </label>
+          <label className="col-span-2 text-sm">
+            <span className="mb-1 block font-semibold text-ink/70">Título no fecho do laudo</span>
+            <input
+              disabled={!podeEditar}
+              placeholder="Ex.: Psicóloga especialista em Neuropsicologia"
+              className="w-full rounded-lg border border-mist px-3 py-2 disabled:bg-paper disabled:text-ink/50"
+              value={form.tituloLaudo}
+              onChange={(e) => setForm((f) => ({ ...f, tituloLaudo: e.target.value }))}
+            />
+            <span className="mt-1 block text-xs text-ink/50">Aparece sob o nome, antes do CRP. Começando com “Psicóloga”, o laudo escreve “Autora”.</span>
           </label>
           <div className="col-span-2">
             <UploadImagem rotulo="Assinatura (aparece no fecho do laudo)" valor={assinatura} desabilitado={!podeEditar} maxLado={700} ajuda="Foto ou arquivo da assinatura, de preferência PNG com fundo transparente." onChange={(v) => { setAssinatura(v || null); setAssinaturaMudou(true); }} />

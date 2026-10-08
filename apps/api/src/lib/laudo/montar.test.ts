@@ -52,8 +52,8 @@ test("laudo: linhas por domínio a partir do WAIS-III, FDT e RAVLT reais", () =>
   const e = montarEstruturaLaudo([appWais, appFdt, appRavlt], { sistema: "MIOTTO_2017", primeiroNome: "Paciente" });
   assert.match(e.analise, /## Funções intelectuais\n[\s\S]*\[\[tabela:wais-indices\]\]\n\[\[grafico:wais-indices\]\]/);
   assert.match(e.analise, /## Linguagem\n[^\n]*\n- Subteste Vocabulário, percentil \*\*63% Dentro da média\*\*\./);
-  assert.match(e.analise, /- \*\*Controle inibitório:\*\* FDT, inibição, percentil \*\*\d+% [^*]+\*\*\./);
-  assert.match(e.analise, /- \*\*Raciocínio lógico:\*\* subteste Raciocínio Matricial, percentil \*\*\d+% /);
+  assert.match(e.analise, /- \*\*Controle inibitório:\*\* FDT inibição, percentil \*\*\d+% [^*]+\*\*\./);
+  assert.match(e.analise, /- \*\*Raciocínio Lógico:\*\* subteste Raciocínio Matricial, percentil \*\*\d+% /);
   assert.match(e.analise, /De acordo com os resultados acima, Paciente (apresenta dificuldades em|não apresenta dificuldades)/);
   assert.match(e.analise, /\[\[grafico:RAVLT\|Quantidade de palavras\]\]/);
   assert.match(e.procedimento, /- \*\*Escala Wechsler de Inteligência para Adultos WAIS-III;\*\*/);

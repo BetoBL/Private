@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-10-08 - Tarde] Textos originais, anamnese por formulário e espaços por paciente
+
+- **Textos-padrão do laudo devolvidos à redação original da psicóloga** (palavra por palavra): antes, 19 dos 39 textos-padrão tinham sido reescritos por mim sem aviso (definições de funções executivas e atencionais, visuoconstrução, memória episódica, BAI, BDI-II, BFP, referencial, descrição dos instrumentos e seus nomes). Agora 41 de 42 são idênticos; o 42º é o aviso de IA (exigência do CFP). Cada definição de função executiva/atencional voltou a vir seguida da sua linha de resultado. Possíveis deslizes dela (ex.: "As Escala", "quantitativa") ficam como estão e foram listados em `PERGUNTAS-PARA-LETICIA.md`, seção 10.
+- **Formulário de anamnese novo** (`FormularioAnamnese.tsx`, aba Anamnese da ficha): 8 seções (contexto familiar, motivo e histórico, escolaridade, saúde, perfil/atenção/humor, rotina, gestação e desenvolvimento, histórico familiar) + texto livre. `POST /laudos/:id/montar-anamnese` junta os campos em parágrafos (`lib/laudo/anamnese.ts`, concordância de gênero, idade na data da avaliação); o texto continua editável no laudo.
+- **Espaços por paciente no laudo:** interpretação clínica por domínio (`Laudo.interpretacoes`, token `[[interpretacao:domínio]]`; sobrevive a "montar de novo"), hipótese diagnóstica própria (`Laudo.hipoteseDiagnostica`, "Hipótese Diagnóstica:" em negrito no fim da conclusão) e título do profissional no fecho (`Profissional.tituloLaudo`; "Autora" quando começa com "Psicóloga").
+- Migration `adiciona_interpretacoes_hipotese_e_titulo_laudo`. 114 testes passam.
+
 ## [2026-10-08] Laudo no modelo completo da MentEssence
 
 - **Novo laudo (substitui o simples):** 10 seções (identificação, demanda, anamnese, observação clínica, instrumentos, referencial com a tabela de classificação, análise por domínio, conclusão, sugestões e referências), papel timbrado e fecho com assinatura. Exportação em Word (`gerarDocxCompleto.ts`; o gerador antigo foi removido) e pré-visualização em HTML (`GET /laudos/:id/previa`, via `mammoth`).

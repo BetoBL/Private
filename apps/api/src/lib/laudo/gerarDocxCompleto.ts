@@ -11,9 +11,9 @@ import type { AplicacaoLaudo } from "./montar";
 // Modelo completo de laudo (MentEssence): 10 seções, papel timbrado do cadastro da clínica, tabelas e gráficos como imagem.
 export interface DadosLaudoCompleto {
   clinica: { nome: string; endereco?: string | null; bairro?: string | null; cidade?: string | null; estado?: string | null; cep?: string | null; telefone?: string | null; whatsapp?: string | null; instagram?: string | null; slogan?: string | null; logoUrl?: string | null; marcaDaguaUrl?: string | null; corPrimaria?: string | null; corSecundaria?: string | null };
-  profissional: { nome: string; crp: string; email?: string | null; formacao?: string | null; especialidades: string[]; assinaturaUrl?: string | null };
+  profissional: { nome: string; crp: string; email?: string | null; formacao?: string | null; especialidades: string[]; assinaturaUrl?: string | null; tituloLaudo?: string | null };
   paciente: { nome: string; cpf?: string | null; dataNascimento: Date; idadeTexto: string };
-  laudo: { descricaoDemanda: string; anamnese: string; observacaoClinica: string; procedimento: string; analise: string; conclusao: string; referencias: string; iaUtilizada: boolean };
+  laudo: { descricaoDemanda: string; anamnese: string; observacaoClinica: string; procedimento: string; analise: string; conclusao: string; referencias: string; iaUtilizada: boolean; interpretacoes?: Record<string, string>; hipoteseDiagnostica?: string };
   aplicacoes: AplicacaoLaudo[];
   sistema: SistemaClassificacaoPercentil;
   data: Date;
@@ -92,7 +92,7 @@ function tabela(cabecalho: string[] | null, linhas: string[][], larguras: number
 const espaco = () => new Paragraph({ spacing: { after: 120 }, children: [] });
 
 // ---------- resolução dos blocos [[tabela:...]] e [[grafico:...]] ----------
-interface Ctx { apps: AplicacaoLaudo[]; sistema: SistemaClassificacaoPercentil; nTabela: number; nGrafico: number }
+interface Ctx { apps: AplicacaoLaudo[]; sistema: SistemaClassificacaoPercentil; nTabela: number; nGrafico: number; interpretacoes: Record<string, string> }
 const maisRecente = (apps: AplicacaoLaudo[], teste: string) => { const s = siglasDe(teste).map(norm); return apps.filter((a) => s.includes(norm(a.sigla))).sort((a, b) => b.dataSessao.getTime() - a.dataSessao.getTime())[0]; };
 const numero = (v: unknown): number | null => (typeof v === "number" && Number.isFinite(v) ? v : typeof v === "string" && v.trim() !== "" && !Number.isNaN(Number(v.replace(",", "."))) ? Number(v.replace(",", ".")) : null);
 
@@ -180,6 +180,8 @@ function tabelaSrs(ctx: Ctx): Array<Paragraph | Table> {
 
 function resolverToken(token: string, ctx: Ctx): Array<Paragraph | Table> {
   const [tipo, resto] = [token.slice(0, token.indexOf(":")), token.slice(token.indexOf(":") + 1)];
+  // interpretação do profissional para o domínio: parágrafos livres (linhas em branco separam)
+  if (tipo === "interpretacao") return (ctx.interpretacoes[resto] ?? "").split(/\n+/).filter((l) => l.trim()).map(corpo);
   if (tipo === "tabela") {
     if (resto === "wais-indices") return tabelaWaisIndices(ctx);
     if (resto === "bai") return tabelaBeck(ctx, "BAI", "Ansiedade");
@@ -210,8 +212,9 @@ function renderMarkdown(md: string, ctx: Ctx, numerarSub?: string): Array<Paragr
   return out;
 }
 
+// redação original do laudo-modelo, palavra por palavra (ver dominios.ts)
 const TEXTO_REFERENCIAL = [
-  "Miotto (2017) define a Neuropsicologia como uma ciência interdisciplinar que tem como objetivo o estudo da cognição e do comportamento de um indivíduo em relação ao seu Sistema Nervoso Central (SNC). Miotto, Campanholo, Trevisan e Serrão (2018) compreendem a avaliação neuropsicológica como um processo técnico e científico em que se obtêm informações a partir de instrumentos, técnicas e métodos específicos, nas quais são realizadas interpretações das informações obtidas. Assim como os dados quantitativos obtidos na testagem cognitiva, é importante realizar uma análise qualitativa que envolve observação clínica das verbalizações, gestos, humor, tom de voz, hábitos e demais idiossincrasias que podem oferecer informações acerca do ajustamento comportamental, dinâmica familiar e estilo de vida do paciente (Campanholo & Serrão, 2018). Lezak, Howieson & Loring (2004) propõem seis objetivos principais para a avaliação neuropsicológica: pesquisa, resposta a solicitação forense, diagnóstico, cuidado com paciente, identificação das necessidades e eficácia do tratamento.",
+  "Miotto (2017) define a Neuropsicologia como uma ciência interdisciplinar que tem como objetivo o estudo da cognição e do comportamento de um indivíduo em relação ao seu Sistema Nervoso Central (SNC). Miotto, Campanholo, Trevisan e Serrão (2018) compreendem a avaliação neuropsicológica como um processo técnico e científico em que se obtêm informações a partir de instrumentos, técnicas e métodos específicos, nas quais são realizadas interpretações das informações obtidas. Assim como os dados quantitativos obtidos na testagem cognitiva, é importante realizar uma análise quantitativa que envolve observação clínica das verbalizações, gestos, humor, tom de voz, hábitos e demais idiossincrasias que podem oferecer informações acerca do ajustamento comportamental, dinâmica familiar e estilo de vida do paciente (Campanholo & Serrão, 2018). Lezak, Howieson & Loring (2004) propõem seis objetivos principais para a avaliação neuropsicológica: pesquisa, resposta a solicitação forense, diagnóstico, cuidado com paciente, identificação das necessidades e eficácia do tratamento.",
   "A análise de tarefas qualitativas, fundamentada em estudos preliminares, foi integrada aos textos interpretativos deste relatório, com as referências sendo inseridas no final do relatório. A classificação foi conduzida segundo os critérios delineados na tabela a seguir.",
 ];
 const AVISO_SIGILO = "Este laudo não poderá ser utilizado para fins diferentes do apontado no item de identificação, o mesmo possui caráter sigiloso e se trata de documento extrajudicial e a autora não se responsabiliza pelo uso dado ao laudo por parte solicitante, após a sua entrega em entrevista devolutiva, conforme normas éticas propostas pelo Conselho Federal de Psicologia.";
@@ -219,7 +222,7 @@ const AVISO_VALIDADE = "VALIDADE: Conforme normas do Conselho Federal de Psicolo
 const AVISO_IA = "Este laudo contou com apoio de Inteligência Artificial na redação de rascunho de partes do texto, integralmente revisado e assumido pelo(a) profissional responsável, conforme a Resolução CFP nº 09/2024 e a cartilha do CFP sobre o uso de IA.";
 
 export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buffer> {
-  const ctx: Ctx = { apps: d.aplicacoes, sistema: d.sistema, nTabela: 1, nGrafico: 0 }; // a Tabela 1 é a de classificação
+  const ctx: Ctx = { apps: d.aplicacoes, sistema: d.sistema, nTabela: 1, nGrafico: 0, interpretacoes: d.laudo.interpretacoes ?? {} }; // a Tabela 1 é a de classificação
   const cor = (d.clinica.corSecundaria || "E8691E").replace("#", "");
   const tabelaClass = obterTabelaClassificacaoPercentil(d.sistema);
 
@@ -256,8 +259,11 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
   ] });
 
   // ---- corpo ----
+  // linha sob o nome: a que o profissional escreveu no cadastro; sem ela, uma neutra montada com as especialidades
+  const titEspecialista = d.profissional.tituloLaudo?.trim() || `Psicólogo(a)${d.profissional.especialidades.length ? ` especialista em ${d.profissional.especialidades.join(", ")}` : ""}`;
+  const rotuloAutor = /^psic[oó]loga/i.test(titEspecialista) ? "Autora" : /^psic[oó]logo\b/i.test(titEspecialista) ? "Autor" : "Autor(a)";
   const identificacaoProf = [
-    linhaSimples(`**Autor(a):** ${d.profissional.nome}`),
+    linhaSimples(`**${rotuloAutor}:** ${d.profissional.nome}`),
     ...(d.profissional.formacao ? d.profissional.formacao.split(/\n+/).map((l) => linhaSimples(l)) : []),
     ...(d.profissional.email ? [linhaSimples(`Email: ${d.profissional.email}`)] : []),
   ];
@@ -270,7 +276,6 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
   const textoOuTraco = (t: string) => (t.trim() ? t.split(/\n+/).filter((l) => l.trim()).map(corpo) : [corpo("—")]);
   const dataExtenso = d.data.toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
   const assinatura = imagemInline(d.profissional.assinaturaUrl, 1.8, 7);
-  const titEspecialista = `Psicólogo(a)${d.profissional.especialidades.length ? ` especialista em ${d.profissional.especialidades.join(", ")}` : ""}`;
   const refs = d.laudo.referencias.split("\n").filter((l) => l.trim());
 
   const corpoDoc: Array<Paragraph | Table> = [
@@ -288,6 +293,7 @@ export async function gerarDocxLaudoCompleto(d: DadosLaudoCompleto): Promise<Buf
     tabela(["CLASSIFICAÇÃO", "PERCENTIL %"], tabelaClass.linhas.map(([a, b]) => [a, b]), [3800, 2400], { centroDe: 0 }), espaco(),
     titulo("7. ANÁLISE DOS RESULTADOS"), ...renderMarkdown(d.laudo.analise, ctx, "7."),
     titulo("8. CONCLUSÃO"), ...renderMarkdown(conclusao, ctx, undefined),
+    ...(d.laudo.hipoteseDiagnostica?.trim() ? [new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { line: 360, after: 80 }, indent: { firstLine: 567 }, children: [new TextRun({ text: "Hipótese Diagnóstica: ", bold: true, font: FONTE, size: 22 }), ...runs(d.laudo.hipoteseDiagnostica.trim())] })] : []),
     ...(sugestoes ? [titulo("9. SUGESTÕES E ENCAMINHAMENTOS"), ...renderMarkdown(sugestoes, ctx)] : []),
     new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before: 360, after: 360 }, children: [new TextRun({ text: `${d.clinica.cidade ? `${d.clinica.cidade}, ` : ""}${dataExtenso}.`, font: FONTE, size: 22 })] }),
     ...(assinatura ? [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 0 }, children: [assinatura] })] : [new Paragraph({ spacing: { before: 400 }, children: [] })]),

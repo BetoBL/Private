@@ -24,6 +24,7 @@ const profissionalCreateSchema = z.object({
 const profissionalUpdateSchema = z.object({
   nome: z.string().min(1).optional(),
   fotoUrl: z.string().url().optional(),
+  tituloLaudo: z.string().trim().max(160).optional(),
   assinaturaUrl: z
     .string()
     .refine((v) => v === "" || /^data:image\/(png|jpe?g|webp);base64,/.test(v), "Assinatura inválida (use PNG, JPEG ou WebP)")

@@ -55,3 +55,20 @@ Itens levantados na leitura do laudo-modelo (páginas do PDF entre parênteses).
 - **Barra de erro do gráfico dos índices do WAIS-III:** fica **fixa em ±7,5**, como no laudo dela.
 - **Legenda do gráfico da curva do RAVLT:** o sistema usa "Curva de aprendizagem do RAVLT – número de palavras evocadas" (os valores plotados são a contagem de palavras). *Falta só ela confirmar que é isso (item 1 da seção 8).*
 - **Ainda para perguntar:** como classificar o percentil exatamente 98 e o exatamente 2 (item 3 da seção 8). Enquanto isso, o sistema classifica 98 como "Muito superior à média" (como no laudo dela) e abaixo de 3 como "Deficitário".
+
+## 10. Textos do laudo: o que o sistema escreve (08/10/2026)
+
+**Regra:** os textos-padrão (definições de cada domínio, referencial teórico, descrição dos instrumentos, avisos) saem **palavra por palavra como no laudo dela**; só ela autoriza mudar. 41 dos 42 textos-padrão são idênticos. O 42º é o aviso de uso de IA (exigência do CFP, só aparece se houve rascunho automático).
+
+**Escritos no original dela que talvez sejam deslizes (mantidos como estão, para ela decidir):**
+1. "**As Escala** de Inteligência de Wechsler para Adultos (WAIS-III), foram elaboradas… avaliam…" (7.1)
+2. "é importante realizar uma análise **quantitativa** que envolve observação clínica…" (referencial). Seria "qualitativa"?
+3. "codificação expressiva **produção**, que inclui fala, escrita" (Linguagem). Faltam parênteses ou travessão?
+4. "BPA – atenção **dividia**" (7.5 do laudo-exemplo). O sistema escreve "dividida".
+
+**O sistema escreve diferente do laudo dela, de propósito (ela pode vetar):**
+- Classificações pelo vocabulário da Tabela 1 ("Média superior", "Dentro da média", "Média inferior"…), no lugar de "Médio Superior", "Médio"…
+- Títulos e rótulos com a grafia corrigida: "1. IDENTIFICAÇÃO" (sem o hífen), "FUNÇÕES VISUOCONSTRUTIVAS", "Quociente Intelectual Total" (no original, "Quoeficiente").
+- "Autora"/"Autor(a)" e a linha sob o nome vêm do cadastro do profissional (campo "Título no fecho do laudo").
+- Legenda do gráfico da curva do RAVLT: "número de palavras evocadas".
+- Os subtítulos que no original são "- Inventário de Ansiedade de Beck" aparecem com a seta verde.
