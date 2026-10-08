@@ -106,7 +106,11 @@ model Clinica {
   estado        String?        // UF, 2 letras
   cep           String?
   telefone      String?
-  logoUrl       String?
+  logoUrl       String?        @db.Text // URL ou data URL de imagem (logotipo do papel timbrado)
+  marcaDaguaUrl String?        @db.Text // imagem de fundo (marca-d'água) do papel timbrado
+  slogan        String?        // frase do cabeçalho do laudo
+  instagram     String?
+  whatsapp      String?
   corPrimaria   String?        // hex, para personalizar laudo/portal
   corSecundaria String?
   criadoEm      DateTime       @default(now())
@@ -125,6 +129,8 @@ model Profissional {
 
   nome              String
   fotoUrl           String?
+  // assinatura escaneada/desenhada (data URL de imagem), usada no fecho do laudo; fica de fora das listas (ver profissionais.routes)
+  assinaturaUrl     String?           @db.Text
   crp               String
   telefone          String?
   enderecoParticular String?
@@ -388,6 +394,8 @@ model Laudo {
   analise           String       @db.Text  // gerado por IA como rascunho, depois editado
   conclusao         String       @db.Text
   referencias       String       @db.Text
+  anamnese          String       @default("") @db.Text // seção 3 do modelo completo de laudo
+  observacaoClinica String       @default("") @db.Text // seção 4
 
   status            StatusLaudo  @default(RASCUNHO_IA)
   dataDevolutiva    DateTime?

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api, type Paciente, type PapelProfissional, type Profissional } from "../lib/api";
+import { UploadImagem } from "../components/UploadImagem";
 
 function formatarTelefone(valor: string): string {
   const digitos = valor.replace(/\D/g, "").slice(0, 11);
@@ -28,6 +29,9 @@ export function FichaProfissional() {
   const [especialidades, setEspecialidades] = useState<string[]>([]);
   const [novaEspecialidade, setNovaEspecialidade] = useState("");
   const [papel, setPapel] = useState<PapelProfissional>("PSICOLOGO");
+  // assinatura do laudo: null = ainda não carregada/sem imagem; só vai no PATCH se o usuário mexeu
+  const [assinatura, setAssinatura] = useState<string | null>(null);
+  const [assinaturaMudou, setAssinaturaMudou] = useState(false);
 
   const [colegas, setColegas] = useState<Profissional[]>([]);
   const [pacientesDele, setPacientesDele] = useState<Paciente[]>([]);
@@ -49,6 +53,7 @@ export function FichaProfissional() {
         });
         setEspecialidades(p.especialidades);
         setPapel(p.papel);
+        if (p.temAssinatura) api.getAssinatura(id!).then((r) => !cancelado && setAssinatura(r.assinaturaUrl)).catch(() => undefined);
       })
       .catch((e) => !cancelado && setErro(e.message));
     if (ehAdmin) {
@@ -79,8 +84,10 @@ export function FichaProfissional() {
       const atualizado = await api.updateProfissional(id, {
         ...form,
         especialidades,
+        ...(assinaturaMudou ? { assinaturaUrl: assinatura ?? "" } : {}),
         ...(ehAdmin && !ehEuMesmo ? { papel } : {}),
       });
+      setAssinaturaMudou(false);
       setDados(atualizado);
       setMensagem("Dados salvos.");
     } catch (e) {
@@ -194,6 +201,9 @@ export function FichaProfissional() {
               onChange={(e) => setForm((f) => ({ ...f, formacao: e.target.value }))}
             />
           </label>
+          <div className="col-span-2">
+            <UploadImagem rotulo="Assinatura (aparece no fecho do laudo)" valor={assinatura} desabilitado={!podeEditar} maxLado={700} ajuda="Foto ou arquivo da assinatura, de preferência PNG com fundo transparente." onChange={(v) => { setAssinatura(v || null); setAssinaturaMudou(true); }} />
+          </div>
           <div className="col-span-2 text-sm">
             <span className="mb-1 block font-semibold text-ink/70">Especialidades</span>
             <div className="mb-2 flex flex-wrap gap-2">

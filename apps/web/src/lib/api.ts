@@ -88,6 +88,7 @@ export interface Profissional {
   formacao: string | null;
   especialidades: string[];
   papel: PapelProfissional;
+  temAssinatura?: boolean;
   criadoEm: string;
 }
 
@@ -106,6 +107,12 @@ export interface Clinica {
   telefone: string | null;
   corPrimaria: string | null;
   corSecundaria: string | null;
+  // papel timbrado do laudo
+  logoUrl: string | null;
+  marcaDaguaUrl: string | null;
+  slogan: string | null;
+  instagram: string | null;
+  whatsapp: string | null;
 }
 
 export interface Anexo {
@@ -258,6 +265,8 @@ export interface Laudo {
   analise: string;
   conclusao: string;
   referencias: string;
+  anamnese: string;
+  observacaoClinica: string;
   status: StatusLaudo;
   iaUtilizada: boolean;
   iaRevisadaPeloProf: boolean;
@@ -520,9 +529,11 @@ export const api = {
   getProfissional: (id: string) => request<Profissional>(`/profissionais/${id}`),
   createProfissional: (data: { clinicaId: string; nome: string; crp: string; email: string; senha: string }) =>
     request<Profissional>("/profissionais", { method: "POST", body: JSON.stringify(data) }),
+  getAssinatura: (id: string) => request<{ assinaturaUrl: string | null }>(`/profissionais/${id}/assinatura`),
   updateProfissional: (
     id: string,
     data: Partial<{
+      assinaturaUrl: string; // data URL; "" remove
       nome: string;
       crp: string;
       telefone: string;
@@ -541,7 +552,7 @@ export const api = {
     data: Partial<
       Pick<
         Clinica,
-        "razaoSocial" | "nomeFantasia" | "cnpj" | "endereco" | "bairro" | "cidade" | "estado" | "cep" | "telefone" | "corPrimaria" | "corSecundaria"
+        "razaoSocial" | "nomeFantasia" | "cnpj" | "endereco" | "bairro" | "cidade" | "estado" | "cep" | "telefone" | "corPrimaria" | "corSecundaria" | "logoUrl" | "marcaDaguaUrl" | "slogan" | "instagram" | "whatsapp"
       >
     >
   ) => request<Clinica>(`/clinicas/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
@@ -592,8 +603,10 @@ export const api = {
     identificacao: Record<string, unknown>;
     descricaoDemanda: string;
     procedimento: string;
+    anamnese?: string;
+    observacaoClinica?: string;
   }) => request<Laudo>("/laudos", { method: "POST", body: JSON.stringify(data) }),
-  updateLaudo: (id: string, data: Partial<Pick<Laudo, "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
+  updateLaudo: (id: string, data: Partial<Pick<Laudo, "anamnese" | "observacaoClinica" | "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
     request<Laudo>(`/laudos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
   exportarLaudoDocx: (id: string) => baixarArquivo(`/laudos/${id}/exportar-docx`),

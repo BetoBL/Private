@@ -42,6 +42,8 @@ const laudoCreateSchema = z.object({
   analise: z.string().optional().default(""),
   conclusao: z.string().optional().default(""),
   referencias: z.string().optional().default(""),
+  anamnese: z.string().optional().default(""),
+  observacaoClinica: z.string().optional().default(""),
 });
 
 const laudoUpdateSchema = z.object({
@@ -51,6 +53,8 @@ const laudoUpdateSchema = z.object({
   analise: z.string().optional(),
   conclusao: z.string().optional(),
   referencias: z.string().optional(),
+  anamnese: z.string().optional(),
+  observacaoClinica: z.string().optional(),
   status: z.nativeEnum(StatusLaudo).optional(),
   iaRevisadaPeloProf: z.boolean().optional(),
   dataDevolutiva: z.coerce.date().optional(),

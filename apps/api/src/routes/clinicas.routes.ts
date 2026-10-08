@@ -11,6 +11,13 @@ import { asyncHandler, validateBody } from "../lib/validate";
 // não travamos nisso aqui.
 const CNPJ_REGEX = /^[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}\/[A-Z0-9]{4}-\d{2}$/;
 
+// imagem do papel timbrado: link http(s) ou data URL (png/jpeg/webp) de até ~2 MB; "" limpa
+const imagem = z
+  .string()
+  .refine((v) => v === "" || /^https?:\/\//.test(v) || /^data:image\/(png|jpe?g|webp);base64,/.test(v), "Imagem inválida (use PNG, JPEG ou WebP)")
+  .refine((v) => v.length <= 2_800_000, "Imagem grande demais (máx. ~2 MB)")
+  .optional();
+
 const clinicaCreateSchema = z.object({
   razaoSocial: z.string().min(1),
   nomeFantasia: z.string().optional(),
@@ -24,7 +31,11 @@ const clinicaCreateSchema = z.object({
   estado: z.string().optional(),
   cep: z.string().optional(),
   telefone: z.string().optional(),
-  logoUrl: z.string().url().optional(),
+  logoUrl: imagem,
+  marcaDaguaUrl: imagem,
+  slogan: z.string().optional(),
+  instagram: z.string().optional(),
+  whatsapp: z.string().optional(),
   corPrimaria: z.string().optional(),
   corSecundaria: z.string().optional(),
 });

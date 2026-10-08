@@ -24,6 +24,11 @@ const profissionalCreateSchema = z.object({
 const profissionalUpdateSchema = z.object({
   nome: z.string().min(1).optional(),
   fotoUrl: z.string().url().optional(),
+  assinaturaUrl: z
+    .string()
+    .refine((v) => v === "" || /^data:image\/(png|jpe?g|webp);base64,/.test(v), "Assinatura inválida (use PNG, JPEG ou WebP)")
+    .refine((v) => v.length <= 2_800_000, "Imagem grande demais (máx. ~2 MB)")
+    .optional(),
   crp: z.string().min(1).optional(),
   telefone: z.string().optional(),
   enderecoParticular: z.string().optional(),
@@ -35,8 +40,10 @@ const profissionalUpdateSchema = z.object({
 });
 
 // nunca expor senhaHash nas respostas
-function serialize(profissional: { senhaHash: string; [key: string]: unknown }) {
-  const { senhaHash: _senhaHash, ...rest } = profissional;
+// a assinatura (imagem grande) não vai nas respostas: só um indicador; a imagem tem rota própria (GET /:id/assinatura)
+function serialize(profissional: { senhaHash: string; assinaturaUrl?: string | null; [key: string]: unknown }) {
+  const { senhaHash: _senhaHash, assinaturaUrl, ...rest } = profissional;
+  (rest as Record<string, unknown>).temAssinatura = !!assinaturaUrl;
   return rest;
 }
 
@@ -71,6 +78,18 @@ profissionaisRouter.get(
       orderBy: { criadoEm: "desc" },
     });
     res.json(profissionais.map(serialize));
+  })
+);
+
+profissionaisRouter.get(
+  "/:id/assinatura",
+  asyncHandler(async (req, res) => {
+    const profissional = await prisma.profissional.findUnique({ where: { id: req.params.id }, select: { clinicaId: true, assinaturaUrl: true } });
+    if (!profissional || profissional.clinicaId !== req.profissional!.clinicaId) {
+      res.status(404).json({ error: "Profissional não encontrado" });
+      return;
+    }
+    res.json({ assinaturaUrl: profissional.assinaturaUrl });
   })
 );
 

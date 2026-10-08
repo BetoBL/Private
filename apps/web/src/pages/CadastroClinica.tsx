@@ -2,6 +2,7 @@ import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { api, type Convenio } from "../lib/api";
+import { UploadImagem } from "../components/UploadImagem";
 
 const UFS = [
   "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB",
@@ -46,6 +47,11 @@ export function CadastroClinica() {
     telefone: "",
     corPrimaria: "",
     corSecundaria: "",
+    logoUrl: "",
+    marcaDaguaUrl: "",
+    slogan: "",
+    instagram: "",
+    whatsapp: "",
   });
 
   useEffect(() => {
@@ -67,6 +73,11 @@ export function CadastroClinica() {
           telefone: c.telefone ?? "",
           corPrimaria: c.corPrimaria ?? "",
           corSecundaria: c.corSecundaria ?? "",
+          logoUrl: c.logoUrl ?? "",
+          marcaDaguaUrl: c.marcaDaguaUrl ?? "",
+          slogan: c.slogan ?? "",
+          instagram: c.instagram ?? "",
+          whatsapp: c.whatsapp ?? "",
         });
       })
       .catch((e) => !cancelado && setErro(e.message));
@@ -195,6 +206,22 @@ export function CadastroClinica() {
             value={form.corSecundaria}
             onChange={(e) => setForm((f) => ({ ...f, corSecundaria: e.target.value }))}
           />
+        </label>
+
+        <div className="col-span-2 mt-2 border-t border-mist pt-4 text-xs font-bold uppercase tracking-wide text-sage-deep">Papel timbrado do laudo</div>
+        <UploadImagem rotulo="Logotipo (cabeçalho)" valor={form.logoUrl || null} onChange={(v) => setForm((f) => ({ ...f, logoUrl: v }))} ajuda="PNG com fundo transparente funciona melhor." />
+        <UploadImagem rotulo="Marca-d'água (fundo da página)" valor={form.marcaDaguaUrl || null} onChange={(v) => setForm((f) => ({ ...f, marcaDaguaUrl: v }))} ajuda="Imagem clara e discreta; aparece atrás do texto." />
+        <label className="col-span-2 text-sm">
+          <span className="mb-1 block font-semibold text-ink/70">Frase do cabeçalho</span>
+          <input className="w-full rounded-lg border border-mist px-3 py-2" placeholder="Ex.: Seu equilíbrio cognitivo começa aqui!" value={form.slogan} onChange={(e) => setForm((f) => ({ ...f, slogan: e.target.value }))} />
+        </label>
+        <label className="text-sm">
+          <span className="mb-1 block font-semibold text-ink/70">WhatsApp (rodapé)</span>
+          <input className="w-full rounded-lg border border-mist px-3 py-2" placeholder="(11) 90000-0000" value={form.whatsapp} onChange={(e) => setForm((f) => ({ ...f, whatsapp: e.target.value }))} />
+        </label>
+        <label className="text-sm">
+          <span className="mb-1 block font-semibold text-ink/70">Instagram (rodapé)</span>
+          <input className="w-full rounded-lg border border-mist px-3 py-2" placeholder="@suaclinica" value={form.instagram} onChange={(e) => setForm((f) => ({ ...f, instagram: e.target.value }))} />
         </label>
       </div>
 
