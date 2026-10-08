@@ -2,23 +2,18 @@ import { useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api, type Clinica } from "../lib/api";
+import { ROTAS_CONFIGURACOES } from "../pages/Configuracoes";
 
 const LINKS = [
   { to: "/", label: "Painel do dia", end: true },
   { to: "/pacientes", label: "Pacientes" },
-  { to: "/iniciar-atendimento", label: "Iniciar Atendimento" },
   { to: "/agenda", label: "Agenda" },
+  { to: "/iniciar-atendimento", label: "Iniciar atendimento" },
+  { to: "/laudo", label: "Laudos" },
   { to: "/financeiro", label: "Financeiro" },
-  { to: "/clinica", label: "Cadastro · Clínica" },
-  { to: "/profissionais", label: "Cadastro · Profissional" },
-  { to: "/tipos-atendimento", label: "Cadastro · Tipos de Atendimento" },
-  { to: "/normativas", label: "Cadastro · Normativas" },
-  { to: "/modelos-laudo", label: "Cadastro · Modelos de Laudo" },
-  { to: "/perfil-atuacao", label: "Meu Perfil de Atuação" },
   // Abre em aba nova, de propósito: a Biblioteca de Instrumentos é um ambiente visual próprio
   // (ver pages/BibliotecaDeTestes.tsx), não uma rota dentro desta casca de sidebar escura.
-  { to: "/biblioteca", label: "Testes & Correção", novaAba: true },
-  { to: "/laudo", label: "Laudo" },
+  { to: "/biblioteca", label: "Testes e correção", novaAba: true },
 ];
 
 export function Layout() {
@@ -81,7 +76,22 @@ export function Layout() {
           )}
         </nav>
 
-        <div className="mt-auto text-[11px] leading-relaxed opacity-45">
+        <NavLink
+          to="/configuracoes"
+          className={() =>
+            `mt-auto flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm transition-opacity ${
+              ROTAS_CONFIGURACOES.some((r) => pathname === r || pathname.startsWith(`${r}/`)) ? "bg-sage-deep opacity-100" : "opacity-75 hover:opacity-100 hover:bg-paper/10"
+            }`
+          }
+        >
+          <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" />
+          </svg>
+          Configurações
+        </NavLink>
+
+        <div className="text-[11px] leading-relaxed opacity-45">
           {clinica?.nomeFantasia || clinica?.razaoSocial || "Clínica"}
           <br />
           CRP {profissional.crp}

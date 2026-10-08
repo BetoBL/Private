@@ -19,6 +19,7 @@ import { Pacientes } from "./pages/Pacientes";
 import { TesteCompleto } from "./pages/TesteCompleto";
 import { Financeiro } from "./pages/Financeiro";
 import { ModelosLaudo } from "./pages/ModelosLaudo";
+import { Configuracoes } from "./pages/Configuracoes";
 import { EditorModeloLaudo } from "./pages/EditorModeloLaudo";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route path="/profissionais/:id" element={<FichaProfissional />} />
         <Route path="/tipos-atendimento" element={<CadastroTiposAtendimento />} />
         <Route path="/normativas" element={<CadastroNormativas />} />
+        <Route path="/configuracoes" element={<Configuracoes />} />
         <Route path="/modelos-laudo" element={<ModelosLaudo />} />
         <Route path="/modelos-laudo/:id" element={<EditorModeloLaudo />} />
         <Route path="*" element={<Navigate to="/" replace />} />

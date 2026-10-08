@@ -1,5 +1,9 @@
 # Changelog
 
+## [2026-10-08 - Madrugada] Menu reorganizado: Configurações
+
+- Menu lateral com 7 itens do dia a dia (Painel do dia, Pacientes, Agenda, Iniciar atendimento, Laudos, Financeiro, Testes e correção) e o botão **Configurações** no rodapé, que abre uma tela de cartões (Clínica, Atendimento, Minha conta). Sem "Cadastro ·" nos nomes; as rotas antigas continuam as mesmas; o botão fica destacado dentro de qualquer tela de configuração.
+
 ## [2026-10-08 - Madrugada] Pré-visualização do modelo e laudo da Letícia em "Meus modelos"
 
 - **Aba "Pré-visualizar" no editor de modelo** (`POST /modelos-laudo/previa`): mostra o documento com a estrutura que está na tela, sem precisar salvar, com dados fictícios ou com os de um paciente (com paciente que fez os testes, as tabelas e gráficos aparecem). Usa o arquivo Word do modelo quando há.
