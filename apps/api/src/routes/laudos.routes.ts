@@ -1,7 +1,10 @@
 import { Laudo, StatusLaudo } from "@prisma/client";
 import { Router } from "express";
 import { z } from "zod";
-import { gerarDocxLaudo } from "../lib/gerarDocxLaudo";
+import mammoth from "mammoth";
+import { carregarAplicacoesLaudo, dadosDoLaudoCompleto } from "../lib/laudo/carregar";
+import { gerarDocxLaudoCompleto } from "../lib/laudo/gerarDocxCompleto";
+import { montarEstruturaLaudo } from "../lib/laudo/montar";
 import { DESCRICAO_RESPONDENTE, gerarRascunhoLaudo } from "../lib/gerarRascunhoLaudo";
 import { pacienteTemTestePlaceholder } from "../lib/placeholderCheck";
 import { prisma } from "../lib/prisma";
@@ -38,7 +41,7 @@ const laudoCreateSchema = z.object({
   pacienteId: z.string().uuid(),
   identificacao: z.record(z.string(), z.unknown()),
   descricaoDemanda: z.string().min(1),
-  procedimento: z.string().min(1),
+  procedimento: z.string().optional().default(""),
   analise: z.string().optional().default(""),
   conclusao: z.string().optional().default(""),
   referencias: z.string().optional().default(""),
@@ -139,6 +142,50 @@ laudosRouter.patch(
   })
 );
 
+// Monta, a partir dos lançamentos do paciente (todos ou os escolhidos), a lista de instrumentos (seção 5), a análise por domínio
+// com linhas de resultado, tabelas e gráficos (seção 7) e as referências (seção 10). Não usa IA: os números vêm do cálculo dos testes.
+laudosRouter.post(
+  "/:id/montar-estrutura",
+  validateBody(z.object({ aplicacaoIds: z.array(z.string().uuid()).optional() })),
+  asyncHandler(async (req, res) => {
+    const laudo = await buscarLaudoDaClinica(req.params.id, req);
+    if (!laudo) {
+      res.status(404).json({ error: "Laudo não encontrado" });
+      return;
+    }
+    const perfil = await prisma.perfilDeAtuacao.findUnique({ where: { profissionalId: laudo.profissionalId } });
+    const apps = await carregarAplicacoesLaudo(laudo.pacienteId, req.body.aplicacaoIds);
+    if (apps.length === 0) {
+      res.status(409).json({ error: "O paciente ainda não tem testes lançados para montar o laudo." });
+      return;
+    }
+    const estrutura = montarEstruturaLaudo(apps, { sistema: perfil?.sistemaClassificacaoPercentil ?? "MIOTTO_2017", primeiroNome: laudo.paciente.nome.split(" ")[0] });
+    const atualizado = await prisma.laudo.update({ where: { id: laudo.id }, data: { procedimento: estrutura.procedimento, analise: estrutura.analise, referencias: estrutura.referencias } });
+    res.json({ laudo: atualizado, semMapa: estrutura.semMapa });
+  })
+);
+
+// Pré-visualização em HTML (o mesmo Word, convertido): texto, tabelas e gráficos como no documento final.
+laudosRouter.get(
+  "/:id/previa",
+  asyncHandler(async (req, res) => {
+    const laudo = await buscarLaudoDaClinica(req.params.id, req);
+    if (!laudo) {
+      res.status(404).json({ error: "Laudo não encontrado" });
+      return;
+    }
+    const perfil = await prisma.perfilDeAtuacao.findUnique({ where: { profissionalId: laudo.profissionalId } });
+    const dados = await dadosDoLaudoCompleto(laudo.id, perfil?.sistemaClassificacaoPercentil ?? "MIOTTO_2017");
+    if (!dados) {
+      res.status(404).json({ error: "Clínica ou profissional não encontrado" });
+      return;
+    }
+    const buffer = await gerarDocxLaudoCompleto(dados);
+    const { value } = await mammoth.convertToHtml({ buffer });
+    res.json({ html: value });
+  })
+);
+
 // Gera o rascunho de Análise/Conclusão via IA (ver CLAUDE.md, seção "Fluxo da chamada de IA").
 // Não bloqueado por placeholder — só injeta o aviso no próprio texto quando aplicável.
 laudosRouter.post(
@@ -192,7 +239,8 @@ laudosRouter.post(
     const atualizado = await prisma.laudo.update({
       where: { id: laudo.id },
       data: {
-        analise: rascunho.analise,
+        // a análise montada a partir dos resultados (com tabelas e gráficos) não é sobrescrita: a IA só redige a conclusão
+        ...(laudo.analise.trim() ? {} : { analise: rascunho.analise }),
         conclusao: rascunho.conclusao,
         iaUtilizada: true,
       },
@@ -221,35 +269,16 @@ laudosRouter.get(
       return;
     }
 
-    const clinica = await prisma.clinica.findUnique({ where: { id: laudo.paciente.clinicaId } });
-    const profissional = await prisma.profissional.findUnique({ where: { id: laudo.profissionalId } });
-    if (!clinica || !profissional) {
+    // Mais de uma convenção de classificação por percentil é usada na prática clínica — cada
+    // profissional escolhe a sua no Perfil de Atuação (ver classificacaoPercentil.ts).
+    const perfilDeAtuacao = await prisma.perfilDeAtuacao.findUnique({ where: { profissionalId: laudo.profissionalId } });
+    const dados = await dadosDoLaudoCompleto(laudo.id, perfilDeAtuacao?.sistemaClassificacaoPercentil ?? "MIOTTO_2017");
+    if (!dados) {
       res.status(404).json({ error: "Clínica ou profissional não encontrado" });
       return;
     }
     const paciente = laudo.paciente;
-
-    // Mais de uma convenção de classificação por percentil é usada na prática clínica — cada
-    // profissional escolhe a sua no Perfil de Atuação (ver classificacaoPercentil.ts).
-    const perfilDeAtuacao = await prisma.perfilDeAtuacao.findUnique({ where: { profissionalId: profissional.id } });
-
-    const buffer = await gerarDocxLaudo({
-      // Nome fantasia é o nome de exibição padrão em todo o sistema; a exceção é NFS-e
-      // (nota fiscal), que não é emitida por este fluxo — aqui vale o nome fantasia.
-      clinicaNome: clinica.nomeFantasia || clinica.razaoSocial,
-      clinicaCidade: clinica.cidade,
-      profissionalNome: profissional.nome,
-      profissionalCrp: profissional.crp,
-      profissionalEspecialidades: profissional.especialidades,
-      identificacao: laudo.identificacao as Record<string, unknown>,
-      descricaoDemanda: laudo.descricaoDemanda,
-      procedimento: laudo.procedimento,
-      analise: laudo.analise,
-      conclusao: laudo.conclusao,
-      referencias: laudo.referencias,
-      iaUtilizada: laudo.iaUtilizada,
-      sistemaClassificacaoPercentil: perfilDeAtuacao?.sistemaClassificacaoPercentil ?? "GUILMETTE_2020",
-    });
+    const buffer = await gerarDocxLaudoCompleto(dados);
 
     const nomeArquivo = `laudo-${paciente.nome.replace(/\s+/g, "-").toLowerCase()}.docx`;
     res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");

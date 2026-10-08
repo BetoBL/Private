@@ -48,3 +48,10 @@ Itens levantados na leitura do laudo-modelo (páginas do PDF entre parênteses).
 3. **Tabela 1, classificação por percentil (p. 4):** os cortes ">98" e "<2" estão certos. As faixas escritas são inteiras, então o percentil **exatamente 98** e o **exatamente 2** (e valores com decimais, como 8,5 ou 90,5) não pertencem a nenhuma. Como o sistema deve classificar esses casos?
 4. **Nomes das classificações:** a Tabela 1 usa "Média superior / Dentro da média / Média inferior" e o texto do laudo usa "Médio Superior / Médio / Médio Inferior" (p. 6: Dígitos e SNL, Informação; p. 7: RAVLT A6 "33% Médio", FDT "70% Médio", Raciocínio Matricial; p. 8: Compreensão, BPA concentrada). A Tabela 2 (p. 5) usa "Média Superior" e "Média". Qual padrão o sistema deve gerar?
 5. **Gráficos padrão e textos-definição:** quais gráficos novos entram por padrão (BFP, FDT, BPA, SRS-2)? Os textos que definem cada domínio (funções executivas, atenção etc.) podem virar blocos padrão editáveis?
+
+## 9. Avisos para ela (decididos em 08/10/2026; não precisam de resposta, só comunicar)
+
+- **Nomes das classificações:** o sistema escreve sempre pelo vocabulário da Tabela 1 do laudo dela ("Muito superior à média", "Superior à média", "Média superior", "Dentro da média", "Média inferior", "Limítrofe", "Deficitário"), no texto e nas tabelas. Isso troca o "Médio Superior / Médio / Médio Inferior" que aparecia no texto. Cada profissional pode escolher, no Perfil de Atuação, o sistema de Guilmette (2020) no lugar do Miotto.
+- **Barra de erro do gráfico dos índices do WAIS-III:** fica **fixa em ±7,5**, como no laudo dela.
+- **Legenda do gráfico da curva do RAVLT:** o sistema usa "Curva de aprendizagem do RAVLT – número de palavras evocadas" (os valores plotados são a contagem de palavras). *Falta só ela confirmar que é isso (item 1 da seção 8).*
+- **Ainda para perguntar:** como classificar o percentil exatamente 98 e o exatamente 2 (item 3 da seção 8). Enquanto isso, o sistema classifica 98 como "Muito superior à média" (como no laudo dela) e abaixo de 3 como "Deficitário".

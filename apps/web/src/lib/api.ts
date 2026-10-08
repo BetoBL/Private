@@ -21,6 +21,7 @@ export interface Paciente {
   dataNascimento: string;
   sexo: Sexo | null;
   responsavelLegal: string | null;
+  cpf: string | null;
   contato: string | null;
   escolaridade: string | null;
   anamnese: AnamneseData | null;
@@ -510,6 +511,7 @@ export const api = {
       dataNascimento: string;
       sexo: Sexo;
       responsavelLegal: string;
+      cpf: string | null;
       contato: string;
       escolaridade: string;
       anamnese: AnamneseData;
@@ -602,12 +604,14 @@ export const api = {
     pacienteId: string;
     identificacao: Record<string, unknown>;
     descricaoDemanda: string;
-    procedimento: string;
+    procedimento?: string;
     anamnese?: string;
     observacaoClinica?: string;
   }) => request<Laudo>("/laudos", { method: "POST", body: JSON.stringify(data) }),
   updateLaudo: (id: string, data: Partial<Pick<Laudo, "anamnese" | "observacaoClinica" | "descricaoDemanda" | "procedimento" | "analise" | "conclusao" | "referencias" | "status" | "iaRevisadaPeloProf">>) =>
     request<Laudo>(`/laudos/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
+  montarEstruturaLaudo: (id: string, aplicacaoIds?: string[]) => request<{ laudo: Laudo; semMapa: string[] }>(`/laudos/${id}/montar-estrutura`, { method: "POST", body: JSON.stringify({ aplicacaoIds }) }),
+  previaLaudo: (id: string) => request<{ html: string }>(`/laudos/${id}/previa`),
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
   exportarLaudoDocx: (id: string) => baixarArquivo(`/laudos/${id}/exportar-docx`),
 

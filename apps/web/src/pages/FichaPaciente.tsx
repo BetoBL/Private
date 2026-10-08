@@ -38,6 +38,7 @@ export function FichaPaciente() {
     dataNascimento: string;
     sexo: Sexo | "";
     responsavelLegal: string;
+    cpf: string;
     contato: string;
     escolaridade: string;
     consentimentoTDIC: boolean;
@@ -51,6 +52,7 @@ export function FichaPaciente() {
     dataNascimento: "",
     sexo: "",
     responsavelLegal: "",
+    cpf: "",
     contato: "",
     escolaridade: "",
     consentimentoTDIC: false,
@@ -91,6 +93,7 @@ export function FichaPaciente() {
           dataNascimento: p.dataNascimento.slice(0, 10),
           sexo: p.sexo ?? "",
           responsavelLegal: p.responsavelLegal ?? "",
+          cpf: p.cpf ?? "",
           contato: p.contato ?? "",
           escolaridade: p.escolaridade ?? "",
           consentimentoTDIC: p.consentimentoTDIC,
@@ -125,6 +128,7 @@ export function FichaPaciente() {
       const atualizado = await api.updatePaciente(id, {
         ...dadosForm,
         sexo: dadosForm.sexo || undefined,
+        cpf: dadosForm.cpf || null,
         convenioId: dadosForm.convenioId || null,
         convenioPlano: semPlano ? null : dadosForm.convenioPlano || null,
         convenioNumeroCarteira: semPlano ? null : dadosForm.convenioNumeroCarteira || null,
@@ -383,6 +387,16 @@ export function FichaPaciente() {
                 <option value="FEMININO">Feminino</option>
                 <option value="MASCULINO">Masculino</option>
               </select>
+            </label>
+            <label className="text-sm">
+              <span className="mb-1 block font-semibold text-ink/70">CPF</span>
+              <input
+                className="w-full rounded-lg border border-mist px-3 py-2"
+                placeholder="000.000.000-00"
+                inputMode="numeric"
+                value={dadosForm.cpf}
+                onChange={(e) => { const d = e.target.value.replace(/\D/g, "").slice(0, 11); setDadosForm((f) => ({ ...f, cpf: d.replace(/^(\d{3})(\d)/, "$1.$2").replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3").replace(/\.(\d{3})(\d)/, ".$1-$2") })); }}
+              />
             </label>
             <label className="text-sm">
               <span className="mb-1 block font-semibold text-ink/70">Responsável legal (se menor)</span>

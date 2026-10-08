@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-08] Laudo no modelo completo da MentEssence
+
+- **Novo laudo (substitui o simples):** 10 seções (identificação, demanda, anamnese, observação clínica, instrumentos, referencial com a tabela de classificação, análise por domínio, conclusão, sugestões e referências), papel timbrado e fecho com assinatura. Exportação em Word (`gerarDocxCompleto.ts`; o gerador antigo foi removido) e pré-visualização em HTML (`GET /laudos/:id/previa`, via `mammoth`).
+- **Montagem automática** (`lib/laudo/{dominios,montar,classificacao,descricoes}.ts`, `POST /laudos/:id/montar-estrutura`): lista de instrumentos com descrição clínica, análise por domínio com linhas "percentil NN% Classificação" (negrito; vermelho abaixo da média), parágrafos-definição, frase-síntese em funções executivas e atencionais, tabelas (WAIS-III, BAI, BDI-II, SRS-2) e referências por teste. Mapa teste→domínio em `dominios.ts` (WAIS-III, RAVLT, FDT, BPA, BFP, BAI, BDI-II, SRS-2). Sem IA: os números vêm do cálculo dos testes. A IA continua opcional e só redige a conclusão (não apaga mais a análise montada).
+- **Gráficos como imagem no Word** (`graficoSvg.ts`, `@resvg/resvg-js`, fonte Noto Sans embutida em `assets/fonts`): índices WAIS-III (cor por barra, ±7,5 fixo, valor na base), curva RAVLT (Paciente × Média) e os gráficos do Excel de FDT, BPA, BFP e SRS-2.
+- **Identidade visual vem do cadastro** (sistema comercial): clínica (logotipo, marca-d'água, frase do cabeçalho, WhatsApp, Instagram, endereço) e profissional (assinatura), com envio de imagem reduzida no navegador (`UploadImagem`). Campos novos: `Clinica.marcaDaguaUrl/slogan/instagram/whatsapp`, `Profissional.assinaturaUrl` (fora das listas; rota própria), `Paciente.cpf`, `Laudo.anamnese/observacaoClinica`. `express.json` com limite de 4 MB.
+- **Tela do laudo refeita** (`ComposicaoLaudo.tsx`): navegação por seções com indicador de preenchimento, checklist do papel timbrado, barra de ações (montar, rascunho de IA, pré-visualizar, baixar em Word), chips para inserir/remover tabelas e gráficos, barra de formatação (negrito, marcador, título de domínio) e finalização com revisão obrigatória.
+- Decisões com a psicóloga (avisar): nomes de classificação padronizados pela Tabela 1; barra de erro fixa ±7,5; legenda do gráfico do RAVLT. Pergunta aberta: percentil exatamente 98/2. Ver `docs/testes/PERGUNTAS-PARA-LETICIA.md`, seções 8 e 9.
+- Pendente: PDF direto no servidor (hoje: Word → PDF pelo próprio Word), mapa de domínios para WISC-IV/WASI e demais testes, textos-definição configuráveis por clínica, anamnese preenchida a partir da ficha do paciente.
+
 ## [2026-10-07 - Noite 2] CBCL pré-escolar: gráficos próprios e marcação de provisório
 
 - **Achado**: a aba "CBCL-Pre" da planilha é uma CÓPIA da aba do CBCL 6–18 (título "Escolar 6-18 ano", usa `CBCL-Normas` com cortes <12/≥12 anos e várias linhas de total marcadas "EM CONSTRUÇÃO — faltam tabelas"). Os 24 gráficos dela apontam para a aba do CBCL 6–18. Ou seja, o CBCL pré-escolar do catálogo calculava criança de 1,5 a 5 anos com norma de escolar. → **Adicionar à lista de defeitos da Leticia.**

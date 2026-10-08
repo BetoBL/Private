@@ -89,3 +89,15 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .wais-barra, .wais-barra-v { animation: none; transform: none; }
 }
+
+/* Pré-visualização do laudo (HTML convertido do Word) */
+.laudo-previa { font-family: Calibri, "Segoe UI", system-ui, sans-serif; font-size: 15px; line-height: 1.65; color: #1f1f1f; text-align: justify; }
+.laudo-previa p { margin: 0 0 0.7em; }
+.laudo-previa p strong:only-child { display: inline-block; margin-top: 0.8em; }
+.laudo-previa ul { list-style: none; padding-left: 1.2em; margin: 0 0 0.8em; }
+.laudo-previa ul li { position: relative; margin-bottom: 0.3em; }
+.laudo-previa ul li::before { content: "➢"; color: #00a050; position: absolute; left: -1.2em; font-size: 0.9em; }
+.laudo-previa table { border-collapse: collapse; margin: 0.6em auto 1.2em; font-size: 13.5px; }
+.laudo-previa td, .laudo-previa th { border: 1px solid #222; padding: 3px 10px; }
+.laudo-previa th, .laudo-previa td:has(> p > strong:only-child) { background: #fcd5b4; font-weight: 700; text-align: center; }
+.laudo-previa img { display: block; max-width: 100%; height: auto; margin: 0.4em auto 1em; }

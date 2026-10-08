@@ -1,0 +1,2 @@
+Noto Sans (Regular e Bold) — Google, licença SIL Open Font License 1.1 (uso e redistribuição livres).
+Usada só para desenhar o texto dos gráficos do laudo (SVG -> PNG) no servidor, que não tem fontes de sistema.

@@ -188,6 +188,7 @@ model Paciente {
   sexo            Sexo?
   fotoUrl         String?
   responsavelLegal String?
+  cpf             String?    // identificação do laudo (formato 000.000.000-00)
   contato         String?
   escolaridade    String?
 
