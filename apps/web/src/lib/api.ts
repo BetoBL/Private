@@ -687,6 +687,7 @@ export const api = {
   importarModeloWord: (arquivoBase64: string) => request<ResultadoImportacaoModelo>("/modelos-laudo/importar-word", { method: "POST", body: JSON.stringify({ arquivoBase64 }) }),
   enviarArquivoWordModelo: (id: string, arquivoBase64: string) => request<{ ok: true; marcadores: string[]; desconhecidos: string[] }>(`/modelos-laudo/${id}/arquivo-word`, { method: "PUT", body: JSON.stringify({ arquivoBase64 }) }),
   removerArquivoWordModelo: (id: string) => request<{ ok: true }>(`/modelos-laudo/${id}/arquivo-word`, { method: "DELETE" }),
+  previaModelo: (data: { estrutura: EstruturaModelo; pacienteId?: string | null; modeloId?: string | null }) => request<{ html: string; comPaciente: boolean; usaArquivoWord: boolean; testes: number }>("/modelos-laudo/previa", { method: "POST", body: JSON.stringify(data) }),
   baixarWordDeExemplo: (modeloId?: string) => baixarArquivo(`/modelos-laudo/guia-word${modeloId ? `?modeloId=${modeloId}` : ""}`),
   baixarArquivoWordModelo: (id: string) => baixarArquivo(`/modelos-laudo/${id}/arquivo-word`),
 

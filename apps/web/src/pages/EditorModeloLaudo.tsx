@@ -147,6 +147,42 @@ function AbaEstrutura({ est, setEst, marcadores, aviso }: { est: EstruturaModelo
   );
 }
 
+// ---------- aba Pré-visualizar ----------
+function AbaPrevia({ est, modeloId }: { est: EstruturaModelo; modeloId: string | null }) {
+  const [pacientes, setPacientes] = useState<Array<{ id: string; nome: string }>>([]);
+  const [pacienteId, setPacienteId] = useState("");
+  const [html, setHtml] = useState<string | null>(null);
+  const [info, setInfo] = useState<{ comPaciente: boolean; usaArquivoWord: boolean; testes: number } | null>(null);
+  const [carregando, setCarregando] = useState(false);
+  const [erro, setErro] = useState<string | null>(null);
+  useEffect(() => { api.listPacientes().then((p) => setPacientes(p.map((x) => ({ id: x.id, nome: x.nome })))).catch(() => undefined); }, []);
+  async function gerar() {
+    setErro(null); setCarregando(true);
+    try { const r = await api.previaModelo({ estrutura: est, pacienteId: pacienteId || null, modeloId }); setHtml(r.html); setInfo(r); } catch (e) { setErro((e as Error).message); } finally { setCarregando(false); }
+  }
+  useEffect(() => { gerar(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, []);
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap items-end gap-3 rounded-xl border border-mist bg-white p-4">
+        <label className="min-w-[16rem] flex-1 text-sm">
+          <span className="mb-1 block text-xs font-semibold text-ink/60">Ver com os dados de</span>
+          <select className={inputCls} value={pacienteId} onChange={(e) => setPacienteId(e.target.value)}>
+            <option value="">Dados fictícios (Maria Exemplo da Silva)</option>
+            {pacientes.map((p) => <option key={p.id} value={p.id}>{p.nome}</option>)}
+          </select>
+        </label>
+        <button className="rounded-lg bg-sage-deep px-5 py-2.5 text-sm font-semibold text-paper disabled:opacity-50" disabled={carregando} onClick={gerar}>{carregando ? "Montando…" : "Atualizar a prévia"}</button>
+      </div>
+      <p className="text-xs leading-relaxed text-ink/55">A prévia usa o modelo como está na tela, mesmo sem salvar. Para ver as tabelas e os gráficos dos testes, escolha um paciente que já fez esses testes; com dados fictícios eles não aparecem. O papel timbrado completo (marca-d'água e rodapé) aparece no arquivo Word.</p>
+      {erro && <div className="rounded-xl border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
+      {info?.usaArquivoWord && <div className="rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">Este modelo usa o seu arquivo Word: a prévia mostra o conteúdo dele já preenchido.</div>}
+      <div className="rounded-2xl border border-mist bg-[#e9e6df] p-4 sm:p-8">
+        {html === null ? <p className="py-20 text-center text-sm text-ink/55">Montando a pré-visualização…</p> : <article className="laudo-previa mx-auto max-w-[820px] bg-white px-10 py-12 shadow-lg" dangerouslySetInnerHTML={{ __html: html }} />}
+      </div>
+    </div>
+  );
+}
+
 // ---------- aba Testes do modelo ----------
 function AbaTestes({ est, setEst, biblioteca }: { est: EstruturaModelo; setEst: (e: EstruturaModelo) => void; biblioteca: BibliotecaTeste[] }) {
   const [tipos, setTipos] = useState<TipoAtendimento[]>([]);
@@ -365,7 +401,7 @@ export function EditorModeloLaudo() {
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [tipo, setTipo] = useState("PERSONALIZADO");
-  const [aba, setAba] = useState<"estrutura" | "testes" | "documento" | "dominios" | "blocos" | "word">("estrutura");
+  const [aba, setAba] = useState<"estrutura" | "testes" | "documento" | "dominios" | "blocos" | "word" | "previa">("estrutura");
   const [paraClinica, setParaClinica] = useState(false);
   const [tornarPadrao, setTornarPadrao] = useState(true);
   const [marcadores, setMarcadores] = useState<Array<{ marcador: string; descricao: string }>>([]);
@@ -416,7 +452,7 @@ export function EditorModeloLaudo() {
 
   if (!est) return <div className="px-6 py-10 text-sm text-ink/55">{erro ?? "Carregando o modelo…"}</div>;
   const temDocumento = est.secoes.some((s) => s.tipo === "documento");
-  const abas: Array<[typeof aba, string]> = [["estrutura", "Estrutura"], ["testes", "Testes do modelo"], ...(temDocumento ? [["documento", "Documento"] as [typeof aba, string]] : []), ["dominios", "Domínios"], ["blocos", "Blocos e itens"], ["word", "Modelo Word"]];
+  const abas: Array<[typeof aba, string]> = [["estrutura", "Estrutura"], ["testes", "Testes do modelo"], ...(temDocumento ? [["documento", "Documento"] as [typeof aba, string]] : []), ["dominios", "Domínios"], ["blocos", "Blocos e itens"], ["word", "Modelo Word"], ["previa", "Pré-visualizar"]];
   const testesDoModelo = est.testes?.length ? biblioteca.filter((b) => est.testes!.includes(b.sigla)) : [];
 
   return (
@@ -461,6 +497,7 @@ export function EditorModeloLaudo() {
       </div>
       <div className="mt-5">
         {aba === "estrutura" && <AbaEstrutura est={est} setEst={mudar} marcadores={marcadores} aviso={setMensagem} />}
+        {aba === "previa" && <AbaPrevia est={est} modeloId={modelo?.id ?? null} />}
         {aba === "testes" && <AbaTestes est={est} setEst={mudar} biblioteca={biblioteca} />}
         {aba === "documento" && (
           <div className="space-y-8">

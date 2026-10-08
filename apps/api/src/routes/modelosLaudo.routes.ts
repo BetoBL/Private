@@ -1,9 +1,13 @@
 import { EscopoTeste, type ModeloLaudo } from "@prisma/client";
 import { Router } from "express";
+import mammoth from "mammoth";
 import { z } from "zod";
+import { carregarAplicacoesLaudo, idadeEmTexto } from "../lib/laudo/carregar";
 import { DOMINIOS, GRUPOS } from "../lib/laudo/dominios";
+import { gerarDocxLaudoCompleto, type DadosLaudoCompleto } from "../lib/laudo/gerarDocxCompleto";
+import { montarEstruturaLaudo } from "../lib/laudo/montar";
 import { importarLaudoWord } from "../lib/laudo/importarWord";
-import { gerarWordDeExemplo, marcadoresDoArquivo, type TesteDoGuia } from "../lib/laudo/modeloWord";
+import { gerarWordDeExemplo, marcadoresDoArquivo, preencherModeloWord, type TesteDoGuia } from "../lib/laudo/modeloWord";
 import { estruturaValida, MARCADORES, ROTULO_TIPO, TIPOS_SECAO, type EstruturaModelo, type TipoModelo } from "../lib/laudo/modelos";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -78,6 +82,53 @@ modelosLaudoRouter.get("/guia-word", asyncHandler(async (req, res) => {
   res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
   res.setHeader("Content-Disposition", 'attachment; filename="word-de-exemplo-com-marcadores.docx"');
   res.send(buffer);
+}));
+
+// Pré-visualização do modelo (mesmo Word, convertido em HTML), com a estrutura que está na tela, mesmo sem salvar.
+// Sem paciente: dados fictícios (as tabelas e gráficos dos testes só aparecem com um paciente que fez os testes).
+modelosLaudoRouter.post("/previa", validateBody(z.object({ estrutura: z.unknown(), pacienteId: z.string().uuid().nullable().optional(), modeloId: z.string().nullable().optional() })), asyncHandler(async (req, res) => {
+  const erro = estruturaValida(req.body.estrutura);
+  if (erro) { res.status(400).json({ error: `Estrutura inválida: ${erro}` }); return; }
+  const estrutura = req.body.estrutura as EstruturaModelo;
+  const clinicaId = req.profissional!.clinicaId;
+  const [clinica, prof, perfil] = await Promise.all([
+    prisma.clinica.findUnique({ where: { id: clinicaId } }),
+    prisma.profissional.findUnique({ where: { id: req.profissional!.sub } }),
+    prisma.perfilDeAtuacao.findUnique({ where: { profissionalId: req.profissional!.sub } }),
+  ]);
+  if (!clinica || !prof) { res.status(404).json({ error: "Clínica ou profissional não encontrado" }); return; }
+  const paciente = req.body.pacienteId ? await prisma.paciente.findFirst({ where: { id: req.body.pacienteId, clinicaId } }) : null;
+  if (req.body.pacienteId && !paciente) { res.status(400).json({ error: "Paciente não encontrado" }); return; }
+  const apps = paciente ? await carregarAplicacoesLaudo(paciente.id) : [];
+  const ultimo = paciente ? await prisma.laudo.findFirst({ where: { pacienteId: paciente.id }, orderBy: { criadoEm: "desc" } }) : null;
+  const sistema = perfil?.sistemaClassificacaoPercentil ?? "MIOTTO_2017";
+  const nome = paciente?.nome ?? "Maria Exemplo da Silva";
+  const montado = apps.length ? montarEstruturaLaudo(apps, { sistema, primeiroNome: nome.split(" ")[0], config: estrutura }) : null;
+  const ref = apps.length ? new Date(Math.max(...apps.map((a) => a.dataSessao.getTime()))) : new Date();
+  const nascimento = paciente?.dataNascimento ?? new Date("1990-05-12T00:00:00Z");
+  const ex = (t: string) => `[${t}]`;
+  const dados: DadosLaudoCompleto = {
+    clinica: { nome: clinica.nomeFantasia || clinica.razaoSocial, endereco: clinica.endereco, bairro: clinica.bairro, cidade: clinica.cidade, estado: clinica.estado, cep: clinica.cep, telefone: clinica.telefone, whatsapp: clinica.whatsapp, instagram: clinica.instagram, slogan: clinica.slogan, logoUrl: clinica.logoUrl, marcaDaguaUrl: clinica.marcaDaguaUrl, corPrimaria: clinica.corPrimaria, corSecundaria: clinica.corSecundaria },
+    profissional: { nome: prof.nome, crp: prof.crp, email: prof.email, formacao: prof.formacao, especialidades: prof.especialidades, assinaturaUrl: prof.assinaturaUrl, tituloLaudo: prof.tituloLaudo },
+    paciente: { nome, cpf: paciente?.cpf ?? "000.000.000-00", dataNascimento: nascimento, idadeTexto: idadeEmTexto(nascimento, ref) },
+    laudo: {
+      descricaoDemanda: ultimo?.descricaoDemanda || ex("Descrição da demanda: escrita para cada paciente."),
+      anamnese: ultimo?.anamnese || ex("Anamnese: montada do formulário do paciente."),
+      observacaoClinica: ultimo?.observacaoClinica || ex("Observação clínica."),
+      procedimento: montado?.procedimento || ex("Instrumentos: montados a partir dos testes lançados."),
+      analise: montado?.analise || ultimo?.analise || ex("Análise por domínios: montada a partir dos testes lançados."),
+      conclusao: ultimo?.conclusao || ex("Conclusão: escrita para cada paciente."),
+      referencias: montado?.referencias || ultimo?.referencias || ex("Referências dos testes usados."),
+      iaUtilizada: false, interpretacoes: (ultimo?.interpretacoes as Record<string, string> | null) ?? {}, hipoteseDiagnostica: ultimo?.hipoteseDiagnostica ?? "", secoesExtras: (ultimo?.secoesExtras as Record<string, string> | null) ?? {},
+    },
+    modelo: estrutura, aplicacoes: apps, sistema, data: new Date(),
+  };
+  const salvo = req.body.modeloId ? await buscar(req.body.modeloId, req) : null;
+  const buffer = salvo?.arquivoDocx
+    ? await preencherModeloWord(salvo.arquivoDocx, estrutura, { demanda: dados.laudo.descricaoDemanda, anamnese: dados.laudo.anamnese, observacao: dados.laudo.observacaoClinica, instrumentos: dados.laudo.procedimento, analise: dados.laudo.analise, conclusao: dados.laudo.conclusao, referencias: dados.laudo.referencias, extras: dados.laudo.secoesExtras ?? {} }, dados)
+    : await gerarDocxLaudoCompleto(dados);
+  const { value } = await mammoth.convertToHtml({ buffer });
+  res.json({ html: value, comPaciente: !!paciente, usaArquivoWord: !!salvo?.arquivoDocx, testes: apps.length });
 }));
 
 const corpoModelo = z.object({

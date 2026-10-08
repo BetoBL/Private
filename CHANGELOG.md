@@ -1,5 +1,10 @@
 # Changelog
 
+## [2026-10-08 - Madrugada] Pré-visualização do modelo e laudo da Letícia em "Meus modelos"
+
+- **Aba "Pré-visualizar" no editor de modelo** (`POST /modelos-laudo/previa`): mostra o documento com a estrutura que está na tela, sem precisar salvar, com dados fictícios ou com os de um paciente (com paciente que fez os testes, as tabelas e gráficos aparecem). Usa o arquivo Word do modelo quando há.
+- O laudo neuropsicológico da Letícia passou a aparecer em "Meus modelos" (continua protegido, só leitura); "Modelos do sistema" ficou com os do CFP.
+
 ## [2026-10-08 - Madrugada] Word com marcadores de bloco + resumo do dia guardado
 
 - **Modelo Word da clínica aceita blocos dos testes:** um parágrafo só com `{{tabela:resultados|SIGLA}}`, `{{tabela:layout|SIGLA|título}}`, `{{grafico:SIGLA|título}}`, `{{linha:SIGLA|c:campo}}`, `{{tabela:wais-indices}}` ou `{{grafico:wais-indices}}` é trocado pela tabela/gráfico gerados (imagens e relações copiadas para o pacote do Word; teste não aplicado = marcador some). **Word de exemplo com guia** (`GET /modelos-laudo/guia-word?modeloId=`), com os marcadores prontos dos testes do modelo, e passo a passo na aba Modelo Word. Ainda NÃO validado abrindo no Word de verdade (só por leitura automática).

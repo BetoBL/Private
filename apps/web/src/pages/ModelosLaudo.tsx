@@ -18,7 +18,7 @@ function Cartao({ m, onPadrao, onApagar }: { m: ModeloLaudo; onPadrao: () => voi
     <article className={`flex flex-col rounded-2xl border bg-white p-5 ${m.ehPadrao ? "border-sage-deep/50 shadow-[0_0_0_1px_rgba(0,0,0,0.02)]" : "border-mist"}`}>
       <div className="mb-2 flex flex-wrap items-center gap-2">
         <span className="rounded-full bg-paper px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-ink/55">{m.rotuloTipo}</span>
-        {m.sistema && <span className="rounded-full border border-mist px-2.5 py-0.5 text-[11px] font-semibold text-ink/50">Modelo do sistema</span>}
+        {m.sistema && m.tipo !== "LAUDO_NEURO" && <span className="rounded-full border border-mist px-2.5 py-0.5 text-[11px] font-semibold text-ink/50">Modelo do sistema</span>}
         {m.escopo === "clinica" && <span className="rounded-full border border-mist px-2.5 py-0.5 text-[11px] font-semibold text-ink/50">Da clínica</span>}
         {m.ehPadrao && <span className="rounded-full bg-sage-deep px-2.5 py-0.5 text-[11px] font-bold text-paper">Meu padrão</span>}
         {m.temArquivoWord && <span className="rounded-full border border-sage-deep/40 px-2.5 py-0.5 text-[11px] font-semibold text-sage-deep">Word da clínica</span>}
@@ -76,9 +76,11 @@ export function ModelosLaudo() {
     } catch (e) { setErro((e as Error).message); } finally { setLendo(false); if (seletor.current) seletor.current.value = ""; }
   }
 
-const ORDEM = ["LAUDO_NEURO", "LAUDO", "RELATORIO", "PARECER", "DECLARACAO", "ATESTADO"];
-  const doSistema = modelos.filter((m) => m.sistema).sort((x, y) => ORDEM.indexOf(x.tipo) - ORDEM.indexOf(y.tipo));
-  const meus = modelos.filter((m) => !m.sistema);
+// o laudo da Letícia aparece em "Meus modelos" (continua protegido: só leitura)
+  const ehDaLeticia = (m: ModeloLaudo) => m.sistema && m.tipo === "LAUDO_NEURO";
+  const ORDEM = ["LAUDO_NEURO", "LAUDO", "RELATORIO", "PARECER", "DECLARACAO", "ATESTADO"];
+  const doSistema = modelos.filter((m) => m.sistema && !ehDaLeticia(m)).sort((x, y) => ORDEM.indexOf(x.tipo) - ORDEM.indexOf(y.tipo));
+  const meus = [...modelos.filter(ehDaLeticia), ...modelos.filter((m) => !m.sistema)];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-8">
