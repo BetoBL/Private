@@ -1,5 +1,9 @@
 # Changelog
 
+## [2026-10-10] Anamnese: atalho direto da Agenda
+
+- Compromisso de **anamnese** na Agenda ganhou cor própria (verde), a opção "Anamnese" no tipo de evento e o atalho "preencher anamnese →", que abre a ficha do paciente já na aba Anamnese (a ficha passou a ler `?aba=` do endereço: dados, anamnese, linha, dashboard, laudos, agenda, anexos).
+
 ## [2026-10-10] NF, passo 2: comunicação com o Portal Nacional (portada do Infinity)
 
 - **Código portado do Infinity para TypeScript, com testes** (`lib/fiscal/nfse/`): montagem da DPS (ordem do schema, Id, fuso de São Paulo explícito, Simples sem alíquota de ISS, `pTotTribSN`), assinatura XML referenciando o `Id` do `infDPS`, cliente do Emissor Nacional (GZip+Base64, mTLS com PEM, tradução dos erros 400/403/409 da SEFIN, consulta, evento/cancelamento, checagem de duplicidade) e alíquota efetiva do Simples (anexos III e V).

@@ -2,7 +2,7 @@ import { FormularioAnamnese } from "../components/FormularioAnamnese";
 import { ComparacaoReavaliacao } from "../components/ComparacaoReavaliacao";
 import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { DashboardResultados } from "../components/DashboardResultados";
 import { SalaVirtualComponent } from "../components/SalaVirtual";
 import {
@@ -30,7 +30,10 @@ export function FichaPaciente() {
   const navigate = useNavigate();
 
   const [paciente, setPaciente] = useState<Paciente | null>(null);
-  const [aba, setAba] = useState<Aba>("dados");
+  const [searchParams] = useSearchParams();
+  // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
+  const abaDoEndereco = searchParams.get("aba");
+  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
 

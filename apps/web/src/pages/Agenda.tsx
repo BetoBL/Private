@@ -9,6 +9,7 @@ import { api, type ConflitoAgenda, type EventoAgenda, type Paciente, type Profis
 const DIAS = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 const TIPOS = [
   { valor: "avaliacao", label: "Avaliação" },
+  { valor: "anamnese", label: "Anamnese" },
   { valor: "outro", label: "Outro compromisso" },
   { valor: "bloqueio", label: "Bloqueio (indisponível)" },
 ];
@@ -29,6 +30,7 @@ function paraInputLocal(data: Date): string {
 
 const CORES_TIPO: Record<string, string> = {
   avaliacao: "bg-[#FBE8D9] text-sage-deep",
+  anamnese: "bg-[#E4EFE7] text-[#2F5D3A]",
   outro: "bg-mist text-ink/70",
   bloqueio: "bg-ember/10 text-ember",
 };
@@ -434,6 +436,14 @@ export function Agenda() {
                         <Link to={`/pacientes/${ev.paciente.id}`} onClick={(e) => e.stopPropagation()} className="underline">
                           {ev.paciente.nome}
                         </Link>
+                        {ev.tipo === "anamnese" && (
+                          <>
+                            {" · "}
+                            <Link to={`/pacientes/${ev.paciente.id}?aba=anamnese`} onClick={(e) => e.stopPropagation()} className="font-semibold underline">
+                              preencher anamnese →
+                            </Link>
+                          </>
+                        )}
                       </>
                     )}
                   </span>
