@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026-10-10] NF por paciente: a configuração da clínica virou sugestão
+
+- **Cadastro do paciente › Nota fiscal** (migration `paciente_nota_fiscal`): como emitir (por sessão, por laudo, manual ou não emitir), quando emitir (ao lançar a cobrança, ao receber ou manual), em nome de quem (paciente, responsável ou outra pessoa/empresa, com nome e CPF/CNPJ) e e-mail para enviar a nota. Vazio = vale o padrão da clínica, que a tela mostra ao lado.
+- `lib/fiscal/regra.ts` (`regraDeEmissao`, com testes): decide a regra efetiva e **de onde veio** (paciente, convênio ou clínica). Paciente de convênio segue a forma de faturar do convênio e o tomador é o convênio; "não emitir" do paciente vale sempre.
+- Em Dados fiscais, a seção virou "Padrão da clínica para emitir" (sugestão). 135 testes passam.
+
 ## [2026-10-10] Anamnese: atalho direto da Agenda
 
 - Compromisso de **anamnese** na Agenda ganhou cor própria (verde), a opção "Anamnese" no tipo de evento e o atalho "preencher anamnese →", que abre a ficha do paciente já na aba Anamnese (a ficha passou a ler `?aba=` do endereço: dados, anamnese, linha, dashboard, laudos, agenda, anexos).

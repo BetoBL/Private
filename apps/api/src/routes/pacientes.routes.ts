@@ -26,6 +26,13 @@ const pacienteCreateSchema = z.object({
   convenioPlano: textoOuNull(120),
   convenioValidade: z.preprocess((v) => (v === "" ? null : v), z.coerce.date().nullable().optional()),
   convenioTitular: textoOuNull(200),
+  // nota fiscal do paciente (vazio/null = padrão da clínica)
+  nfModo: z.preprocess((v) => (v === "" ? null : v), z.enum(["POR_SESSAO", "POR_LAUDO", "MANUAL", "NAO_EMITE"]).nullable().optional()),
+  nfQuando: z.preprocess((v) => (v === "" ? null : v), z.enum(["NA_COBRANCA", "NA_BAIXA", "MANUAL"]).nullable().optional()),
+  nfEmNomeDe: z.preprocess((v) => (v === "" ? null : v), z.enum(["PACIENTE", "RESPONSAVEL", "OUTRO"]).nullable().optional()),
+  nfTomadorNome: textoOuNull(200),
+  nfTomadorDocumento: textoOuNull(20),
+  nfTomadorEmail: textoOuNull(120),
   anamnese: z.record(z.string(), z.unknown()).optional(),
   preferenciasAgenda: z.record(z.string(), z.unknown()).optional(),
   // Resolução CFP nº 09/2024: consentimentoTDICData registra QUANDO o consentimento foi dado —

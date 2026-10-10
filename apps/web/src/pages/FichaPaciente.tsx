@@ -51,6 +51,12 @@ export function FichaPaciente() {
     convenioNumeroCarteira: string;
     convenioValidade: string;
     convenioTitular: string;
+    nfModo: string;
+    nfQuando: string;
+    nfEmNomeDe: string;
+    nfTomadorNome: string;
+    nfTomadorDocumento: string;
+    nfTomadorEmail: string;
   }>({
     nome: "",
     dataNascimento: "",
@@ -65,7 +71,15 @@ export function FichaPaciente() {
     convenioNumeroCarteira: "",
     convenioValidade: "",
     convenioTitular: "",
+    nfModo: "",
+    nfQuando: "",
+    nfEmNomeDe: "",
+    nfTomadorNome: "",
+    nfTomadorDocumento: "",
+    nfTomadorEmail: "",
   });
+  const [padraoFiscal, setPadraoFiscal] = useState<{ modoParticular: string; quandoEmitir: string; modoConvenio: string } | null>(null);
+  useEffect(() => { api.getFiscal().then((r) => r.config && setPadraoFiscal(r.config)).catch(() => undefined); }, []);
   const [convenios, setConvenios] = useState<Convenio[]>([]);
   const [anamneseForm, setAnamneseForm] = useState<AnamneseData>({});
   const [preferenciasForm, setPreferenciasForm] = useState<PreferenciasAgenda>({});
@@ -106,6 +120,12 @@ export function FichaPaciente() {
           convenioNumeroCarteira: p.convenioNumeroCarteira ?? "",
           convenioValidade: p.convenioValidade ? p.convenioValidade.slice(0, 10) : "",
           convenioTitular: p.convenioTitular ?? "",
+          nfModo: p.nfModo ?? "",
+          nfQuando: p.nfQuando ?? "",
+          nfEmNomeDe: p.nfEmNomeDe ?? "",
+          nfTomadorNome: p.nfTomadorNome ?? "",
+          nfTomadorDocumento: p.nfTomadorDocumento ?? "",
+          nfTomadorEmail: p.nfTomadorEmail ?? "",
         });
         setAnamneseForm(p.anamnese ?? {});
         setPreferenciasForm(p.preferenciasAgenda ?? {});
@@ -138,6 +158,12 @@ export function FichaPaciente() {
         convenioNumeroCarteira: semPlano ? null : dadosForm.convenioNumeroCarteira || null,
         convenioValidade: semPlano ? null : dadosForm.convenioValidade || null,
         convenioTitular: semPlano ? null : dadosForm.convenioTitular || null,
+        nfModo: dadosForm.nfModo || null,
+        nfQuando: dadosForm.nfQuando || null,
+        nfEmNomeDe: dadosForm.nfEmNomeDe || null,
+        nfTomadorNome: dadosForm.nfEmNomeDe === "OUTRO" || dadosForm.nfEmNomeDe === "RESPONSAVEL" ? dadosForm.nfTomadorNome || null : null,
+        nfTomadorDocumento: dadosForm.nfEmNomeDe === "OUTRO" || dadosForm.nfEmNomeDe === "RESPONSAVEL" ? dadosForm.nfTomadorDocumento || null : null,
+        nfTomadorEmail: dadosForm.nfTomadorEmail || null,
       });
       setPaciente(atualizado);
       setMensagem("Dados salvos.");
@@ -496,6 +522,57 @@ export function FichaPaciente() {
                 A carteirinha está vencida. Confira a validade antes de faturar no convênio.
               </div>
             )}
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-mist bg-white p-5">
+            <div className="mb-1 font-semibold text-ink">Nota fiscal</div>
+            <p className="mb-3 text-xs text-ink/60">
+              {dadosForm.convenioId
+                ? "Paciente de convênio: a nota segue a forma de faturar do convênio (por caso ou em lote mensal). Aqui você ajusta só quem aparece na nota e o momento de emitir."
+                : "Deixe em “Padrão da clínica” para seguir o que está em Configurações › Dados fiscais, ou escolha uma forma só para este paciente."}
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {!dadosForm.convenioId && (
+                <label className="text-sm">
+                  <span className="mb-1 block font-semibold text-ink/70">Como emitir</span>
+                  <select className="w-full rounded-lg border border-mist px-3 py-2" value={dadosForm.nfModo} onChange={(e) => setDadosForm((f) => ({ ...f, nfModo: e.target.value }))}>
+                    <option value="">Padrão da clínica{padraoFiscal ? ` (${{ POR_SESSAO: "uma nota por sessão", POR_LAUDO: "uma nota por laudo", MANUAL: "manual" }[padraoFiscal.modoParticular] ?? padraoFiscal.modoParticular})` : ""}</option>
+                    <option value="POR_SESSAO">Uma nota por sessão</option>
+                    <option value="POR_LAUDO">Uma nota por laudo (sinal e término)</option>
+                    <option value="MANUAL">Manual (eu decido a cada vez)</option>
+                    <option value="NAO_EMITE">Não emitir nota para este paciente</option>
+                  </select>
+                </label>
+              )}
+              <label className="text-sm">
+                <span className="mb-1 block font-semibold text-ink/70">Quando emitir</span>
+                <select className="w-full rounded-lg border border-mist px-3 py-2" value={dadosForm.nfQuando} onChange={(e) => setDadosForm((f) => ({ ...f, nfQuando: e.target.value }))}>
+                  <option value="">Padrão da clínica{padraoFiscal ? ` (${{ MANUAL: "quando eu mandar", NA_COBRANCA: "ao lançar a cobrança", NA_BAIXA: "ao receber" }[padraoFiscal.quandoEmitir] ?? padraoFiscal.quandoEmitir})` : ""}</option>
+                  <option value="NA_COBRANCA">Ao lançar a cobrança</option>
+                  <option value="NA_BAIXA">Ao receber (baixa)</option>
+                  <option value="MANUAL">Quando eu mandar</option>
+                </select>
+              </label>
+              <label className="text-sm">
+                <span className="mb-1 block font-semibold text-ink/70">Nota em nome de</span>
+                <select className="w-full rounded-lg border border-mist px-3 py-2" value={dadosForm.nfEmNomeDe} onChange={(e) => setDadosForm((f) => ({ ...f, nfEmNomeDe: e.target.value }))}>
+                  <option value="">{dadosForm.convenioId ? "Do convênio" : "Do próprio paciente"}</option>
+                  <option value="PACIENTE">Do próprio paciente</option>
+                  <option value="RESPONSAVEL">Do responsável</option>
+                  <option value="OUTRO">De outra pessoa ou empresa</option>
+                </select>
+              </label>
+              <label className="text-sm">
+                <span className="mb-1 block font-semibold text-ink/70">E-mail para enviar a nota</span>
+                <input type="email" className="w-full rounded-lg border border-mist px-3 py-2" value={dadosForm.nfTomadorEmail} onChange={(e) => setDadosForm((f) => ({ ...f, nfTomadorEmail: e.target.value }))} />
+              </label>
+              {(dadosForm.nfEmNomeDe === "RESPONSAVEL" || dadosForm.nfEmNomeDe === "OUTRO") && (
+                <>
+                  <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">Nome ou razão social na nota</span><input className="w-full rounded-lg border border-mist px-3 py-2" value={dadosForm.nfTomadorNome} onChange={(e) => setDadosForm((f) => ({ ...f, nfTomadorNome: e.target.value }))} /></label>
+                  <label className="text-sm"><span className="mb-1 block font-semibold text-ink/70">CPF ou CNPJ</span><input className="w-full rounded-lg border border-mist px-3 py-2" value={dadosForm.nfTomadorDocumento} onChange={(e) => setDadosForm((f) => ({ ...f, nfTomadorDocumento: e.target.value }))} /></label>
+                </>
+              )}
+            </div>
           </div>
 
           <div className="mt-6 rounded-2xl border-2 border-clay/50 bg-clay/5 p-5">

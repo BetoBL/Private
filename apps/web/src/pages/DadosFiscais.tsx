@@ -218,7 +218,7 @@ export function DadosFiscais() {
         <label className="mt-3 flex items-center gap-2 text-sm text-ink/75"><input type="checkbox" className="h-4 w-4" disabled={dis} checked={cfg.emissaoAtiva} onChange={(e) => set("emissaoAtiva", e.target.checked)} />Emissão ativada (desligada, o sistema só prepara notas, sem emitir)</label>
       </Secao>
 
-      <Secao titulo="Quando e como emitir" ajuda="O padrão da clínica. Cada convênio pode ter a sua forma de faturar, em Dados da clínica › Convênios aceitos.">
+      <Secao titulo="Padrão da clínica para emitir" ajuda="É uma sugestão: vale para quem não tem uma forma própria. Cada paciente pode ter a sua (no cadastro dele, em Nota fiscal) e cada convênio a sua forma de faturar (em Dados da clínica › Convênios aceitos).">
         <div className="grid gap-3 sm:grid-cols-3">
           <label><span className={rotuloCls}>Atendimento particular</span>
             <select className={inputCls} disabled={dis} value={cfg.modoParticular} onChange={(e) => set("modoParticular", e.target.value)}><option value="POR_SESSAO">Uma nota por sessão</option><option value="POR_LAUDO">Uma nota por laudo (sinal e término)</option><option value="MANUAL">Sempre manual</option></select>

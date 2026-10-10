@@ -205,6 +205,13 @@ model Paciente {
   convenioPlano          String?   // ex: "Amil 400", "Bradesco Saúde Nacional"
   convenioValidade       DateTime? // validade da carteirinha
   convenioTitular        String?   // quando o paciente é dependente: nome do titular do plano
+  // nota fiscal deste paciente: vazio = vale o padrão da clínica (ConfigFiscal)
+  nfModo         String?   // POR_SESSAO | POR_LAUDO | MANUAL | NAO_EMITE
+  nfQuando       String?   // NA_COBRANCA | NA_BAIXA | MANUAL
+  nfEmNomeDe     String?   // PACIENTE | RESPONSAVEL | OUTRO (quem aparece como tomador na nota)
+  nfTomadorNome  String?
+  nfTomadorDocumento String?
+  nfTomadorEmail String?
 
   anamnese        Json?      // estrutura livre: queixa, histórico escolar/médico/familiar
   preferenciasAgenda Json?   // melhores dias/horários do paciente para agendamento

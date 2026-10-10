@@ -58,6 +58,12 @@ export interface Paciente {
   convenioPlano: string | null;
   convenioValidade: string | null;
   convenioTitular: string | null;
+  nfModo: "POR_SESSAO" | "POR_LAUDO" | "MANUAL" | "NAO_EMITE" | null;
+  nfQuando: "NA_COBRANCA" | "NA_BAIXA" | "MANUAL" | null;
+  nfEmNomeDe: "PACIENTE" | "RESPONSAVEL" | "OUTRO" | null;
+  nfTomadorNome: string | null;
+  nfTomadorDocumento: string | null;
+  nfTomadorEmail: string | null;
   criadoEm: string;
 }
 
@@ -599,6 +605,12 @@ export const api = {
       convenioPlano: string | null;
       convenioValidade: string | null;
       convenioTitular: string | null;
+      nfModo: string | null;
+      nfQuando: string | null;
+      nfEmNomeDe: string | null;
+      nfTomadorNome: string | null;
+      nfTomadorDocumento: string | null;
+      nfTomadorEmail: string | null;
     }>
   ) => request<Paciente>(`/pacientes/${id}`, { method: "PATCH", body: JSON.stringify(data) }),
 
