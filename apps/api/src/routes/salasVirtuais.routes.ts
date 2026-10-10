@@ -22,6 +22,13 @@ async function salaDoUsuario(req: Request, id: string) {
   return sala;
 }
 
+// O que o servidor tem configurado para videochamada (só leitura, não revela nenhum valor secreto)
+router.get("/disponibilidade", asyncHandler(async (req, res) => {
+  const cfg = configLivekit();
+  const clinica = await prisma.clinica.findUnique({ where: { id: req.profissional!.clinicaId }, select: { planoVideo: true } });
+  res.json({ videoDentroDoSistema: !!cfg, enderecoDoVideo: cfg ? new URL(cfg.url.replace(/^wss?:/, "https:")).host : null, linkDoPacienteUsa: baseDoSite(req), webUrlConfigurada: !!process.env.WEB_URL?.trim(), planoDaClinica: clinica?.planoVideo ?? "BASICO", gravacao: gravacaoPronta() });
+}));
+
 // Cria a sala da sessão. Com o LiveKit configurado a chamada acontece dentro do sistema; sem ele, cai no link público antigo.
 router.post(
   "/",
