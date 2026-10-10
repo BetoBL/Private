@@ -28,8 +28,8 @@ function Detalhe({ id, onFechar, onMudou }: { id: string; onFechar: () => void; 
     setErro(null); setMsg(null); setOcupado(true);
     try { await fn(); if (ok) setMsg(ok); await carregar(); onMudou(); } catch (e) { setErro((e as Error).message); } finally { setOcupado(false); }
   }
-  async function baixar(tipo: "dps" | "nfse") {
-    try { const r = await api.baixarXmlNota(id, tipo); const u = URL.createObjectURL(r.blob); const a = document.createElement("a"); a.href = u; a.download = r.filename; a.click(); URL.revokeObjectURL(u); } catch (e) { setErro((e as Error).message); }
+  async function baixar(tipo: "dps" | "nfse" | "pdf") {
+    try { const r = tipo === "pdf" ? await api.baixarPdfNota(id) : await api.baixarXmlNota(id, tipo); const u = URL.createObjectURL(r.blob); const a = document.createElement("a"); a.href = u; a.download = r.filename; a.click(); URL.revokeObjectURL(u); } catch (e) { setErro((e as Error).message); }
   }
   const botao = "rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep hover:bg-sage-deep/5 disabled:opacity-50";
   return (
@@ -70,6 +70,7 @@ function Detalhe({ id, onFechar, onMudou }: { id: string; onFechar: () => void; 
             <div className="flex flex-wrap gap-2 border-t border-mist pt-4">
               {(n.status === "RASCUNHO" || n.status === "REJEITADA") && <button className="rounded-lg bg-sage-deep px-5 py-2 text-sm font-semibold text-paper disabled:opacity-50" disabled={ocupado} onClick={() => acao(async () => { const r = await api.emitirNotaFiscal(id); if (r.status !== "EMITIDA") throw new Error(r.erro ?? "A nota não foi emitida."); }, "Nota emitida.")}>{ocupado ? "Emitindo…" : n.status === "REJEITADA" ? "Tentar de novo" : "Emitir"}</button>}
               {n.status === "PENDENTE" && <button className={botao} disabled={ocupado} onClick={() => acao(async () => { const r = await api.verificarNota(id); setMsg(r.leitura); })}>Verificar no Portal</button>}
+              {n.status === "EMITIDA" && <button className="rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-paper" onClick={() => baixar("pdf")}>Baixar PDF da nota</button>}
               {n.temXmlDps && <button className={botao} onClick={() => baixar("dps")}>Baixar XML da DPS</button>}
               {n.temXmlNfse && <button className={botao} onClick={() => baixar("nfse")}>Baixar XML da NFS-e</button>}
               {n.status === "RASCUNHO" && <button className="rounded-lg px-4 py-2 text-sm font-semibold text-ember hover:bg-ember/10 disabled:opacity-50" disabled={ocupado} onClick={() => { if (confirm("Excluir este rascunho? As cobranças voltam a ficar sem nota.")) acao(async () => { await api.excluirNota(id); onFechar(); }); }}>Excluir rascunho</button>}

@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
+import { danfseDaNota } from "../lib/fiscal/danfseNota";
 import { criarRascunho, criarRascunhoDeLote, emitirNota, ErroFiscal, excluirRascunho, gerarRascunhosDoMes, marcarComoEmitida, simulando, verificarNoPortal } from "../lib/fiscal/emissao";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -49,6 +50,14 @@ notasRouter.get("/:id/xml", tratar(async (req, res) => {
   res.setHeader("Content-Type", "application/xml; charset=utf-8");
   res.setHeader("Content-Disposition", `attachment; filename="nota-${nota?.numero ?? "sem-numero"}.xml"`);
   res.send(qual);
+}));
+
+// PDF da nota (DANFSe), no leiaute do Portal Nacional
+notasRouter.get("/:id/pdf", tratar(async (req, res) => {
+  const { pdf, nome } = await danfseDaNota(req.params.id, req.profissional!.clinicaId);
+  res.setHeader("Content-Type", "application/pdf");
+  res.setHeader("Content-Disposition", `attachment; filename="${nome}"`);
+  res.send(pdf);
 }));
 
 // prepara UMA nota com as cobranças escolhidas (mesmo paciente); "lote" junta cobranças de um mesmo convênio

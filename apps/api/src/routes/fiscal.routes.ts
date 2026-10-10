@@ -4,7 +4,8 @@ import { AMBIENTES, MODOS_CONVENIO, MODOS_PARTICULAR, montarDescricao, pendencia
 import { assinarDps, verificarAssinaturaDps } from "../lib/fiscal/nfse/assinatura";
 import { carregarCertificadoDaClinica, ErroCertificado, guardarCertificado, removerCertificado } from "../lib/fiscal/nfse/certificado";
 import { dpsJaEnviada } from "../lib/fiscal/nfse/client";
-import { ErroDps, montarDps } from "../lib/fiscal/nfse/dpsBuilder";
+import { ErroDps, LEIAUTE_PADRAO, montarDps } from "../lib/fiscal/nfse/dpsBuilder";
+import { validarContraXsd } from "../lib/fiscal/nfse/validarXsd";
 import { aliquotaEfetivaSimples } from "../lib/fiscal/nfse/simples";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -111,13 +112,14 @@ fiscalRouter.post("/dps-teste", asyncHandler(async (req, res) => {
       numero: cfg.proximoNumeroDps, serie: cfg.serieDps, valorServico: 100, cTribNac: cfg.cTribNac ?? "", cNBS: cfg.nbs, issRetido: cfg.issRetido,
       descricao: (cfg.descricaoPadrao || "Serviço de teste").replace(/\{\{[^}]+\}\}/g, "TESTE"), percentualTotalTributos: simples && simples.aliquota !== null ? simples.aliquota : null,
     });
+    const xsd = await validarContraXsd(dps.xml, "DPS", LEIAUTE_PADRAO).catch((e) => ({ valida: false, erros: [e instanceof Error ? e.message : "Não consegui validar."] }));
     let xml = dps.xml, assinada = false, verificacao: { valida: boolean; motivo: string | null } | null = null;
     const avisos: string[] = [];
     if (simples && simples.aliquota === null) avisos.push(simples.motivo);
     if (cfg.certificadoCifrado) {
       try { const cert = await carregarCertificadoDaClinica(clinicaId); xml = assinarDps(dps.xml, cert.privateKeyPem, cert.certPem); assinada = true; verificacao = verificarAssinaturaDps(xml, cert.certPem); } catch (e) { avisos.push(e instanceof Error ? e.message : "Não consegui assinar."); }
     } else avisos.push("Sem certificado: a DPS foi montada, mas não assinada.");
-    res.json({ xml, idDps: dps.idDps, assinada, verificacao, avisos, ambiente: "homologacao" });
+    res.json({ xml, idDps: dps.idDps, assinada, verificacao, avisos, ambiente: "homologacao", xsd: { ...xsd, leiaute: LEIAUTE_PADRAO } });
   } catch (e) {
     if (e instanceof ErroDps) { res.status(422).json({ error: e.message }); return; }
     throw e;

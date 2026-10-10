@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-10-10] NF, passo 4: validação contra o XSD oficial e PDF da nota (DANFSe)
+
+- **Esquemas XSD oficiais do Portal Nacional** (pacote NFSe-ESQUEMAS_XSD-v1.01-20260209, gov.br/nfse) copiados sem alteração para `lib/fiscal/nfse/xsd/` (1.00 e 1.01). `validarContraXsd` (xmllint-wasm) valida a DPS; 17 casos de teste (Simples, MEI, tomador PF/PJ/com endereço, ISS retido, produção, assinada) passam nas duas versões, e estrutura errada é apontada com o campo.
+- **Achados da validação oficial:** (1) a ORDEM dos elementos muda entre o leiaute 1.00 e o 1.01 (no ISS, `pAliq` antes de `tpRetISSQN` na 1.00, depois na 1.01) — o código usava a ordem da 1.01 rotulada como 1.00; agora o leiaute é um parâmetro (`LEIAUTE_PADRAO` = 1.01, vigente desde fev/2026; `NFSE_LEIAUTE=1.00` volta ao anterior) e a DPS sai com `versao="1.01"`; (2) o XSD 1.01 traz padrões com âncoras `^…$` que o validador lê como texto literal (rejeitaria até a série "49998"): só na cópia lida para validar, as âncoras são retiradas; (3) a composição do `Id` da DPS (45 posições) foi CONFIRMADA pelo XSD.
+- **A emissão confere a nota no esquema oficial ANTES de reservar o número**: nota fora do schema nunca gasta numeração (`FORA_DO_ESQUEMA`). "Gerar uma DPS de teste" mostra o resultado da validação.
+- **PDF da nota (DANFSe v2.0)** no leiaute do Portal (cabeçalho, chave de acesso e QR de consulta pública, prestador, tomador, serviço, tributação municipal/federal/IBS-CBS, valores), `GET /notas/:id/pdf` e botão "Baixar PDF da nota"; usa o XML da NFS-e autorizada quando existe (número, data/hora de processamento, alíquota, ISS e líquido apurados pelo Portal); em homologação/simulação sai com a faixa "SEM VALOR FISCAL". Layout conferido visualmente contra a NFS-e nº 229. 155 testes passam.
+- **Ainda dependem do Portal real:** a escolha final do leiaute (1.00 ou 1.01) na primeira chamada em homologação e o formato exato do XML da NFS-e autorizada (a leitura dos valores apurados usa as tags do XSD NFSe_v1.01).
+
 ## [2026-10-10] NF, passo 3: orquestrador de emissão e tela de Notas fiscais
 
 - **Orquestrador** (`lib/fiscal/emissao.ts`): cobrança → rascunho → emissão. O número é reservado de forma atômica ANTES do envio e nunca volta; recusa do Portal = nota REJEITADA com o motivo (ao tentar de novo, o número gasto fica registrado nos avisos da nota); envio sem resposta = PENDENTE, sem reenvio automático (reenviar duplicaria), com "Verificar no Portal" e "Marcar como emitida" (chave de 50 dígitos). Nada é emitido com a emissão desligada ou a configuração incompleta; sem CPF/CNPJ do tomador não emite; data de pagamento é exigida só em atendimento particular (convênio fatura antes de receber).

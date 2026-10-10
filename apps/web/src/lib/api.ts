@@ -732,6 +732,7 @@ export const api = {
   verificarNota: (id: string) => request<{ existe: boolean; status: number; leitura: string }>(`/notas/${id}/verificar`, { method: "POST" }),
   marcarNotaEmitida: (id: string, chaveAcesso: string) => request<{ id: string; status: string }>(`/notas/${id}/marcar-emitida`, { method: "POST", body: JSON.stringify({ chaveAcesso }) }),
   excluirNota: (id: string) => request<void>(`/notas/${id}`, { method: "DELETE" }),
+  baixarPdfNota: (id: string) => baixarArquivo(`/notas/${id}/pdf`),
   baixarXmlNota: (id: string, tipo: "dps" | "nfse") => baixarArquivo(`/notas/${id}/xml?tipo=${tipo}`),
   getFiscal: () => request<RespostaFiscal>("/fiscal/config"),
   salvarFiscal: (data: Partial<ConfigFiscal>) => request<RespostaFiscal>("/fiscal/config", { method: "PUT", body: JSON.stringify(data) }),

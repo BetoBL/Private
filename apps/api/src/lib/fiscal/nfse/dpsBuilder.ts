@@ -10,7 +10,10 @@ import { create } from "xmlbuilder2";
 // - Este módulo não assina, não comprime e não envia: devolve texto, testável sem certificado e sem rede.
 
 const NAMESPACE = "http://www.sped.fazenda.gov.br/nfse";
-const VERSAO = "1.00";
+// Leiaute da DPS. A 1.01 (pacote de esquemas de 09/02/2026) é a vigente e substituiu a 1.00; a ORDEM de alguns elementos mudou entre as duas
+// (no ISS, pAliq vem ANTES de tpRetISSQN na 1.00 e DEPOIS na 1.01). Padrão: 1.01; NFSE_LEIAUTE=1.00 volta ao leiaute anterior.
+export type VersaoLeiaute = "1.00" | "1.01";
+export const LEIAUTE_PADRAO: VersaoLeiaute = process.env.NFSE_LEIAUTE === "1.00" ? "1.00" : "1.01";
 
 export interface PrestadorDps {
   cnpj: string; inscricaoMunicipal: string; codigoMunicipioIbge: string; telefone?: string | null; email?: string | null;
@@ -28,7 +31,7 @@ export interface EntradaDps {
   valorServico: number; descricao: string; cTribNac: string; cNBS?: string | null; cTribMun?: string | null;
   dataEmissao?: Date; dataCompetencia?: Date | string | null; codigoMunicipioPrestacao?: string | null; issRetido?: boolean;
   percentualTotalTributos?: number | null; informacoesComplementares?: string | null;
-  versaoAplicativo?: string; fuso?: string;
+  versaoAplicativo?: string; fuso?: string; versaoLeiaute?: VersaoLeiaute;
 }
 export interface DpsMontada { xml: string; idDps: string; numero: number; serie: string; valorServico: number; ambiente: "homologacao" | "producao" }
 
@@ -110,8 +113,11 @@ export function montarDps(e: EntradaDps): DpsMontada {
   const homolog = e.prestador.ambiente !== "producao";
 
   // tributação: sem retenção, nada de alíquota (erro de layout para o Simples); a carga total vai em pTotTribSN, ou indTotTrib = 0 se não informada
-  const tribMun: Record<string, unknown> = { tribISSQN: "1", tpRetISSQN: e.issRetido ? "2" : "1" };
-  if (e.issRetido && Number(e.prestador.aliquotaIssPercentual) > 0) tribMun.pAliq = dec(e.prestador.aliquotaIssPercentual, 2);
+  const versao = e.versaoLeiaute ?? LEIAUTE_PADRAO;
+  const pAliq = e.issRetido && Number(e.prestador.aliquotaIssPercentual) > 0 ? dec(e.prestador.aliquotaIssPercentual, 2) : null;
+  const tribMun: Record<string, unknown> = versao === "1.00"
+    ? { tribISSQN: "1", ...(pAliq ? { pAliq } : {}), tpRetISSQN: e.issRetido ? "2" : "1" }
+    : { tribISSQN: "1", tpRetISSQN: e.issRetido ? "2" : "1", ...(pAliq ? { pAliq } : {}) };
   const totTrib = e.percentualTotalTributos != null ? { pTotTribSN: dec(e.percentualTotalTributos, 2) } : { indTotTrib: "0" };
 
   const infDPS: Record<string, unknown> = {
@@ -127,6 +133,6 @@ export function montarDps(e: EntradaDps): DpsMontada {
   };
   infDPS.valores = { vServPrest: { vServ: dec(e.valorServico) }, trib: { tribMun, totTrib } };
 
-  const doc = create({ version: "1.0", encoding: "UTF-8" }, { DPS: { "@xmlns": NAMESPACE, "@versao": VERSAO, infDPS } });
+  const doc = create({ version: "1.0", encoding: "UTF-8" }, { DPS: { "@xmlns": NAMESPACE, "@versao": versao, infDPS } });
   return { xml: doc.end({ prettyPrint: false }), idDps, numero: e.numero, serie: e.serie, valorServico: Math.round(Number(e.valorServico) * 100) / 100, ambiente: homolog ? "homologacao" : "producao" };
 }

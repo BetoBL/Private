@@ -12,6 +12,7 @@ async function main() {
   assert.equal(host, "localhost:5544", "só roda no banco local");
   const cfg0 = await prisma.configFiscal.findFirstOrThrow();
   const clinicaId = cfg0.clinicaId;
+  await prisma.configFiscal.update({ where: { clinicaId }, data: { emissaoAtiva: true } }); // o script liga a emissão e restaura no fim
   const pac = await prisma.paciente.findFirstOrThrow({ where: { clinicaId, cpf: { not: null } } });
 
   const keys = forge.pki.rsa.generateKeyPair(1024);
@@ -44,19 +45,25 @@ async function main() {
   const n3 = await emitirNota((await novaNota("teste NF 3")).id, clinicaId, { enviar: semResposta as never });
   assert.equal(n3.status, "PENDENTE");
   await assert.rejects(() => emitirNota(n3.id, clinicaId, { enviar: ok as never }), (e: unknown) => e instanceof ErroFiscal && e.codigo === "PENDENTE");
+  // 3b) fora do esquema oficial: recusada ANTES de gastar número
+  const antesXsd = (await prisma.configFiscal.findUniqueOrThrow({ where: { clinicaId } })).proximoNumeroDps;
+  await prisma.configFiscal.update({ where: { clinicaId }, data: { regApuracaoSn: "9" } }); // valor que o XSD não aceita
+  await assert.rejects(async () => emitirNota((await novaNota("teste NF xsd")).id, clinicaId, { enviar: ok as never }), (e: unknown) => e instanceof ErroFiscal && e.codigo === "FORA_DO_ESQUEMA");
+  await prisma.configFiscal.update({ where: { clinicaId }, data: { regApuracaoSn: cfg0.regApuracaoSn } });
+  assert.equal((await prisma.configFiscal.findUniqueOrThrow({ where: { clinicaId } })).proximoNumeroDps, antesXsd, "nota inválida não pode gastar número");
   // 4) duas emissões ao mesmo tempo nunca repetem número
   const [a, b] = await Promise.all([novaNota("teste NF 4a"), novaNota("teste NF 4b")]);
   const [ea, eb] = await Promise.all([emitirNota(a.id, clinicaId, { enviar: ok as never }), emitirNota(b.id, clinicaId, { enviar: ok as never })]);
   assert.notEqual(ea.numero, eb.numero);
   const numeros = (await prisma.notaFiscal.findMany({ where: { clinicaId, serie: cfg0.serieDps, ambiente: "HOMOLOGACAO", numero: { gte: antes } }, select: { numero: true } })).map((n) => n.numero);
   assert.equal(new Set(numeros).size, numeros.length, "nenhum número repetido");
-  console.log("OK: autorizada, recusada+nova tentativa, pendente bloqueada, concorrência sem número repetido. Números:", numeros.sort().join(","));
+  console.log("OK: autorizada, recusada+nova tentativa, pendente bloqueada, fora do esquema sem gastar número, concorrência sem número repetido. Números:", numeros.sort().join(","));
 
   // limpeza do que o teste criou (banco local)
   const testes = await prisma.cobranca.findMany({ where: { clinicaId, descricao: { startsWith: "teste NF" } }, select: { id: true, notaFiscalId: true } });
   await prisma.cobranca.deleteMany({ where: { id: { in: testes.map((t) => t.id) } } });
   await prisma.notaFiscal.deleteMany({ where: { id: { in: testes.map((t) => t.notaFiscalId).filter((x): x is string => !!x) } } });
   await removerCertificado(clinicaId);
-  await prisma.configFiscal.update({ where: { clinicaId }, data: { proximoNumeroDps: antes } });
+  await prisma.configFiscal.update({ where: { clinicaId }, data: { proximoNumeroDps: antes, emissaoAtiva: cfg0.emissaoAtiva } });
 }
 main().catch((e) => { console.error(e); process.exit(1); }).finally(() => prisma.$disconnect());

@@ -3,7 +3,8 @@ import { prisma } from "../prisma";
 import { assinarDps } from "./nfse/assinatura";
 import { carregarCertificadoDaClinica, ErroCertificado } from "./nfse/certificado";
 import { dpsJaEnviada, enviarDps } from "./nfse/client";
-import { ErroDps, montarDps, montarIdDps } from "./nfse/dpsBuilder";
+import { ErroDps, LEIAUTE_PADRAO, montarDps, montarIdDps, type EntradaDps } from "./nfse/dpsBuilder";
+import { validarContraXsd } from "./nfse/validarXsd";
 import { aliquotaEfetivaSimples } from "./nfse/simples";
 import { montarDescricao, pendenciasFiscais } from "./config";
 import { regraDeEmissao, type PadraoFiscal, type RegraEmissao } from "./regra";
@@ -89,6 +90,19 @@ function avisosDoRascunho(regra: RegraEmissao, documento: string | null, conveni
 }
 
 // ---------- emissão ----------
+type ConfigFiscalDb = NonNullable<Awaited<ReturnType<typeof prisma.configFiscal.findUnique>>>;
+type ClinicaDb = NonNullable<Awaited<ReturnType<typeof prisma.clinica.findUnique>>>;
+
+export function entradaDps(cfg: ConfigFiscalDb, clinica: ClinicaDb, nota: { tomadorDocumento: string | null; tomadorNome: string; valor: unknown; descricao: string; competencia: Date }, numero: number, serie: string): EntradaDps {
+  const simples = cfg.regime === "SIMPLES_NACIONAL" && cfg.aliquotaModo === "SIMPLES" ? aliquotaEfetivaSimples(cfg.anexoSimples, cfg.rbt12 ? Number(cfg.rbt12) : null) : null;
+  return {
+    prestador: { cnpj: clinica.cnpj ?? "", inscricaoMunicipal: cfg.inscricaoMunicipal ?? "", codigoMunicipioIbge: cfg.codigoMunicipioIbge ?? "", telefone: clinica.telefone, opSimplesNacional: cfg.regime === "MEI" ? "2" : cfg.regime === "SIMPLES_NACIONAL" ? "3" : "1", regApuracaoSn: cfg.regApuracaoSn, regimeEspecial: cfg.regimeEspecial, ambiente: cfg.ambiente === "PRODUCAO" ? "producao" : "homologacao", aliquotaIssPercentual: cfg.aliquotaIss ? Number(cfg.aliquotaIss) : null },
+    tomador: { documento: nota.tomadorDocumento, nome: nota.tomadorNome },
+    numero, serie, valorServico: Number(nota.valor), descricao: nota.descricao, cTribNac: cfg.cTribNac ?? "", cNBS: cfg.nbs, issRetido: cfg.issRetido,
+    dataCompetencia: nota.competencia, percentualTotalTributos: simples && simples.aliquota !== null ? simples.aliquota : null, codigoMunicipioPrestacao: cfg.localPrestacaoIbge,
+    versaoLeiaute: LEIAUTE_PADRAO,
+  };
+}
 export interface OpcoesEmissao { enviar?: typeof enviarDps }
 
 export async function emitirNota(notaId: string, clinicaId: string, opcoes: OpcoesEmissao = {}) {
@@ -116,6 +130,17 @@ export async function emitirNota(notaId: string, clinicaId: string, opcoes: Opco
     try { cert = await carregarCertificadoDaClinica(clinicaId); } catch (e) { if (e instanceof ErroCertificado) throw new ErroFiscal(e.codigo, e.message); throw e; }
   } else if (cfg.certificadoCifrado) { try { cert = await carregarCertificadoDaClinica(clinicaId); } catch { cert = null; } }
 
+  // 0. confere a DPS contra o esquema XSD OFICIAL antes de gastar um número: nota fora do schema nunca consome numeração
+  try {
+    const previa = montarDps(entradaDps(cfg, clinica, nota, cfg.proximoNumeroDps, cfg.serieDps));
+    const v = await validarContraXsd(previa.xml, "DPS", LEIAUTE_PADRAO).catch(() => null); // sem os arquivos de esquema, segue sem bloquear
+    if (v && !v.valida) throw new ErroFiscal("FORA_DO_ESQUEMA", `A nota não passou na validação do esquema oficial do Portal Nacional (nenhum número foi gasto): ${v.erros.slice(0, 3).join(" | ")}`);
+  } catch (e) {
+    if (e instanceof ErroFiscal) throw e;
+    if (e instanceof ErroDps) throw new ErroFiscal(e.codigo, e.message);
+    throw e;
+  }
+
   // 1. reserva o número (atômico: duas emissões ao mesmo tempo nunca recebem o mesmo)
   const reservado = await prisma.configFiscal.update({ where: { clinicaId }, data: { proximoNumeroDps: { increment: 1 } }, select: { proximoNumeroDps: true, serieDps: true } });
   const numero = reservado.proximoNumeroDps - 1;
@@ -127,16 +152,9 @@ export async function emitirNota(notaId: string, clinicaId: string, opcoes: Opco
 
   // 2. monta e assina a DPS; qualquer falha aqui acontece antes de falar com o Portal (o número gasto fica declarado como rejeitada)
   const rejeitar = async (erro: string) => prisma.notaFiscal.update({ where: { id: nota.id }, data: { status: "REJEITADA", erro } });
-  const simples = cfg.regime === "SIMPLES_NACIONAL" && cfg.aliquotaModo === "SIMPLES" ? aliquotaEfetivaSimples(cfg.anexoSimples, cfg.rbt12 ? Number(cfg.rbt12) : null) : null;
   let xml: string, idDps: string;
   try {
-    const dps = montarDps({
-      prestador: { cnpj: clinica.cnpj ?? "", inscricaoMunicipal: cfg.inscricaoMunicipal ?? "", codigoMunicipioIbge: cfg.codigoMunicipioIbge ?? "", telefone: clinica.telefone, opSimplesNacional: cfg.regime === "MEI" ? "2" : cfg.regime === "SIMPLES_NACIONAL" ? "3" : "1", regApuracaoSn: cfg.regApuracaoSn, regimeEspecial: cfg.regimeEspecial, ambiente: ambiente === "PRODUCAO" ? "producao" : "homologacao", aliquotaIssPercentual: cfg.aliquotaIss ? Number(cfg.aliquotaIss) : null },
-      tomador: { documento: nota.tomadorDocumento, nome: nota.tomadorNome },
-      numero, serie: reservado.serieDps, valorServico: Number(nota.valor), descricao: nota.descricao, cTribNac: cfg.cTribNac ?? "", cNBS: cfg.nbs, issRetido: cfg.issRetido,
-      dataCompetencia: nota.competencia, percentualTotalTributos: simples && simples.aliquota !== null ? simples.aliquota : null,
-      codigoMunicipioPrestacao: cfg.localPrestacaoIbge,
-    });
+    const dps = montarDps(entradaDps(cfg, clinica, nota, numero, reservado.serieDps));
     idDps = dps.idDps;
     xml = cert ? assinarDps(dps.xml, cert.privateKeyPem, cert.certPem) : dps.xml;
   } catch (e) {
