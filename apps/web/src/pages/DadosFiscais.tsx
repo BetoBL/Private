@@ -1,15 +1,16 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api, type ConfigFiscal, type RespostaFiscal } from "../lib/api";
 import { useAviso } from "../lib/aviso";
+import { arquivoParaBase64 } from "./ModelosLaudo";
 
 const inputCls = "w-full rounded-lg border border-mist bg-white px-3 py-2 text-sm outline-none focus:border-sage-deep disabled:bg-paper disabled:text-ink/50";
 const rotuloCls = "mb-1 block text-xs font-semibold text-ink/60";
 
 const PADRAO: ConfigFiscal = {
   emissaoAtiva: false, ambiente: "HOMOLOGACAO", regime: "SIMPLES_NACIONAL", inscricaoMunicipal: "", codigoMunicipioIbge: "", localPrestacaoIbge: "", cTribNac: "", nbs: "",
-  descricaoPadrao: "Prestação de serviços em atendimento de Psicologia {{sessao.data}}", aliquotaModo: "FIXA", aliquotaIss: "", rbt12: "", issRetido: false,
+  descricaoPadrao: "Prestação de serviços em atendimento de Psicologia {{sessao.data}}", aliquotaModo: "FIXA", aliquotaIss: "", rbt12: "", issRetido: false, anexoSimples: "3", regApuracaoSn: "1", regimeEspecial: "0",
   serieDps: "1", proximoNumeroDps: 1, modoParticular: "POR_SESSAO", quandoEmitir: "MANUAL", modoConvenio: "INDIVIDUAL", exigeDataPagamento: true,
 };
 
@@ -27,6 +28,69 @@ function Secao({ titulo, ajuda, children }: { titulo: string; ajuda?: string; ch
 function previa(modelo: string): string {
   const v: Record<string, string> = { "sessao.data": "31/07", "sessao.dataCompleta": "31/07/2026", "sessao.datas": "05/07, 12/07 e 19/07", periodo: "julho/2026", competencia: "07/2026", quantidade: "1", "convenio.nome": "Convênio Exemplo", "profissional.nome": "Profissional Exemplo", "clinica.nome": "Clínica Exemplo" };
   return modelo.replace(/\{\{\s*([\w.]+)\s*\}\}/g, (m, k: string) => (k in v ? v[k] : m));
+}
+
+function Certificado({ resp, ehAdmin, onAtualizar, onErro, onMsg }: { resp: RespostaFiscal; ehAdmin: boolean; onAtualizar: (r: RespostaFiscal) => void; onErro: (m: string | null) => void; onMsg: (m: string) => void }) {
+  const seletor = useRef<HTMLInputElement>(null);
+  const [arquivo, setArquivo] = useState<File | null>(null);
+  const [senha, setSenha] = useState("");
+  const [ocupado, setOcupado] = useState<null | "enviar" | "conexao" | "dps">(null);
+  const [conexao, setConexao] = useState<{ ok: boolean; leitura: string } | null>(null);
+  const [dps, setDps] = useState<{ xml: string; idDps: string; assinada: boolean; verificacao: { valida: boolean; motivo: string | null } | null; avisos: string[] } | null>(null);
+  const cert = resp.certificado;
+
+  async function enviar() {
+    if (!arquivo || !senha) return;
+    onErro(null); setOcupado("enviar");
+    try { onAtualizar(await api.enviarCertificado(await arquivoParaBase64(arquivo), senha)); setArquivo(null); setSenha(""); if (seletor.current) seletor.current.value = ""; onMsg("Certificado guardado com segurança."); } catch (e) { onErro((e as Error).message); } finally { setOcupado(null); }
+  }
+  async function testar() {
+    onErro(null); setOcupado("conexao"); setConexao(null);
+    try { setConexao(await api.testarConexaoPortal()); } catch (e) { onErro((e as Error).message); } finally { setOcupado(null); }
+  }
+  async function gerarDps() {
+    onErro(null); setOcupado("dps"); setDps(null);
+    try { setDps(await api.dpsTeste()); } catch (e) { onErro((e as Error).message); } finally { setOcupado(null); }
+  }
+  const botao = "rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep hover:bg-sage-deep/5 disabled:opacity-50";
+  return (
+    <div className="space-y-4">
+      {cert ? (
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg bg-paper px-4 py-3 text-sm">
+          <div><div className="font-semibold text-ink">{cert.titular}</div><div className={`text-xs ${cert.diasParaVencer !== null && cert.diasParaVencer < 30 ? "text-ember" : "text-ink/55"}`}>Válido até {cert.validoAte ? new Date(cert.validoAte).toLocaleDateString("pt-BR") : "—"}{cert.diasParaVencer !== null ? ` (${cert.diasParaVencer} dias)` : ""}</div></div>
+          {ehAdmin && <button className="text-sm font-semibold text-ember hover:underline" onClick={async () => { try { onAtualizar(await api.removerCertificado()); setConexao(null); } catch (e) { onErro((e as Error).message); } }}>Remover</button>}
+        </div>
+      ) : <p className="text-sm text-ink/55">Nenhum certificado enviado.</p>}
+
+      {ehAdmin && (
+        <div className="grid items-end gap-3 sm:grid-cols-[1fr_1fr_auto]">
+          <div>
+            <span className={rotuloCls}>Arquivo do certificado (.pfx ou .p12)</span>
+            <input ref={seletor} type="file" accept=".pfx,.p12" className="hidden" onChange={(e) => setArquivo(e.target.files?.[0] ?? null)} />
+            <button className={`${inputCls} text-left`} onClick={() => seletor.current?.click()}>{arquivo ? arquivo.name : "Escolher arquivo…"}</button>
+          </div>
+          <label><span className={rotuloCls}>Senha do certificado</span><input type="password" autoComplete="off" className={inputCls} value={senha} onChange={(e) => setSenha(e.target.value)} /></label>
+          <button className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper disabled:opacity-40" disabled={!arquivo || !senha || ocupado !== null} onClick={enviar}>{ocupado === "enviar" ? "Enviando…" : cert ? "Trocar" : "Enviar"}</button>
+        </div>
+      )}
+
+      {ehAdmin && (
+        <div className="flex flex-wrap gap-2 border-t border-mist pt-4">
+          <button className={botao} disabled={!cert || ocupado !== null} onClick={testar}>{ocupado === "conexao" ? "Conectando…" : "Testar conexão com o Portal (homologação)"}</button>
+          <button className={botao} disabled={!resp.prontoParaTeste || ocupado !== null} onClick={gerarDps}>{ocupado === "dps" ? "Montando…" : "Gerar uma DPS de teste"}</button>
+        </div>
+      )}
+      {conexao && <div className={`rounded-lg border px-3 py-2 text-sm ${conexao.ok ? "border-sage-deep/40 bg-sage-deep/10 text-sage-deep" : "border-ember/30 bg-ember/10 text-ember"}`}>{conexao.leitura}</div>}
+      {dps && (
+        <div className="space-y-2">
+          {dps.avisos.map((a) => <div key={a} className="rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">{a}</div>)}
+          <div className="text-xs text-ink/55">Id da DPS: <span className="font-mono">{dps.idDps}</span>{dps.assinada ? (dps.verificacao?.valida ? " · assinada e conferida ✓" : " · assinatura não confere") : " · sem assinatura"}. Nada foi enviado e nenhum número foi usado.</div>
+          <textarea readOnly className="h-48 w-full rounded-lg border border-mist bg-paper p-3 font-mono text-[11px] leading-relaxed" value={dps.xml} />
+        </div>
+      )}
+      <p className="text-xs leading-relaxed text-ink/50">A conexão com o Portal usa o certificado da clínica; o teste não emite nem grava nota. Se o Portal recusar o certificado, a mensagem diz o provável motivo.</p>
+    </div>
+  );
 }
 
 export function DadosFiscais() {
@@ -130,6 +194,17 @@ export function DadosFiscais() {
             : <label><span className={rotuloCls}>Receita bruta dos últimos 12 meses (R$)</span><input type="number" step="0.01" className={inputCls} disabled={dis} value={cfg.rbt12 ?? ""} onChange={(e) => set("rbt12", e.target.value)} /></label>}
           <label className="flex items-end gap-2 pb-2 text-sm text-ink/75"><input type="checkbox" className="mb-0.5 h-4 w-4" disabled={dis} checked={cfg.issRetido} onChange={(e) => set("issRetido", e.target.checked)} />ISS retido pelo tomador</label>
         </div>
+        {cfg.regime === "SIMPLES_NACIONAL" && (
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <label><span className={rotuloCls}>Anexo do Simples dos serviços</span>
+              <select className={inputCls} disabled={dis} value={cfg.anexoSimples} onChange={(e) => set("anexoSimples", e.target.value)}><option value="3">Anexo III</option><option value="5">Anexo V</option></select>
+            </label>
+            <label><span className={rotuloCls}>Como o ISS é recolhido</span>
+              <select className={inputCls} disabled={dis} value={cfg.regApuracaoSn} onChange={(e) => set("regApuracaoSn", e.target.value)}><option value="1">Tudo no DAS (padrão)</option><option value="2">ISS por fora do DAS</option><option value="3">ISS e federais por fora</option></select>
+            </label>
+          </div>
+        )}
+        <p className="mt-2 text-xs leading-relaxed text-ink/50">No Simples, a nota leva a carga total do Simples (calculada pela receita de 12 meses) e não a alíquota do ISS; a alíquota só vai com retenção na fonte. Confirme o enquadramento com a contabilidade.</p>
       </Secao>
 
       <Secao titulo="Numeração e ambiente" ajuda="A série e o próximo número seguem o que já foi emitido fora do sistema (por exemplo, no Portal Nacional). Combine com a contabilidade antes de emitir pelo sistema, para não repetir números.">
@@ -158,8 +233,8 @@ export function DadosFiscais() {
         <label className="mt-3 flex items-center gap-2 text-sm text-ink/75"><input type="checkbox" className="h-4 w-4" disabled={dis} checked={cfg.exigeDataPagamento} onChange={(e) => set("exigeDataPagamento", e.target.checked)} />Exigir a data de pagamento antes de emitir</label>
       </Secao>
 
-      <Secao titulo="Certificado digital A1" ajuda="Necessário para emitir de verdade. O envio e a guarda segura do certificado serão feitos na etapa da emissão; até lá, tudo funciona em homologação.">
-        <p className="text-sm text-ink/55">Nenhum certificado enviado.</p>
+      <Secao titulo="Certificado digital A1 e conexão com o Portal" ajuda="Necessário para emitir. O arquivo e a senha ficam cifrados no servidor e nunca voltam para esta tela.">
+        <Certificado resp={resp} ehAdmin={ehAdmin} onAtualizar={aplicar} onErro={setErro} onMsg={setMensagem} />
       </Secao>
 
       {ehAdmin && <div className="sticky bottom-3 flex justify-end"><button className="rounded-lg bg-sage-deep px-6 py-3 text-sm font-semibold text-paper shadow-lg disabled:opacity-50" disabled={salvando} onClick={salvar}>{salvando ? "Salvando…" : "Salvar configuração fiscal"}</button></div>}

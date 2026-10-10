@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-10-10] NF, passo 2: comunicação com o Portal Nacional (portada do Infinity)
+
+- **Código portado do Infinity para TypeScript, com testes** (`lib/fiscal/nfse/`): montagem da DPS (ordem do schema, Id, fuso de São Paulo explícito, Simples sem alíquota de ISS, `pTotTribSN`), assinatura XML referenciando o `Id` do `infDPS`, cliente do Emissor Nacional (GZip+Base64, mTLS com PEM, tradução dos erros 400/403/409 da SEFIN, consulta, evento/cancelamento, checagem de duplicidade) e alíquota efetiva do Simples (anexos III e V).
+- **Certificado A1** guardado CIFRADO (AES-256-GCM, chave `FISCAL_CRYPTO_KEY` do servidor; sem a chave o envio é recusado). Lido com node-forge; recusa senha errada, arquivo inválido e vencido. Nunca volta para a tela (só titular e validade).
+- **Tela Dados fiscais:** envio do certificado, "Testar conexão com o Portal (homologação)" e "Gerar uma DPS de teste" (monta e assina, sem enviar nem gastar número). Campos novos: anexo do Simples, forma de recolhimento do ISS.
+- **NÃO FEITO ainda:** emitir de verdade (orquestrador com numeração atômica, gravação em `NotaFiscal`, ligação com a cobrança). A conexão real com o Portal só foi testada por unidade; falta a primeira chamada em homologação com o certificado da Mentessence. O Id da DPS deve ser validado contra o XSD oficial nessa primeira chamada. 131 testes passam.
+
 ## [2026-10-08 - Madrugada] NF, passo 1: dados fiscais configuráveis e base de faturamento de convênio
 
 - **Dados fiscais** (Configurações › Clínica): `ConfigFiscal` por clínica, tudo configurável (município/IBGE, inscrição, regime, código de serviço e NBS, descrição da nota com variáveis como `{{sessao.data}}`, ISS fixo ou pelo Simples, série e próximo número, ambiente, emissão ativa/desligada, regras particular por sessão/laudo/manual, convênio por caso/lote mensal, momento de emitir, exigir data de pagamento). Lista de pendências para emitir. Só o administrador altera. Certificado A1: ainda não (etapa da emissão).

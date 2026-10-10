@@ -607,6 +607,15 @@ model ConfigFiscal {
   aliquotaIss    Decimal? @db.Decimal(5, 2)
   rbt12          Decimal? @db.Decimal(14, 2)
   issRetido      Boolean  @default(false)
+  anexoSimples   String   @default("3") // anexo do Simples dos SERVIÇOS (3 ou 5)
+  regApuracaoSn  String   @default("1") // 1 = ISS e federais recolhidos no DAS; 2/3 = ISS apurado por fora
+  regimeEspecial String   @default("0") // 0 = nenhum
+
+  // certificado digital A1: o .pfx e a senha ficam CIFRADOS (AES-256-GCM, chave FISCAL_CRYPTO_KEY do servidor); nunca voltam para a tela
+  certificadoCifrado String? @db.Text
+  certificadoSenhaCifrada String?
+  certificadoTitular String?
+  certificadoValidoAte DateTime?
 
   // numeração (a série e o próximo número seguem o que já foi emitido fora do sistema)
   serieDps       String   @default("1")

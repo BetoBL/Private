@@ -76,10 +76,12 @@ export interface Convenio extends DadosFaturamentoConvenio {
 export interface ConfigFiscal {
   emissaoAtiva: boolean; ambiente: "HOMOLOGACAO" | "PRODUCAO"; regime: string; inscricaoMunicipal: string | null; codigoMunicipioIbge: string | null; localPrestacaoIbge: string | null;
   cTribNac: string | null; nbs: string | null; descricaoPadrao: string; aliquotaModo: "FIXA" | "SIMPLES"; aliquotaIss: string | number | null; rbt12: string | number | null; issRetido: boolean;
+  anexoSimples: string; regApuracaoSn: string; regimeEspecial: string;
   serieDps: string; proximoNumeroDps: number; modoParticular: string; quandoEmitir: string; modoConvenio: string; exigeDataPagamento: boolean;
 }
 export interface RespostaFiscal {
   config: ConfigFiscal | null;
+  certificado: { titular: string | null; validoAte: string | null; diasParaVencer: number | null } | null;
   clinica: { razaoSocial: string; nomeFantasia: string | null; cnpj: string | null; endereco: string | null; bairro: string | null; cep: string | null; cidade: string | null; estado: string | null; telefone: string | null };
   exemploDescricao: string; variaveis: Array<{ variavel: string; descricao: string }>;
   pendencias: Array<{ campo: string; mensagem: string; onde: "clinica" | "fiscal" | "certificado" }>; prontoParaTeste: boolean; prontoParaEmitir: boolean;
@@ -691,6 +693,10 @@ export const api = {
   gerarRascunho: (id: string) => request<Laudo>(`/laudos/${id}/gerar-rascunho`, { method: "POST" }),
   exportarLaudoDocx: (id: string) => baixarArquivo(`/laudos/${id}/exportar-docx`),
 
+  enviarCertificado: (pfxBase64: string, senha: string) => request<RespostaFiscal>("/fiscal/certificado", { method: "POST", body: JSON.stringify({ pfxBase64, senha }) }),
+  removerCertificado: () => request<RespostaFiscal>("/fiscal/certificado", { method: "DELETE" }),
+  dpsTeste: () => request<{ xml: string; idDps: string; assinada: boolean; verificacao: { valida: boolean; motivo: string | null } | null; avisos: string[] }>("/fiscal/dps-teste", { method: "POST" }),
+  testarConexaoPortal: () => request<{ ok: boolean; status: number; leitura: string }>("/fiscal/testar-conexao", { method: "POST" }),
   getFiscal: () => request<RespostaFiscal>("/fiscal/config"),
   salvarFiscal: (data: Partial<ConfigFiscal>) => request<RespostaFiscal>("/fiscal/config", { method: "PUT", body: JSON.stringify(data) }),
 
