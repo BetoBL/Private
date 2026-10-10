@@ -2,6 +2,7 @@ import { timingSafeEqual } from "node:crypto";
 import { Router } from "express";
 import { z } from "zod";
 import { estadoDoConsentimento, TEXTO_CONSENTIMENTO, VERSAO_TEXTO_CONSENTIMENTO } from "../lib/video/consentimento";
+import { revogarGravacoesDaSala } from "../lib/video/gravacao";
 import { tokenDaSala, VideoIndisponivel } from "../lib/video/livekit";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -64,7 +65,16 @@ atendimentoPublicoRouter.post("/:codigo/:segredo/revogar", asyncHandler(async (r
   const r = await salaDoLink(req.params.codigo, req.params.segredo);
   if (!r) { naoEncontrada(res); return; }
   await prisma.consentimentoGravacao.updateMany({ where: { salaId: r.sala.id, concedido: true, revogadoEm: null }, data: { revogadoEm: new Date() } });
+  await revogarGravacoesDaSala(r.sala.id, req.ip); // revogar para a gravação em andamento e apaga o áudio já guardado
   res.json(estadoDoConsentimento(await prisma.consentimentoGravacao.findMany({ where: { salaId: r.sala.id } })));
+}));
+
+// Estado ao vivo para a página do paciente: se está sendo gravado e o que ele autorizou
+atendimentoPublicoRouter.get("/:codigo/:segredo/estado", asyncHandler(async (req, res) => {
+  const r = await salaDoLink(req.params.codigo, req.params.segredo);
+  if (!r) { naoEncontrada(res); return; }
+  const [consentimentos, ativa] = await Promise.all([prisma.consentimentoGravacao.findMany({ where: { salaId: r.sala.id } }), prisma.gravacao.findFirst({ where: { salaId: r.sala.id, status: "GRAVANDO" }, select: { id: true } })]);
+  res.json({ consentimento: estadoDoConsentimento(consentimentos), gravando: !!ativa, encerrada: r.sala.statusSala === "encerrada" });
 }));
 
 // Entrar: devolve o token da chamada. O paciente pode entrar antes do profissional (fica aguardando na sala).

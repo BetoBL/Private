@@ -17,11 +17,19 @@ export function AtendimentoPaciente() {
   const [aceitaGravacao, setAceitaGravacao] = useState(false);
   const [aceitaIa, setAceitaIa] = useState(false);
   const [autorizando, setAutorizando] = useState(false);
+  const [gravando, setGravando] = useState(false);
 
   useEffect(() => {
     if (!codigo || !segredo) return;
     api.atendimentoPublico(codigo, segredo).then(setInfo).catch((e) => setErro(e.message));
   }, [codigo, segredo]);
+
+  // durante a chamada, acompanha se está sendo gravado (para mostrar o aviso) e o que o paciente autorizou
+  useEffect(() => {
+    if (!sala || !codigo || !segredo) return;
+    const t = setInterval(() => api.estadoPublico(codigo, segredo).then((e) => { setGravando(e.gravando); setInfo((i) => (i ? { ...i, consentimento: e.consentimento } : i)); }).catch(() => undefined), 4000);
+    return () => clearInterval(t);
+  }, [sala, codigo, segredo]);
 
   async function entrar(comConsentimento: boolean) {
     if (!codigo || !segredo || !info) return;
@@ -51,7 +59,7 @@ export function AtendimentoPaciente() {
       <div className="flex h-screen flex-col bg-ink text-paper">
         <header className="flex flex-wrap items-center gap-3 px-4 py-2.5 text-sm">
           <span className="font-serif text-base">Atendimento com {info.profissional}</span>
-          {info.gravacaoDisponivel && <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${info.consentimento?.gravacao ? "bg-amber-500/80 text-ink" : "bg-paper/15"}`}>{info.consentimento?.gravacao ? "Gravação autorizada por você" : "Sem gravação"}</span>}
+          {info.gravacaoDisponivel && (gravando ? <span className="flex items-center gap-1.5 rounded-full bg-red-600 px-2.5 py-0.5 text-[11px] font-bold"><span className="h-2 w-2 animate-pulse rounded-full bg-white" />Gravando</span> : <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${info.consentimento?.gravacao ? "bg-amber-500/80 text-ink" : "bg-paper/15"}`}>{info.consentimento?.gravacao ? "Gravação autorizada por você (ainda não iniciada)" : "Sem gravação"}</span>)}
           {info.consentimento?.gravacao && <button className="ml-auto rounded-lg border border-paper/30 px-3 py-1.5 font-semibold hover:bg-paper/10 disabled:opacity-50" disabled={autorizando} onClick={pararDeAutorizar}>Parar de autorizar a gravação</button>}
         </header>
         {erro && <div className="bg-ember/20 px-4 py-2 text-sm text-ember">{erro}</div>}

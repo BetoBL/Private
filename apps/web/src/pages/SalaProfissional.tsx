@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ChamadaVideo } from "../components/ChamadaVideo";
+import { GravadorSessao } from "../components/GravadorSessao";
 import { api, type AcessoSala, type EstadoConsentimento } from "../lib/api";
 
 // Tela cheia da chamada, do lado do profissional: vídeo, link para o paciente, plano da clínica e estado do consentimento.
@@ -57,7 +58,9 @@ export function SalaProfissional() {
       </header>
       {erro && <div className="bg-ember/20 px-4 py-2 text-sm text-ember">{erro}</div>}
       {acesso.linkPaciente && <div className="border-b border-paper/10 bg-paper/5 px-4 py-1.5 text-xs text-paper/60">Link do paciente: <span className="select-all font-mono">{acesso.linkPaciente}</span></div>}
-      <main className="min-h-0 flex-1"><ChamadaVideo url={acesso.url} token={acesso.token} onSaiu={() => undefined} onErro={setErro} /></main>
+      <main className="min-h-0 flex-1"><ChamadaVideo url={acesso.url} token={acesso.token} onSaiu={() => undefined} onErro={setErro}>
+          {acesso.plano === "COMPLETO" && <GravadorSessao salaId={salaId!} pronta={acesso.gravacao.pronta} motivo={acesso.gravacao.motivo} consentiu={!!consent?.gravacao} ativaId={consent?.gravandoId ?? acesso.gravacao.ativaId} onMudou={() => api.consentimentoSala(salaId!).then(setConsent).catch(() => undefined)} />}
+        </ChamadaVideo></main>
     </div>
   );
 }

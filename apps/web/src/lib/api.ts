@@ -426,8 +426,9 @@ export interface TipoAtendimento {
   atualizadoEm: string;
 }
 
-export interface EstadoConsentimento { gravacao: boolean; ia: boolean; nome: string | null; declaradoPor: string | null; em: string | null }
-export interface AcessoSala { token: string; url: string; plano: "BASICO" | "COMPLETO"; linkPaciente: string | null; paciente: string; consentimento: EstadoConsentimento }
+export interface EstadoConsentimento { gravacao: boolean; ia: boolean; nome: string | null; declaradoPor: string | null; em: string | null; gravandoId?: string | null }
+export interface AcessoSala { token: string; url: string; plano: "BASICO" | "COMPLETO"; linkPaciente: string | null; paciente: string; consentimento: EstadoConsentimento; gravacao: { pronta: boolean; motivo: string | null; ativaId: string | null } }
+export interface GravacaoSessao { id: string; sessaoId: string; status: "GRAVANDO" | "CONCLUIDA" | "INCOMPLETA" | "REVOGADA" | "APAGADA"; partes: number; bytes: number; duracaoSeg: number | null; iniciadaEm: string; encerradaEm: string | null; apagarAudioEm: string | null; audioApagadoEm: string | null; temAudio: boolean }
 export interface InfoAtendimentoPublico {
   clinica: string; profissional: string; paciente: string; inicioAgendado: string | null; encerrada: boolean; gravacaoDisponivel: boolean; consentimento: EstadoConsentimento | null;
   texto: { titulo: string; paragrafos: string[]; itens: { gravacao: string; ia: string }; versao: string } | null;
@@ -844,6 +845,25 @@ export const api = {
 
   criarSalaVirtual: (data: { sessaoId: string }) =>
     request<SalaVirtual>("/salas-virtuais", { method: "POST", body: JSON.stringify(data) }),
+  iniciarGravacao: (salaId: string) => request<GravacaoSessao>("/gravacoes/iniciar", { method: "POST", body: JSON.stringify({ salaId }) }),
+  // parte do áudio (binário): devolve o resultado em vez de lançar, para o gravador decidir se tenta de novo ou para
+  enviarParteGravacao: async (id: string, n: number, blob: Blob): Promise<{ ok: boolean; status: number; codigo?: string; erro?: string }> => {
+    try {
+      const res = await fetch(`${API_URL}/gravacoes/${id}/partes/${n}`, { method: "PUT", headers: { "Content-Type": "application/octet-stream", ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}) }, body: blob });
+      if (res.ok) return { ok: true, status: res.status };
+      const corpo = await res.json().catch(() => ({}));
+      return { ok: false, status: res.status, codigo: corpo.codigo, erro: corpo.error };
+    } catch { return { ok: false, status: 0 }; }
+  },
+  encerrarGravacao: (id: string, duracaoSeg?: number) => request<GravacaoSessao>(`/gravacoes/${id}/encerrar`, { method: "POST", body: JSON.stringify({ duracaoSeg }) }),
+  listarGravacoes: (f: { sessaoId?: string; pacienteId?: string } = {}) => request<GravacaoSessao[]>(`/gravacoes?${new URLSearchParams(Object.entries(f).filter(([, v]) => !!v) as [string, string][]).toString()}`),
+  baixarAudioGravacao: async (id: string): Promise<Blob> => {
+    const res = await fetch(`${API_URL}/gravacoes/${id}/audio`, { headers: authToken ? { Authorization: `Bearer ${authToken}` } : undefined });
+    if (!res.ok) await tratarRespostaSemOk(res);
+    return res.blob();
+  },
+  apagarGravacao: (id: string) => request<void>(`/gravacoes/${id}`, { method: "DELETE" }),
+  estadoPublico: (codigo: string, segredo: string) => request<{ consentimento: EstadoConsentimento; gravando: boolean; encerrada: boolean }>(`/atendimento-publico/${codigo}/${segredo}/estado`),
   acessoSala: (id: string) => request<AcessoSala>(`/salas-virtuais/${id}/acesso`),
   consentimentoSala: (id: string) => request<EstadoConsentimento>(`/salas-virtuais/${id}/consentimento`),
   // entrada do paciente (sem login; o segredo vai no próprio endereço)

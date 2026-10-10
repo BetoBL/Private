@@ -464,6 +464,7 @@ model SalaVirtual {
   provedor          String    @default("JITSI") // JITSI (sala pública antiga) | LIVEKIT (chamada dentro do sistema)
   segredoPaciente   String?   // parte secreta do link que o paciente recebe (32 bytes aleatórios, base64url)
   consentimentos    ConsentimentoGravacao[]
+  gravacoes         Gravacao[]
 
   statusSala        String    @default("agendada") // agendada, em_andamento, encerrada
   inicioAgendado    DateTime  // Quando a sessão estava marcada
@@ -702,4 +703,49 @@ model ConsentimentoGravacao {
   revogadoEm    DateTime?
 
   @@index([salaId, tipo])
+}
+
+// Gravação de áudio de uma sessão online. O áudio NUNCA fica em claro no servidor: cada parte é cifrada (AES-256-GCM) com uma chave própria da
+// gravação, e essa chave fica guardada cifrada pela chave mestra do servidor (GRAVACAO_CRYPTO_KEY). Só o profissional responsável acessa.
+model Gravacao {
+  id            String      @id @default(uuid())
+  salaId        String
+  sala          SalaVirtual @relation(fields: [salaId], references: [id])
+  sessaoId      String
+  pacienteId    String
+  clinicaId     String
+  profissionalId String
+
+  status        String      @default("GRAVANDO") // GRAVANDO | CONCLUIDA | INCOMPLETA | REVOGADA | APAGADA
+  formato       String      @default("audio/webm")
+  armazenamento String      // LOCAL | S3
+  prefixo       String      // pasta/prefixo dos objetos cifrados
+  chaveCifrada  String      @db.Text // chave da gravação, cifrada pela chave mestra
+  partes        Int         @default(0)
+  bytes         Int         @default(0)
+  duracaoSeg    Int?
+  versaoConsentimento String
+  iniciadaEm    DateTime    @default(now())
+  ultimaParteEm DateTime?
+  encerradaEm   DateTime?
+  apagarAudioEm DateTime?   // depois desta data o áudio é apagado (a transcrição, se houver, permanece no prontuário)
+  audioApagadoEm DateTime?
+
+  acessos       GravacaoAcesso[]
+
+  @@index([sessaoId])
+  @@index([pacienteId, iniciadaEm])
+}
+
+// Trilha de auditoria: quem fez o quê com a gravação
+model GravacaoAcesso {
+  id            String   @id @default(uuid())
+  gravacaoId    String
+  gravacao      Gravacao @relation(fields: [gravacaoId], references: [id])
+  profissionalId String?
+  acao          String   // INICIOU | ENCERROU | OUVIU | APAGOU | REVOGADA_PELO_PACIENTE | APAGADA_POR_PRAZO
+  ip            String?
+  criadoEm      DateTime @default(now())
+
+  @@index([gravacaoId])
 }

@@ -2,6 +2,7 @@ import type { Request } from "express";
 import { Router } from "express";
 import { z } from "zod";
 import { estadoDoConsentimento } from "../lib/video/consentimento";
+import { gravacaoPronta } from "../lib/video/gravacao";
 import { configLivekit, nomeDaSala, novoSegredoDoLink, tokenDaSala, VideoIndisponivel } from "../lib/video/livekit";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -70,7 +71,8 @@ router.get(
     try {
       const { token, url } = await tokenDaSala({ sala: sala.codigoSala, identidade: `profissional-${req.profissional!.sub}`, nome: profissional?.nome ?? "Profissional" });
       await prisma.salaVirtual.update({ where: { id: sala.id }, data: { profissionalPresente: true, statusSala: "em_andamento", inicioReal: sala.inicioReal ?? new Date() } });
-      res.json({ token, url, plano: clinica?.planoVideo ?? "BASICO", linkPaciente: linkDoPaciente(req, sala), paciente: sala.sessao.paciente.nome, consentimento: estadoDoConsentimento(consentimentos) });
+      const ativa = await prisma.gravacao.findFirst({ where: { salaId: sala.id, status: "GRAVANDO" }, select: { id: true } });
+      res.json({ token, url, plano: clinica?.planoVideo ?? "BASICO", gravacao: { ...gravacaoPronta(), ativaId: ativa?.id ?? null }, linkPaciente: linkDoPaciente(req, sala), paciente: sala.sessao.paciente.nome, consentimento: estadoDoConsentimento(consentimentos) });
     } catch (e) {
       if (e instanceof VideoIndisponivel) { res.status(503).json({ error: e.message }); return; }
       throw e;
@@ -84,7 +86,8 @@ router.get(
   asyncHandler(async (req, res) => {
     const sala = await salaDoUsuario(req, req.params.id);
     if (!sala) { res.status(404).json({ error: "Sala não encontrada" }); return; }
-    res.json(estadoDoConsentimento(await prisma.consentimentoGravacao.findMany({ where: { salaId: sala.id } })));
+    const ativa = await prisma.gravacao.findFirst({ where: { salaId: sala.id, status: "GRAVANDO" }, select: { id: true } });
+    res.json({ ...estadoDoConsentimento(await prisma.consentimentoGravacao.findMany({ where: { salaId: sala.id } })), gravandoId: ativa?.id ?? null });
   })
 );
 

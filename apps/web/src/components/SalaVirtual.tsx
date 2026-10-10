@@ -1,10 +1,52 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api, type SalaVirtual } from "../lib/api";
+import { api, type GravacaoSessao, type SalaVirtual } from "../lib/api";
 
 interface SalaVirtualProps {
   sessaoId: string;
   dataHora: string;
+}
+
+const ROTULO_GRAVACAO: Record<string, string> = { GRAVANDO: "Gravando", CONCLUIDA: "Concluída", INCOMPLETA: "Incompleta", REVOGADA: "Interrompida (paciente retirou a autorização)", APAGADA: "Áudio apagado" };
+const mmss = (s: number | null) => (s === null ? "" : `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`);
+
+// Gravações da sessão: ouvir (o áudio é decifrado só na hora, e o acesso fica registrado) e apagar
+function GravacoesDaSessao({ sessaoId }: { sessaoId: string }) {
+  const [lista, setLista] = useState<GravacaoSessao[]>([]);
+  const [ouvindo, setOuvindo] = useState<{ id: string; url: string } | null>(null);
+  const [erro, setErro] = useState<string | null>(null);
+  const carregar = () => api.listarGravacoes({ sessaoId }).then(setLista).catch(() => undefined);
+  useEffect(() => { carregar(); }, [sessaoId]);
+  if (lista.length === 0) return null;
+  async function ouvir(g: GravacaoSessao) {
+    setErro(null);
+    try { if (ouvindo) URL.revokeObjectURL(ouvindo.url); setOuvindo({ id: g.id, url: URL.createObjectURL(await api.baixarAudioGravacao(g.id)) }); } catch (e) { setErro((e as Error).message); }
+  }
+  async function apagar(g: GravacaoSessao) {
+    if (!confirm("Apagar o áudio desta gravação? Isso não pode ser desfeito.")) return;
+    try { await api.apagarGravacao(g.id); setOuvindo(null); await carregar(); } catch (e) { setErro((e as Error).message); }
+  }
+  return (
+    <div className="mt-3 rounded-xl border border-mist bg-white p-3">
+      <div className="mb-2 text-xs font-bold uppercase tracking-wide text-sage-deep">Gravações desta sessão</div>
+      {erro && <div className="mb-2 text-xs text-ember">{erro}</div>}
+      <ul className="space-y-2">
+        {lista.map((g) => (
+          <li key={g.id} className="text-sm">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span>{new Date(g.iniciadaEm).toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" })} <span className="text-xs text-ink/55">· {ROTULO_GRAVACAO[g.status] ?? g.status}{g.duracaoSeg !== null ? ` · ${mmss(g.duracaoSeg)}` : ""}</span></span>
+              <span className="flex gap-3 text-xs font-semibold">
+                {g.temAudio && g.status !== "GRAVANDO" && <button className="text-sage-deep hover:underline" onClick={() => ouvir(g)}>Ouvir</button>}
+                {g.temAudio && g.status !== "GRAVANDO" && <button className="text-ember hover:underline" onClick={() => apagar(g)}>Apagar áudio</button>}
+              </span>
+            </div>
+            {g.temAudio && g.apagarAudioEm && g.status !== "GRAVANDO" && <div className="text-[11px] text-ink/45">O áudio é apagado automaticamente em {new Date(g.apagarAudioEm).toLocaleDateString("pt-BR")}.</div>}
+            {ouvindo?.id === g.id && <audio controls autoPlay src={ouvindo.url} className="mt-2 w-full" />}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export function SalaVirtualComponent({ sessaoId }: SalaVirtualProps) {
@@ -81,6 +123,7 @@ export function SalaVirtualComponent({ sessaoId }: SalaVirtualProps) {
           </div>
         </div>
       )}
+      <GravacoesDaSessao sessaoId={sessaoId} />
     </div>
   );
 }

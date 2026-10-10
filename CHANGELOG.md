@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-10] Videochamada, etapa 2: gravação cifrada da sessão (plano completo)
+
+- **Gravação no navegador do profissional**: mistura o áudio dos dois lados, grava em pedaços de 10 s e envia cada pedaço ao servidor, que o **cifra (AES-256-GCM, chave própria por gravação; a chave fica guardada cifrada pela chave mestra `GRAVACAO_CRYPTO_KEY`)** antes de guardar. O número da parte e o id da gravação entram como dado autenticado: pedaço trocado, repetido ou levado para outra gravação não decifra. Sem a chave mestra ou sem armazenamento a gravação fica indisponível (nunca grava sem proteção).
+- **Só com consentimento, conferido no servidor** (não só na tela): iniciar exige plano completo + consentimento de gravação válido; **cada pedaço** confere o consentimento de novo. Se o paciente retira a autorização no meio, o servidor recusa o próximo pedaço, **apaga o áudio já guardado** (REVOGADA), o gravador do profissional para sozinho em até ~4 s e o botão volta a "Aguardando a autorização". O paciente vê o aviso "● Gravando" na página dele.
+- **Armazenamento** (`lib/video/armazenamento.ts`): S3-compatível (Cloudflare R2 etc.: `GRAVACAO_S3_*`) ou pasta local só em desenvolvimento. O armazenamento só vê dado cifrado.
+- **Acesso**: só o profissional responsável (ou o administrador) ouve; o áudio é decifrado só na hora e **cada acesso fica na trilha de auditoria** (`GravacaoAcesso`: iniciou, encerrou, ouviu, apagou, revogada pelo paciente, apagada por prazo). Lista de gravações na ficha da sessão, com ouvir e apagar.
+- **Retenção**: o áudio é apagado automaticamente após `GRAVACAO_RETENCAO_DIAS` (padrão 14); gravações abandonadas (aba fechada) são fechadas como incompletas; rotina a cada 10 minutos.
+- Verificado com LiveKit local, dois navegadores e armazenamento local: gravação de 27 s em 3 partes cifradas (arquivo sem o cabeçalho do áudio), áudio decifrado = .webm válido, auditoria correta; revogação no meio apagou o áudio (0 arquivos restantes, 410 ao tentar ouvir) e impediu nova gravação. 163 testes passam. Migration `gravacao_sessao`.
+- **Para ligar em produção:** `GRAVACAO_CRYPTO_KEY` (guardar em lugar seguro: sem ela as gravações não podem ser lidas), bucket S3-compatível (`GRAVACAO_S3_*`) e as variáveis do LiveKit. **Próximas etapas:** transcrição (AssemblyAI) na ficha do paciente, resumo com IA revisado pelo profissional e apagar o áudio após a transcrição.
+
 ## [2026-10-10] Videochamada: chamada dentro do sistema, planos Básico/Completo e consentimento (etapa 1)
 
 - **Chamada dentro do sistema** (LiveKit): o profissional entra em `/sala/:id` (tela cheia, com o link do paciente, plano e estado do consentimento); o paciente entra por um link `/atendimento/<sala>/<segredo>` **sem login**, protegido por um segredo de 32 bytes (resposta genérica para link inválido, limite de 60 pedidos/min por IP, token da chamada de 4 h e só para aquela sala). Sem as variáveis `LIVEKIT_URL`, `LIVEKIT_API_KEY` e `LIVEKIT_API_SECRET` no servidor, a sala continua no link público antigo do Jitsi.

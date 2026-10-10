@@ -14,6 +14,8 @@ import { financeiroRouter } from "./routes/financeiro.routes";
 import { fiscalRouter } from "./routes/fiscal.routes";
 import { notasRouter } from "./routes/notas.routes";
 import { atendimentoPublicoRouter } from "./routes/atendimentoPublico.routes";
+import { gravacoesRouter } from "./routes/gravacoes.routes";
+import { manutencaoDeGravacoes } from "./lib/video/gravacao";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
 import { laudosRouter } from "./routes/laudos.routes";
 import { modelosLaudoRouter } from "./routes/modelosLaudo.routes";
@@ -66,6 +68,7 @@ app.use("/convenios", exigirAutenticacao, conveniosRouter);
 app.use("/financeiro", exigirAutenticacao, financeiroRouter);
 app.use("/fiscal", exigirAutenticacao, fiscalRouter);
 app.use("/notas", exigirAutenticacao, notasRouter);
+app.use("/gravacoes", exigirAutenticacao, gravacoesRouter);
 app.use("/salas-virtuais", exigirAutenticacao, salasVirtuaisRouter);
 app.use("/normativas-customizadas", exigirAutenticacao, normativasCustomizadasRouter);
 
@@ -76,5 +79,9 @@ const PORT = process.env.PORT ?? 3333;
 app.listen(PORT, () => {
   console.log(`API rodando em http://localhost:${PORT}`);
   // os modelos do sistema (somente leitura) acompanham a versão do código
+  // gravações: fecha as abandonadas e apaga o áudio vencido (agora e a cada 10 minutos)
+  const manter = () => manutencaoDeGravacoes().then((r) => { if (r.fechadas || r.apagadas) console.log(`Gravações: ${r.fechadas} fechada(s), ${r.apagadas} áudio(s) vencido(s) apagado(s).`); }).catch((e) => console.error("Manutenção de gravações:", e instanceof Error ? e.message : e));
+  manter();
+  setInterval(manter, 10 * 60_000).unref();
   sincronizarModelosDoSistema(prisma).then((n) => console.log(`Modelos de laudo do sistema sincronizados: ${n}`)).catch((e) => console.error("Falha ao sincronizar os modelos de laudo:", e));
 });
