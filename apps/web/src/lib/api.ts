@@ -426,9 +426,18 @@ export interface TipoAtendimento {
   atualizadoEm: string;
 }
 
+export interface EstadoConsentimento { gravacao: boolean; ia: boolean; nome: string | null; declaradoPor: string | null; em: string | null }
+export interface AcessoSala { token: string; url: string; plano: "BASICO" | "COMPLETO"; linkPaciente: string | null; paciente: string; consentimento: EstadoConsentimento }
+export interface InfoAtendimentoPublico {
+  clinica: string; profissional: string; paciente: string; inicioAgendado: string | null; encerrada: boolean; gravacaoDisponivel: boolean; consentimento: EstadoConsentimento | null;
+  texto: { titulo: string; paragrafos: string[]; itens: { gravacao: string; ia: string }; versao: string } | null;
+}
+
 export interface SalaVirtual {
   id: string;
   sessaoId: string;
+  provedor: "JITSI" | "LIVEKIT";
+  linkPaciente: string | null;
   urlJitsi: string;
   codigoSala: string;
   statusSala: "agendada" | "em_andamento" | "encerrada";
@@ -835,6 +844,14 @@ export const api = {
 
   criarSalaVirtual: (data: { sessaoId: string }) =>
     request<SalaVirtual>("/salas-virtuais", { method: "POST", body: JSON.stringify(data) }),
+  acessoSala: (id: string) => request<AcessoSala>(`/salas-virtuais/${id}/acesso`),
+  consentimentoSala: (id: string) => request<EstadoConsentimento>(`/salas-virtuais/${id}/consentimento`),
+  // entrada do paciente (sem login; o segredo vai no próprio endereço)
+  atendimentoPublico: (codigo: string, segredo: string) => request<InfoAtendimentoPublico>(`/atendimento-publico/${codigo}/${segredo}`),
+  consentimentoPublico: (codigo: string, segredo: string, d: { aceitaGravacao: boolean; aceitaIa: boolean; declaradoPor: "PACIENTE" | "RESPONSAVEL"; nomeDeclarante: string }) =>
+    request<EstadoConsentimento>(`/atendimento-publico/${codigo}/${segredo}/consentimento`, { method: "POST", body: JSON.stringify(d) }),
+  revogarPublico: (codigo: string, segredo: string) => request<EstadoConsentimento>(`/atendimento-publico/${codigo}/${segredo}/revogar`, { method: "POST" }),
+  entrarPublico: (codigo: string, segredo: string) => request<{ token: string; url: string }>(`/atendimento-publico/${codigo}/${segredo}/entrar`, { method: "POST" }),
   listSalasVirtuais: (sessaoId: string) =>
     request<SalaVirtual[]>(`/salas-virtuais/sessao/${sessaoId}`),
   atualizarSalaVirtual: (id: string, data: Partial<Pick<SalaVirtual, "statusSala" | "inicioReal" | "fimReal" | "profissionalPresente" | "pacientePresente">>) =>

@@ -13,6 +13,7 @@ import { conveniosRouter } from "./routes/convenios.routes";
 import { financeiroRouter } from "./routes/financeiro.routes";
 import { fiscalRouter } from "./routes/fiscal.routes";
 import { notasRouter } from "./routes/notas.routes";
+import { atendimentoPublicoRouter } from "./routes/atendimentoPublico.routes";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
 import { laudosRouter } from "./routes/laudos.routes";
 import { modelosLaudoRouter } from "./routes/modelosLaudo.routes";
@@ -43,6 +44,8 @@ app.get("/health", (_req, res) => {
 // POST /clinicas e POST /profissionais continuam abertos (fluxo de "criar minha conta");
 // os demais métodos desses dois routers exigem login (ver clinicas.routes.ts / profissionais.routes.ts).
 app.use("/auth", authRouter);
+// entrada do paciente na videochamada: sem login, protegida pelo segredo do link (ver atendimentoPublico.routes.ts)
+app.use("/atendimento-publico", atendimentoPublicoRouter);
 app.use("/testes", testesRouter);
 app.use("/clinicas", clinicasRouter);
 app.use("/profissionais", profissionaisRouter);

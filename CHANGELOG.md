@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-10-10] Videochamada: chamada dentro do sistema, planos Básico/Completo e consentimento (etapa 1)
+
+- **Chamada dentro do sistema** (LiveKit): o profissional entra em `/sala/:id` (tela cheia, com o link do paciente, plano e estado do consentimento); o paciente entra por um link `/atendimento/<sala>/<segredo>` **sem login**, protegido por um segredo de 32 bytes (resposta genérica para link inválido, limite de 60 pedidos/min por IP, token da chamada de 4 h e só para aquela sala). Sem as variáveis `LIVEKIT_URL`, `LIVEKIT_API_KEY` e `LIVEKIT_API_SECRET` no servidor, a sala continua no link público antigo do Jitsi.
+- **Planos por clínica** (`Clinica.planoVideo`): BASICO (sem gravação; a página do paciente diz que a sessão não é gravada) e COMPLETO (consentimento, e nas próximas etapas gravação cifrada, transcrição e resumo). A troca de plano é feita pelo dono do sistema, direto no banco (ainda não há tela de cobrança).
+- **Consentimento** (`ConsentimentoGravacao`): texto versionado (v1-2026-10), duas autorizações separadas (gravação; IA para transcrever e resumir, que só vale com a gravação), quem respondeu (paciente ou responsável legal), nome, data/hora, IP e navegador; "Entrar sem gravar" registra a recusa; "Parar de autorizar a gravação" revoga sem apagar o histórico. **O texto precisa de revisão jurídica e da responsável técnica antes do uso com pacientes reais.**
+- Sala agora exige ser o profissional responsável (ou administrador). O texto antigo "criptografada ponta a ponta via Jitsi / sem gravação" foi removido: a chamada é protegida em trânsito.
+- Verificado com o servidor LiveKit local e dois navegadores com câmera/microfone simulados (paciente consentiu, entrou, e o painel do profissional mostrou os 2 participantes e o consentimento). 160 testes passam. Migration `video_plano_consentimento`.
+- **Próximas etapas:** gravação no navegador do profissional enviada cifrada (bloqueada sem consentimento), armazenamento cifrado (Cloudflare R2), transcrição (AssemblyAI) ligada à sessão e à ficha do paciente, resumo com IA revisado pelo profissional, e retenção/exclusão. **Para ligar em produção:** conta LiveKit Cloud (URL, API key, API secret) e `WEB_URL` no Render.
+
 ## [2026-10-10] NF, passo 4: validação contra o XSD oficial e PDF da nota (DANFSe)
 
 - **Esquemas XSD oficiais do Portal Nacional** (pacote NFSe-ESQUEMAS_XSD-v1.01-20260209, gov.br/nfse) copiados sem alteração para `lib/fiscal/nfse/xsd/` (1.00 e 1.01). `validarContraXsd` (xmllint-wasm) valida a DPS; 17 casos de teste (Simples, MEI, tomador PF/PJ/com endereço, ISS retido, produção, assinada) passam nas duas versões, e estrutura errada é apontada com o campo.

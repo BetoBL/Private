@@ -22,11 +22,21 @@ import { ModelosLaudo } from "./pages/ModelosLaudo";
 import { Configuracoes } from "./pages/Configuracoes";
 import { DadosFiscais } from "./pages/DadosFiscais";
 import { Notas } from "./pages/Notas";
+import { AtendimentoPaciente } from "./pages/AtendimentoPaciente";
+import { SalaProfissional } from "./pages/SalaProfissional";
 import { EditorModeloLaudo } from "./pages/EditorModeloLaudo";
 
 function App() {
   const { profissional } = useAuth();
 
+  // entrada do PACIENTE na videochamada: pública (sem login), protegida pelo segredo do link
+  if (window.location.pathname.startsWith("/atendimento/")) {
+    return (
+      <Routes>
+        <Route path="/atendimento/:codigo/:segredo" element={<AtendimentoPaciente />} />
+      </Routes>
+    );
+  }
 
   if (!profissional) {
     return <Login />;
@@ -39,6 +49,8 @@ function App() {
       <Route path="/biblioteca" element={<BibliotecaDeTestes />} />
       {/* Tela cheia de um teste numa sessão (sem a sidebar), aberta pela ficha do paciente */}
       <Route path="/teste-completo" element={<TesteCompleto />} />
+      {/* chamada de vídeo em tela cheia, do lado do profissional */}
+      <Route path="/sala/:salaId" element={<SalaProfissional />} />
       <Route element={<Layout />}>
         <Route path="/" element={<PainelDoDia />} />
         <Route path="/pacientes" element={<Pacientes />} />

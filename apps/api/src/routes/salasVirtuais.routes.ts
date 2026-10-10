@@ -1,130 +1,111 @@
+import type { Request } from "express";
 import { Router } from "express";
 import { z } from "zod";
+import { estadoDoConsentimento } from "../lib/video/consentimento";
+import { configLivekit, nomeDaSala, novoSegredoDoLink, tokenDaSala, VideoIndisponivel } from "../lib/video/livekit";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
 const router = Router();
 
-// Cria uma sala virtual Jitsi para uma sessão
-// Gera URL única e segura
-const criarSalaSchema = z.object({
-  sessaoId: z.string().uuid(),
-});
+// base do link que o paciente recebe: WEB_URL do servidor, senão a origem de quem pediu, senão o endereço local
+export const baseDoSite = (req: Request) => (process.env.WEB_URL?.trim() || (req.headers.origin as string | undefined) || "http://localhost:5173").replace(/\/$/, "");
+const linkDoPaciente = (req: Request, sala: { provedor: string; codigoSala: string; segredoPaciente: string | null }) =>
+  sala.provedor === "LIVEKIT" && sala.segredoPaciente ? `${baseDoSite(req)}/atendimento/${sala.codigoSala}/${sala.segredoPaciente}` : null;
 
+// Sala da sessão, só para quem pode: mesma clínica e, se não for administrador, o profissional responsável pela sessão
+async function salaDoUsuario(req: Request, id: string) {
+  const sala = await prisma.salaVirtual.findUnique({ where: { id }, include: { sessao: { include: { paciente: true } } } });
+  if (!sala || sala.sessao.paciente.clinicaId !== req.profissional!.clinicaId) return null;
+  if (req.profissional!.papel !== "ADMIN" && sala.sessao.profissionalId !== req.profissional!.sub) return null;
+  return sala;
+}
+
+// Cria a sala da sessão. Com o LiveKit configurado a chamada acontece dentro do sistema; sem ele, cai no link público antigo.
 router.post(
   "/",
-  validateBody(criarSalaSchema),
+  validateBody(z.object({ sessaoId: z.string().uuid() })),
   asyncHandler(async (req, res) => {
     const { sessaoId } = req.body;
     const clinicaId = req.profissional!.clinicaId;
+    const sessao = await prisma.sessao.findUnique({ where: { id: sessaoId }, include: { paciente: true } });
+    if (!sessao || sessao.paciente.clinicaId !== clinicaId) { res.status(404).json({ error: "Sessão não encontrada ou não pertence à sua clínica" }); return; }
+    if (req.profissional!.papel !== "ADMIN" && sessao.profissionalId !== req.profissional!.sub) { res.status(403).json({ error: "Só o profissional responsável pela sessão cria a sala." }); return; }
 
-    // Valida sessão e permissão
-    const sessao = await prisma.sessao.findUnique({
-      where: { id: sessaoId },
-      include: { paciente: true },
-    });
+    const existente = await prisma.salaVirtual.findFirst({ where: { sessaoId } });
+    if (existente) { res.json({ ...existente, linkPaciente: linkDoPaciente(req, existente) }); return; }
 
-    if (!sessao || sessao.paciente.clinicaId !== clinicaId) {
-      res.status(404).json({ error: "Sessão não encontrada ou não pertence à sua clínica" });
-      return;
-    }
-
-    // Verifica se já existe sala para essa sessão
-    const salaExistente = await prisma.salaVirtual.findFirst({
-      where: { sessaoId },
-    });
-
-    if (salaExistente) {
-      res.json(salaExistente);
-      return;
-    }
-
-    // Gera código único para Jitsi
-    // Formato: neurologic-{clinicaId}-{sessaoId} (truncado para ~40 chars, max Jitsi)
-    const codigoSala = `neurologic-${clinicaId.slice(0, 8)}-${sessaoId.slice(0, 8)}`.toLowerCase();
-    const urlJitsi = `https://meet.jit.si/${codigoSala}`;
-
-    // Cria sala virtual
+    const codigoSala = nomeDaSala(clinicaId, sessaoId);
+    const livekit = !!configLivekit();
     const sala = await prisma.salaVirtual.create({
-      data: {
-        sessaoId,
-        urlJitsi,
-        codigoSala,
-        inicioAgendado: sessao.dataHora,
-      },
+      data: { sessaoId, codigoSala, urlJitsi: livekit ? `livekit:${codigoSala}` : `https://meet.jit.si/${codigoSala}`, provedor: livekit ? "LIVEKIT" : "JITSI", segredoPaciente: livekit ? novoSegredoDoLink() : null, inicioAgendado: sessao.dataHora },
     });
-
-    res.status(201).json(sala);
+    res.status(201).json({ ...sala, linkPaciente: linkDoPaciente(req, sala) });
   })
 );
 
-// Lista salas virtuais de uma sessão
 router.get(
   "/sessao/:sessaoId",
   asyncHandler(async (req, res) => {
-    const { sessaoId } = req.params;
-    const clinicaId = req.profissional!.clinicaId;
+    const sessao = await prisma.sessao.findUnique({ where: { id: req.params.sessaoId }, include: { paciente: true } });
+    if (!sessao || sessao.paciente.clinicaId !== req.profissional!.clinicaId) { res.status(404).json({ error: "Sessão não encontrada" }); return; }
+    const salas = await prisma.salaVirtual.findMany({ where: { sessaoId: req.params.sessaoId }, orderBy: { criadoEm: "desc" } });
+    res.json(salas.map((s) => ({ ...s, linkPaciente: linkDoPaciente(req, s) })));
+  })
+);
 
-    // Valida permissão
-    const sessao = await prisma.sessao.findUnique({
-      where: { id: sessaoId },
-      include: { paciente: true },
-    });
-
-    if (!sessao || sessao.paciente.clinicaId !== clinicaId) {
-      res.status(404).json({ error: "Sessão não encontrada" });
-      return;
+// Entrada do profissional na chamada: devolve o token do LiveKit, o plano da clínica, o link do paciente e o estado do consentimento.
+router.get(
+  "/:id/acesso",
+  asyncHandler(async (req, res) => {
+    const sala = await salaDoUsuario(req, req.params.id);
+    if (!sala) { res.status(404).json({ error: "Sala não encontrada" }); return; }
+    if (sala.provedor !== "LIVEKIT") { res.status(409).json({ error: "Esta sala usa o link público antigo. Crie uma nova sala para usar a chamada dentro do sistema.", urlJitsi: sala.urlJitsi }); return; }
+    if (sala.statusSala === "encerrada") { res.status(409).json({ error: "Esta sala já foi encerrada." }); return; }
+    const [clinica, profissional, consentimentos] = await Promise.all([
+      prisma.clinica.findUnique({ where: { id: req.profissional!.clinicaId }, select: { planoVideo: true } }),
+      prisma.profissional.findUnique({ where: { id: req.profissional!.sub }, select: { nome: true } }),
+      prisma.consentimentoGravacao.findMany({ where: { salaId: sala.id } }),
+    ]);
+    try {
+      const { token, url } = await tokenDaSala({ sala: sala.codigoSala, identidade: `profissional-${req.profissional!.sub}`, nome: profissional?.nome ?? "Profissional" });
+      await prisma.salaVirtual.update({ where: { id: sala.id }, data: { profissionalPresente: true, statusSala: "em_andamento", inicioReal: sala.inicioReal ?? new Date() } });
+      res.json({ token, url, plano: clinica?.planoVideo ?? "BASICO", linkPaciente: linkDoPaciente(req, sala), paciente: sala.sessao.paciente.nome, consentimento: estadoDoConsentimento(consentimentos) });
+    } catch (e) {
+      if (e instanceof VideoIndisponivel) { res.status(503).json({ error: e.message }); return; }
+      throw e;
     }
+  })
+);
 
-    const salas = await prisma.salaVirtual.findMany({
-      where: { sessaoId },
-      orderBy: { criadoEm: "desc" },
-    });
-
-    res.json(salas);
+// Estado do consentimento (para o painel do profissional atualizar enquanto espera o paciente)
+router.get(
+  "/:id/consentimento",
+  asyncHandler(async (req, res) => {
+    const sala = await salaDoUsuario(req, req.params.id);
+    if (!sala) { res.status(404).json({ error: "Sala não encontrada" }); return; }
+    res.json(estadoDoConsentimento(await prisma.consentimentoGravacao.findMany({ where: { salaId: sala.id } })));
   })
 );
 
 // Atualiza status de sala (ao entrar/sair)
-const atualizarSalaSchema = z.object({
-  statusSala: z.enum(["agendada", "em_andamento", "encerrada"]).optional(),
-  inicioReal: z.string().datetime().optional(),
-  fimReal: z.string().datetime().optional(),
-  profissionalPresente: z.boolean().optional(),
-  pacientePresente: z.boolean().optional(),
-});
-
 router.patch(
   "/:id",
-  validateBody(atualizarSalaSchema),
+  validateBody(z.object({
+    statusSala: z.enum(["agendada", "em_andamento", "encerrada"]).optional(),
+    inicioReal: z.string().datetime().optional(),
+    fimReal: z.string().datetime().optional(),
+    profissionalPresente: z.boolean().optional(),
+    pacientePresente: z.boolean().optional(),
+  })),
   asyncHandler(async (req, res) => {
-    const { id } = req.params;
-    const clinicaId = req.profissional!.clinicaId;
-
-    // Valida permissão
-    const sala = await prisma.salaVirtual.findUnique({
-      where: { id },
-      include: { sessao: { include: { paciente: true } } },
-    });
-
-    if (!sala || sala.sessao.paciente.clinicaId !== clinicaId) {
-      res.status(404).json({ error: "Sala não encontrada" });
-      return;
-    }
-
-    // Atualiza
+    const sala = await salaDoUsuario(req, req.params.id);
+    if (!sala) { res.status(404).json({ error: "Sala não encontrada" }); return; }
     const atualizada = await prisma.salaVirtual.update({
-      where: { id },
-      data: {
-        statusSala: req.body.statusSala,
-        inicioReal: req.body.inicioReal ? new Date(req.body.inicioReal) : undefined,
-        fimReal: req.body.fimReal ? new Date(req.body.fimReal) : undefined,
-        profissionalPresente: req.body.profissionalPresente,
-        pacientePresente: req.body.pacientePresente,
-      },
+      where: { id: sala.id },
+      data: { statusSala: req.body.statusSala, inicioReal: req.body.inicioReal ? new Date(req.body.inicioReal) : undefined, fimReal: req.body.fimReal ? new Date(req.body.fimReal) : undefined, profissionalPresente: req.body.profissionalPresente, pacientePresente: req.body.pacientePresente },
     });
-
-    res.json(atualizada);
+    res.json({ ...atualizada, linkPaciente: linkDoPaciente(req, atualizada) });
   })
 );
 

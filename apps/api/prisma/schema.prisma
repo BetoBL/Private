@@ -123,6 +123,7 @@ model Clinica {
   modelosLaudo       ModeloLaudo[]
   modeloLaudoPadraoId String?      // modelo de laudo padrão da clínica (vale para quem não escolheu o seu)
   configFiscal       ConfigFiscal?
+  planoVideo         String        @default("BASICO") // BASICO (videochamada, sem gravação) | COMPLETO (consentimento, gravação cifrada, transcrição e resumo)
   notasFiscais       NotaFiscal[]
 }
 
@@ -460,6 +461,10 @@ model SalaVirtual {
   urlJitsi          String    @unique
   codigoSala        String    @unique  // Identificador único para Jitsi (ex: neurologic-{uuid})
 
+  provedor          String    @default("JITSI") // JITSI (sala pública antiga) | LIVEKIT (chamada dentro do sistema)
+  segredoPaciente   String?   // parte secreta do link que o paciente recebe (32 bytes aleatórios, base64url)
+  consentimentos    ConsentimentoGravacao[]
+
   statusSala        String    @default("agendada") // agendada, em_andamento, encerrada
   inicioAgendado    DateTime  // Quando a sessão estava marcada
   inicioReal        DateTime? // Quando entrou de fato
@@ -675,4 +680,26 @@ model NotaFiscal {
 
   @@unique([clinicaId, ambiente, serie, numero])
   @@index([clinicaId, status, competencia])
+}
+
+// Consentimento do paciente (ou do responsável) para gravar a sessão e para tratar a gravação com IA (transcrição e resumo).
+// Cada resposta é um registro próprio, com a versão do texto que foi mostrado, quem respondeu, quando e de onde. Revogar não apaga:
+// preenche revogadoEm. Sem um consentimento de GRAVACAO concedido e não revogado, a gravação não pode começar.
+model ConsentimentoGravacao {
+  id            String       @id @default(uuid())
+  salaId        String
+  sala          SalaVirtual  @relation(fields: [salaId], references: [id])
+  sessaoId      String
+
+  tipo          String       // GRAVACAO | TRANSCRICAO_IA
+  concedido     Boolean
+  declaradoPor  String       // PACIENTE | RESPONSAVEL
+  nomeDeclarante String
+  versaoTexto   String
+  ip            String?
+  userAgent     String?
+  criadoEm      DateTime     @default(now())
+  revogadoEm    DateTime?
+
+  @@index([salaId, tipo])
 }
