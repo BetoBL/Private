@@ -644,7 +644,7 @@ model NotaFiscal {
   clinica        Clinica  @relation(fields: [clinicaId], references: [id])
 
   origem         String   // SESSAO | LAUDO | CONVENIO_CASO | CONVENIO_LOTE | MANUAL
-  status         String   @default("RASCUNHO") // RASCUNHO | EMITIDA | REJEITADA | CANCELADA
+  status         String   @default("RASCUNHO") // RASCUNHO | EMITIDA | REJEITADA | PENDENTE (enviada sem resposta: conferir no Portal) | CANCELADA
   ambiente       String   @default("HOMOLOGACAO")
   serie          String?
   numero         Int?
@@ -662,6 +662,11 @@ model NotaFiscal {
   chaveAcesso    String?
   protocolo      String?
   erro           String?  @db.Text
+  numeroNfse     String?  // número da NFS-e autorizada (pode diferir do número da DPS)
+  xmlDps         String?  @db.Text
+  xmlNfse        String?  @db.Text
+  tentativas     Int      @default(0)
+  avisos         Json?
   emitidaEm      DateTime?
 
   cobrancas      Cobranca[]

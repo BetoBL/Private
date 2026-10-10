@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { z } from "zod";
 import { Prisma } from "@prisma/client";
+import { aposEventoFinanceiro } from "../lib/fiscal/emissao";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -110,6 +111,7 @@ financeiroRouter.post(
       data: { ...req.body, clinicaId: req.profissional!.clinicaId, convenioId: req.body.convenioId ?? null, sessaoId: req.body.sessaoId ?? null },
       include: incluir,
     });
+    await aposEventoFinanceiro(criada.id, "COBRANCA"); // prepara/emite a nota se o paciente pediu isso (nunca derruba a cobrança)
     res.status(201).json(criada);
   })
 );
@@ -148,6 +150,7 @@ financeiroRouter.post(
       data: { status: "PAGA", valorPago: req.body.valorPago, pagoEm: req.body.pagoEm ?? hoje, formaPagamento: req.body.formaPagamento ?? null },
       include: incluir,
     });
+    await aposEventoFinanceiro(paga.id, "BAIXA");
     res.json(paga);
   })
 );

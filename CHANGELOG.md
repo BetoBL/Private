@@ -1,5 +1,16 @@
 # Changelog
 
+## [2026-10-10] NF, passo 3: orquestrador de emissão e tela de Notas fiscais
+
+- **Orquestrador** (`lib/fiscal/emissao.ts`): cobrança → rascunho → emissão. O número é reservado de forma atômica ANTES do envio e nunca volta; recusa do Portal = nota REJEITADA com o motivo (ao tentar de novo, o número gasto fica registrado nos avisos da nota); envio sem resposta = PENDENTE, sem reenvio automático (reenviar duplicaria), com "Verificar no Portal" e "Marcar como emitida" (chave de 50 dígitos). Nada é emitido com a emissão desligada ou a configuração incompleta; sem CPF/CNPJ do tomador não emite; data de pagamento é exigida só em atendimento particular (convênio fatura antes de receber).
+- **Regras por paciente/convênio** aplicadas: "Preparar as notas do mês" gera um rascunho por cobrança (sessão e convênio caso a caso) ou um por convênio (lote mensal); por laudo e manual ficam para preparar à mão (não há vínculo cobrança→laudo); "não emitir" é respeitado; o que ficou de fora volta com o motivo.
+- **Gancho no financeiro:** ao lançar a cobrança ou dar baixa, prepara (e, com a emissão ativa, emite) a nota de quem pediu isso no cadastro; nunca derruba a operação financeira.
+- **Tela Notas fiscais** (menu; só administrador): lista por mês/status, detalhe com cobranças, avisos e motivo, emitir/tentar de novo, baixar XML da DPS e da NFS-e, excluir rascunho.
+- **Modo de simulação** (`NFSE_SIMULAR=1`, só em homologação): emite "de mentira" sem falar com o Portal, para testar o fluxo e demonstrar. Não usar em produção.
+- Corrigido no teste: datas de vencimento/pagamento não se deslocam pelo fuso (só a data/hora da sessão é convertida para o dia em São Paulo).
+- `prisma/verificar-emissao.ts`: verificação manual (só banco local) dos caminhos de falha — autorizada, recusada + nova tentativa, pendente bloqueada e duas emissões simultâneas sem número repetido. Migration `nota_fiscal_emissao`. 135 testes passam.
+- **Ainda não feito:** cancelamento de nota (evento), PDF/DANFSe, envio da nota por e-mail, vínculo cobrança→laudo para "por laudo", TISS. A comunicação real com o Portal continua dependendo do certificado (primeira prova em homologação).
+
 ## [2026-10-10] NF por paciente: a configuração da clínica virou sugestão
 
 - **Cadastro do paciente › Nota fiscal** (migration `paciente_nota_fiscal`): como emitir (por sessão, por laudo, manual ou não emitir), quando emitir (ao lançar a cobrança, ao receber ou manual), em nome de quem (paciente, responsável ou outra pessoa/empresa, com nome e CPF/CNPJ) e e-mail para enviar a nota. Vazio = vale o padrão da clínica, que a tela mostra ao lado.

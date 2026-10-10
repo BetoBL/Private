@@ -79,6 +79,17 @@ export interface Convenio extends DadosFaturamentoConvenio {
   ativo: boolean;
 }
 
+export interface NotaResumo {
+  id: string; origem: string; status: string; ambiente: string; serie: string | null; numero: number | null; numeroNfse: string | null; competencia: string;
+  tomadorNome: string; tomadorDocumento: string | null; tomadorConvenioId: string | null; valor: string | number; descricao: string; datasServico: string[] | null;
+  chaveAcesso: string | null; erro: string | null; emitidaEm: string | null; criadoEm: string; tentativas: number; avisos: string[] | null; _count: { cobrancas: number };
+}
+export interface NotaDetalhe extends Omit<NotaResumo, "_count"> {
+  temXmlDps: boolean; temXmlNfse: boolean;
+  cobrancas: Array<{ id: string; descricao: string; valor: string | number; status: string; pagoEm: string | null; vencimento: string; paciente: { nome: string } }>;
+}
+export interface ResultadoGerarNotas { criadas: Array<{ id: string; tomador: string; valor: number; origem: string }>; puladas: Array<{ cobrancaId: string; paciente: string; motivo: string }> }
+
 export interface ConfigFiscal {
   emissaoAtiva: boolean; ambiente: "HOMOLOGACAO" | "PRODUCAO"; regime: string; inscricaoMunicipal: string | null; codigoMunicipioIbge: string | null; localPrestacaoIbge: string | null;
   cTribNac: string | null; nbs: string | null; descricaoPadrao: string; aliquotaModo: "FIXA" | "SIMPLES"; aliquotaIss: string | number | null; rbt12: string | number | null; issRetido: boolean;
@@ -709,6 +720,19 @@ export const api = {
   removerCertificado: () => request<RespostaFiscal>("/fiscal/certificado", { method: "DELETE" }),
   dpsTeste: () => request<{ xml: string; idDps: string; assinada: boolean; verificacao: { valida: boolean; motivo: string | null } | null; avisos: string[] }>("/fiscal/dps-teste", { method: "POST" }),
   testarConexaoPortal: () => request<{ ok: boolean; status: number; leitura: string }>("/fiscal/testar-conexao", { method: "POST" }),
+  listarNotas: (f: { mes?: string; status?: string } = {}) => {
+    const q = new URLSearchParams();
+    if (f.mes) q.set("mes", f.mes);
+    if (f.status) q.set("status", f.status);
+    return request<{ notas: NotaResumo[]; emissaoAtiva: boolean; ambiente: string; simulacao: boolean }>("/notas?" + q.toString());
+  },
+  getNota: (id: string) => request<NotaDetalhe>(`/notas/${id}`),
+  gerarNotasDoMes: (mes: string) => request<ResultadoGerarNotas>("/notas/gerar-do-mes", { method: "POST", body: JSON.stringify({ mes }) }),
+  emitirNotaFiscal: (id: string) => request<{ id: string; status: string; erro: string | null; numero: number | null }>(`/notas/${id}/emitir`, { method: "POST" }),
+  verificarNota: (id: string) => request<{ existe: boolean; status: number; leitura: string }>(`/notas/${id}/verificar`, { method: "POST" }),
+  marcarNotaEmitida: (id: string, chaveAcesso: string) => request<{ id: string; status: string }>(`/notas/${id}/marcar-emitida`, { method: "POST", body: JSON.stringify({ chaveAcesso }) }),
+  excluirNota: (id: string) => request<void>(`/notas/${id}`, { method: "DELETE" }),
+  baixarXmlNota: (id: string, tipo: "dps" | "nfse") => baixarArquivo(`/notas/${id}/xml?tipo=${tipo}`),
   getFiscal: () => request<RespostaFiscal>("/fiscal/config"),
   salvarFiscal: (data: Partial<ConfigFiscal>) => request<RespostaFiscal>("/fiscal/config", { method: "PUT", body: JSON.stringify(data) }),
 

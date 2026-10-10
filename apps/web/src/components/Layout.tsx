@@ -11,6 +11,7 @@ const LINKS = [
   { to: "/iniciar-atendimento", label: "Iniciar atendimento" },
   { to: "/laudo", label: "Laudos" },
   { to: "/financeiro", label: "Financeiro" },
+  { to: "/notas", label: "Notas fiscais" },
   // Abre em aba nova, de propósito: a Biblioteca de Instrumentos é um ambiente visual próprio
   // (ver pages/BibliotecaDeTestes.tsx), não uma rota dentro desta casca de sidebar escura.
   { to: "/biblioteca", label: "Testes e correção", novaAba: true },

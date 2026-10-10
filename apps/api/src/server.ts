@@ -12,6 +12,7 @@ import { clinicasRouter } from "./routes/clinicas.routes";
 import { conveniosRouter } from "./routes/convenios.routes";
 import { financeiroRouter } from "./routes/financeiro.routes";
 import { fiscalRouter } from "./routes/fiscal.routes";
+import { notasRouter } from "./routes/notas.routes";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
 import { laudosRouter } from "./routes/laudos.routes";
 import { modelosLaudoRouter } from "./routes/modelosLaudo.routes";
@@ -61,6 +62,7 @@ app.use("/atendimentos", exigirAutenticacao, atendimentosRouter);
 app.use("/convenios", exigirAutenticacao, conveniosRouter);
 app.use("/financeiro", exigirAutenticacao, financeiroRouter);
 app.use("/fiscal", exigirAutenticacao, fiscalRouter);
+app.use("/notas", exigirAutenticacao, notasRouter);
 app.use("/salas-virtuais", exigirAutenticacao, salasVirtuaisRouter);
 app.use("/normativas-customizadas", exigirAutenticacao, normativasCustomizadasRouter);
 

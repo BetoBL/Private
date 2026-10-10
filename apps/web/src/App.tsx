@@ -21,6 +21,7 @@ import { Financeiro } from "./pages/Financeiro";
 import { ModelosLaudo } from "./pages/ModelosLaudo";
 import { Configuracoes } from "./pages/Configuracoes";
 import { DadosFiscais } from "./pages/DadosFiscais";
+import { Notas } from "./pages/Notas";
 import { EditorModeloLaudo } from "./pages/EditorModeloLaudo";
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/normativas" element={<CadastroNormativas />} />
         <Route path="/configuracoes" element={<Configuracoes />} />
         <Route path="/fiscal" element={<DadosFiscais />} />
+        <Route path="/notas" element={<Notas />} />
         <Route path="/modelos-laudo" element={<ModelosLaudo />} />
         <Route path="/modelos-laudo/:id" element={<EditorModeloLaudo />} />
         <Route path="*" element={<Navigate to="/" replace />} />
