@@ -27,3 +27,8 @@ files.zip
 # Prints das telas do Excel da psicóloga (podem conter dados de pessoas reais)
 docs/referencia-excel-legado/
 .local-livekit/
+
+# Gravacoes de tela de terceiros usadas como inspiracao (nao versionar)
+docs/VIDEO-*.mp4
+docs/VIDEO-*.mov
+docs/VIDEO-*.webm

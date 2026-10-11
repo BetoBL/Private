@@ -749,3 +749,47 @@ model GravacaoAcesso {
 
   @@index([gravacaoId])
 }
+
+// Diário do paciente: o PSICÓLOGO gera o acesso do paciente (um link com segredo); o paciente faz o check-in entre as sessões.
+// Há no máximo um acesso ativo por paciente: gerar um novo revoga o anterior.
+model AcessoDiario {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  profissionalId String    // quem gerou
+  segredo        String    @unique // 32 bytes aleatórios, base64url (vai no link)
+  criadoEm       DateTime  @default(now())
+  revogadoEm     DateTime?
+  ultimoUsoEm    DateTime?
+
+  @@index([pacienteId, revogadoEm])
+}
+
+// Um check-in (Cartão Diário). As escolhas guardam a CHAVE do catálogo (lib/diario/catalogo.ts), não o texto mostrado.
+model CartaoDiario {
+  id            String   @id @default(uuid())
+  clinicaId     String
+  pacienteId    String
+  ocorridoEm    DateTime @db.Date // dia a que o check-in se refere (o paciente pode escolher)
+  registradoEm  DateTime @default(now())
+
+  emocao        String
+  familia       String
+  intensidade   Int      // 1 a 5
+  contexto      String?
+  notaContexto  String?  @db.Text
+  primeiraAcao  String?
+  acoesQueAjudaram String[] @default([])
+  ajudou        String?  // NAO | POUCO | AJUDOU | MUITO
+  notaCuidado   String?  @db.Text
+  fechamento    String?
+  levarParaSessao Boolean @default(false)
+  notaFinal     String?  @db.Text
+
+  lidoEm        DateTime? // o profissional viu
+  conversadoEm  DateTime? // o profissional marcou como conversado na sessão
+  versaoCatalogo String
+
+  @@index([pacienteId, ocorridoEm])
+  @@index([clinicaId, levarParaSessao, conversadoEm])
+}

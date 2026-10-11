@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { api, type Laudo, type Paciente, type Sessao } from "../lib/api";
+import { api, type Laudo, type Paciente, type PendenteDiario, type Sessao } from "../lib/api";
+import { corDaFamilia } from "../lib/diarioCores";
 import { laudos as laudosPlural, sessoes as sessoesPlural } from "../lib/plural";
 
 const HUMORES = [
@@ -32,6 +33,8 @@ export function PainelDoDia() {
   const [sessoes, setSessoes] = useState<Sessao[]>([]);
   const [laudos, setLaudos] = useState<Laudo[]>([]);
 
+  const [pendentesDiario, setPendentesDiario] = useState<PendenteDiario[]>([]);
+  useEffect(() => { api.pendentesDiario().then(setPendentesDiario).catch(() => undefined); }, []);
   const [resumo, setResumo] = useState<string | null>(null);
   const [carregandoResumo, setCarregandoResumo] = useState(true);
   const [geradoEm, setGeradoEm] = useState<string | null>(null);
@@ -118,6 +121,21 @@ export function PainelDoDia() {
           {dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1)}
         </div>
       </div>
+
+      {pendentesDiario.length > 0 && (
+        <section className="mb-6 rounded-2xl border border-mist bg-white px-6 py-5">
+          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Pacientes pediram para conversar sobre o Diário</h2>
+          <ul className="divide-y divide-mist">
+            {pendentesDiario.slice(0, 6).map((p) => (
+              <li key={p.id} className="flex items-center gap-3 py-2 text-sm">
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: corDaFamilia(p.familia) }} />
+                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${p.pacienteId}?aba=diario`}>{p.paciente}</Link>
+                <span className="text-ink/55">registro de {new Date(p.ocorridoEm.slice(0, 10) + "T12:00:00").toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="relative mb-10 overflow-hidden rounded-2xl bg-ink px-8 py-7 text-paper">
         <div className="mb-3 flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-wide text-clay">

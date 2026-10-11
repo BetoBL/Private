@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { DashboardResultados } from "../components/DashboardResultados";
 import { SalaVirtualComponent } from "../components/SalaVirtual";
+import { DiarioDoPaciente } from "../components/DiarioDoPaciente";
 import {
   api,
   ROTULO_RESPONDENTE,
@@ -20,7 +21,7 @@ import {
   type Sexo,
 } from "../lib/api";
 
-type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos";
+type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
@@ -33,7 +34,7 @@ export function FichaPaciente() {
   const [searchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
-  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
+  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
 
@@ -373,6 +374,7 @@ export function FichaPaciente() {
           ["laudos", "Laudos"],
           ["agenda", "Agenda"],
           ["anexos", "Anexos"],
+          ["diario", "Diário"],
         ] as const).map(([valor, label]) => (
           <button
             key={valor}
@@ -385,6 +387,8 @@ export function FichaPaciente() {
           </button>
         ))}
       </div>
+
+      {aba === "diario" && id && <DiarioDoPaciente pacienteId={id} />}
 
       {aba === "dados" && (
         <div>

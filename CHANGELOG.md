@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-11] Diário do paciente, fase 1: Cartão Diário (módulo do paciente)
+
+- **O psicólogo gera o link** na nova aba **Diário** da ficha do paciente (um link ativo por paciente; gerar outro desativa o anterior; dá para desativar). O paciente abre no celular, **sem senha** (pré-cadastro com Google/e-mail fica para o final). Link inválido ou desativado devolve resposta genérica; limite de 60 pedidos/min por IP e 20 cartões/dia por paciente.
+- **Cartão Diário em 6 etapas** (tela pensada para celular, quase tudo é um toque): emoção (28 emoções em 6 famílias coloridas) → intensidade 1–5 → onde apareceu → cuidado (primeira ação, o que ajudou, se ajudou; com o **auxílio da família da emoção**) → fechamento + "levar para a sessão" → revisão (data, resumo, aviso de que só é enviado ao confirmar). Todo texto é opcional. Ao terminar, o paciente recebe um cuidado para o momento; em sofrimento intenso (emoção difícil com intensidade 4–5) aparece destaque com **CVV 188 / SAMU 192**. Sempre há o aviso de que o cartão não é canal de emergência.
+- **Para o profissional**: aba Diário com tendência (últimos 7 dias × 7 anteriores, **só com emoções difíceis**, alegria intensa não conta como piora), faixa de dias com uma barra por registro (altura = intensidade, cor = família), emoções mais frequentes, lista de registros com "marcar como conversado", e no **Painel do dia** um card com os pacientes que pediram para conversar sobre o Diário.
+- Catálogo versionado no código (`v1-2026-10`, `lib/diario/catalogo.ts`). **Textos de emoções, auxílios e avisos precisam da revisão da psicóloga antes do uso com pacientes reais.**
+- Verificado local: API ponta a ponta (gerar, enviar, recusar inválido, resumo, pendentes, revogar → 404), telas em 390 px (início, emoções, contexto, fechamento, tela final), ficha e painel. 6 testes novos. Migration `diario_paciente`.
+- **Próximas fases:** resumo "como passou desde a última sessão", testes de acompanhamento (PHQ-9/GAD-7/WHO-5 etc., após ver os modelos de referência), apoio guiado por etapa, pré-cadastro/login e lembretes por WhatsApp.
+
+
 ## [2026-10-10] Videochamada, etapa 2: gravação cifrada da sessão (plano completo)
 
 - **Gravação no navegador do profissional**: mistura o áudio dos dois lados, grava em pedaços de 10 s e envia cada pedaço ao servidor, que o **cifra (AES-256-GCM, chave própria por gravação; a chave fica guardada cifrada pela chave mestra `GRAVACAO_CRYPTO_KEY`)** antes de guardar. O número da parte e o id da gravação entram como dado autenticado: pedaço trocado, repetido ou levado para outra gravação não decifra. Sem a chave mestra ou sem armazenamento a gravação fica indisponível (nunca grava sem proteção).

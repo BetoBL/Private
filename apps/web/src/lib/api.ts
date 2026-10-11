@@ -426,6 +426,25 @@ export interface TipoAtendimento {
   atualizadoEm: string;
 }
 
+// ---- Diário do paciente ----
+export interface OpcaoDiario { chave: string; rotulo: string }
+export interface FamiliaDiario { chave: string; rotulo: string; descricao: string; apoio: string[] }
+export interface CatalogoDiario {
+  versao: string; familias: FamiliaDiario[]; emocoes: Array<OpcaoDiario & { familia: string }>; contextos: OpcaoDiario[]; primeirasAcoes: OpcaoDiario[]; acoesQueAjudaram: OpcaoDiario[]; ajudou: OpcaoDiario[]; fechamentos: OpcaoDiario[];
+  aviso: { curto: string; intenso: string };
+}
+export interface RegistroRecente { ocorridoEm: string; emocao: string; familia: string; intensidade: number }
+export interface DiarioPublico { paciente: string; clinica: string; profissional: string; catalogo: CatalogoDiario; recentes: RegistroRecente[] }
+export interface NovoCartao {
+  ocorridoEm: string; emocao: string; intensidade: number; contexto?: string | null; notaContexto?: string | null; primeiraAcao?: string | null; acoesQueAjudaram?: string[];
+  ajudou?: string | null; notaCuidado?: string | null; fechamento?: string | null; levarParaSessao?: boolean; notaFinal?: string | null;
+}
+export interface CartaoDiario extends Required<Omit<NovoCartao, "ocorridoEm">> { id: string; ocorridoEm: string; registradoEm: string; familia: string; lidoEm: string | null; conversadoEm: string | null }
+export interface Janela { total: number; dificeis: number; mediaDificeis: number | null; familiaMaisFrequente: string | null; diasComRegistro: number }
+export interface ResumoDiario { total: number; ultimos7: Janela; anteriores7: Janela; tendencia: "MAIS_INTENSA" | "MENOS_INTENSA" | "ESTAVEL" | null; porEmocao: Array<{ emocao: string; quantidade: number }>; paraLevar: number; ultimoRegistro: string | null }
+export interface AcessoDiario { ativo: boolean; link?: string; criadoEm?: string; ultimoUsoEm?: string | null }
+export interface PendenteDiario { id: string; pacienteId: string; paciente: string; ocorridoEm: string; emocao: string; familia: string; intensidade: number; fechamento: string | null }
+
 export interface EstadoConsentimento { gravacao: boolean; ia: boolean; nome: string | null; declaradoPor: string | null; em: string | null; gravandoId?: string | null }
 export interface AcessoSala { token: string; url: string; plano: "BASICO" | "COMPLETO"; linkPaciente: string | null; paciente: string; consentimento: EstadoConsentimento; gravacao: { pronta: boolean; motivo: string | null; ativaId: string | null } }
 export interface GravacaoSessao { id: string; sessaoId: string; status: "GRAVANDO" | "CONCLUIDA" | "INCOMPLETA" | "REVOGADA" | "APAGADA"; partes: number; bytes: number; duracaoSeg: number | null; iniciadaEm: string; encerradaEm: string | null; apagarAudioEm: string | null; audioApagadoEm: string | null; temAudio: boolean }
@@ -845,6 +864,16 @@ export const api = {
 
   criarSalaVirtual: (data: { sessaoId: string }) =>
     request<SalaVirtual>("/salas-virtuais", { method: "POST", body: JSON.stringify(data) }),
+  catalogoDiario: () => request<CatalogoDiario>("/diario/catalogo"),
+  acessoDiario: (pacienteId: string) => request<AcessoDiario>(`/diario/acessos/${pacienteId}`),
+  gerarAcessoDiario: (pacienteId: string) => request<AcessoDiario>("/diario/acessos", { method: "POST", body: JSON.stringify({ pacienteId }) }),
+  revogarAcessoDiario: (pacienteId: string) => request<void>(`/diario/acessos/${pacienteId}`, { method: "DELETE" }),
+  cartoesDoPaciente: (pacienteId: string, dias = 90) => request<{ cartoes: CartaoDiario[]; resumo: ResumoDiario }>(`/diario/pacientes/${pacienteId}/cartoes?dias=${dias}`),
+  pendentesDiario: () => request<PendenteDiario[]>("/diario/pendentes"),
+  marcarCartaoConversado: (id: string, conversado: boolean) => request<void>(`/diario/cartoes/${id}/conversado`, { method: "POST", body: JSON.stringify({ conversado }) }),
+  marcarCartaoLido: (id: string) => request<void>(`/diario/cartoes/${id}/lido`, { method: "POST" }),
+  diarioPublico: (segredo: string) => request<DiarioPublico>(`/diario-publico/${segredo}`),
+  enviarCartao: (segredo: string, c: NovoCartao) => request<{ id: string; intenso: boolean; apoio: string[]; aviso: string }>(`/diario-publico/${segredo}/cartoes`, { method: "POST", body: JSON.stringify(c) }),
   iniciarGravacao: (salaId: string) => request<GravacaoSessao>("/gravacoes/iniciar", { method: "POST", body: JSON.stringify({ salaId }) }),
   // parte do áudio (binário): devolve o resultado em vez de lançar, para o gravador decidir se tenta de novo ou para
   enviarParteGravacao: async (id: string, n: number, blob: Blob): Promise<{ ok: boolean; status: number; codigo?: string; erro?: string }> => {

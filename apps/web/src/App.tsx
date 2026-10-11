@@ -23,6 +23,7 @@ import { Configuracoes } from "./pages/Configuracoes";
 import { DadosFiscais } from "./pages/DadosFiscais";
 import { Notas } from "./pages/Notas";
 import { AtendimentoPaciente } from "./pages/AtendimentoPaciente";
+import { DiarioDoPacienteTela } from "./pages/DiarioPacienteTela";
 import { SalaProfissional } from "./pages/SalaProfissional";
 import { EditorModeloLaudo } from "./pages/EditorModeloLaudo";
 
@@ -30,6 +31,13 @@ function App() {
   const { profissional } = useAuth();
 
   // entrada do PACIENTE na videochamada: pública (sem login), protegida pelo segredo do link
+  if (window.location.pathname.startsWith("/diario/")) {
+    return (
+      <Routes>
+        <Route path="/diario/:segredo" element={<DiarioDoPacienteTela />} />
+      </Routes>
+    );
+  }
   if (window.location.pathname.startsWith("/atendimento/")) {
     return (
       <Routes>

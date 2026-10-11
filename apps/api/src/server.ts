@@ -15,6 +15,8 @@ import { fiscalRouter } from "./routes/fiscal.routes";
 import { notasRouter } from "./routes/notas.routes";
 import { atendimentoPublicoRouter } from "./routes/atendimentoPublico.routes";
 import { gravacoesRouter } from "./routes/gravacoes.routes";
+import { diarioRouter } from "./routes/diario.routes";
+import { diarioPublicoRouter } from "./routes/diarioPublico.routes";
 import { manutencaoDeGravacoes } from "./lib/video/gravacao";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
 import { laudosRouter } from "./routes/laudos.routes";
@@ -48,6 +50,8 @@ app.get("/health", (_req, res) => {
 app.use("/auth", authRouter);
 // entrada do paciente na videochamada: sem login, protegida pelo segredo do link (ver atendimentoPublico.routes.ts)
 app.use("/atendimento-publico", atendimentoPublicoRouter);
+// Diário do paciente: o paciente entra pelo link que o psicólogo gerou (sem login)
+app.use("/diario-publico", diarioPublicoRouter);
 app.use("/testes", testesRouter);
 app.use("/clinicas", clinicasRouter);
 app.use("/profissionais", profissionaisRouter);
@@ -69,6 +73,7 @@ app.use("/financeiro", exigirAutenticacao, financeiroRouter);
 app.use("/fiscal", exigirAutenticacao, fiscalRouter);
 app.use("/notas", exigirAutenticacao, notasRouter);
 app.use("/gravacoes", exigirAutenticacao, gravacoesRouter);
+app.use("/diario", exigirAutenticacao, diarioRouter);
 app.use("/salas-virtuais", exigirAutenticacao, salasVirtuaisRouter);
 app.use("/normativas-customizadas", exigirAutenticacao, normativasCustomizadasRouter);
 
