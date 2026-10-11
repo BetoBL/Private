@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api, type DiarioPublico, type NovoCartao } from "../lib/api";
-import { corDaFamilia, ROTULO_INTENSIDADE } from "../lib/diarioCores";
+import { corDaFamilia, FACE_INTENSIDADE, ICONE, ROTULO_INTENSIDADE } from "../lib/diarioCores";
 
 // Cartão Diário, lado do paciente: um registro breve entre as sessões, em 6 passos, feito no celular pelo link que o(a) psicólogo(a) gerou.
 // Quase tudo é escolha com um toque; o texto é opcional. Nada é enviado até o paciente confirmar na última tela.
@@ -15,9 +15,10 @@ function Escolha({ opcoes, valor, onChange }: { opcoes: Array<{ chave: string; r
       {opcoes.map((o) => {
         const ativo = valor === o.chave;
         return (
-          <button key={o.chave} type="button" onClick={() => onChange(o.chave)} className={`flex w-full items-center justify-between rounded-2xl border px-4 py-3.5 text-left text-[15px] transition-colors ${ativo ? "border-sage-deep bg-sage-deep/10 font-semibold text-ink" : "border-mist bg-white text-ink/80 active:bg-paper"}`}>
-            {o.rotulo}
-            <span className={`flex h-5 w-5 items-center justify-center rounded-full border text-[11px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/25"}`}>{ativo ? "✓" : ""}</span>
+          <button key={o.chave} type="button" onClick={() => onChange(o.chave)} className={`flex w-full items-center gap-3 rounded-2xl border-2 px-3 py-3 text-left text-[15px] shadow-sm transition-all active:scale-[0.98] ${ativo ? "border-sage-deep bg-white font-semibold text-ink shadow-md" : "border-transparent bg-white/80 text-ink/80"}`}>
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-paper text-xl">{ICONE[o.chave] ?? "•"}</span>
+            <span className="flex-1">{o.rotulo}</span>
+            <span className={`flex h-6 w-6 items-center justify-center rounded-full border-2 text-[12px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/20"}`}>{ativo ? "✓" : ""}</span>
           </button>
         );
       })}
@@ -71,16 +72,16 @@ export function DiarioDoPacienteTela() {
 
   const cor = corDaFamilia(emocao?.familia ?? "");
   return (
-    <div className="mx-auto flex min-h-screen max-w-md flex-col bg-paper">
-      <header className="border-b border-mist bg-white/80 px-5 pb-3 pt-4 backdrop-blur">
-        <div className="font-serif text-xl text-ink">Cartão Diário</div>
-        <div className="text-xs text-ink/55">Um registro breve, só seu e de {info.profissional}</div>
-        {passo >= 1 && passo <= 6 && <div className="mt-3 h-1 overflow-hidden rounded-full bg-mist"><div className="h-full rounded-full bg-sage-deep transition-all" style={{ width: `${(passo / 6) * 100}%` }} /></div>}
+    <div className="mx-auto flex min-h-screen max-w-md flex-col" style={{ background: `linear-gradient(180deg, ${emocao ? cor + "26" : "#F3DCC8"} 0%, #FBF6F0 38%, #F4EFF8 100%)` }}>
+      <header className="px-5 pb-3 pt-5">
+        <div className="flex items-center gap-2 font-serif text-xl text-ink"><span>📔</span>Cartão Diário</div>
+        <div className="text-xs text-ink/55">Um check-in rapidinho, só seu e de {info.profissional}</div>
+        {passo >= 1 && passo <= 6 && <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/70"><div className="h-full rounded-full bg-sage-deep transition-all" style={{ width: `${(passo / 6) * 100}%` }} /></div>}
       </header>
 
       {passo >= 2 && passo <= 6 && emocao && (
-        <div className="flex items-center gap-3 px-5 py-3 text-sm" style={{ background: `${cor}1F` }}>
-          <span className="h-3 w-3 rounded-full" style={{ background: cor }} />
+        <div className="mx-5 flex items-center gap-3 rounded-2xl px-4 py-2.5 text-sm" style={{ background: `${cor}2B` }}>
+          <span className="text-2xl">{ICONE[c.emocao]}</span>
           <span className="font-semibold text-ink">{emocao.rotulo}</span>
           {c.intensidade > 0 && <span className="text-ink/60">· {ROTULO_INTENSIDADE[c.intensidade]}</span>}
           <span className="ml-auto text-[11px] font-bold uppercase tracking-wide text-ink/45">Etapa {passo} de 6</span>
@@ -92,21 +93,22 @@ export function DiarioDoPacienteTela() {
 
         {passo === 0 && (
           <div>
-            <p className="text-sm text-ink/60">{info.clinica}</p>
-            <h1 className="mt-1 font-serif text-3xl text-ink">Olá, {info.paciente}</h1>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink/75">Como você está agora? Este registro leva cerca de um minuto, quase tudo é só tocar numa opção. Ele ajuda {info.profissional} a entender como foram os seus dias entre as sessões.</p>
-            <button className="mt-6 w-full rounded-2xl bg-sage-deep px-5 py-4 text-base font-semibold text-paper" onClick={() => setPasso(1)}>Começar o registro</button>
+            <div className="mb-2 text-6xl">👋</div>
+            <h1 className="font-serif text-3xl text-ink">Oi, {info.paciente}!</h1>
+            <p className="mt-1 text-sm text-ink/55">{info.clinica}</p>
+            <p className="mt-4 text-[16px] leading-relaxed text-ink/80">E aí, como você está agora? Leva só um minutinho e quase tudo é tocar numa carinha ou num ícone. Isso ajuda {info.profissional} a entender como foram os seus dias entre as sessões. 💛</p>
+            <button className="mt-6 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper shadow-lg active:scale-[0.98]" onClick={() => setPasso(1)}>Bora começar 🚀</button>
             {info.recentes.length > 0 && (
               <section className="mt-8">
                 <h2 className="mb-2 text-xs font-bold uppercase tracking-widest text-ink/45">Seus últimos registros</h2>
                 <ul className="space-y-1.5">
                   {info.recentes.slice(0, 7).map((r, i) => (
-                    <li key={i} className="flex items-center gap-3 rounded-xl bg-white px-3 py-2 text-sm"><span className="h-2.5 w-2.5 rounded-full" style={{ background: corDaFamilia(r.familia) }} /><span className="font-medium text-ink">{rotulo(cat.emocoes, r.emocao)}</span><span className="text-ink/50">{ROTULO_INTENSIDADE[r.intensidade]}</span><span className="ml-auto text-xs text-ink/45">{dataCurta(r.ocorridoEm)}</span></li>
+                    <li key={i} className="flex items-center gap-3 rounded-2xl bg-white/80 px-3 py-2 text-sm shadow-sm"><span className="text-xl">{ICONE[r.emocao] ?? "•"}</span><span className="font-medium text-ink">{rotulo(cat.emocoes, r.emocao)}</span><span className="text-ink/50">{ROTULO_INTENSIDADE[r.intensidade]}</span><span className="ml-auto text-xs text-ink/45">{dataCurta(r.ocorridoEm)}</span></li>
                   ))}
                 </ul>
               </section>
             )}
-            <p className="mt-8 rounded-2xl bg-white p-4 text-xs leading-relaxed text-ink/55">{cat.aviso.curto} {cat.aviso.intenso}</p>
+            <p className="mt-8 rounded-2xl bg-white/70 p-4 text-xs leading-relaxed text-ink/55">{cat.aviso.curto} {cat.aviso.intenso}</p>
           </div>
         )}
 
@@ -116,11 +118,11 @@ export function DiarioDoPacienteTela() {
             <div className="space-y-5">
               {porFamilia.map(({ f, emocoes }) => (
                 <section key={f.chave}>
-                  <h3 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-ink/45"><span className="h-2 w-2 rounded-full" style={{ background: corDaFamilia(f.chave) }} />{f.rotulo}<span className="font-normal normal-case tracking-normal">· {f.descricao}</span></h3>
-                  <div className="grid grid-cols-2 gap-2">
+                  <h3 className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-ink/45"><span>{ICONE[f.chave]}</span>{f.rotulo}<span className="font-normal normal-case tracking-normal">· {f.descricao}</span></h3>
+                  <div className="grid grid-cols-3 gap-2">
                     {emocoes.map((e) => {
                       const ativo = c.emocao === e.chave;
-                      return <button key={e.chave} type="button" onClick={() => set({ emocao: e.chave })} className={`rounded-2xl border px-3 py-3 text-left text-[15px] transition-colors ${ativo ? "font-semibold text-ink" : "border-mist bg-white text-ink/80 active:bg-paper"}`} style={ativo ? { borderColor: corDaFamilia(f.chave), background: `${corDaFamilia(f.chave)}22` } : undefined}>{e.rotulo}</button>;
+                      return <button key={e.chave} type="button" onClick={() => set({ emocao: e.chave })} className={`flex flex-col items-center gap-1 rounded-2xl border-2 px-1 py-3 text-center text-[13px] leading-tight shadow-sm transition-all active:scale-95 ${ativo ? "font-semibold text-ink shadow-md" : "border-transparent bg-white/80 text-ink/80"}`} style={ativo ? { borderColor: corDaFamilia(f.chave), background: `${corDaFamilia(f.chave)}30` } : undefined}><span className="text-3xl">{ICONE[e.chave]}</span>{e.rotulo}</button>;
                     })}
                   </div>
                 </section>
@@ -134,8 +136,8 @@ export function DiarioDoPacienteTela() {
             <Titulo rotulo="Intensidade" titulo="Com que força isso está?" ajuda="De 1 (bem leve) a 5 (muito forte)." />
             <div className="space-y-2">
               {[1, 2, 3, 4, 5].map((n) => (
-                <button key={n} type="button" onClick={() => set({ intensidade: n })} className={`flex w-full items-center gap-4 rounded-2xl border px-4 py-4 text-left transition-colors ${c.intensidade === n ? "border-sage-deep bg-sage-deep/10" : "border-mist bg-white"}`}>
-                  <span className="flex gap-1">{[1, 2, 3, 4, 5].map((i) => <span key={i} className="h-3 w-3 rounded-full" style={{ background: i <= n ? cor : "#00000014" }} />)}</span>
+                <button key={n} type="button" onClick={() => set({ intensidade: n })} className={`flex w-full items-center gap-4 rounded-2xl border-2 px-4 py-3 text-left shadow-sm transition-all active:scale-[0.98] ${c.intensidade === n ? "bg-white shadow-md" : "border-transparent bg-white/80"}`} style={c.intensidade === n ? { borderColor: cor } : undefined}>
+                  <span className="text-4xl">{FACE_INTENSIDADE[n]}</span>
                   <span className={`text-[15px] ${c.intensidade === n ? "font-semibold text-ink" : "text-ink/80"}`}>{n} · {ROTULO_INTENSIDADE[n]}</span>
                 </button>
               ))}
@@ -167,7 +169,7 @@ export function DiarioDoPacienteTela() {
             <div className="space-y-2">
               {cat.acoesQueAjudaram.map((o) => {
                 const ativo = (c.acoesQueAjudaram ?? []).includes(o.chave);
-                return <button key={o.chave} type="button" onClick={() => set({ acoesQueAjudaram: ativo ? (c.acoesQueAjudaram ?? []).filter((x) => x !== o.chave) : [...(c.acoesQueAjudaram ?? []), o.chave] })} className={`flex w-full items-center justify-between rounded-2xl border px-4 py-3 text-left text-[15px] ${ativo ? "border-sage-deep bg-sage-deep/10 font-semibold text-ink" : "border-mist bg-white text-ink/80"}`}>{o.rotulo}<span className={`flex h-5 w-5 items-center justify-center rounded-md border text-[11px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/25"}`}>{ativo ? "✓" : ""}</span></button>;
+                return <button key={o.chave} type="button" onClick={() => set({ acoesQueAjudaram: ativo ? (c.acoesQueAjudaram ?? []).filter((x) => x !== o.chave) : [...(c.acoesQueAjudaram ?? []), o.chave] })} className={`flex w-full items-center gap-3 rounded-2xl border-2 px-3 py-3 text-left text-[15px] shadow-sm transition-all active:scale-[0.98] ${ativo ? "border-sage-deep bg-white font-semibold text-ink shadow-md" : "border-transparent bg-white/80 text-ink/80"}`}><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-paper text-xl">{ICONE[o.chave] ?? "•"}</span><span className="flex-1">{o.rotulo}</span><span className={`flex h-6 w-6 items-center justify-center rounded-md border-2 text-[12px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/20"}`}>{ativo ? "✓" : ""}</span></button>;
               })}
             </div>
             <h3 className="mb-2 mt-6 text-sm font-semibold text-ink/70">Isso ajudou?</h3>
@@ -207,25 +209,25 @@ export function DiarioDoPacienteTela() {
 
         {passo === 7 && resposta && (
           <div>
-            <div className="text-4xl">✓</div>
-            <h1 className="mt-2 font-serif text-3xl text-ink">Registro enviado</h1>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink/70">Obrigado por reservar este momento. {c.levarParaSessao ? `${info.profissional} vai ver que você quer conversar sobre isso na sessão.` : ""}</p>
+            <div className="text-6xl">🎉</div>
+            <h1 className="mt-2 font-serif text-3xl text-ink">Pronto, registrado!</h1>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink/70">Obrigado por reservar esse momento pra você. 💛 {c.levarParaSessao ? `${info.profissional} vai ver que você quer conversar sobre isso na sessão.` : ""}</p>
             {resposta.intenso && <div className="mt-5 rounded-2xl border-2 border-ember/40 bg-ember/10 p-4 text-[15px] leading-relaxed text-ink"><b className="text-ember">Cuide de você agora.</b><p className="mt-1">{resposta.aviso}</p></div>}
             <div className="mt-5 rounded-2xl p-4 text-sm leading-relaxed text-ink/80" style={{ background: `${cor}1A` }}>
               <div className="mb-1 text-[11px] font-bold uppercase tracking-widest" style={{ color: cor }}>Um cuidado para agora</div>
               {resposta.apoio.map((a, i) => <p key={i} className={i ? "mt-1.5" : ""}>{a}</p>)}
             </div>
             {!resposta.intenso && <p className="mt-5 text-xs leading-relaxed text-ink/50">{resposta.aviso}</p>}
-            <button className="mt-6 w-full rounded-2xl border border-sage-deep px-5 py-3.5 text-base font-semibold text-sage-deep" onClick={novo}>Fazer outro registro</button>
+            <button className="mt-6 w-full rounded-full border-2 border-sage-deep px-5 py-3.5 text-base font-semibold text-sage-deep" onClick={novo}>Fazer outro registro</button>
           </div>
         )}
       </main>
 
       {passo >= 1 && passo <= 6 && (
-        <footer className="fixed inset-x-0 bottom-0 z-10 mx-auto flex max-w-md gap-3 border-t border-mist bg-white/95 px-5 py-3 backdrop-blur" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
-          <button className="rounded-2xl border border-mist px-5 py-3.5 text-[15px] font-semibold text-ink/70" onClick={() => setPasso((p) => p - 1)}>Voltar</button>
-          {passo < 6 ? <button className="flex-1 rounded-2xl bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={!podeAvancar} onClick={() => setPasso((p) => p + 1)}>{passo === 5 ? "Revisar" : "Continuar"} →</button>
-            : <button className="flex-1 rounded-2xl bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={enviando} onClick={enviar}>{enviando ? "Enviando…" : "Enviar registro"}</button>}
+        <footer className="fixed inset-x-0 bottom-0 z-10 mx-auto flex max-w-md gap-3 bg-white/90 px-5 py-3 shadow-[0_-6px_20px_rgba(0,0,0,0.06)] backdrop-blur" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
+          <button className="rounded-full border-2 border-ink/10 px-5 py-3.5 text-[15px] font-semibold text-ink/70" onClick={() => setPasso((p) => p - 1)}>Voltar</button>
+          {passo < 6 ? <button className="flex-1 rounded-full bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={!podeAvancar} onClick={() => setPasso((p) => p + 1)}>{passo === 5 ? "Revisar" : "Continuar"} →</button>
+            : <button className="flex-1 rounded-full bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={enviando} onClick={enviar}>{enviando ? "Enviando…" : "Enviar registro"}</button>}
         </footer>
       )}
     </div>

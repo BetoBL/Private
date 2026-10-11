@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026-10-11] Diário do paciente: tela do paciente mais leve e descontraída
+
+- A tela do Cartão Diário ganhou **ícones em cada opção** (emoções, contexto, cuidados, "isso ajudou?"), **carinhas na intensidade**, fundo em degradê suave que acompanha a cor da emoção escolhida, botões arredondados e textos mais próximos ("Oi, Fulano!", "Bora começar", "Pronto, registrado!"). Só visual e texto; as perguntas e regras continuam as mesmas. Ícones são emojis (sem arquivos extras); os mais novos foram trocados por equivalentes que aparecem em computadores mais antigos.
+- Inspiração de estilo vista em referência de mercado; nada copiado (marca, textos ou imagens).
+
+
 ## [2026-10-11] Diário do paciente, fase 1: Cartão Diário (módulo do paciente)
 
 - **O psicólogo gera o link** na nova aba **Diário** da ficha do paciente (um link ativo por paciente; gerar outro desativa o anterior; dá para desativar). O paciente abre no celular, **sem senha** (pré-cadastro com Google/e-mail fica para o final). Link inválido ou desativado devolve resposta genérica; limite de 60 pedidos/min por IP e 20 cartões/dia por paciente.
