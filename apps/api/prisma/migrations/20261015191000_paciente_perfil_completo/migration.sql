@@ -1,0 +1,16 @@
+-- AlterTable
+ALTER TABLE "Paciente" ADD COLUMN     "contatosEmergencia" JSONB,
+ADD COLUMN     "email" TEXT,
+ADD COLUMN     "endereco" JSONB,
+ADD COLUMN     "estadoCivil" TEXT,
+ADD COLUMN     "genero" TEXT,
+ADD COLUMN     "inicioTratamento" DATE,
+ADD COLUMN     "medicamentos" JSONB,
+ADD COLUMN     "moeda" TEXT NOT NULL DEFAULT 'BRL',
+ADD COLUMN     "nomeSocial" TEXT,
+ADD COLUMN     "profissao" TEXT,
+ADD COLUMN     "racaCor" TEXT,
+ADD COLUMN     "responsavelFinanceiro" JSONB,
+ADD COLUMN     "tipoPublico" TEXT NOT NULL DEFAULT 'ADULTO',
+ADD COLUMN     "tratamentos" JSONB,
+ADD COLUMN     "valorSessaoCentavos" INTEGER;

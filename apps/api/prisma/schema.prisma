@@ -205,6 +205,22 @@ model Paciente {
   cpf             String?    // identificação do laudo (formato 000.000.000-00)
   contato         String?
   escolaridade    String?
+  // perfil completo (ver/editar na ficha)
+  nomeSocial      String?
+  email           String?
+  genero          String?
+  racaCor         String?
+  estadoCivil     String?
+  profissao       String?
+  tipoPublico     String     @default("ADULTO") // ADULTO | CRIANCA_ADOLESCENTE
+  inicioTratamento DateTime? @db.Date
+  endereco        Json?      // { cep, logradouro, numero, complemento, bairro, cidade, uf, pais }
+  moeda           String     @default("BRL")
+  valorSessaoCentavos Int?
+  responsavelFinanceiro Json? // { nome, celular, vinculo, recebeCobranca, recebeLembrete, documentoTipo, documentoNumero, enderecoIgual }
+  contatosEmergencia Json?   // [{ nome, telefone, vinculo }] até 2
+  tratamentos     Json?      // string[]
+  medicamentos    Json?      // [{ nome, dose, unidade }]
   fazLaudo        Boolean    @default(false) // true = faz avaliação com laudo (abre o grupo "Avaliação e laudo" na ficha)
 
   convenioId      String?

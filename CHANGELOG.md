@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-10-15] Perfil do paciente completo (leitura em cartões e edição)
+
+**Ainda NÃO publicado.**
+- Aba Dados ganhou o **Perfil do paciente**: cabeçalho com idade, tipo (adulto ou criança/adolescente), atalhos de WhatsApp e e-mail; aviso "Finalizar cadastro" com o que falta; cartões de Dados básicos, Informações gerais (início do tratamento, endereço, país), Financeiro (moeda e valor da sessão), Responsável financeiro (cobrança e lembrete), Contatos de emergência (até 2) e Saúde e tratamento (tratamentos e medicamentos com dose e unidade).
+- **Editar perfil** abre o formulário completo com Salvar/Cancelar; o CEP preenche rua, bairro, cidade e UF sozinho (ViaCEP).
+- Novos campos no paciente: nome social, e-mail, gênero, raça/cor, estado civil, profissão, tipo de público, início do tratamento, endereço, moeda, valor da sessão, responsável financeiro, contatos de emergência, tratamentos e medicamentos (migration `paciente_perfil_completo`, só colunas novas e opcionais).
+- O formulário antigo continua abaixo, agora chamado "Cadastro e faturamento" (nome, nascimento, CPF, convênio, nota fiscal, consentimento). A ficha ficou mais larga.
+
 ## [2026-10-15] Paciente com laudo separado do acompanhamento e resumos por IA
 
 **Ainda NÃO publicado.**

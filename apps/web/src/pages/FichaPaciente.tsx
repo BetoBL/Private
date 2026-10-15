@@ -1,3 +1,4 @@
+import { PerfilPaciente } from "../components/PerfilPaciente";
 import { FormularioAnamnese } from "../components/FormularioAnamnese";
 import { ComparacaoReavaliacao } from "../components/ComparacaoReavaliacao";
 import { useAviso } from "../lib/aviso";
@@ -342,7 +343,7 @@ export function FichaPaciente() {
     .map((s) => ({ sessao: s, testes: aplicacoes.filter((a) => a.sessaoId === s.id) }));
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
+    <div className="mx-auto max-w-5xl px-6 py-10">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <span className="flex h-16 w-16 items-center justify-center rounded-full bg-mist text-xl font-bold text-sage-deep">
@@ -416,6 +417,8 @@ export function FichaPaciente() {
 
       {aba === "dados" && (
         <div>
+          <PerfilPaciente paciente={paciente} onSalvo={setPaciente} />
+          <h2 className="mb-3 font-serif text-xl text-ink">Cadastro e faturamento</h2>
           <div className="grid grid-cols-2 gap-4">
             <label className="col-span-2 flex items-start gap-3 rounded-lg border border-mist bg-mist/40 p-3 text-sm">
               <input type="checkbox" className="mt-1" checked={dadosForm.fazLaudo} onChange={(e) => setDadosForm((f) => ({ ...f, fazLaudo: e.target.checked }))} />
