@@ -34,6 +34,7 @@ import { painelDoDiaRouter } from "./routes/painelDoDia.routes";
 import { perfisDeAtuacaoRouter } from "./routes/perfilDeAtuacao.routes";
 import { profissionaisRouter } from "./routes/profissionais.routes";
 import { salasVirtuaisRouter } from "./routes/salasVirtuais.routes";
+import { linhaSessoesRouter } from "./routes/linhaSessoes.routes";
 import { sessoesRouter } from "./routes/sessoes.routes";
 import { testesRouter } from "./routes/testes.routes";
 import { tiposAtendimentoRouter } from "./routes/tiposAtendimento";
@@ -64,6 +65,7 @@ app.use("/profissionais", profissionaisRouter);
 // Protegido: exige login para qualquer dado clínico/paciente.
 app.use("/pacientes", exigirAutenticacao, pacientesRouter);
 app.use("/sessoes", exigirAutenticacao, sessoesRouter);
+app.use("/linha-sessoes", exigirAutenticacao, linhaSessoesRouter);
 app.use("/eventos-agenda", exigirAutenticacao, eventosAgendaRouter);
 app.use("/aplicacoes-teste", exigirAutenticacao, aplicacoesDeTesteRouter);
 app.use("/laudos", exigirAutenticacao, laudosRouter);

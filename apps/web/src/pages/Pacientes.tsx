@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { BotaoVoltar } from "../components/BotaoVoltar";
 import { useAuth } from "../context/AuthContext";
 import { api, type Paciente, type Sexo } from "../lib/api";
@@ -21,7 +21,8 @@ export function Pacientes() {
   const [busca, setBusca] = useState("");
   const [erro, setErro] = useState<string | null>(null);
 
-  const [mostrarForm, setMostrarForm] = useState(false);
+  const [params] = useSearchParams();
+  const [mostrarForm, setMostrarForm] = useState(params.get("novo") === "1");
   const [nome, setNome] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [sexo, setSexo] = useState<Sexo | "">("");

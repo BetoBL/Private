@@ -22,6 +22,9 @@ const eventoCreateSchema = z.object({
   inicio: z.coerce.date(),
   fim: z.coerce.date(),
   observacoes: z.string().optional(),
+  modalidade: z.enum(["PRESENCIAL", "ONLINE"]).nullable().optional(),
+  cor: z.string().max(20).nullable().optional(),
+  linkVideo: z.string().trim().max(500).nullable().optional(),
   forcar: z.boolean().optional(),
   // repete o mesmo horário: semanal, quinzenal ou a cada 4 semanas, por N vezes (padrão 12) ou até uma data
   recorrencia: z.object({ frequencia: z.enum(["SEMANAL", "QUINZENAL", "A_CADA_4_SEMANAS"]), ocorrencias: z.number().int().min(2).max(52).optional(), ate: z.coerce.date().optional() }).optional(),

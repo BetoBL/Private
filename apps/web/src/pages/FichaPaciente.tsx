@@ -1,4 +1,5 @@
 import { PerfilPaciente } from "../components/PerfilPaciente";
+import { SessoesDoPaciente } from "../components/SessoesDoPaciente";
 import { FormularioAnamnese } from "../components/FormularioAnamnese";
 import { ComparacaoReavaliacao } from "../components/ComparacaoReavaliacao";
 import { useAviso } from "../lib/aviso";
@@ -28,7 +29,7 @@ import {
 } from "../lib/api";
 
 const ABAS_LAUDO: readonly string[] = ["anamnese", "linha", "dashboard", "laudos"];
-type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
+type Aba = "dados" | "sessoes" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
@@ -42,7 +43,7 @@ export function FichaPaciente() {
   const [searchParams, setSearchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
-  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
+  const [aba, setAba] = useState<Aba>(["dados", "sessoes", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
   // quem não faz laudo não tem o grupo de laudo: um atalho antigo para essas abas cai nos dados
@@ -381,6 +382,7 @@ export function FichaPaciente() {
       <div className="mb-6 flex gap-1 overflow-x-auto overflow-y-hidden whitespace-nowrap border-b border-mist">
         {([
           ["dados", "Dados"],
+          ["sessoes", "Sessões"],
           ["prontuario", "Prontuário"],
           ["formularios", "Formulários"],
           ["agenda", "Agenda"],
@@ -410,6 +412,7 @@ export function FichaPaciente() {
         </div>
       )}
 
+      {aba === "sessoes" && id && <SessoesDoPaciente pacienteId={id} fazLaudo={!!paciente.fazLaudo} />}
       {aba === "prontuario" && id && <ProntuarioDoPaciente pacienteId={id} />}
       {aba === "formularios" && id && <FormulariosDoPaciente pacienteId={id} />}
       {aba === "escalas" && id && <EscalasDoPaciente pacienteId={id} />}

@@ -12,7 +12,7 @@ const trecho = (e: Evolucao) => {
   return ((e.evolucao ?? "").trim() || campos || "Sem texto ainda").slice(0, 110);
 };
 
-export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
+export function ProntuarioDoPaciente({ pacienteId, modoSessao = false }: { pacienteId: string; modoSessao?: boolean }) {
   const [cat, setCat] = useState<CatalogoProntuario | null>(null);
   const [lista, setLista] = useState<Evolucao[]>([]);
   const [aberta, setAberta] = useState<Evolucao | null>(null);
@@ -27,6 +27,9 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   const [marcadas, setMarcadas] = useState<string[]>([]);
   const [gerando, setGerando] = useState(false);
   const [caso, setCaso] = useState<ResumoCaso | null>(null);
+  const [mostrarCaso, setMostrarCaso] = useState(false);
+  const [verAnteriores, setVerAnteriores] = useState(false);
+  const [anteriorAberta, setAnteriorAberta] = useState<string | null>(null);
   const [gerandoCaso, setGerandoCaso] = useState(false);
   const [resumindo, setResumindo] = useState(false);
   const [sugestoes, setSugestoes] = useState<Array<{ tipo: "PLANO" | "TOPICO"; texto: string }>>([]);
@@ -87,6 +90,13 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
       const p = new URLSearchParams(params); p.delete("evento"); p.delete("inicio"); setParams(p, { replace: true });
     })();
   }, [params, cat, pacienteId, setParams, carregarLista]);
+
+  useEffect(() => {
+    const idEv = params.get("evolucao");
+    if (!idEv || aberturaFeita.current) return;
+    aberturaFeita.current = true;
+    api.listarEvolucoes(pacienteId).then((l) => { setLista(l); const e = l.find((x) => x.id === idEv); if (e) setAberta(e); }).catch(falha);
+  }, [params, pacienteId]);
 
   const modelos = cat?.modelos ?? [];
   const modeloDe = (chave: string) => modelos.find((m) => m.chave === chave);
@@ -162,10 +172,10 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className={modoSessao ? "flex flex-col gap-6" : "space-y-6"}>
       {erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
 
-      <section className="rounded-xl border border-mist bg-white p-5">
+      {(!modoSessao || mostrarCaso) && <section className="rounded-xl border border-mist bg-white p-5">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <h3 className="font-serif text-lg text-ink">Resumo do caso <span className="ml-1 rounded-full bg-mist px-2 py-0.5 align-middle text-[11px] font-semibold text-sage-deep">gerado por IA</span></h3>
@@ -182,9 +192,9 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
             <p className="text-xs text-ink/45">Rascunho de apoio. Confira antes de usar: a responsabilidade pelo registro é sua. Anotações privadas não entram neste resumo.</p>
           </div>
         )}
-      </section>
+      </section>}
 
-      <section className="rounded-xl border border-mist bg-white p-5">
+      <section className={`rounded-xl border border-mist bg-white p-5 ${modoSessao ? "order-2" : ""}`}>
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <div><h3 className="font-serif text-lg text-ink">Continuidade do cuidado</h3><p className="text-sm text-ink/55">O que atravessa as sessões até ser concluído.</p></div>
           {concluidos.length > 0 && <button className="text-xs font-semibold text-sage-deep hover:underline" onClick={() => setVerConcluidos(!verConcluidos)}>{verConcluidos ? "ocultar concluídos" : `ver concluídos (${concluidos.length})`}</button>}
@@ -210,8 +220,8 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
         )}
       </section>
 
-      <div className="grid gap-6 xl:grid-cols-[280px_1fr]">
-        <aside className="rounded-xl border border-mist bg-white p-4">
+      <div className={modoSessao ? "grid gap-6" : "grid gap-6 xl:grid-cols-[280px_1fr]"}>
+        {!modoSessao && <aside className="rounded-xl border border-mist bg-white p-4">
           <div className="mb-3 flex gap-2">
             <select className="min-w-0 flex-1 rounded-lg border border-mist px-2 py-2 text-sm" value={novoModelo} onChange={(e) => setNovoModelo(e.target.value)}>{modelos.map((m) => <option key={m.chave} value={m.chave}>{m.rotulo}</option>)}</select>
             <button className="rounded-lg bg-sage-deep px-3 py-2 text-sm font-semibold text-paper" onClick={nova}>Nova</button>
@@ -236,9 +246,38 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
               ))}
             </ul>
           )}
-        </aside>
+        </aside>}
 
         <section className="min-w-0 rounded-xl border border-mist bg-white p-5">
+          {modoSessao && (
+            <div className="mb-5 space-y-3">
+              <div className="flex flex-wrap gap-2">
+                <button className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${verAnteriores ? "border-sage-deep bg-sage-deep/10 text-sage-deep" : "border-mist text-ink/65 hover:border-sage"}`} onClick={() => setVerAnteriores((v) => !v)}>🗂 Sessões anteriores ({lista.filter((e) => e.id !== aberta?.id && e.status === "FINALIZADA").length})</button>
+                <button className={`rounded-full border px-4 py-1.5 text-sm font-semibold ${mostrarCaso ? "border-sage-deep bg-sage-deep/10 text-sage-deep" : "border-mist text-ink/65 hover:border-sage"}`} onClick={() => setMostrarCaso((v) => !v)}>🧭 Resumo do caso</button>
+              </div>
+              {verAnteriores && (() => {
+                const ant = lista.filter((e) => e.id !== aberta?.id && e.status === "FINALIZADA");
+                return (
+                  <div className="rounded-xl border border-mist bg-paper/60 p-3">
+                    {ant.length === 0 ? <p className="text-sm text-ink/50">Ainda não há sessões finalizadas.</p> : (
+                      <ul className="divide-y divide-mist">
+                        {ant.slice(0, 8).map((e, i) => (
+                          <li key={e.id} className="py-2">
+                            <button className="flex w-full items-baseline gap-3 text-left" onClick={() => setAnteriorAberta(anteriorAberta === e.id ? null : e.id)}>
+                              <span className="text-xs font-semibold text-sage-deep">{dataBr(e.dataHora)}{i === 0 ? " · mais recente" : ""}</span>
+                              <span className="min-w-0 flex-1 truncate text-sm text-ink/70">{anteriorAberta === e.id ? "" : trecho(e)}</span>
+                              <span className="text-xs text-ink/40">{anteriorAberta === e.id ? "recolher" : "abrir"}</span>
+                            </button>
+                            {anteriorAberta === e.id && <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-ink/80">{(e.evolucao ?? "").trim() || trecho(e)}</p>}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                );
+              })()}
+            </div>
+          )}
           {!aberta ? <p className="py-16 text-center text-sm text-ink/45">Escolha uma evolução na lista ou crie uma nova.</p> : (
             <div className="space-y-5">
               <div className="flex flex-wrap items-center gap-3">
@@ -273,7 +312,7 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
 
               {meu && !finalizada && (
                 <div className="flex flex-wrap items-center gap-3 rounded-lg bg-mist/50 px-3 py-2">
-                  <button className="rounded-lg bg-sage-deep px-3 py-2 text-sm font-semibold text-paper disabled:opacity-50" disabled={resumindo} onClick={resumirSessao}>{resumindo ? "resumindo…" : "Resumir com IA"}</button>
+                  <button className="rounded-lg bg-sage-deep px-3 py-2 text-sm font-semibold text-paper disabled:opacity-50" disabled={resumindo} onClick={resumirSessao}>{resumindo ? "gerando…" : "✨ Gerar evolução com IA"}</button>
                   <span className="text-xs text-ink/60">Escreva as anotações durante a sessão; a IA monta o rascunho da evolução e dos campos. Você revisa e edita.</span>
                   {aberta.geradaPorIA && <span className="ml-auto rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-sage-deep">rascunho com apoio de IA</span>}
                 </div>
@@ -294,7 +333,7 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
                 </div>
               )}
 
-              <div className="grid gap-4 2xl:grid-cols-2">
+              <div className={`grid gap-4 ${modoSessao ? "lg:grid-cols-2" : "2xl:grid-cols-2"}`}>
                 <label className="block">
                   <span className="block text-xs font-bold uppercase tracking-wide text-clay">Anotações privadas</span><span className="block text-xs text-ink/45">só você vê</span>
                   <textarea className="mt-1 h-56 w-full rounded-lg border border-mist bg-white px-3 py-2 text-sm leading-relaxed" disabled={!meu} placeholder={meu ? "Comece as anotações desta sessão…" : "Privado do autor"} maxLength={40000} value={aberta.anotacoes ?? ""} onChange={(e) => alterar({ anotacoes: e.target.value }, { anotacoes: e.target.value })} />

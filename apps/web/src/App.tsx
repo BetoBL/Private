@@ -24,6 +24,7 @@ import { DadosFiscais } from "./pages/DadosFiscais";
 import { Notas } from "./pages/Notas";
 import { AtendimentoPaciente } from "./pages/AtendimentoPaciente";
 import { DiarioDoPacienteTela } from "./pages/DiarioPacienteTela";
+import { SessaoAtendimento } from "./pages/SessaoAtendimento";
 import { SalaProfissional } from "./pages/SalaProfissional";
 import { EditorModeloLaudo } from "./pages/EditorModeloLaudo";
 
@@ -63,6 +64,7 @@ function App() {
         <Route path="/" element={<PainelDoDia />} />
         <Route path="/pacientes" element={<Pacientes />} />
         <Route path="/pacientes/:id" element={<FichaPaciente />} />
+        <Route path="/pacientes/:id/sessao" element={<SessaoAtendimento />} />
         <Route path="/iniciar-atendimento" element={<IniciarAtendimento />} />
         <Route path="/testes" element={<LancamentoTeste />} />
         <Route path="/laudo" element={<ComposicaoLaudo />} />

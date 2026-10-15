@@ -251,6 +251,9 @@ export interface EventoAgenda {
   inicio: string;
   fim: string;
   observacoes: string | null;
+  modalidade?: "PRESENCIAL" | "ONLINE" | null;
+  cor?: string | null;
+  linkVideo?: string | null;
   sessaoId?: string | null;
   serieId?: string | null;
   recorrencia?: string | null;
@@ -469,6 +472,8 @@ export interface Evolucao {
   id: string; pacienteId: string; profissionalId: string; eventoAgendaId?: string | null; dataHora: string; modelo: string; campos: Record<string, string | string[]> | null;
   anotacoes: string | null; anotacoesPrivadas: boolean; geradaPorIA?: boolean; evolucao: string | null; status: "RASCUNHO" | "FINALIZADA"; finalizadaEm: string | null; totalVersoes: number; criadoEm: string; atualizadoEm: string;
 }
+export interface ItemSessao { chave: string; eventoId: string | null; inicio: string; fim: string; titulo: string; tipo: string; modalidade: "PRESENCIAL" | "ONLINE" | null; cor: string | null; laudo: boolean; passada: boolean; evolucao: { id: string; status: "RASCUNHO" | "FINALIZADA"; modelo: string; geradaPorIA: boolean; temTexto: boolean; temAnotacoes: boolean | null } | null }
+export interface LinhaSessoes { itens: ItemSessao[]; totais: { proximas: number; historico: number; evolucoesFaltando: number } }
 export interface ResumoCaso { resumo: string; evolucaoDoQuadro: string; pontosDeAtencao: string[]; perguntasProximaSessao: string[]; geradoEm: string; sessoesConsideradas: number }
 export interface VersaoEvolucao { em: string; modelo: string; campos: Record<string, string | string[]> | null; anotacoes: string | null; evolucao: string | null }
 export interface ItemContinuidade { id: string; pacienteId: string; evolucaoId: string | null; tipo: "PLANO" | "TOPICO"; texto: string; status: "ANDAMENTO" | "CONCLUIDO"; concluidoEm: string | null; criadoEm: string }
@@ -862,6 +867,9 @@ export const api = {
     inicio: string;
     fim: string;
     observacoes?: string;
+    modalidade?: "PRESENCIAL" | "ONLINE" | null;
+    cor?: string | null;
+    linkVideo?: string | null;
     forcar?: boolean;
     recorrencia?: { frequencia: "SEMANAL" | "QUINZENAL" | "A_CADA_4_SEMANAS"; ocorrencias?: number };
   }) => enviarEventoAgenda("/eventos-agenda", "POST", data),
@@ -874,6 +882,9 @@ export const api = {
       inicio: string;
       fim: string;
       observacoes: string;
+      modalidade: "PRESENCIAL" | "ONLINE" | null;
+      cor: string | null;
+      linkVideo: string | null;
       forcar: boolean;
     }>
   ) => enviarEventoAgenda(`/eventos-agenda/${id}`, "PATCH", data),
@@ -959,6 +970,7 @@ export const api = {
   listarEvolucoes: (pacienteId: string) => request<Evolucao[]>(`/evolucoes?pacienteId=${pacienteId}`),
   criarEvolucao: (d: { pacienteId: string; modelo: string; dataHora?: string; eventoAgendaId?: string }) => request<Evolucao>("/evolucoes", { method: "POST", body: JSON.stringify(d) }),
   resumirSessaoIA: (evolucaoId: string) => request<{ evolucao: string; campos: Record<string, string | string[]> | null; sugestoes: Array<{ tipo: "PLANO" | "TOPICO"; texto: string }> }>(`/resumos-ia/sessao/${evolucaoId}`, { method: "POST" }),
+  linhaSessoes: (pacienteId: string) => request<LinhaSessoes>(`/linha-sessoes/paciente/${pacienteId}`),
   resumoCasoIA: (pacienteId: string) => request<ResumoCaso | null>(`/resumos-ia/caso/${pacienteId}`),
   gerarResumoCasoIA: (pacienteId: string) => request<ResumoCaso>(`/resumos-ia/caso/${pacienteId}`, { method: "POST" }),
   salvarEvolucao: (id: string, d: Partial<{ modelo: string; dataHora: string; campos: Record<string, string | string[]>; anotacoes: string | null; evolucao: string | null }>) => request<Evolucao>(`/evolucoes/${id}`, { method: "PUT", body: JSON.stringify(d) }),

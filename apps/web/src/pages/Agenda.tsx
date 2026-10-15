@@ -1,13 +1,14 @@
 import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { BotaoVoltar } from "../components/BotaoVoltar";
-import { SeletorPaciente } from "../components/SeletorPaciente";
 import { useAuth } from "../context/AuthContext";
+import { CORES_SESSAO, ModalAgendarSessao, type FormSessao } from "../components/ModalAgendarSessao";
 import { api, type ConflitoAgenda, type EventoAgenda, type Paciente, type Profissional } from "../lib/api";
 
 const DIAS = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 const TIPOS = [
+  { valor: "sessao", label: "Sessão" },
   { valor: "avaliacao", label: "Avaliação" },
   { valor: "anamnese", label: "Anamnese" },
   { valor: "outro", label: "Outro compromisso" },
@@ -29,6 +30,7 @@ function paraInputLocal(data: Date): string {
 }
 
 const CORES_TIPO: Record<string, string> = {
+  sessao: "bg-[#E4EFE7] text-[#2F5D3A]",
   avaliacao: "bg-[#FBE8D9] text-sage-deep",
   anamnese: "bg-[#E4EFE7] text-[#2F5D3A]",
   outro: "bg-mist text-ink/70",
@@ -48,10 +50,20 @@ export function Agenda() {
   const [mensagem, setMensagem] = useAviso();
 
   const [mostrarForm, setMostrarForm] = useState(false);
+  const [params, setParams] = useSearchParams();
+  // atalho da ficha: /agenda?novo=1&pacienteId=... abre a janela já com o paciente
+  useEffect(() => {
+    if (params.get("novo") !== "1" || pacientes.length === 0) return;
+    const pid = params.get("pacienteId") ?? "";
+    abrirNovoEventoComProfissional();
+    if (pid) atualizarPacienteComPreferencias(pid);
+    setParams({}, { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params, pacientes.length]);
   const [editandoId, setEditandoId] = useState<string | null>(null);
   const [conflitos, setConflitos] = useState<ConflitoAgenda[]>([]);
   const [salvando, setSalvando] = useState(false);
-  const [form, setForm] = useState({ pacienteId: "", titulo: "", tipo: "avaliacao", inicio: "", fim: "", observacoes: "", profissionalId: logado?.id ?? "" });
+  const [form, setForm] = useState<FormSessao>({ pacienteId: "", titulo: "", tipo: "sessao", inicio: "", fim: "", observacoes: "", profissionalId: logado?.id ?? "", modalidade: "PRESENCIAL", cor: "", linkVideo: "" });
   const [repetir, setRepetir] = useState<"" | "SEMANAL" | "QUINZENAL" | "A_CADA_4_SEMANAS">("");
   const [vezes, setVezes] = useState(12);
 
@@ -83,11 +95,14 @@ export function Agenda() {
     setForm({
       pacienteId: "",
       titulo: "",
-      tipo: "avaliacao",
+      tipo: "sessao",
       inicio: paraInputLocal(base),
       fim: paraInputLocal(fim),
       observacoes: "",
       profissionalId: profId ?? logado?.id ?? "",
+      modalidade: "PRESENCIAL",
+      cor: "",
+      linkVideo: "",
     });
     setMostrarForm(true);
   }
@@ -143,18 +158,27 @@ export function Agenda() {
       fim: paraInputLocal(new Date(ev.fim)),
       observacoes: ev.observacoes ?? "",
       profissionalId: ev.profissionalId,
+      modalidade: ev.modalidade ?? "PRESENCIAL",
+      cor: ev.cor ?? "",
+      linkVideo: ev.linkVideo ?? "",
     });
     setMostrarForm(true);
   }
 
   async function salvar(forcar = false) {
-    if (!form.titulo || !form.inicio || !form.fim || salvando) return;
+    if (!form.inicio || !form.fim || salvando) return;
+    const nomePaciente = pacientes.find((p) => p.id === form.pacienteId)?.nome;
+    const tituloFinal = form.titulo.trim() || (form.tipo === "bloqueio" ? "Indisponível" : nomePaciente ? `${TIPOS.find((x) => x.valor === form.tipo)?.label ?? "Sessão"} · ${nomePaciente}` : "");
+    if (!tituloFinal) return;
     setErro(null);
     setMensagem(null);
     setSalvando(true);
     const payload = {
-      titulo: form.titulo,
+      titulo: tituloFinal,
       tipo: form.tipo,
+      modalidade: form.tipo === "bloqueio" ? null : form.modalidade,
+      cor: form.cor || null,
+      linkVideo: form.modalidade === "ONLINE" ? form.linkVideo.trim() || null : null,
       inicio: new Date(form.inicio).toISOString(),
       fim: new Date(form.fim).toISOString(),
       observacoes: form.observacoes || undefined,
@@ -176,7 +200,7 @@ export function Agenda() {
       setMostrarForm(false);
       setEditandoId(null);
       setConflitos([]);
-      setMensagem(editandoId ? "Evento atualizado." : resultado.eventos ? `${resultado.eventos.length} eventos criados na série.` : "Evento criado.");
+      setMensagem(editandoId ? "Compromisso atualizado." : resultado.eventos ? `${resultado.eventos.length} sessões criadas na série.` : form.tipo === "bloqueio" ? "Horário bloqueado." : "Sessão criada.");
       setRepetir("");
     } catch (e) {
       setErro((e as Error).message);
@@ -216,6 +240,9 @@ export function Agenda() {
       fim: paraInputLocal(fim),
       observacoes: evento.observacoes ?? "",
       profissionalId: evento.profissionalId,
+      modalidade: evento.modalidade ?? "PRESENCIAL",
+      cor: evento.cor ?? "",
+      linkVideo: evento.linkVideo ?? "",
     });
     setMostrarForm(true);
   }
@@ -265,7 +292,7 @@ export function Agenda() {
             disabled={salvando}
             onClick={() => abrirNovoEventoComProfissional()}
           >
-            + Novo evento
+            + Agendar sessão
           </button>
         </div>
       </div>
@@ -274,161 +301,12 @@ export function Agenda() {
       {mensagem && <div className="mb-6 rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}
 
       {mostrarForm && (
-        <div className="mb-6 rounded-2xl border border-mist bg-white p-5">
-          <div className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">{editandoId ? "Editar evento" : "Novo evento"}</div>
-          <div className="grid grid-cols-2 gap-3">
-            <label className="text-sm">
-              <span className="mb-1 block font-semibold text-ink/70">Título</span>
-              <input
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={form.titulo}
-                onChange={(e) => setForm((f) => ({ ...f, titulo: e.target.value }))}
-              />
-            </label>
-            <label className="text-sm">
-              <span className="mb-1 block font-semibold text-ink/70">Tipo</span>
-              <select
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={form.tipo}
-                onChange={(e) => setForm((f) => ({ ...f, tipo: e.target.value }))}
-              >
-                {TIPOS.map((t) => (
-                  <option key={t.valor} value={t.valor}>
-                    {t.label}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="text-sm">
-              <span className="mb-1 block font-semibold text-ink/70">Profissional Responsável</span>
-              <select
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={form.profissionalId}
-                onChange={(e) => setForm((f) => ({ ...f, profissionalId: e.target.value }))}
-              >
-                <option value={logado?.id ?? ""}>{logado?.nome} (você)</option>
-                {colegas.filter((c) => c.id !== logado?.id).map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.nome}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className="text-sm">
-              <span className="mb-1 block font-semibold text-ink/70">Paciente (opcional)</span>
-              <SeletorPaciente
-                pacientes={pacientes}
-                value={form.pacienteId}
-                onChange={atualizarPacienteComPreferencias}
-                placeholder="Buscar paciente..."
-              />
-            </label>
-            <div className="flex items-end text-xs text-ink/50">
-              {form.pacienteId &&
-                (() => {
-                  const prefs = pacientes.find((p) => p.id === form.pacienteId)?.preferenciasAgenda;
-                  if (!prefs || (!prefs.diasPreferidos?.length && !prefs.horarioPreferido && !prefs.observacoes)) return null;
-                  return (
-                    <span>
-                      Preferências: {[prefs.diasPreferidos?.join("/"), prefs.horarioPreferido, prefs.observacoes].filter(Boolean).join(" · ")}
-                    </span>
-                  );
-                })()}
-            </div>
-            <label className="text-sm">
-              <span className="mb-1 block font-semibold text-ink/70">Início</span>
-              <input
-                type="datetime-local"
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={form.inicio}
-                onChange={(e) => setForm((f) => ({ ...f, inicio: e.target.value }))}
-              />
-            </label>
-            <label className="text-sm">
-              <span className="mb-1 block font-semibold text-ink/70">Fim</span>
-              <input
-                type="datetime-local"
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={form.fim}
-                onChange={(e) => setForm((f) => ({ ...f, fim: e.target.value }))}
-              />
-            </label>
-            {!editandoId && (
-              <div className="col-span-2 grid gap-3 sm:grid-cols-2">
-                <label className="text-sm">
-                  <span className="mb-1 block font-semibold text-ink/70">Repetir</span>
-                  <select className="w-full rounded-lg border border-mist px-3 py-2" value={repetir} onChange={(e) => setRepetir(e.target.value as typeof repetir)}>
-                    <option value="">Não repetir</option><option value="SEMANAL">Toda semana</option><option value="QUINZENAL">A cada 2 semanas</option><option value="A_CADA_4_SEMANAS">A cada 4 semanas</option>
-                  </select>
-                </label>
-                {repetir && (
-                  <label className="text-sm">
-                    <span className="mb-1 block font-semibold text-ink/70">Quantas vezes (com este)</span>
-                    <input type="number" min={2} max={52} className="w-full rounded-lg border border-mist px-3 py-2" value={vezes} onChange={(e) => setVezes(Math.max(2, Math.min(52, Number(e.target.value) || 2)))} />
-                  </label>
-                )}
-              </div>
-            )}
-            <label className="col-span-2 text-sm">
-              <span className="mb-1 block font-semibold text-ink/70">Observações</span>
-              <input
-                className="w-full rounded-lg border border-mist px-3 py-2"
-                value={form.observacoes}
-                onChange={(e) => setForm((f) => ({ ...f, observacoes: e.target.value }))}
-              />
-            </label>
-          </div>
-
-          {conflitos.length > 0 && (
-            <div className="mt-3 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">
-              <p className="mb-1 font-semibold">Conflito de horário com:</p>
-              <ul className="mb-2 list-disc pl-5">
-                {conflitos.map((c) => (
-                  <li key={c.id}>
-                    {c.titulo} {c.paciente && `— ${c.paciente}`} ({new Date(c.inicio).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
-                    –{new Date(c.fim).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })})
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="rounded-lg bg-ember px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-40"
-                disabled={salvando}
-                onClick={() => salvar(true)}
-              >
-                {salvando ? "Criando..." : "Criar mesmo assim"}
-              </button>
-            </div>
-          )}
-
-          <div className="mt-4 flex items-center gap-3">
-            <button
-              className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper disabled:opacity-40"
-              disabled={salvando}
-              onClick={() => salvar(false)}
-            >
-              {salvando ? "Salvando..." : "Salvar"}
-            </button>
-            {editandoId && (
-              <>
-                <button className="text-sm font-semibold text-sage-deep" onClick={() => duplicarEvento(editandoId)}>
-                  Duplicar
-                </button>
-                <button className="text-sm font-semibold text-ember" onClick={() => excluir(editandoId)}>
-                  Excluir
-                </button>
-              </>
-            )}
-            <button
-              className="text-sm text-ink/60"
-              onClick={() => {
-                setMostrarForm(false);
-                setConflitos([]);
-              }}
-            >
-              Cancelar
-            </button>
-          </div>
-        </div>
+        <ModalAgendarSessao
+          editando={!!editandoId} form={form} setForm={setForm} pacientes={pacientes} colegas={colegas} logado={logado ? { id: logado.id, nome: logado.nome } : null}
+          aoEscolherPaciente={atualizarPacienteComPreferencias} repetir={repetir} setRepetir={setRepetir} vezes={vezes} setVezes={setVezes}
+          conflitos={conflitos} salvando={salvando} aoSalvar={salvar} aoCancelar={() => { setMostrarForm(false); setConflitos([]); setEditandoId(null); }}
+          aoDuplicar={() => editandoId && duplicarEvento(editandoId)} aoExcluir={() => editandoId && excluir(editandoId)}
+        />
       )}
 
       <div className="grid grid-cols-7 gap-3">
@@ -447,9 +325,9 @@ export function Agenda() {
                 <button
                   key={ev.id}
                   onClick={() => abrirEdicao(ev)}
-                  className={`block w-full rounded-lg px-2.5 py-2 text-left text-[11.5px] font-semibold ${CORES_TIPO[ev.tipo] ?? CORES_TIPO.outro}`}
+                  className={`block w-full rounded-lg px-2.5 py-2 text-left text-[11.5px] font-semibold ${(ev.cor && CORES_SESSAO[ev.cor]?.chip) || CORES_TIPO[ev.tipo] || CORES_TIPO.outro}`}
                 >
-                  {ev.titulo}
+                  {ev.modalidade === "ONLINE" ? "🎥 " : ""}{ev.titulo}
                   <span className="mt-0.5 block text-[10px] font-normal opacity-70">
                     {new Date(ev.inicio).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
                     {ev.paciente && (
@@ -461,7 +339,7 @@ export function Agenda() {
                         {ev.tipo !== "anamnese" && (
                           <>
                             {" · "}
-                            <Link to={`/pacientes/${ev.paciente.id}?aba=prontuario&evento=${ev.id}&inicio=${encodeURIComponent(ev.inicio)}`} onClick={(e) => e.stopPropagation()} className="font-semibold underline">
+                            <Link to={`/pacientes/${ev.paciente.id}/sessao?evento=${ev.id}&inicio=${encodeURIComponent(ev.inicio)}`} onClick={(e) => e.stopPropagation()} className="font-semibold underline">
                               evolução →
                             </Link>
                           </>

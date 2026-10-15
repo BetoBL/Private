@@ -307,6 +307,9 @@ model EventoAgenda {
   inicio          DateTime
   fim             DateTime
   observacoes     String?      @db.Text
+  modalidade      String?      // PRESENCIAL | ONLINE
+  cor             String?      // chave de cor do cartão na agenda
+  linkVideo       String?
 
   criadoEm        DateTime     @default(now())
 }

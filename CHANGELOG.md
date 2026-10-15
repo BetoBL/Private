@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-15] Agendar sessão, aba Sessões, ambiente da sessão e painel inicial novos
+
+**Ainda NÃO publicado.**
+- **Agendar sessão** (antes "Novo evento"): janela com duas abas, *Agendar sessão* e *Bloquear horário*. Campos: paciente, data, hora, duração (30 min a 2 h), tipo (Sessão; Avaliação e Anamnese só para quem faz laudo; Outro compromisso), presencial ou online, recorrência (evento único ou recorrente), cor na agenda, link da videochamada, notas e título opcional (se vazio usa o nome do paciente). O cartão na agenda mostra a cor e o ícone de online. Migration `agenda_sessao_detalhes` (modalidade, cor, link no compromisso).
+- **Aba Sessões** na ficha: contadores (próximas, histórico, evoluções faltando), filtros (Todas, Próximas, Histórico, Só de laudo), linha do tempo por mês. Cada sessão mostra tipo, presencial/online, etiqueta **Laudo**, estado da evolução (finalizada, rascunho, com apoio de IA, faltando) e o botão Registrar/Abrir/Iniciar. "Nova sessão" abre a janela já com o paciente. Nova rota `/linha-sessoes/paciente/:id` (só leitura).
+- **Ambiente da sessão** (`/pacientes/:id/sessao`): cartões "Evoluções faltantes" e "Próxima sessão"; anotações privadas e evolução lado a lado; **Gerar evolução com IA**; modelo da sessão; sessões anteriores e resumo do caso sob demanda; continuidade do cuidado. O link "evolução →" da Agenda e o do Painel passam a abrir esta tela.
+- **Painel inicial**: atalhos (Agendar sessão, Novo paciente, Iniciar atendimento, Notas), números clicáveis (sessões hoje, evoluções a concluir, pacientes, laudos para revisar ou avisos de atenção), "Hoje na agenda" com Abrir sessão e Entrar na chamada, e os próximos 7 dias. O bloco antigo de números foi removido por duplicar.
+- **Botões** em todo o sistema: formato de pílula, gradiente suave e foco visível (só em botões; abas e campos ficam como eram).
+- Verificado: 192 testes, 6 checagens de API novas e telas conferidas.
+
 ## [2026-10-15] Anamnese ao alcance de qualquer paciente
 
 **Ainda NÃO publicado.**

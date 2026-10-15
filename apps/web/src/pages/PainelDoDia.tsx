@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { api, type Laudo, type Paciente, type PendenteDiario, type Sessao } from "../lib/api";
 import { corDaFamilia } from "../lib/diarioCores";
 import { temModulo } from "../lib/profissoes";
+import { VisaoGeral } from "../components/VisaoGeral";
 import { laudos as laudosPlural, sessoes as sessoesPlural } from "../lib/plural";
 
 const HUMORES = [
@@ -127,8 +128,10 @@ export function PainelDoDia() {
         </div>
       </div>
 
+      <VisaoGeral pacientes={pacientes.length} evolucoesPendentes={evolucoesPendentes.length} laudosParaRevisar={laudosAguardandoRevisao.length} alertas={alertas.length} temLaudos={temModulo(profissional?.categoria, "laudos")} />
+
       {alertas.length > 0 && (
-        <section className="mb-6 rounded-2xl border border-ember bg-ember/5 px-6 py-5">
+        <section id="avisos" className="mb-6 scroll-mt-6 rounded-2xl border border-ember bg-ember/5 px-6 py-5">
           <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-ember">Pacientes que precisam da sua atenção</h2>
           <ul className="divide-y divide-ember/15">
             {alertas.map((a) => (
@@ -144,12 +147,12 @@ export function PainelDoDia() {
       )}
 
       {evolucoesPendentes.length > 0 && (
-        <section className="mb-6 rounded-2xl border border-mist bg-white px-6 py-5">
+        <section id="evolucoes-pendentes" className="mb-6 scroll-mt-6 rounded-2xl border border-mist bg-white px-6 py-5">
           <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-clay">Evoluções para concluir</h2>
           <ul className="divide-y divide-mist">
             {evolucoesPendentes.slice(0, 6).map((e) => (
               <li key={e.id} className="flex items-center gap-3 py-2 text-sm">
-                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${e.pacienteId}?aba=prontuario`}>{e.paciente}</Link>
+                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${e.pacienteId}/sessao?evolucao=${e.id}`}>{e.paciente}</Link>
                 <span className="text-ink/55">{new Date(e.dataHora).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</span>
                 <span className="ml-auto text-xs text-ink/45">{e.comTexto ? "rascunho com texto" : "ainda sem texto"}</span>
               </li>
@@ -272,26 +275,6 @@ export function PainelDoDia() {
           )}
         </div>
       </section>
-
-      <div className="mb-4 text-xs font-bold uppercase tracking-wide text-sage-deep">Visão geral</div>
-      <div className="mb-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-        <div className="rounded-2xl border border-mist bg-white p-5">
-          <div className="font-serif text-3xl text-sage-deep">{pacientes.length}</div>
-          <div className="mt-1 text-xs text-ink/60">pacientes cadastrados</div>
-        </div>
-        <div className="rounded-2xl border border-mist bg-white p-5">
-          <div className="font-serif text-3xl text-sage-deep">{sessoesHoje.length}</div>
-          <div className="mt-1 text-xs text-ink/60">sessões hoje</div>
-        </div>
-        <div className="rounded-2xl border border-mist bg-white p-5">
-          <div className="font-serif text-3xl text-sage-deep">{laudosAguardandoRevisao.length}</div>
-          <div className="mt-1 text-xs text-ink/60">laudo(s) aguardando revisão</div>
-        </div>
-        <div className="rounded-2xl border border-mist bg-white p-5">
-          <div className="font-serif text-3xl text-sage-deep">{laudos.filter((l) => l.status === "FINALIZADO" || l.status === "ENTREGUE").length}</div>
-          <div className="mt-1 text-xs text-ink/60">laudos finalizados</div>
-        </div>
-      </div>
 
       <div className="mb-4 text-xs font-bold uppercase tracking-wide text-sage-deep">Módulos</div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

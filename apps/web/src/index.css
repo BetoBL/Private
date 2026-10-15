@@ -101,3 +101,20 @@ body {
 .laudo-previa td, .laudo-previa th { border: 1px solid #222; padding: 3px 10px; }
 .laudo-previa th, .laudo-previa td:has(> p > strong:only-child) { background: #fcd5b4; font-weight: 700; text-align: center; }
 .laudo-previa img { display: block; max-width: 100%; height: auto; margin: 0.4em auto 1em; }
+
+/* ---- Botões do sistema: formato de pílula, brilho suave e foco visível (afeta só <button>, sem mexer em campos) ---- */
+button.bg-sage-deep:not(:disabled) {
+  background-image: linear-gradient(to right, var(--color-sage-deep), var(--color-sage));
+  box-shadow: 0 4px 12px -4px rgb(230 106 31 / 0.45);
+}
+button.bg-sage-deep,
+button.border-sage-deep:not(.-mb-px) {
+  border-radius: 9999px;
+  transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+}
+button.bg-sage-deep:not(:disabled):hover { filter: brightness(1.06); transform: translateY(-1px); }
+button.border-sage-deep:not(.-mb-px):not(:disabled):hover { background-color: rgb(230 106 31 / 0.08); }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  button.bg-sage-deep:not(:disabled):hover { transform: none; }
+}
