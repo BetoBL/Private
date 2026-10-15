@@ -7,6 +7,7 @@ import { DashboardResultados } from "../components/DashboardResultados";
 import { SalaVirtualComponent } from "../components/SalaVirtual";
 import { DiarioDoPaciente } from "../components/DiarioDoPaciente";
 import { EscalasDoPaciente } from "../components/EscalasDoPaciente";
+import { FormulariosDoPaciente } from "../components/FormulariosDoPaciente";
 import { ProntuarioDoPaciente } from "../components/ProntuarioDoPaciente";
 import { useAuth } from "../context/AuthContext";
 import { temModulo } from "../lib/profissoes";
@@ -25,7 +26,7 @@ import {
   type Sexo,
 } from "../lib/api";
 
-type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas";
+type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
@@ -39,7 +40,7 @@ export function FichaPaciente() {
   const [searchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
-  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
+  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
 
@@ -375,6 +376,7 @@ export function FichaPaciente() {
           ["dados", "Dados"],
           ["anamnese", "Anamnese"],
           ["prontuario", "Prontuário"],
+          ["formularios", "Formulários"],
           ["linha", "Linha do tempo"],
           ["dashboard", "Dashboard", "testes"],
           ["laudos", "Laudos", "laudos"],
@@ -396,6 +398,7 @@ export function FichaPaciente() {
       </div>
 
       {aba === "prontuario" && id && <ProntuarioDoPaciente pacienteId={id} />}
+      {aba === "formularios" && id && <FormulariosDoPaciente pacienteId={id} />}
       {aba === "escalas" && id && <EscalasDoPaciente pacienteId={id} />}
       {aba === "diario" && id && <DiarioDoPaciente pacienteId={id} />}
 

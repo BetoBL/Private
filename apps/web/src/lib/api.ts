@@ -429,6 +429,14 @@ export interface TipoAtendimento {
   atualizadoEm: string;
 }
 
+// ---- Formulários e anamneses ----
+export type TipoPergunta = "texto" | "escolha" | "multipla" | "escala" | "sim_nao" | "data";
+export interface PerguntaForm { id: string; tipo: TipoPergunta; rotulo: string; ajuda?: string; opcoes?: string[]; min?: number; max?: number; obrigatoria?: boolean }
+export interface ModeloForm { origem: "SISTEMA" | "PROPRIO"; ref: string; nome: string; descricao: string; tipo: "ANAMNESE" | "FORMULARIO"; perguntas: PerguntaForm[]; recomendado: boolean }
+export interface FormularioResumo { id: string; nome: string; tipo: string; modo: "LINK" | "AQUI"; status: "PENDENTE" | "RESPONDIDO"; respondidoPor: string | null; respondidoEm: string | null; criadoEm: string }
+export type RespostasForm = Record<string, string | string[] | number | boolean>;
+export interface FormularioDetalhe { id: string; nome: string; tipo: string; modo: string; status: string; perguntas: PerguntaForm[]; respostas: RespostasForm | null; respondidoPor: string | null; respondidoEm: string | null }
+
 // ---- Escalas de triagem ----
 export interface FaixaEscala { ate: number; rotulo: string; cor: "verde" | "amarelo" | "laranja" | "vermelho" }
 export interface EscalaResumo { codigo: string; nome: string; sigla: string; construto: string; uso: string; tempo: string; fonte: string; itens: number; frequenciaSugerida: string; notaClinica: string }
@@ -457,7 +465,7 @@ export interface CatalogoDiario {
 }
 export interface ConfigDiario { etapas: { pesos: boolean; impulso: boolean }; emocoesOcultas: string[] }
 export interface RegistroRecente { ocorridoEm: string; emocao: string; familia: string; intensidade: number }
-export interface DiarioPublico { paciente: string; clinica: string; profissional: string; catalogo: CatalogoDiario; recentes: RegistroRecente[]; escalas?: Array<{ id: string; nome: string; tempo: string; prazo: string }> }
+export interface DiarioPublico { paciente: string; clinica: string; profissional: string; catalogo: CatalogoDiario; recentes: RegistroRecente[]; formularios?: Array<{ id: string; nome: string; tipo: string }>; escalas?: Array<{ id: string; nome: string; tempo: string; prazo: string }> }
 export interface NovoCartao {
   ocorridoEm: string; emocao: string; intensidade: number; contexto?: string | null; notaContexto?: string | null; primeiraAcao?: string | null; pesos?: string[]; impulso?: string | null; acaoImpulso?: string | null; acoesQueAjudaram?: string[];
   ajudou?: string | null; notaCuidado?: string | null; fechamento?: string | null; levarParaSessao?: boolean; notaFinal?: string | null;
@@ -891,6 +899,18 @@ export const api = {
 
   criarSalaVirtual: (data: { sessaoId: string }) =>
     request<SalaVirtual>("/salas-virtuais", { method: "POST", body: JSON.stringify(data) }),
+  modelosFormulario: () => request<ModeloForm[]>("/formularios/modelos"),
+  criarModeloFormulario: (d: { nome: string; descricao?: string; tipo: string; perguntas: PerguntaForm[] }) => request<{ ref: string }>("/formularios/modelos", { method: "POST", body: JSON.stringify(d) }),
+  editarModeloFormulario: (id: string, d: { nome: string; descricao?: string; tipo: string; perguntas: PerguntaForm[] }) => request<{ ref: string }>(`/formularios/modelos/${id}`, { method: "PUT", body: JSON.stringify(d) }),
+  arquivarModeloFormulario: (id: string) => request<void>(`/formularios/modelos/${id}`, { method: "DELETE" }),
+  copiarModeloFormulario: (ref: string) => request<{ ref: string }>("/formularios/modelos/copiar", { method: "POST", body: JSON.stringify({ ref }) }),
+  formulariosDoPaciente: (pacienteId: string) => request<FormularioResumo[]>(`/formularios/paciente/${pacienteId}`),
+  solicitarFormulario: (d: { pacienteId: string; ref: string; modo: "LINK" | "AQUI" }) => request<{ id: string }>("/formularios/solicitar", { method: "POST", body: JSON.stringify(d) }),
+  detalheFormulario: (id: string) => request<FormularioDetalhe>(`/formularios/${id}`),
+  salvarRespostasFormulario: (id: string, respostas: RespostasForm, concluir: boolean) => request<{ status: string }>(`/formularios/${id}/respostas`, { method: "PUT", body: JSON.stringify({ respostas, concluir }) }),
+  apagarFormulario: (id: string) => request<void>(`/formularios/${id}`, { method: "DELETE" }),
+  formularioPublico: (segredo: string, id: string) => request<{ id: string; nome: string; perguntas: PerguntaForm[] }>(`/diario-publico/${segredo}/formularios/${id}`),
+  responderFormulario: (segredo: string, id: string, respostas: RespostasForm) => request<{ ok: boolean }>(`/diario-publico/${segredo}/formularios/${id}`, { method: "POST", body: JSON.stringify({ respostas }) }),
   catalogoEscalas: () => request<EscalaResumo[]>("/escalas/catalogo"),
   escalaCompleta: (codigo: string) => request<EscalaCompleta>(`/escalas/catalogo/${codigo}`),
   escalasDoPaciente: (pacienteId: string) => request<SolicitacaoEscala[]>(`/escalas/paciente/${pacienteId}`),

@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-10-15] Formulários e anamneses para qualquer profissional
+
+**Ainda NÃO publicado.**
+- **Aba Formulários** na ficha (todos os tipos de profissional): biblioteca com **5 modelos do sistema** (anamnese geral de saúde, psicológica adulto, infantil para o responsável, de reabilitação e nutricional; os da sua profissão aparecem primeiro, marcados "para você") e os **seus modelos**. Qualquer modelo pode ser **copiado e editado**; há **editor** de modelo (nome, tipo, perguntas de texto, uma opção, várias opções, escala numérica, sim ou não e data; obrigatória, dica, ordem) e **arquivar** (esconde, sem perder o que já foi respondido).
+- **Pedir ao paciente por link** (ele responde na tela do Diário, em celular) ou **preencher na sessão** (salva rascunho e conclui depois). O pedido guarda uma **cópia das perguntas**: mudar o modelo depois não altera o que já foi respondido. Respostas validadas (opção fora da lista, escala fora do intervalo, obrigatória em branco, data inválida são recusadas); paciente não responde duas vezes.
+- Respostas ficam na ficha, com quem respondeu (paciente ou profissional) e quando; só o profissional responsável (ou o administrador) lê.
+- O que já existia (anamnese fixa da avaliação neuropsicológica, que alimenta o laudo) continua igual, na aba Anamnese.
+- Verificado: 189 testes passam (4 novos), 22 checagens de API ponta a ponta (inclui permissões entre profissionais e modelos de outro profissional) e telas conferidas. Migration `formularios` (só local).
+
 ## [2026-10-15] Diário v2: textos próprios, etapas opcionais e personalização por paciente
 
 **Ainda NÃO publicado.**

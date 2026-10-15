@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { api, type DiarioPublico, type EscalaParaResponder, type NovoCartao } from "../lib/api";
+import { api, type DiarioPublico, type EscalaParaResponder, type NovoCartao, type PerguntaForm, type RespostasForm } from "../lib/api";
+import { CamposFormulario } from "../components/CamposFormulario";
 import { corDaFamilia, FACE_INTENSIDADE, ICONE, ROTULO_INTENSIDADE } from "../lib/diarioCores";
 
 // Cartão Diário, lado do paciente: um registro breve entre as sessões, em 6 passos, feito no celular pelo link que o(a) psicólogo(a) gerou.
@@ -48,6 +49,9 @@ export function DiarioDoPacienteTela() {
   const [passo, setPasso] = useState(0); // 0 = início, 1..N = etapas (ver `ordem`), N+1 = pronto
   const [c, setC] = useState<NovoCartao>({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], pesos: [], levarParaSessao: false });
   const [enviando, setEnviando] = useState(false);
+  const [form, setForm] = useState<{ id: string; nome: string; perguntas: PerguntaForm[] } | null>(null);
+  const [respForm, setRespForm] = useState<RespostasForm>({});
+  const [formFeito, setFormFeito] = useState(false);
   const [escala, setEscala] = useState<EscalaParaResponder | null>(null);
   const [respEscala, setRespEscala] = useState<Record<string, number>>({});
   const [escalaFeita, setEscalaFeita] = useState<{ cuidado: string | null } | null>(null);
@@ -73,6 +77,14 @@ export function DiarioDoPacienteTela() {
     setErro(null); setEnviando(true);
     try { setResposta(await api.enviarCartao(segredo, c)); setPasso(total + 1); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
   }
+  async function abrirForm(id: string) { if (!segredo) return; setErro(null); try { setForm(await api.formularioPublico(segredo, id)); setRespForm({}); setFormFeito(false); window.scrollTo(0, 0); } catch (e) { setErro((e as Error).message); } }
+  async function enviarForm() {
+    if (!segredo || !form) return;
+    const faltam = form.perguntas.filter((p) => p.obrigatoria && (respForm[p.id] === undefined)).length;
+    if (faltam) { setErro(faltam === 1 ? "Falta responder 1 pergunta obrigatória (marcada com *)." : `Faltam ${faltam} perguntas obrigatórias (marcadas com *).`); return; }
+    setErro(null); setEnviando(true);
+    try { await api.responderFormulario(segredo, form.id, respForm); setFormFeito(true); api.diarioPublico(segredo).then(setInfo).catch(() => undefined); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
+  }
   async function abrirEscala(id: string) { if (!segredo) return; setErro(null); try { setEscala(await api.escalaPublica(segredo, id)); setRespEscala({}); setEscalaFeita(null); window.scrollTo(0, 0); } catch (e) { setErro((e as Error).message); } }
   async function enviarEscala() {
     if (!segredo || !escala) return;
@@ -84,6 +96,31 @@ export function DiarioDoPacienteTela() {
   function novo() { setC({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], pesos: [], levarParaSessao: false }); setResposta(null); setPasso(0); if (segredo) api.diarioPublico(segredo).then(setInfo).catch(() => undefined); }
 
   if (erro && !info) return <div className="mx-auto max-w-md px-5 py-16"><div className="rounded-3xl border border-ember/30 bg-ember/10 p-6 text-center text-ember">{erro}</div></div>;
+  if (form) {
+    return (
+      <div className="mx-auto min-h-screen max-w-md px-5 pb-28 pt-6" style={{ background: "linear-gradient(180deg, #F3DCC8 0%, #FBF6F0 38%, #F4EFF8 100%)" }}>
+        {formFeito ? (
+          <div>
+            <div className="text-6xl">✅</div>
+            <h1 className="mt-2 font-serif text-3xl text-ink">Obrigado por responder</h1>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink/70">Suas respostas foram enviadas para {info?.profissional}.</p>
+            <button className="mt-6 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper" onClick={() => { setForm(null); setFormFeito(false); }}>Voltar ao início</button>
+          </div>
+        ) : (
+          <div>
+            <button className="mb-4 text-sm font-semibold text-sage-deep" onClick={() => setForm(null)}>← Voltar</button>
+            <h1 className="font-serif text-2xl text-ink">{form.nome}</h1>
+            <p className="mt-2 text-sm text-ink/60">Responda no seu ritmo. Só {info?.profissional} lê estas respostas.</p>
+            {erro && <div className="mt-4 rounded-2xl border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
+            <div className="mt-5 rounded-2xl bg-white/80 p-4 shadow-sm"><CamposFormulario perguntas={form.perguntas} respostas={respForm} onChange={setRespForm} compacto /></div>
+            <div className="fixed inset-x-0 bottom-0 mx-auto max-w-md bg-white/90 px-5 py-3 shadow-[0_-6px_20px_rgba(0,0,0,0.06)] backdrop-blur" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
+              <button className="w-full rounded-full bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={enviando} onClick={enviarForm}>{enviando ? "Enviando…" : "Enviar respostas"}</button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
   if (escala) {
     return (
       <div className="mx-auto min-h-screen max-w-md px-5 pb-28 pt-6" style={{ background: "linear-gradient(180deg, #F3DCC8 0%, #FBF6F0 38%, #F4EFF8 100%)" }}>
@@ -152,6 +189,12 @@ export function DiarioDoPacienteTela() {
             <h1 className="font-serif text-3xl text-ink">Oi, {info.paciente}!</h1>
             <p className="mt-1 text-sm text-ink/55">{info.clinica}</p>
             <p className="mt-4 text-[16px] leading-relaxed text-ink/80">Como você está agora? Leva cerca de um minuto, e quase tudo é só tocar numa opção. Seus registros ajudam {info.profissional} a entender como foram os seus dias entre as consultas. 💛</p>
+            {(info.formularios?.length ?? 0) > 0 && (
+              <div className="mt-6 rounded-2xl border-2 border-sage-deep/30 bg-white/80 p-4">
+                <div className="text-xs font-bold uppercase tracking-widest text-sage-deep">Formulários para você</div>
+                <ul className="mt-2 space-y-2">{info.formularios!.map((f) => <li key={f.id}><button className="flex w-full items-center justify-between rounded-xl bg-paper px-3 py-3 text-left text-sm" onClick={() => abrirForm(f.id)}><span className="font-semibold text-ink">{f.nome}</span><span className="text-sage-deep">Responder →</span></button></li>)}</ul>
+              </div>
+            )}
             {(info.escalas?.length ?? 0) > 0 && (
               <div className="mt-6 rounded-2xl border-2 border-sage-deep/30 bg-white/80 p-4">
                 <div className="text-xs font-bold uppercase tracking-widest text-sage-deep">{info.profissional} pediu para você</div>

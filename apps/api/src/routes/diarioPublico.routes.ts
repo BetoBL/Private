@@ -5,6 +5,7 @@ import { escalaPorCodigo } from "../lib/escalas/definicoes";
 import { validarRespostas } from "../lib/escalas/pontuar";
 import { prisma } from "../lib/prisma";
 import { registrarResposta } from "./escalas.routes";
+import { registrarRespostaFormulario } from "./formularios.routes";
 import { asyncHandler, validateBody } from "../lib/validate";
 
 // Diário do paciente, lado do PACIENTE: sem login, protegido pelo segredo do link que o psicólogo gerou.
@@ -42,7 +43,8 @@ diarioPublicoRouter.get("/:segredo", asyncHandler(async (req, res) => {
   const hoje = new Date(`${new Date().toISOString().slice(0, 10)}T00:00:00.000Z`);
   const pendentes = await prisma.solicitacaoEscala.findMany({ where: { pacienteId: r.a.pacienteId, status: "PENDENTE", excluidaEm: null, prazo: { lte: hoje } }, orderBy: { prazo: "asc" }, take: 10 });
   const escalas = pendentes.map((s) => ({ id: s.id, nome: escalaPorCodigo(s.escala)?.nome ?? s.escala, tempo: escalaPorCodigo(s.escala)?.tempo ?? "", prazo: s.prazo.toISOString().slice(0, 10) }));
-  res.json({ paciente: (r.paciente?.nome ?? "").split(" ")[0], clinica: r.clinica?.nomeFantasia || r.clinica?.razaoSocial || "", profissional: r.profissional?.nome ?? "", catalogo: catalogoParaPaciente(cfg), recentes, escalas });
+  const forms = await prisma.formularioPaciente.findMany({ where: { pacienteId: r.a.pacienteId, modo: "LINK", status: "PENDENTE", excluidoEm: null }, orderBy: { criadoEm: "asc" }, take: 10, select: { id: true, nome: true, tipo: true } });
+  res.json({ formularios: forms, paciente: (r.paciente?.nome ?? "").split(" ")[0], clinica: r.clinica?.nomeFantasia || r.clinica?.razaoSocial || "", profissional: r.profissional?.nome ?? "", catalogo: catalogoParaPaciente(cfg), recentes, escalas });
 }));
 
 // Escalas pedidas pelo profissional. O paciente vê as perguntas e responde; NUNCA recebe pontuação nem faixa (só um cuidado, se houver sinal de risco).
@@ -66,6 +68,22 @@ diarioPublicoRouter.post("/:segredo/escalas/:id", validateBody(z.object({ respos
   const feito = await registrarResposta(s.id, req.body.respostas);
   if (!feito) { res.status(409).json({ error: "Esta escala já foi respondida." }); return; }
   res.status(201).json({ ok: true, cuidado: feito.resultado.alertaRisco ? AVISO_SEGURANCA.intenso : null });
+}));
+
+// Formulários e anamneses pedidos pelo profissional (o paciente responde pelo mesmo link).
+diarioPublicoRouter.get("/:segredo/formularios/:id", asyncHandler(async (req, res) => {
+  const r = await acessoDoLink(req.params.segredo);
+  if (!r) { naoEncontrado(res); return; }
+  const f = await prisma.formularioPaciente.findFirst({ where: { id: req.params.id, pacienteId: r.a.pacienteId, modo: "LINK", status: "PENDENTE", excluidoEm: null } });
+  if (!f) { res.status(404).json({ error: "Este formulário não está mais disponível." }); return; }
+  res.json({ id: f.id, nome: f.nome, perguntas: f.perguntas });
+}));
+diarioPublicoRouter.post("/:segredo/formularios/:id", validateBody(z.object({ respostas: z.unknown() })), asyncHandler(async (req, res) => {
+  const r = await acessoDoLink(req.params.segredo);
+  if (!r) { naoEncontrado(res); return; }
+  const feito = await registrarRespostaFormulario(req.params.id, r.a.pacienteId, req.body.respostas);
+  if ("erro" in feito) { res.status(feito.erro === "invalido" ? 400 : 404).json({ error: feito.erro === "invalido" ? feito.erros?.[0] : "Este formulário não está mais disponível.", erros: feito.erro === "invalido" ? feito.erros : undefined }); return; }
+  res.status(201).json({ ok: true });
 }));
 
 const corpo = z.object({

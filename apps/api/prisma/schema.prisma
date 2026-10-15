@@ -159,6 +159,8 @@ model Profissional {
   evolucoes         Evolucao[]
   itensContinuidade ItemContinuidade[]
   solicitacoesEscala SolicitacaoEscala[]
+  modelosFormulario ModeloFormulario[]
+  formularios       FormularioPaciente[]
 
   criadoEm          DateTime          @default(now())
 }
@@ -228,6 +230,7 @@ model Paciente {
   evolucoes       Evolucao[]
   itensContinuidade ItemContinuidade[]
   solicitacoesEscala SolicitacaoEscala[]
+  formularios     FormularioPaciente[]
 
   // Conformidade Resolução CFP nº 09/2024: paciente deve ser informado sobre
   // recursos tecnológicos usados (incluindo IA) e, no caso de IA, idealmente consentir
@@ -887,4 +890,43 @@ model ConfigDiario {
   etapas         Json
   emocoesOcultas String[] @default([])
   atualizadoEm   DateTime @updatedAt
+}
+
+// Modelo próprio de formulário ou anamnese (os do sistema ficam em lib/formularios). Perguntas em JSON; arquivar = esconder.
+model ModeloFormulario {
+  id             String       @id @default(uuid())
+  clinicaId      String
+  profissionalId String
+  profissional   Profissional @relation(fields: [profissionalId], references: [id])
+  nome           String
+  descricao      String?
+  tipo           String       @default("FORMULARIO") // ANAMNESE | FORMULARIO
+  perguntas      Json
+  copiadoDe      String?
+  arquivadoEm    DateTime?
+  criadoEm       DateTime     @default(now())
+  atualizadoEm   DateTime     @updatedAt
+}
+
+// Formulário/anamnese pedido a um paciente (ou preenchido na sessão). Guarda uma CÓPIA das perguntas, então mudar o modelo depois não altera o que já foi respondido.
+model FormularioPaciente {
+  id             String       @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  paciente       Paciente     @relation(fields: [pacienteId], references: [id])
+  profissionalId String
+  profissional   Profissional @relation(fields: [profissionalId], references: [id])
+  nome           String
+  tipo           String       @default("FORMULARIO")
+  modeloRef      String       // "sistema:CHAVE" ou id de ModeloFormulario
+  perguntas      Json
+  respostas      Json?
+  modo           String       @default("LINK") // LINK (o paciente responde) | AQUI (preenchido na sessão)
+  status         String       @default("PENDENTE") // PENDENTE | RESPONDIDO
+  respondidoPor  String?      // PACIENTE | PROFISSIONAL
+  respondidoEm   DateTime?
+  excluidoEm     DateTime?
+  criadoEm       DateTime     @default(now())
+
+  @@index([pacienteId, status])
 }
