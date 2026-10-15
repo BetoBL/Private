@@ -797,6 +797,10 @@ model CartaoDiario {
 
   lidoEm        DateTime? // o profissional viu
   conversadoEm  DateTime? // o profissional marcou como conversado na sessão
+  pesos         String[] @default([])  // o que pesou no dia (v2)
+  impulso       String?
+  acaoImpulso   String?
+
   versaoCatalogo String
 
   @@index([pacienteId, ocorridoEm])
@@ -873,4 +877,14 @@ model SolicitacaoEscala {
   criadoEm       DateTime     @default(now())
 
   @@index([pacienteId, status])
+}
+
+// Configuração do Diário por paciente: quais etapas opcionais aparecem e quais emoções ficam escondidas.
+model ConfigDiario {
+  id             String   @id @default(uuid())
+  clinicaId      String
+  pacienteId     String   @unique
+  etapas         Json
+  emocoesOcultas String[] @default([])
+  atualizadoEm   DateTime @updatedAt
 }

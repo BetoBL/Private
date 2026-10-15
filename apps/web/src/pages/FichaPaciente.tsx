@@ -370,7 +370,7 @@ export function FichaPaciente() {
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {mensagem && <div className="mb-6 rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}
 
-      <div className="mb-6 flex gap-1 overflow-x-auto whitespace-nowrap border-b border-mist">
+      <div className="mb-6 flex gap-1 overflow-x-auto overflow-y-hidden whitespace-nowrap border-b border-mist">
         {([
           ["dados", "Dados"],
           ["anamnese", "Anamnese"],

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
-import { AVISO_SEGURANCA, CATALOGO, familiaDaEmocao, FAMILIAS, sofrimentoIntenso, validarCartao, VERSAO_CATALOGO } from "../lib/diario/catalogo";
+import { AVISO_SEGURANCA, catalogoParaPaciente, familiaDaEmocao, FAMILIAS, normalizarConfig, sofrimentoIntenso, validarCartao, VERSAO_CATALOGO } from "../lib/diario/catalogo";
 import { escalaPorCodigo } from "../lib/escalas/definicoes";
 import { validarRespostas } from "../lib/escalas/pontuar";
 import { prisma } from "../lib/prisma";
@@ -37,10 +37,12 @@ diarioPublicoRouter.get("/:segredo", asyncHandler(async (req, res) => {
   if (!r) { naoEncontrado(res); return; }
   await prisma.acessoDiario.update({ where: { id: r.a.id }, data: { ultimoUsoEm: new Date() } });
   const recentes = await prisma.cartaoDiario.findMany({ where: { pacienteId: r.a.pacienteId }, orderBy: [{ ocorridoEm: "desc" }, { registradoEm: "desc" }], take: 14, select: { ocorridoEm: true, emocao: true, familia: true, intensidade: true } });
+  const cfgBanco = await prisma.configDiario.findUnique({ where: { pacienteId: r.a.pacienteId } });
+  const cfg = normalizarConfig(cfgBanco ? { etapas: cfgBanco.etapas, emocoesOcultas: cfgBanco.emocoesOcultas } : null);
   const hoje = new Date(`${new Date().toISOString().slice(0, 10)}T00:00:00.000Z`);
   const pendentes = await prisma.solicitacaoEscala.findMany({ where: { pacienteId: r.a.pacienteId, status: "PENDENTE", excluidaEm: null, prazo: { lte: hoje } }, orderBy: { prazo: "asc" }, take: 10 });
   const escalas = pendentes.map((s) => ({ id: s.id, nome: escalaPorCodigo(s.escala)?.nome ?? s.escala, tempo: escalaPorCodigo(s.escala)?.tempo ?? "", prazo: s.prazo.toISOString().slice(0, 10) }));
-  res.json({ paciente: (r.paciente?.nome ?? "").split(" ")[0], clinica: r.clinica?.nomeFantasia || r.clinica?.razaoSocial || "", profissional: r.profissional?.nome ?? "", catalogo: CATALOGO, recentes, escalas });
+  res.json({ paciente: (r.paciente?.nome ?? "").split(" ")[0], clinica: r.clinica?.nomeFantasia || r.clinica?.razaoSocial || "", profissional: r.profissional?.nome ?? "", catalogo: catalogoParaPaciente(cfg), recentes, escalas });
 }));
 
 // Escalas pedidas pelo profissional. O paciente vê as perguntas e responde; NUNCA recebe pontuação nem faixa (só um cuidado, se houver sinal de risco).
@@ -69,7 +71,7 @@ diarioPublicoRouter.post("/:segredo/escalas/:id", validateBody(z.object({ respos
 const corpo = z.object({
   ocorridoEm: z.string(), emocao: z.string(), intensidade: z.number().int(),
   contexto: z.string().nullable().optional(), notaContexto: z.string().max(1200).nullable().optional(),
-  primeiraAcao: z.string().nullable().optional(), acoesQueAjudaram: z.array(z.string()).max(12).optional(), ajudou: z.string().nullable().optional(), notaCuidado: z.string().max(1200).nullable().optional(),
+  primeiraAcao: z.string().nullable().optional(), pesos: z.array(z.string()).max(12).optional(), impulso: z.string().nullable().optional(), acaoImpulso: z.string().nullable().optional(), acoesQueAjudaram: z.array(z.string()).max(12).optional(), ajudou: z.string().nullable().optional(), notaCuidado: z.string().max(1200).nullable().optional(),
   fechamento: z.string().nullable().optional(), levarParaSessao: z.boolean().optional(), notaFinal: z.string().max(1200).nullable().optional(),
 });
 
@@ -86,7 +88,7 @@ diarioPublicoRouter.post("/:segredo/cartoes", validateBody(corpo), asyncHandler(
   const c = await prisma.cartaoDiario.create({
     data: {
       clinicaId: r.a.clinicaId, pacienteId: r.a.pacienteId, ocorridoEm: new Date(`${req.body.ocorridoEm}T00:00:00.000Z`), emocao: req.body.emocao, familia, intensidade: req.body.intensidade,
-      contexto: req.body.contexto ?? null, notaContexto: t(req.body.notaContexto), primeiraAcao: req.body.primeiraAcao ?? null, acoesQueAjudaram: req.body.acoesQueAjudaram ?? [], ajudou: req.body.ajudou ?? null, notaCuidado: t(req.body.notaCuidado),
+      contexto: req.body.contexto ?? null, notaContexto: t(req.body.notaContexto), primeiraAcao: req.body.primeiraAcao ?? null, pesos: req.body.pesos ?? [], impulso: req.body.impulso ?? null, acaoImpulso: req.body.acaoImpulso ?? null, acoesQueAjudaram: req.body.acoesQueAjudaram ?? [], ajudou: req.body.ajudou ?? null, notaCuidado: t(req.body.notaCuidado),
       fechamento: req.body.fechamento ?? null, levarParaSessao: !!req.body.levarParaSessao, notaFinal: t(req.body.notaFinal), versaoCatalogo: VERSAO_CATALOGO,
     },
   });

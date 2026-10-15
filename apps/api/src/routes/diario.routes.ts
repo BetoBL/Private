@@ -2,7 +2,7 @@ import { randomBytes } from "node:crypto";
 import type { Request } from "express";
 import { Router } from "express";
 import { z } from "zod";
-import { CATALOGO } from "../lib/diario/catalogo";
+import { CATALOGO, CONFIG_PADRAO, normalizarConfig } from "../lib/diario/catalogo";
 import { resumirCartoes } from "../lib/diario/resumo";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
@@ -22,6 +22,20 @@ async function pacienteDoUsuario(req: Request, pacienteId: string) {
 const linkDoDiario = (req: Request, segredo: string) => `${baseDoSite(req)}/diario/${segredo}`;
 
 diarioRouter.get("/catalogo", (_req, res) => { res.json(CATALOGO); });
+
+// Configuração por paciente: etapas opcionais e emoções escondidas (valem para os próximos registros).
+diarioRouter.get("/config/:pacienteId", asyncHandler(async (req, res) => {
+  if (!(await pacienteDoUsuario(req, req.params.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
+  const c = await prisma.configDiario.findUnique({ where: { pacienteId: req.params.pacienteId } });
+  res.json(c ? normalizarConfig({ etapas: c.etapas, emocoesOcultas: c.emocoesOcultas }) : CONFIG_PADRAO);
+}));
+diarioRouter.put("/config/:pacienteId", validateBody(z.object({ etapas: z.object({ pesos: z.boolean(), impulso: z.boolean() }), emocoesOcultas: z.array(z.string()).max(40) })), asyncHandler(async (req, res) => {
+  if (!(await pacienteDoUsuario(req, req.params.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
+  const cfg = normalizarConfig(req.body);
+  const dados = { etapas: cfg.etapas as object, emocoesOcultas: cfg.emocoesOcultas };
+  await prisma.configDiario.upsert({ where: { pacienteId: req.params.pacienteId }, create: { pacienteId: req.params.pacienteId, clinicaId: u(req).clinicaId, ...dados }, update: dados });
+  res.json(cfg);
+}));
 
 // ---- acesso do paciente ----
 diarioRouter.get("/acessos/:pacienteId", asyncHandler(async (req, res) => {

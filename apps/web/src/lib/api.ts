@@ -452,13 +452,14 @@ export interface ItemContinuidade { id: string; pacienteId: string; evolucaoId: 
 export interface OpcaoDiario { chave: string; rotulo: string }
 export interface FamiliaDiario { chave: string; rotulo: string; descricao: string; apoio: string[] }
 export interface CatalogoDiario {
-  versao: string; familias: FamiliaDiario[]; emocoes: Array<OpcaoDiario & { familia: string }>; contextos: OpcaoDiario[]; primeirasAcoes: OpcaoDiario[]; acoesQueAjudaram: OpcaoDiario[]; ajudou: OpcaoDiario[]; fechamentos: OpcaoDiario[];
+  versao: string; familias: FamiliaDiario[]; emocoes: Array<OpcaoDiario & { familia: string }>; contextos: OpcaoDiario[]; primeirasAcoes: OpcaoDiario[]; pesosDoDia: OpcaoDiario[]; acoesQueAjudaram: OpcaoDiario[]; ajudou: OpcaoDiario[]; impulsos: OpcaoDiario[]; acoesDoImpulso: OpcaoDiario[]; fechamentos: OpcaoDiario[]; etapas?: { pesos: boolean; impulso: boolean };
   aviso: { curto: string; intenso: string };
 }
+export interface ConfigDiario { etapas: { pesos: boolean; impulso: boolean }; emocoesOcultas: string[] }
 export interface RegistroRecente { ocorridoEm: string; emocao: string; familia: string; intensidade: number }
 export interface DiarioPublico { paciente: string; clinica: string; profissional: string; catalogo: CatalogoDiario; recentes: RegistroRecente[]; escalas?: Array<{ id: string; nome: string; tempo: string; prazo: string }> }
 export interface NovoCartao {
-  ocorridoEm: string; emocao: string; intensidade: number; contexto?: string | null; notaContexto?: string | null; primeiraAcao?: string | null; acoesQueAjudaram?: string[];
+  ocorridoEm: string; emocao: string; intensidade: number; contexto?: string | null; notaContexto?: string | null; primeiraAcao?: string | null; pesos?: string[]; impulso?: string | null; acaoImpulso?: string | null; acoesQueAjudaram?: string[];
   ajudou?: string | null; notaCuidado?: string | null; fechamento?: string | null; levarParaSessao?: boolean; notaFinal?: string | null;
 }
 export interface CartaoDiario extends Required<Omit<NovoCartao, "ocorridoEm">> { id: string; ocorridoEm: string; registradoEm: string; familia: string; lidoEm: string | null; conversadoEm: string | null }
@@ -912,6 +913,8 @@ export const api = {
   criarItemContinuidade: (d: { pacienteId: string; tipo: "PLANO" | "TOPICO"; texto: string; evolucaoId?: string | null }) => request<ItemContinuidade>("/continuidade", { method: "POST", body: JSON.stringify(d) }),
   editarItemContinuidade: (id: string, d: Partial<{ texto: string; status: "ANDAMENTO" | "CONCLUIDO" }>) => request<ItemContinuidade>(`/continuidade/${id}`, { method: "PUT", body: JSON.stringify(d) }),
   excluirItemContinuidade: (id: string) => request<void>(`/continuidade/${id}`, { method: "DELETE" }),
+  configDiario: (pacienteId: string) => request<ConfigDiario>(`/diario/config/${pacienteId}`),
+  salvarConfigDiario: (pacienteId: string, c: ConfigDiario) => request<ConfigDiario>(`/diario/config/${pacienteId}`, { method: "PUT", body: JSON.stringify(c) }),
   catalogoDiario: () => request<CatalogoDiario>("/diario/catalogo"),
   acessoDiario: (pacienteId: string) => request<AcessoDiario>(`/diario/acessos/${pacienteId}`),
   gerarAcessoDiario: (pacienteId: string) => request<AcessoDiario>("/diario/acessos", { method: "POST", body: JSON.stringify({ pacienteId }) }),

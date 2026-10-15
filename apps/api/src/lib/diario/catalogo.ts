@@ -2,7 +2,7 @@
 // emocional em geral, sem copiar nenhum produto). Os apoios por família e a lista de emoções e ações PRECISAM de revisão da psicóloga
 // responsável antes do uso com pacientes. Mudou o catálogo? Suba a VERSAO: cada cartão guarda a versão em que foi respondido.
 
-export const VERSAO_CATALOGO = "v1-2026-10";
+export const VERSAO_CATALOGO = "v2-2026-10";
 
 export interface Opcao { chave: string; rotulo: string }
 export interface Familia { chave: string; rotulo: string; descricao: string; apoio: string[] }
@@ -29,31 +29,58 @@ export const EMOCOES: Emocao[] = [
   { chave: "desligamento", rotulo: "Desligamento", familia: "distante" }, { chave: "entorpecimento", rotulo: "Entorpecimento", familia: "distante" },
 ];
 
+// Textos da versão v2: escritos para este sistema, em linguagem simples. As CHAVES não mudam (registros antigos continuam legíveis).
 export const CONTEXTOS: Opcao[] = [
-  { chave: "pensamento", rotulo: "Veio de um pensamento" }, { chave: "corpo", rotulo: "Veio do corpo" }, { chave: "ambiente", rotulo: "Ambiente, trabalho ou estudo" },
-  { chave: "relacao", rotulo: "Relação com alguém" }, { chave: "aconteceu", rotulo: "Aconteceu alguma coisa" }, { chave: "nao_sei", rotulo: "Não sei" },
+  { chave: "pensamento", rotulo: "Um pensamento que não largava" }, { chave: "corpo", rotulo: "Uma sensação no corpo" }, { chave: "ambiente", rotulo: "O lugar onde eu estava (casa, trabalho, estudo)" },
+  { chave: "relacao", rotulo: "Algo com uma pessoa" }, { chave: "aconteceu", rotulo: "Um fato específico do dia" }, { chave: "nao_sei", rotulo: "Não sei dizer" },
 ];
+// legado da v1 (não é mais oferecido ao paciente, mas registros antigos guardam essas chaves)
 export const PRIMEIRAS_ACOES: Opcao[] = [
   { chave: "acalmar_corpo", rotulo: "Tentei acalmar o corpo" }, { chave: "nao_agir", rotulo: "Tentei não agir no impulso" }, { chave: "apoio", rotulo: "Procurei apoio" },
   { chave: "aguentei", rotulo: "Só aguentei até passar" }, { chave: "nada", rotulo: "Não consegui fazer nada" },
 ];
 export const ACOES_QUE_AJUDARAM: Opcao[] = [
-  { chave: "respiracao", rotulo: "Respiração" }, { chave: "grounding", rotulo: "Aterramento (olhar e nomear o que está à volta)" }, { chave: "reduzir_estimulo", rotulo: "Reduzir estímulos" },
-  { chave: "parar_pensar", rotulo: "Parar e pensar antes de agir" }, { chave: "checar_fatos", rotulo: "Checar os fatos" }, { chave: "autovalidacao", rotulo: "Acolher a mim mesmo" },
-  { chave: "sentidos", rotulo: "Usar os sentidos" }, { chave: "presenca_corporal", rotulo: "Presença no corpo" }, { chave: "rotina_minima", rotulo: "Rotina mínima" }, { chave: "contato", rotulo: "Contato com alguém" },
+  { chave: "respiracao", rotulo: "Respirei com calma" }, { chave: "grounding", rotulo: "Olhei e nomeei o que está ao meu redor" }, { chave: "reduzir_estimulo", rotulo: "Diminuí barulho, telas ou estímulos" },
+  { chave: "parar_pensar", rotulo: "Parei antes de reagir" }, { chave: "checar_fatos", rotulo: "Separei o que é fato do que é pensamento" }, { chave: "autovalidacao", rotulo: "Falei comigo com gentileza" },
+  { chave: "sentidos", rotulo: "Usei os sentidos (cheiro, toque, sabor)" }, { chave: "presenca_corporal", rotulo: "Mexi o corpo (caminhar, alongar)" }, { chave: "rotina_minima", rotulo: "Cuidei de uma tarefa simples da rotina" },
+  { chave: "contato", rotulo: "Procurei alguém" }, { chave: "anotei", rotulo: "Anotei o que me ajudou" },
 ];
-export const AJUDOU: Opcao[] = [{ chave: "NAO", rotulo: "Não" }, { chave: "POUCO", rotulo: "Um pouco" }, { chave: "AJUDOU", rotulo: "Ajudou" }, { chave: "MUITO", rotulo: "Ajudou muito" }];
+export const AJUDOU: Opcao[] = [{ chave: "NAO", rotulo: "Não fez diferença" }, { chave: "POUCO", rotulo: "Aliviou um pouco" }, { chave: "AJUDOU", rotulo: "Ajudou" }, { chave: "MUITO", rotulo: "Foi um grande alívio" }];
 export const FECHAMENTOS: Opcao[] = [
-  { chave: "passei", rotulo: "Consegui passar por isso" }, { chave: "observar", rotulo: "Preciso observar esse padrão" }, { chave: "uma_coisa", rotulo: "Uma coisa ajudou" },
-  { chave: "falar_sessao", rotulo: "Quero falar disso na sessão" }, { chave: "mais_dificil", rotulo: "Foi mais difícil do que parecia" }, { chave: "outro", rotulo: "Outro" },
+  { chave: "passei", rotulo: "Hoje foi um passo e eu sigo" }, { chave: "observar", rotulo: "Quero ficar de olho nisso" }, { chave: "uma_coisa", rotulo: "Descobri algo que me ajuda" },
+  { chave: "falar_sessao", rotulo: "Quero levar isso para a conversa" }, { chave: "mais_dificil", rotulo: "Foi pesado e precisei de mais cuidado" }, { chave: "outro", rotulo: "Outro" },
 ];
+// novas na v2: o que pesou no dia (multi) e, opcional, o impulso e o que se fez com ele
+export const PESOS_DO_DIA: Opcao[] = [
+  { chave: "sono", rotulo: "Dormi pouco ou mal" }, { chave: "comida", rotulo: "Comi mal ou pulei refeições" }, { chave: "corpo_cansado", rotulo: "Corpo cansado ou com dor" },
+  { chave: "demanda", rotulo: "Muita coisa para dar conta" }, { chave: "atrito", rotulo: "Atrito com alguém" }, { chave: "sozinho", rotulo: "Passei muito tempo sozinho(a)" },
+  { chave: "sem_rotina", rotulo: "Dia sem rotina" }, { chave: "saude", rotulo: "Mudança de saúde ou de medicação" }, { chave: "lembranca", rotulo: "Lembrei de algo difícil" }, { chave: "nenhum", rotulo: "Nenhum desses" },
+];
+export const IMPULSOS: Opcao[] = [
+  { chave: "afastar", rotulo: "Vontade de me afastar de tudo" }, { chave: "discutir", rotulo: "Vontade de discutir ou me impor" }, { chave: "automatico", rotulo: "Vontade de comer, comprar ou fazer algo no automático" },
+  { chave: "insistir", rotulo: "Vontade de insistir com alguém" }, { chave: "substancia", rotulo: "Vontade de usar álcool ou outra substância" }, { chave: "outro", rotulo: "Outra vontade" }, { chave: "nenhum", rotulo: "Nenhuma vontade forte" },
+];
+export const ACOES_DO_IMPULSO: Opcao[] = [{ chave: "segurei", rotulo: "Consegui segurar" }, { chave: "parei", rotulo: "Comecei e parei no meio" }, { chave: "fiz", rotulo: "Acabei fazendo" }];
+
+// Configuração por paciente: o profissional escolhe quais etapas opcionais aparecem e esconde emoções que não quer oferecer.
+export interface ConfigDiario { etapas: { pesos: boolean; impulso: boolean }; emocoesOcultas: string[] }
+export const CONFIG_PADRAO: ConfigDiario = { etapas: { pesos: true, impulso: false }, emocoesOcultas: [] };
+export function normalizarConfig(c: unknown): ConfigDiario {
+  const o = c && typeof c === "object" ? (c as Record<string, unknown>) : {};
+  const e = (o.etapas && typeof o.etapas === "object" ? o.etapas : {}) as Record<string, unknown>;
+  const ocultas = Array.isArray(o.emocoesOcultas) ? (o.emocoesOcultas as unknown[]).filter((x): x is string => typeof x === "string" && EMOCOES.some((m) => m.chave === x)) : [];
+  return { etapas: { pesos: typeof e.pesos === "boolean" ? e.pesos : CONFIG_PADRAO.etapas.pesos, impulso: typeof e.impulso === "boolean" ? e.impulso : CONFIG_PADRAO.etapas.impulso }, emocoesOcultas: ocultas };
+}
 
 export const AVISO_SEGURANCA = {
   curto: "Este cartão não é um canal de emergência e o(a) profissional não o acompanha em tempo real.",
   intenso: "Se você estiver em sofrimento intenso ou pensando em se machucar, procure ajuda agora: ligue 188 (CVV, 24 horas, gratuito) ou 192 (SAMU), ou vá ao pronto-atendimento mais próximo.",
 };
 
-export const CATALOGO = { versao: VERSAO_CATALOGO, familias: FAMILIAS, emocoes: EMOCOES, contextos: CONTEXTOS, primeirasAcoes: PRIMEIRAS_ACOES, acoesQueAjudaram: ACOES_QUE_AJUDARAM, ajudou: AJUDOU, fechamentos: FECHAMENTOS, aviso: AVISO_SEGURANCA };
+export const CATALOGO = { versao: VERSAO_CATALOGO, familias: FAMILIAS, emocoes: EMOCOES, contextos: CONTEXTOS, primeirasAcoes: PRIMEIRAS_ACOES, pesosDoDia: PESOS_DO_DIA, acoesQueAjudaram: ACOES_QUE_AJUDARAM, ajudou: AJUDOU, impulsos: IMPULSOS, acoesDoImpulso: ACOES_DO_IMPULSO, fechamentos: FECHAMENTOS, aviso: AVISO_SEGURANCA };
+
+// o que o paciente enxerga, já filtrado pela configuração dele (emoções escondidas saem da lista)
+export const catalogoParaPaciente = (c: ConfigDiario) => ({ ...CATALOGO, emocoes: EMOCOES.filter((e) => !c.emocoesOcultas.includes(e.chave)), etapas: c.etapas });
 
 const chaves = (l: Opcao[]) => new Set(l.map((o) => o.chave));
 export const familiaDaEmocao = (chave: string) => EMOCOES.find((e) => e.chave === chave)?.familia ?? null;
@@ -62,7 +89,7 @@ export const rotuloDe = (lista: Opcao[], chave: string | null | undefined) => li
 // o cartão fala de sofrimento intenso? (mostra o aviso de ajuda com destaque; não gera diagnóstico)
 export const sofrimentoIntenso = (familia: string, intensidade: number) => intensidade >= 4 && ["baixa", "distante", "inquieta"].includes(familia);
 
-export interface EntradaCartao { ocorridoEm: string; emocao: string; intensidade: number; contexto?: string | null; notaContexto?: string | null; primeiraAcao?: string | null; acoesQueAjudaram?: string[]; ajudou?: string | null; notaCuidado?: string | null; fechamento?: string | null; levarParaSessao?: boolean; notaFinal?: string | null }
+export interface EntradaCartao { ocorridoEm: string; emocao: string; intensidade: number; contexto?: string | null; notaContexto?: string | null; primeiraAcao?: string | null; pesos?: string[]; acoesQueAjudaram?: string[]; ajudou?: string | null; notaCuidado?: string | null; impulso?: string | null; acaoImpulso?: string | null; fechamento?: string | null; levarParaSessao?: boolean; notaFinal?: string | null }
 
 // confere as escolhas contra o catálogo; devolve a lista de problemas (vazia = válido)
 export function validarCartao(e: EntradaCartao): string[] {
@@ -72,6 +99,9 @@ export function validarCartao(e: EntradaCartao): string[] {
   if (e.contexto && !chaves(CONTEXTOS).has(e.contexto)) erros.push("Contexto inválido.");
   if (e.primeiraAcao && !chaves(PRIMEIRAS_ACOES).has(e.primeiraAcao)) erros.push("Ação inválida.");
   if (e.acoesQueAjudaram?.some((a) => !chaves(ACOES_QUE_AJUDARAM).has(a))) erros.push("Ação que ajudou inválida.");
+  if (e.pesos?.some((a) => !chaves(PESOS_DO_DIA).has(a))) erros.push("Opção inválida em \"o que pesou\".");
+  if (e.impulso && !chaves(IMPULSOS).has(e.impulso)) erros.push("Opção inválida em \"vontade\".");
+  if (e.acaoImpulso && !chaves(ACOES_DO_IMPULSO).has(e.acaoImpulso)) erros.push("Opção inválida em \"o que fez\".");
   if (e.ajudou && !chaves(AJUDOU).has(e.ajudou)) erros.push("Resposta inválida.");
   if (e.fechamento && !chaves(FECHAMENTOS).has(e.fechamento)) erros.push("Fechamento inválido.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(e.ocorridoEm) || Number.isNaN(Date.parse(e.ocorridoEm))) erros.push("Data inválida.");

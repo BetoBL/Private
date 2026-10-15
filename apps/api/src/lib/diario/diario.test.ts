@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { ACOES_QUE_AJUDARAM, CONTEXTOS, EMOCOES, FAMILIAS, familiaDaEmocao, sofrimentoIntenso, validarCartao, type EntradaCartao } from "./catalogo";
+import { ACOES_QUE_AJUDARAM, catalogoParaPaciente, CONFIG_PADRAO, CONTEXTOS, EMOCOES, FAMILIAS, familiaDaEmocao, normalizarConfig, sofrimentoIntenso, validarCartao, type EntradaCartao } from "./catalogo";
 import { resumirCartoes, type CartaoResumo } from "./resumo";
 
 test("catálogo: chaves únicas, toda emoção tem família com apoio, e cada família tem emoções", () => {
@@ -64,4 +64,22 @@ test("resumo: o que ficou para levar à sessão e as emoções mais frequentes",
   assert.deepEqual(r.porEmocao[0], { emocao: "tristeza", quantidade: 3 });
   assert.equal(r.ultimos7.diasComRegistro, 4);
   assert.equal(r.ultimoRegistro?.getTime(), dia(1).getTime());
+});
+
+test("v2: novos campos (pesos, impulso e o que fez) são validados contra o catálogo", () => {
+  assert.deepEqual(validarCartao({ ...ok, pesos: ["sono", "demanda"], impulso: "afastar", acaoImpulso: "segurei" }), []);
+  assert.equal(validarCartao({ ...ok, pesos: ["x"] }).length, 1);
+  assert.equal(validarCartao({ ...ok, impulso: "x" }).length, 1);
+  assert.equal(validarCartao({ ...ok, acaoImpulso: "x" }).length, 1);
+  assert.deepEqual(validarCartao({ ...ok, primeiraAcao: "apoio" }), []); // chaves da v1 continuam válidas (registros antigos)
+});
+
+test("v2: configuração por paciente normaliza lixo e esconde emoções do catálogo do paciente", () => {
+  assert.deepEqual(normalizarConfig(null), CONFIG_PADRAO);
+  assert.deepEqual(normalizarConfig({ etapas: { pesos: "sim" }, emocoesOcultas: ["raiva", "inventada", 5] }), { etapas: { pesos: true, impulso: false }, emocoesOcultas: ["raiva"] });
+  const cat = catalogoParaPaciente({ etapas: { pesos: false, impulso: true }, emocoesOcultas: ["raiva", "vazio"] });
+  assert.ok(!cat.emocoes.some((e) => e.chave === "raiva" || e.chave === "vazio"));
+  assert.equal(cat.emocoes.length, EMOCOES.length - 2);
+  assert.deepEqual(cat.etapas, { pesos: false, impulso: true });
+  assert.equal(cat.versao, "v2-2026-10");
 });

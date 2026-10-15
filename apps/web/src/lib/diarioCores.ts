@@ -19,6 +19,8 @@ export const ICONE: Record<string, string> = {
   respiracao: "🌬️", grounding: "🦶", reduzir_estimulo: "🔇", parar_pensar: "✋", checar_fatos: "🔍", autovalidacao: "💛",
   sentidos: "👀", presenca_corporal: "🧍", rotina_minima: "☕", contato: "💬",
   passei: "✅", observar: "🔭", uma_coisa: "✨", falar_sessao: "🗣️", mais_dificil: "🧗", outro: "➕",
+  sono: "😴", comida: "🍽️", corpo_cansado: "🥱", demanda: "📚", atrito: "💢", sozinho: "🪑", sem_rotina: "🗓️", saude: "💊", lembranca: "🕰️", nenhum: "🚫",
+  afastar: "🚪", discutir: "🗯️", automatico: "🛒", insistir: "📱", substancia: "🍷", segurei: "✋", parei: "⏸️", fiz: "🏃", anotei: "📝",
   NAO: "😕", POUCO: "🙂", AJUDOU: "😊", MUITO: "🤩",
   inquieta: "🌪️", confusa: "🌀", leve: "☀️", baixa: "🌧️", forte: "🔥", distante: "🌫️",
 };

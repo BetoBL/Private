@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-10-15] Diário v2: textos próprios, etapas opcionais e personalização por paciente
+
+**Ainda NÃO publicado.**
+- **Textos reescritos** (catálogo `v2-2026-10`): todas as perguntas, opções, frases de fecho, mensagens de revisão e de conclusão foram refeitas com linguagem própria do sistema, para o Diário ter identidade e não repetir o de outros produtos. As chaves não mudaram, então registros antigos continuam legíveis. Revisão final dos textos pela responsável técnica continua necessária.
+- **Novas etapas opcionais**: "O que pesou no dia" (sono, alimentação, sobrecarga, atrito...) e "Vontades difíceis" (o que sentiu vontade de fazer e o que fez, útil para impulsividade, substâncias e raiva). O profissional liga ou desliga cada uma por paciente.
+- **Personalizar o diário deste paciente** (aba Diário): escolher as etapas e **esconder emoções** que não quer oferecer. Vale para os próximos registros. A tela do paciente monta as etapas sozinha (6, 7 ou 8) e o profissional vê pesos e vontades em cada registro.
+- Removida a pergunta "o que você tentou primeiro" (as chaves antigas seguem válidas). Rótulos sem termos de psicólogo (serve a qualquer profissional).
+- Verificado: 185 testes (2 novos), 8 checagens de API (configuração, catálogo filtrado, validação, leitura pelo profissional) e telas conferidas (paciente em celular, ficha do profissional). Migration `diario_v2_config` (só local).
+
 ## [2026-10-15] Fase 2 (acompanhamento): escalas de triagem (PHQ-9, GAD-7, DASS-21)
 
 **Ainda NÃO publicado.**

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { api, type AcessoDiario, type CartaoDiario, type CatalogoDiario, type ResumoDiario } from "../lib/api";
+import { api, type AcessoDiario, type CartaoDiario, type CatalogoDiario, type ConfigDiario, type ResumoDiario } from "../lib/api";
 import { corDaFamilia, ROTULO_INTENSIDADE, ROTULO_TENDENCIA } from "../lib/diarioCores";
 
 // Aba "Diário" da ficha: o(a) psicólogo(a) gera o link do paciente, acompanha os cartões e marca o que já foi conversado.
@@ -14,6 +14,9 @@ export function DiarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   const [erro, setErro] = useState<string | null>(null);
   const [copiado, setCopiado] = useState(false);
   const [dias, setDias] = useState(30);
+  const [config, setConfig] = useState<ConfigDiario | null>(null);
+  const [configAberta, setConfigAberta] = useState(false);
+  const [salvoConfig, setSalvoConfig] = useState(false);
   const rolagem = useRef<HTMLDivElement>(null);
 
   const carregar = useCallback(() => {
@@ -22,6 +25,8 @@ export function DiarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   }, [pacienteId, dias]);
   useEffect(() => { carregar(); }, [carregar]);
   useEffect(() => { api.catalogoDiario().then(setCat).catch(() => undefined); }, []);
+  useEffect(() => { api.configDiario(pacienteId).then(setConfig).catch(() => undefined); }, [pacienteId]);
+  async function salvarConfig() { if (!config) return; setErro(null); try { setConfig(await api.salvarConfigDiario(pacienteId, config)); setSalvoConfig(true); setTimeout(() => setSalvoConfig(false), 2500); } catch (e) { setErro((e as Error).message); } }
 
   const nome = (lista: Array<{ chave: string; rotulo: string }> | undefined, k?: string | null) => lista?.find((o) => o.chave === k)?.rotulo ?? "";
   const acao = async (f: () => Promise<unknown>) => { setErro(null); try { await f(); carregar(); } catch (e) { setErro((e as Error).message); } };
@@ -53,7 +58,7 @@ export function DiarioDoPaciente({ pacienteId }: { pacienteId: string }) {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h3 className="font-serif text-lg text-ink">Link do paciente</h3>
-            <p className="mt-0.5 max-w-xl text-sm text-ink/60">O paciente abre o link no celular, sem senha, e faz o Cartão Diário entre as sessões. Gerar um novo link desativa o anterior.</p>
+            <p className="mt-0.5 max-w-xl text-sm text-ink/60">O paciente abre o link no celular, sem senha, e faz o diário entre as consultas. Gerar um novo link desativa o anterior.</p>
           </div>
           <div className="flex gap-2">
             <button className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper" onClick={() => acao(() => api.gerarAcessoDiario(pacienteId))}>{acesso?.ativo ? "Gerar novo link" : "Gerar link"}</button>
@@ -69,6 +74,36 @@ export function DiarioDoPaciente({ pacienteId }: { pacienteId: string }) {
         )}
         {acesso && !acesso.ativo && <p className="mt-3 text-sm text-ink/50">Nenhum link ativo.</p>}
       </section>
+
+      {config && cat && (
+        <section className="rounded-xl border border-mist bg-white p-5">
+          <button className="flex w-full items-center justify-between text-left" onClick={() => setConfigAberta(!configAberta)}>
+            <span><span className="block font-serif text-lg text-ink">Personalizar o diário deste paciente</span><span className="text-sm text-ink/55">Escolha as etapas opcionais e as emoções oferecidas. Vale para os próximos registros.</span></span>
+            <span className="text-sm font-semibold text-sage-deep">{configAberta ? "fechar" : "abrir"}</span>
+          </button>
+          {configAberta && (
+            <div className="mt-4 space-y-5">
+              <div className="grid gap-3 md:grid-cols-2">
+                {([["pesos", "O que pesou no dia", "Sono, alimentação, sobrecarga, atrito e outros pesos."], ["impulso", "Vontades difíceis", "Útil para impulsividade, uso de substâncias e raiva: o que sentiu vontade de fazer e o que fez."]] as const).map(([chave, titulo, ajuda]) => (
+                  <label key={chave} className="flex cursor-pointer items-start gap-3 rounded-lg border border-mist p-3">
+                    <input type="checkbox" className="mt-1" checked={config.etapas[chave]} onChange={(e) => setConfig({ ...config, etapas: { ...config.etapas, [chave]: e.target.checked } })} />
+                    <span><span className="block text-sm font-semibold text-ink">{titulo}</span><span className="text-xs text-ink/55">{ajuda}</span></span>
+                  </label>
+                ))}
+              </div>
+              <div>
+                <div className="mb-2 text-sm font-semibold text-ink">Emoções oferecidas <span className="font-normal text-ink/50">(desmarque as que não quer mostrar)</span></div>
+                {cat.familias.map((f) => (
+                  <div key={f.chave} className="mb-2"><div className="mb-1 text-xs font-bold uppercase tracking-wide text-ink/45">{f.rotulo}</div>
+                    <div className="flex flex-wrap gap-2">{cat.emocoes.filter((e) => e.familia === f.chave).map((e) => { const oculta = config.emocoesOcultas.includes(e.chave); return <label key={e.chave} className={`flex cursor-pointer items-center gap-1.5 rounded-full border px-3 py-1 text-xs ${oculta ? "border-mist text-ink/35 line-through" : "border-sage-deep/40 bg-sage-deep/5 text-ink"}`}><input type="checkbox" checked={!oculta} onChange={() => setConfig({ ...config, emocoesOcultas: oculta ? config.emocoesOcultas.filter((x) => x !== e.chave) : [...config.emocoesOcultas, e.chave] })} />{e.rotulo}</label>; })}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center gap-3"><button className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper" onClick={salvarConfig}>Salvar</button>{salvoConfig && <span className="text-sm text-sage-deep">✓ Salvo</span>}</div>
+            </div>
+          )}
+        </section>
+      )}
 
       {r && (
         <section className="rounded-xl border border-mist bg-white p-5">
@@ -120,6 +155,8 @@ export function DiarioDoPaciente({ pacienteId }: { pacienteId: string }) {
                 </div>
                 <div className="mt-1 space-y-0.5 text-sm text-ink/65">
                   {c.contexto && <div>Onde: {nome(cat?.contextos, c.contexto)}{c.notaContexto ? ` — ${c.notaContexto}` : ""}</div>}
+                  {c.pesos?.length > 0 && <div>O que pesou: {c.pesos.map((k) => nome(cat?.pesosDoDia, k)).filter(Boolean).join(", ")}</div>}
+                  {c.impulso && c.impulso !== "nenhum" && <div>Vontade difícil: {nome(cat?.impulsos, c.impulso)}{c.acaoImpulso ? ` · ${nome(cat?.acoesDoImpulso, c.acaoImpulso).toLowerCase()}` : ""}</div>}
                   {(c.primeiraAcao || c.acoesQueAjudaram.length > 0) && <div>Cuidado: {[nome(cat?.primeirasAcoes, c.primeiraAcao), ...c.acoesQueAjudaram.map((k) => nome(cat?.acoesQueAjudaram, k))].filter(Boolean).join(", ")}{c.ajudou ? ` · ajudou: ${nome(cat?.ajudou, c.ajudou).toLowerCase()}` : ""}{c.notaCuidado ? ` — ${c.notaCuidado}` : ""}</div>}
                   {c.fechamento && <div>Fechamento: {nome(cat?.fechamentos, c.fechamento)}</div>}
                   {c.notaFinal && <div>Nota: {c.notaFinal}</div>}

@@ -45,8 +45,8 @@ export function DiarioDoPacienteTela() {
   const { segredo } = useParams<{ segredo: string }>();
   const [info, setInfo] = useState<DiarioPublico | null>(null);
   const [erro, setErro] = useState<string | null>(null);
-  const [passo, setPasso] = useState(0); // 0 = início, 1-5 = perguntas, 6 = revisão, 7 = pronto
-  const [c, setC] = useState<NovoCartao>({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], levarParaSessao: false });
+  const [passo, setPasso] = useState(0); // 0 = início, 1..N = etapas (ver `ordem`), N+1 = pronto
+  const [c, setC] = useState<NovoCartao>({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], pesos: [], levarParaSessao: false });
   const [enviando, setEnviando] = useState(false);
   const [escala, setEscala] = useState<EscalaParaResponder | null>(null);
   const [respEscala, setRespEscala] = useState<Record<string, number>>({});
@@ -56,17 +56,22 @@ export function DiarioDoPacienteTela() {
   useEffect(() => { if (segredo) api.diarioPublico(segredo).then(setInfo).catch((e) => setErro(e.message)); }, [segredo]);
 
   const cat = info?.catalogo;
+  // etapas na ordem em que aparecem; "pesos" e "impulso" são opcionais e o profissional liga ou desliga por paciente
+  const ordem = useMemo(() => ["emocao", "intensidade", "contexto", ...(cat?.etapas?.pesos ? ["pesos"] : []), "cuidado", ...(cat?.etapas?.impulso ? ["impulso"] : []), "fecho", "revisao"], [cat]);
+  const total = ordem.length;
+  const etapa = passo >= 1 && passo <= total ? ordem[passo - 1] : null;
   const emocao = cat?.emocoes.find((e) => e.chave === c.emocao);
   const familia = cat?.familias.find((f) => f.chave === emocao?.familia);
   const set = (p: Partial<NovoCartao>) => setC((x) => ({ ...x, ...p }));
   const rotulo = (lista: Array<{ chave: string; rotulo: string }> | undefined, chave?: string | null) => lista?.find((o) => o.chave === chave)?.rotulo ?? "-";
-  const podeAvancar = passo === 1 ? !!c.emocao : passo === 2 ? c.intensidade > 0 : true;
+  const podeAvancar = etapa === "emocao" ? !!c.emocao : etapa === "intensidade" ? c.intensidade > 0 : true;
+  const alternar = (campo: "acoesQueAjudaram" | "pesos", chave: string) => { const atual = c[campo] ?? []; set({ [campo]: atual.includes(chave) ? atual.filter((x) => x !== chave) : [...atual, chave] } as Partial<NovoCartao>); };
   const porFamilia = useMemo(() => (cat ? cat.familias.map((f) => ({ f, emocoes: cat.emocoes.filter((e) => e.familia === f.chave) })) : []), [cat]);
 
   async function enviar() {
     if (!segredo) return;
     setErro(null); setEnviando(true);
-    try { setResposta(await api.enviarCartao(segredo, c)); setPasso(7); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
+    try { setResposta(await api.enviarCartao(segredo, c)); setPasso(total + 1); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
   }
   async function abrirEscala(id: string) { if (!segredo) return; setErro(null); try { setEscala(await api.escalaPublica(segredo, id)); setRespEscala({}); setEscalaFeita(null); window.scrollTo(0, 0); } catch (e) { setErro((e as Error).message); } }
   async function enviarEscala() {
@@ -76,7 +81,7 @@ export function DiarioDoPacienteTela() {
     setErro(null); setEnviando(true);
     try { const r = await api.responderEscala(segredo, escala.id, respEscala); setEscalaFeita({ cuidado: r.cuidado }); api.diarioPublico(segredo).then(setInfo).catch(() => undefined); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
   }
-  function novo() { setC({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], levarParaSessao: false }); setResposta(null); setPasso(0); if (segredo) api.diarioPublico(segredo).then(setInfo).catch(() => undefined); }
+  function novo() { setC({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], pesos: [], levarParaSessao: false }); setResposta(null); setPasso(0); if (segredo) api.diarioPublico(segredo).then(setInfo).catch(() => undefined); }
 
   if (erro && !info) return <div className="mx-auto max-w-md px-5 py-16"><div className="rounded-3xl border border-ember/30 bg-ember/10 p-6 text-center text-ember">{erro}</div></div>;
   if (escala) {
@@ -124,17 +129,17 @@ export function DiarioDoPacienteTela() {
   return (
     <div className="mx-auto flex min-h-screen max-w-md flex-col" style={{ background: `linear-gradient(180deg, ${emocao ? cor + "26" : "#F3DCC8"} 0%, #FBF6F0 38%, #F4EFF8 100%)` }}>
       <header className="px-5 pb-3 pt-5">
-        <div className="flex items-center gap-2 font-serif text-xl text-ink"><span>📔</span>Cartão Diário</div>
-        <div className="text-xs text-ink/55">Um check-in rapidinho, só seu e de {info.profissional}</div>
-        {passo >= 1 && passo <= 6 && <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/70"><div className="h-full rounded-full bg-sage-deep transition-all" style={{ width: `${(passo / 6) * 100}%` }} /></div>}
+        <div className="flex items-center gap-2 font-serif text-xl text-ink"><span>📔</span>Diário de hoje</div>
+        <div className="text-xs text-ink/55">Um registro rápido, só entre você e {info.profissional}</div>
+        {etapa && <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/70"><div className="h-full rounded-full bg-sage-deep transition-all" style={{ width: `${(passo / total) * 100}%` }} /></div>}
       </header>
 
-      {passo >= 2 && passo <= 6 && emocao && (
+      {etapa && passo >= 2 && emocao && (
         <div className="mx-5 flex items-center gap-3 rounded-2xl px-4 py-2.5 text-sm" style={{ background: `${cor}2B` }}>
           <span className="text-2xl">{ICONE[c.emocao]}</span>
           <span className="font-semibold text-ink">{emocao.rotulo}</span>
           {c.intensidade > 0 && <span className="text-ink/60">· {ROTULO_INTENSIDADE[c.intensidade]}</span>}
-          <span className="ml-auto text-[11px] font-bold uppercase tracking-wide text-ink/45">Etapa {passo} de 6</span>
+          <span className="ml-auto text-[11px] font-bold uppercase tracking-wide text-ink/45">{passo} de {total}</span>
         </div>
       )}
 
@@ -146,14 +151,14 @@ export function DiarioDoPacienteTela() {
             <div className="mb-2 text-6xl">👋</div>
             <h1 className="font-serif text-3xl text-ink">Oi, {info.paciente}!</h1>
             <p className="mt-1 text-sm text-ink/55">{info.clinica}</p>
-            <p className="mt-4 text-[16px] leading-relaxed text-ink/80">E aí, como você está agora? Leva só um minutinho e quase tudo é tocar numa carinha ou num ícone. Isso ajuda {info.profissional} a entender como foram os seus dias entre as sessões. 💛</p>
+            <p className="mt-4 text-[16px] leading-relaxed text-ink/80">Como você está agora? Leva cerca de um minuto, e quase tudo é só tocar numa opção. Seus registros ajudam {info.profissional} a entender como foram os seus dias entre as consultas. 💛</p>
             {(info.escalas?.length ?? 0) > 0 && (
               <div className="mt-6 rounded-2xl border-2 border-sage-deep/30 bg-white/80 p-4">
                 <div className="text-xs font-bold uppercase tracking-widest text-sage-deep">{info.profissional} pediu para você</div>
                 <ul className="mt-2 space-y-2">{info.escalas!.map((e) => <li key={e.id}><button className="flex w-full items-center justify-between rounded-xl bg-paper px-3 py-3 text-left text-sm" onClick={() => abrirEscala(e.id)}><span><span className="block font-semibold text-ink">{e.nome}</span><span className="text-xs text-ink/50">cerca de {e.tempo}</span></span><span className="text-sage-deep">Responder →</span></button></li>)}</ul>
               </div>
             )}
-            <button className="mt-4 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper shadow-lg active:scale-[0.98]" onClick={() => setPasso(1)}>Bora começar 🚀</button>
+            <button className="mt-4 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper shadow-lg active:scale-[0.98]" onClick={() => setPasso(1)}>Fazer meu registro →</button>
             {info.recentes.length > 0 && (
               <section className="mt-8">
                 <h2 className="mb-2 text-xs font-bold uppercase tracking-widest text-ink/45">Seus últimos registros</h2>
@@ -168,9 +173,9 @@ export function DiarioDoPacienteTela() {
           </div>
         )}
 
-        {passo === 1 && (
+        {etapa === "emocao" && (
           <div>
-            <Titulo rotulo="Clima emocional" titulo="O que apareceu agora?" ajuda="Escolha a emoção que mais se aproxima deste momento." />
+            <Titulo rotulo="Como você está" titulo="Como está por dentro agora?" ajuda="Toque na emoção que mais se parece com este momento." />
             <div className="space-y-5">
               {porFamilia.map(({ f, emocoes }) => (
                 <section key={f.chave}>
@@ -187,9 +192,9 @@ export function DiarioDoPacienteTela() {
           </div>
         )}
 
-        {passo === 2 && (
+        {etapa === "intensidade" && (
           <div>
-            <Titulo rotulo="Intensidade" titulo="Com que força isso está?" ajuda="De 1 (bem leve) a 5 (muito forte)." />
+            <Titulo rotulo="Força" titulo="O quanto isso está forte?" ajuda="De 1 (quase imperceptível) a 5 (muito forte)." />
             <div className="space-y-2">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button key={n} type="button" onClick={() => set({ intensidade: n })} className={`flex w-full items-center gap-4 rounded-2xl border-2 px-4 py-3 text-left shadow-sm transition-all active:scale-[0.98] ${c.intensidade === n ? "bg-white shadow-md" : "border-transparent bg-white/80"}`} style={c.intensidade === n ? { borderColor: cor } : undefined}>
@@ -201,76 +206,90 @@ export function DiarioDoPacienteTela() {
           </div>
         )}
 
-        {passo === 3 && (
+        {etapa === "contexto" && (
           <div>
-            <Titulo rotulo="Contexto" titulo="Onde isso apareceu?" ajuda="Se fizer sentido, marque o contexto e deixe uma nota breve." />
+            <Titulo rotulo="O que houve" titulo="O que estava acontecendo?" ajuda="Escolha o que estava por trás. Se quiser, conte um detalhe." />
             <Escolha opcoes={cat.contextos} valor={c.contexto} onChange={(v) => set({ contexto: v })} />
-            <Nota valor={c.notaContexto ?? ""} onChange={(v) => set({ notaContexto: v })} texto="Quer acrescentar algo?" />
+            <Nota valor={c.notaContexto ?? ""} onChange={(v) => set({ notaContexto: v })} texto="Algum detalhe?" />
           </div>
         )}
 
-        {passo === 4 && (
+        {etapa === "pesos" && (
           <div>
-            <Titulo rotulo="Cuidado possível" titulo="O que você conseguiu tentar?" ajuda="Pequenos cuidados também contam." />
+            <Titulo rotulo="O que pesou" titulo="O que pesou no seu dia?" ajuda="Marque tudo o que fez diferença. Você pode pular." />
+            <div className="space-y-2">
+              {cat.pesosDoDia.map((o) => { const ativo = (c.pesos ?? []).includes(o.chave); return <button key={o.chave} type="button" onClick={() => alternar("pesos", o.chave)} className={`flex w-full items-center gap-3 rounded-2xl border-2 px-3 py-3 text-left text-[15px] shadow-sm transition-all active:scale-[0.98] ${ativo ? "border-sage-deep bg-white font-semibold text-ink shadow-md" : "border-transparent bg-white/80 text-ink/80"}`}><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-paper text-xl">{ICONE[o.chave] ?? "•"}</span><span className="flex-1">{o.rotulo}</span><span className={`flex h-6 w-6 items-center justify-center rounded-md border-2 text-[12px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/20"}`}>{ativo ? "✓" : ""}</span></button>; })}
+            </div>
+          </div>
+        )}
+
+        {etapa === "cuidado" && (
+          <div>
+            <Titulo rotulo="Seu cuidado" titulo="O que você fez por você?" ajuda="Qualquer gesto conta, mesmo o menor. Marque quantos quiser." />
             {familia && (
               <div className="mb-5 rounded-2xl p-4 text-sm leading-relaxed text-ink/80" style={{ background: `${cor}1A` }}>
                 <div className="mb-1 text-[11px] font-bold uppercase tracking-widest" style={{ color: cor }}>Para este momento</div>
                 {familia.apoio.map((a, i) => <p key={i} className={i ? "mt-1.5" : ""}>{a}</p>)}
               </div>
             )}
-            <h3 className="mb-2 text-sm font-semibold text-ink/70">O que você tentou primeiro?</h3>
-            <Escolha opcoes={cat.primeirasAcoes} valor={c.primeiraAcao} onChange={(v) => set({ primeiraAcao: v })} />
-            <h3 className="mb-1 mt-6 text-sm font-semibold text-ink/70">Alguma ação ajudou?</h3>
-            <p className="mb-2 text-xs text-ink/50">Marque quantas fizeram sentido.</p>
+
             <div className="space-y-2">
               {cat.acoesQueAjudaram.map((o) => {
                 const ativo = (c.acoesQueAjudaram ?? []).includes(o.chave);
                 return <button key={o.chave} type="button" onClick={() => set({ acoesQueAjudaram: ativo ? (c.acoesQueAjudaram ?? []).filter((x) => x !== o.chave) : [...(c.acoesQueAjudaram ?? []), o.chave] })} className={`flex w-full items-center gap-3 rounded-2xl border-2 px-3 py-3 text-left text-[15px] shadow-sm transition-all active:scale-[0.98] ${ativo ? "border-sage-deep bg-white font-semibold text-ink shadow-md" : "border-transparent bg-white/80 text-ink/80"}`}><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-paper text-xl">{ICONE[o.chave] ?? "•"}</span><span className="flex-1">{o.rotulo}</span><span className={`flex h-6 w-6 items-center justify-center rounded-md border-2 text-[12px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/20"}`}>{ativo ? "✓" : ""}</span></button>;
               })}
             </div>
-            <h3 className="mb-2 mt-6 text-sm font-semibold text-ink/70">Isso ajudou?</h3>
+            <h3 className="mb-2 mt-6 text-sm font-semibold text-ink/70">E isso fez diferença?</h3>
             <Escolha opcoes={cat.ajudou} valor={c.ajudou} onChange={(v) => set({ ajudou: v })} />
-            <Nota valor={c.notaCuidado ?? ""} onChange={(v) => set({ notaCuidado: v })} texto="Uma nota sobre o cuidado" />
+            <Nota valor={c.notaCuidado ?? ""} onChange={(v) => set({ notaCuidado: v })} texto="Quer contar como foi?" />
           </div>
         )}
 
-        {passo === 5 && (
+        {etapa === "impulso" && (
           <div>
-            <Titulo rotulo="Fechamento" titulo="O que você leva deste momento?" ajuda="Escolha uma frase para fechar e decida se quer levar isto à sessão." />
+            <Titulo rotulo="Vontades" titulo="Teve alguma vontade difícil de segurar?" ajuda="Sem julgamento: é só para entender o seu dia." />
+            <Escolha opcoes={cat.impulsos} valor={c.impulso} onChange={(v) => set({ impulso: v, ...(v === "nenhum" ? { acaoImpulso: null } : {}) })} />
+            {c.impulso && c.impulso !== "nenhum" && (<><h3 className="mb-2 mt-6 text-sm font-semibold text-ink/70">E o que aconteceu com ela?</h3><Escolha opcoes={cat.acoesDoImpulso} valor={c.acaoImpulso} onChange={(v) => set({ acaoImpulso: v })} /></>)}
+          </div>
+        )}
+
+        {etapa === "fecho" && (
+          <div>
+            <Titulo rotulo="Para fechar" titulo="Como você fecha este registro?" ajuda="Escolha uma frase e diga se quer conversar sobre isso." />
             <Escolha opcoes={cat.fechamentos} valor={c.fechamento} onChange={(v) => set({ fechamento: v })} />
             <button type="button" onClick={() => set({ levarParaSessao: !c.levarParaSessao })} className={`mt-5 flex w-full items-center gap-3 rounded-2xl border px-4 py-4 text-left ${c.levarParaSessao ? "border-sage-deep bg-sage-deep/10" : "border-mist bg-white"}`}>
               <span className={`flex h-6 w-11 shrink-0 items-center rounded-full p-0.5 transition-colors ${c.levarParaSessao ? "bg-sage-deep" : "bg-ink/20"}`}><span className={`h-5 w-5 rounded-full bg-white transition-transform ${c.levarParaSessao ? "translate-x-5" : ""}`} /></span>
-              <span><span className="block text-[15px] font-semibold text-ink">Levar para a sessão</span><span className="block text-xs text-ink/55">Quero lembrar de conversar sobre isso.</span></span>
+              <span><span className="block text-[15px] font-semibold text-ink">Quero conversar sobre isso com {info.profissional}</span><span className="block text-xs text-ink/55">Fica marcado para vocês verem no próximo encontro.</span></span>
             </button>
-            <Nota valor={c.notaFinal ?? ""} onChange={(v) => set({ notaFinal: v })} texto="Uma última nota para você" />
+            <Nota valor={c.notaFinal ?? ""} onChange={(v) => set({ notaFinal: v })} texto="Mais alguma coisa que queira deixar anotada?" />
           </div>
         )}
 
-        {passo === 6 && (
+        {etapa === "revisao" && (
           <div>
-            <Titulo rotulo="Revisão" titulo="Confira o seu registro" />
+            <Titulo rotulo="Última conferência" titulo="Confira antes de enviar" />
             <label className="mb-4 block rounded-2xl bg-white p-4">
-              <span className="mb-1 block text-sm font-semibold text-ink/70">Quando foi este registro?</span>
+              <span className="mb-1 block text-sm font-semibold text-ink/70">De que dia é este registro?</span>
               <input type="date" max={hojeIso()} value={c.ocorridoEm} onChange={(e) => set({ ocorridoEm: e.target.value })} className="w-full rounded-xl border border-mist px-3 py-2 text-[15px]" />
-              <span className="mt-1 block text-xs text-ink/45">Escolha o dia em que este registro aconteceu.</span>
+              <span className="mt-1 block text-xs text-ink/45">Hoje, por padrão. Mude se estiver registrando um dia anterior.</span>
             </label>
             <dl className="divide-y divide-mist rounded-2xl bg-white text-sm">
-              {[["Emoção", emocao?.rotulo], ["Intensidade", c.intensidade ? `${c.intensidade} · ${ROTULO_INTENSIDADE[c.intensidade]}` : "-"], ["Contexto", rotulo(cat.contextos, c.contexto)], ["Tentei primeiro", rotulo(cat.primeirasAcoes, c.primeiraAcao)], ["Ajudou", (c.acoesQueAjudaram ?? []).map((k) => rotulo(cat.acoesQueAjudaram, k)).join(", ") || "-"], ["Isso ajudou?", rotulo(cat.ajudou, c.ajudou)], ["Fechamento", rotulo(cat.fechamentos, c.fechamento)], ["Levar para a sessão", c.levarParaSessao ? "Sim" : "Não"]].map(([k, v]) => (
+              {[["Emoção", emocao?.rotulo], ["Intensidade", c.intensidade ? `${c.intensidade} · ${ROTULO_INTENSIDADE[c.intensidade]}` : "-"], ["Contexto", rotulo(cat.contextos, c.contexto)], ...(cat.etapas?.pesos ? [["O que pesou", (c.pesos ?? []).map((k) => rotulo(cat.pesosDoDia, k)).join(", ") || "-"]] : []), ["O que fez por você", (c.acoesQueAjudaram ?? []).map((k) => rotulo(cat.acoesQueAjudaram, k)).join(", ") || "-"], ["Fez diferença?", rotulo(cat.ajudou, c.ajudou)], ...(cat.etapas?.impulso ? [["Vontade difícil", rotulo(cat.impulsos, c.impulso)]] : []), ["Fecho", rotulo(cat.fechamentos, c.fechamento)], ["Quero conversar", c.levarParaSessao ? "Sim" : "Não"]].map(([k, v]) => (
                 <div key={k as string} className="flex justify-between gap-4 px-4 py-3"><dt className="text-ink/55">{k}</dt><dd className="text-right font-semibold text-ink">{v}</dd></div>
               ))}
             </dl>
-            <p className="mt-4 rounded-2xl bg-sage-deep/10 p-4 text-xs leading-relaxed text-ink/70"><b>Seu registro fica no seu cuidado.</b> As respostas são enviadas somente quando você confirma abaixo. Quem vê é {info.profissional}, o(a) psicólogo(a) que lhe enviou este link.</p>
+            <p className="mt-4 rounded-2xl bg-sage-deep/10 p-4 text-xs leading-relaxed text-ink/70"><b>Nada sai daqui até você tocar em Enviar.</b> Quem lê este registro é {info.profissional}, e mais ninguém.</p>
           </div>
         )}
 
-        {passo === 7 && resposta && (
+        {passo === total + 1 && resposta && (
           <div>
             <div className="text-6xl">🎉</div>
-            <h1 className="mt-2 font-serif text-3xl text-ink">Pronto, registrado!</h1>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink/70">Obrigado por reservar esse momento pra você. 💛 {c.levarParaSessao ? `${info.profissional} vai ver que você quer conversar sobre isso na sessão.` : ""}</p>
+            <h1 className="mt-2 font-serif text-3xl text-ink">Registro guardado</h1>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink/70">Obrigado por parar um minuto por você. 💛 {c.levarParaSessao ? `${info.profissional} vai ver que você quer conversar sobre isso.` : ""}</p>
             {resposta.intenso && <div className="mt-5 rounded-2xl border-2 border-ember/40 bg-ember/10 p-4 text-[15px] leading-relaxed text-ink"><b className="text-ember">Cuide de você agora.</b><p className="mt-1">{resposta.aviso}</p></div>}
             <div className="mt-5 rounded-2xl p-4 text-sm leading-relaxed text-ink/80" style={{ background: `${cor}1A` }}>
-              <div className="mb-1 text-[11px] font-bold uppercase tracking-widest" style={{ color: cor }}>Um cuidado para agora</div>
+              <div className="mb-1 text-[11px] font-bold uppercase tracking-widest" style={{ color: cor }}>Para os próximos minutos</div>
               {resposta.apoio.map((a, i) => <p key={i} className={i ? "mt-1.5" : ""}>{a}</p>)}
             </div>
             {!resposta.intenso && <p className="mt-5 text-xs leading-relaxed text-ink/50">{resposta.aviso}</p>}
@@ -279,10 +298,10 @@ export function DiarioDoPacienteTela() {
         )}
       </main>
 
-      {passo >= 1 && passo <= 6 && (
+      {etapa && (
         <footer className="fixed inset-x-0 bottom-0 z-10 mx-auto flex max-w-md gap-3 bg-white/90 px-5 py-3 shadow-[0_-6px_20px_rgba(0,0,0,0.06)] backdrop-blur" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
           <button className="rounded-full border-2 border-ink/10 px-5 py-3.5 text-[15px] font-semibold text-ink/70" onClick={() => setPasso((p) => p - 1)}>Voltar</button>
-          {passo < 6 ? <button className="flex-1 rounded-full bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={!podeAvancar} onClick={() => setPasso((p) => p + 1)}>{passo === 5 ? "Revisar" : "Continuar"} →</button>
+          {etapa !== "revisao" ? <button className="flex-1 rounded-full bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={!podeAvancar} onClick={() => setPasso((p) => p + 1)}>{ordem[passo] === "revisao" ? "Revisar" : "Continuar"} →</button>
             : <button className="flex-1 rounded-full bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={enviando} onClick={enviar}>{enviando ? "Enviando…" : "Enviar registro"}</button>}
         </footer>
       )}
