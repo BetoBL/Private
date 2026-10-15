@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { api, type FormularioDetalhe, type FormularioResumo, type ModeloForm, type PerguntaForm, type RespostasForm, type TipoPergunta } from "../lib/api";
 import { CamposFormulario, respostaEmTexto } from "./CamposFormulario";
 
@@ -49,6 +50,8 @@ function EditorModelo({ inicial, onSalvar, onCancelar }: { inicial: Rascunho; on
 
 export function FormulariosDoPaciente({ pacienteId }: { pacienteId: string }) {
   const [modelos, setModelos] = useState<ModeloForm[]>([]);
+  const [params] = useSearchParams();
+  const [filtro, setFiltro] = useState<"TODOS" | "ANAMNESE" | "FORMULARIO">(params.get("tipo") === "anamnese" ? "ANAMNESE" : "TODOS");
   const [lista, setLista] = useState<FormularioResumo[]>([]);
   const [editor, setEditor] = useState<Rascunho | null>(null);
   const [aberto, setAberto] = useState<FormularioDetalhe | null>(null);
@@ -114,8 +117,11 @@ export function FormulariosDoPaciente({ pacienteId }: { pacienteId: string }) {
           <div className="mb-1 flex flex-wrap items-center justify-between gap-2"><h3 className="font-serif text-lg text-ink">Modelos de anamnese e formulário</h3><button className="rounded-lg border border-sage-deep px-3 py-1.5 text-sm font-semibold text-sage-deep" onClick={() => setEditor({ ref: null, nome: "", descricao: "", tipo: "FORMULARIO", perguntas: [{ id: "p1", tipo: "texto", rotulo: "" }] })}>+ Criar meu modelo</button></div>
           <p className="mb-4 text-sm text-ink/55">Peça ao paciente por link ou preencha com ele na sessão. Copie qualquer modelo para adaptar ao seu jeito.</p>
           {linkAtivo === false && <div className="mb-4 rounded-lg border border-clay/40 bg-clay/10 px-4 py-3 text-sm text-ink/75">Para pedir por link, gere o link do paciente na aba <b>Diário</b>.</div>}
+          <div className="mb-4 flex flex-wrap gap-2">
+            {([["TODOS", "Todos"], ["ANAMNESE", "Anamneses"], ["FORMULARIO", "Formulários"]] as const).map(([v, r]) => <button key={v} className={`rounded-full px-3 py-1 text-sm font-semibold ${filtro === v ? "bg-sage-deep text-paper" : "bg-mist text-ink/65 hover:text-ink"}`} onClick={() => setFiltro(v)}>{r}</button>)}
+          </div>
           <div className="grid gap-3 md:grid-cols-2">
-            {modelos.map((m) => (
+            {modelos.filter((m) => filtro === "TODOS" || m.tipo === filtro).map((m) => (
               <div key={m.ref} className="flex flex-col rounded-xl border border-mist p-4">
                 <div className="flex items-start justify-between gap-2"><div><div className="font-semibold text-ink">{m.nome}</div><div className="mt-0.5 text-xs text-ink/55">{m.descricao}</div></div><div className="flex shrink-0 flex-col items-end gap-1">{m.recomendado && <span className="rounded-full bg-sage-deep/15 px-2 py-0.5 text-[10px] font-bold text-sage-deep">PARA VOCÊ</span>}<span className="text-[10px] text-ink/40">{m.origem === "PROPRIO" ? "seu modelo" : "do sistema"} · {m.perguntas.length} perguntas</span></div></div>
                 <div className="mt-3 flex flex-wrap gap-2 text-xs">

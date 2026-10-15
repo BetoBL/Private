@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-10-15] Anamnese ao alcance de qualquer paciente
+
+**Ainda NÃO publicado.**
+- Botão **Anamnese** no cabeçalho do Perfil: abre a aba Formulários já filtrada em "Anamneses" (há também filtros Todos, Anamneses e Formulários).
+- Novo cartão **Anamnese** no Perfil: mostra as anamneses preenchidas (quando e por quem) e as aguardando resposta; para paciente com laudo, também mostra se a anamnese neuropsicológica está preenchida, com atalho para abri-la.
+- Só interface; sem migration.
+
 ## [2026-10-15] Perfil do paciente completo (leitura em cartões e edição)
 
 **Ainda NÃO publicado.**

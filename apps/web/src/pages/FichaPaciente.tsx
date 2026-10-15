@@ -39,7 +39,7 @@ export function FichaPaciente() {
   const navigate = useNavigate();
 
   const [paciente, setPaciente] = useState<Paciente | null>(null);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
   const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
@@ -417,7 +417,7 @@ export function FichaPaciente() {
 
       {aba === "dados" && (
         <div>
-          <PerfilPaciente paciente={paciente} onSalvo={setPaciente} />
+          <PerfilPaciente paciente={paciente} onSalvo={setPaciente} onAbrirAnamnese={() => { setSearchParams({ aba: "formularios", tipo: "anamnese" }); setAba("formularios"); }} onAbrirAnamneseLaudo={() => setAba("anamnese")} />
           <h2 className="mb-3 font-serif text-xl text-ink">Cadastro e faturamento</h2>
           <div className="grid grid-cols-2 gap-4">
             <label className="col-span-2 flex items-start gap-3 rounded-lg border border-mist bg-mist/40 p-3 text-sm">

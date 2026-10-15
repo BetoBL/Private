@@ -1,5 +1,5 @@
-import { useState, type ReactNode } from "react";
-import { api, type Paciente } from "../lib/api";
+import { useEffect, useState, type ReactNode } from "react";
+import { api, type FormularioResumo, type Paciente } from "../lib/api";
 
 // Perfil do paciente: leitura em cartões e edição completa (Salvar/Cancelar). Cadastro, convênio e nota fiscal continuam no formulário abaixo.
 type Endereco = { cep?: string | null; logradouro?: string | null; numero?: string | null; complemento?: string | null; bairro?: string | null; cidade?: string | null; uf?: string | null; pais?: string | null };
@@ -41,8 +41,13 @@ const Linha = ({ rotulo, valor }: { rotulo: string; valor?: string | null }) => 
 );
 const Vazio = ({ texto }: { texto: string }) => <p className="rounded-xl border border-dashed border-mist px-4 py-5 text-center text-sm text-ink/45">{texto}</p>;
 
-export function PerfilPaciente({ paciente, onSalvo }: { paciente: Paciente; onSalvo: (p: Paciente) => void }) {
+export function PerfilPaciente({ paciente, onSalvo, onAbrirAnamnese, onAbrirAnamneseLaudo }: { paciente: Paciente; onSalvo: (p: Paciente) => void; onAbrirAnamnese: () => void; onAbrirAnamneseLaudo: () => void }) {
   const p = paciente;
+  const [anamneses, setAnamneses] = useState<FormularioResumo[] | null>(null);
+  useEffect(() => { api.formulariosDoPaciente(p.id).then((l) => setAnamneses(l.filter((x) => x.tipo === "ANAMNESE"))).catch(() => setAnamneses([])); }, [p.id]);
+  const respondidas = (anamneses ?? []).filter((x) => x.status === "RESPONDIDO");
+  const pendentes = (anamneses ?? []).filter((x) => x.status === "PENDENTE");
+  const neuropsicPreenchida = !!p.anamnese && Object.keys(p.anamnese as object).length > 0;
   const [editando, setEditando] = useState(false);
   const [salvando, setSalvando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
@@ -107,6 +112,7 @@ export function PerfilPaciente({ paciente, onSalvo }: { paciente: Paciente; onSa
           <div className="mt-3 flex flex-wrap gap-2">
             {digitos.length >= 10 && <a className={`${btnSecundario} flex items-center gap-2`} href={`https://wa.me/${digitos.length <= 11 ? "55" : ""}${digitos}`} target="_blank" rel="noreferrer"><span aria-hidden>💬</span>Abrir WhatsApp</a>}
             {p.email && <a className={`${btnSecundario} flex items-center gap-2`} href={`mailto:${p.email}`}><span aria-hidden>✉️</span>Enviar e-mail</a>}
+            <button className={`${btnSecundario} flex items-center gap-2`} onClick={onAbrirAnamnese}><span aria-hidden>📋</span>Anamnese</button>
           </div>
         </div>
         {editando ? (
@@ -143,6 +149,18 @@ export function PerfilPaciente({ paciente, onSalvo }: { paciente: Paciente; onSa
           <Cartao titulo="Contatos de emergência" icone="🚨" tom="ember" acao={<span className="rounded-full bg-mist px-2.5 py-0.5 text-xs font-semibold text-ink/60">{contatos.length} de 2</span>}>
             {contatos.length ? contatos.map((c, i) => <Linha key={i} rotulo={c.vinculo || `Contato ${i + 1}`} valor={`${c.nome}${c.telefone ? ` · ${c.telefone}` : ""}`} />) : <Vazio texto="Nenhum contato cadastrado. Vale ter ao menos um." />}
           </Cartao>
+          <div className="lg:col-span-2">
+            <Cartao titulo="Anamnese" icone="📋" acao={<button className="text-sm font-semibold text-sage-deep hover:underline" onClick={onAbrirAnamnese}>{respondidas.length || pendentes.length ? "Ver e pedir outra" : "Pedir ou preencher"}</button>}>
+              {anamneses === null ? <p className="text-sm text-ink/40">Carregando…</p> : (
+                <ul className="space-y-2 text-sm">
+                  {respondidas.slice(0, 3).map((a) => <li key={a.id} className="flex flex-wrap items-center gap-2"><span className="rounded-full bg-sage/15 px-2 py-0.5 text-xs font-semibold text-sage-deep">preenchida</span><span className="font-medium text-ink">{a.nome}</span><span className="text-ink/50">{a.respondidoEm ? new Date(a.respondidoEm).toLocaleDateString("pt-BR") : ""} · por {a.respondidoPor === "PACIENTE" ? "o paciente" : "você"}</span></li>)}
+                  {pendentes.slice(0, 3).map((a) => <li key={a.id} className="flex flex-wrap items-center gap-2"><span className="rounded-full bg-mist px-2 py-0.5 text-xs font-semibold text-ink/60">aguardando</span><span className="font-medium text-ink">{a.nome}</span><span className="text-ink/50">{a.modo === "LINK" ? "pedida por link" : "para preencher na sessão"}</span></li>)}
+                  {!respondidas.length && !pendentes.length && <li><Vazio texto="Nenhuma anamnese ainda. Escolha um modelo (geral, psicológica, infantil, reabilitação ou nutricional) e peça ao paciente ou preencha na sessão." /></li>}
+                  {p.fazLaudo && <li className="flex flex-wrap items-center gap-2 border-t border-mist pt-2"><span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${neuropsicPreenchida ? "bg-sage/15 text-sage-deep" : "bg-mist text-ink/60"}`}>{neuropsicPreenchida ? "preenchida" : "não preenchida"}</span><span className="font-medium text-ink">Anamnese neuropsicológica (laudo)</span><button className="text-sage-deep underline" onClick={onAbrirAnamneseLaudo}>abrir</button></li>}
+                </ul>
+              )}
+            </Cartao>
+          </div>
           <div className="lg:col-span-2">
             <Cartao titulo="Saúde e tratamento" icone="❤️">
               <div className="grid gap-5 md:grid-cols-2">
