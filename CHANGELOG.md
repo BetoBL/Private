@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026-10-15] Aviso ao profissional quando o paciente está em sofrimento intenso
+
+- Quando o paciente registra no Diário uma emoção de sofrimento (peso, distância, inquietação) com intensidade 4 ou 5, ou marca a pergunta crítica de uma escala (PHQ-9 nº 9, DASS-21 nº 21), o profissional responsável recebe um **aviso no Painel do dia** ("Pacientes que precisam da sua atenção", com botão "Marcar como visto") e um **e-mail** sem conteúdo clínico, só o nome do paciente e o link da ficha.
+- O e-mail usa o Resend e só sai se existirem as variáveis `RESEND_API_KEY`, `EMAIL_REMETENTE` e `WEB_URL` no servidor; sem elas o aviso no painel funciona do mesmo jeito. WhatsApp ainda não existe (exige conta de um provedor).
+- Nova tabela `AlertaRisco` (migration `alerta_risco`). 7 checagens de API ponta a ponta.
+
 ## [2026-10-15] Mais escalas de triagem: AUDIT, PCL-5, WHO-5 e SWLS
 
 **Ainda NÃO publicado.**

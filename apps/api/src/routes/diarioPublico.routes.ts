@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
+import { avisarProfissional } from "../lib/alertas/alertas";
 import { AVISO_SEGURANCA, catalogoParaPaciente, familiaDaEmocao, FAMILIAS, normalizarConfig, sofrimentoIntenso, validarCartao, VERSAO_CATALOGO } from "../lib/diario/catalogo";
 import { escalaPorCodigo } from "../lib/escalas/definicoes";
 import { validarRespostas } from "../lib/escalas/pontuar";
@@ -67,6 +68,7 @@ diarioPublicoRouter.post("/:segredo/escalas/:id", validateBody(z.object({ respos
   if (erros.length) { res.status(400).json({ error: erros[0], erros }); return; }
   const feito = await registrarResposta(s.id, req.body.respostas);
   if (!feito) { res.status(409).json({ error: "Esta escala já foi respondida." }); return; }
+  if (feito.resultado.alertaRisco) await avisarProfissional(r.a.pacienteId, "ESCALA", s.id);
   res.status(201).json({ ok: true, cuidado: feito.resultado.alertaRisco ? AVISO_SEGURANCA.intenso : null });
 }));
 
@@ -111,5 +113,6 @@ diarioPublicoRouter.post("/:segredo/cartoes", validateBody(corpo), asyncHandler(
     },
   });
   const intenso = sofrimentoIntenso(familia, req.body.intensidade);
+  if (intenso) await avisarProfissional(r.a.pacienteId, "DIARIO", c.id);
   res.status(201).json({ id: c.id, intenso, apoio: FAMILIAS.find((f) => f.chave === familia)?.apoio ?? [], aviso: intenso ? AVISO_SEGURANCA.intenso : AVISO_SEGURANCA.curto });
 }));

@@ -930,3 +930,20 @@ model FormularioPaciente {
 
   @@index([pacienteId, status])
 }
+
+// Aviso ao profissional quando o paciente registra sofrimento intenso (Diário) ou marca pergunta crítica numa escala.
+// O aviso não carrega conteúdo clínico: só aponta para a ficha. `emailEnviadoEm` fica nulo se não houve envio (sem chave de e-mail ou falha).
+model AlertaRisco {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  profissionalId String
+  pacienteId     String
+  origem         String    // DIARIO | ESCALA
+  origemId       String
+  criadoEm       DateTime  @default(now())
+  vistoEm        DateTime?
+  emailEnviadoEm DateTime?
+
+  @@index([profissionalId, vistoEm])
+  @@index([clinicaId, criadoEm])
+}

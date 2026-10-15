@@ -36,6 +36,8 @@ export function PainelDoDia() {
 
   const [pendentesDiario, setPendentesDiario] = useState<PendenteDiario[]>([]);
   const [evolucoesPendentes, setEvolucoesPendentes] = useState<Awaited<ReturnType<typeof api.evolucoesPendentes>>>([]);
+  const [alertas, setAlertas] = useState<Awaited<ReturnType<typeof api.alertasRisco>>>([]);
+  useEffect(() => { api.alertasRisco().then(setAlertas).catch(() => undefined); }, []);
   useEffect(() => { api.evolucoesPendentes().then(setEvolucoesPendentes).catch(() => undefined); }, []);
   useEffect(() => { api.pendentesDiario().then(setPendentesDiario).catch(() => undefined); }, []);
   const [resumo, setResumo] = useState<string | null>(null);
@@ -124,6 +126,22 @@ export function PainelDoDia() {
           {dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1)}
         </div>
       </div>
+
+      {alertas.length > 0 && (
+        <section className="mb-6 rounded-2xl border border-ember bg-ember/5 px-6 py-5">
+          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-ember">Pacientes que precisam da sua atenção</h2>
+          <ul className="divide-y divide-ember/15">
+            {alertas.map((a) => (
+              <li key={a.id} className="flex flex-wrap items-center gap-3 py-2 text-sm">
+                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${a.pacienteId}?aba=${a.origem === "DIARIO" ? "diario" : "escalas"}`} onClick={() => { api.alertaVisto(a.id).catch(() => undefined); setAlertas((l) => l.filter((x) => x.id !== a.id)); }}>{a.paciente}</Link>
+                <span className="text-ink/60">{a.origem === "DIARIO" ? "registrou sofrimento intenso no Diário" : "marcou uma pergunta crítica numa escala"}</span>
+                <span className="text-xs text-ink/45">{new Date(a.criadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</span>
+                <button type="button" className="ml-auto text-xs font-semibold text-ember hover:underline" onClick={() => { api.alertaVisto(a.id).catch(() => undefined); setAlertas((l) => l.filter((x) => x.id !== a.id)); }}>Marcar como visto</button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {evolucoesPendentes.length > 0 && (
         <section className="mb-6 rounded-2xl border border-mist bg-white px-6 py-5">

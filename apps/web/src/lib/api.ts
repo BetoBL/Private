@@ -919,6 +919,8 @@ export const api = {
   apagarSolicitacaoEscala: (id: string) => request<void>(`/escalas/${id}`, { method: "DELETE" }),
   escalaPublica: (segredo: string, id: string) => request<EscalaParaResponder>(`/diario-publico/${segredo}/escalas/${id}`),
   responderEscala: (segredo: string, id: string, respostas: Record<string, number>) => request<{ ok: boolean; cuidado: string | null }>(`/diario-publico/${segredo}/escalas/${id}`, { method: "POST", body: JSON.stringify({ respostas }) }),
+  alertasRisco: () => request<Array<{ id: string; pacienteId: string; paciente: string; origem: "DIARIO" | "ESCALA"; criadoEm: string }>>("/alertas"),
+  alertaVisto: (id: string) => request<void>(`/alertas/${id}/visto`, { method: "POST" }),
   evolucoesPendentes: () => request<Array<{ id: string; pacienteId: string; paciente: string; dataHora: string; modelo: string; comTexto: boolean }>>("/evolucoes/pendentes"),
   catalogoProntuario: () => request<CatalogoProntuario>("/evolucoes/catalogo"),
   listarEvolucoes: (pacienteId: string) => request<Evolucao[]>(`/evolucoes?pacienteId=${pacienteId}`),
