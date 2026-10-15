@@ -143,7 +143,7 @@ export function DiarioDoPacienteTela() {
                 <li key={i.id} className="rounded-2xl bg-white/80 p-4 shadow-sm">
                   <div className="mb-3 text-[15px] font-semibold leading-snug text-ink"><span className="mr-2 text-ink/35">{i.id}.</span>{i.texto}</div>
                   <div className="space-y-2">
-                    {escala.opcoes.map((o) => { const ativo = respEscala[String(i.id)] === o.valor; return (
+                    {(i.opcoes ?? escala.opcoes).map((o) => { const ativo = respEscala[String(i.id)] === o.valor; return (
                       <button key={o.valor} type="button" onClick={() => setRespEscala((r) => ({ ...r, [String(i.id)]: o.valor }))} className={`flex w-full items-center gap-3 rounded-xl border-2 px-3 py-2.5 text-left text-sm ${ativo ? "border-sage-deep bg-sage-deep/10 font-semibold text-ink" : "border-transparent bg-paper text-ink/75"}`}>
                         <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 text-[11px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/20"}`}>{ativo ? "✓" : ""}</span>{o.rotulo}
                       </button>

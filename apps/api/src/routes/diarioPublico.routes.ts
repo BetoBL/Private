@@ -54,7 +54,7 @@ diarioPublicoRouter.get("/:segredo/escalas/:id", asyncHandler(async (req, res) =
   const s = await prisma.solicitacaoEscala.findFirst({ where: { id: req.params.id, pacienteId: r.a.pacienteId, status: "PENDENTE", excluidaEm: null } });
   const e = s && escalaPorCodigo(s.escala);
   if (!s || !e) { res.status(404).json({ error: "Esta escala não está mais disponível." }); return; }
-  res.json({ id: s.id, nome: e.nome, instrucao: e.instrucao, opcoes: e.opcoes, itens: e.itens.map((i) => ({ id: i.id, texto: i.texto })), itemFuncional: e.itemFuncional ?? null });
+  res.json({ id: s.id, nome: e.nome, instrucao: e.instrucao, opcoes: e.opcoes, itens: e.itens.map((i) => ({ id: i.id, texto: i.texto, opcoes: i.opcoes ?? null })), itemFuncional: e.itemFuncional ?? null });
 }));
 
 diarioPublicoRouter.post("/:segredo/escalas/:id", validateBody(z.object({ respostas: z.record(z.string(), z.number()) })), asyncHandler(async (req, res) => {

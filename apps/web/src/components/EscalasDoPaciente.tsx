@@ -9,7 +9,8 @@ const FREQ: Record<string, string> = { UNICA: "uma vez", SEMANAL: "toda semana",
 const dataBr = (iso: string) => new Date(iso.length === 10 ? `${iso}T12:00:00` : iso).toLocaleDateString("pt-BR");
 const hojeIso = () => new Date().toLocaleDateString("sv-SE");
 
-function Selo({ f }: { f: { rotulo: string; cor: keyof typeof COR } }) {
+function Selo({ f }: { f: { rotulo: string; cor: keyof typeof COR } | null }) {
+  if (!f) return null;
   return <span className="rounded-full px-2.5 py-0.5 text-xs font-semibold text-white" style={{ background: COR[f.cor] }}>{f.rotulo}</span>;
 }
 
@@ -122,11 +123,11 @@ export function EscalasDoPaciente({ pacienteId }: { pacienteId: string }) {
       {Object.entries(porEscala).map(([codigo, itens]) => {
         const info = nomeDe(codigo);
         const feitas = itens.filter((s) => s.status === "CONCLUIDA" && s.pontuacao).sort((a, b) => (a.respondidaEm ?? "").localeCompare(b.respondidaEm ?? ""));
-        const temSub = feitas.some((s) => s.pontuacao!.subescalas.length > 0);
+        const temSub = !!info?.porSubescala && feitas.some((s) => s.pontuacao!.subescalas.length > 0);
         const series = temSub ? (feitas[0]?.pontuacao?.subescalas ?? []).map((s, i) => ({ chave: s.chave, rotulo: s.rotulo, cor: ["#5B7FA6", "#D9822B", "#C0533F"][i % 3] })) : [{ chave: "total", rotulo: "Total", cor: "#2F5D50" }];
         const pontos = feitas.map((s) => ({ data: dataBr(s.respondidaEm!), valores: temSub ? Object.fromEntries(s.pontuacao!.subescalas.map((x) => [x.chave, x.valor])) : { total: s.pontuacao!.total ?? 0 } }));
-        const cortes = codigo === "PHQ9" ? [5, 10, 15, 20] : codigo === "GAD7" ? [5, 10, 15] : undefined;
-        const max = codigo === "PHQ9" ? 27 : codigo === "GAD7" ? 21 : 42;
+        const cortes = info?.pontosDeCorte?.length ? info.pontosDeCorte : undefined;
+        const max = info?.graficoMax || 42;
         return (
           <section key={codigo} className="rounded-xl border border-mist bg-white p-5">
             <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2"><h3 className="font-serif text-lg text-ink">{info?.sigla ?? codigo} <span className="text-sm text-ink/50">· {info?.construto}</span></h3><span className="text-xs text-ink/45">Triagem, não diagnóstico</span></div>

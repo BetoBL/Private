@@ -22,7 +22,7 @@ export const FREQUENCIAS: Record<string, number> = { UNICA: 0, SEMANAL: 7, QUINZ
 
 // metadados (sem os itens) para a biblioteca
 escalasRouter.get("/catalogo", (_req, res) => {
-  res.json(ESCALAS.map((e) => ({ codigo: e.codigo, nome: e.nome, sigla: e.sigla, construto: e.construto, uso: e.uso, tempo: e.tempo, fonte: e.fonte, itens: e.itens.length, frequenciaSugerida: e.frequenciaSugerida, notaClinica: "Triagem, não diagnóstico" })));
+  res.json(ESCALAS.map((e) => ({ codigo: e.codigo, nome: e.nome, sigla: e.sigla, construto: e.construto, uso: e.uso, tempo: e.tempo, fonte: e.fonte, itens: e.itens.length, frequenciaSugerida: e.frequenciaSugerida, notaClinica: "Triagem, não diagnóstico", graficoMax: e.maxTotal ?? 0, pontosDeCorte: e.pontosDeCorte ?? [], porSubescala: (e.subescalas?.length ?? 0) > 0 })));
 });
 // a escala inteira (para o profissional conferir as perguntas antes de pedir)
 escalasRouter.get("/catalogo/:codigo", (req, res) => {

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-10-15] Mais escalas de triagem: AUDIT, PCL-5, WHO-5 e SWLS
+
+**Ainda NÃO publicado.**
+- **4 escalas novas** na biblioteca (agora 7): **AUDIT** (uso de álcool, 0–40, faixas da OMS, opções próprias por pergunta), **PCL-5** (estresse pós-traumático, 0–80, ponto de corte 31 e os 4 grupos de sintomas B/C/D/E), **WHO-5** (bem-estar, soma x 4, 0–100) e **SWLS** (satisfação com a vida, 5–35).
+- Motor ampliado: opções por pergunta, multiplicador do total e grupos de sintomas sem faixa própria. O gráfico da ficha usa o máximo e os pontos de corte de cada escala (antes estava fixo para PHQ-9/GAD-7). A tela do paciente mostra as opções específicas de cada pergunta.
+- Verificado: 192 testes passam (3 novos), tsc limpo na API e no web. Sem migration. Os textos das escalas ainda precisam de revisão da responsável técnica.
+
 ## [2026-10-15] Formulários e anamneses para qualquer profissional
 
 **Ainda NÃO publicado.**
