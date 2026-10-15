@@ -49,6 +49,7 @@ export interface Paciente {
   cpf: string | null;
   contato: string | null;
   escolaridade: string | null;
+  fazLaudo: boolean;
   anamnese: AnamneseData | null;
   preferenciasAgenda: PreferenciasAgenda | null;
   consentimentoTDIC: boolean;
@@ -451,8 +452,9 @@ export interface ModeloSessao { chave: string; rotulo: string; descricao: string
 export interface CatalogoProntuario { profissao: { chave: string; rotulo: string; registro: string; modulos: string[] }; modelos: ModeloSessao[]; profissoes: Array<{ chave: string; rotulo: string; registro: string }> }
 export interface Evolucao {
   id: string; pacienteId: string; profissionalId: string; eventoAgendaId?: string | null; dataHora: string; modelo: string; campos: Record<string, string | string[]> | null;
-  anotacoes: string | null; anotacoesPrivadas: boolean; evolucao: string | null; status: "RASCUNHO" | "FINALIZADA"; finalizadaEm: string | null; totalVersoes: number; criadoEm: string; atualizadoEm: string;
+  anotacoes: string | null; anotacoesPrivadas: boolean; geradaPorIA?: boolean; evolucao: string | null; status: "RASCUNHO" | "FINALIZADA"; finalizadaEm: string | null; totalVersoes: number; criadoEm: string; atualizadoEm: string;
 }
+export interface ResumoCaso { resumo: string; evolucaoDoQuadro: string; pontosDeAtencao: string[]; perguntasProximaSessao: string[]; geradoEm: string; sessoesConsideradas: number }
 export interface VersaoEvolucao { em: string; modelo: string; campos: Record<string, string | string[]> | null; anotacoes: string | null; evolucao: string | null }
 export interface ItemContinuidade { id: string; pacienteId: string; evolucaoId: string | null; tipo: "PLANO" | "TOPICO"; texto: string; status: "ANDAMENTO" | "CONCLUIDO"; concluidoEm: string | null; criadoEm: string }
 
@@ -655,7 +657,7 @@ export const api = {
   listPacientes: (profissionalId?: string) =>
     request<Paciente[]>(`/pacientes${profissionalId ? `?profissionalId=${profissionalId}` : ""}`),
   getPaciente: (id: string) => request<Paciente>(`/pacientes/${id}`),
-  createPaciente: (data: { profissionalId: string; nome: string; dataNascimento: string; sexo?: Sexo }) =>
+  createPaciente: (data: { profissionalId: string; nome: string; dataNascimento: string; sexo?: Sexo; fazLaudo?: boolean }) =>
     request<Paciente>("/pacientes", { method: "POST", body: JSON.stringify(data) }),
   updatePaciente: (
     id: string,
@@ -667,6 +669,7 @@ export const api = {
       cpf: string | null;
       contato: string;
       escolaridade: string;
+      fazLaudo: boolean;
       anamnese: AnamneseData;
       preferenciasAgenda: PreferenciasAgenda;
       consentimentoTDIC: boolean;
@@ -925,6 +928,9 @@ export const api = {
   catalogoProntuario: () => request<CatalogoProntuario>("/evolucoes/catalogo"),
   listarEvolucoes: (pacienteId: string) => request<Evolucao[]>(`/evolucoes?pacienteId=${pacienteId}`),
   criarEvolucao: (d: { pacienteId: string; modelo: string; dataHora?: string; eventoAgendaId?: string }) => request<Evolucao>("/evolucoes", { method: "POST", body: JSON.stringify(d) }),
+  resumirSessaoIA: (evolucaoId: string) => request<{ evolucao: string; campos: Record<string, string | string[]> | null; sugestoes: Array<{ tipo: "PLANO" | "TOPICO"; texto: string }> }>(`/resumos-ia/sessao/${evolucaoId}`, { method: "POST" }),
+  resumoCasoIA: (pacienteId: string) => request<ResumoCaso | null>(`/resumos-ia/caso/${pacienteId}`),
+  gerarResumoCasoIA: (pacienteId: string) => request<ResumoCaso>(`/resumos-ia/caso/${pacienteId}`, { method: "POST" }),
   salvarEvolucao: (id: string, d: Partial<{ modelo: string; dataHora: string; campos: Record<string, string | string[]>; anotacoes: string | null; evolucao: string | null }>) => request<Evolucao>(`/evolucoes/${id}`, { method: "PUT", body: JSON.stringify(d) }),
   finalizarEvolucao: (id: string) => request<Evolucao>(`/evolucoes/${id}/finalizar`, { method: "POST" }),
   reabrirEvolucao: (id: string) => request<Evolucao>(`/evolucoes/${id}/reabrir`, { method: "POST" }),

@@ -25,6 +25,7 @@ export function Pacientes() {
   const [nome, setNome] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [sexo, setSexo] = useState<Sexo | "">("");
+  const [fazLaudo, setFazLaudo] = useState(false);
 
   useEffect(() => {
     api.listPacientes().then(setPacientes).catch((e) => setErro(e.message));
@@ -41,11 +42,13 @@ export function Pacientes() {
         nome,
         dataNascimento,
         ...(sexo ? { sexo } : {}),
+        fazLaudo,
       });
       setPacientes((prev) => [criado, ...prev]);
       setNome("");
       setDataNascimento("");
       setSexo("");
+      setFazLaudo(false);
       setMostrarForm(false);
       navigate(`/pacientes/${criado.id}`);
     } catch (e) {
@@ -93,6 +96,13 @@ export function Pacientes() {
               <option value="">Não informado</option>
               <option value="FEMININO">Feminino</option>
               <option value="MASCULINO">Masculino</option>
+            </select>
+          </label>
+          <label className="text-sm">
+            <span className="mb-1 block font-semibold text-ink/70">Tipo de atendimento</span>
+            <select className="rounded-lg border border-mist px-3 py-2" value={fazLaudo ? "laudo" : "normal"} onChange={(e) => setFazLaudo(e.target.value === "laudo")}>
+              <option value="normal">Acompanhamento (sem laudo)</option>
+              <option value="laudo">Avaliação com laudo</option>
             </select>
           </label>
           <button

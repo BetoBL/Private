@@ -205,6 +205,7 @@ model Paciente {
   cpf             String?    // identificação do laudo (formato 000.000.000-00)
   contato         String?
   escolaridade    String?
+  fazLaudo        Boolean    @default(false) // true = faz avaliação com laudo (abre o grupo "Avaliação e laudo" na ficha)
 
   convenioId      String?
   convenio        Convenio?  @relation(fields: [convenioId], references: [id])
@@ -946,4 +947,17 @@ model AlertaRisco {
 
   @@index([profissionalId, vistoEm])
   @@index([clinicaId, criadoEm])
+}
+
+// Último resumo do caso gerado por IA (rascunho para o profissional). Guarda o histórico: cada geração é uma linha.
+model ResumoCasoIA {
+  id                  String   @id @default(uuid())
+  clinicaId           String
+  pacienteId          String
+  profissionalId      String
+  conteudo            Json     // { resumo, evolucaoDoQuadro, pontosDeAtencao[], perguntasProximaSessao[] }
+  sessoesConsideradas Int      @default(0)
+  geradoEm            DateTime @default(now())
+
+  @@index([pacienteId, geradoEm])
 }

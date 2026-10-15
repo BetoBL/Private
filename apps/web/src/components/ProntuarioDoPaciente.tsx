@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { api, type CatalogoProntuario, type Evolucao, type ItemContinuidade, type VersaoEvolucao } from "../lib/api";
+import { api, type CatalogoProntuario, type Evolucao, type ResumoCaso, type ItemContinuidade, type VersaoEvolucao } from "../lib/api";
 
 // Aba "Prontuário" da ficha: evolução de cada sessão (modelos por profissão), duas folhas (anotações privadas + prontuário)
 // e a continuidade do cuidado (planos de ação e tópicos para a próxima sessão).
@@ -26,6 +26,10 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   const [verConcluidos, setVerConcluidos] = useState(false);
   const [marcadas, setMarcadas] = useState<string[]>([]);
   const [gerando, setGerando] = useState(false);
+  const [caso, setCaso] = useState<ResumoCaso | null>(null);
+  const [gerandoCaso, setGerandoCaso] = useState(false);
+  const [resumindo, setResumindo] = useState(false);
+  const [sugestoes, setSugestoes] = useState<Array<{ tipo: "PLANO" | "TOPICO"; texto: string }>>([]);
   const [params, setParams] = useSearchParams();
   const aberturaFeita = useRef(false);
   const temporizador = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -39,6 +43,29 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   }, [pacienteId]);
   useEffect(() => { api.catalogoProntuario().then((c) => { setCat(c); setNovoModelo(c.modelos[0]?.chave ?? "LIVRE"); }).catch(falha); }, []);
   useEffect(() => { carregarLista(); carregarItens(); setAberta(null); }, [carregarLista, carregarItens]);
+  useEffect(() => { api.resumoCasoIA(pacienteId).then(setCaso).catch(() => undefined); }, [pacienteId]);
+
+  async function gerarCaso() {
+    setGerandoCaso(true); setErro(null);
+    try { setCaso(await api.gerarResumoCasoIA(pacienteId)); } catch (x) { falha(x); }
+    setGerandoCaso(false);
+  }
+  async function resumirSessao() {
+    if (!aberta) return;
+    if ((aberta.evolucao ?? "").trim() && !window.confirm("A evolução já tem texto. O resumo da IA vai substituí-lo (campos já preenchidos são mantidos). Continuar?")) return;
+    setResumindo(true); setErro(null); setSugestoes([]);
+    try {
+      await salvarAgora();
+      const r = await api.resumirSessaoIA(aberta.id);
+      setAberta((a) => (a ? { ...a, evolucao: r.evolucao, campos: r.campos, geradaPorIA: true } : a));
+      setSugestoes(r.sugestoes);
+      carregarLista();
+    } catch (x) { falha(x); }
+    setResumindo(false);
+  }
+  async function aceitarSugestao(s: { tipo: "PLANO" | "TOPICO"; texto: string }) {
+    try { await api.criarItemContinuidade({ pacienteId, tipo: s.tipo, texto: s.texto, evolucaoId: aberta?.id ?? null }); setSugestoes((l) => l.filter((x) => x !== s)); carregarItens(); } catch (x) { falha(x); }
+  }
 
   // Vindo da agenda (?evento=...&inicio=...): abre a evolução já ligada àquele compromisso, ou cria uma no horário dele.
   useEffect(() => {
@@ -139,6 +166,25 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
       {erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
 
       <section className="rounded-xl border border-mist bg-white p-5">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 className="font-serif text-lg text-ink">Resumo do caso <span className="ml-1 rounded-full bg-mist px-2 py-0.5 align-middle text-[11px] font-semibold text-sage-deep">gerado por IA</span></h3>
+            <p className="text-sm text-ink/55">{caso ? `Atualizado em ${new Date(caso.geradoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}, com ${caso.sessoesConsideradas} sessão(ões) finalizada(s) mais escalas e Diário.` : "Panorama do acompanhamento e perguntas para a próxima sessão."}</p>
+          </div>
+          <button className="rounded-lg border border-sage-deep px-3 py-2 text-sm font-semibold text-sage-deep disabled:opacity-50" disabled={gerandoCaso} onClick={gerarCaso}>{gerandoCaso ? "gerando…" : caso ? "Atualizar resumo" : "Gerar resumo do caso"}</button>
+        </div>
+        {caso && (
+          <div className="space-y-3 text-sm leading-relaxed text-ink/85">
+            <p className="whitespace-pre-line">{caso.resumo}</p>
+            <p><strong className="text-ink">Evolução do quadro:</strong> {caso.evolucaoDoQuadro}</p>
+            {caso.pontosDeAtencao.length > 0 && (<div><strong className="text-ink">Pontos de atenção</strong><ul className="ml-5 list-disc">{caso.pontosDeAtencao.map((p, i) => <li key={i}>{p}</li>)}</ul></div>)}
+            {caso.perguntasProximaSessao.length > 0 && (<div><strong className="text-ink">Perguntas para a próxima sessão</strong><ul className="ml-5 list-disc">{caso.perguntasProximaSessao.map((p, i) => <li key={i}>{p}</li>)}</ul></div>)}
+            <p className="text-xs text-ink/45">Rascunho de apoio. Confira antes de usar: a responsabilidade pelo registro é sua. Anotações privadas não entram neste resumo.</p>
+          </div>
+        )}
+      </section>
+
+      <section className="rounded-xl border border-mist bg-white p-5">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <div><h3 className="font-serif text-lg text-ink">Continuidade do cuidado</h3><p className="text-sm text-ink/55">O que atravessa as sessões até ser concluído.</p></div>
           {concluidos.length > 0 && <button className="text-xs font-semibold text-sage-deep hover:underline" onClick={() => setVerConcluidos(!verConcluidos)}>{verConcluidos ? "ocultar concluídos" : `ver concluídos (${concluidos.length})`}</button>}
@@ -222,6 +268,29 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
                       </label>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {meu && !finalizada && (
+                <div className="flex flex-wrap items-center gap-3 rounded-lg bg-mist/50 px-3 py-2">
+                  <button className="rounded-lg bg-sage-deep px-3 py-2 text-sm font-semibold text-paper disabled:opacity-50" disabled={resumindo} onClick={resumirSessao}>{resumindo ? "resumindo…" : "Resumir com IA"}</button>
+                  <span className="text-xs text-ink/60">Escreva as anotações durante a sessão; a IA monta o rascunho da evolução e dos campos. Você revisa e edita.</span>
+                  {aberta.geradaPorIA && <span className="ml-auto rounded-full bg-white px-2 py-0.5 text-[11px] font-semibold text-sage-deep">rascunho com apoio de IA</span>}
+                </div>
+              )}
+              {sugestoes.length > 0 && (
+                <div className="rounded-lg border border-sage-deep/30 bg-sage-deep/5 p-3">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-wide text-sage-deep">Sugestões para a continuidade</p>
+                  <ul className="space-y-1.5">
+                    {sugestoes.map((s, i) => (
+                      <li key={i} className="flex flex-wrap items-center gap-2 text-sm">
+                        <span className="rounded bg-white px-1.5 py-0.5 text-[11px] font-semibold text-ink/60">{s.tipo === "PLANO" ? "Plano" : "Próxima sessão"}</span>
+                        <span className="min-w-0 flex-1">{s.texto}</span>
+                        <button className="text-xs font-semibold text-sage-deep hover:underline" onClick={() => aceitarSugestao(s)}>Adicionar</button>
+                        <button className="text-xs text-ink/45 hover:underline" onClick={() => setSugestoes((l) => l.filter((x) => x !== s))}>Descartar</button>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
 

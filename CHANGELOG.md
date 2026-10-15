@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-15] Paciente com laudo separado do acompanhamento e resumos por IA
+
+**Ainda NÃO publicado.**
+- **Tipo de atendimento no cadastro:** "Acompanhamento (sem laudo)" ou "Avaliação com laudo". Dá para trocar depois, na aba Dados ("Faz avaliação com laudo"). Pacientes novos nascem sem laudo; **os já cadastrados ficam como "com laudo"** (a migration marca todos, para ninguém perder acesso).
+- **Ficha:** a base é igual para todos (Dados, Prontuário, Formulários, Agenda, Anexos, Diário, Escalas). Quem faz laudo ganha uma aba **Laudo** que abre uma faixa com Anamnese, Linha do tempo, Dashboard e Laudos. Os botões "Ir para o laudo" e "Registrar teste" só aparecem para esses pacientes.
+- **Resumir com IA (na sessão):** o profissional anota durante a sessão e clica em "Resumir com IA": o sistema monta o rascunho da evolução, preenche os campos vazios do modelo e sugere planos e tópicos para a próxima sessão (adiciona com um clique). Marca a evolução como "com apoio de IA". Só lê as anotações do próprio autor.
+- **Resumo do caso (IA):** panorama do acompanhamento, evolução do quadro, pontos de atenção e perguntas para a próxima sessão, a partir das sessões finalizadas, escalas e Diário (sem as anotações privadas). Cada geração fica salva.
+- **Segurança:** as duas funções exigem o consentimento do paciente para tecnologias de apoio (Resolução CFP 09/2024) e nunca gravam sem o profissional ver; a IA recebe a ordem de não inventar, não diagnosticar e marcar "[conferir]". Modelo configurável por MODELO_IA no servidor (padrão claude-sonnet-5-5).
+- Migrations `paciente_faz_laudo` e `resumo_caso_ia`. Verificado: 192 testes, 9 checagens de API (com chamada real à IA) e telas conferidas.
+
 ## [2026-10-15] Aviso ao profissional quando o paciente está em sofrimento intenso
 
 - Quando o paciente registra no Diário uma emoção de sofrimento (peso, distância, inquietação) com intensidade 4 ou 5, ou marca a pergunta crítica de uma escala (PHQ-9 nº 9, DASS-21 nº 21), o profissional responsável recebe um **aviso no Painel do dia** ("Pacientes que precisam da sua atenção", com botão "Marcar como visto") e um **e-mail** sem conteúdo clínico, só o nome do paciente e o link da ficha.

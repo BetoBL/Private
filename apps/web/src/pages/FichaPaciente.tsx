@@ -26,6 +26,7 @@ import {
   type Sexo,
 } from "../lib/api";
 
+const ABAS_LAUDO: readonly string[] = ["anamnese", "linha", "dashboard", "laudos"];
 type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
@@ -43,6 +44,8 @@ export function FichaPaciente() {
   const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
+  // quem não faz laudo não tem o grupo de laudo: um atalho antigo para essas abas cai nos dados
+  useEffect(() => { if (paciente && !paciente.fazLaudo && ABAS_LAUDO.includes(aba)) setAba("dados"); }, [paciente, aba]);
 
   const [dadosForm, setDadosForm] = useState<{
     nome: string;
@@ -52,6 +55,7 @@ export function FichaPaciente() {
     cpf: string;
     contato: string;
     escolaridade: string;
+    fazLaudo: boolean;
     consentimentoTDIC: boolean;
     convenioId: string;
     convenioPlano: string;
@@ -72,6 +76,7 @@ export function FichaPaciente() {
     cpf: "",
     contato: "",
     escolaridade: "",
+    fazLaudo: false,
     consentimentoTDIC: false,
     convenioId: "",
     convenioPlano: "",
@@ -121,6 +126,7 @@ export function FichaPaciente() {
           cpf: p.cpf ?? "",
           contato: p.contato ?? "",
           escolaridade: p.escolaridade ?? "",
+          fazLaudo: p.fazLaudo,
           consentimentoTDIC: p.consentimentoTDIC,
           convenioId: p.convenioId ?? "",
           convenioPlano: p.convenioPlano ?? "",
@@ -355,7 +361,7 @@ export function FichaPaciente() {
             </div>
           </div>
         </div>
-        <div className="flex gap-2">
+        {paciente?.fazLaudo && <div className="flex gap-2">
           <button
             className="rounded-lg border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep"
             onClick={() => navigate(`/laudo?pacienteId=${id}`)}
@@ -365,7 +371,7 @@ export function FichaPaciente() {
           <button className="rounded-lg bg-sage-deep px-4 py-2 text-sm font-semibold text-paper" onClick={() => navigate(`/testes?pacienteId=${id}`)}>
             Registrar teste desta sessão
           </button>
-        </div>
+        </div>}
       </div>
 
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
@@ -374,28 +380,34 @@ export function FichaPaciente() {
       <div className="mb-6 flex gap-1 overflow-x-auto overflow-y-hidden whitespace-nowrap border-b border-mist">
         {([
           ["dados", "Dados"],
-          ["anamnese", "Anamnese"],
           ["prontuario", "Prontuário"],
           ["formularios", "Formulários"],
-          ["linha", "Linha do tempo"],
-          ["dashboard", "Dashboard", "testes"],
-          ["laudos", "Laudos", "laudos"],
           ["agenda", "Agenda"],
           ["anexos", "Anexos"],
           ["diario", "Diário", "diario"],
           ["escalas", "Escalas", "escalas"],
-        ] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo)).map(([valor, label]) => (
-          <button
-            key={valor}
-            className={`-mb-px border-b-2 px-1 py-2.5 mr-6 text-sm font-semibold ${
-              aba === valor ? "border-sage-deep text-sage-deep" : "border-transparent text-ink/50"
-            }`}
-            onClick={() => setAba(valor)}
-          >
-            {label}
-          </button>
-        ))}
+          ...(paciente?.fazLaudo ? ([["anamnese", "Laudo"]] as ReadonlyArray<readonly [Aba, string]>) : []),
+        ] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo)).map(([valor, label]) => {
+          const ativa = valor === "anamnese" ? ABAS_LAUDO.includes(aba) : aba === valor;
+          return (
+            <button
+              key={valor}
+              className={`-mb-px border-b-2 px-1 py-2.5 mr-6 text-sm font-semibold ${ativa ? "border-sage-deep text-sage-deep" : "border-transparent text-ink/50"}`}
+              onClick={() => setAba(valor)}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
+      {paciente?.fazLaudo && ABAS_LAUDO.includes(aba) && (
+        <div className="-mt-2 mb-6 flex flex-wrap items-center gap-2 rounded-xl bg-mist/60 px-3 py-2">
+          <span className="mr-1 text-xs font-bold uppercase tracking-wide text-clay">Avaliação e laudo</span>
+          {([["anamnese", "Anamnese"], ["linha", "Linha do tempo"], ["dashboard", "Dashboard", "testes"], ["laudos", "Laudos", "laudos"]] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo)).map(([valor, label]) => (
+            <button key={valor} className={`rounded-full px-3 py-1 text-sm font-semibold ${aba === valor ? "bg-sage-deep text-paper" : "bg-white text-ink/70 hover:text-ink"}`} onClick={() => setAba(valor)}>{label}</button>
+          ))}
+        </div>
+      )}
 
       {aba === "prontuario" && id && <ProntuarioDoPaciente pacienteId={id} />}
       {aba === "formularios" && id && <FormulariosDoPaciente pacienteId={id} />}
@@ -405,6 +417,10 @@ export function FichaPaciente() {
       {aba === "dados" && (
         <div>
           <div className="grid grid-cols-2 gap-4">
+            <label className="col-span-2 flex items-start gap-3 rounded-lg border border-mist bg-mist/40 p-3 text-sm">
+              <input type="checkbox" className="mt-1" checked={dadosForm.fazLaudo} onChange={(e) => setDadosForm((f) => ({ ...f, fazLaudo: e.target.checked }))} />
+              <span><strong>Faz avaliação com laudo</strong><span className="block text-xs text-ink/60">Liga o grupo "Avaliação e laudo" (anamnese, testes, dashboard e laudos). Sem isso, a ficha fica só com o acompanhamento. Salve para aplicar.</span></span>
+            </label>
             <label className="text-sm">
               <span className="mb-1 block font-semibold text-ink/70">Nome completo</span>
               <input
@@ -605,7 +621,7 @@ export function FichaPaciente() {
                     <span className="text-sm">🤖</span>
                     <div>
                       <strong>Inteligência Artificial (Claude)</strong>
-                      <p className="mt-0.5 text-ink/60">Usada como apoio para rascunho do laudo. O profissional SEMPRE revisa antes de finalizar.</p>
+                      <p className="mt-0.5 text-ink/60">Usada como apoio para rascunhos (laudo, resumo de sessão e resumo do caso). O profissional SEMPRE revisa antes de finalizar.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2 rounded-lg bg-white/50 p-2">

@@ -20,6 +20,7 @@ const pacienteCreateSchema = z.object({
   cpf: z.preprocess((v) => (typeof v === "string" && v.trim() === "" ? null : v), z.string().trim().refine((v) => v.replace(/\D/g, "").length === 11, "CPF precisa ter 11 dígitos").nullable().optional()),
   contato: z.string().optional(),
   escolaridade: z.string().optional(),
+  fazLaudo: z.boolean().optional(),
   // Plano de saúde. `null` limpa o campo (paciente particular); string vazia vinda de <input> vira null.
   convenioId: z.string().uuid().nullable().optional(),
   convenioNumeroCarteira: textoOuNull(60),
