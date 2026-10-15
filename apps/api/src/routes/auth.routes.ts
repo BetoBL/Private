@@ -46,6 +46,7 @@ authRouter.post(
         email: profissional.email,
         crp: profissional.crp,
         papel: profissional.papel,
+        categoria: profissional.categoria,
       },
     });
   })

@@ -34,6 +34,8 @@ export function PainelDoDia() {
   const [laudos, setLaudos] = useState<Laudo[]>([]);
 
   const [pendentesDiario, setPendentesDiario] = useState<PendenteDiario[]>([]);
+  const [evolucoesPendentes, setEvolucoesPendentes] = useState<Awaited<ReturnType<typeof api.evolucoesPendentes>>>([]);
+  useEffect(() => { api.evolucoesPendentes().then(setEvolucoesPendentes).catch(() => undefined); }, []);
   useEffect(() => { api.pendentesDiario().then(setPendentesDiario).catch(() => undefined); }, []);
   const [resumo, setResumo] = useState<string | null>(null);
   const [carregandoResumo, setCarregandoResumo] = useState(true);
@@ -121,6 +123,21 @@ export function PainelDoDia() {
           {dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1)}
         </div>
       </div>
+
+      {evolucoesPendentes.length > 0 && (
+        <section className="mb-6 rounded-2xl border border-mist bg-white px-6 py-5">
+          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-clay">Evoluções para concluir</h2>
+          <ul className="divide-y divide-mist">
+            {evolucoesPendentes.slice(0, 6).map((e) => (
+              <li key={e.id} className="flex items-center gap-3 py-2 text-sm">
+                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${e.pacienteId}?aba=prontuario`}>{e.paciente}</Link>
+                <span className="text-ink/55">{new Date(e.dataHora).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</span>
+                <span className="ml-auto text-xs text-ink/45">{e.comTexto ? "rascunho com texto" : "ainda sem texto"}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {pendentesDiario.length > 0 && (
         <section className="mb-6 rounded-2xl border border-mist bg-white px-6 py-5">

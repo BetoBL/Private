@@ -148,13 +148,14 @@ export interface Profissional {
   enderecoParticular: string | null;
   formacao: string | null;
   especialidades: string[];
+  categoria?: string;
   papel: PapelProfissional;
   temAssinatura?: boolean;
   tituloLaudo?: string | null;
   criadoEm: string;
 }
 
-export interface ProfissionalLogado extends Pick<Profissional, "id" | "clinicaId" | "nome" | "email" | "crp" | "papel"> {}
+export interface ProfissionalLogado extends Pick<Profissional, "id" | "clinicaId" | "nome" | "email" | "crp" | "papel" | "categoria"> {}
 
 export interface Clinica {
   id: string;
@@ -235,6 +236,8 @@ export interface EventoAgenda {
   fim: string;
   observacoes: string | null;
   sessaoId?: string | null;
+  serieId?: string | null;
+  recorrencia?: string | null;
   criadoEm: string;
 }
 
@@ -426,6 +429,17 @@ export interface TipoAtendimento {
   atualizadoEm: string;
 }
 
+// ---- Prontuário (evolução da sessão) ----
+export interface CampoModelo { chave: string; rotulo: string; dica: string; lista?: boolean }
+export interface ModeloSessao { chave: string; rotulo: string; descricao: string; campos: CampoModelo[] }
+export interface CatalogoProntuario { profissao: { chave: string; rotulo: string; registro: string; modulos: string[] }; modelos: ModeloSessao[]; profissoes: Array<{ chave: string; rotulo: string; registro: string }> }
+export interface Evolucao {
+  id: string; pacienteId: string; profissionalId: string; dataHora: string; modelo: string; campos: Record<string, string | string[]> | null;
+  anotacoes: string | null; anotacoesPrivadas: boolean; evolucao: string | null; status: "RASCUNHO" | "FINALIZADA"; finalizadaEm: string | null; totalVersoes: number; criadoEm: string; atualizadoEm: string;
+}
+export interface VersaoEvolucao { em: string; modelo: string; campos: Record<string, string | string[]> | null; anotacoes: string | null; evolucao: string | null }
+export interface ItemContinuidade { id: string; pacienteId: string; evolucaoId: string | null; tipo: "PLANO" | "TOPICO"; texto: string; status: "ANDAMENTO" | "CONCLUIDO"; concluidoEm: string | null; criadoEm: string }
+
 // ---- Diário do paciente ----
 export interface OpcaoDiario { chave: string; rotulo: string }
 export interface FamiliaDiario { chave: string; rotulo: string; descricao: string; apoio: string[] }
@@ -552,7 +566,7 @@ function avisarGravacao(path: string, method?: string) {
   avisarSeSemAviso(method === "DELETE" ? "Removido" : "Salvo");
 }
 
-export type ResultadoEventoAgenda = { conflito: false; evento: EventoAgenda } | { conflito: true; conflitos: ConflitoAgenda[] };
+export type ResultadoEventoAgenda = { conflito: false; evento: EventoAgenda; eventos?: EventoAgenda[] } | { conflito: true; conflitos: ConflitoAgenda[] };
 
 async function enviarEventoAgenda(path: string, method: "POST" | "PATCH", data: unknown): Promise<ResultadoEventoAgenda> {
   const res = await fetch(`${API_URL}${path}`, {
@@ -569,7 +583,8 @@ async function enviarEventoAgenda(path: string, method: "POST" | "PATCH", data: 
   }
   if (!res.ok) await tratarRespostaSemOk(res);
   avisarGravacao(path, method);
-  return { conflito: false, evento: await res.json() };
+  const corpo = await res.json();
+  return { conflito: false, evento: corpo, ...(Array.isArray(corpo.eventos) ? { eventos: corpo.eventos as EventoAgenda[] } : {}) };
 }
 
 export interface ConflitoCronograma {
@@ -670,6 +685,7 @@ export const api = {
       enderecoParticular: string;
       formacao: string;
       especialidades: string[];
+      categoria: string;
       papel: PapelProfissional;
       senha: string;
     }>
@@ -761,6 +777,7 @@ export const api = {
   verificarNota: (id: string) => request<{ existe: boolean; status: number; leitura: string }>(`/notas/${id}/verificar`, { method: "POST" }),
   marcarNotaEmitida: (id: string, chaveAcesso: string) => request<{ id: string; status: string }>(`/notas/${id}/marcar-emitida`, { method: "POST", body: JSON.stringify({ chaveAcesso }) }),
   excluirNota: (id: string) => request<void>(`/notas/${id}`, { method: "DELETE" }),
+  baixarProntuario: (pacienteId: string, ids: string[]) => baixarArquivo(`/evolucoes/prontuario/pdf?pacienteId=${pacienteId}${ids.length ? `&ids=${ids.join(",")}` : ""}`),
   baixarPdfNota: (id: string) => baixarArquivo(`/notas/${id}/pdf`),
   baixarXmlNota: (id: string, tipo: "dps" | "nfse") => baixarArquivo(`/notas/${id}/xml?tipo=${tipo}`),
   getFiscal: () => request<RespostaFiscal>("/fiscal/config"),
@@ -796,6 +813,7 @@ export const api = {
     fim: string;
     observacoes?: string;
     forcar?: boolean;
+    recorrencia?: { frequencia: "SEMANAL" | "QUINZENAL" | "A_CADA_4_SEMANAS"; ocorrencias?: number };
   }) => enviarEventoAgenda("/eventos-agenda", "POST", data),
   editarEventoAgenda: (
     id: string,
@@ -809,7 +827,7 @@ export const api = {
       forcar: boolean;
     }>
   ) => enviarEventoAgenda(`/eventos-agenda/${id}`, "PATCH", data),
-  deletarEventoAgenda: (id: string) => request<void>(`/eventos-agenda/${id}`, { method: "DELETE" }),
+  deletarEventoAgenda: (id: string, serie = false) => request<void>(`/eventos-agenda/${id}${serie ? "?escopo=serie" : ""}`, { method: "DELETE" }),
 
   getResumoDoDia: (atualizar = false) => request<{ resumo: string; geradoEm?: string; doDia?: boolean }>(`/painel-do-dia/resumo${atualizar ? "?atualizar=1" : ""}`),
   enviarHumor: (humor: string) => request<{ resposta: string }>("/painel-do-dia/humor", { method: "POST", body: JSON.stringify({ humor }) }),
@@ -864,6 +882,20 @@ export const api = {
 
   criarSalaVirtual: (data: { sessaoId: string }) =>
     request<SalaVirtual>("/salas-virtuais", { method: "POST", body: JSON.stringify(data) }),
+  evolucoesPendentes: () => request<Array<{ id: string; pacienteId: string; paciente: string; dataHora: string; modelo: string; comTexto: boolean }>>("/evolucoes/pendentes"),
+  catalogoProntuario: () => request<CatalogoProntuario>("/evolucoes/catalogo"),
+  listarEvolucoes: (pacienteId: string) => request<Evolucao[]>(`/evolucoes?pacienteId=${pacienteId}`),
+  criarEvolucao: (d: { pacienteId: string; modelo: string; dataHora?: string }) => request<Evolucao>("/evolucoes", { method: "POST", body: JSON.stringify(d) }),
+  salvarEvolucao: (id: string, d: Partial<{ modelo: string; dataHora: string; campos: Record<string, string | string[]>; anotacoes: string | null; evolucao: string | null }>) => request<Evolucao>(`/evolucoes/${id}`, { method: "PUT", body: JSON.stringify(d) }),
+  finalizarEvolucao: (id: string) => request<Evolucao>(`/evolucoes/${id}/finalizar`, { method: "POST" }),
+  reabrirEvolucao: (id: string) => request<Evolucao>(`/evolucoes/${id}/reabrir`, { method: "POST" }),
+  excluirEvolucao: (id: string) => request<void>(`/evolucoes/${id}`, { method: "DELETE" }),
+  restaurarEvolucao: (id: string) => request<Evolucao>(`/evolucoes/${id}/restaurar`, { method: "POST" }),
+  versoesEvolucao: (id: string) => request<VersaoEvolucao[]>(`/evolucoes/${id}/versoes`),
+  continuidade: (pacienteId: string, status: "ANDAMENTO" | "CONCLUIDO" = "ANDAMENTO") => request<ItemContinuidade[]>(`/continuidade?pacienteId=${pacienteId}&status=${status}`),
+  criarItemContinuidade: (d: { pacienteId: string; tipo: "PLANO" | "TOPICO"; texto: string; evolucaoId?: string | null }) => request<ItemContinuidade>("/continuidade", { method: "POST", body: JSON.stringify(d) }),
+  editarItemContinuidade: (id: string, d: Partial<{ texto: string; status: "ANDAMENTO" | "CONCLUIDO" }>) => request<ItemContinuidade>(`/continuidade/${id}`, { method: "PUT", body: JSON.stringify(d) }),
+  excluirItemContinuidade: (id: string) => request<void>(`/continuidade/${id}`, { method: "DELETE" }),
   catalogoDiario: () => request<CatalogoDiario>("/diario/catalogo"),
   acessoDiario: (pacienteId: string) => request<AcessoDiario>(`/diario/acessos/${pacienteId}`),
   gerarAcessoDiario: (pacienteId: string) => request<AcessoDiario>("/diario/acessos", { method: "POST", body: JSON.stringify({ pacienteId }) }),

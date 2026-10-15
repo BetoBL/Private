@@ -143,6 +143,7 @@ model Profissional {
   formacao          String?           // texto livre: pós-graduações (legado — ver `especialidades` para lista estruturada)
   especialidades    String[]          @default([])
   papel             PapelProfissional @default(PSICOLOGO)
+  categoria         String            @default("NEUROPSICOLOGO") // tipo de profissional (lib/prontuario/modelos.ts): define os modelos de sessão e os módulos que aparecem
   email             String            @unique
   senhaHash         String
 
@@ -155,6 +156,8 @@ model Profissional {
   testesCriados     Teste[]           @relation("TestesCriadosPeloProfissional")
   convenios         ProfissionalConvenio[]
   eventosAgenda     EventoAgenda[]
+  evolucoes         Evolucao[]
+  itensContinuidade ItemContinuidade[]
 
   criadoEm          DateTime          @default(now())
 }
@@ -221,6 +224,8 @@ model Paciente {
   sessoes         Sessao[]
   laudos          Laudo[]
   eventosAgenda   EventoAgenda[]
+  evolucoes       Evolucao[]
+  itensContinuidade ItemContinuidade[]
 
   // Conformidade Resolução CFP nº 09/2024: paciente deve ser informado sobre
   // recursos tecnológicos usados (incluindo IA) e, no caso de IA, idealmente consentir
@@ -275,6 +280,8 @@ model EventoAgenda {
 
   titulo          String
   tipo            String       // "avaliacao" | "outro" — texto livre por enquanto
+  serieId         String?      // eventos criados juntos por uma recorrência (semanal, quinzenal, a cada 4 semanas)
+  recorrencia     String?
   inicio          DateTime
   fim             DateTime
   observacoes     String?      @db.Text
@@ -792,4 +799,52 @@ model CartaoDiario {
 
   @@index([pacienteId, ocorridoEm])
   @@index([clinicaId, levarParaSessao, conversadoEm])
+}
+
+// Evolução da sessão (prontuário). Vale para qualquer profissional da saúde; o MODELO (livre, SOAP, foco, DBT, consulta, reabilitação)
+// define os campos, guardados por chave em `campos`. `anotacoes` é privado do autor; `evolucao` é o registro do prontuário.
+// Depois de finalizada, cada edição guarda a versão anterior em `versoes` (nada é reescrito sem rastro). Excluir = `excluidaEm` (recuperável).
+model Evolucao {
+  id                String             @id @default(uuid())
+  clinicaId         String
+  pacienteId        String
+  paciente          Paciente           @relation(fields: [pacienteId], references: [id])
+  profissionalId    String
+  profissional      Profissional       @relation(fields: [profissionalId], references: [id])
+  eventoAgendaId    String?
+  dataHora          DateTime
+  modelo            String             @default("LIVRE")
+  campos            Json?
+  anotacoes         String?            @db.Text
+  evolucao          String?            @db.Text
+  status            String             @default("RASCUNHO") // RASCUNHO | FINALIZADA
+  finalizadaEm      DateTime?
+  geradaPorIA       Boolean            @default(false)
+  versoes           Json? // [{ em, anotacoes, evolucao, campos }]
+  excluidaEm        DateTime?
+  criadoEm          DateTime           @default(now())
+  atualizadoEm      DateTime           @updatedAt
+  itensContinuidade ItemContinuidade[]
+
+  @@index([pacienteId, dataHora])
+}
+
+// Continuidade do cuidado: planos de ação e tópicos para a próxima sessão, que atravessam as sessões até serem concluídos.
+model ItemContinuidade {
+  id             String       @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  paciente       Paciente     @relation(fields: [pacienteId], references: [id])
+  profissionalId String
+  profissional   Profissional @relation(fields: [profissionalId], references: [id])
+  evolucaoId     String? // sessão em que nasceu
+  evolucao       Evolucao?    @relation(fields: [evolucaoId], references: [id])
+  tipo           String // PLANO | TOPICO
+  texto          String       @db.Text
+  status         String       @default("ANDAMENTO") // ANDAMENTO | CONCLUIDO
+  concluidoEm    DateTime?
+  excluidoEm     DateTime?
+  criadoEm       DateTime     @default(now())
+
+  @@index([pacienteId, status])
 }

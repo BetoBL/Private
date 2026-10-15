@@ -6,6 +6,9 @@ import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { DashboardResultados } from "../components/DashboardResultados";
 import { SalaVirtualComponent } from "../components/SalaVirtual";
 import { DiarioDoPaciente } from "../components/DiarioDoPaciente";
+import { ProntuarioDoPaciente } from "../components/ProntuarioDoPaciente";
+import { useAuth } from "../context/AuthContext";
+import { temModulo } from "../lib/profissoes";
 import {
   api,
   ROTULO_RESPONDENTE,
@@ -21,12 +24,13 @@ import {
   type Sexo,
 } from "../lib/api";
 
-type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario";
+type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
 
 export function FichaPaciente() {
+  const { profissional: profissionalLogado } = useAuth();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -34,7 +38,7 @@ export function FichaPaciente() {
   const [searchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
-  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
+  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
 
@@ -369,13 +373,14 @@ export function FichaPaciente() {
         {([
           ["dados", "Dados"],
           ["anamnese", "Anamnese"],
+          ["prontuario", "Prontuário"],
           ["linha", "Linha do tempo"],
-          ["dashboard", "Dashboard"],
-          ["laudos", "Laudos"],
+          ["dashboard", "Dashboard", "testes"],
+          ["laudos", "Laudos", "laudos"],
           ["agenda", "Agenda"],
           ["anexos", "Anexos"],
-          ["diario", "Diário"],
-        ] as const).map(([valor, label]) => (
+          ["diario", "Diário", "diario"],
+        ] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo)).map(([valor, label]) => (
           <button
             key={valor}
             className={`-mb-px border-b-2 px-1 py-2.5 mr-6 text-sm font-semibold ${
@@ -388,6 +393,7 @@ export function FichaPaciente() {
         ))}
       </div>
 
+      {aba === "prontuario" && id && <ProntuarioDoPaciente pacienteId={id} />}
       {aba === "diario" && id && <DiarioDoPaciente pacienteId={id} />}
 
       {aba === "dados" && (

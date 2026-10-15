@@ -16,6 +16,7 @@ import { notasRouter } from "./routes/notas.routes";
 import { atendimentoPublicoRouter } from "./routes/atendimentoPublico.routes";
 import { gravacoesRouter } from "./routes/gravacoes.routes";
 import { diarioRouter } from "./routes/diario.routes";
+import { continuidadeRouter, evolucoesRouter } from "./routes/evolucoes.routes";
 import { diarioPublicoRouter } from "./routes/diarioPublico.routes";
 import { manutencaoDeGravacoes } from "./lib/video/gravacao";
 import { eventosAgendaRouter } from "./routes/eventosAgenda.routes";
@@ -74,6 +75,8 @@ app.use("/fiscal", exigirAutenticacao, fiscalRouter);
 app.use("/notas", exigirAutenticacao, notasRouter);
 app.use("/gravacoes", exigirAutenticacao, gravacoesRouter);
 app.use("/diario", exigirAutenticacao, diarioRouter);
+app.use("/evolucoes", exigirAutenticacao, evolucoesRouter);
+app.use("/continuidade", exigirAutenticacao, continuidadeRouter);
 app.use("/salas-virtuais", exigirAutenticacao, salasVirtuaisRouter);
 app.use("/normativas-customizadas", exigirAutenticacao, normativasCustomizadasRouter);
 

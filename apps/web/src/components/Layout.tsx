@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api, type Clinica } from "../lib/api";
+import { temModulo } from "../lib/profissoes";
 import { ROTAS_CONFIGURACOES } from "../pages/Configuracoes";
 
 const LINKS = [
@@ -9,12 +10,12 @@ const LINKS = [
   { to: "/pacientes", label: "Pacientes" },
   { to: "/agenda", label: "Agenda" },
   { to: "/iniciar-atendimento", label: "Iniciar atendimento" },
-  { to: "/laudo", label: "Laudos" },
+  { to: "/laudo", label: "Laudos", modulo: "laudos" },
   { to: "/financeiro", label: "Financeiro" },
   { to: "/notas", label: "Notas fiscais" },
   // Abre em aba nova, de propósito: a Biblioteca de Instrumentos é um ambiente visual próprio
   // (ver pages/BibliotecaDeTestes.tsx), não uma rota dentro desta casca de sidebar escura.
-  { to: "/biblioteca", label: "Testes e correção", novaAba: true },
+  { to: "/biblioteca", label: "Testes e correção", novaAba: true, modulo: "testes" },
 ];
 
 export function Layout() {
@@ -46,7 +47,7 @@ export function Layout() {
         </div>
 
         <nav className="flex flex-col gap-1">
-          {LINKS.map((link) =>
+          {LINKS.filter((l) => !("modulo" in l) || temModulo(profissional?.categoria, l.modulo as string)).map((link) =>
             link.novaAba ? (
               <a
                 key={link.to}

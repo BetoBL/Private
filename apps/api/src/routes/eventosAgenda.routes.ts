@@ -1,6 +1,8 @@
 import { Prisma } from "@prisma/client";
 import { Router } from "express";
+import { randomUUID } from "node:crypto";
 import { z } from "zod";
+import { gerarOcorrencias } from "../lib/agenda/recorrencia";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -21,9 +23,11 @@ const eventoCreateSchema = z.object({
   fim: z.coerce.date(),
   observacoes: z.string().optional(),
   forcar: z.boolean().optional(),
+  // repete o mesmo horário: semanal, quinzenal ou a cada 4 semanas, por N vezes (padrão 12) ou até uma data
+  recorrencia: z.object({ frequencia: z.enum(["SEMANAL", "QUINZENAL", "A_CADA_4_SEMANAS"]), ocorrencias: z.number().int().min(2).max(52).optional(), ate: z.coerce.date().optional() }).optional(),
 });
 
-const eventoUpdateSchema = eventoCreateSchema.partial().omit({ forcar: true }).extend({ forcar: z.boolean().optional() });
+const eventoUpdateSchema = eventoCreateSchema.partial().omit({ forcar: true, recorrencia: true }).extend({ forcar: z.boolean().optional() });
 
 export const eventosAgendaRouter = Router();
 
@@ -51,7 +55,7 @@ eventosAgendaRouter.post(
   "/",
   validateBody(eventoCreateSchema),
   asyncHandler(async (req, res) => {
-    const { forcar, pacienteId, ...dados } = req.body;
+    const { forcar, pacienteId, recorrencia, ...dados } = req.body;
     const profissionalId = dados.profissionalId ?? req.profissional!.sub;
     if (profissionalId !== req.profissional!.sub && !ehAdmin(req)) {
       res.status(403).json({ error: "Você só pode criar eventos na sua própria agenda" });
@@ -72,20 +76,23 @@ eventosAgendaRouter.post(
     try {
       // Isolamento serializable: fecha a janela entre "checar conflito" e "criar" — sem isso,
       // dois POSTs concorrentes para o mesmo horário podem ambos ler "sem conflito" e duplicar.
-      const evento = await prisma.$transaction(
+      const datas = recorrencia ? gerarOcorrencias(dados.inicio, dados.fim, recorrencia) : [{ inicio: dados.inicio, fim: dados.fim }];
+      const serieId = recorrencia ? randomUUID() : null;
+      const criados = await prisma.$transaction(
         async (tx) => {
-          const conflitos = await buscarConflitos(tx, profissionalId, dados.inicio, dados.fim);
+          // todas as datas da série são conferidas antes de criar qualquer uma
+          const conflitos: Awaited<ReturnType<typeof buscarConflitos>> = [];
+          for (const d of datas) conflitos.push(...(await buscarConflitos(tx, profissionalId, d.inicio, d.fim)));
           if (conflitos.length > 0 && !forcar) {
             throw new ConflitoAgendaError(paraConflitos(conflitos));
           }
-          return tx.eventoAgenda.create({
-            data: { ...dados, profissionalId, pacienteId },
-            include: { paciente: true },
-          });
+          const lista = [];
+          for (const d of datas) lista.push(await tx.eventoAgenda.create({ data: { ...dados, inicio: d.inicio, fim: d.fim, profissionalId, pacienteId, serieId, recorrencia: recorrencia?.frequencia ?? null }, include: { paciente: true } }));
+          return lista;
         },
-        { isolationLevel: Prisma.TransactionIsolationLevel.Serializable }
+        { isolationLevel: Prisma.TransactionIsolationLevel.Serializable, timeout: 20000 }
       );
-      res.status(201).json(evento);
+      res.status(201).json(recorrencia ? { ...criados[0], criados: criados.length, eventos: criados } : criados[0]);
     } catch (e) {
       if (e instanceof ConflitoAgendaError) {
         res.status(409).json({ error: "Este horário conflita com outro evento já agendado", conflitos: e.conflitos });
@@ -181,7 +188,12 @@ eventosAgendaRouter.delete(
       res.status(404).json({ error: "Evento não encontrado" });
       return;
     }
-    await prisma.eventoAgenda.delete({ where: { id: req.params.id } });
+    // ?escopo=serie apaga este e os próximos da mesma recorrência; sem isso, só este
+    if (req.query.escopo === "serie" && existente.serieId) {
+      await prisma.eventoAgenda.deleteMany({ where: { serieId: existente.serieId, inicio: { gte: existente.inicio }, sessaoId: null } });
+    } else {
+      await prisma.eventoAgenda.delete({ where: { id: req.params.id } });
+    }
     res.status(204).send();
   })
 );

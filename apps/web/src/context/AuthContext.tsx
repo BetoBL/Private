@@ -34,6 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           email: atual.email,
           crp: atual.crp,
           papel: atual.papel,
+          categoria: atual.categoria,
         };
         atualizarProfissionalLogadoEmCache(logado);
         setProfissional(logado);

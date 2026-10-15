@@ -1,5 +1,19 @@
 # Changelog
 
+## [2026-10-15] Fase 1 (prontuário): evolução da sessão, continuidade do cuidado, tipos de profissional e agenda com recorrência
+
+**Ainda NÃO publicado**: a migration e o push só saem depois da sua aprovação. Fase 1 em construção (feito: base de profissões, evolução, continuidade, PDF do prontuário, recorrência da agenda e painel).
+
+- **Tipos de profissional** (`Profissional.categoria`): Psicólogo, Neuropsicólogo, Médico, Fisioterapeuta, Terapeuta ocupacional, Fonoaudiólogo, Nutricionista e Outro. Há uma **base comum a toda a saúde** (pacientes, agenda, prontuário, anamnese, financeiro, documentos) e cada profissão acrescenta o seu (psicólogo: diário, escalas, estudo de caso; neuropsicólogo: também testes e laudos). O menu e as abas da ficha mostram só o que o profissional usa; quem já existia virou Neuropsicólogo (nada some). Escolha em Ficha do profissional > Tipo de profissional (o rótulo do registro muda: CRP, CRM, CREFITO...).
+- **Evolução da sessão** (aba **Prontuário** na ficha do paciente): duas folhas (anotações **privadas**, que só o autor lê, e evolução do prontuário), com **modelos por profissão**: anotação livre, SOAP, sessão com foco, DBT (psicólogos), consulta clínica (médico, nutricionista) e sessão de reabilitação (fisio, TO, fono). Salva sozinha; **finalizar** trava como registro; editar depois guarda a **versão anterior** (histórico de versões); excluir esconde e é recuperável.
+- **Continuidade do cuidado**: planos de ação e "para a próxima sessão", que atravessam as sessões até serem concluídos (com histórico de concluídos).
+- **Prontuário geral em PDF**: escolha as evoluções (ou todas as finalizadas); cabeçalho da clínica, paciente, profissional com registro; anotações privadas nunca entram; rascunhos saem marcados.
+- **Agenda com recorrência**: semanal, quinzenal ou a cada 4 semanas, por N vezes; confere conflito de todas as datas antes de criar qualquer uma; "excluir este e os próximos".
+- **Painel do dia**: card "Evoluções para concluir" (rascunhos do profissional).
+- Textos dos modelos (rótulos e dicas) são nossos, inspirados na mecânica de sistemas de mercado, sem copiar conteúdo.
+- Verificado: 178 testes passam (13 novos), 23 checagens de API ponta a ponta (evolução, versões, continuidade, permissões entre profissionais, exclusão e restauração) e 8 da recorrência; telas conferidas no navegador. **Migrations**: `prontuario_evolucao`, `categoria_padrao_neuropsicologo`, `agenda_recorrencia` (só criam tabelas e colunas; aplicadas só no banco LOCAL).
+
+
 ## [2026-10-11] Diário do paciente: tela do paciente mais leve e descontraída
 
 - A tela do Cartão Diário ganhou **ícones em cada opção** (emoções, contexto, cuidados, "isso ajudou?"), **carinhas na intensidade**, fundo em degradê suave que acompanha a cor da emoção escolhida, botões arredondados e textos mais próximos ("Oi, Fulano!", "Bora começar", "Pronto, registrado!"). Só visual e texto; as perguntas e regras continuam as mesmas. Ícones são emojis (sem arquivos extras); os mais novos foram trocados por equivalentes que aparecem em computadores mais antigos.

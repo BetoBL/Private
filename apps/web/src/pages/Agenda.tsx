@@ -52,6 +52,8 @@ export function Agenda() {
   const [conflitos, setConflitos] = useState<ConflitoAgenda[]>([]);
   const [salvando, setSalvando] = useState(false);
   const [form, setForm] = useState({ pacienteId: "", titulo: "", tipo: "avaliacao", inicio: "", fim: "", observacoes: "", profissionalId: logado?.id ?? "" });
+  const [repetir, setRepetir] = useState<"" | "SEMANAL" | "QUINZENAL" | "A_CADA_4_SEMANAS">("");
+  const [vezes, setVezes] = useState(12);
 
   function atualizarPacienteComPreferencias(pacienteId: string) {
     setForm((f) => {
@@ -161,19 +163,21 @@ export function Agenda() {
       forcar,
     };
     try {
-      const resultado = editandoId ? await api.editarEventoAgenda(editandoId, payload) : await api.criarEventoAgenda(payload);
+      const resultado = editandoId ? await api.editarEventoAgenda(editandoId, payload) : await api.criarEventoAgenda({ ...payload, ...(repetir ? { recorrencia: { frequencia: repetir, ocorrencias: vezes } } : {}) });
       if (resultado.conflito) {
         setConflitos(resultado.conflitos);
         return;
       }
       setEventos((prev) => {
-        const semAntigo = prev.filter((e) => e.id !== resultado.evento.id);
-        return [...semAntigo, resultado.evento];
+        const novos = resultado.eventos ?? [resultado.evento];
+        const semAntigo = prev.filter((e) => !novos.some((n) => n.id === e.id));
+        return [...semAntigo, ...novos.filter((n) => new Date(n.fim) >= segunda && new Date(n.inicio) <= domingo)];
       });
       setMostrarForm(false);
       setEditandoId(null);
       setConflitos([]);
-      setMensagem(editandoId ? "Evento atualizado." : "Evento criado.");
+      setMensagem(editandoId ? "Evento atualizado." : resultado.eventos ? `${resultado.eventos.length} eventos criados na série.` : "Evento criado.");
+      setRepetir("");
     } catch (e) {
       setErro((e as Error).message);
     } finally {
@@ -182,12 +186,14 @@ export function Agenda() {
   }
 
   async function excluir(id: string) {
-    if (!confirm("Excluir este evento da agenda?")) return;
+    const ev = eventos.find((e) => e.id === id);
+    const serie = !!ev?.serieId && confirm("Este evento faz parte de uma recorrência.\n\nOK = excluir este e os próximos da série.\nCancelar = escolher outra opção.");
+    if (!serie && !confirm("Excluir apenas este evento da agenda?")) return;
     setErro(null);
     setMensagem(null);
     try {
-      await api.deletarEventoAgenda(id);
-      setEventos((prev) => prev.filter((e) => e.id !== id));
+      await api.deletarEventoAgenda(id, serie);
+      setEventos((prev) => prev.filter((e) => (serie && ev?.serieId ? !(e.serieId === ev.serieId && new Date(e.inicio) >= new Date(ev.inicio)) : e.id !== id)));
       if (editandoId === id) setMostrarForm(false);
       setMensagem("Evento excluído.");
     } catch (e) {
@@ -347,6 +353,22 @@ export function Agenda() {
                 onChange={(e) => setForm((f) => ({ ...f, fim: e.target.value }))}
               />
             </label>
+            {!editandoId && (
+              <div className="col-span-2 grid gap-3 sm:grid-cols-2">
+                <label className="text-sm">
+                  <span className="mb-1 block font-semibold text-ink/70">Repetir</span>
+                  <select className="w-full rounded-lg border border-mist px-3 py-2" value={repetir} onChange={(e) => setRepetir(e.target.value as typeof repetir)}>
+                    <option value="">Não repetir</option><option value="SEMANAL">Toda semana</option><option value="QUINZENAL">A cada 2 semanas</option><option value="A_CADA_4_SEMANAS">A cada 4 semanas</option>
+                  </select>
+                </label>
+                {repetir && (
+                  <label className="text-sm">
+                    <span className="mb-1 block font-semibold text-ink/70">Quantas vezes (com este)</span>
+                    <input type="number" min={2} max={52} className="w-full rounded-lg border border-mist px-3 py-2" value={vezes} onChange={(e) => setVezes(Math.max(2, Math.min(52, Number(e.target.value) || 2)))} />
+                  </label>
+                )}
+              </div>
+            )}
             <label className="col-span-2 text-sm">
               <span className="mb-1 block font-semibold text-ink/70">Observações</span>
               <input

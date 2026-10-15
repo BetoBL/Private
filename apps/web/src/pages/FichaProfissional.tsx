@@ -1,3 +1,4 @@
+import { PROFISSOES, registroDe } from "../lib/profissoes";
 import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -29,6 +30,7 @@ export function FichaProfissional() {
   const [especialidades, setEspecialidades] = useState<string[]>([]);
   const [novaEspecialidade, setNovaEspecialidade] = useState("");
   const [papel, setPapel] = useState<PapelProfissional>("PSICOLOGO");
+  const [categoria, setCategoria] = useState("PSICOLOGO");
   // assinatura do laudo: null = ainda não carregada/sem imagem; só vai no PATCH se o usuário mexeu
   const [assinatura, setAssinatura] = useState<string | null>(null);
   const [assinaturaMudou, setAssinaturaMudou] = useState(false);
@@ -54,6 +56,7 @@ export function FichaProfissional() {
         });
         setEspecialidades(p.especialidades);
         setPapel(p.papel);
+        setCategoria(p.categoria ?? "PSICOLOGO");
         if (p.temAssinatura) api.getAssinatura(id!).then((r) => !cancelado && setAssinatura(r.assinaturaUrl)).catch(() => undefined);
       })
       .catch((e) => !cancelado && setErro(e.message));
@@ -85,6 +88,7 @@ export function FichaProfissional() {
       const atualizado = await api.updateProfissional(id, {
         ...form,
         especialidades,
+        categoria,
         ...(assinaturaMudou ? { assinaturaUrl: assinatura ?? "" } : {}),
         ...(ehAdmin && !ehEuMesmo ? { papel } : {}),
       });
@@ -162,7 +166,14 @@ export function FichaProfissional() {
             />
           </label>
           <label className="text-sm">
-            <span className="mb-1 block font-semibold text-ink/70">CRP</span>
+            <span className="mb-1 block font-semibold text-ink/70">Tipo de profissional</span>
+            <select disabled={!podeEditar} className="w-full rounded-lg border border-mist px-3 py-2 disabled:bg-paper disabled:text-ink/50" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+              {PROFISSOES.map((p) => <option key={p.chave} value={p.chave}>{p.rotulo}</option>)}
+            </select>
+            <span className="mt-1 block text-xs text-ink/50">Define os modelos de evolução e os módulos que aparecem para você.</span>
+          </label>
+          <label className="text-sm">
+            <span className="mb-1 block font-semibold text-ink/70">{registroDe(categoria)}</span>
             <input
               disabled={!podeEditar}
               className="w-full rounded-lg border border-mist px-3 py-2 disabled:bg-paper disabled:text-ink/50"
