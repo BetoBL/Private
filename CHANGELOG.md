@@ -1,5 +1,16 @@
 # Changelog
 
+## [2026-10-15] Ajustes da revisão de telas: formulários, financeiro, sessão em tela cheia e painel
+
+**Ainda NÃO publicado.**
+- **Financeiro na ficha do paciente** (nova aba): cartões A receber, Atrasado e Já recebido; lista de cobranças com status (Paga, Pendente, Atrasada, Cancelada), data e forma do pagamento; lançar cobrança (já com o valor da sessão), dar baixa, reabrir e cancelar.
+- **Formulários:** 6 modelos prontos novos (termo de consentimento, triagem inicial, pesquisa de satisfação, check-in da semana, registro de sono e questionário para a escola). **O link do paciente agora é criado sozinho** ao pedir por link (antes era preciso gerá-lo na aba Diário), com botões Copiar e WhatsApp; um link que já está em uso nunca é trocado. A tela mostra primeiro o que já foi pedido e respondido e depois "Escolha um modelo". O termo de consentimento é texto-base e precisa da revisão da responsável técnica e do jurídico.
+- **Texto de apresentação** no topo de cada aba da ficha (o que é e para que serve).
+- **Cadastro e faturamento** da ficha no mesmo padrão visual do Perfil (campos, rótulos e cartões).
+- **Sessão em tela cheia:** "Nova" e abrir uma evolução na aba Prontuário levam para a tela da sessão (anotações e evolução lado a lado, mais altas); a aba Prontuário fica como histórico.
+- **Painel do dia:** um fluxo só (avisos, atalhos, números, agenda de hoje e da semana, resumo do dia em cartão claro, pendências lado a lado). O bloco antigo de números e o de módulos (que repetia o menu lateral) foram removidos; o cabeçalho usa a mesma fonte de dados dos números.
+- Etiquetas "Paga" e "Evolução finalizada" em verde (antes saíam na mesma cor de "Pendente").
+
 ## [2026-10-15] Agendar sessão, aba Sessões, ambiente da sessão e painel inicial novos
 
 **Ainda NÃO publicado.**

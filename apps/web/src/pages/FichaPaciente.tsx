@@ -1,5 +1,6 @@
 import { PerfilPaciente } from "../components/PerfilPaciente";
 import { SessoesDoPaciente } from "../components/SessoesDoPaciente";
+import { FinanceiroDoPaciente } from "../components/FinanceiroDoPaciente";
 import { FormularioAnamnese } from "../components/FormularioAnamnese";
 import { ComparacaoReavaliacao } from "../components/ComparacaoReavaliacao";
 import { useAviso } from "../lib/aviso";
@@ -28,8 +29,24 @@ import {
   type Sexo,
 } from "../lib/api";
 
+// Uma frase leve no topo de cada aba: o que ela é e para que serve.
+const INTRO_ABA: Partial<Record<string, string>> = {
+  dados: "Perfil e cadastro do paciente: contatos, endereço, financeiro, convênio, nota fiscal e consentimentos.",
+  financeiro: "O que foi cobrado, o que já foi pago e o que está pendente ou atrasado, com a baixa de cada pagamento.",
+  sessoes: "Cada atendimento do paciente, do agendamento à evolução. Abra uma sessão para anotar e gerar a evolução com IA.",
+  prontuario: "O histórico clínico: a evolução de cada sessão, o resumo do caso e a continuidade do cuidado. Para escrever durante a sessão, use Abrir sessão.",
+  formularios: "Perguntas que o paciente responde por link, ou que você preenche com ele na sessão. As respostas ficam guardadas na ficha.",
+  agenda: "Os compromissos deste paciente e o horário de cada um.",
+  anexos: "Documentos, exames e arquivos deste paciente.",
+  diario: "O diário emocional que o paciente preenche pelo celular, com o link dele. Você acompanha como ele está entre as sessões.",
+  escalas: "Questionários padronizados de triagem (ansiedade, depressão, sono e outros). O paciente responde por link e você vê a pontuação. Não é diagnóstico.",
+  anamnese: "A anamnese neuropsicológica, usada como base do laudo.",
+  linha: "A linha do tempo da avaliação: sessões e testes aplicados.",
+  dashboard: "Os resultados dos testes em gráficos, para comparar e interpretar.",
+  laudos: "Os laudos deste paciente, do rascunho à entrega.",
+};
 const ABAS_LAUDO: readonly string[] = ["anamnese", "linha", "dashboard", "laudos"];
-type Aba = "dados" | "sessoes" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
+type Aba = "dados" | "sessoes" | "financeiro" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
@@ -43,7 +60,7 @@ export function FichaPaciente() {
   const [searchParams, setSearchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
-  const [aba, setAba] = useState<Aba>(["dados", "sessoes", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
+  const [aba, setAba] = useState<Aba>(["dados", "sessoes", "financeiro", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
   // quem não faz laudo não tem o grupo de laudo: um atalho antigo para essas abas cai nos dados
@@ -383,6 +400,7 @@ export function FichaPaciente() {
         {([
           ["dados", "Dados"],
           ["sessoes", "Sessões"],
+          ["financeiro", "Financeiro"],
           ["prontuario", "Prontuário"],
           ["formularios", "Formulários"],
           ["agenda", "Agenda"],
@@ -412,6 +430,9 @@ export function FichaPaciente() {
         </div>
       )}
 
+      {INTRO_ABA[aba] && <p className="-mt-2 mb-5 rounded-xl bg-white/60 px-4 py-2.5 text-sm text-ink/60">{INTRO_ABA[aba]}</p>}
+
+      {aba === "financeiro" && id && <FinanceiroDoPaciente pacienteId={id} valorSessaoCentavos={paciente.valorSessaoCentavos ?? null} moeda={paciente.moeda ?? "BRL"} />}
       {aba === "sessoes" && id && <SessoesDoPaciente pacienteId={id} fazLaudo={!!paciente.fazLaudo} />}
       {aba === "prontuario" && id && <ProntuarioDoPaciente pacienteId={id} />}
       {aba === "formularios" && id && <FormulariosDoPaciente pacienteId={id} />}
@@ -419,10 +440,10 @@ export function FichaPaciente() {
       {aba === "diario" && id && <DiarioDoPaciente pacienteId={id} />}
 
       {aba === "dados" && (
-        <div>
+        <div className="cadastro-form">
           <PerfilPaciente paciente={paciente} onSalvo={setPaciente} onAbrirAnamnese={() => { setSearchParams({ aba: "formularios", tipo: "anamnese" }); setAba("formularios"); }} onAbrirAnamneseLaudo={() => setAba("anamnese")} />
           <h2 className="mb-3 font-serif text-xl text-ink">Cadastro e faturamento</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 rounded-2xl border border-mist bg-white p-5">
             <label className="col-span-2 flex items-start gap-3 rounded-lg border border-mist bg-mist/40 p-3 text-sm">
               <input type="checkbox" className="mt-1" checked={dadosForm.fazLaudo} onChange={(e) => setDadosForm((f) => ({ ...f, fazLaudo: e.target.checked }))} />
               <span><strong>Faz avaliação com laudo</strong><span className="block text-xs text-ink/60">Liga o grupo "Avaliação e laudo" (anamnese, testes, dashboard e laudos). Sem isso, a ficha fica só com o acompanhamento. Salve para aplicar.</span></span>
@@ -661,7 +682,7 @@ export function FichaPaciente() {
             </div>
           </div>
 
-          <button className="mt-4 rounded-lg border border-mist px-4 py-2 text-sm font-semibold text-ink/70" onClick={salvarDados}>
+          <button className="mt-5 rounded-full bg-sage-deep px-6 py-2.5 text-sm font-semibold text-white" onClick={salvarDados}>
             Salvar dados
           </button>
 

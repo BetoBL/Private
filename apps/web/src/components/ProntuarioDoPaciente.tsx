@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { api, type CatalogoProntuario, type Evolucao, type ResumoCaso, type ItemContinuidade, type VersaoEvolucao } from "../lib/api";
 
 // Aba "Prontuário" da ficha: evolução de cada sessão (modelos por profissão), duas folhas (anotações privadas + prontuário)
@@ -13,6 +13,7 @@ const trecho = (e: Evolucao) => {
 };
 
 export function ProntuarioDoPaciente({ pacienteId, modoSessao = false }: { pacienteId: string; modoSessao?: boolean }) {
+  const navigate = useNavigate();
   const [cat, setCat] = useState<CatalogoProntuario | null>(null);
   const [lista, setLista] = useState<Evolucao[]>([]);
   const [aberta, setAberta] = useState<Evolucao | null>(null);
@@ -123,10 +124,10 @@ export function ProntuarioDoPaciente({ pacienteId, modoSessao = false }: { pacie
   }
   const setCampo = (chave: string, valor: string | string[]) => alterar({ campos: { ...(aberta?.campos ?? {}), ...(pendente.current.campos ?? {}), [chave]: valor } }, { campos: { ...(aberta?.campos ?? {}), [chave]: valor } });
 
-  async function abrir(e: Evolucao) { await salvarAgora(); setErro(null); setVersoes(null); setAberta(e); setEstado("salvo"); }
+  async function abrir(e: Evolucao) { if (!modoSessao) { navigate(`/pacientes/${pacienteId}/sessao?evolucao=${e.id}`); return; } await salvarAgora(); setErro(null); setVersoes(null); setAberta(e); setEstado("salvo"); }
   async function nova() {
     await salvarAgora(); setErro(null);
-    try { const e = await api.criarEvolucao({ pacienteId, modelo: novoModelo || "LIVRE" }); setLista((l) => [e, ...l]); setAberta(e); setVersoes(null); setEstado("salvo"); } catch (x) { falha(x); }
+    try { const e = await api.criarEvolucao({ pacienteId, modelo: novoModelo || "LIVRE" }); if (!modoSessao) { navigate(`/pacientes/${pacienteId}/sessao?evolucao=${e.id}`); return; } setLista((l) => [e, ...l]); setAberta(e); setVersoes(null); setEstado("salvo"); } catch (x) { falha(x); }
   }
   async function trocarModelo(modelo: string) { await salvarAgora(); if (!aberta) return; try { const e = await api.salvarEvolucao(aberta.id, { modelo }); setAberta(e); setLista((l) => l.map((x) => (x.id === e.id ? e : x))); } catch (x) { falha(x); } }
   async function finalizar() { await salvarAgora(); if (!aberta) return; try { const e = await api.finalizarEvolucao(aberta.id); setAberta(e); setLista((l) => l.map((x) => (x.id === e.id ? e : x))); setErro(null); } catch (x) { falha(x); } }
@@ -278,7 +279,7 @@ export function ProntuarioDoPaciente({ pacienteId, modoSessao = false }: { pacie
               })()}
             </div>
           )}
-          {!aberta ? <p className="py-16 text-center text-sm text-ink/45">Escolha uma evolução na lista ou crie uma nova.</p> : (
+          {!aberta ? <p className="py-16 text-center text-sm text-ink/45">Clique em uma evolução da lista para abrir na tela da sessão, ou use "Nova" para começar uma.</p> : (
             <div className="space-y-5">
               <div className="flex flex-wrap items-center gap-3">
                 <input type="datetime-local" className="rounded-lg border border-mist px-3 py-2 text-sm" value={aLocal(aberta.dataHora)} onChange={(e) => { if (e.target.value) alterar({ dataHora: new Date(e.target.value).toISOString() }, { dataHora: new Date(e.target.value).toISOString() }); }} disabled={!meu} />
@@ -336,11 +337,11 @@ export function ProntuarioDoPaciente({ pacienteId, modoSessao = false }: { pacie
               <div className={`grid gap-4 ${modoSessao ? "lg:grid-cols-2" : "2xl:grid-cols-2"}`}>
                 <label className="block">
                   <span className="block text-xs font-bold uppercase tracking-wide text-clay">Anotações privadas</span><span className="block text-xs text-ink/45">só você vê</span>
-                  <textarea className="mt-1 h-56 w-full rounded-lg border border-mist bg-white px-3 py-2 text-sm leading-relaxed" disabled={!meu} placeholder={meu ? "Comece as anotações desta sessão…" : "Privado do autor"} maxLength={40000} value={aberta.anotacoes ?? ""} onChange={(e) => alterar({ anotacoes: e.target.value }, { anotacoes: e.target.value })} />
+                  <textarea className={`mt-1 w-full rounded-lg border border-mist bg-white px-3 py-2 text-sm leading-relaxed ${modoSessao ? "h-[58vh] min-h-72" : "h-56"}`} disabled={!meu} placeholder={meu ? "Comece as anotações desta sessão…" : "Privado do autor"} maxLength={40000} value={aberta.anotacoes ?? ""} onChange={(e) => alterar({ anotacoes: e.target.value }, { anotacoes: e.target.value })} />
                 </label>
                 <label className="block">
                   <span className="block text-xs font-bold uppercase tracking-wide text-sage-deep">Evolução do prontuário</span><span className="block text-xs text-ink/45">registro clínico</span>
-                  <textarea className="mt-1 h-56 w-full rounded-lg border border-mist bg-white px-3 py-2 text-sm leading-relaxed" disabled={!meu} placeholder="Registre a evolução desta sessão…" maxLength={40000} value={aberta.evolucao ?? ""} onChange={(e) => alterar({ evolucao: e.target.value }, { evolucao: e.target.value })} />
+                  <textarea className={`mt-1 w-full rounded-lg border border-mist bg-white px-3 py-2 text-sm leading-relaxed ${modoSessao ? "h-[58vh] min-h-72" : "h-56"}`} disabled={!meu} placeholder="Registre a evolução desta sessão…" maxLength={40000} value={aberta.evolucao ?? ""} onChange={(e) => alterar({ evolucao: e.target.value }, { evolucao: e.target.value })} />
                 </label>
               </div>
 

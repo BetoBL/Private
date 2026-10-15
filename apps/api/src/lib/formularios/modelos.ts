@@ -68,6 +68,56 @@ export const MODELOS_SISTEMA: ModeloSistema[] = [
       t("saude", "Condições de saúde ou medicamentos em uso?"), t("suplementos", "Usa suplementos ou chás?"),
     ],
   },
+  {
+    chave: "TERMO_CONSENTIMENTO", nome: "Termo de consentimento do atendimento", descricao: "Combinados do atendimento, sigilo, dados e recursos de apoio. Texto-base: revise com a responsável técnica e o jurídico antes de usar.", tipo: "FORMULARIO", paraQuem: TODOS,
+    perguntas: [
+      { ...t("responsavel", "Nome de quem assina (o paciente ou o responsável legal)"), obrigatoria: true },
+      { ...sn("combinados", "Fui informado(a) sobre como funciona o atendimento: duração, frequência, valores, faltas e cancelamentos."), obrigatoria: true },
+      { ...sn("sigilo", "Entendo que o sigilo profissional é garantido, com as exceções previstas em lei (por exemplo, risco à vida ou determinação judicial)."), obrigatoria: true },
+      { ...sn("lgpd", "Concordo com o armazenamento seguro dos meus dados no prontuário eletrônico, conforme a LGPD."), obrigatoria: true },
+      sn("tecnologia", "Autorizo o uso de recursos tecnológicos de apoio, como inteligência artificial, sempre revisados pelo profissional."),
+      sn("gravacao", "Autorizo a gravação das sessões para fins de registro clínico (opcional)."),
+      t("obs", "Observações ou dúvidas"),
+    ],
+  },
+  {
+    chave: "TRIAGEM_INICIAL", nome: "Triagem inicial", descricao: "Primeiro contato: motivo, urgência, horários e contato de emergência.", tipo: "FORMULARIO", paraQuem: TODOS,
+    perguntas: [
+      { ...t("motivo", "O que levou você a procurar atendimento agora?"), obrigatoria: true }, e("urgencia", "Como você avalia a urgência?", ["Posso aguardar", "Gostaria de começar logo", "Preciso de atendimento com urgência"]),
+      sn("ja_fez", "Já fez algum tipo de acompanhamento antes?"), t("como_conheceu", "Como conheceu o atendimento?"), t("horarios", "Quais dias e horários são melhores para você?"),
+      e("formato", "Prefere atendimento", ["Presencial", "Online", "Tanto faz"]), t("medicamentos", "Usa algum medicamento ou faz outro tratamento?"), t("emergencia", "Contato de emergência (nome, telefone e vínculo)"),
+    ],
+  },
+  {
+    chave: "SATISFACAO", nome: "Pesquisa de satisfação", descricao: "Como o paciente avalia o atendimento. Útil a cada alguns meses.", tipo: "FORMULARIO", paraQuem: TODOS,
+    perguntas: [
+      esc("acolhimento", "Eu me senti acolhido(a) nos atendimentos", 0, 10, "0 = nada, 10 = totalmente"), esc("clareza", "Entendo bem o que estamos trabalhando", 0, 10), esc("progresso", "Percebo avanços desde que comecei", 0, 10),
+      esc("recomendaria", "Recomendaria o atendimento a alguém que precisa", 0, 10), t("funciona", "O que está funcionando bem?"), t("melhorar", "O que poderia melhorar?"),
+    ],
+  },
+  {
+    chave: "CHECKIN_SEMANAL", nome: "Check-in da semana", descricao: "Um retrato rápido da semana, para o paciente responder antes da sessão.", tipo: "FORMULARIO", paraQuem: TODOS,
+    perguntas: [
+      esc("humor", "Como foi o seu humor nesta semana?", 1, 5, "1 = muito difícil, 5 = muito bom"), esc("sono", "Como foi o seu sono?", 1, 5), esc("energia", "Como esteve a sua energia?", 1, 5),
+      t("ajudou", "O que ajudou nesta semana?"), t("pesou", "O que pesou nesta semana?"), t("sessao", "O que você gostaria de tratar na próxima sessão?"), sn("dificil", "Houve algum momento muito difícil que você queira contar?"),
+    ],
+  },
+  {
+    chave: "REGISTRO_SONO", nome: "Registro de sono", descricao: "Hábitos e qualidade do sono, para acompanhar por alguns dias.", tipo: "FORMULARIO", paraQuem: TODOS,
+    perguntas: [
+      t("dormiu", "Que horas foi dormir?"), e("demora", "Quanto tempo demorou para dormir?", ["Menos de 15 minutos", "15 a 30 minutos", "30 a 60 minutos", "Mais de 1 hora"]),
+      e("despertares", "Quantas vezes acordou durante a noite?", ["Nenhuma", "1 vez", "2 ou 3 vezes", "4 ou mais vezes"]), t("acordou", "Que horas acordou?"), esc("qualidade", "Qualidade do sono", 1, 5),
+      sn("cafeina", "Tomou café, chá preto ou energético depois das 16h?"), sn("tela", "Usou celular ou TV na hora de dormir?"), sn("alcool", "Bebeu álcool ontem à noite?"),
+    ],
+  },
+  {
+    chave: "QUESTIONARIO_ESCOLA", nome: "Questionário para a escola", descricao: "Observações do professor ou da escola sobre a criança ou o adolescente.", tipo: "FORMULARIO", paraQuem: ["PSICOLOGO", "NEUROPSICOLOGO", "TERAPEUTA_OCUPACIONAL", "FONOAUDIOLOGO", "OUTRO"],
+    perguntas: [
+      t("quem", "Nome e função de quem responde"), t("aprendizagem", "Como é o desempenho nas atividades de leitura, escrita e matemática?"), t("atencao", "Como é a atenção e a concentração em sala?"),
+      t("comportamento", "Como é o comportamento em sala e no recreio?"), t("relacoes", "Como são as relações com colegas e professores?"), t("autonomia", "Como é a autonomia nas tarefas e na organização do material?"),
+      t("apoios", "Há adaptações ou apoios já oferecidos?"), t("obs", "Outras observações"),
+    ],
+  },
 ];
 
 export const modeloDoSistema = (chave: string) => MODELOS_SISTEMA.find((m) => m.chave === chave);

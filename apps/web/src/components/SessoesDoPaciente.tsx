@@ -86,7 +86,7 @@ export function SessoesDoPaciente({ pacienteId, fazLaudo }: { pacienteId: string
                             {i.modalidade && <span className="rounded-full bg-mist px-2 py-0.5 text-ink/60">{i.modalidade === "ONLINE" ? "🎥 Online" : "📍 Presencial"}</span>}
                             {i.laudo && <span className="rounded-full bg-[#FBE8D9] px-2 py-0.5 text-[#a8480f]">Laudo</span>}
                             {!i.passada && <span className="rounded-full bg-sage/15 px-2 py-0.5 text-sage-deep">Agendada</span>}
-                            {ev?.status === "FINALIZADA" && <span className="rounded-full bg-sage/15 px-2 py-0.5 text-sage-deep">✓ Evolução finalizada</span>}
+                            {ev?.status === "FINALIZADA" && <span className="rounded-full bg-[#E4EFE7] px-2 py-0.5 text-[#2F5D3A]">✓ Evolução finalizada</span>}
                             {ev && ev.status === "RASCUNHO" && ev.temTexto && <span className="rounded-full bg-mist px-2 py-0.5 text-ink/60">Rascunho</span>}
                             {ev?.geradaPorIA && <span className="rounded-full bg-[#EAE4F6] px-2 py-0.5 text-[#5b3fa0]">✨ com apoio de IA</span>}
                             {faltando && <span className="rounded-full bg-ember/10 px-2 py-0.5 text-ember">Evolução faltando</span>}

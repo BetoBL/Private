@@ -57,22 +57,27 @@ export function FormulariosDoPaciente({ pacienteId }: { pacienteId: string }) {
   const [aberto, setAberto] = useState<FormularioDetalhe | null>(null);
   const [respostas, setRespostas] = useState<RespostasForm>({});
   const [previa, setPrevia] = useState<string | null>(null);
-  const [linkAtivo, setLinkAtivo] = useState<boolean | null>(null);
   const [erro, setErro] = useState<string | null>(null);
   const [aviso, setAviso] = useState<string | null>(null);
+  const [linkPedido, setLinkPedido] = useState<{ link: string; nome: string } | null>(null);
+  const [copiado, setCopiado] = useState(false);
   const falha = (e: unknown) => setErro((e as Error).message);
 
   const carregarModelos = useCallback(() => { api.modelosFormulario().then(setModelos).catch(falha); }, []);
   const carregarLista = useCallback(() => { api.formulariosDoPaciente(pacienteId).then(setLista).catch(falha); }, [pacienteId]);
   useEffect(() => { carregarModelos(); }, [carregarModelos]);
-  useEffect(() => { carregarLista(); api.acessoDiario(pacienteId).then((a) => setLinkAtivo(a.ativo)).catch(() => setLinkAtivo(null)); }, [carregarLista, pacienteId]);
+  useEffect(() => { carregarLista(); }, [carregarLista, pacienteId]);
 
   async function pedir(m: ModeloForm, modo: "LINK" | "AQUI") {
     setErro(null); setAviso(null);
     try {
+      // o link do paciente é o mesmo do Diário: se ainda não existe, criamos aqui (e nunca trocamos um que já está em uso)
+      let acesso = null as Awaited<ReturnType<typeof api.acessoDiario>> | null;
+      if (modo === "LINK") { acesso = await api.acessoDiario(pacienteId); if (!acesso.ativo) acesso = await api.gerarAcessoDiario(pacienteId); }
       const r = await api.solicitarFormulario({ pacienteId, ref: m.ref, modo });
       carregarLista();
-      if (modo === "AQUI") await abrir(r.id); else setAviso("Pedido enviado. O paciente vê o formulário no link do Diário.");
+      if (modo === "AQUI") await abrir(r.id);
+      else if (acesso?.link) { setLinkPedido({ link: acesso.link, nome: m.nome }); setCopiado(false); }
     } catch (e) { falha(e); }
   }
   async function abrir(id: string) { try { const d = await api.detalheFormulario(id); setAberto(d); setRespostas(d.respostas ?? {}); window.scrollTo({ top: 0, behavior: "smooth" }); } catch (e) { falha(e); } }
@@ -93,6 +98,18 @@ export function FormulariosDoPaciente({ pacienteId }: { pacienteId: string }) {
     <div className="space-y-6">
       {erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {aviso && <div className="rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{aviso}</div>}
+      {linkPedido && (
+        <div className="rounded-2xl border border-sage/40 bg-sage/10 p-4">
+          <p className="text-sm font-semibold text-sage-deep">Pedido criado: {linkPedido.nome}. Envie este link ao paciente:</p>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <input readOnly className="min-w-0 flex-1 rounded-xl border border-mist bg-white px-3 py-2 text-sm" value={linkPedido.link} onFocus={(e) => e.currentTarget.select()} />
+            <button className="rounded-full bg-sage-deep px-4 py-2 text-sm font-semibold text-paper" onClick={() => { navigator.clipboard?.writeText(linkPedido.link).then(() => setCopiado(true)).catch(() => undefined); }}>{copiado ? "✓ Copiado" : "Copiar link"}</button>
+            <a className="rounded-full border border-sage-deep px-4 py-2 text-sm font-semibold text-sage-deep" target="_blank" rel="noreferrer" href={`https://wa.me/?text=${encodeURIComponent(`Olá! Para continuarmos, por favor responda: ${linkPedido.nome}. ${linkPedido.link}`)}`}>Enviar por WhatsApp</a>
+            <button className="text-sm text-ink/50 hover:underline" onClick={() => setLinkPedido(null)}>fechar</button>
+          </div>
+          <p className="mt-2 text-xs text-ink/55">É o mesmo link do Diário do paciente: ele vê aqui os formulários, as escalas e o diário.</p>
+        </div>
+      )}
 
       {aberto && (
         <section className="rounded-xl border border-sage-deep/30 bg-white p-5">
@@ -112,11 +129,26 @@ export function FormulariosDoPaciente({ pacienteId }: { pacienteId: string }) {
         </section>
       )}
 
+      <section className="rounded-xl border border-mist bg-white p-5">
+        <h3 className="mb-3 font-serif text-lg text-ink">Já pedidos e respondidos</h3>
+        {lista.length === 0 ? <p className="text-sm text-ink/45">Nenhum ainda. Escolha um modelo abaixo para pedir ao paciente ou preencher com ele na sessão.</p> : (
+          <ul className="divide-y divide-mist">
+            {lista.map((f) => (
+              <li key={f.id} className="flex flex-wrap items-center gap-3 py-2.5 text-sm">
+                <span className="font-semibold text-ink">{f.nome}</span>
+                <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${f.status === "RESPONDIDO" ? "bg-sage-deep/15 text-sage-deep" : "bg-clay/15 text-clay"}`}>{f.status === "RESPONDIDO" ? "respondido" : f.modo === "LINK" ? "aguardando o paciente" : "em preenchimento"}</span>
+                <span className="text-xs text-ink/45">{f.status === "RESPONDIDO" && f.respondidoEm ? `${f.respondidoPor === "PACIENTE" ? "pelo paciente" : "por você"}, ${dataBr(f.respondidoEm)}` : `pedido em ${dataBr(f.criadoEm)}`}</span>
+                <span className="ml-auto flex gap-3"><button className="text-xs font-semibold text-sage-deep hover:underline" onClick={() => abrir(f.id)}>{f.status === "RESPONDIDO" ? "ler" : "abrir"}</button><button className="text-xs text-ink/40 hover:text-ember" onClick={() => apagar(f)}>apagar</button></span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
       {editor ? <EditorModelo inicial={editor} onSalvar={salvarModelo} onCancelar={() => setEditor(null)} /> : (
         <section className="rounded-xl border border-mist bg-white p-5">
-          <div className="mb-1 flex flex-wrap items-center justify-between gap-2"><h3 className="font-serif text-lg text-ink">Modelos de anamnese e formulário</h3><button className="rounded-lg border border-sage-deep px-3 py-1.5 text-sm font-semibold text-sage-deep" onClick={() => setEditor({ ref: null, nome: "", descricao: "", tipo: "FORMULARIO", perguntas: [{ id: "p1", tipo: "texto", rotulo: "" }] })}>+ Criar meu modelo</button></div>
+          <div className="mb-1 flex flex-wrap items-center justify-between gap-2"><h3 className="font-serif text-lg text-ink">Escolha um modelo</h3><button className="rounded-lg border border-sage-deep px-3 py-1.5 text-sm font-semibold text-sage-deep" onClick={() => setEditor({ ref: null, nome: "", descricao: "", tipo: "FORMULARIO", perguntas: [{ id: "p1", tipo: "texto", rotulo: "" }] })}>+ Criar meu modelo</button></div>
           <p className="mb-4 text-sm text-ink/55">Peça ao paciente por link ou preencha com ele na sessão. Copie qualquer modelo para adaptar ao seu jeito.</p>
-          {linkAtivo === false && <div className="mb-4 rounded-lg border border-clay/40 bg-clay/10 px-4 py-3 text-sm text-ink/75">Para pedir por link, gere o link do paciente na aba <b>Diário</b>.</div>}
           <div className="mb-4 flex flex-wrap gap-2">
             {([["TODOS", "Todos"], ["ANAMNESE", "Anamneses"], ["FORMULARIO", "Formulários"]] as const).map(([v, r]) => <button key={v} className={`rounded-full px-3 py-1 text-sm font-semibold ${filtro === v ? "bg-sage-deep text-paper" : "bg-mist text-ink/65 hover:text-ink"}`} onClick={() => setFiltro(v)}>{r}</button>)}
           </div>
@@ -138,21 +170,6 @@ export function FormulariosDoPaciente({ pacienteId }: { pacienteId: string }) {
         </section>
       )}
 
-      <section className="rounded-xl border border-mist bg-white p-5">
-        <h3 className="mb-3 font-serif text-lg text-ink">Formulários deste paciente</h3>
-        {lista.length === 0 ? <p className="text-sm text-ink/45">Nenhum ainda.</p> : (
-          <ul className="divide-y divide-mist">
-            {lista.map((f) => (
-              <li key={f.id} className="flex flex-wrap items-center gap-3 py-2.5 text-sm">
-                <span className="font-semibold text-ink">{f.nome}</span>
-                <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${f.status === "RESPONDIDO" ? "bg-sage-deep/15 text-sage-deep" : "bg-clay/15 text-clay"}`}>{f.status === "RESPONDIDO" ? "respondido" : f.modo === "LINK" ? "aguardando o paciente" : "em preenchimento"}</span>
-                <span className="text-xs text-ink/45">{f.status === "RESPONDIDO" && f.respondidoEm ? `${f.respondidoPor === "PACIENTE" ? "pelo paciente" : "por você"}, ${dataBr(f.respondidoEm)}` : `pedido em ${dataBr(f.criadoEm)}`}</span>
-                <span className="ml-auto flex gap-3"><button className="text-xs font-semibold text-sage-deep hover:underline" onClick={() => abrir(f.id)}>{f.status === "RESPONDIDO" ? "ler" : "abrir"}</button><button className="text-xs text-ink/40 hover:text-ember" onClick={() => apagar(f)}>apagar</button></span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
     </div>
   );
 }

@@ -37,6 +37,7 @@ export function PainelDoDia() {
 
   const [pendentesDiario, setPendentesDiario] = useState<PendenteDiario[]>([]);
   const [evolucoesPendentes, setEvolucoesPendentes] = useState<Awaited<ReturnType<typeof api.evolucoesPendentes>>>([]);
+  const [nHoje, setNHoje] = useState<number | null>(null);
   const [alertas, setAlertas] = useState<Awaited<ReturnType<typeof api.alertasRisco>>>([]);
   useEffect(() => { api.alertasRisco().then(setAlertas).catch(() => undefined); }, []);
   useEffect(() => { api.evolucoesPendentes().then(setEvolucoesPendentes).catch(() => undefined); }, []);
@@ -120,15 +121,13 @@ export function PainelDoDia() {
             {saudacao()}, {profissional?.nome.split(" ")[0]} ✦
           </h1>
           <p className="text-sm text-ink/60">
-            Você tem {sessoesPlural(sessoesHoje.length)} hoje e {laudosPlural(laudosAguardandoRevisao.length)} aguardando revisão.
+            Você tem {sessoesPlural(nHoje ?? sessoesHoje.length)} hoje{evolucoesPendentes.length > 0 ? `, ${evolucoesPendentes.length === 1 ? "1 evolução" : `${evolucoesPendentes.length} evoluções`} a concluir` : ""}{temModulo(profissional?.categoria, "laudos") ? ` e ${laudosPlural(laudosAguardandoRevisao.length)} aguardando revisão` : ""}.
           </p>
         </div>
         <div className="rounded-full bg-mist px-3.5 py-1.5 text-xs font-semibold text-sage-deep">
           {dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1)}
         </div>
       </div>
-
-      <VisaoGeral pacientes={pacientes.length} evolucoesPendentes={evolucoesPendentes.length} laudosParaRevisar={laudosAguardandoRevisao.length} alertas={alertas.length} temLaudos={temModulo(profissional?.categoria, "laudos")} />
 
       {alertas.length > 0 && (
         <section id="avisos" className="mb-6 scroll-mt-6 rounded-2xl border border-ember bg-ember/5 px-6 py-5">
@@ -146,42 +145,14 @@ export function PainelDoDia() {
         </section>
       )}
 
-      {evolucoesPendentes.length > 0 && (
-        <section id="evolucoes-pendentes" className="mb-6 scroll-mt-6 rounded-2xl border border-mist bg-white px-6 py-5">
-          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-clay">Evoluções para concluir</h2>
-          <ul className="divide-y divide-mist">
-            {evolucoesPendentes.slice(0, 6).map((e) => (
-              <li key={e.id} className="flex items-center gap-3 py-2 text-sm">
-                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${e.pacienteId}/sessao?evolucao=${e.id}`}>{e.paciente}</Link>
-                <span className="text-ink/55">{new Date(e.dataHora).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</span>
-                <span className="ml-auto text-xs text-ink/45">{e.comTexto ? "rascunho com texto" : "ainda sem texto"}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+      <VisaoGeral onHoje={setNHoje} pacientes={pacientes.length} evolucoesPendentes={evolucoesPendentes.length} laudosParaRevisar={laudosAguardandoRevisao.length} alertas={alertas.length} temLaudos={temModulo(profissional?.categoria, "laudos")} />
 
-      {pendentesDiario.length > 0 && (
-        <section className="mb-6 rounded-2xl border border-mist bg-white px-6 py-5">
-          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Pacientes pediram para conversar sobre o Diário</h2>
-          <ul className="divide-y divide-mist">
-            {pendentesDiario.slice(0, 6).map((p) => (
-              <li key={p.id} className="flex items-center gap-3 py-2 text-sm">
-                <span className="h-2.5 w-2.5 rounded-full" style={{ background: corDaFamilia(p.familia) }} />
-                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${p.pacienteId}?aba=diario`}>{p.paciente}</Link>
-                <span className="text-ink/55">registro de {new Date(p.ocorridoEm.slice(0, 10) + "T12:00:00").toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      <section className="relative mb-10 overflow-hidden rounded-2xl bg-ink px-8 py-7 text-paper">
+      <section className="relative mb-8 overflow-hidden rounded-2xl border border-mist bg-gradient-to-br from-[#fbe8d9] to-white px-7 py-6 text-ink shadow-[0_8px_24px_-12px_rgba(38,38,36,0.12)]">
         <div className="mb-3 flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-wide text-clay">
           <span>Resumo do seu dia</span>
-          <span className="flex items-center gap-3 font-semibold normal-case tracking-normal text-paper/50">
+          <span className="flex items-center gap-3 font-semibold normal-case tracking-normal text-ink/50">
             {geradoEm && <span>gerado às {new Date(geradoEm).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</span>}
-            <button className="underline-offset-2 hover:text-paper hover:underline disabled:opacity-50" disabled={atualizandoResumo} onClick={atualizarResumo}>{atualizandoResumo ? "atualizando…" : "atualizar"}</button>
+            <button className="underline-offset-2 hover:text-ink hover:underline disabled:opacity-50" disabled={atualizandoResumo} onClick={atualizarResumo}>{atualizandoResumo ? "atualizando…" : "atualizar"}</button>
           </span>
         </div>
         {carregandoResumo ? (
@@ -193,18 +164,18 @@ export function PainelDoDia() {
           </p>
         )}
 
-        <div className="mt-6 border-t border-paper/15 pt-5">
+        <div className="mt-6 border-t border-ink/15 pt-5">
           {respostaHumor ? (
-            <p className="text-sm text-paper/90">
+            <p className="text-sm text-ink/90">
               <span className="mr-1.5">💬</span>
               {respostaHumor}
             </p>
           ) : humorAberto ? (
             <>
               <div className="mb-3 flex items-center justify-between">
-                <span className="text-sm font-semibold text-paper/90">Como você está se sentindo hoje? (opcional)</span>
+                <span className="text-sm font-semibold text-ink/90">Como você está se sentindo hoje? (opcional)</span>
                 {!perguntarSeContaMais && !mostrarCampoTexto && (
-                  <button className="text-xs text-paper/40 hover:text-paper/70" onClick={() => setHumorAberto(false)}>
+                  <button className="text-xs text-ink/40 hover:text-ink/70" onClick={() => setHumorAberto(false)}>
                     pular
                   </button>
                 )}
@@ -215,7 +186,7 @@ export function PainelDoDia() {
                   {HUMORES.map((h) => (
                     <button
                       key={h.label}
-                      className="rounded-full border border-paper/20 px-3 py-1.5 text-sm font-semibold text-paper/80 hover:border-paper/50 hover:text-paper"
+                      className="rounded-full border border-ink/20 px-3 py-1.5 text-sm font-semibold text-ink/80 hover:border-ink/50 hover:text-ink"
                       onClick={() => escolherHumor(h.label)}
                     >
                       {h.emoji} {h.label}
@@ -226,11 +197,11 @@ export function PainelDoDia() {
 
               {perguntarSeContaMais && (
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-sm text-paper/80">
+                  <span className="text-sm text-ink/80">
                     {HUMORES.find((h) => h.label === humorEscolhido)?.emoji} Quer contar mais?
                   </span>
                   <button
-                    className="rounded-full border border-paper/30 px-3 py-1 text-xs font-semibold text-paper/80 hover:border-paper/60"
+                    className="rounded-full border border-ink/30 px-3 py-1 text-xs font-semibold text-ink/80 hover:border-ink/60"
                     onClick={() => {
                       setPerguntarSeContaMais(false);
                       setMostrarCampoTexto(true);
@@ -239,7 +210,7 @@ export function PainelDoDia() {
                     Sim
                   </button>
                   <button
-                    className="rounded-full border border-paper/30 px-3 py-1 text-xs font-semibold text-paper/80 hover:border-paper/60 disabled:opacity-40"
+                    className="rounded-full border border-ink/30 px-3 py-1 text-xs font-semibold text-ink/80 hover:border-ink/60 disabled:opacity-40"
                     disabled={enviandoHumor}
                     onClick={() => {
                       setPerguntarSeContaMais(false);
@@ -254,7 +225,7 @@ export function PainelDoDia() {
               {mostrarCampoTexto && (
                 <input
                   autoFocus
-                  className="w-full rounded-lg border border-paper/20 bg-paper/10 px-3 py-2 text-sm text-paper placeholder:text-paper/40"
+                  className="w-full rounded-lg border border-ink/20 bg-white px-3 py-2 text-sm text-ink placeholder:text-ink/40"
                   placeholder="Conte mais... (pressione Enter para enviar)"
                   value={humorTexto}
                   disabled={enviandoHumor}
@@ -269,51 +240,47 @@ export function PainelDoDia() {
               )}
             </>
           ) : (
-            <button className="text-xs text-paper/40 hover:text-paper/80" onClick={() => setHumorAberto(true)}>
+            <button className="text-xs text-ink/40 hover:text-ink/80" onClick={() => setHumorAberto(true)}>
               + Como você está se sentindo hoje?
             </button>
           )}
         </div>
       </section>
 
-      <div className="mb-4 text-xs font-bold uppercase tracking-wide text-sage-deep">Módulos</div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <Link to="/pacientes" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">◐</div>
-          <h3 className="mb-1 font-serif text-base">Pacientes</h3>
-          <p className="mb-3 text-xs text-ink/60">Ficha completa, anamnese, anexos de cada caso em andamento.</p>
-          <div className="text-xs font-semibold text-clay">{pacientes.length} paciente(s)</div>
-        </Link>
-        {temModulo(profissional?.categoria, "testes") && (
-          <Link to="/testes" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
-            <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">▤</div>
-            <h3 className="mb-1 font-serif text-base">Testes &amp; Correção</h3>
-            <p className="mb-3 text-xs text-ink/60">Catálogo de testes com correção e cálculo automáticos.</p>
-          </Link>
-        )}
-        {temModulo(profissional?.categoria, "laudos") && (
-          <Link to="/laudo" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
-            <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">✎</div>
-            <h3 className="mb-1 font-serif text-base">Laudos</h3>
-            <p className="mb-3 text-xs text-ink/60">Rascunho assistido por IA, no seu estilo, sempre revisado por você.</p>
-          </Link>
-        )}
-        <Link to="/agenda" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">▦</div>
-          <h3 className="mb-1 font-serif text-base">Agenda</h3>
-          <p className="mb-3 text-xs text-ink/60">Sessões e compromissos da semana.</p>
-        </Link>
-        <div className="rounded-2xl border border-dashed border-mist bg-white p-5 opacity-50">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg text-ink">$</div>
-          <h3 className="mb-1 font-serif text-base">Convênios</h3>
-          <p className="mb-3 text-xs text-ink/60">Tabelas de valores, guias e medições. Módulo desativado.</p>
+      {(evolucoesPendentes.length > 0 || pendentesDiario.length > 0) && (
+        <div className="mb-8 grid items-start gap-4 lg:grid-cols-2">
+      {evolucoesPendentes.length > 0 && (
+        <section id="evolucoes-pendentes" className="scroll-mt-6 rounded-2xl border border-mist bg-white px-6 py-5 shadow-sm">
+          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-clay">Evoluções para concluir</h2>
+          <ul className="divide-y divide-mist">
+            {evolucoesPendentes.slice(0, 6).map((e) => (
+              <li key={e.id} className="flex items-center gap-3 py-2 text-sm">
+                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${e.pacienteId}/sessao?evolucao=${e.id}`}>{e.paciente}</Link>
+                <span className="text-ink/55">{new Date(e.dataHora).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</span>
+                <span className="ml-auto text-xs text-ink/45">{e.comTexto ? "rascunho com texto" : "ainda sem texto"}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {pendentesDiario.length > 0 && (
+        <section className="rounded-2xl border border-mist bg-white px-6 py-5 shadow-sm">
+          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-sage-deep">Pacientes pediram para conversar sobre o Diário</h2>
+          <ul className="divide-y divide-mist">
+            {pendentesDiario.slice(0, 6).map((p) => (
+              <li key={p.id} className="flex items-center gap-3 py-2 text-sm">
+                <span className="h-2.5 w-2.5 rounded-full" style={{ background: corDaFamilia(p.familia) }} />
+                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${p.pacienteId}?aba=diario`}>{p.paciente}</Link>
+                <span className="text-ink/55">registro de {new Date(p.ocorridoEm.slice(0, 10) + "T12:00:00").toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
         </div>
-        <div className="rounded-2xl border border-dashed border-mist bg-white p-5 opacity-50">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg text-ink">+</div>
-          <h3 className="mb-1 font-serif text-base">Trânsito / CNH</h3>
-          <p className="mb-3 text-xs text-ink/60">Parecer para RENACH. Módulo desativado.</p>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

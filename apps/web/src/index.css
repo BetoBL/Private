@@ -118,3 +118,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--color-sage); ou
 @media (prefers-reduced-motion: reduce) {
   button.bg-sage-deep:not(:disabled):hover { transform: none; }
 }
+
+/* ---- Cadastro e faturamento da ficha: mesmo padrão visual do Perfil (campos, rótulos e cartões) ---- */
+.cadastro-form :is(input, select, textarea).rounded-lg.border-mist { border-radius: 0.75rem; background-color: #fff; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.cadastro-form :is(input, select, textarea).rounded-lg.border-mist:focus { outline: none; border-color: var(--color-sage); box-shadow: 0 0 0 3px rgb(230 106 31 / 0.2); }
+.cadastro-form span.mb-1.block.font-semibold { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: rgb(38 38 36 / 0.5); }
+.cadastro-form div.rounded-2xl.border { box-shadow: 0 1px 2px rgb(38 38 36 / 0.04), 0 8px 24px -12px rgb(38 38 36 / 0.12); }

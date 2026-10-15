@@ -4,7 +4,7 @@ import { api, type EventoAgenda } from "../lib/api";
 import { CORES_SESSAO } from "./ModalAgendarSessao";
 
 // Visão geral da home: números clicáveis, atalhos, a agenda de hoje e a semana em um relance.
-interface Props { pacientes: number; evolucoesPendentes: number; laudosParaRevisar: number; alertas: number; temLaudos: boolean }
+interface Props { onHoje?: (n: number) => void; pacientes: number; evolucoesPendentes: number; laudosParaRevisar: number; alertas: number; temLaudos: boolean }
 
 const DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
 const mesmoDia = (a: Date, b: Date) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
@@ -24,7 +24,7 @@ function Numero({ para, ancora, icone, valor, rotulo, tom, destaque }: { para?: 
   return para ? <Link to={para} className={classe}>{corpo}</Link> : <a href={`#${ancora}`} className={classe}>{corpo}</a>;
 }
 
-export function VisaoGeral({ pacientes, evolucoesPendentes, laudosParaRevisar, alertas, temLaudos }: Props) {
+export function VisaoGeral({ onHoje, pacientes, evolucoesPendentes, laudosParaRevisar, alertas, temLaudos }: Props) {
   const [eventos, setEventos] = useState<EventoAgenda[]>([]);
   const hoje = useMemo(() => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; }, []);
   useEffect(() => {
@@ -36,6 +36,7 @@ export function VisaoGeral({ pacientes, evolucoesPendentes, laudosParaRevisar, a
   const deHoje = reais.filter((e) => mesmoDia(new Date(e.inicio), hoje)).sort((a, b) => new Date(a.inicio).getTime() - new Date(b.inicio).getTime());
   const semana = Array.from({ length: 7 }, (_, i) => { const d = new Date(hoje.getTime() + i * 86_400_000); return { d, n: reais.filter((e) => mesmoDia(new Date(e.inicio), d)).length }; });
   const agora = Date.now();
+  useEffect(() => { onHoje?.(deHoje.length); }, [deHoje.length, onHoje]);
   const proximo = deHoje.find((e) => new Date(e.fim).getTime() > agora);
 
   const atalho = "flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition";
@@ -54,7 +55,6 @@ export function VisaoGeral({ pacientes, evolucoesPendentes, laudosParaRevisar, a
         <Numero para="/pacientes" icone="👥" valor={pacientes} rotulo="Pacientes" tom="neutro" />
         {temLaudos ? <Numero para="/laudos" icone="📄" valor={laudosParaRevisar} rotulo="Laudos para revisar" tom="verde" /> : <Numero ancora="avisos" icone="🔔" valor={alertas} rotulo="Precisam de atenção" tom={alertas ? "alerta" : "verde"} destaque={alertas > 0} />}
       </div>
-      {temLaudos && alertas > 0 && <a href="#avisos" className="block rounded-2xl border border-ember/40 bg-ember/5 px-4 py-3 text-sm font-semibold text-ember ring-2 ring-ember/10 hover:bg-ember/10">🔔 {alertas} paciente(s) precisam da sua atenção. Ver agora</a>}
 
       <div className="grid gap-4 lg:grid-cols-[1.4fr_1fr]">
         <section className="rounded-2xl border border-mist bg-white p-5 shadow-[0_8px_24px_-12px_rgba(38,38,36,0.12)]">

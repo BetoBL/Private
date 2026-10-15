@@ -477,6 +477,92 @@ Objetivo, rotina alimentar, hábitos e histórico de saúde. (para: NUTRICIONIST
 
 `[ ] Aprovado`   `[ ] Ajustar` → 
 
+### 4.6 Termo de consentimento do atendimento
+
+Combinados do atendimento, sigilo, dados e recursos de apoio. Texto-base: revise com a responsável técnica e o jurídico antes de usar. (para: PSICOLOGO, NEUROPSICOLOGO, MEDICO, FISIOTERAPEUTA, TERAPEUTA_OCUPACIONAL, FONOAUDIOLOGO, NUTRICIONISTA, OUTRO)
+
+1. Nome de quem assina (o paciente ou o responsável legal) *(obrigatória)*
+2. Fui informado(a) sobre como funciona o atendimento: duração, frequência, valores, faltas e cancelamentos. *(obrigatória)* — sim ou não
+3. Entendo que o sigilo profissional é garantido, com as exceções previstas em lei (por exemplo, risco à vida ou determinação judicial). *(obrigatória)* — sim ou não
+4. Concordo com o armazenamento seguro dos meus dados no prontuário eletrônico, conforme a LGPD. *(obrigatória)* — sim ou não
+5. Autorizo o uso de recursos tecnológicos de apoio, como inteligência artificial, sempre revisados pelo profissional. — sim ou não
+6. Autorizo a gravação das sessões para fins de registro clínico (opcional). — sim ou não
+7. Observações ou dúvidas
+
+`[ ] Aprovado`   `[ ] Ajustar` → 
+
+### 4.7 Triagem inicial
+
+Primeiro contato: motivo, urgência, horários e contato de emergência. (para: PSICOLOGO, NEUROPSICOLOGO, MEDICO, FISIOTERAPEUTA, TERAPEUTA_OCUPACIONAL, FONOAUDIOLOGO, NUTRICIONISTA, OUTRO)
+
+1. O que levou você a procurar atendimento agora? *(obrigatória)*
+2. Como você avalia a urgência? — opções: Posso aguardar / Gostaria de começar logo / Preciso de atendimento com urgência
+3. Já fez algum tipo de acompanhamento antes? — sim ou não
+4. Como conheceu o atendimento?
+5. Quais dias e horários são melhores para você?
+6. Prefere atendimento — opções: Presencial / Online / Tanto faz
+7. Usa algum medicamento ou faz outro tratamento?
+8. Contato de emergência (nome, telefone e vínculo)
+
+`[ ] Aprovado`   `[ ] Ajustar` → 
+
+### 4.8 Pesquisa de satisfação
+
+Como o paciente avalia o atendimento. Útil a cada alguns meses. (para: PSICOLOGO, NEUROPSICOLOGO, MEDICO, FISIOTERAPEUTA, TERAPEUTA_OCUPACIONAL, FONOAUDIOLOGO, NUTRICIONISTA, OUTRO)
+
+1. Eu me senti acolhido(a) nos atendimentos — escala de 0 a 10 _(dica: 0 = nada, 10 = totalmente)_
+2. Entendo bem o que estamos trabalhando — escala de 0 a 10
+3. Percebo avanços desde que comecei — escala de 0 a 10
+4. Recomendaria o atendimento a alguém que precisa — escala de 0 a 10
+5. O que está funcionando bem?
+6. O que poderia melhorar?
+
+`[ ] Aprovado`   `[ ] Ajustar` → 
+
+### 4.9 Check-in da semana
+
+Um retrato rápido da semana, para o paciente responder antes da sessão. (para: PSICOLOGO, NEUROPSICOLOGO, MEDICO, FISIOTERAPEUTA, TERAPEUTA_OCUPACIONAL, FONOAUDIOLOGO, NUTRICIONISTA, OUTRO)
+
+1. Como foi o seu humor nesta semana? — escala de 1 a 5 _(dica: 1 = muito difícil, 5 = muito bom)_
+2. Como foi o seu sono? — escala de 1 a 5
+3. Como esteve a sua energia? — escala de 1 a 5
+4. O que ajudou nesta semana?
+5. O que pesou nesta semana?
+6. O que você gostaria de tratar na próxima sessão?
+7. Houve algum momento muito difícil que você queira contar? — sim ou não
+
+`[ ] Aprovado`   `[ ] Ajustar` → 
+
+### 4.10 Registro de sono
+
+Hábitos e qualidade do sono, para acompanhar por alguns dias. (para: PSICOLOGO, NEUROPSICOLOGO, MEDICO, FISIOTERAPEUTA, TERAPEUTA_OCUPACIONAL, FONOAUDIOLOGO, NUTRICIONISTA, OUTRO)
+
+1. Que horas foi dormir?
+2. Quanto tempo demorou para dormir? — opções: Menos de 15 minutos / 15 a 30 minutos / 30 a 60 minutos / Mais de 1 hora
+3. Quantas vezes acordou durante a noite? — opções: Nenhuma / 1 vez / 2 ou 3 vezes / 4 ou mais vezes
+4. Que horas acordou?
+5. Qualidade do sono — escala de 1 a 5
+6. Tomou café, chá preto ou energético depois das 16h? — sim ou não
+7. Usou celular ou TV na hora de dormir? — sim ou não
+8. Bebeu álcool ontem à noite? — sim ou não
+
+`[ ] Aprovado`   `[ ] Ajustar` → 
+
+### 4.11 Questionário para a escola
+
+Observações do professor ou da escola sobre a criança ou o adolescente. (para: PSICOLOGO, NEUROPSICOLOGO, TERAPEUTA_OCUPACIONAL, FONOAUDIOLOGO, OUTRO)
+
+1. Nome e função de quem responde
+2. Como é o desempenho nas atividades de leitura, escrita e matemática?
+3. Como é a atenção e a concentração em sala?
+4. Como é o comportamento em sala e no recreio?
+5. Como são as relações com colegas e professores?
+6. Como é a autonomia nas tarefas e na organização do material?
+7. Há adaptações ou apoios já oferecidos?
+8. Outras observações
+
+`[ ] Aprovado`   `[ ] Ajustar` → 
+
 ---
 
 ## 5. Modelos de evolução (registro da sessão)
