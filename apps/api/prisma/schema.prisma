@@ -158,6 +158,7 @@ model Profissional {
   eventosAgenda     EventoAgenda[]
   evolucoes         Evolucao[]
   itensContinuidade ItemContinuidade[]
+  solicitacoesEscala SolicitacaoEscala[]
 
   criadoEm          DateTime          @default(now())
 }
@@ -226,6 +227,7 @@ model Paciente {
   eventosAgenda   EventoAgenda[]
   evolucoes       Evolucao[]
   itensContinuidade ItemContinuidade[]
+  solicitacoesEscala SolicitacaoEscala[]
 
   // Conformidade Resolução CFP nº 09/2024: paciente deve ser informado sobre
   // recursos tecnológicos usados (incluindo IA) e, no caso de IA, idealmente consentir
@@ -844,6 +846,30 @@ model ItemContinuidade {
   status         String       @default("ANDAMENTO") // ANDAMENTO | CONCLUIDO
   concluidoEm    DateTime?
   excluidoEm     DateTime?
+  criadoEm       DateTime     @default(now())
+
+  @@index([pacienteId, status])
+}
+
+// Escala de triagem pedida ao paciente (definições em lib/escalas). O paciente responde pelo link do Diário; só o profissional vê a pontuação.
+// Recorrência: ao ser respondida, uma escala com frequência gera a próxima solicitação (mesmo `serieId`).
+model SolicitacaoEscala {
+  id             String       @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  paciente       Paciente     @relation(fields: [pacienteId], references: [id])
+  profissionalId String
+  profissional   Profissional @relation(fields: [profissionalId], references: [id])
+  escala         String       // código (PHQ9, GAD7, DASS21)
+  prazo          DateTime     @db.Date
+  frequencia     String       @default("UNICA") // UNICA | SEMANAL | QUINZENAL | MENSAL
+  serieId        String?
+  status         String       @default("PENDENTE") // PENDENTE | CONCLUIDA
+  respostas      Json?
+  pontuacao      Json?
+  alertaRisco    Boolean      @default(false)
+  respondidaEm   DateTime?
+  excluidaEm     DateTime?
   criadoEm       DateTime     @default(now())
 
   @@index([pacienteId, status])

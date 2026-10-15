@@ -1,7 +1,10 @@
 import { Router } from "express";
 import { z } from "zod";
 import { AVISO_SEGURANCA, CATALOGO, familiaDaEmocao, FAMILIAS, sofrimentoIntenso, validarCartao, VERSAO_CATALOGO } from "../lib/diario/catalogo";
+import { escalaPorCodigo } from "../lib/escalas/definicoes";
+import { validarRespostas } from "../lib/escalas/pontuar";
 import { prisma } from "../lib/prisma";
+import { registrarResposta } from "./escalas.routes";
 import { asyncHandler, validateBody } from "../lib/validate";
 
 // Diário do paciente, lado do PACIENTE: sem login, protegido pelo segredo do link que o psicólogo gerou.
@@ -34,7 +37,33 @@ diarioPublicoRouter.get("/:segredo", asyncHandler(async (req, res) => {
   if (!r) { naoEncontrado(res); return; }
   await prisma.acessoDiario.update({ where: { id: r.a.id }, data: { ultimoUsoEm: new Date() } });
   const recentes = await prisma.cartaoDiario.findMany({ where: { pacienteId: r.a.pacienteId }, orderBy: [{ ocorridoEm: "desc" }, { registradoEm: "desc" }], take: 14, select: { ocorridoEm: true, emocao: true, familia: true, intensidade: true } });
-  res.json({ paciente: (r.paciente?.nome ?? "").split(" ")[0], clinica: r.clinica?.nomeFantasia || r.clinica?.razaoSocial || "", profissional: r.profissional?.nome ?? "", catalogo: CATALOGO, recentes });
+  const hoje = new Date(`${new Date().toISOString().slice(0, 10)}T00:00:00.000Z`);
+  const pendentes = await prisma.solicitacaoEscala.findMany({ where: { pacienteId: r.a.pacienteId, status: "PENDENTE", excluidaEm: null, prazo: { lte: hoje } }, orderBy: { prazo: "asc" }, take: 10 });
+  const escalas = pendentes.map((s) => ({ id: s.id, nome: escalaPorCodigo(s.escala)?.nome ?? s.escala, tempo: escalaPorCodigo(s.escala)?.tempo ?? "", prazo: s.prazo.toISOString().slice(0, 10) }));
+  res.json({ paciente: (r.paciente?.nome ?? "").split(" ")[0], clinica: r.clinica?.nomeFantasia || r.clinica?.razaoSocial || "", profissional: r.profissional?.nome ?? "", catalogo: CATALOGO, recentes, escalas });
+}));
+
+// Escalas pedidas pelo profissional. O paciente vê as perguntas e responde; NUNCA recebe pontuação nem faixa (só um cuidado, se houver sinal de risco).
+diarioPublicoRouter.get("/:segredo/escalas/:id", asyncHandler(async (req, res) => {
+  const r = await acessoDoLink(req.params.segredo);
+  if (!r) { naoEncontrado(res); return; }
+  const s = await prisma.solicitacaoEscala.findFirst({ where: { id: req.params.id, pacienteId: r.a.pacienteId, status: "PENDENTE", excluidaEm: null } });
+  const e = s && escalaPorCodigo(s.escala);
+  if (!s || !e) { res.status(404).json({ error: "Esta escala não está mais disponível." }); return; }
+  res.json({ id: s.id, nome: e.nome, instrucao: e.instrucao, opcoes: e.opcoes, itens: e.itens.map((i) => ({ id: i.id, texto: i.texto })), itemFuncional: e.itemFuncional ?? null });
+}));
+
+diarioPublicoRouter.post("/:segredo/escalas/:id", validateBody(z.object({ respostas: z.record(z.string(), z.number()) })), asyncHandler(async (req, res) => {
+  const r = await acessoDoLink(req.params.segredo);
+  if (!r) { naoEncontrado(res); return; }
+  const s = await prisma.solicitacaoEscala.findFirst({ where: { id: req.params.id, pacienteId: r.a.pacienteId, status: "PENDENTE", excluidaEm: null } });
+  const e = s && escalaPorCodigo(s.escala);
+  if (!s || !e) { res.status(404).json({ error: "Esta escala não está mais disponível." }); return; }
+  const erros = validarRespostas(e, req.body.respostas);
+  if (erros.length) { res.status(400).json({ error: erros[0], erros }); return; }
+  const feito = await registrarResposta(s.id, req.body.respostas);
+  if (!feito) { res.status(409).json({ error: "Esta escala já foi respondida." }); return; }
+  res.status(201).json({ ok: true, cuidado: feito.resultado.alertaRisco ? AVISO_SEGURANCA.intenso : null });
 }));
 
 const corpo = z.object({

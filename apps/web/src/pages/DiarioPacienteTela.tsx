@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { api, type DiarioPublico, type NovoCartao } from "../lib/api";
+import { api, type DiarioPublico, type EscalaParaResponder, type NovoCartao } from "../lib/api";
 import { corDaFamilia, FACE_INTENSIDADE, ICONE, ROTULO_INTENSIDADE } from "../lib/diarioCores";
 
 // Cartão Diário, lado do paciente: um registro breve entre as sessões, em 6 passos, feito no celular pelo link que o(a) psicólogo(a) gerou.
@@ -48,6 +48,9 @@ export function DiarioDoPacienteTela() {
   const [passo, setPasso] = useState(0); // 0 = início, 1-5 = perguntas, 6 = revisão, 7 = pronto
   const [c, setC] = useState<NovoCartao>({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], levarParaSessao: false });
   const [enviando, setEnviando] = useState(false);
+  const [escala, setEscala] = useState<EscalaParaResponder | null>(null);
+  const [respEscala, setRespEscala] = useState<Record<string, number>>({});
+  const [escalaFeita, setEscalaFeita] = useState<{ cuidado: string | null } | null>(null);
   const [resposta, setResposta] = useState<{ intenso: boolean; apoio: string[]; aviso: string } | null>(null);
 
   useEffect(() => { if (segredo) api.diarioPublico(segredo).then(setInfo).catch((e) => setErro(e.message)); }, [segredo]);
@@ -65,9 +68,56 @@ export function DiarioDoPacienteTela() {
     setErro(null); setEnviando(true);
     try { setResposta(await api.enviarCartao(segredo, c)); setPasso(7); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
   }
+  async function abrirEscala(id: string) { if (!segredo) return; setErro(null); try { setEscala(await api.escalaPublica(segredo, id)); setRespEscala({}); setEscalaFeita(null); window.scrollTo(0, 0); } catch (e) { setErro((e as Error).message); } }
+  async function enviarEscala() {
+    if (!segredo || !escala) return;
+    const faltam = escala.itens.filter((i) => respEscala[String(i.id)] === undefined).length;
+    if (faltam) { setErro(faltam === 1 ? "Falta responder 1 pergunta." : `Faltam ${faltam} perguntas.`); return; }
+    setErro(null); setEnviando(true);
+    try { const r = await api.responderEscala(segredo, escala.id, respEscala); setEscalaFeita({ cuidado: r.cuidado }); api.diarioPublico(segredo).then(setInfo).catch(() => undefined); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
+  }
   function novo() { setC({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], levarParaSessao: false }); setResposta(null); setPasso(0); if (segredo) api.diarioPublico(segredo).then(setInfo).catch(() => undefined); }
 
   if (erro && !info) return <div className="mx-auto max-w-md px-5 py-16"><div className="rounded-3xl border border-ember/30 bg-ember/10 p-6 text-center text-ember">{erro}</div></div>;
+  if (escala) {
+    return (
+      <div className="mx-auto min-h-screen max-w-md px-5 pb-28 pt-6" style={{ background: "linear-gradient(180deg, #F3DCC8 0%, #FBF6F0 38%, #F4EFF8 100%)" }}>
+        {escalaFeita ? (
+          <div>
+            <div className="text-6xl">✅</div>
+            <h1 className="mt-2 font-serif text-3xl text-ink">Obrigado por responder</h1>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink/70">Suas respostas foram enviadas para {info?.profissional}. Vocês vão conversar sobre elas na sessão.</p>
+            {escalaFeita.cuidado && <div className="mt-5 rounded-2xl border-2 border-ember/40 bg-ember/10 p-4 text-[15px] leading-relaxed text-ink"><b className="text-ember">Cuide de você agora.</b><p className="mt-1">{escalaFeita.cuidado}</p></div>}
+            <button className="mt-6 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper" onClick={() => { setEscala(null); setEscalaFeita(null); }}>Voltar ao início</button>
+          </div>
+        ) : (
+          <div>
+            <button className="mb-4 text-sm font-semibold text-sage-deep" onClick={() => setEscala(null)}>← Voltar</button>
+            <h1 className="font-serif text-2xl text-ink">{escala.nome}</h1>
+            <p className="mt-2 text-[15px] leading-relaxed text-ink/70">{escala.instrucao}</p>
+            {erro && <div className="mt-4 rounded-2xl border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
+            <ol className="mt-5 space-y-4">
+              {escala.itens.map((i) => (
+                <li key={i.id} className="rounded-2xl bg-white/80 p-4 shadow-sm">
+                  <div className="mb-3 text-[15px] font-semibold leading-snug text-ink"><span className="mr-2 text-ink/35">{i.id}.</span>{i.texto}</div>
+                  <div className="space-y-2">
+                    {escala.opcoes.map((o) => { const ativo = respEscala[String(i.id)] === o.valor; return (
+                      <button key={o.valor} type="button" onClick={() => setRespEscala((r) => ({ ...r, [String(i.id)]: o.valor }))} className={`flex w-full items-center gap-3 rounded-xl border-2 px-3 py-2.5 text-left text-sm ${ativo ? "border-sage-deep bg-sage-deep/10 font-semibold text-ink" : "border-transparent bg-paper text-ink/75"}`}>
+                        <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 text-[11px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/20"}`}>{ativo ? "✓" : ""}</span>{o.rotulo}
+                      </button>
+                    ); })}
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="fixed inset-x-0 bottom-0 mx-auto max-w-md bg-white/90 px-5 py-3 shadow-[0_-6px_20px_rgba(0,0,0,0.06)] backdrop-blur" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
+              <button className="w-full rounded-full bg-sage-deep px-5 py-3.5 text-[15px] font-semibold text-paper disabled:opacity-40" disabled={enviando} onClick={enviarEscala}>{enviando ? "Enviando…" : "Enviar respostas"}</button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
   if (!info || !cat) return <div className="px-6 py-20 text-center text-sm text-ink/55">Abrindo…</div>;
 
   const cor = corDaFamilia(emocao?.familia ?? "");
@@ -97,7 +147,13 @@ export function DiarioDoPacienteTela() {
             <h1 className="font-serif text-3xl text-ink">Oi, {info.paciente}!</h1>
             <p className="mt-1 text-sm text-ink/55">{info.clinica}</p>
             <p className="mt-4 text-[16px] leading-relaxed text-ink/80">E aí, como você está agora? Leva só um minutinho e quase tudo é tocar numa carinha ou num ícone. Isso ajuda {info.profissional} a entender como foram os seus dias entre as sessões. 💛</p>
-            <button className="mt-6 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper shadow-lg active:scale-[0.98]" onClick={() => setPasso(1)}>Bora começar 🚀</button>
+            {(info.escalas?.length ?? 0) > 0 && (
+              <div className="mt-6 rounded-2xl border-2 border-sage-deep/30 bg-white/80 p-4">
+                <div className="text-xs font-bold uppercase tracking-widest text-sage-deep">{info.profissional} pediu para você</div>
+                <ul className="mt-2 space-y-2">{info.escalas!.map((e) => <li key={e.id}><button className="flex w-full items-center justify-between rounded-xl bg-paper px-3 py-3 text-left text-sm" onClick={() => abrirEscala(e.id)}><span><span className="block font-semibold text-ink">{e.nome}</span><span className="text-xs text-ink/50">cerca de {e.tempo}</span></span><span className="text-sage-deep">Responder →</span></button></li>)}</ul>
+              </div>
+            )}
+            <button className="mt-4 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper shadow-lg active:scale-[0.98]" onClick={() => setPasso(1)}>Bora começar 🚀</button>
             {info.recentes.length > 0 && (
               <section className="mt-8">
                 <h2 className="mb-2 text-xs font-bold uppercase tracking-widest text-ink/45">Seus últimos registros</h2>

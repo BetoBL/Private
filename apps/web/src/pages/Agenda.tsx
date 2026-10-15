@@ -458,6 +458,14 @@ export function Agenda() {
                         <Link to={`/pacientes/${ev.paciente.id}`} onClick={(e) => e.stopPropagation()} className="underline">
                           {ev.paciente.nome}
                         </Link>
+                        {ev.tipo !== "anamnese" && (
+                          <>
+                            {" · "}
+                            <Link to={`/pacientes/${ev.paciente.id}?aba=prontuario&evento=${ev.id}&inicio=${encodeURIComponent(ev.inicio)}`} onClick={(e) => e.stopPropagation()} className="font-semibold underline">
+                              evolução →
+                            </Link>
+                          </>
+                        )}
                         {ev.tipo === "anamnese" && (
                           <>
                             {" · "}

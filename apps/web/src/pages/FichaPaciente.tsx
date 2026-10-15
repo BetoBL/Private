@@ -6,6 +6,7 @@ import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom"
 import { DashboardResultados } from "../components/DashboardResultados";
 import { SalaVirtualComponent } from "../components/SalaVirtual";
 import { DiarioDoPaciente } from "../components/DiarioDoPaciente";
+import { EscalasDoPaciente } from "../components/EscalasDoPaciente";
 import { ProntuarioDoPaciente } from "../components/ProntuarioDoPaciente";
 import { useAuth } from "../context/AuthContext";
 import { temModulo } from "../lib/profissoes";
@@ -24,7 +25,7 @@ import {
   type Sexo,
 } from "../lib/api";
 
-type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario";
+type Aba = "dados" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
@@ -38,7 +39,7 @@ export function FichaPaciente() {
   const [searchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
-  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
+  const [aba, setAba] = useState<Aba>(["dados", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
 
@@ -369,7 +370,7 @@ export function FichaPaciente() {
       {erro && <div className="mb-6 rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {mensagem && <div className="mb-6 rounded-lg border border-sage-deep/30 bg-sage-deep/10 px-4 py-3 text-sm text-sage-deep">{mensagem}</div>}
 
-      <div className="mb-6 flex gap-1 border-b border-mist">
+      <div className="mb-6 flex gap-1 overflow-x-auto whitespace-nowrap border-b border-mist">
         {([
           ["dados", "Dados"],
           ["anamnese", "Anamnese"],
@@ -380,6 +381,7 @@ export function FichaPaciente() {
           ["agenda", "Agenda"],
           ["anexos", "Anexos"],
           ["diario", "Diário", "diario"],
+          ["escalas", "Escalas", "escalas"],
         ] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo)).map(([valor, label]) => (
           <button
             key={valor}
@@ -394,6 +396,7 @@ export function FichaPaciente() {
       </div>
 
       {aba === "prontuario" && id && <ProntuarioDoPaciente pacienteId={id} />}
+      {aba === "escalas" && id && <EscalasDoPaciente pacienteId={id} />}
       {aba === "diario" && id && <DiarioDoPaciente pacienteId={id} />}
 
       {aba === "dados" && (

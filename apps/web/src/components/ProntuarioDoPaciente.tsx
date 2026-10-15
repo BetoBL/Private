@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { api, type CatalogoProntuario, type Evolucao, type ItemContinuidade, type VersaoEvolucao } from "../lib/api";
 
 // Aba "Prontuário" da ficha: evolução de cada sessão (modelos por profissão), duas folhas (anotações privadas + prontuário)
@@ -25,6 +26,8 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   const [verConcluidos, setVerConcluidos] = useState(false);
   const [marcadas, setMarcadas] = useState<string[]>([]);
   const [gerando, setGerando] = useState(false);
+  const [params, setParams] = useSearchParams();
+  const aberturaFeita = useRef(false);
   const temporizador = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendente = useRef<Partial<{ modelo: string; dataHora: string; campos: Record<string, string | string[]>; anotacoes: string | null; evolucao: string | null }>>({});
 
@@ -36,6 +39,27 @@ export function ProntuarioDoPaciente({ pacienteId }: { pacienteId: string }) {
   }, [pacienteId]);
   useEffect(() => { api.catalogoProntuario().then((c) => { setCat(c); setNovoModelo(c.modelos[0]?.chave ?? "LIVRE"); }).catch(falha); }, []);
   useEffect(() => { carregarLista(); carregarItens(); setAberta(null); }, [carregarLista, carregarItens]);
+
+  // Vindo da agenda (?evento=...&inicio=...): abre a evolução já ligada àquele compromisso, ou cria uma no horário dele.
+  useEffect(() => {
+    const evento = params.get("evento");
+    if (!evento || !cat || aberturaFeita.current) return;
+    aberturaFeita.current = true;
+    (async () => {
+      try {
+        const existentes = await api.listarEvolucoes(pacienteId);
+        setLista(existentes);
+        const ja = existentes.find((e) => e.eventoAgendaId === evento);
+        if (ja) { setAberta(ja); } else {
+          const inicio = params.get("inicio");
+          const e = await api.criarEvolucao({ pacienteId, modelo: cat.modelos[0]?.chave ?? "LIVRE", eventoAgendaId: evento, ...(inicio ? { dataHora: new Date(inicio).toISOString() } : {}) });
+          setLista([e, ...existentes]); setAberta(e);
+        }
+      } catch (x) { setErro((x as Error).message); }
+      carregarLista();
+      const p = new URLSearchParams(params); p.delete("evento"); p.delete("inicio"); setParams(p, { replace: true });
+    })();
+  }, [params, cat, pacienteId, setParams, carregarLista]);
 
   const modelos = cat?.modelos ?? [];
   const modeloDe = (chave: string) => modelos.find((m) => m.chave === chave);

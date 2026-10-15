@@ -429,12 +429,20 @@ export interface TipoAtendimento {
   atualizadoEm: string;
 }
 
+// ---- Escalas de triagem ----
+export interface FaixaEscala { ate: number; rotulo: string; cor: "verde" | "amarelo" | "laranja" | "vermelho" }
+export interface EscalaResumo { codigo: string; nome: string; sigla: string; construto: string; uso: string; tempo: string; fonte: string; itens: number; frequenciaSugerida: string; notaClinica: string }
+export interface EscalaCompleta { codigo: string; nome: string; sigla: string; instrucao: string; opcoes: Array<{ valor: number; rotulo: string }>; itens: Array<{ id: number; texto: string; subescala?: string }>; faixasTotal?: FaixaEscala[]; maxTotal?: number; subescalas?: Array<{ chave: string; rotulo: string; faixas: FaixaEscala[] }>; pontosDeCorte?: number[]; itemFuncional?: { texto: string; opcoes: Array<{ valor: number; rotulo: string }> } }
+export interface ResultadoEscala { total: number | null; faixa: { rotulo: string; cor: FaixaEscala["cor"] } | null; subescalas: Array<{ chave: string; rotulo: string; valor: number; faixa: { rotulo: string; cor: FaixaEscala["cor"] } }>; alertaRisco: boolean; funcional: number | null }
+export interface SolicitacaoEscala { id: string; escala: string; prazo: string; frequencia: string; status: "PENDENTE" | "CONCLUIDA"; respondidaEm: string | null; alertaRisco: boolean; pontuacao: ResultadoEscala | null; criadoEm: string }
+export interface EscalaParaResponder { id: string; nome: string; instrucao: string; opcoes: Array<{ valor: number; rotulo: string }>; itens: Array<{ id: number; texto: string }>; itemFuncional: { texto: string; opcoes: Array<{ valor: number; rotulo: string }> } | null }
+
 // ---- Prontuário (evolução da sessão) ----
 export interface CampoModelo { chave: string; rotulo: string; dica: string; lista?: boolean }
 export interface ModeloSessao { chave: string; rotulo: string; descricao: string; campos: CampoModelo[] }
 export interface CatalogoProntuario { profissao: { chave: string; rotulo: string; registro: string; modulos: string[] }; modelos: ModeloSessao[]; profissoes: Array<{ chave: string; rotulo: string; registro: string }> }
 export interface Evolucao {
-  id: string; pacienteId: string; profissionalId: string; dataHora: string; modelo: string; campos: Record<string, string | string[]> | null;
+  id: string; pacienteId: string; profissionalId: string; eventoAgendaId?: string | null; dataHora: string; modelo: string; campos: Record<string, string | string[]> | null;
   anotacoes: string | null; anotacoesPrivadas: boolean; evolucao: string | null; status: "RASCUNHO" | "FINALIZADA"; finalizadaEm: string | null; totalVersoes: number; criadoEm: string; atualizadoEm: string;
 }
 export interface VersaoEvolucao { em: string; modelo: string; campos: Record<string, string | string[]> | null; anotacoes: string | null; evolucao: string | null }
@@ -448,7 +456,7 @@ export interface CatalogoDiario {
   aviso: { curto: string; intenso: string };
 }
 export interface RegistroRecente { ocorridoEm: string; emocao: string; familia: string; intensidade: number }
-export interface DiarioPublico { paciente: string; clinica: string; profissional: string; catalogo: CatalogoDiario; recentes: RegistroRecente[] }
+export interface DiarioPublico { paciente: string; clinica: string; profissional: string; catalogo: CatalogoDiario; recentes: RegistroRecente[]; escalas?: Array<{ id: string; nome: string; tempo: string; prazo: string }> }
 export interface NovoCartao {
   ocorridoEm: string; emocao: string; intensidade: number; contexto?: string | null; notaContexto?: string | null; primeiraAcao?: string | null; acoesQueAjudaram?: string[];
   ajudou?: string | null; notaCuidado?: string | null; fechamento?: string | null; levarParaSessao?: boolean; notaFinal?: string | null;
@@ -882,10 +890,18 @@ export const api = {
 
   criarSalaVirtual: (data: { sessaoId: string }) =>
     request<SalaVirtual>("/salas-virtuais", { method: "POST", body: JSON.stringify(data) }),
+  catalogoEscalas: () => request<EscalaResumo[]>("/escalas/catalogo"),
+  escalaCompleta: (codigo: string) => request<EscalaCompleta>(`/escalas/catalogo/${codigo}`),
+  escalasDoPaciente: (pacienteId: string) => request<SolicitacaoEscala[]>(`/escalas/paciente/${pacienteId}`),
+  solicitarEscala: (d: { pacienteId: string; escala: string; prazo?: string; frequencia: string }) => request<{ id: string }>("/escalas", { method: "POST", body: JSON.stringify(d) }),
+  detalheEscala: (id: string) => request<{ id: string; escala: EscalaCompleta; status: string; prazo: string; respondidaEm: string | null; respostas: Record<string, number> | null; pontuacao: ResultadoEscala | null; alertaRisco: boolean }>(`/escalas/${id}`),
+  apagarSolicitacaoEscala: (id: string) => request<void>(`/escalas/${id}`, { method: "DELETE" }),
+  escalaPublica: (segredo: string, id: string) => request<EscalaParaResponder>(`/diario-publico/${segredo}/escalas/${id}`),
+  responderEscala: (segredo: string, id: string, respostas: Record<string, number>) => request<{ ok: boolean; cuidado: string | null }>(`/diario-publico/${segredo}/escalas/${id}`, { method: "POST", body: JSON.stringify({ respostas }) }),
   evolucoesPendentes: () => request<Array<{ id: string; pacienteId: string; paciente: string; dataHora: string; modelo: string; comTexto: boolean }>>("/evolucoes/pendentes"),
   catalogoProntuario: () => request<CatalogoProntuario>("/evolucoes/catalogo"),
   listarEvolucoes: (pacienteId: string) => request<Evolucao[]>(`/evolucoes?pacienteId=${pacienteId}`),
-  criarEvolucao: (d: { pacienteId: string; modelo: string; dataHora?: string }) => request<Evolucao>("/evolucoes", { method: "POST", body: JSON.stringify(d) }),
+  criarEvolucao: (d: { pacienteId: string; modelo: string; dataHora?: string; eventoAgendaId?: string }) => request<Evolucao>("/evolucoes", { method: "POST", body: JSON.stringify(d) }),
   salvarEvolucao: (id: string, d: Partial<{ modelo: string; dataHora: string; campos: Record<string, string | string[]>; anotacoes: string | null; evolucao: string | null }>) => request<Evolucao>(`/evolucoes/${id}`, { method: "PUT", body: JSON.stringify(d) }),
   finalizarEvolucao: (id: string) => request<Evolucao>(`/evolucoes/${id}/finalizar`, { method: "POST" }),
   reabrirEvolucao: (id: string) => request<Evolucao>(`/evolucoes/${id}/reabrir`, { method: "POST" }),

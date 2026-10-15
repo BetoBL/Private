@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { api, type Laudo, type Paciente, type PendenteDiario, type Sessao } from "../lib/api";
 import { corDaFamilia } from "../lib/diarioCores";
+import { temModulo } from "../lib/profissoes";
 import { laudos as laudosPlural, sessoes as sessoesPlural } from "../lib/plural";
 
 const HUMORES = [
@@ -282,20 +283,24 @@ export function PainelDoDia() {
           <p className="mb-3 text-xs text-ink/60">Ficha completa, anamnese, anexos de cada caso em andamento.</p>
           <div className="text-xs font-semibold text-clay">{pacientes.length} paciente(s)</div>
         </Link>
-        <Link to="/testes" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">▤</div>
-          <h3 className="mb-1 font-serif text-base">Testes &amp; Correção</h3>
-          <p className="mb-3 text-xs text-ink/60">Catálogo de testes com correção e cálculo automáticos.</p>
-        </Link>
-        <Link to="/laudo" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">✎</div>
-          <h3 className="mb-1 font-serif text-base">Laudos</h3>
-          <p className="mb-3 text-xs text-ink/60">Rascunho assistido por IA, no seu estilo, sempre revisado por você.</p>
-        </Link>
+        {temModulo(profissional?.categoria, "testes") && (
+          <Link to="/testes" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">▤</div>
+            <h3 className="mb-1 font-serif text-base">Testes &amp; Correção</h3>
+            <p className="mb-3 text-xs text-ink/60">Catálogo de testes com correção e cálculo automáticos.</p>
+          </Link>
+        )}
+        {temModulo(profissional?.categoria, "laudos") && (
+          <Link to="/laudo" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">✎</div>
+            <h3 className="mb-1 font-serif text-base">Laudos</h3>
+            <p className="mb-3 text-xs text-ink/60">Rascunho assistido por IA, no seu estilo, sempre revisado por você.</p>
+          </Link>
+        )}
         <Link to="/agenda" className="rounded-2xl border border-mist bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-lg">
           <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-mist text-sage-deep">▦</div>
           <h3 className="mb-1 font-serif text-base">Agenda</h3>
-          <p className="mb-3 text-xs text-ink/60">Sessões de avaliação da semana.</p>
+          <p className="mb-3 text-xs text-ink/60">Sessões e compromissos da semana.</p>
         </Link>
         <div className="rounded-2xl border border-dashed border-mist bg-white p-5 opacity-50">
           <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg text-ink">$</div>

@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-10-15] Fase 2 (acompanhamento): escalas de triagem (PHQ-9, GAD-7, DASS-21)
+
+**Ainda NÃO publicado.**
+- **Aba Escalas** na ficha do paciente (psicólogo e neuropsicólogo): biblioteca com ver perguntas e fonte, **Solicitar** com prazo (a partir de) e recorrência (uma vez, semanal, quinzenal, mensal), lista por escala com **gráfico da evolução** (linha de pontuação com pontos de corte; no DASS-21 uma linha por subescala), faixas coloridas, "ver respostas" item a item e apagar (esconde; apagar a pendente de uma série para a repetição).
+- **O paciente responde pelo link do Diário** (sem login): vê as escalas pedidas, responde em tela de celular e **nunca vê pontuação nem faixa**; se marcar o item de risco (PHQ-9 item 9, DASS-21 item 21) recebe a orientação de cuidado (CVV 188 e SAMU 192) e o profissional vê um **alerta**. Uma escala respondida não pode ser respondida de novo; a recorrência cria a próxima solicitação sozinha.
+- **Pontuação** em `lib/escalas`: soma com faixas (PHQ-9, GAD-7) e por subescala com multiplicador (DASS-21 = soma × 2, faixas de depressão, ansiedade e estresse). Só instrumentos de uso livre; o texto e a fonte precisam da revisão da responsável técnica antes do uso real. AUDIT e PCL-5 ficam para uma próxima rodada.
+- Fase 1 complementada: **evolução abre direto do evento da agenda** ("evolução →") e os cartões do Painel do dia respeitam o tipo de profissional.
+- Verificado: 183 testes, 15 checagens ponta a ponta das escalas (inclui que o paciente não recebe faixas, que não responde duas vezes e que colega sem vínculo não vê) e telas conferidas no navegador. Migration `escalas_triagem` (só local).
+
 ## [2026-10-15] Fase 1 (prontuário): evolução da sessão, continuidade do cuidado, tipos de profissional e agenda com recorrência
 
 **Ainda NÃO publicado**: a migration e o push só saem depois da sua aprovação. Fase 1 em construção (feito: base de profissões, evolução, continuidade, PDF do prontuário, recorrência da agenda e painel).
