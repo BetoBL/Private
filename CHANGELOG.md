@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026-10-16] Painel do dia: saudação e resumo num bloco só
+
+**Ainda NÃO publicado.**
+- O resumo do dia (IA) sobe para logo abaixo da saudação, sem moldura de cartão, e substitui a linha cinza de números que repetia a mesma informação. A pergunta "Como você está se sentindo?" fica junto, no mesmo bloco. A frase de números só aparece como reserva quando não há resumo.
+- A IA não cumprimenta nem usa o nome na abertura (a tela já cumprimenta; antes dizia "Bom dia" à tarde). Resumos guardados antes da mudança têm o cumprimento removido na tela.
+
 ## [2026-10-15] Ajustes da revisão de telas: formulários, financeiro, sessão em tela cheia e painel
 
 **Ainda NÃO publicado.**

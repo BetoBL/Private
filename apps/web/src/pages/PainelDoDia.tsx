@@ -21,6 +21,16 @@ function saudacao(): string {
   return "Boa noite";
 }
 
+function semSaudacao(texto: string | null, nome: string | undefined): string | null {
+  if (!texto) return texto;
+  let limpo = texto.replace(/^\s*(bom dia|boa tarde|boa noite|olá|oi)[^!.,\n]{0,40}[!.,]\s*/i, "").trim();
+  // um resumo antigo pode abrir só com o nome ("Dra. Letícia!"): tira essa primeira frase curta
+  const partes = (nome ?? "").toLowerCase().split(/\s+/).filter((x) => x.length > 2 && !/^dra?\.?$/.test(x) && !x.startsWith("("));
+  const m = limpo.match(/^([^!\n]{1,40})!\s*/);
+  if (m && partes.some((x) => m[1].toLowerCase().includes(x))) limpo = limpo.slice(m[0].length).trim();
+  return limpo ? limpo.charAt(0).toUpperCase() + limpo.slice(1) : texto;
+}
+
 function ehHoje(dataHoraIso: string): boolean {
   const data = new Date(dataHoraIso);
   const agora = new Date();
@@ -120,34 +130,18 @@ export function PainelDoDia() {
           <h1 className="mb-1 font-serif text-3xl text-ink">
             {saudacao()}, {profissional?.nome.split(" ")[0]} ✦
           </h1>
-          <p className="text-sm text-ink/60">
-            Você tem {sessoesPlural(nHoje ?? sessoesHoje.length)} hoje{evolucoesPendentes.length > 0 ? `, ${evolucoesPendentes.length === 1 ? "1 evolução" : `${evolucoesPendentes.length} evoluções`} a concluir` : ""}{temModulo(profissional?.categoria, "laudos") ? ` e ${laudosPlural(laudosAguardandoRevisao.length)} aguardando revisão` : ""}.
-          </p>
+          {!resumo && !carregandoResumo && (
+            <p className="mt-1 text-sm text-ink/60">
+              Você tem {sessoesPlural(nHoje ?? sessoesHoje.length)} hoje{evolucoesPendentes.length > 0 ? `, ${evolucoesPendentes.length === 1 ? "1 evolução" : `${evolucoesPendentes.length} evoluções`} a concluir` : ""}{temModulo(profissional?.categoria, "laudos") ? ` e ${laudosPlural(laudosAguardandoRevisao.length)} aguardando revisão` : ""}.
+            </p>
+            )}
         </div>
         <div className="rounded-full bg-mist px-3.5 py-1.5 text-xs font-semibold text-sage-deep">
           {dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1)}
         </div>
       </div>
 
-      {alertas.length > 0 && (
-        <section id="avisos" className="mb-6 scroll-mt-6 rounded-2xl border border-ember bg-ember/5 px-6 py-5">
-          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-ember">Pacientes que precisam da sua atenção</h2>
-          <ul className="divide-y divide-ember/15">
-            {alertas.map((a) => (
-              <li key={a.id} className="flex flex-wrap items-center gap-3 py-2 text-sm">
-                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${a.pacienteId}?aba=${a.origem === "DIARIO" ? "diario" : "escalas"}`} onClick={() => { api.alertaVisto(a.id).catch(() => undefined); setAlertas((l) => l.filter((x) => x.id !== a.id)); }}>{a.paciente}</Link>
-                <span className="text-ink/60">{a.origem === "DIARIO" ? "registrou sofrimento intenso no Diário" : "marcou uma pergunta crítica numa escala"}</span>
-                <span className="text-xs text-ink/45">{new Date(a.criadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</span>
-                <button type="button" className="ml-auto text-xs font-semibold text-ember hover:underline" onClick={() => { api.alertaVisto(a.id).catch(() => undefined); setAlertas((l) => l.filter((x) => x.id !== a.id)); }}>Marcar como visto</button>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      <VisaoGeral onHoje={setNHoje} pacientes={pacientes.length} evolucoesPendentes={evolucoesPendentes.length} laudosParaRevisar={laudosAguardandoRevisao.length} alertas={alertas.length} temLaudos={temModulo(profissional?.categoria, "laudos")} />
-
-      <section className="relative mb-8 overflow-hidden rounded-2xl border border-mist bg-gradient-to-br from-[#fbe8d9] to-white px-7 py-6 text-ink shadow-[0_8px_24px_-12px_rgba(38,38,36,0.12)]">
+      <section className="relative mb-7 max-w-4xl text-ink">
         <div className="mb-3 flex items-center justify-between gap-3 text-xs font-bold uppercase tracking-wide text-clay">
           <span>Resumo do seu dia</span>
           <span className="flex items-center gap-3 font-semibold normal-case tracking-normal text-ink/50">
@@ -159,7 +153,7 @@ export function PainelDoDia() {
           <p className="font-serif text-lg leading-relaxed opacity-60">Preparando seu resumo...</p>
         ) : (
           <p className="font-serif text-lg leading-relaxed">
-            {resumo ??
+            {semSaudacao(resumo, profissional?.nome) ??
               '"Cada laudo que você escreve é, para alguém, o início de ser compreendido. Hoje, como todos os dias, esse cuidado importa."'}
           </p>
         )}
@@ -246,6 +240,25 @@ export function PainelDoDia() {
           )}
         </div>
       </section>
+
+
+      {alertas.length > 0 && (
+        <section id="avisos" className="mb-6 scroll-mt-6 rounded-2xl border border-ember bg-ember/5 px-6 py-5">
+          <h2 className="mb-3 text-xs font-bold uppercase tracking-wide text-ember">Pacientes que precisam da sua atenção</h2>
+          <ul className="divide-y divide-ember/15">
+            {alertas.map((a) => (
+              <li key={a.id} className="flex flex-wrap items-center gap-3 py-2 text-sm">
+                <Link className="font-semibold text-ink hover:underline" to={`/pacientes/${a.pacienteId}?aba=${a.origem === "DIARIO" ? "diario" : "escalas"}`} onClick={() => { api.alertaVisto(a.id).catch(() => undefined); setAlertas((l) => l.filter((x) => x.id !== a.id)); }}>{a.paciente}</Link>
+                <span className="text-ink/60">{a.origem === "DIARIO" ? "registrou sofrimento intenso no Diário" : "marcou uma pergunta crítica numa escala"}</span>
+                <span className="text-xs text-ink/45">{new Date(a.criadoEm).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</span>
+                <button type="button" className="ml-auto text-xs font-semibold text-ember hover:underline" onClick={() => { api.alertaVisto(a.id).catch(() => undefined); setAlertas((l) => l.filter((x) => x.id !== a.id)); }}>Marcar como visto</button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <VisaoGeral onHoje={setNHoje} pacientes={pacientes.length} evolucoesPendentes={evolucoesPendentes.length} laudosParaRevisar={laudosAguardandoRevisao.length} alertas={alertas.length} temLaudos={temModulo(profissional?.categoria, "laudos")} />
 
       {(evolucoesPendentes.length > 0 || pendentesDiario.length > 0) && (
         <div className="mb-8 grid items-start gap-4 lg:grid-cols-2">
