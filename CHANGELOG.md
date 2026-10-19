@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-19] Diário: etapas automáticas e perguntas próprias para emoções boas
+
+**Ainda NÃO publicado.**
+- **"O que pesou"** agora aparece **sozinho** só quando a emoção é difícil e forte (intensidade 4 ou 5). Emoções boas nunca abrem essa etapa.
+- **"Vontades difíceis"**: nas emoções difíceis o paciente é perguntado "Veio alguma vontade de agir de um jeito que você não queria?" (Veio sim / Não veio); só se disser que veio, a etapa de vontades abre. Antes dependia de o profissional ligar a etapa.
+- **Emoções boas** têm perguntas e frases de fecho próprias ("O que ajudou a chegar aqui?", com opções como descansei, estive com alguém, me movimentei, terminei algo; sem a pergunta "isso fez diferença?").
+- **Configuração por paciente**: cada etapa opcional tem 3 modos (Automático, que é o novo padrão, Sempre perguntar ou Nunca perguntar). Configurações antigas continuam valendo (ligado vira "sempre", desligado vira "nunca").
+- **Início do app do paciente**: cartão "Seu dia de hoje" com a emoção e a intensidade já registradas, e o botão passa a "Fazer outro registro". Registrar um dia anterior continua pela data na tela de conferência.
+- Baseado no estudo do Sintropia (regras de quando cada etapa aparece), com texto e lógica próprios. 194 testes (2 novos); fluxos de Alegria, Raiva e Tristeza conferidos no navegador.
+
 ## [2026-10-16] Painel do dia: saudação e resumo num bloco só
 
 **Ainda NÃO publicado.**

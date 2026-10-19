@@ -78,3 +78,28 @@ Caminho observado (6 etapas + revisão), no app do paciente, em janela modal:
 **Achado importante:** mesmo com Tristeza em 5/5 **não apareceu nenhum aviso de segurança nem contato de ajuda** (nada de CVV ou serviço de emergência), e a etapa "Impulso" separada não surgiu. O nosso Diário é mais cuidadoso: mostra o aviso com CVV 188 e SAMU 192 e avisa o profissional no Painel.
 
 Ideias para nós: a etapa de **primeira reação** e a de **ações que ajudaram** já existem; vale comparar a lista de técnicas (Grounding, STOP, Verificar fatos, Autovalidação, Sentidos) com a nossa, e considerar a data editável do check-in na revisão (nós já permitimos escolher o dia).
+
+## Regras de quando cada etapa aparece (testado de 16 a 19/10/2026)
+
+| Dia | Emoção | Intensidade | Etapas que apareceram |
+|---|---|---|---|
+| 16/10 | Tristeza | 5 | emoção, intensidade, contexto, **Mochila**, cuidado, fechamento |
+| 17/10 | Ansiedade | 2 | emoção, intensidade, contexto, cuidado, **Impulso** (porque marquei "Tentei não agir no impulso"), fechamento |
+| 18/10 | Alegria | 4 | emoção, intensidade, contexto, cuidado, fechamento (sem Mochila) |
+| 19/10 | Raiva | 3 | emoção, intensidade, contexto, cuidado, **Impulso**, fechamento (sem Mochila) |
+
+Conclusões:
+- **Mochila ("O que pesou hoje?")** só aparece com emoção difícil **e** intensidade alta (4 ou 5). Com Alegria 4, Raiva 3 e Ansiedade 2 não apareceu.
+- **Impulso ("Veio vontade de agir?")** não depende da emoção: foi **disparado pela resposta de "O que você tentou primeiro?"** ("Tentei não agir no impulso"). Em Ansiedade 2 apareceu só depois de trocar a resposta para essa. Provavelmente também aparece com "Agi ou quis agir conforme o impulso" (não testado).
+- A etapa de **cuidado é a mesma para todas as emoções**, inclusive Alegria ("O que você conseguiu tentar?"), e as frases de fechamento também. Não há adaptação para emoções boas.
+- **Impulso** pergunta: qual impulso (Sumir ou se afastar, Discutir ou atacar, Comer/comprar/fazer algo compulsivo, Mandar mensagem ou insistir, Outro impulso), força 0 a 5, "O que aconteceu depois?" (Não agi, Comecei mas parei, Agi) e uma nota "Quer contextualizar?".
+- **Retroativo:** "Registrar outro dia" abre o mesmo fluxo e sugere a data do próximo dia sem registro; a data só pode estar numa janela curta (15/10 a 19/10 quando testado, ou seja, cerca de 4 dias para trás).
+- Depois de responder, o início mostra o cartão **"Seu clima de hoje foi acolhido"** (emoção, intensidade, hora), com "Ver resumo de hoje" (reabre o cartão "Registro acolhido") e "Registrar outro dia".
+- Em nenhum dos quatro registros apareceu aviso de segurança ou contato de ajuda.
+
+## O que aplicar ou melhorar no nosso Diário
+1. Mostrar o "O que pesou" **automaticamente** só quando for emoção difícil com intensidade 4 ou 5 (hoje é uma configuração fixa por paciente).
+2. Mostrar o **Impulso** quando o paciente disser que sentiu vontade de agir (pergunta de entrada própria), em vez de depender de configuração do profissional.
+3. **Adaptar o cuidado e o fechamento** para emoções boas ("O que ajudou a chegar aqui?").
+4. Janela de registro retroativo (4 dias) e "Registrar outro dia".
+5. No início do app do paciente: cartão do dia respondido com resumo e a faixa de datas.

@@ -63,13 +63,40 @@ export const IMPULSOS: Opcao[] = [
 export const ACOES_DO_IMPULSO: Opcao[] = [{ chave: "segurei", rotulo: "Consegui segurar" }, { chave: "parei", rotulo: "Comecei e parei no meio" }, { chave: "fiz", rotulo: "Acabei fazendo" }];
 
 // Configuração por paciente: o profissional escolhe quais etapas opcionais aparecem e esconde emoções que não quer oferecer.
-export interface ConfigDiario { etapas: { pesos: boolean; impulso: boolean }; emocoesOcultas: string[] }
-export const CONFIG_PADRAO: ConfigDiario = { etapas: { pesos: true, impulso: false }, emocoesOcultas: [] };
+// Cada etapa opcional tem 3 modos: "auto" (o diário decide pelo que o paciente respondeu), "sempre" ou "nunca".
+export type ModoEtapa = "auto" | "sempre" | "nunca";
+export interface ConfigDiario { etapas: { pesos: ModoEtapa; impulso: ModoEtapa }; emocoesOcultas: string[] }
+export const CONFIG_PADRAO: ConfigDiario = { etapas: { pesos: "auto", impulso: "auto" }, emocoesOcultas: [] };
+// configurações antigas guardavam true/false: true = sempre, false = nunca
+const modoDe = (v: unknown, padrao: ModoEtapa): ModoEtapa => (v === "auto" || v === "sempre" || v === "nunca" ? v : v === true ? "sempre" : v === false ? "nunca" : padrao);
 export function normalizarConfig(c: unknown): ConfigDiario {
   const o = c && typeof c === "object" ? (c as Record<string, unknown>) : {};
   const e = (o.etapas && typeof o.etapas === "object" ? o.etapas : {}) as Record<string, unknown>;
   const ocultas = Array.isArray(o.emocoesOcultas) ? (o.emocoesOcultas as unknown[]).filter((x): x is string => typeof x === "string" && EMOCOES.some((m) => m.chave === x)) : [];
-  return { etapas: { pesos: typeof e.pesos === "boolean" ? e.pesos : CONFIG_PADRAO.etapas.pesos, impulso: typeof e.impulso === "boolean" ? e.impulso : CONFIG_PADRAO.etapas.impulso }, emocoesOcultas: ocultas };
+  return { etapas: { pesos: modoDe(e.pesos, CONFIG_PADRAO.etapas.pesos), impulso: modoDe(e.impulso, CONFIG_PADRAO.etapas.impulso) }, emocoesOcultas: ocultas };
+}
+
+// Emoções boas (família "leve") têm perguntas próprias: o que ajudou a chegar ali, em vez de "o que você fez por você".
+export const CONTRIBUICOES_LEVE: Opcao[] = [
+  { chave: "descanso", rotulo: "Descansei ou dormi bem" }, { chave: "pessoas", rotulo: "Estive com alguém de quem gosto" }, { chave: "movimento", rotulo: "Me movimentei (caminhada, exercício, dança)" },
+  { chave: "concluir", rotulo: "Terminei algo que importava" }, { chave: "ar_livre", rotulo: "Passei um tempo ao ar livre" }, { chave: "criar", rotulo: "Fiz algo criativo ou prazeroso" },
+  { chave: "cuidei", rotulo: "Cuidei de mim (comida, banho, pausa)" }, { chave: "sem_motivo", rotulo: "Veio sem um motivo claro" },
+];
+export const FECHAMENTOS_LEVE: Opcao[] = [
+  { chave: "guardar", rotulo: "Quero guardar este momento" }, { chave: "bom_dia", rotulo: "Foi um bom dia" }, { chave: "entender", rotulo: "Quero entender o que ajudou" },
+  { chave: "contar", rotulo: "Quero contar isso na conversa" },
+];
+
+// Quais etapas opcionais entram neste registro. "O que pesou" só quando a emoção é difícil e forte (4 ou 5);
+// "Vontades" só quando o paciente diz que veio vontade de agir (a pergunta aparece nas emoções difíceis).
+// A tela do paciente repete esta regra em DiarioPacienteTela (o servidor manda o catálogo, não a função).
+export function etapasDoCartao(c: ConfigDiario, familia: string | null | undefined, intensidade: number, vontade: boolean) {
+  const dificil = !!familia && familia !== "leve";
+  return {
+    pesos: c.etapas.pesos === "sempre" || (c.etapas.pesos === "auto" && dificil && intensidade >= 4),
+    perguntaVontade: c.etapas.impulso === "auto" && dificil,
+    impulso: c.etapas.impulso === "sempre" || (c.etapas.impulso === "auto" && dificil && vontade),
+  };
 }
 
 export const AVISO_SEGURANCA = {
@@ -77,7 +104,7 @@ export const AVISO_SEGURANCA = {
   intenso: "Se você estiver em sofrimento intenso ou pensando em se machucar, procure ajuda agora: ligue 188 (CVV, 24 horas, gratuito) ou 192 (SAMU), ou vá ao pronto-atendimento mais próximo.",
 };
 
-export const CATALOGO = { versao: VERSAO_CATALOGO, familias: FAMILIAS, emocoes: EMOCOES, contextos: CONTEXTOS, primeirasAcoes: PRIMEIRAS_ACOES, pesosDoDia: PESOS_DO_DIA, acoesQueAjudaram: ACOES_QUE_AJUDARAM, ajudou: AJUDOU, impulsos: IMPULSOS, acoesDoImpulso: ACOES_DO_IMPULSO, fechamentos: FECHAMENTOS, aviso: AVISO_SEGURANCA };
+export const CATALOGO = { versao: VERSAO_CATALOGO, familias: FAMILIAS, emocoes: EMOCOES, contextos: CONTEXTOS, primeirasAcoes: PRIMEIRAS_ACOES, pesosDoDia: PESOS_DO_DIA, acoesQueAjudaram: ACOES_QUE_AJUDARAM, ajudou: AJUDOU, impulsos: IMPULSOS, acoesDoImpulso: ACOES_DO_IMPULSO, fechamentos: FECHAMENTOS, contribuicoesLeve: CONTRIBUICOES_LEVE, fechamentosLeve: FECHAMENTOS_LEVE, aviso: AVISO_SEGURANCA };
 
 // o que o paciente enxerga, já filtrado pela configuração dele (emoções escondidas saem da lista)
 export const catalogoParaPaciente = (c: ConfigDiario) => ({ ...CATALOGO, emocoes: EMOCOES.filter((e) => !c.emocoesOcultas.includes(e.chave)), etapas: c.etapas });
@@ -98,12 +125,12 @@ export function validarCartao(e: EntradaCartao): string[] {
   if (!Number.isInteger(e.intensidade) || e.intensidade < 1 || e.intensidade > 5) erros.push("A intensidade vai de 1 a 5.");
   if (e.contexto && !chaves(CONTEXTOS).has(e.contexto)) erros.push("Contexto inválido.");
   if (e.primeiraAcao && !chaves(PRIMEIRAS_ACOES).has(e.primeiraAcao)) erros.push("Ação inválida.");
-  if (e.acoesQueAjudaram?.some((a) => !chaves(ACOES_QUE_AJUDARAM).has(a))) erros.push("Ação que ajudou inválida.");
+  if (e.acoesQueAjudaram?.some((a) => !chaves(ACOES_QUE_AJUDARAM).has(a) && !chaves(CONTRIBUICOES_LEVE).has(a))) erros.push("Ação que ajudou inválida.");
   if (e.pesos?.some((a) => !chaves(PESOS_DO_DIA).has(a))) erros.push("Opção inválida em \"o que pesou\".");
   if (e.impulso && !chaves(IMPULSOS).has(e.impulso)) erros.push("Opção inválida em \"vontade\".");
   if (e.acaoImpulso && !chaves(ACOES_DO_IMPULSO).has(e.acaoImpulso)) erros.push("Opção inválida em \"o que fez\".");
   if (e.ajudou && !chaves(AJUDOU).has(e.ajudou)) erros.push("Resposta inválida.");
-  if (e.fechamento && !chaves(FECHAMENTOS).has(e.fechamento)) erros.push("Fechamento inválido.");
+  if (e.fechamento && !chaves(FECHAMENTOS).has(e.fechamento) && !chaves(FECHAMENTOS_LEVE).has(e.fechamento)) erros.push("Fechamento inválido.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(e.ocorridoEm) || Number.isNaN(Date.parse(e.ocorridoEm))) erros.push("Data inválida.");
   else if (Date.parse(e.ocorridoEm) > Date.now() + 86_400_000) erros.push("A data não pode ser futura.");
   return erros;

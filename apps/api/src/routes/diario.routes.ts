@@ -29,7 +29,7 @@ diarioRouter.get("/config/:pacienteId", asyncHandler(async (req, res) => {
   const c = await prisma.configDiario.findUnique({ where: { pacienteId: req.params.pacienteId } });
   res.json(c ? normalizarConfig({ etapas: c.etapas, emocoesOcultas: c.emocoesOcultas }) : CONFIG_PADRAO);
 }));
-diarioRouter.put("/config/:pacienteId", validateBody(z.object({ etapas: z.object({ pesos: z.boolean(), impulso: z.boolean() }), emocoesOcultas: z.array(z.string()).max(40) })), asyncHandler(async (req, res) => {
+diarioRouter.put("/config/:pacienteId", validateBody(z.object({ etapas: z.object({ pesos: z.union([z.boolean(), z.enum(["auto", "sempre", "nunca"])]), impulso: z.union([z.boolean(), z.enum(["auto", "sempre", "nunca"])]) }), emocoesOcultas: z.array(z.string()).max(40) })), asyncHandler(async (req, res) => {
   if (!(await pacienteDoUsuario(req, req.params.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
   const cfg = normalizarConfig(req.body);
   const dados = { etapas: cfg.etapas as object, emocoesOcultas: cfg.emocoesOcultas };

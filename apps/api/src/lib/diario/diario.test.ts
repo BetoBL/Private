@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { ACOES_QUE_AJUDARAM, catalogoParaPaciente, CONFIG_PADRAO, CONTEXTOS, EMOCOES, FAMILIAS, familiaDaEmocao, normalizarConfig, sofrimentoIntenso, validarCartao, type EntradaCartao } from "./catalogo";
+import { ACOES_QUE_AJUDARAM, CONTRIBUICOES_LEVE, FECHAMENTOS_LEVE, etapasDoCartao, catalogoParaPaciente, CONFIG_PADRAO, CONTEXTOS, EMOCOES, FAMILIAS, familiaDaEmocao, normalizarConfig, sofrimentoIntenso, validarCartao, type EntradaCartao } from "./catalogo";
 import { resumirCartoes, type CartaoResumo } from "./resumo";
 
 test("catálogo: chaves únicas, toda emoção tem família com apoio, e cada família tem emoções", () => {
@@ -76,10 +76,33 @@ test("v2: novos campos (pesos, impulso e o que fez) são validados contra o cat�
 
 test("v2: configuração por paciente normaliza lixo e esconde emoções do catálogo do paciente", () => {
   assert.deepEqual(normalizarConfig(null), CONFIG_PADRAO);
-  assert.deepEqual(normalizarConfig({ etapas: { pesos: "sim" }, emocoesOcultas: ["raiva", "inventada", 5] }), { etapas: { pesos: true, impulso: false }, emocoesOcultas: ["raiva"] });
-  const cat = catalogoParaPaciente({ etapas: { pesos: false, impulso: true }, emocoesOcultas: ["raiva", "vazio"] });
+  assert.deepEqual(normalizarConfig({ etapas: { pesos: "sim" }, emocoesOcultas: ["raiva", "inventada", 5] }), { etapas: { pesos: "auto", impulso: "auto" }, emocoesOcultas: ["raiva"] });
+  assert.deepEqual(normalizarConfig({ etapas: { pesos: true, impulso: false } }).etapas, { pesos: "sempre", impulso: "nunca" }); // configurações antigas (true/false)
+  const cat = catalogoParaPaciente({ etapas: { pesos: "nunca", impulso: "sempre" }, emocoesOcultas: ["raiva", "vazio"] });
   assert.ok(!cat.emocoes.some((e) => e.chave === "raiva" || e.chave === "vazio"));
   assert.equal(cat.emocoes.length, EMOCOES.length - 2);
-  assert.deepEqual(cat.etapas, { pesos: false, impulso: true });
+  assert.deepEqual(cat.etapas, { pesos: "nunca", impulso: "sempre" });
   assert.equal(cat.versao, "v2-2026-10");
+});
+
+test("etapas opcionais automáticas: o que pesou só com emoção difícil forte; vontade só se o paciente disser que veio", () => {
+  const auto = CONFIG_PADRAO;
+  assert.equal(etapasDoCartao(auto, "baixa", 5, false).pesos, true);
+  assert.equal(etapasDoCartao(auto, "baixa", 3, false).pesos, false); // difícil, mas não forte
+  assert.equal(etapasDoCartao(auto, "leve", 5, false).pesos, false); // emoção boa nunca abre "o que pesou"
+  assert.equal(etapasDoCartao(auto, "forte", 2, false).perguntaVontade, true);
+  assert.equal(etapasDoCartao(auto, "leve", 4, true).perguntaVontade, false);
+  assert.equal(etapasDoCartao(auto, "forte", 2, false).impulso, false); // perguntou, mas disse que não veio
+  assert.equal(etapasDoCartao(auto, "forte", 2, true).impulso, true);
+  const fixo = normalizarConfig({ etapas: { pesos: "sempre", impulso: "sempre" } });
+  assert.deepEqual(etapasDoCartao(fixo, "leve", 1, false), { pesos: true, perguntaVontade: false, impulso: true });
+  const nunca = normalizarConfig({ etapas: { pesos: "nunca", impulso: "nunca" } });
+  assert.deepEqual(etapasDoCartao(nunca, "baixa", 5, true), { pesos: false, perguntaVontade: false, impulso: false });
+});
+
+test("emoções boas têm opções próprias de cuidado e de fecho, aceitas na validação", () => {
+  const base: EntradaCartao = { ocorridoEm: new Date().toISOString().slice(0, 10), emocao: "alegria", intensidade: 4 };
+  assert.deepEqual(validarCartao({ ...base, acoesQueAjudaram: [CONTRIBUICOES_LEVE[0].chave], fechamento: FECHAMENTOS_LEVE[0].chave }), []);
+  assert.equal(validarCartao({ ...base, acoesQueAjudaram: ["inventada"] }).length, 1);
+  assert.equal(validarCartao({ ...base, fechamento: "inventado" }).length, 1);
 });

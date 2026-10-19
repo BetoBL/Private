@@ -482,10 +482,11 @@ export interface ItemContinuidade { id: string; pacienteId: string; evolucaoId: 
 export interface OpcaoDiario { chave: string; rotulo: string }
 export interface FamiliaDiario { chave: string; rotulo: string; descricao: string; apoio: string[] }
 export interface CatalogoDiario {
-  versao: string; familias: FamiliaDiario[]; emocoes: Array<OpcaoDiario & { familia: string }>; contextos: OpcaoDiario[]; primeirasAcoes: OpcaoDiario[]; pesosDoDia: OpcaoDiario[]; acoesQueAjudaram: OpcaoDiario[]; ajudou: OpcaoDiario[]; impulsos: OpcaoDiario[]; acoesDoImpulso: OpcaoDiario[]; fechamentos: OpcaoDiario[]; etapas?: { pesos: boolean; impulso: boolean };
+  versao: string; familias: FamiliaDiario[]; emocoes: Array<OpcaoDiario & { familia: string }>; contextos: OpcaoDiario[]; primeirasAcoes: OpcaoDiario[]; pesosDoDia: OpcaoDiario[]; acoesQueAjudaram: OpcaoDiario[]; ajudou: OpcaoDiario[]; impulsos: OpcaoDiario[]; acoesDoImpulso: OpcaoDiario[]; fechamentos: OpcaoDiario[]; contribuicoesLeve: OpcaoDiario[]; fechamentosLeve: OpcaoDiario[]; etapas?: { pesos: ModoEtapa; impulso: ModoEtapa };
   aviso: { curto: string; intenso: string };
 }
-export interface ConfigDiario { etapas: { pesos: boolean; impulso: boolean }; emocoesOcultas: string[] }
+export type ModoEtapa = "auto" | "sempre" | "nunca";
+export interface ConfigDiario { etapas: { pesos: ModoEtapa; impulso: ModoEtapa }; emocoesOcultas: string[] }
 export interface RegistroRecente { ocorridoEm: string; emocao: string; familia: string; intensidade: number }
 export interface DiarioPublico { paciente: string; clinica: string; profissional: string; catalogo: CatalogoDiario; recentes: RegistroRecente[]; formularios?: Array<{ id: string; nome: string; tipo: string }>; escalas?: Array<{ id: string; nome: string; tempo: string; prazo: string }> }
 export interface NovoCartao {

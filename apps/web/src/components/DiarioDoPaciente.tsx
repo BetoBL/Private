@@ -84,10 +84,13 @@ export function DiarioDoPaciente({ pacienteId }: { pacienteId: string }) {
           {configAberta && (
             <div className="mt-4 space-y-5">
               <div className="grid gap-3 md:grid-cols-2">
-                {([["pesos", "O que pesou no dia", "Sono, alimentação, sobrecarga, atrito e outros pesos."], ["impulso", "Vontades difíceis", "Útil para impulsividade, uso de substâncias e raiva: o que sentiu vontade de fazer e o que fez."]] as const).map(([chave, titulo, ajuda]) => (
-                  <label key={chave} className="flex cursor-pointer items-start gap-3 rounded-lg border border-mist p-3">
-                    <input type="checkbox" className="mt-1" checked={config.etapas[chave]} onChange={(e) => setConfig({ ...config, etapas: { ...config.etapas, [chave]: e.target.checked } })} />
-                    <span><span className="block text-sm font-semibold text-ink">{titulo}</span><span className="text-xs text-ink/55">{ajuda}</span></span>
+                {([["pesos", "O que pesou no dia", "Sono, alimentação, sobrecarga, atrito e outros pesos.", "Automático: só quando a emoção é difícil e forte (4 ou 5)."], ["impulso", "Vontades difíceis", "Útil para impulsividade, uso de substâncias e raiva: o que sentiu vontade de fazer e o que fez.", "Automático: o paciente é perguntado nas emoções difíceis e a etapa só abre se veio vontade."]] as const).map(([chave, titulo, ajuda, auto]) => (
+                  <label key={chave} className="block rounded-lg border border-mist p-3">
+                    <span className="block text-sm font-semibold text-ink">{titulo}</span><span className="mb-2 block text-xs text-ink/55">{ajuda}</span>
+                    <select className="w-full rounded-lg border border-mist bg-white px-2 py-1.5 text-sm" value={config.etapas[chave]} onChange={(e) => setConfig({ ...config, etapas: { ...config.etapas, [chave]: e.target.value as "auto" | "sempre" | "nunca" } })}>
+                      <option value="auto">Automático (recomendado)</option><option value="sempre">Sempre perguntar</option><option value="nunca">Nunca perguntar</option>
+                    </select>
+                    {config.etapas[chave] === "auto" && <span className="mt-1.5 block text-[11px] text-ink/45">{auto}</span>}
                   </label>
                 ))}
               </div>

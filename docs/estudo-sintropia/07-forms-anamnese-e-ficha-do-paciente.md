@@ -1,0 +1,59 @@
+# Estudo Sintropia.psi: Forms, Anamnese e Ficha do paciente (15/10/2026)
+
+## Sintropia Forms (Pacientes > Forms e Anamnese)
+Fluxo em 2 passos: **1) Escolha o modelo, 2) Escolha o paciente**.
+- Duas portas: **Anamnese** ("conheça a história do paciente") e **Formulário personalizado** ("suas perguntas para cada momento"). Botão **Criar meu modelo**.
+- Filtro de origem (8 modelos): **Meus modelos, Oficiais Sintropia (4), Parceiros (2), Comunidade (2)**.
+  - Oficiais: Modelo Crianças/Adolescentes; Modelo Jan Leonardi; Modelo Padesky; **Modelo Padrão**.
+  - Parceiros (exclusivos de uma instituição de ensino): Anamnese em Terapia do Esquema (adultos); Anamnese Infantojuvenil.
+  - Comunidade (modelos de outros profissionais): Modelo Anna Polak; Modelo Fernanda Luz.
+  - Cada card mostra origem, tipo (Anamnese), nome e versão ("v1"); **Criar cópia** (para editar o seu), **Ver perguntas** (prévia de como o paciente verá).
+- **Modelo Padrão** (12 tópicos, todos de texto livre): 1 Motivo da consulta / queixa principal; 2 História da doença atual; 3 História psiquiátrica passada; 4 História médica e medicamentosa; 5 História familiar; 6 História psicossocial e de desenvolvimento; 7 Relações interpessoais; 8 Hábitos de vida e funcionamento atual; 9 **Avaliação de risco** (ideação suicida/homicida, tentativas, meios letais, autoagressão, risco a terceiros, fatores protetores); 10 Recursos, forças e fatores protetores; 11 Expectativas e metas com o tratamento; 12 Exame do estado mental. Cada tópico traz uma dica do que contemplar.
+- Passo 2: "Para quem é este modelo?": buscar paciente e escolher **Preencher aqui** (durante o atendimento) ou **Enviar por link** (o paciente responde no próprio dispositivo).
+- **Criar modelo**: título, descrição interna, **tipo (Anamnese ou Formulário)**, lista de perguntas; cada pergunta é um **Tópico** (título exibido ao paciente), com **subtópicos** opcionais, ordem (subir/descer), excluir; salva rascunho automaticamente na aba.
+- Depois de preenchida: aparece na ficha do paciente (seção Anamnese e Forms) com respostas por pergunta, botões **Análise Inteligência LUMA**, **Gerar PDF** e editar.
+
+## Ficha do paciente (clicar no nome na home abre um painel grande com 15 seções)
+Cabeçalho "Paciente em foco" e botão ocultar dados sigilosos. Seções:
+1. **Perfil do Paciente**: aviso "Finalizar cadastro" (campos faltando: tratamentos, contatos de emergência); nome, idade, nascimento, WhatsApp, e-mail; **tipo de atendimento** (Adulto, entre outros); **Dados básicos** (gênero, profissão; completar: nome social, CPF, raça/cor, estado civil, plano de saúde); **Informações gerais** (início do tratamento, endereço, país); **Financeiro** (moeda do paciente, valor da sessão); **Responsável financeiro** (quem recebe cobrança e lembrete; se ninguém, vai ao paciente); **Contatos de emergência** (até 2); **Saúde e tratamento** (tratamentos; **medicamentos**: dose e unidade); botão Editar perfil.
+2. **Arquivo de Sessões**: linha do tempo (ex.: 5 sessões em 2 meses; contadores agora/próximas/histórico) agrupada por mês; cada sessão tem **Criar/Exibir Anotação, Criar/Exibir Evolução, Resumo IA**, **Anexos**, e excluir (com recuperação de exclusões recentes); **Criar sessão**.
+3. **Financeiro**: cards (valor da sessão, a receber, recebido no período, visualização por competência, período); lista de sessões com data, status (Realizada/Aguardando), valor, **pagamento (Pago/Aguardando)**, recebido em, **documento (prévia de recibo)**.
+4. **Prontuário Geral**: reúne as evoluções (por mês) com caixas de seleção; **Abrir Prontuário Geral** monta um documento com as evoluções escolhidas; indicadores: último prontuário, período, total de evoluções, primeira e última sessão.
+5. **Resumo Sintropia** (IA): "Resumo longitudinal do caso" com indicadores (sessões, anotações, evoluções, anamneses, cadastro, período, atualizado) e blocos: **Síntese clínica**, Anamnese e contexto inicial, Mapa do caso, Evolução, Padrões recorrentes, Recursos e forças, Pontos de atenção, Próximos passos, **Insights para a próxima sessão** (perguntas para abrir a sessão). **Baixar PDF**.
+6. **Notas do Caderno**: notas do caderno vinculadas ao paciente.
+7. **Lembretes e Alertas**: lembretes de sessão por **WhatsApp** (visão geral: confirmados, pendentes, falhas; histórico; ligar/desligar; recurso pago).
+8. **Converse LUMA**: chat com a IA focada no caso ("copiloto clínico do caso"); organizar hipóteses, preparar sessão, agendar sessões ou recorrências **com confirmação**, transformar pontos em rascunhos para revisão profissional; limite grátis (15 mensagens), seletor de abordagem (TCC), "Nova conversa".
+9. **Anamnese e Forms**: anamneses/forms preenchidos (acima).
+10. **Estudo de Caso**: "fotografia clínica viva": a versão 1 nasce depois de 2 sessões (insumos: sessões, anamnese e contexto adicional; a LUMA sugere rascunhos curtos por tópico). Modelo por abordagem (ex.: **Estudo de Caso TCC, 30 tópicos**; opções "Usar como base" e "Outro modelo"). Tópicos (18 vistos): Contexto do caso; Determinantes e manutenção; Funcionamento atual; Leitura clínica pela abordagem; Plano de acompanhamento; Queixa principal/demanda; Objetivo declarado; Objetivo observado; Histórico do problema; Fatores predisponentes; Fatores precipitantes; Fatores de manutenção; Recursos e fatores de proteção; Cognições/pensamentos; Emoções/respostas fisiológicas; Comportamentos e estratégias de enfrentamento; Relações e contexto social; Hipóteses clínicas. Versionado ("Versão 1").
+11. **Documentos do paciente**: buscar por nome/pasta/tipo; **Enviar arquivo**; filtros e ordem; categoria "Documentos psicológicos"; menciona fontes fiscais (recibo/Receita Saúde).
+12. **Migração**: importar sessões antigas: arraste PDFs, documentos, planilhas, apresentações, textos, Google Docs ou imagens (até 100 por vez); a IA lê o conteúdo e localiza data e horário; etapas **1 Envio, 2 Análise (status), 3 Aprovação (revisar prévia)**; para paciente inativo, importa sessões antigas sem lembretes nem eventos no Google.
+13. **Plano e continuidade**: planos, tópicos e decisões que atravessam as sessões (filtros por tipo, status, prioridade, período); "a continuidade é criada pela própria IA durante uma sessão".
+14. **Biblioteca compartilhada**: orientações, exercícios e documentos que o profissional **disponibiliza para o paciente no app** (precisa do paciente conectado; o profissional confere cada arquivo antes de liberar; espaço de armazenamento por conta, ex.: 2 GB).
+15. (**Perfil** repete cabeçalho.)
+
+## Ideias para nós
+- Ficha do paciente organizada em seções, com **Resumo longitudinal por IA** e **perguntas para a próxima sessão**.
+- **Estudo de caso por abordagem** versionado; **migração de sessões antigas** por IA (útil para quem vem de papel/Word).
+- **Plano e continuidade** (decisões atravessando sessões); **Biblioteca compartilhada** (material do psicólogo para o paciente).
+- Anamnese: 4 modelos oficiais + de parceiros + da comunidade, tipo "Formulário" separado, preencher na sessão ou enviar por link.
+
+---
+# Complemento (15/10/2026): Estudo de Caso, os 13 modelos por abordagem
+Mecânica observada em dois pacientes de teste:
+- **Regra de liberação**: o estudo de caso só começa depois de **2 sessões registradas** ("a versão 1 nasce depois de duas sessões; faltam N sessões para termos contexto mínimo"). Mostra um quadro de preparação: respostas da anamnese (**opcional**, "0/3"), sessões elegíveis (ex.: "3 sessões registradas / faltam 2"), e "Checkpoints 0/1". Depois disso, "Começar com o modelo atualizado → Criar fotografia inicial" (a IA monta a versão 1 a partir das sessões e da anamnese).
+- **Modelo sugerido** pela abordagem do paciente (ex.: TCC), com opções **Usar como base** (cópia pessoal editável), **Outro modelo** (troca) e **Criar modelo pessoal** ("monte uma estrutura própria para organizar suas formulações de caso").
+- **13 modelos públicos de abordagem**, todos com "30 tópicos": ACP (centrada na pessoa), ACT, Análise do Comportamento, Contextual, DBT, Fenomenológica-Existencial, Gestalt-Terapia, Histórico-Cultural, Junguiana, Psicanálise, Sistêmica, Terapia do Esquema e TCC.
+- **Estrutura**: a prévia "Abertura do modelo" mostra 18 tópicos em 3 páginas, e **17 são idênticos em todas as abordagens** (núcleo comum): Contexto do caso; Determinantes e manutenção; Funcionamento atual; Leitura clínica pela abordagem; Plano de acompanhamento; Queixa principal/demanda; Objetivo declarado; Objetivo observado; Histórico do problema; Fatores predisponentes, precipitantes e de manutenção; Recursos e fatores de proteção; Cognições/pensamentos; Emoções/respostas fisiológicas; Comportamentos e estratégias de enfrentamento; Relações e contexto social. **O 18º tópico muda com a abordagem**: ACP "Recursos subjetivos"; Histórico-Cultural "Redes institucionais"; Psicanálise "História relacional"; Sistêmica "Genograma / mapa relacional"; Terapia do Esquema "Origem dos esquemas"; as demais (TCC, ACT, Análise do Comportamento, Contextual, DBT, Fenomenológica, Gestalt, Junguiana) "Hipóteses clínicas". Os outros ~12 tópicos prometidos ("30") não aparecem na prévia (provavelmente específicos da abordagem, vistos só ao iniciar).
+- Versionado ("Versão 1"), com a IA preenchendo rascunhos curtos por tópico para o profissional revisar.
+- **Para nós**: um **núcleo comum de formulação + tópicos próprios de cada abordagem**; abordagem do paciente define o modelo sugerido; liberar só quando houver material suficiente (sessões e anamnese); versões; cópia pessoal editável; IA como rascunho revisável.
+
+---
+# Complemento (15/10/2026): Biblioteca compartilhada, testada com um arquivo fictício
+Fluxo do psicólogo (ficha do paciente > Biblioteca compartilhada; só funciona com o paciente **conectado ao app**):
+1. **Compartilhar arquivo** → duas origens: **Documentos do paciente** (um arquivo já salvo; "o original permanece privado") ou **Do seu dispositivo** (upload). Limites: **até 45 MB por arquivo; PDF, JPG, PNG, TXT, DOCX, XLSX e PPTX sem macros**.
+2. **Revisar compartilhamento em 3 passos**: (1) Arquivo escolhido: prévia local ("ainda não enviada"), **nome exibido ao paciente** editável, **conexão destinatária** (quando o paciente tem mais de um profissional), "Ampliar prévia", "Trocar arquivo"; (2) **Verificação**: "Verificando a segurança do arquivo…" (varredura antes de publicar), com opções de cancelar ou sair deixando a preparação pendente no servidor; (3) **Compartilhar**: "Arquivo verificado. A publicação ainda depende da sua confirmação", com **Ver arquivo**, **Baixar arquivo** e o botão final **Compartilhar com o paciente**.
+3. **Lista de arquivos compartilhados** (busca, filtro Ativos/…, Atualizar): por arquivo mostra nome, data, "Ainda não há registro de abertura", e as ações **Ver arquivo, Baixar, Histórico, Revogar acesso**.
+4. **Histórico do arquivo**: data/hora do compartilhamento, **primeira e última abertura**, quem compartilhou, com a ressalva honesta: "**o registro indica abertura no sistema; não comprova leitura nem aceite**".
+5. **Cota de espaço** por conta (ex.: 2 GB), com a regra "inclui arquivos retirados; revogar acesso pode não liberar espaço durante a guarda".
+Lado do paciente: aba **Biblioteca** ("seu cuidado por perto"; "materiais que a sua profissional compartilhou com você"; busca por nome; botão Atualizar). **Na versão por navegador a lista ficou em "Carregando materiais…" e não concluiu**, mesmo após atualizar; não deu para ver o arquivo chegando (possível limitação da versão web ou instabilidade; não repeti). 
+Para nós: compartilhamento com **verificação de segurança, revisão antes de publicar, revogação, trilha de abertura com ressalva** e cota por clínica; separar **documento privado** de **material compartilhado** (cópia ou ponteiro com permissão). Fica registrado como Fase 3 (junto do login do paciente).

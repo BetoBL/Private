@@ -49,6 +49,7 @@ export function DiarioDoPacienteTela() {
   const [passo, setPasso] = useState(0); // 0 = início, 1..N = etapas (ver `ordem`), N+1 = pronto
   const [c, setC] = useState<NovoCartao>({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], pesos: [], levarParaSessao: false });
   const [enviando, setEnviando] = useState(false);
+  const [vontade, setVontade] = useState<boolean | null>(null);
   const [form, setForm] = useState<{ id: string; nome: string; perguntas: PerguntaForm[] } | null>(null);
   const [respForm, setRespForm] = useState<RespostasForm>({});
   const [formFeito, setFormFeito] = useState(false);
@@ -61,7 +62,14 @@ export function DiarioDoPacienteTela() {
 
   const cat = info?.catalogo;
   // etapas na ordem em que aparecem; "pesos" e "impulso" são opcionais e o profissional liga ou desliga por paciente
-  const ordem = useMemo(() => ["emocao", "intensidade", "contexto", ...(cat?.etapas?.pesos ? ["pesos"] : []), "cuidado", ...(cat?.etapas?.impulso ? ["impulso"] : []), "fecho", "revisao"], [cat]);
+  // Mesma regra do servidor (etapasDoCartao): "o que pesou" só com emoção difícil e forte; "vontades" só se o paciente disser que veio.
+  const familiaEscolhida = cat?.emocoes.find((e) => e.chave === c.emocao)?.familia ?? null;
+  const dificil = !!familiaEscolhida && familiaEscolhida !== "leve";
+  const modoPesos = cat?.etapas?.pesos ?? "auto", modoImpulso = cat?.etapas?.impulso ?? "auto";
+  const mostraPesos = modoPesos === "sempre" || (modoPesos === "auto" && dificil && c.intensidade >= 4);
+  const perguntaVontade = modoImpulso === "auto" && dificil;
+  const mostraImpulso = modoImpulso === "sempre" || (modoImpulso === "auto" && dificil && vontade === true);
+  const ordem = useMemo(() => ["emocao", "intensidade", "contexto", ...(mostraPesos ? ["pesos"] : []), "cuidado", ...(mostraImpulso ? ["impulso"] : []), "fecho", "revisao"], [mostraPesos, mostraImpulso]);
   const total = ordem.length;
   const etapa = passo >= 1 && passo <= total ? ordem[passo - 1] : null;
   const emocao = cat?.emocoes.find((e) => e.chave === c.emocao);
@@ -93,7 +101,7 @@ export function DiarioDoPacienteTela() {
     setErro(null); setEnviando(true);
     try { const r = await api.responderEscala(segredo, escala.id, respEscala); setEscalaFeita({ cuidado: r.cuidado }); api.diarioPublico(segredo).then(setInfo).catch(() => undefined); } catch (e) { setErro((e as Error).message); } finally { setEnviando(false); }
   }
-  function novo() { setC({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], pesos: [], levarParaSessao: false }); setResposta(null); setPasso(0); if (segredo) api.diarioPublico(segredo).then(setInfo).catch(() => undefined); }
+  function novo() { setVontade(null); setC({ ocorridoEm: hojeIso(), emocao: "", intensidade: 0, acoesQueAjudaram: [], pesos: [], levarParaSessao: false }); setResposta(null); setPasso(0); if (segredo) api.diarioPublico(segredo).then(setInfo).catch(() => undefined); }
 
   if (erro && !info) return <div className="mx-auto max-w-md px-5 py-16"><div className="rounded-3xl border border-ember/30 bg-ember/10 p-6 text-center text-ember">{erro}</div></div>;
   if (form) {
@@ -201,7 +209,17 @@ export function DiarioDoPacienteTela() {
                 <ul className="mt-2 space-y-2">{info.escalas!.map((e) => <li key={e.id}><button className="flex w-full items-center justify-between rounded-xl bg-paper px-3 py-3 text-left text-sm" onClick={() => abrirEscala(e.id)}><span><span className="block font-semibold text-ink">{e.nome}</span><span className="text-xs text-ink/50">cerca de {e.tempo}</span></span><span className="text-sage-deep">Responder →</span></button></li>)}</ul>
               </div>
             )}
-            <button className="mt-4 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper shadow-lg active:scale-[0.98]" onClick={() => setPasso(1)}>Fazer meu registro →</button>
+            {(() => {
+              const hoje = info.recentes.find((r) => r.ocorridoEm.slice(0, 10) === hojeIso());
+              return hoje ? (
+                <div className="mt-4 rounded-2xl border border-sage-deep/30 bg-white/80 p-4">
+                  <div className="text-xs font-bold uppercase tracking-widest text-sage-deep">Seu dia de hoje</div>
+                  <div className="mt-2 flex items-center gap-3"><span className="text-3xl">{ICONE[hoje.emocao] ?? "•"}</span><div><div className="font-semibold text-ink">{rotulo(cat.emocoes, hoje.emocao)}</div><div className="text-sm text-ink/55">intensidade {hoje.intensidade} · {ROTULO_INTENSIDADE[hoje.intensidade]}</div></div></div>
+                  <p className="mt-2 text-xs text-ink/50">Seu registro de hoje foi acolhido. Se quiser, você pode fazer outro agora ou lançar um dia que ficou sem registro.</p>
+                </div>
+              ) : null;
+            })()}
+            <button className="mt-4 w-full rounded-full bg-sage-deep px-5 py-4 text-base font-semibold text-paper shadow-lg active:scale-[0.98]" onClick={() => setPasso(1)}>{info.recentes.some((r) => r.ocorridoEm.slice(0, 10) === hojeIso()) ? "Fazer outro registro →" : "Fazer meu registro →"}</button>
             {info.recentes.length > 0 && (
               <section className="mt-8">
                 <h2 className="mb-2 text-xs font-bold uppercase tracking-widest text-ink/45">Seus últimos registros</h2>
@@ -268,7 +286,7 @@ export function DiarioDoPacienteTela() {
 
         {etapa === "cuidado" && (
           <div>
-            <Titulo rotulo="Seu cuidado" titulo="O que você fez por você?" ajuda="Qualquer gesto conta, mesmo o menor. Marque quantos quiser." />
+            <Titulo rotulo={dificil ? "Seu cuidado" : "O que ajudou"} titulo={dificil ? "O que você fez por você?" : "O que ajudou a chegar aqui?"} ajuda={dificil ? "Qualquer gesto conta, mesmo o menor. Marque quantos quiser." : "Vale guardar o que fez bem: pode ser útil em dias mais difíceis. Marque quantos quiser."} />
             {familia && (
               <div className="mb-5 rounded-2xl p-4 text-sm leading-relaxed text-ink/80" style={{ background: `${cor}1A` }}>
                 <div className="mb-1 text-[11px] font-bold uppercase tracking-widest" style={{ color: cor }}>Para este momento</div>
@@ -277,13 +295,22 @@ export function DiarioDoPacienteTela() {
             )}
 
             <div className="space-y-2">
-              {cat.acoesQueAjudaram.map((o) => {
+              {(dificil || !familiaEscolhida ? cat.acoesQueAjudaram : cat.contribuicoesLeve).map((o) => {
                 const ativo = (c.acoesQueAjudaram ?? []).includes(o.chave);
                 return <button key={o.chave} type="button" onClick={() => set({ acoesQueAjudaram: ativo ? (c.acoesQueAjudaram ?? []).filter((x) => x !== o.chave) : [...(c.acoesQueAjudaram ?? []), o.chave] })} className={`flex w-full items-center gap-3 rounded-2xl border-2 px-3 py-3 text-left text-[15px] shadow-sm transition-all active:scale-[0.98] ${ativo ? "border-sage-deep bg-white font-semibold text-ink shadow-md" : "border-transparent bg-white/80 text-ink/80"}`}><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-paper text-xl">{ICONE[o.chave] ?? "•"}</span><span className="flex-1">{o.rotulo}</span><span className={`flex h-6 w-6 items-center justify-center rounded-md border-2 text-[12px] ${ativo ? "border-sage-deep bg-sage-deep text-paper" : "border-ink/20"}`}>{ativo ? "✓" : ""}</span></button>;
               })}
             </div>
-            <h3 className="mb-2 mt-6 text-sm font-semibold text-ink/70">E isso fez diferença?</h3>
-            <Escolha opcoes={cat.ajudou} valor={c.ajudou} onChange={(v) => set({ ajudou: v })} />
+            {(dificil || !familiaEscolhida) && (<><h3 className="mb-2 mt-6 text-sm font-semibold text-ink/70">E isso fez diferença?</h3>
+            <Escolha opcoes={cat.ajudou} valor={c.ajudou} onChange={(v) => set({ ajudou: v })} /></>)}
+            {perguntaVontade && (
+              <div className="mt-6 rounded-2xl bg-white/80 p-4">
+                <h3 className="mb-2 text-sm font-semibold text-ink/80">Veio alguma vontade de agir de um jeito que você não queria?</h3>
+                <p className="mb-3 text-xs text-ink/50">Sem julgamento. Se vier, perguntamos mais um pouco na próxima tela.</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {([[true, "Veio sim"], [false, "Não veio"]] as const).map(([v, r]) => <button key={r} type="button" onClick={() => { setVontade(v); if (!v) set({ impulso: null, acaoImpulso: null }); }} className={`rounded-2xl border-2 px-3 py-3 text-[15px] shadow-sm ${vontade === v ? "border-sage-deep bg-sage-deep/10 font-semibold text-ink" : "border-transparent bg-white text-ink/80"}`}>{r}</button>)}
+                </div>
+              </div>
+            )}
             <Nota valor={c.notaCuidado ?? ""} onChange={(v) => set({ notaCuidado: v })} texto="Quer contar como foi?" />
           </div>
         )}
@@ -299,7 +326,7 @@ export function DiarioDoPacienteTela() {
         {etapa === "fecho" && (
           <div>
             <Titulo rotulo="Para fechar" titulo="Como você fecha este registro?" ajuda="Escolha uma frase e diga se quer conversar sobre isso." />
-            <Escolha opcoes={cat.fechamentos} valor={c.fechamento} onChange={(v) => set({ fechamento: v })} />
+            <Escolha opcoes={dificil || !familiaEscolhida ? cat.fechamentos : cat.fechamentosLeve} valor={c.fechamento} onChange={(v) => set({ fechamento: v })} />
             <button type="button" onClick={() => set({ levarParaSessao: !c.levarParaSessao })} className={`mt-5 flex w-full items-center gap-3 rounded-2xl border px-4 py-4 text-left ${c.levarParaSessao ? "border-sage-deep bg-sage-deep/10" : "border-mist bg-white"}`}>
               <span className={`flex h-6 w-11 shrink-0 items-center rounded-full p-0.5 transition-colors ${c.levarParaSessao ? "bg-sage-deep" : "bg-ink/20"}`}><span className={`h-5 w-5 rounded-full bg-white transition-transform ${c.levarParaSessao ? "translate-x-5" : ""}`} /></span>
               <span><span className="block text-[15px] font-semibold text-ink">Quero conversar sobre isso com {info.profissional}</span><span className="block text-xs text-ink/55">Fica marcado para vocês verem no próximo encontro.</span></span>
@@ -317,7 +344,7 @@ export function DiarioDoPacienteTela() {
               <span className="mt-1 block text-xs text-ink/45">Hoje, por padrão. Mude se estiver registrando um dia anterior.</span>
             </label>
             <dl className="divide-y divide-mist rounded-2xl bg-white text-sm">
-              {[["Emoção", emocao?.rotulo], ["Intensidade", c.intensidade ? `${c.intensidade} · ${ROTULO_INTENSIDADE[c.intensidade]}` : "-"], ["Contexto", rotulo(cat.contextos, c.contexto)], ...(cat.etapas?.pesos ? [["O que pesou", (c.pesos ?? []).map((k) => rotulo(cat.pesosDoDia, k)).join(", ") || "-"]] : []), ["O que fez por você", (c.acoesQueAjudaram ?? []).map((k) => rotulo(cat.acoesQueAjudaram, k)).join(", ") || "-"], ["Fez diferença?", rotulo(cat.ajudou, c.ajudou)], ...(cat.etapas?.impulso ? [["Vontade difícil", rotulo(cat.impulsos, c.impulso)]] : []), ["Fecho", rotulo(cat.fechamentos, c.fechamento)], ["Quero conversar", c.levarParaSessao ? "Sim" : "Não"]].map(([k, v]) => (
+              {[["Emoção", emocao?.rotulo], ["Intensidade", c.intensidade ? `${c.intensidade} · ${ROTULO_INTENSIDADE[c.intensidade]}` : "-"], ["Contexto", rotulo(cat.contextos, c.contexto)], ...(ordem.includes("pesos") ? [["O que pesou", (c.pesos ?? []).map((k) => rotulo(cat.pesosDoDia, k)).join(", ") || "-"]] : []), [dificil || !familiaEscolhida ? "O que fez por você" : "O que ajudou", (c.acoesQueAjudaram ?? []).map((k) => rotulo(dificil || !familiaEscolhida ? cat.acoesQueAjudaram : cat.contribuicoesLeve, k)).join(", ") || "-"], ...(dificil || !familiaEscolhida ? [["Fez diferença?", rotulo(cat.ajudou, c.ajudou)]] : []), ...(ordem.includes("impulso") ? [["Vontade difícil", rotulo(cat.impulsos, c.impulso)]] : []), ["Fecho", rotulo(dificil || !familiaEscolhida ? cat.fechamentos : cat.fechamentosLeve, c.fechamento)], ["Quero conversar", c.levarParaSessao ? "Sim" : "Não"]].map(([k, v]) => (
                 <div key={k as string} className="flex justify-between gap-4 px-4 py-3"><dt className="text-ink/55">{k}</dt><dd className="text-right font-semibold text-ink">{v}</dd></div>
               ))}
             </dl>
