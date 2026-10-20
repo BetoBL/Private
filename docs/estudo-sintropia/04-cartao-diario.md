@@ -111,3 +111,11 @@ Etapas: emoção, intensidade, contexto, **Mochila**, cuidado, **Impulso**, fech
 - Mesmo com emoção difícil e Mochila + Impulso juntos, a conclusão foi só "Registro acolhido", sem aviso de segurança.
 
 Ainda não visto: Solidão, Frustração, Irritação, Desligamento, Esperança, Tensão, Calma e as demais emoções (o app só aceita 1 registro por dia; cada nova emoção exige um novo dia ou "Registrar outro dia" dentro da janela de ~4 dias).
+
+## Fechamento do estudo do check-in (20/10/2026)
+- **Lista completa de emoções (20):** Alegria, Tristeza, Raiva, Ansiedade, Confusão, Desânimo, Irritação, Medo, Desligamento, Esperança, Solidão, Frustração, Tensão, Calma, Vazio, Preocupação, Cansaço emocional, Vergonha, Alívio, Confiança. O nosso catálogo tem 27 e inclui todas.
+- **Nada muda por família de emoção:** Desligamento 4 (família "distante") mostrou a mesma Mochila (9 opções), o mesmo cuidado e o mesmo fechamento que Tristeza, Medo e Raiva. A única diferença visual é a cor e o desenho de clima da tela.
+- **Impulso só abre com duas respostas** de "O que você tentou primeiro?": "Tentei não agir no impulso" e "Agi ou quis agir conforme o impulso". "Só aguentei até passar" não abre.
+- **Um registro por data:** ao enviar, o app recusa com "O registro de DD/MM/AAAA já foi enviado". O botão "Registrar outro dia" sugere uma data, mas não evita escolher uma data que já tem registro (o erro só aparece ao enviar, em texto pequeno no fim da tela). Janela retroativa de cerca de 4 dias.
+- **Escalas no app do paciente (GAD-7):** todas as perguntas numa página só, com as opções mostradas **apenas como números (0, 1, 2, 3)** e a legenda ("0 = Nenhuma vez, 3 = Quase todos os dias") só nas instruções. As nossas mostram o texto de cada opção em cada pergunta, o que é mais claro. Escalas futuras (12/11) já podem ser abertas antes da data.
+- **Telas do app do paciente:** Início, Documentos, Conexão (espaço de cuidado) e Biblioteca. Todas vistas.
