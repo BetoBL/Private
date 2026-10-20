@@ -103,3 +103,11 @@ Conclusões:
 3. **Adaptar o cuidado e o fechamento** para emoções boas ("O que ajudou a chegar aqui?").
 4. Janela de registro retroativo (4 dias) e "Registrar outro dia".
 5. No início do app do paciente: cartão do dia respondido com resumo e a faixa de datas.
+
+## Rodada de 20/10/2026 (Medo, intensidade 4)
+Etapas: emoção, intensidade, contexto, **Mochila**, cuidado, **Impulso**, fechamento, revisão (a revisão lista Mochila e Impulso).
+- **Mochila aparece com intensidade 4** (não só 5): a regra é emoção difícil com intensidade 4 ou 5. Com 3 ou menos, ou com emoção boa, não aparece. O nosso "automático" usa exatamente esse limite.
+- **A resposta "Agi ou quis agir conforme o impulso" também abre o Impulso** (além de "Tentei não agir no impulso"). Ou seja, o Impulso abre quando a primeira reação envolve impulso, qualquer das duas. A nossa pergunta direta ("Veio vontade de agir?") cobre os dois casos.
+- Mesmo com emoção difícil e Mochila + Impulso juntos, a conclusão foi só "Registro acolhido", sem aviso de segurança.
+
+Ainda não visto: Solidão, Frustração, Irritação, Desligamento, Esperança, Tensão, Calma e as demais emoções (o app só aceita 1 registro por dia; cada nova emoção exige um novo dia ou "Registrar outro dia" dentro da janela de ~4 dias).
