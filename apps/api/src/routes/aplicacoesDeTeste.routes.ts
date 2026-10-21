@@ -25,6 +25,8 @@ const respondenteSchema = {
   // string vazia vinda de <input> vira null, para não gravar "" como se fosse nome preenchido
   respondenteNome: z.string().trim().max(200).optional().transform((v) => v || null),
   respondenteRelacao: z.string().trim().max(200).optional().transform((v) => v || null),
+  // comentários livres do profissional sobre a aplicação; null ou vazio limpa
+  comentarios: z.string().max(20000).nullable().optional().transform((v) => (v === undefined ? undefined : v && v.trim() ? v : null)),
 };
 
 const aplicacaoCreateSchema = z.object({
@@ -84,7 +86,7 @@ aplicacoesDeTesteRouter.post(
   "/",
   validateBody(aplicacaoCreateSchema),
   asyncHandler(async (req, res) => {
-    const { sessaoId, testeId, escoresBrutos, respondenteTipo, respondenteNome, respondenteRelacao } = req.body;
+    const { sessaoId, testeId, escoresBrutos, respondenteTipo, respondenteNome, respondenteRelacao, comentarios } = req.body;
 
     const sessao = await prisma.sessao.findUnique({ where: { id: sessaoId }, include: { paciente: true } });
     if (!sessao || sessao.paciente.clinicaId !== req.profissional!.clinicaId) {
@@ -122,6 +124,7 @@ aplicacoesDeTesteRouter.post(
         respondenteTipo,
         respondenteNome,
         respondenteRelacao,
+        comentarios,
         resultadoCalculado: resultadoCalculado ? (resultadoCalculado as unknown as Prisma.InputJsonValue) : undefined,
         calculadoEm: resultadoCalculado ? new Date() : null,
       },
@@ -253,6 +256,7 @@ aplicacoesDeTesteRouter.patch(
         respondenteTipo: req.body.respondenteTipo,
         respondenteNome: req.body.respondenteNome,
         respondenteRelacao: req.body.respondenteRelacao,
+        comentarios: req.body.comentarios,
         resultadoCalculado: resultadoCalculado ? (resultadoCalculado as unknown as Prisma.InputJsonValue) : undefined,
         calculadoEm: resultadoCalculado ? new Date() : null,
       },

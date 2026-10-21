@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-10-21] Estúdio do teste (primeira versão, motor de planilha)
+
+**Ainda NÃO publicado.**
+- Cada teste do motor de planilha (cerca de 45) abre numa **tela própria e de destaque**: cabeçalho com a sigla, o domínio, o paciente, a idade na data da sessão, o dia e um **anel de progresso** do que já foi lançado, com o botão Salvar sempre à vista.
+- **Painel "Resultados ao vivo"** ao lado da entrada de dados: o **perfil** (barras de percentil, z-padrão ou pontos ponderados, coloridas pela classificação), os **gráficos do Excel** e as tabelas de resultado são alimentados enquanto se digita. Os gráficos já aparecem desde o início, vazios, como esqueleto, e cada ponto entra com uma pequena animação.
+- **Anotações do teste**: caixa de **comentários** do profissional sobre a aplicação (salva junto com o lançamento) e aba **Como lançar os dados**, com a descrição e a referência do teste e dicas de lançamento. Nova coluna `comentarios` na aplicação do teste (migration `aplicacao_comentarios`).
+- O cálculo não mudou: só a apresentação. Os testes com tela própria (WAIS-III, WISC-IV, WASI) e os de campo único (como BDI-II) ainda têm o visual antigo.
+- 194 testes passam; D2-R conferido no navegador vazio e com 36 campos digitados.
+
 ## [2026-10-19] Diário: etapas automáticas e perguntas próprias para emoções boas
 
 **Ainda NÃO publicado.**

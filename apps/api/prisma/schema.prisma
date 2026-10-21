@@ -426,6 +426,9 @@ model AplicacaoDeTeste {
   respondenteNome     String?
   respondenteRelacao  String?
 
+  // Comentários do profissional sobre esta aplicação (como o paciente se comportou, adaptações, como os dados foram obtidos).
+  comentarios       String?   @db.Text
+
   criadoEm          DateTime  @default(now())
 }
 

@@ -3,6 +3,7 @@ import { api, type AplicacaoDeTeste, type ResultadoCalculado, type Teste } from 
 import { COR_CLASSIFICACAO } from "../lib/wechsler";
 import { faltamCampos } from "../lib/plural";
 import { PlaceholderBadge } from "./PlaceholderBadge";
+import { CabecalhoEstudio } from "./CabecalhoEstudio";
 import { Tabela, Titulo, Vazio } from "./TesteWiscIV";
 import { GraficosPlanilha, type GraficoDef } from "./GraficosPlanilha";
 
@@ -107,38 +108,24 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
   // conta só os campos do modo de lançamento ativo (com totais separados, o outro modo não é "pendência")
   const camposAtivos = campos.filter((c) => chavesTotais.size === 0 || chavesTotais.has(c.chave) === (modoEntrada === "totais"));
   const lancadosAtivos = camposAtivos.filter((c) => (escoresBrutos[c.chave] ?? "").trim() !== "");
-  const pct = Math.round((lancadosAtivos.length / Math.max(1, camposAtivos.length)) * 100);
 
   if (!layout) return <Vazio>Este teste ainda não tem o layout do motor de planilha. Reaplique a atualização do catálogo.</Vazio>;
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="rounded-2xl border border-mist bg-white p-5">
-        <h2 className="font-serif text-2xl font-semibold text-ink">{teste.sigla}</h2>
-        <p className="mt-1 text-xs text-ink/60">{aplicacao?.teste.nome || teste.nome}</p>
-        {teste.isPlaceholder && <div className="mt-2"><PlaceholderBadge /></div>}
-        {calc.info && (
-          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5 rounded-xl bg-paper px-4 py-3 text-xs sm:grid-cols-3">
-            {[
-              ["Nome", calc.info.paciente.nome],
-              ["Data de aplicação", new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" })],
-              ["Idade cronológica", calc.info.idadeTexto],
-            ].map(([r, v]) => (
-              <div key={r} className="flex gap-2"><dt className="text-ink/50">{r}:</dt><dd className="font-semibold text-ink">{v}</dd></div>
-            ))}
-          </dl>
-        )}
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <div className="h-1.5 min-w-[120px] flex-1 overflow-hidden rounded-full bg-mist"><div className="h-full rounded-full bg-sage-deep transition-all duration-500" style={{ width: `${pct}%` }} /></div>
-          <span className="text-xs tabular-nums text-ink/60">{lancadosAtivos.length} de {camposAtivos.length} campos</span>
-          {calc.carregando && <span className="text-xs text-ink/40">calculando…</span>}
-        </div>
-      </div>
-
+      <CabecalhoEstudio
+        sigla={teste.sigla} nome={aplicacao?.teste.nome || teste.nome} dominio={teste.dominio}
+        paciente={calc.info?.paciente.nome} idade={calc.info?.idadeTexto} data={calc.info ? new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" }) : undefined}
+        lancados={lancadosAtivos.length} total={camposAtivos.length} calculando={calc.carregando} salvando={salvando} podeSalvar={lancados.length > 0} onSalvar={onSalvar}
+      />
+      {teste.isPlaceholder && <div><PlaceholderBadge /></div>}
       {erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {calc.erro && !erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{calc.erro}</div>}
       {!sessaoId && <div className="rounded-lg border border-mist bg-paper px-4 py-3 text-sm text-ink/70">Escolha o paciente e a sessão para ver os resultados enquanto você digita: a idade dele define as normas.</div>}
 
+
+      <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+        <div className="min-w-0">
       <div className="rounded-2xl border border-mist bg-white p-5">
         <Titulo>Lançamento</Titulo>
         {layout.opcoes.length > 0 && (
@@ -183,6 +170,22 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
         </div>
       </div>
 
+
+        </div>
+        <aside className="space-y-4 xl:sticky xl:top-20 xl:max-h-[calc(100vh-6rem)] xl:overflow-y-auto xl:pr-1">
+          <div className="flex items-center gap-2 rounded-2xl border border-sage/30 bg-sage/5 px-4 py-2.5 text-sm font-semibold text-sage-deep">
+            <span className={`h-2.5 w-2.5 rounded-full ${calc.carregando ? "animate-pulse bg-[#e0a21a]" : "bg-[#3f9b5b]"}`} />
+            Resultados ao vivo
+            <span className="ml-auto text-xs font-normal text-ink/50">{calc.carregando ? "atualizando…" : lancados.length ? "atualizado" : "aguardando os primeiros dados"}</span>
+          </div>
+      <PerfilResultados layout={layout} saidas={saidas} />
+      {(layout.graficos?.length ?? 0) > 0 && (
+        <div className="rounded-2xl border border-mist bg-white p-4">
+          <Titulo>Gráficos ao vivo</Titulo>
+          <GraficosPlanilha graficos={layout.graficos!} saidas={saidas} />
+        </div>
+      )}
+
       {Object.values(saidas).some((v) => v !== null) && (
         <div className="wais-entra space-y-6 rounded-2xl border border-mist bg-white p-5">
           {layout.tabelas.map((t) => (
@@ -210,12 +213,10 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
         </div>
       )}
 
-      {(layout.graficos?.length ?? 0) > 0 && Object.values(saidas).some((v) => v !== null) && (
-        <div className="wais-entra rounded-2xl border border-mist bg-white p-5">
-          <Titulo>Gráficos</Titulo>
-          <GraficosPlanilha graficos={layout.graficos!} saidas={saidas} />
-        </div>
-      )}
+
+          {!Object.values(saidas).some((v) => v !== null) && (layout.graficos?.length ?? 0) === 0 && <div className="rounded-2xl border border-dashed border-sage/40 bg-white px-4 py-10 text-center text-sm text-ink/55">As tabelas de resultado aparecem aqui conforme você lança os dados.</div>}
+        </aside>
+      </div>
     </div>
   );
 }
@@ -306,6 +307,65 @@ function LinhasEmBlocos({ itens, valores, onChange, cabecalhos }: { itens: Entra
           </details>
         );
       })}
+    </div>
+  );
+}
+
+// Perfil automático: barras de percentil, z-padrão ou pontos ponderados de cada medida do teste, desenhadas ao vivo.
+// Vale para qualquer teste do motor de planilha, mesmo quando o Excel original não tinha gráfico.
+const MEDIDAS = [
+  { re: /percentil/i, nome: "Percentil", min: 0, max: 100, marcas: [25, 50, 75] },
+  { re: /z-?padr|padroniz/i, nome: "Escore padrão (z-padrão)", min: 40, max: 160, marcas: [85, 100, 115] },
+  { re: /ponderad/i, nome: "Pontos ponderados", min: 1, max: 19, marcas: [7, 10, 13] },
+];
+const numeroDe = (v: unknown): number | null => {
+  if (typeof v === "number") return v;
+  if (typeof v !== "string") return null;
+  const n = Number(v.replace(/[<>≥≤\s]/g, "").replace(",", "."));
+  return v.trim() !== "" && Number.isFinite(n) ? n : null;
+};
+
+function PerfilResultados({ layout, saidas }: { layout: Layout; saidas: Record<string, string | number | boolean | null> }) {
+  const alvo = useMemo(() => {
+    for (const tab of layout.tabelas) {
+      for (const m of MEDIDAS) {
+        const linha = tab.linhas.find((l) => m.re.test(l.rotulo));
+        if (!linha) continue;
+        const classif = tab.linhas.find((l) => /classifica/i.test(l.rotulo));
+        const colunas = tab.colunas.map((nome, i) => ({ nome, chave: linha.valores[i] ?? null, classe: classif?.valores[i] ?? null })).filter((c) => c.chave);
+        if (colunas.length >= 1 && colunas.length <= 16) return { titulo: tab.titulo, medida: m, colunas };
+      }
+    }
+    return null;
+  }, [layout]);
+  if (!alvo) return null;
+  const { medida, colunas } = alvo;
+  const itens = colunas.map((c) => ({ ...c, v: numeroDe(c.chave ? saidas[c.chave] : null), rotuloClasse: c.classe && typeof saidas[c.classe] === "string" ? (saidas[c.classe] as string) : null }));
+  const temDado = itens.some((i) => i.v !== null);
+  const pos = (v: number) => Math.max(0, Math.min(100, ((v - medida.min) / (medida.max - medida.min)) * 100));
+  return (
+    <div className={`grafico-vivo rounded-2xl border bg-white p-4 ${temDado ? "border-mist" : "border-dashed border-sage/40"}`}>
+      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+        <div className="text-[11px] font-bold uppercase tracking-wide text-sage-deep">Perfil · {medida.nome}</div>
+        <div className="text-[10px] text-ink/45">{alvo.titulo}</div>
+      </div>
+      <ul className="space-y-2">
+        {itens.map((i) => {
+          const cor = i.rotuloClasse ? COR_CLASSIFICACAO[i.rotuloClasse] : undefined;
+          return (
+            <li key={i.nome + i.chave} className="grid grid-cols-[minmax(3.5rem,6rem)_1fr_3.2rem] items-center gap-2 text-xs">
+              <span className="truncate font-semibold text-ink/70" title={i.nome}>{i.nome}</span>
+              <span className="relative h-3.5 overflow-hidden rounded-full bg-mist/70">
+                {medida.marcas.map((m) => <span key={m} className="absolute inset-y-0 w-px bg-ink/15" style={{ left: `${pos(m)}%` }} />)}
+                {i.v !== null && <span className="absolute inset-y-0 left-0 rounded-full transition-all duration-700" style={{ width: `${pos(i.v)}%`, background: cor ?? "linear-gradient(90deg,#e66a1f,#c25716)" }} />}
+              </span>
+              <span className="text-right font-bold tabular-nums text-ink">{i.v !== null ? formatar(i.v) : <span className="font-normal text-ink/30">—</span>}</span>
+            </li>
+          );
+        })}
+      </ul>
+      {!temDado && <p className="mt-3 text-center text-xs text-sage-deep">As barras são preenchidas conforme você lança os dados.</p>}
+      {temDado && <p className="mt-3 text-[10px] text-ink/40">Traços: {medida.marcas.join(" · ")}. Cores seguem a classificação quando o teste a calcula.</p>}
     </div>
   );
 }

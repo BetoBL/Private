@@ -6,6 +6,7 @@ import { TesteWasi } from "../components/TesteWasi";
 import { TesteWaisIII } from "../components/TesteWaisIII";
 import { TesteWiscIV } from "../components/TesteWiscIV";
 import { TesteGenerico } from "../components/TesteGenerico";
+import { ComentariosDoTeste } from "../components/ComentariosDoTeste";
 import { api, type AplicacaoDeTeste, type Teste } from "../lib/api";
 import { useAviso } from "../lib/aviso";
 import { escolherComponenteTeste } from "../lib/construtorAbas";
@@ -25,6 +26,7 @@ export function TesteCompleto() {
   const [testeId, setTesteId] = useState("");
   const [escores, setEscores] = useState<Record<string, string>>({});
   const [aplicacaoId, setAplicacaoId] = useState<string | null>(null);
+  const [comentarios, setComentarios] = useState("");
   const [erro, setErro] = useState<string | null>(null);
   const [salvando, setSalvando] = useState(false);
   const [mensagem, setMensagem] = useAviso();
@@ -44,6 +46,7 @@ export function TesteCompleto() {
     setTesteId(alvo.id);
     if (existente) {
       setAplicacaoId(existente.id);
+      setComentarios(existente.comentarios ?? "");
       setEscores(Object.fromEntries(Object.entries(existente.escoresBrutos).map(([k, v]) => [k, String(v)])));
     }
   }, [testes, aplicacoes, siglaParam, aplicacaoParam, testeId]);
@@ -60,10 +63,10 @@ export function TesteCompleto() {
       const escoresBrutos: Record<string, number> = {};
       for (const [k, v] of Object.entries(escores)) if (v.trim() !== "" && Number.isFinite(Number(v))) escoresBrutos[k] = Number(v);
       if (aplicacaoId) {
-        const atualizada = await api.updateAplicacao(aplicacaoId, { escoresBrutos, respondenteTipo: "PACIENTE", respondenteNome: "", respondenteRelacao: "" });
+        const atualizada = await api.updateAplicacao(aplicacaoId, { escoresBrutos, respondenteTipo: "PACIENTE", respondenteNome: "", respondenteRelacao: "", comentarios });
         setMensagem(`${atualizada.teste.sigla} atualizado.`);
       } else {
-        const criada = await api.createAplicacao({ sessaoId, testeId: teste.id, escoresBrutos, respondenteTipo: "PACIENTE", respondenteNome: "", respondenteRelacao: "" });
+        const criada = await api.createAplicacao({ sessaoId, testeId: teste.id, escoresBrutos, respondenteTipo: "PACIENTE", respondenteNome: "", respondenteRelacao: "", comentarios });
         setAplicacaoId(criada.id);
         setMensagem(`${criada.teste.sigla} salvo.`);
       }
@@ -120,6 +123,7 @@ export function TesteCompleto() {
         {teste && componente === "wasi" && <TesteWasi {...props} />}
         {teste && componente === "planilha" && <TestePlanilha {...props} />}
         {teste && componente === "generico" && <TesteGenerico {...props} />}
+        {teste && <ComentariosDoTeste teste={teste} valor={comentarios} onChange={setComentarios} />}
       </main>
     </div>
   );

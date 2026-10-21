@@ -222,6 +222,8 @@ export interface Teste {
   // SCARED-AUTORRELATO compartilham "SCARED"). É o que permite reconhecer que dois lançamentos
   // de testes diferentes falam do mesmo instrumento sobre o mesmo paciente.
   instrumento: string | null;
+  descricao?: string | null;
+  referenciaBibliografica?: string | null;
   algoritmoCorrecao: {
     campos?: CampoTeste[];
     // Campos que NÃO entram no formulário de lançamento (o motor calcula a partir de outros —
@@ -320,6 +322,7 @@ export const ROTULO_RESPONDENTE: Record<TipoRespondente, string> = {
 };
 
 export interface DadosRespondente {
+  comentarios?: string | null;
   respondenteTipo?: TipoRespondente;
   respondenteNome?: string;
   respondenteRelacao?: string;
@@ -336,6 +339,7 @@ export interface AplicacaoDeTeste {
   respondenteTipo: TipoRespondente;
   respondenteNome: string | null;
   respondenteRelacao: string | null;
+  comentarios?: string | null;
 }
 
 export type StatusLaudo = "RASCUNHO_IA" | "EM_REVISAO" | "FINALIZADO" | "ENTREGUE";

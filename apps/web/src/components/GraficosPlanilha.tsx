@@ -164,27 +164,28 @@ function Grafico({ g, s }: { g: GraficoDef; s: Saidas }) {
   const radar = g.series.every((x) => x.tipo === "radar");
   const pizza = g.series.every((x) => x.tipo === "pie");
   const temValor = g.series.some((x) => x.vals.some((k) => numero(k, s) !== null));
-  if (!temValor) return null;
+  const vazio = !temValor; // sem dados ainda: o gráfico aparece como esqueleto e vai sendo desenhado conforme os campos são lançados
   const nomes = g.series.map((x) => texto(x.nome, s)).filter(Boolean);
   // legenda só das séries que têm dados (o Excel traz séries auxiliares vazias)
   const comDados = g.series.map((_, i) => i).filter((i) => g.series[i].vals.some((k) => numero(k, s) !== null));
   const legenda = !pizza && comDados.length > 1;
   return (
-    <figure className="rounded-xl border border-mist bg-white p-3 text-ink">
-      <svg viewBox={`0 0 ${L} ${A}`} className="w-full" role="img" aria-label={g.titulo || "Gráfico"}>
+    <figure className={`grafico-vivo relative rounded-xl border bg-white p-3 text-ink transition-colors ${vazio ? "border-dashed border-sage/40" : "border-mist"}`}>
+      <svg viewBox={`0 0 ${L} ${A}`} className={`w-full transition-opacity duration-500 ${vazio ? "opacity-50" : "opacity-100"}`} role="img" aria-label={g.titulo || "Gráfico"}>
         {g.titulo && <text x={L / 2} y={18} textAnchor="middle" fontSize={12} fontWeight={600} fill="currentColor">{g.titulo.slice(0, 70)}</text>}
         {pizza ? <Pizza g={g} s={s} /> : radar ? <Radar g={g} s={s} /> : <Cartesiano g={g} s={s} />}
         {legenda && comDados.map((i, pos) => (
           <g key={i}><rect x={M.e + pos * 92} y={A - 14} width={10} height={10} fill={CORES[i % CORES.length]} /><text x={M.e + pos * 92 + 14} y={A - 5} fontSize={10} fill="currentColor" fillOpacity={0.8}>{(nomes[i] ?? `Série ${i + 1}`).slice(0, 12)}</text></g>
         ))}
       </svg>
+      {vazio && <div className="pointer-events-none absolute inset-0 flex items-center justify-center"><span className="rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold text-sage-deep shadow-sm">Os pontos aparecem conforme você digita</span></div>}
     </figure>
   );
 }
 
 export function GraficosPlanilha({ graficos, saidas }: { graficos: GraficoDef[]; saidas: Saidas }) {
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
+    <div className="grid gap-4">
       {graficos.map((g, i) => <Grafico key={i} g={g} s={saidas} />)}
     </div>
   );
