@@ -10,6 +10,8 @@ Atualizado em **21/10/2026**, antes de o computador ser reiniciado. Este arquivo
 - "Estúdio do teste" para os ~45 testes do motor de planilha (ex.: D2-R): cabeçalho de destaque com anel de progresso, painel "Resultados ao vivo" (perfil em barras, gráficos do Excel em esqueleto desde o início, tabelas), caixa de comentários e aba "Como lançar os dados".
 - Migration nova **`aplicacao_comentarios`** (coluna `comentarios` em `AplicacaoDeTeste`). Existe só no banco local; **falta aplicar no Render** ao publicar.
 
+**PUBLICADO em 22/10/2026 (d1a16fc).** Nada pendente de publicação.
+
 **ATUALIZAÇÃO 22/10/2026:** o usuário aprovou o estúdio ("ficou muito bom") e pediu para levar a tudo. Feito para WAIS-III, WISC-IV, WASI e testes de lançamento simples (commit desta data, local). Falta só **publicar** (migration `aplicacao_comentarios` + push), com OK dele. Ambiente local: usar `C:Projetos_dev-local-neurologiciniciar-ambiente-local.ps1`.
 
 **Próximos passos combinados/propostos (os itens 1 e 2 já foram feitos em 22/10):**
@@ -24,7 +26,7 @@ Atualizado em **21/10/2026**, antes de o computador ser reiniciado. Este arquivo
 
 ## O que está publicado em produção (Render)
 
-Último push publicado: **`873ce41`** (20/10/2026). Banco de produção em dia até a migration `agenda_sessao_detalhes`. Site: `https://neurologic-web.onrender.com`; API: `https://neurologic-api.onrender.com` (deploy automático a cada push na `master` de `BetoBL/Private`).
+Último push publicado: **`d1a16fc`** (22/10/2026), com o estúdio do teste em todos os testes. Banco de produção em dia até a migration `aplicacao_comentarios`. Site: `https://neurologic-web.onrender.com`; API: `https://neurologic-api.onrender.com` (deploy automático a cada push na `master` de `BetoBL/Private`).
 
 ## Histórico por data
 
