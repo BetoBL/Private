@@ -408,7 +408,7 @@ export function FichaPaciente() {
           ["diario", "Diário", "diario"],
           ["escalas", "Escalas", "escalas"],
           ...(paciente?.fazLaudo ? ([["anamnese", "Laudo"]] as ReadonlyArray<readonly [Aba, string]>) : []),
-        ] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo)).map(([valor, label]) => {
+        ] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo, profissionalLogado?.especialidadeMedica)).map(([valor, label]) => {
           const ativa = valor === "anamnese" ? ABAS_LAUDO.includes(aba) : aba === valor;
           return (
             <button
@@ -424,7 +424,7 @@ export function FichaPaciente() {
       {paciente?.fazLaudo && ABAS_LAUDO.includes(aba) && (
         <div className="-mt-2 mb-6 flex flex-wrap items-center gap-2 rounded-xl bg-mist/60 px-3 py-2">
           <span className="mr-1 text-xs font-bold uppercase tracking-wide text-clay">Avaliação e laudo</span>
-          {([["anamnese", "Anamnese"], ["linha", "Linha do tempo"], ["dashboard", "Dashboard", "testes"], ["laudos", "Laudos", "laudos"]] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo)).map(([valor, label]) => (
+          {([["anamnese", "Anamnese"], ["linha", "Linha do tempo"], ["dashboard", "Dashboard", "testes"], ["laudos", "Laudos", "laudos"]] as ReadonlyArray<readonly [Aba, string, string?]>).filter(([, , modulo]) => !modulo || temModulo(profissionalLogado?.categoria, modulo, profissionalLogado?.especialidadeMedica)).map(([valor, label]) => (
             <button key={valor} className={`rounded-full px-3 py-1 text-sm font-semibold ${aba === valor ? "bg-sage-deep text-paper" : "bg-white text-ink/70 hover:text-ink"}`} onClick={() => setAba(valor)}>{label}</button>
           ))}
         </div>

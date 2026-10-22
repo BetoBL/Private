@@ -60,6 +60,29 @@ export const MODELOS_SISTEMA: ModeloSistema[] = [
     ],
   },
   {
+    chave: "ANAMNESE_MEDICA", nome: "Anamnese médica (primeira consulta)", descricao: "Queixa, história, antecedentes, medicamentos, hábitos e expectativas, respondida pelo paciente antes da consulta.", tipo: "ANAMNESE", paraQuem: ["MEDICO"],
+    perguntas: [
+      t("queixa", "O que o trouxe à consulta?", "Conte com suas palavras."), t("inicio", "Quando começou e como tem evoluído?"), t("piora", "O que piora e o que melhora?"),
+      t("doencas", "Tem alguma doença diagnosticada, cirurgia ou internação anterior?"), t("familia", "Alguma doença importante na família (pais, irmãos, avós)?"),
+      t("medicamentos", "Quais medicamentos e suplementos usa hoje (nome e dose)?"), t("alergias", "Tem alergia a medicamentos, alimentos ou outros?"),
+      e("sono", "Como tem dormido?", ["Bem", "Razoável", "Mal"]), e("atividade", "Atividade física por semana", ["Nenhuma", "1 a 2 vezes", "3 ou mais vezes"]),
+      e("alcool", "Consumo de álcool", ["Não bebo", "Social", "Frequente"]), e("tabaco", "Tabagismo", ["Nunca fumei", "Ex-fumante", "Fumo atualmente"]),
+      t("expectativa", "O que espera desta consulta?"),
+    ],
+  },
+  {
+    chave: "ANAMNESE_PSIQUIATRICA", nome: "Anamnese psiquiátrica", descricao: "Queixa emocional, sintomas, tratamentos anteriores, uso de substâncias e rede de apoio, respondida antes da consulta.", tipo: "ANAMNESE", paraQuem: ["MEDICO"],
+    perguntas: [
+      t("queixa", "O que o trouxe à consulta?"), t("inicio", "Desde quando se sente assim e o que aconteceu por volta dessa época?"),
+      esc("humor", "Como tem estado seu humor nas últimas 2 semanas", 0, 10, "0 = muito mal, 10 = muito bem"), esc("ansiedade", "Nível de ansiedade nas últimas 2 semanas", 0, 10, "0 = nenhuma, 10 = intensa"),
+      e("sono", "Como tem dormido?", ["Bem", "Dificuldade para pegar no sono", "Acordo no meio da noite", "Durmo demais"]), t("apetite_energia", "Como estão apetite, energia e concentração?"),
+      sn("pensamentos_morte", "Tem tido pensamentos de que a vida não vale a pena ou de se machucar?"),
+      t("tratamentos", "Já fez acompanhamento psicológico ou psiquiátrico? Usou medicações (quais, com que resultado)?"), t("medicamentos", "Que medicamentos usa hoje (nome e dose)?"),
+      e("alcool", "Consumo de álcool", ["Não bebo", "Social", "Frequente"]), t("outras_substancias", "Usa tabaco ou outras substâncias?"),
+      t("familia", "Alguém na família teve depressão, ansiedade, outro transtorno ou tratamento psiquiátrico?"), t("rede", "Com quem conta no dia a dia?"), t("expectativa", "O que espera do tratamento?"),
+    ],
+  },
+  {
     chave: "ANAMNESE_NUTRICIONAL", nome: "Anamnese nutricional", descricao: "Objetivo, rotina alimentar, hábitos e histórico de saúde.", tipo: "ANAMNESE", paraQuem: ["NUTRICIONISTA", "MEDICO", "OUTRO"],
     perguntas: [
       t("objetivo", "Qual é o seu objetivo com o acompanhamento nutricional?"), t("rotina", "Descreva como é um dia comum de refeições."), e("refeicoes", "Quantas refeições faz por dia?", ["1 a 2", "3", "4 a 5", "6 ou mais"]),

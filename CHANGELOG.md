@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-23] Pacote médico base e especialidade (etapa A)
+
+**Ainda NÃO publicado.** Migration `especialidade_medica` só local.
+- Novo campo `Profissional.especialidadeMedica` (só para categoria Médico) e catálogo de especialidades (`lib/prontuario/especialidades.ts`): clínica geral, psiquiatria, cardiologia, endocrinologia, geriatria, pediatria, ginecologia, neurologia, dermatologia, ortopedia, medicina do esporte, estilo de vida, outra. Cada uma pode acrescentar modelos e módulos; por ora só psiquiatria tem camada própria (ainda não validada por médico).
+- Médico ganha modelos de evolução: Primeira consulta, Retorno e, na psiquiatria, Consulta psiquiátrica (exame do estado mental e risco). Módulos de escalas e "saúde" previstos para o médico (aba Saúde é a etapa B).
+- Dois modelos de anamnese para o paciente responder: Anamnese médica e Anamnese psiquiátrica.
+- Ficha do profissional: seletor "Especialidade" quando o tipo é Médico. Login e contexto carregam a especialidade; menu e fichas respeitam os módulos da especialidade.
+- 194 testes da API passam; tsc limpo na API e na web.
+
+
 ## [2026-10-22] Estúdio do teste em todos os testes
 
 **Ainda NÃO publicado.** (continua o registro de 21/10)

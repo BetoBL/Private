@@ -143,6 +143,7 @@ model Profissional {
   formacao          String?           // texto livre: pós-graduações (legado — ver `especialidades` para lista estruturada)
   especialidades    String[]          @default([])
   papel             PapelProfissional @default(PSICOLOGO)
+  especialidadeMedica String?           // só para categoria MEDICO (lib/prontuario/especialidades.ts)
   categoria         String            @default("NEUROPSICOLOGO") // tipo de profissional (lib/prontuario/modelos.ts): define os modelos de sessão e os módulos que aparecem
   email             String            @unique
   senhaHash         String

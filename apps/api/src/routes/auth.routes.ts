@@ -47,6 +47,7 @@ authRouter.post(
         crp: profissional.crp,
         papel: profissional.papel,
         categoria: profissional.categoria,
+        especialidadeMedica: profissional.especialidadeMedica,
       },
     });
   })

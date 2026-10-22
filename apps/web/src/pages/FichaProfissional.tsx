@@ -1,4 +1,4 @@
-import { PROFISSOES, registroDe } from "../lib/profissoes";
+import { PROFISSOES, registroDe, ESPECIALIDADES } from "../lib/profissoes";
 import { useAviso } from "../lib/aviso";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -31,6 +31,7 @@ export function FichaProfissional() {
   const [novaEspecialidade, setNovaEspecialidade] = useState("");
   const [papel, setPapel] = useState<PapelProfissional>("PSICOLOGO");
   const [categoria, setCategoria] = useState("PSICOLOGO");
+  const [especialidadeMedica, setEspecialidadeMedica] = useState<string>("");
   // assinatura do laudo: null = ainda não carregada/sem imagem; só vai no PATCH se o usuário mexeu
   const [assinatura, setAssinatura] = useState<string | null>(null);
   const [assinaturaMudou, setAssinaturaMudou] = useState(false);
@@ -57,6 +58,7 @@ export function FichaProfissional() {
         setEspecialidades(p.especialidades);
         setPapel(p.papel);
         setCategoria(p.categoria ?? "PSICOLOGO");
+        setEspecialidadeMedica(p.especialidadeMedica ?? "");
         if (p.temAssinatura) api.getAssinatura(id!).then((r) => !cancelado && setAssinatura(r.assinaturaUrl)).catch(() => undefined);
       })
       .catch((e) => !cancelado && setErro(e.message));
@@ -89,6 +91,7 @@ export function FichaProfissional() {
         ...form,
         especialidades,
         categoria,
+        especialidadeMedica: categoria === "MEDICO" ? especialidadeMedica || null : null,
         ...(assinaturaMudou ? { assinaturaUrl: assinatura ?? "" } : {}),
         ...(ehAdmin && !ehEuMesmo ? { papel } : {}),
       });
@@ -172,6 +175,16 @@ export function FichaProfissional() {
             </select>
             <span className="mt-1 block text-xs text-ink/50">Define os modelos de evolução e os módulos que aparecem para você.</span>
           </label>
+          {categoria === "MEDICO" && (
+            <label className="text-sm">
+              <span className="mb-1 block font-semibold text-ink/70">Especialidade</span>
+              <select disabled={!podeEditar} className="w-full rounded-lg border border-mist px-3 py-2 disabled:bg-paper disabled:text-ink/50" value={especialidadeMedica} onChange={(e) => setEspecialidadeMedica(e.target.value)}>
+                <option value="">Não informada</option>
+                {ESPECIALIDADES.map((x) => <option key={x.chave} value={x.chave}>{x.rotulo}</option>)}
+              </select>
+              <span className="mt-1 block text-xs text-ink/50">Acrescenta modelos e módulos próprios da especialidade ao pacote médico.</span>
+            </label>
+          )}
           <label className="text-sm">
             <span className="mb-1 block font-semibold text-ink/70">{registroDe(categoria)}</span>
             <input

@@ -47,7 +47,7 @@ export function Layout() {
         </div>
 
         <nav className="flex flex-col gap-1">
-          {LINKS.filter((l) => !("modulo" in l) || temModulo(profissional?.categoria, l.modulo as string)).map((link) =>
+          {LINKS.filter((l) => !("modulo" in l) || temModulo(profissional?.categoria, l.modulo as string, profissional?.especialidadeMedica)).map((link) =>
             link.novaAba ? (
               <a
                 key={link.to}

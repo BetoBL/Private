@@ -18,9 +18,9 @@ async function pacienteDoUsuario(req: Request, pacienteId: string) {
   const me = u(req);
   return prisma.paciente.findFirst({ where: { id: pacienteId, clinicaId: me.clinicaId, ...(me.papel === "ADMIN" ? {} : { profissionalId: me.sub }) }, select: { id: true, nome: true } });
 }
-async function categoriaDoUsuario(req: Request) {
-  const p = await prisma.profissional.findUnique({ where: { id: u(req).sub }, select: { categoria: true } });
-  return p?.categoria ?? "PSICOLOGO";
+async function perfilDoUsuario(req: Request) {
+  const p = await prisma.profissional.findUnique({ where: { id: u(req).sub }, select: { categoria: true, especialidadeMedica: true } });
+  return { categoria: p?.categoria ?? "PSICOLOGO", especialidade: p?.especialidadeMedica ?? null };
 }
 
 type EvolucaoBanco = NonNullable<Awaited<ReturnType<typeof prisma.evolucao.findFirst>>>;
@@ -36,9 +36,9 @@ async function carregar(req: Request, id: string) {
 
 // Catálogo: os modelos que o profissional pode usar e o que a profissão dele acrescenta (para montar o menu).
 evolucoesRouter.get("/catalogo", asyncHandler(async (req, res) => {
-  const cat = await categoriaDoUsuario(req);
-  const prof = profissaoDe(cat);
-  res.json({ profissao: { chave: prof.chave, rotulo: prof.rotulo, registro: prof.registro, modulos: prof.modulos }, modelos: MODELOS.filter((m) => prof.modelos.includes(m.chave)), profissoes: PROFISSOES.map((p) => ({ chave: p.chave, rotulo: p.rotulo, registro: p.registro })) });
+  const perfil = await perfilDoUsuario(req);
+  const prof = profissaoDe(perfil.categoria, perfil.especialidade);
+  res.json({ profissao: { chave: prof.chave, especialidade: perfil.especialidade, rotulo: prof.rotulo, registro: prof.registro, modulos: prof.modulos }, modelos: MODELOS.filter((m) => prof.modelos.includes(m.chave)), profissoes: PROFISSOES.map((p) => ({ chave: p.chave, rotulo: p.rotulo, registro: p.registro })) });
 }));
 
 evolucoesRouter.get("/", asyncHandler(async (req, res) => {
@@ -52,7 +52,7 @@ const criarSchema = z.object({ pacienteId: z.string().uuid(), modelo: z.string()
 evolucoesRouter.post("/", validateBody(criarSchema), asyncHandler(async (req, res) => {
   const me = u(req);
   if (!(await pacienteDoUsuario(req, req.body.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
-  if (!modeloPermitido(await categoriaDoUsuario(req), req.body.modelo)) { res.status(400).json({ error: "Esse modelo não está disponível para o seu tipo de profissional." }); return; }
+  if (!modeloPermitido(...(await perfilDoUsuario(req).then((x) => [x.categoria, req.body.modelo, x.especialidade] as const)))) { res.status(400).json({ error: "Esse modelo não está disponível para o seu tipo de profissional." }); return; }
   const e = await prisma.evolucao.create({ data: { clinicaId: me.clinicaId, pacienteId: req.body.pacienteId, profissionalId: me.sub, modelo: req.body.modelo, dataHora: req.body.dataHora ?? new Date(), eventoAgendaId: req.body.eventoAgendaId ?? null } });
   res.status(201).json(paraResposta(req, e));
 }));
@@ -98,7 +98,7 @@ evolucoesRouter.put("/:id", validateBody(editarSchema), asyncHandler(async (req,
   if (!atual) { res.status(404).json({ error: "Evolução não encontrada" }); return; }
   if (atual.profissionalId !== me.sub) { res.status(403).json({ error: "Só quem escreveu a evolução pode alterá-la." }); return; }
   const modelo = req.body.modelo ?? atual.modelo;
-  if (!modeloPermitido(await categoriaDoUsuario(req), modelo)) { res.status(400).json({ error: "Esse modelo não está disponível para o seu tipo de profissional." }); return; }
+  if (!modeloPermitido(...(await perfilDoUsuario(req).then((x) => [x.categoria, modelo, x.especialidade] as const)))) { res.status(400).json({ error: "Esse modelo não está disponível para o seu tipo de profissional." }); return; }
   let campos = atual.campos;
   if (req.body.campos !== undefined || modelo !== atual.modelo) {
     const v = validarCampos(modelo, req.body.campos ?? (modelo === atual.modelo ? atual.campos : {}));

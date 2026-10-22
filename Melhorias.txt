@@ -1,0 +1,24 @@
+Na agenda, quando incluir um evento, criar duplicar escolhendo novas datas e horários. O horário, por facilidade, pode repetir, mas com podendo alterar
+
+Toda vez que entrar em uma opção do menu, ter a opção de voltar. De preferência a Painel do dia
+
+O resumo do seu dia deve "subir" somente uma vez ao dia e ficar aparecendo o mesmo. Não carregar a cada ida ao Painel.
+
+Quando estivermos na agenda e abrirmos um dia, preciso que vc já puxe esta data na agenda. Exemplo. Cliquei em 27/10 - trazer 27/10. Está trazendo a data de hj.
+
+Para que serve as preferÊncias de agenda ? Seria bom trazer a sugestão quando escolher o paciente.
+
+L -Anamnese - O que mais precisa ?
+
+Dentro do paciente, na aba Agenda, podemos também ter a opção de colocar a data por lá, sem sair do cadastro do paciente.
+
+Ordem do menu
+
+Painel do dia
+Pacientes
+Agenda
+Cadastro · Clínica
+Cadastro · Profissional
+Meu Perfil de Atuação
+Testes & Correção
+Laudo

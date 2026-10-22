@@ -35,6 +35,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           crp: atual.crp,
           papel: atual.papel,
           categoria: atual.categoria,
+          especialidadeMedica: atual.especialidadeMedica,
         };
         atualizarProfissionalLogadoEmCache(logado);
         setProfissional(logado);

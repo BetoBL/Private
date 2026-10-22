@@ -5,6 +5,8 @@
 export type CampoModelo = { chave: string; rotulo: string; dica: string; lista?: boolean };
 export type ModeloSessao = { chave: string; rotulo: string; descricao: string; campos: CampoModelo[] };
 
+import { especialidadeDe } from "./especialidades";
+
 export const MODELOS: ModeloSessao[] = [
   { chave: "LIVRE", rotulo: "Anotação livre", descricao: "Só as duas folhas: suas anotações e a evolução do prontuário.", campos: [] },
   {
@@ -44,6 +46,46 @@ export const MODELOS: ModeloSessao[] = [
     ],
   },
   {
+    chave: "PRIMEIRA_CONSULTA", rotulo: "Primeira consulta médica", descricao: "Queixa, história, antecedentes, medicamentos, exame, hipóteses e conduta.",
+    campos: [
+      { chave: "queixa", rotulo: "Queixa principal", dica: "Motivo da consulta nas palavras do paciente." },
+      { chave: "hda", rotulo: "História da doença atual", dica: "Início, evolução, fatores de melhora e piora, tratamentos já feitos." },
+      { chave: "antecedentes", rotulo: "Antecedentes pessoais e familiares", dica: "Doenças, cirurgias, internações e história familiar relevante." },
+      { chave: "medicamentos", rotulo: "Medicamentos em uso e alergias", dica: "Nome, dose, tempo de uso e reações conhecidas." },
+      { chave: "habitos", rotulo: "Hábitos e contexto", dica: "Sono, alimentação, atividade física, álcool, tabaco, trabalho e rede de apoio." },
+      { chave: "exame", rotulo: "Exame físico e medidas", dica: "Sinais vitais, medidas e achados do exame." },
+      { chave: "hipoteses", rotulo: "Hipóteses diagnósticas", dica: "Impressão clínica e diagnósticos diferenciais." },
+      { chave: "conduta", rotulo: "Conduta", dica: "Prescrições, pedidos de exames, orientações e retorno." },
+    ],
+  },
+  {
+    chave: "RETORNO", rotulo: "Retorno médico", descricao: "Evolução desde a última consulta, adesão, medidas, ajustes e próximo retorno.",
+    campos: [
+      { chave: "evolucao", rotulo: "Como esteve desde a última consulta", dica: "Sintomas, intercorrências e resposta ao que foi combinado." },
+      { chave: "adesao", rotulo: "Adesão e efeitos dos tratamentos", dica: "Se está usando como combinado e o que sentiu." },
+      { chave: "exame", rotulo: "Exame e medidas de hoje", dica: "Sinais vitais, peso e achados novos." },
+      { chave: "avaliacao", rotulo: "Avaliação", dica: "Sua leitura da evolução do quadro." },
+      { chave: "conduta", rotulo: "Ajustes de conduta", dica: "Mudanças de dose, novos exames ou orientações." },
+      { chave: "retorno", rotulo: "Retorno e pedidos", dica: "Quando volta e o que deve trazer." },
+    ],
+  },
+  {
+    chave: "PSIQUIATRICA", rotulo: "Consulta psiquiátrica", descricao: "Relato, exame do estado mental, risco, medicação e conduta.",
+    campos: [
+      { chave: "relato", rotulo: "Relato e queixas", dica: "Como esteve, o que mudou e o que o trouxe hoje." },
+      { chave: "aparencia", rotulo: "Aparência e comportamento", dica: "Apresentação, contato, psicomotricidade." },
+      { chave: "humor_afeto", rotulo: "Humor e afeto", dica: "Humor referido, afeto observado e reatividade." },
+      { chave: "pensamento", rotulo: "Pensamento e linguagem", dica: "Curso, forma e conteúdo do pensamento; fala." },
+      { chave: "percepcao", rotulo: "Sensopercepção", dica: "Alucinações, ilusões ou outras alterações." },
+      { chave: "cognicao", rotulo: "Cognição, atenção e orientação", dica: "Orientação, atenção, memória e funções executivas." },
+      { chave: "insight", rotulo: "Insight e juízo crítico", dica: "Consciência do quadro e do tratamento." },
+      { chave: "risco", rotulo: "Risco", dica: "Ideação ou plano suicida, autoagressão, risco a terceiros, vulnerabilidade." },
+      { chave: "medicacao", rotulo: "Medicação, adesão e efeitos adversos", dica: "Doses em uso, adesão e o que o paciente relata." },
+      { chave: "hipoteses", rotulo: "Hipóteses diagnósticas", dica: "Impressão clínica e diagnósticos diferenciais." },
+      { chave: "conduta", rotulo: "Conduta", dica: "Ajustes de medicação, psicoterapia, exames e retorno." },
+    ],
+  },
+  {
     chave: "REABILITACAO", rotulo: "Sessão de reabilitação", descricao: "Avaliação funcional, conduta, resposta do paciente e orientações.",
     campos: [
       { chave: "avaliacao", rotulo: "Avaliação funcional", dica: "Como o paciente está hoje (dor, mobilidade, função)." },
@@ -62,7 +104,7 @@ export const MODULOS_BASE = ["pacientes", "agenda", "prontuario", "anamnese", "f
 export const PROFISSOES: Profissao[] = [
   { chave: "PSICOLOGO", rotulo: "Psicólogo(a)", registro: "CRP", modelos: ["LIVRE", "SOAP", "FOCO", "DBT"], modulos: [...MODULOS_BASE, "diario", "escalas", "estudo_caso"] },
   { chave: "NEUROPSICOLOGO", rotulo: "Neuropsicólogo(a)", registro: "CRP", modelos: ["LIVRE", "SOAP", "FOCO", "DBT"], modulos: [...MODULOS_BASE, "diario", "escalas", "estudo_caso", "testes", "laudos"] },
-  { chave: "MEDICO", rotulo: "Médico(a)", registro: "CRM", modelos: ["LIVRE", "CONSULTA", "SOAP"], modulos: [...MODULOS_BASE] },
+  { chave: "MEDICO", rotulo: "Médico(a)", registro: "CRM", modelos: ["LIVRE", "PRIMEIRA_CONSULTA", "RETORNO", "SOAP", "CONSULTA"], modulos: [...MODULOS_BASE, "escalas", "saude"] },
   { chave: "FISIOTERAPEUTA", rotulo: "Fisioterapeuta", registro: "CREFITO", modelos: ["LIVRE", "REABILITACAO", "SOAP"], modulos: [...MODULOS_BASE] },
   { chave: "TERAPEUTA_OCUPACIONAL", rotulo: "Terapeuta ocupacional", registro: "CREFITO", modelos: ["LIVRE", "REABILITACAO", "SOAP"], modulos: [...MODULOS_BASE] },
   { chave: "FONOAUDIOLOGO", rotulo: "Fonoaudiólogo(a)", registro: "CRFa", modelos: ["LIVRE", "REABILITACAO", "SOAP"], modulos: [...MODULOS_BASE] },
@@ -70,7 +112,12 @@ export const PROFISSOES: Profissao[] = [
   { chave: "OUTRO", rotulo: "Outro profissional da saúde", registro: "Registro profissional", modelos: ["LIVRE", "SOAP"], modulos: [...MODULOS_BASE] },
 ];
 
-export const profissaoDe = (chave: string | null | undefined): Profissao => PROFISSOES.find((p) => p.chave === chave) ?? PROFISSOES[0];
+// A especialidade (só do médico) acrescenta modelos e módulos ao pacote base da profissão.
+export function profissaoDe(chave: string | null | undefined, especialidade?: string | null): Profissao {
+  const p = PROFISSOES.find((x) => x.chave === chave) ?? PROFISSOES[0];
+  const e = p.chave === "MEDICO" ? especialidadeDe(especialidade) : undefined;
+  return e ? { ...p, modelos: [...new Set([...p.modelos, ...e.modelos])], modulos: [...new Set([...p.modulos, ...e.modulos])] } : p;
+}
 export const modeloDe = (chave: string): ModeloSessao | undefined => MODELOS.find((m) => m.chave === chave);
 
 const MAX_CAMPO = 8000;
@@ -102,4 +149,4 @@ export function validarCampos(modelo: string, campos: unknown): { campos: Record
 }
 
 // O profissional só usa os modelos da sua profissão (o admin da clínica segue o mesmo catálogo do próprio cadastro).
-export const modeloPermitido = (profissaoChave: string | null | undefined, modelo: string) => profissaoDe(profissaoChave).modelos.includes(modelo);
+export const modeloPermitido = (profissaoChave: string | null | undefined, modelo: string, especialidade?: string | null) => profissaoDe(profissaoChave, especialidade).modelos.includes(modelo);

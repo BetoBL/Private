@@ -165,13 +165,14 @@ export interface Profissional {
   formacao: string | null;
   especialidades: string[];
   categoria?: string;
+  especialidadeMedica?: string | null;
   papel: PapelProfissional;
   temAssinatura?: boolean;
   tituloLaudo?: string | null;
   criadoEm: string;
 }
 
-export interface ProfissionalLogado extends Pick<Profissional, "id" | "clinicaId" | "nome" | "email" | "crp" | "papel" | "categoria"> {}
+export interface ProfissionalLogado extends Pick<Profissional, "id" | "clinicaId" | "nome" | "email" | "crp" | "papel" | "categoria" | "especialidadeMedica"> {}
 
 export interface Clinica {
   id: string;

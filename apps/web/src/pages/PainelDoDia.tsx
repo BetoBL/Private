@@ -132,7 +132,7 @@ export function PainelDoDia() {
           </h1>
           {!resumo && !carregandoResumo && (
             <p className="mt-1 text-sm text-ink/60">
-              Você tem {sessoesPlural(nHoje ?? sessoesHoje.length)} hoje{evolucoesPendentes.length > 0 ? `, ${evolucoesPendentes.length === 1 ? "1 evolução" : `${evolucoesPendentes.length} evoluções`} a concluir` : ""}{temModulo(profissional?.categoria, "laudos") ? ` e ${laudosPlural(laudosAguardandoRevisao.length)} aguardando revisão` : ""}.
+              Você tem {sessoesPlural(nHoje ?? sessoesHoje.length)} hoje{evolucoesPendentes.length > 0 ? `, ${evolucoesPendentes.length === 1 ? "1 evolução" : `${evolucoesPendentes.length} evoluções`} a concluir` : ""}{temModulo(profissional?.categoria, "laudos", profissional?.especialidadeMedica) ? ` e ${laudosPlural(laudosAguardandoRevisao.length)} aguardando revisão` : ""}.
             </p>
             )}
         </div>
@@ -258,7 +258,7 @@ export function PainelDoDia() {
         </section>
       )}
 
-      <VisaoGeral onHoje={setNHoje} pacientes={pacientes.length} evolucoesPendentes={evolucoesPendentes.length} laudosParaRevisar={laudosAguardandoRevisao.length} alertas={alertas.length} temLaudos={temModulo(profissional?.categoria, "laudos")} />
+      <VisaoGeral onHoje={setNHoje} pacientes={pacientes.length} evolucoesPendentes={evolucoesPendentes.length} laudosParaRevisar={laudosAguardandoRevisao.length} alertas={alertas.length} temLaudos={temModulo(profissional?.categoria, "laudos", profissional?.especialidadeMedica)} />
 
       {(evolucoesPendentes.length > 0 || pendentesDiario.length > 0) && (
         <div className="mb-8 grid items-start gap-4 lg:grid-cols-2">

@@ -1,3 +1,4 @@
+import { ESPECIALIDADES } from "../lib/prontuario/especialidades";
 import { PapelProfissional } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { Router } from "express";
@@ -19,6 +20,7 @@ const profissionalCreateSchema = z.object({
   formacao: z.string().optional(),
   especialidades: z.array(z.string()).optional(),
   categoria: z.enum(PROFISSOES.map((p) => p.chave) as [string, ...string[]]).optional(),
+  especialidadeMedica: z.enum(ESPECIALIDADES.map((e) => e.chave) as [string, ...string[]]).nullable().optional(),
   email: z.string().email(),
   senha: z.string().min(8, "Senha precisa de pelo menos 8 caracteres"),
 });
@@ -38,6 +40,7 @@ const profissionalUpdateSchema = z.object({
   formacao: z.string().optional(),
   especialidades: z.array(z.string()).optional(),
   categoria: z.enum(PROFISSOES.map((p) => p.chave) as [string, ...string[]]).optional(),
+  especialidadeMedica: z.enum(ESPECIALIDADES.map((e) => e.chave) as [string, ...string[]]).nullable().optional(),
   email: z.string().email().optional(),
   senha: z.string().min(8, "Senha precisa de pelo menos 8 caracteres").optional(),
   papel: z.nativeEnum(PapelProfissional).optional(),
