@@ -112,7 +112,7 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
   if (!layout) return <Vazio>Este teste ainda não tem o layout do motor de planilha. Reaplique a atualização do catálogo.</Vazio>;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="@container flex flex-col gap-4">
       <CabecalhoEstudio
         sigla={teste.sigla} nome={aplicacao?.teste.nome || teste.nome} dominio={teste.dominio}
         paciente={calc.info?.paciente.nome} idade={calc.info?.idadeTexto} data={calc.info ? new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" }) : undefined}
@@ -124,7 +124,7 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
       {!sessaoId && <div className="rounded-lg border border-mist bg-paper px-4 py-3 text-sm text-ink/70">Escolha o paciente e a sessão para ver os resultados enquanto você digita: a idade dele define as normas.</div>}
 
 
-      <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+      <div className="grid items-start gap-5 @5xl:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
         <div className="min-w-0">
       <div className="rounded-2xl border border-mist bg-white p-5">
         <Titulo>Lançamento</Titulo>
@@ -172,7 +172,7 @@ export function TestePlanilha({ teste, aplicacao, escoresBrutos, onEscoresChange
 
 
         </div>
-        <aside className="space-y-4 [&_table]:text-xs [&_td]:px-2 [&_th]:px-2 xl:sticky xl:top-20 xl:max-h-[calc(100vh-6rem)] xl:overflow-y-auto xl:pr-1">
+        <aside className="space-y-4 [&_table]:text-xs [&_td]:px-2 [&_th]:px-2 @5xl:sticky @5xl:top-20 @5xl:max-h-[calc(100vh-6rem)] @5xl:overflow-y-auto @5xl:pr-1">
           <div className="flex items-center gap-2 rounded-2xl border border-sage/30 bg-sage/5 px-4 py-2.5 text-sm font-semibold text-sage-deep">
             <span className={`h-2.5 w-2.5 rounded-full ${calc.carregando ? "animate-pulse bg-[#e0a21a]" : "bg-[#3f9b5b]"}`} />
             Resultados ao vivo

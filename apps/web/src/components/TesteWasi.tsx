@@ -3,6 +3,8 @@ import { api, type AplicacaoDeTeste, type ResultadoCalculado, type Teste } from 
 import { COR_CLASSIFICACAO, lerExtras as lerExtrasGenerico, lerIndice, zonaDoPonderado, type IndiceLido } from "../lib/wechsler";
 import { faltamCampos } from "../lib/plural";
 import { EscalaIndices, type LinhaIndice } from "./graficos/EscalaIndices";
+import { CabecalhoEstudio } from "./CabecalhoEstudio";
+import { CartaoVivo, PainelVivo } from "./PainelVivo";
 import { PlaceholderBadge } from "./PlaceholderBadge";
 import { Selo, Seletor, Tabela, Titulo, Vazio, corSimNao, fmt } from "./TesteWiscIV";
 
@@ -79,34 +81,19 @@ export function TesteWasi({ teste, aplicacao, escoresBrutos, onEscoresChange, on
   const indices = useMemo(() => Object.fromEntries(ESCALAS.map(([k]) => [k, lerIndice(resultado, k)])) as Record<string, IndiceLido>, [resultado]);
   const sub = (c: string) => (porCampo[c]?.faixa ?? null) as unknown as Record<string, number | string | null> | null;
   const nIC = confianca === "90%" ? "ic90" : "ic95";
-  const pct = Math.round((lancados.length / Math.max(1, campos.length)) * 100);
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="rounded-2xl border border-mist bg-white p-5">
-        <h2 className="font-serif text-2xl font-semibold text-ink">{teste.sigla}</h2>
-        <p className="mt-1 text-xs text-ink/60">{aplicacao?.teste.nome || teste.nome}</p>
-        {teste.isPlaceholder && <div className="mt-2"><PlaceholderBadge /></div>}
-        {calc.info && (
-          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5 rounded-xl bg-paper px-4 py-3 text-xs sm:grid-cols-3">
-            {[
-              ["Nome", calc.info.paciente.nome],
-              ["Data de aplicação", new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" })],
-              ["Idade cronológica", calc.info.idadeTexto],
-            ].map(([r, v]) => (
-              <div key={r} className="flex gap-2"><dt className="text-ink/50">{r}:</dt><dd className="font-semibold text-ink">{v}</dd></div>
-            ))}
-            {calc.info.idadeAnos < 6 && <div className="col-span-2 font-semibold text-ember sm:col-span-3">Fora da faixa normativa do WASI (a partir de 6 anos) — sem cálculo.</div>}
-          </dl>
-        )}
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <div className="h-1.5 min-w-[120px] flex-1 overflow-hidden rounded-full bg-mist"><div className="h-full rounded-full bg-sage-deep transition-all duration-500" style={{ width: `${pct}%` }} /></div>
-          <span className="text-xs tabular-nums text-ink/60">{lancados.length} de {campos.length} subtestes</span>
-          {calc.carregando && <span className="text-xs text-ink/40">calculando…</span>}
-        </div>
-        <div className="mt-3 text-xs"><Seletor rotulo="Intervalo de confiança" valor={confianca} opcoes={["90%", "95%"]} onChange={(v) => setConfianca(v as "90%" | "95%")} /></div>
+    <div className="@container flex flex-col gap-4">
+      <CabecalhoEstudio
+        sigla={teste.sigla} nome={aplicacao?.teste.nome || teste.nome} dominio={teste.dominio}
+        paciente={calc.info?.paciente.nome} idade={calc.info?.idadeTexto} data={calc.info ? new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" }) : undefined}
+        lancados={lancados.length} total={campos.length} calculando={calc.carregando} salvando={salvando} podeSalvar={lancados.length > 0} onSalvar={onSalvar}
+      />
+      {teste.isPlaceholder && <div><PlaceholderBadge /></div>}
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl border border-mist bg-white px-5 py-3 text-xs">
+        <Seletor rotulo="Intervalo de confiança" valor={confianca} opcoes={["90%", "95%"]} onChange={(v) => setConfianca(v as "90%" | "95%")} />
+        {calc.info && calc.info.idadeAnos < 6 && <span className="font-semibold text-ember">Fora da faixa normativa do WASI (a partir de 6 anos), sem cálculo.</span>}
       </div>
-
       {erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {calc.erro && !erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{calc.erro}</div>}
       {!sessaoId && <div className="rounded-lg border border-mist bg-paper px-4 py-3 text-sm text-ink/70">Escolha o paciente e a sessão para ver os resultados enquanto você digita: a idade dele define as normas.</div>}
@@ -117,6 +104,7 @@ export function TesteWasi({ teste, aplicacao, escoresBrutos, onEscoresChange, on
         ))}
       </div>
 
+      <div className={aba === "brutos" ? "grid items-start gap-5 @5xl:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]" : ""}>
       <div key={aba} className="wais-entra rounded-2xl border border-mist bg-white p-5">
         {aba === "brutos" && (
           <div className="space-y-5">
@@ -221,6 +209,14 @@ export function TesteWasi({ teste, aplicacao, escoresBrutos, onEscoresChange, on
 
         {aba === "habilidades" && <HabilidadesEIntra extras={extras} />}
         {aba === "idadeMental" && <IdadeMental extras={extras} />}
+      </div>
+      {aba === "brutos" && (
+        <PainelVivo carregando={calc.carregando} temDados={Object.values(indices).some((i) => i.composto !== null)} dica="Os QIs aparecem aqui conforme você lança os subtestes.">
+          <CartaoVivo titulo="QIs">
+            <EscalaIndices titulo="" nivelIC={nIC} linhas={ESCALAS.map(([k, sigla, rotulo]): LinhaIndice => ({ ...indices[k], sigla, rotulo, falta: indices[k].composto === null ? "faltam subtestes" : null }))} />
+          </CartaoVivo>
+        </PainelVivo>
+      )}
       </div>
     </div>
   );

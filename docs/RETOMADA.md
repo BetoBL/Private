@@ -10,7 +10,9 @@ Atualizado em **21/10/2026**, antes de o computador ser reiniciado. Este arquivo
 - "Estúdio do teste" para os ~45 testes do motor de planilha (ex.: D2-R): cabeçalho de destaque com anel de progresso, painel "Resultados ao vivo" (perfil em barras, gráficos do Excel em esqueleto desde o início, tabelas), caixa de comentários e aba "Como lançar os dados".
 - Migration nova **`aplicacao_comentarios`** (coluna `comentarios` em `AplicacaoDeTeste`). Existe só no banco local; **falta aplicar no Render** ao publicar.
 
-**Próximos passos combinados/propostos:**
+**ATUALIZAÇÃO 22/10/2026:** o usuário aprovou o estúdio ("ficou muito bom") e pediu para levar a tudo. Feito para WAIS-III, WISC-IV, WASI e testes de lançamento simples (commit desta data, local). Falta só **publicar** (migration `aplicacao_comentarios` + push), com OK dele. Ambiente local: usar `C:Projetos_dev-local-neurologiciniciar-ambiente-local.ps1`.
+
+**Próximos passos combinados/propostos (os itens 1 e 2 já foram feitos em 22/10):**
 1. O usuário avalia o estúdio do D2-R (estilo do cabeçalho; quer ver outro teste, como RAVLT ou Stroop?).
 2. Levar o mesmo estúdio aos testes com tela própria (**WAIS-III, WISC-IV, WASI**, que têm abas) e aos de campo único (**BDI-II**, BAI etc., hoje só um campo).
 3. Publicar: aplicar `aplicacao_comentarios` no Render (`env -u DATABASE_URL npx prisma migrate deploy` em `apps/api`, conferindo o host) e `git push origin master`.

@@ -22,6 +22,8 @@ import { ProcessoWais3 } from "./ProcessoWais3";
 import { EscalaIndices, type LinhaIndice } from "./graficos/EscalaIndices";
 import { GraficoFDIndividual, GraficoFDNormativa, PerfilCompostos } from "./graficos/FacilidadeDificuldade";
 import { PerfilPonderados } from "./graficos/PerfilPonderados";
+import { CabecalhoEstudio } from "./CabecalhoEstudio";
+import { CartaoVivo, PainelVivo } from "./PainelVivo";
 import { PlaceholderBadge } from "./PlaceholderBadge";
 
 interface TesteWaisIIIProps {
@@ -117,54 +119,24 @@ export function TesteWaisIII({ teste, aplicacao, escoresBrutos, onEscoresChange,
   const temIndices = Object.values(todosIndices).some((i) => i.composto !== null);
   const idadeAnos = calc.idadeAnos;
   const faixa = idadeAnos !== undefined ? faixaEtariaWais3(idadeAnos) : null;
-  const pctLancado = Math.round((lancados.length / Math.max(1, campos.length)) * 100);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="@container flex flex-col gap-4">
       {/* Cabeçalho */}
-      <div className="rounded-2xl border border-mist bg-white p-5">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <h2 className="font-serif text-2xl font-semibold text-ink">{teste.sigla}</h2>
-            <p className="mt-1 text-xs text-ink/60">
-              {aplicacao?.teste.nome || teste.nome}
-              {aplicacao && ` · Respondente: ${aplicacao.respondenteTipo}`}
-            </p>
-          </div>
-          {teste.isPlaceholder && <PlaceholderBadge />}
+      <CabecalhoEstudio
+        sigla={teste.sigla} nome={aplicacao?.teste.nome || teste.nome} dominio={teste.dominio}
+        paciente={calc.info?.paciente.nome} idade={calc.info?.idadeTexto} data={calc.info ? new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" }) : undefined}
+        lancados={lancados.length} total={campos.length} calculando={calc.carregando} salvando={salvando} podeSalvar={lancados.length > 0} onSalvar={onSalvar}
+      />
+      {teste.isPlaceholder && <div><PlaceholderBadge /></div>}
+      {calc.info && (
+        <div className="flex flex-wrap gap-x-6 gap-y-1 rounded-2xl border border-mist bg-white px-5 py-3 text-xs">
+          <span><span className="text-ink/50">Escolaridade:</span> <b className="text-ink">{calc.info.paciente.escolaridade || "—"}</b></span>
+          <span><span className="text-ink/50">Sexo:</span> <b className="text-ink">{calc.info.paciente.sexo === "MASCULINO" ? "Masculino" : calc.info.paciente.sexo === "FEMININO" ? "Feminino" : "—"}</b></span>
+          <span><span className="text-ink/50">Nascimento:</span> <b className="text-ink">{new Date(calc.info.paciente.dataNascimento).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</b></span>
+          <span><span className="text-ink/50">Norma:</span> <b className="text-ink">{faixa ? `faixa etária ${faixa} anos` : "fora da faixa normativa (16 a 89 anos), sem cálculo"}</b></span>
         </div>
-        {calc.info && (
-          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5 rounded-xl bg-paper px-4 py-3 text-xs sm:grid-cols-3">
-            {[
-              ["Nome", calc.info.paciente.nome],
-              ["Escolaridade", calc.info.paciente.escolaridade || "—"],
-              ["Sexo", calc.info.paciente.sexo === "MASCULINO" ? "Masculino" : calc.info.paciente.sexo === "FEMININO" ? "Feminino" : "—"],
-              ["Data de aplicação", new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" })],
-              ["Data de nascimento", new Date(calc.info.paciente.dataNascimento).toLocaleDateString("pt-BR", { timeZone: "UTC" })],
-              ["Idade cronológica", calc.info.idadeTexto],
-            ].map(([rotulo, valor]) => (
-              <div key={rotulo} className="flex gap-2">
-                <dt className="text-ink/50">{rotulo}:</dt>
-                <dd className="font-semibold text-ink">{valor}</dd>
-              </div>
-            ))}
-            <div className="col-span-2 flex gap-2 sm:col-span-3">
-              <dt className="text-ink/50">Norma usada:</dt>
-              <dd className="font-semibold text-ink">{faixa ? `faixa etária ${faixa} anos` : "fora da faixa normativa (16 a 89 anos) — sem cálculo"}</dd>
-            </div>
-          </dl>
-        )}
-        <div className="mt-4 flex items-center gap-3">
-          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-mist">
-            <div className="h-full rounded-full bg-sage-deep transition-all duration-500" style={{ width: `${pctLancado}%` }} />
-          </div>
-          <span className="text-xs tabular-nums text-ink/60">
-            {lancados.length} de {campos.length} subtestes
-          </span>
-          {calc.carregando && <span className="text-xs text-ink/40">calculando…</span>}
-        </div>
-      </div>
-
+      )}
       {erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {calc.erro && !erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{calc.erro}</div>}
       {!sessaoId && (
@@ -188,6 +160,7 @@ export function TesteWaisIII({ teste, aplicacao, escoresBrutos, onEscoresChange,
         ))}
       </div>
 
+      <div className={abaAtiva === "brutos" ? "grid items-start gap-5 @5xl:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]" : ""}>
       <div key={abaAtiva} className="wais-entra rounded-2xl border border-mist bg-white p-5">
         {/* 1. Escores brutos */}
         {abaAtiva === "brutos" && (
@@ -426,6 +399,17 @@ export function TesteWaisIII({ teste, aplicacao, escoresBrutos, onEscoresChange,
 
         {/* 8. Habilidades compartilhadas */}
         {abaAtiva === "habilidades" && (extras.habilidades ? <HabilidadesWais3 matriz={extras.habilidades} /> : <EstadoVazio>Lance os subtestes na aba 1 para ver as habilidades compartilhadas.</EstadoVazio>)}
+      </div>
+      {abaAtiva === "brutos" && (
+        <PainelVivo carregando={calc.carregando} temDados={Object.keys(ponderados).length > 0} dica="O perfil dos subtestes e os QIs aparecem aqui conforme você lança os escores.">
+          <CartaoVivo titulo="Perfil dos subtestes (pontos ponderados)">
+            <PerfilPonderados ponderados={ponderados} rotulos={Object.fromEntries(Object.entries(rotulos).map(([k, v]) => [k, v.split(" — ")[0]]))} />
+          </CartaoVivo>
+          <CartaoVivo titulo="Escalas e QIs">
+            <EscalaIndices titulo="" nivelIC={nivelIC} linhas={linhas([["qiv", "QI Verbal", "Escala Verbal"], ["qie", "QI Execução", "Escala de Execução"], ["qit", "QI Total", "Quociente Intelectual Total"], ["gai", "GAI", "Índice de Habilidades Gerais"]])} />
+          </CartaoVivo>
+        </PainelVivo>
+      )}
       </div>
     </div>
   );

@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-10-22] Estúdio do teste em todos os testes
+
+**Ainda NÃO publicado.** (continua o registro de 21/10)
+- O mesmo estúdio (cabeçalho de destaque com anel de progresso, **painel de resultados ao vivo**, gráficos que começam vazios e se preenchem, **comentários** e **como lançar os dados**) agora vale para **todos os tipos de teste**: motor de planilha (cerca de 45), **WAIS-III**, **WISC-IV**, **WASI** e os testes de **lançamento simples** (BDI-II, BAI e outros).
+- WAIS-III: perfil dos subtestes (pontos ponderados) e QIs ao lado da entrada de dados, atualizados enquanto se digita. WISC-IV: índices fatoriais, QI Total, GAI e CPI. WASI: QIs. Simples: resultado e barra de classificação **calculados ao vivo** (antes só apareciam depois de salvar).
+- As duas colunas só se dividem quando há espaço (container queries); na tela estreita de lançamento simples (/testes) ficam empilhadas.
+- Só apresentação: nenhum cálculo mudou. 194 testes da API passam; conferidos no navegador FDT, D2-R, WAIS-III, WASI, WISC-IV e BDI-II.
+
 ## [2026-10-21] Estúdio do teste (primeira versão, motor de planilha)
 
 **Ainda NÃO publicado.**

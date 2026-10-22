@@ -10,6 +10,8 @@ import {
   type ExtrasWisc4,
 } from "../lib/wisc4";
 import { EscalaIndices, type LinhaIndice } from "./graficos/EscalaIndices";
+import { CabecalhoEstudio } from "./CabecalhoEstudio";
+import { CartaoVivo, PainelVivo } from "./PainelVivo";
 import { PlaceholderBadge } from "./PlaceholderBadge";
 
 interface Props {
@@ -82,50 +84,21 @@ export function TesteWiscIV({ teste, aplicacao, escoresBrutos, onEscoresChange, 
   const ponderados = useMemo(() => lerPonderados(resultado, SUBTESTES_WISC4), [resultado]);
   const extras = useMemo(() => lerExtrasGenerico(resultado) as unknown as ExtrasWisc4, [resultado]);
   const indices = useMemo(() => Object.fromEntries(["icv", "iop", "imo", "ivp", "qit", "gai", "cpi"].map((k) => [k, lerIndice(resultado, k)])) as Record<string, IndiceLido>, [resultado]);
-  const pctLancado = Math.round((lancados.length / Math.max(1, campos.length)) * 100);
   const nIC = confianca === "90%" ? "ic90" : "ic95";
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="rounded-2xl border border-mist bg-white p-5">
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <h2 className="font-serif text-2xl font-semibold text-ink">{teste.sigla}</h2>
-            <p className="mt-1 text-xs text-ink/60">{aplicacao?.teste.nome || teste.nome}</p>
-          </div>
-          {teste.isPlaceholder && <PlaceholderBadge />}
-        </div>
-        {calc.info && (
-          <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5 rounded-xl bg-paper px-4 py-3 text-xs sm:grid-cols-3">
-            {[
-              ["Nome", calc.info.paciente.nome],
-              ["Data de aplicação", new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" })],
-              ["Data de nascimento", new Date(calc.info.paciente.dataNascimento).toLocaleDateString("pt-BR", { timeZone: "UTC" })],
-              ["Idade cronológica", calc.info.idadeTexto],
-            ].map(([r, v]) => (
-              <div key={r} className="flex gap-2">
-                <dt className="text-ink/50">{r}:</dt>
-                <dd className="font-semibold text-ink">{v}</dd>
-              </div>
-            ))}
-            {(calc.info.idadeAnos < 6 || calc.info.idadeAnos > 16) && (
-              <div className="col-span-2 font-semibold text-ember sm:col-span-3">Fora da faixa normativa do WISC-IV (6:0 a 16:11) — sem cálculo.</div>
-            )}
-          </dl>
-        )}
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <div className="h-1.5 min-w-[120px] flex-1 overflow-hidden rounded-full bg-mist">
-            <div className="h-full rounded-full bg-sage-deep transition-all duration-500" style={{ width: `${pctLancado}%` }} />
-          </div>
-          <span className="text-xs tabular-nums text-ink/60">{lancados.length} de {campos.length} campos</span>
-          {calc.carregando && <span className="text-xs text-ink/40">calculando…</span>}
-        </div>
-        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs">
-          <Seletor rotulo="Intervalo de confiança" valor={confianca} opcoes={["90%", "95%"]} onChange={(v) => setConfianca(v as "90%" | "95%")} />
-          <Seletor rotulo="Base de comparação" valor={base} opcoes={["Amostra Geral", "Nível de Habilidade"]} onChange={(v) => setBase(v as "Amostra Geral" | "Nível de Habilidade")} />
-        </div>
+    <div className="@container flex flex-col gap-4">
+      <CabecalhoEstudio
+        sigla={teste.sigla} nome={aplicacao?.teste.nome || teste.nome} dominio={teste.dominio}
+        paciente={calc.info?.paciente.nome} idade={calc.info?.idadeTexto} data={calc.info ? new Date(calc.info.dataAplicacao).toLocaleDateString("pt-BR", { timeZone: "UTC" }) : undefined}
+        lancados={lancados.length} total={campos.length} calculando={calc.carregando} salvando={salvando} podeSalvar={lancados.length > 0} onSalvar={onSalvar}
+      />
+      {teste.isPlaceholder && <div><PlaceholderBadge /></div>}
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl border border-mist bg-white px-5 py-3 text-xs">
+        <Seletor rotulo="Intervalo de confiança" valor={confianca} opcoes={["90%", "95%"]} onChange={(v) => setConfianca(v as "90%" | "95%")} />
+        <Seletor rotulo="Base de comparação" valor={base} opcoes={["Amostra Geral", "Nível de Habilidade"]} onChange={(v) => setBase(v as "Amostra Geral" | "Nível de Habilidade")} />
+        {calc.info && (calc.info.idadeAnos < 6 || calc.info.idadeAnos > 16) && <span className="font-semibold text-ember">Fora da faixa normativa do WISC-IV (6:0 a 16:11), sem cálculo.</span>}
       </div>
-
       {erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{erro}</div>}
       {calc.erro && !erro && <div className="rounded-lg border border-ember/30 bg-ember/10 px-4 py-3 text-sm text-ember">{calc.erro}</div>}
       {!sessaoId && <div className="rounded-lg border border-mist bg-paper px-4 py-3 text-sm text-ink/70">Escolha o paciente e a sessão para ver os resultados enquanto você digita: a idade dele define as normas.</div>}
@@ -138,6 +111,7 @@ export function TesteWiscIV({ teste, aplicacao, escoresBrutos, onEscoresChange, 
         ))}
       </div>
 
+      <div className={abaAtiva === "brutos" ? "grid items-start gap-5 @5xl:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]" : ""}>
       <div key={abaAtiva} className="wais-entra rounded-2xl border border-mist bg-white p-5">
         {abaAtiva === "brutos" && (
           <div className="space-y-6">
@@ -204,6 +178,17 @@ export function TesteWiscIV({ teste, aplicacao, escoresBrutos, onEscoresChange, 
         {abaAtiva === "processo" && <Processo resultado={resultado} extras={extras} />}
         {abaAtiva === "habilidades" && <Habilidades extras={extras} />}
         {abaAtiva === "idadeMental" && <IdadeMental extras={extras} />}
+      </div>
+      {abaAtiva === "brutos" && (
+        <PainelVivo carregando={calc.carregando} temDados={Object.values(indices).some((i) => i.composto !== null) || Object.keys(ponderados).length > 0} dica="Os índices e o QI Total aparecem aqui conforme você lança os subtestes.">
+          <CartaoVivo titulo="Índices fatoriais">
+            <EscalaIndices titulo="" nivelIC={nIC} linhas={linhasIndice([["icv", "ICV", "Compreensão Verbal"], ["iop", "IOP", "Organização Perceptual"], ["imo", "IMO", "Memória Operacional"], ["ivp", "IVP", "Velocidade de Processamento"]], indices)} />
+          </CartaoVivo>
+          <CartaoVivo titulo="QI Total e índices gerais">
+            <EscalaIndices titulo="" nivelIC={nIC} linhas={linhasIndice([["qit", "QI Total", "Quociente Intelectual Total"], ["gai", "GAI", "Índice de Habilidade Geral (ICV + IOP)"], ["cpi", "CPI", "Índice de Proficiência Cognitiva (IMO + IVP)"]], indices)} />
+          </CartaoVivo>
+        </PainelVivo>
+      )}
       </div>
     </div>
   );
