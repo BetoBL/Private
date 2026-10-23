@@ -22,6 +22,12 @@ O paciente recebe um link no celular e responde a questionários antes da consul
 10. Que documentos emite com mais frequência (receita, atestado, laudo, relatório, pedido de exames, encaminhamento, declaração)? Algum modelo que você reaproveita sempre?
 11. Como assina e envia hoje (certificado digital, plataforma de receita, papel)?
 
+## 3b. Receitas, exames e integrações
+a. Que plataforma usa para receita digital (Memed, outra, certificado digital direto)? Está satisfeito(a)?
+b. De quais **laboratórios** seus pacientes mais trazem exames? Você consulta os resultados em portal do laboratório, e-mail, WhatsApp ou PDF?
+c. De quais **hospitais** você precisa ver exames ou internações dos seus pacientes (por exemplo Einstein, Sírio-Libanês, hospitais da sua região)? Como acessa hoje?
+d. Receber esses resultados direto no prontuário, sem digitar, valeria a troca de sistema? Qual seria a primeira integração que você pediria?
+
 ## 4. Inteligência artificial
 12. Você usaria uma IA que **escuta a consulta** (com o consentimento do paciente) e devolve a anamnese como rascunho? O que teria que ter para você confiar? O que te deixaria desconfortável?
 13. Que tipo de ajuda você gostaria da IA: resumo do caso, perguntas para a próxima consulta, lista de problemas, leitura de exames, lembretes de rastreios?
@@ -41,4 +47,4 @@ O paciente recebe um link no celular e responde a questionários antes da consul
 21. Posso te mostrar uma versão de teste depois e ouvir de novo?
 
 ---
-**Para anotar (uso interno, não precisa ler para o médico):** especialidade, nome (opcional), as respostas das perguntas 5, 7, 8, 9 e 10 viram o pacote daquela especialidade; as 12 a 14 orientam a IA e os avisos; 16 e 17 orientam o compartilhamento entre profissionais.
+**Para anotar (uso interno, não precisa ler para o médico):** especialidade, nome (opcional), as respostas das perguntas 5, 7, 8, 9 e 10 viram o pacote; as de 3b (a a d) definem a ordem das integrações (receita, laboratórios, hospitais) daquela especialidade; as 12 a 14 orientam a IA e os avisos; 16 e 17 orientam o compartilhamento entre profissionais.
