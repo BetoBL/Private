@@ -11,10 +11,11 @@ import { SalaVirtualComponent } from "../components/SalaVirtual";
 import { DiarioDoPaciente } from "../components/DiarioDoPaciente";
 import { EscalasDoPaciente } from "../components/EscalasDoPaciente";
 import { SaudeDoPaciente } from "../components/SaudeDoPaciente";
+import { PedidosDoPaciente } from "../components/PedidosDoPaciente";
 import { FormulariosDoPaciente } from "../components/FormulariosDoPaciente";
 import { ProntuarioDoPaciente } from "../components/ProntuarioDoPaciente";
 import { useAuth } from "../context/AuthContext";
-import { temModulo } from "../lib/profissoes";
+import { registroDe, temModulo } from "../lib/profissoes";
 import {
   api,
   ROTULO_RESPONDENTE,
@@ -33,6 +34,7 @@ import {
 // Uma frase leve no topo de cada aba: o que ela é e para que serve.
 const INTRO_ABA: Partial<Record<string, string>> = {
   dados: "Perfil e cadastro do paciente: contatos, endereço, financeiro, convênio, nota fiscal e consentimentos.",
+  pedidos: "Pedidos de exames, pedidos médicos e indicações de medicação. Busque no catálogo, use seus modelos gravados e imprima.",
   saude: "Problemas de saúde, medicamentos em uso e medidas ao longo do tempo (pressão, peso, glicemia, exames), com gráficos.",
   financeiro: "O que foi cobrado, o que já foi pago e o que está pendente ou atrasado, com a baixa de cada pagamento.",
   sessoes: "Cada atendimento do paciente, do agendamento à evolução. Abra uma sessão para anotar e gerar a evolução com IA.",
@@ -48,7 +50,7 @@ const INTRO_ABA: Partial<Record<string, string>> = {
   laudos: "Os laudos deste paciente, do rascunho à entrega.",
 };
 const ABAS_LAUDO: readonly string[] = ["anamnese", "linha", "dashboard", "laudos"];
-type Aba = "saude" | "dados" | "sessoes" | "financeiro" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
+type Aba = "pedidos" | "saude" | "dados" | "sessoes" | "financeiro" | "anamnese" | "linha" | "dashboard" | "laudos" | "agenda" | "anexos" | "diario" | "prontuario" | "escalas" | "formularios";
 
 const TIPOS_ANEXO = ["documento", "laudo_externo", "exame", "foto"];
 const DIAS_SEMANA = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
@@ -62,7 +64,7 @@ export function FichaPaciente() {
   const [searchParams, setSearchParams] = useSearchParams();
   // ?aba=anamnese abre direto a aba (atalho da Agenda e do Painel do dia)
   const abaDoEndereco = searchParams.get("aba");
-  const [aba, setAba] = useState<Aba>(["dados", "saude", "sessoes", "financeiro", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
+  const [aba, setAba] = useState<Aba>(["dados", "saude", "pedidos", "sessoes", "financeiro", "anamnese", "linha", "dashboard", "laudos", "agenda", "anexos", "diario", "prontuario", "escalas", "formularios"].includes(abaDoEndereco ?? "") ? (abaDoEndereco as Aba) : "dados");
   const [erro, setErro] = useState<string | null>(null);
   const [mensagem, setMensagem] = useAviso();
   // quem não faz laudo não tem o grupo de laudo: um atalho antigo para essas abas cai nos dados
@@ -402,6 +404,7 @@ export function FichaPaciente() {
         {([
           ["dados", "Dados"],
           ["saude", "Saúde", "saude"],
+          ["pedidos", "Pedidos", "pedidos"],
           ["sessoes", "Sessões"],
           ["financeiro", "Financeiro"],
           ["prontuario", "Prontuário"],
@@ -439,6 +442,7 @@ export function FichaPaciente() {
       {aba === "sessoes" && id && <SessoesDoPaciente pacienteId={id} fazLaudo={!!paciente.fazLaudo} />}
       {aba === "prontuario" && id && <ProntuarioDoPaciente pacienteId={id} />}
       {aba === "formularios" && id && <FormulariosDoPaciente pacienteId={id} />}
+      {aba === "pedidos" && id && <PedidosDoPaciente pacienteId={id} pacienteNome={paciente.nome} profissionalNome={profissionalLogado?.nome ?? ""} registro={`${registroDe(profissionalLogado?.categoria ?? "")} ${profissionalLogado?.crp ?? ""}`.trim()} />}
       {aba === "saude" && id && <SaudeDoPaciente pacienteId={id} />}
       {aba === "escalas" && id && <EscalasDoPaciente pacienteId={id} />}
       {aba === "diario" && id && <DiarioDoPaciente pacienteId={id} />}

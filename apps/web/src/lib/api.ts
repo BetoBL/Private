@@ -468,6 +468,14 @@ export interface MetricaSaude { id: string; tipo: string; valor: number; valor2:
 export interface TipoMetricaSaude { chave: string; rotulo: string; unidade: string; duplo?: boolean; min: number; max: number; faixa?: [number, number] }
 export interface SaudeDoPacienteDados { problemas: ProblemaSaude[]; medicamentos: MedicamentoSaude[]; metricas: MetricaSaude[] }
 
+// ---- Exames e pedidos (pacote médico) ----
+export type TipoPedido = "PEDIDO_EXAMES" | "PEDIDO_MEDICO" | "INDICACAO_MEDICACAO";
+export interface ItemPedido { codigo?: string | null; nome: string; detalhe?: string | null }
+export interface ExameCatalogo { codigo: string; nome: string; grupo: string }
+export interface KitExame { chave: string; nome: string; especialidades: string[]; recomendado: boolean; itens: ItemPedido[] }
+export interface ModeloPedidoSalvo { id: string; nome: string; tipo: TipoPedido; itens: ItemPedido[]; texto: string | null; compartilhado: boolean; meu: boolean }
+export interface PedidoSalvo { id: string; tipo: TipoPedido; itens: ItemPedido[]; texto: string | null; indicacao: string | null; criadoEm: string }
+
 // ---- Escalas de triagem ----
 export interface FaixaEscala { ate: number; rotulo: string; cor: "verde" | "amarelo" | "laranja" | "vermelho" }
 export interface EscalaResumo { codigo: string; nome: string; sigla: string; construto: string; uso: string; tempo: string; fonte: string; itens: number; frequenciaSugerida: string; notaClinica: string; graficoMax: number; pontosDeCorte: number[]; porSubescala: boolean }
@@ -754,6 +762,7 @@ export const api = {
       formacao: string;
       especialidades: string[];
       categoria: string;
+      especialidadeMedica: string | null;
       papel: PapelProfissional;
       senha: string;
     }>
@@ -978,6 +987,15 @@ export const api = {
   removerMedicamentoSaude: (pacienteId: string, id: string) => request<{ ok: true }>(`/saude/${pacienteId}/medicamentos/${id}`, { method: "DELETE" }),
   registrarMetricaSaude: (pacienteId: string, d: { tipo: string; valor: number; valor2?: number | null; data: string }) => request<{ id: string }>(`/saude/${pacienteId}/metricas`, { method: "POST", body: JSON.stringify(d) }),
   removerMetricaSaude: (pacienteId: string, id: string) => request<{ ok: true }>(`/saude/${pacienteId}/metricas/${id}`, { method: "DELETE" }),
+  buscarExames: (q: string, grupo?: string) => request<ExameCatalogo[]>(`/exames/catalogo?q=${encodeURIComponent(q)}${grupo ? `&grupo=${encodeURIComponent(grupo)}` : ""}`),
+  gruposDeExames: () => request<string[]>("/exames/grupos"),
+  kitsDeExames: () => request<KitExame[]>("/exames/kits"),
+  modelosDePedido: () => request<ModeloPedidoSalvo[]>("/exames/modelos"),
+  salvarModeloDePedido: (d: { nome: string; tipo: TipoPedido; itens: ItemPedido[]; texto?: string | null; compartilhado?: boolean }) => request<{ id: string }>("/exames/modelos", { method: "POST", body: JSON.stringify(d) }),
+  removerModeloDePedido: (id: string) => request<{ ok: true }>(`/exames/modelos/${id}`, { method: "DELETE" }),
+  pedidosDoPaciente: (pacienteId: string) => request<PedidoSalvo[]>(`/exames/pedidos/${pacienteId}`),
+  registrarPedido: (pacienteId: string, d: { tipo: TipoPedido; itens: ItemPedido[]; texto?: string | null; indicacao?: string | null }) => request<{ id: string }>(`/exames/pedidos/${pacienteId}`, { method: "POST", body: JSON.stringify(d) }),
+  removerPedido: (pacienteId: string, id: string) => request<{ ok: true }>(`/exames/pedidos/${pacienteId}/${id}`, { method: "DELETE" }),
   catalogoEscalas: () => request<EscalaResumo[]>("/escalas/catalogo"),
   escalaCompleta: (codigo: string) => request<EscalaCompleta>(`/escalas/catalogo/${codigo}`),
   escalasDoPaciente: (pacienteId: string) => request<SolicitacaoEscala[]>(`/escalas/paciente/${pacienteId}`),

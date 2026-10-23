@@ -104,7 +104,7 @@ export const MODULOS_BASE = ["pacientes", "agenda", "prontuario", "anamnese", "f
 export const PROFISSOES: Profissao[] = [
   { chave: "PSICOLOGO", rotulo: "Psicólogo(a)", registro: "CRP", modelos: ["LIVRE", "SOAP", "FOCO", "DBT"], modulos: [...MODULOS_BASE, "diario", "escalas", "estudo_caso"] },
   { chave: "NEUROPSICOLOGO", rotulo: "Neuropsicólogo(a)", registro: "CRP", modelos: ["LIVRE", "SOAP", "FOCO", "DBT"], modulos: [...MODULOS_BASE, "diario", "escalas", "estudo_caso", "testes", "laudos"] },
-  { chave: "MEDICO", rotulo: "Médico(a)", registro: "CRM", modelos: ["LIVRE", "PRIMEIRA_CONSULTA", "RETORNO", "SOAP", "CONSULTA"], modulos: [...MODULOS_BASE, "escalas", "saude"] },
+  { chave: "MEDICO", rotulo: "Médico(a)", registro: "CRM", modelos: ["LIVRE", "PRIMEIRA_CONSULTA", "RETORNO", "SOAP", "CONSULTA"], modulos: [...MODULOS_BASE, "escalas", "saude", "pedidos"] },
   { chave: "FISIOTERAPEUTA", rotulo: "Fisioterapeuta", registro: "CREFITO", modelos: ["LIVRE", "REABILITACAO", "SOAP"], modulos: [...MODULOS_BASE] },
   { chave: "TERAPEUTA_OCUPACIONAL", rotulo: "Terapeuta ocupacional", registro: "CREFITO", modelos: ["LIVRE", "REABILITACAO", "SOAP"], modulos: [...MODULOS_BASE] },
   { chave: "FONOAUDIOLOGO", rotulo: "Fonoaudiólogo(a)", registro: "CRFa", modelos: ["LIVRE", "REABILITACAO", "SOAP"], modulos: [...MODULOS_BASE] },

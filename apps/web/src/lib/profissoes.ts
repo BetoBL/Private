@@ -21,6 +21,9 @@ export const ESPECIALIDADES: Array<{ chave: string; rotulo: string; modulos: str
   { chave: "PEDIATRIA", rotulo: "Pediatria", modulos: [] },
   { chave: "GINECOLOGIA", rotulo: "Ginecologia e obstetrícia", modulos: [] },
   { chave: "NEUROLOGIA", rotulo: "Neurologia", modulos: [] },
+  { chave: "OFTALMOLOGIA", rotulo: "Oftalmologia", modulos: [] },
+  { chave: "UROLOGIA", rotulo: "Urologia", modulos: [] },
+  { chave: "GASTROENTEROLOGIA", rotulo: "Gastroenterologia", modulos: [] },
   { chave: "DERMATOLOGIA", rotulo: "Dermatologia", modulos: [] },
   { chave: "ORTOPEDIA", rotulo: "Ortopedia e traumatologia", modulos: [] },
   { chave: "MEDICINA_DO_ESPORTE", rotulo: "Medicina do esporte", modulos: [] },
@@ -30,7 +33,7 @@ export const ESPECIALIDADES: Array<{ chave: string; rotulo: string; modulos: str
 const MODULOS: Record<string, string[]> = {
   PSICOLOGO: [...MODULOS_BASE, "diario", "escalas", "estudo_caso"],
   NEUROPSICOLOGO: [...MODULOS_BASE, "diario", "escalas", "estudo_caso", "testes", "laudos"],
-  MEDICO: [...MODULOS_BASE, "escalas", "saude"],
+  MEDICO: [...MODULOS_BASE, "escalas", "saude", "pedidos"],
 };
 // profissão sem lista própria (médico, fisioterapeuta...) usa só a base
 export const temModulo = (categoria: string | undefined, modulo: string, especialidade?: string | null) => {

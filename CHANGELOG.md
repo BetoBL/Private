@@ -1,5 +1,17 @@
 # Changelog
 
+## [2026-10-23] Exames e pedidos médicos (pacote médico, etapa C)
+
+**Ainda NÃO publicado.** Migration `pedidos_medicos` só local.
+- **Catálogo de exames:** 2.873 procedimentos diagnósticos vigentes da Tabela 22 da TUSS (ANS), baixados do Sistema de Gestão de Terminologias da ANS em 23/10/2026 (`apps/api/src/data/exames-tuss.json`). Busca por parte do nome, sem acento, entendendo abreviações (ECG, TC, RM, US, MAPA, TCO) e filtro por tipo de exame.
+- **Kits por especialidade (sugestões iniciais, a validar com médicos):** check-up básico, cardiologia (avaliação inicial, arritmia e pressão, carótidas), diabetes, oftalmologia (avaliação de glaucoma), ginecologia, ortopedia e psiquiatria. Especialidades novas: oftalmologia, urologia, gastroenterologia.
+- **Aba Pedidos** na ficha: pedido de exames, pedido médico (texto) e indicação de medicação. O médico usa kit ou modelo gravado, busca exames, ajusta detalhe (ex.: "olhos, ambos"), registra no paciente, imprime ou copia o texto.
+- **Modelos gravados** pelo médico (por tipo), com opção de compartilhar com a clínica; só o autor edita ou apaga.
+- API `/exames` (catalogo, grupos, kits, modelos, pedidos). 4 testes novos do catálogo; os testes da API passam.
+- Correção de processo: a checagem de tipos da web estava vazia (usava o tsconfig raiz); passa a usar `tsc -p tsconfig.app.json`. Isso revelou e corrigiu um tipo faltando em `updateProfissional` (especialidadeMedica).
+- Ainda não existe: importação de exames em PDF por IA, catálogo de medicamentos, assinatura digital/Memed.
+
+
 ## [2026-10-23] Aba Saúde do paciente (pacote médico, etapa B)
 
 **Ainda NÃO publicado.** Migration `saude_do_paciente` só local.
