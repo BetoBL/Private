@@ -984,3 +984,57 @@ model ResumoCasoIA {
 
   @@index([pacienteId, geradoEm])
 }
+
+// Saúde do paciente (pacote médico): lista de problemas, medicamentos em uso e métricas ao longo do tempo.
+model ProblemaPaciente {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  profissionalId String
+  descricao      String
+  cid            String?
+  status         String    @default("ATIVO") // ATIVO | RESOLVIDO
+  inicio         DateTime? @db.Date
+  observacao     String?   @db.Text
+  excluidaEm     DateTime?
+  criadoEm       DateTime  @default(now())
+  atualizadoEm   DateTime  @updatedAt
+
+  @@index([pacienteId])
+}
+
+model MedicamentoPaciente {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  profissionalId String
+  nome           String
+  dose           String?
+  posologia      String?
+  motivo         String?
+  status         String    @default("EM_USO") // EM_USO | SUSPENSO
+  inicio         DateTime? @db.Date
+  fim            DateTime? @db.Date
+  observacao     String?   @db.Text
+  excluidaEm     DateTime?
+  criadoEm       DateTime  @default(now())
+  atualizadoEm   DateTime  @updatedAt
+
+  @@index([pacienteId])
+}
+
+model MetricaPaciente {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  profissionalId String
+  tipo           String    // chave de lib/saude/metricas.ts
+  valor          Float
+  valor2         Float?    // pressão: diastólica
+  data           DateTime  @db.Date
+  observacao     String?
+  excluidaEm     DateTime?
+  criadoEm       DateTime  @default(now())
+
+  @@index([pacienteId, tipo, data])
+}

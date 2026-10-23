@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-10-23] Aba Saúde do paciente (pacote médico, etapa B)
+
+**Ainda NÃO publicado.** Migration `saude_do_paciente` só local.
+- Nova aba **Saúde** na ficha do paciente (módulo "saude", aparece para médicos): **problemas de saúde** (com CID opcional, marcar como resolvido/reativar), **medicamentos** (dose, como usar, para quê; suspender/retomar) e **medidas e exames** com gráfico por tipo que se monta conforme os valores entram, com faixa de referência verde.
+- Medidas: peso, cintura, pressão arterial (máxima e mínima), frequência cardíaca, saturação, temperatura, glicemia, hemoglobina glicada, LDL e sono. Valores fora do intervalo possível e pressão sem as duas medidas são recusados.
+- API `/saude/:pacienteId` (problemas, medicamentos, metricas), só o profissional responsável ou o administrador; remoção é lógica (`excluidaEm`).
+- Conferido no navegador e por script (criação, validações, 401 sem login). 194 testes da API passam; tsc limpo.
+
+
 ## [2026-10-23] Pacote médico base e especialidade (etapa A)
 
 **Ainda NÃO publicado.** Migration `especialidade_medica` só local.

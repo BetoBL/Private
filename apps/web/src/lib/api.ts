@@ -461,6 +461,13 @@ export interface FormularioResumo { id: string; nome: string; tipo: string; modo
 export type RespostasForm = Record<string, string | string[] | number | boolean>;
 export interface FormularioDetalhe { id: string; nome: string; tipo: string; modo: string; status: string; perguntas: PerguntaForm[]; respostas: RespostasForm | null; respondidoPor: string | null; respondidoEm: string | null }
 
+// ---- Saúde do paciente (pacote médico) ----
+export interface ProblemaSaude { id: string; descricao: string; cid: string | null; status: "ATIVO" | "RESOLVIDO"; inicio: string | null; observacao: string | null }
+export interface MedicamentoSaude { id: string; nome: string; dose: string | null; posologia: string | null; motivo: string | null; status: "EM_USO" | "SUSPENSO"; inicio: string | null; fim: string | null; observacao: string | null }
+export interface MetricaSaude { id: string; tipo: string; valor: number; valor2: number | null; data: string; observacao: string | null }
+export interface TipoMetricaSaude { chave: string; rotulo: string; unidade: string; duplo?: boolean; min: number; max: number; faixa?: [number, number] }
+export interface SaudeDoPacienteDados { problemas: ProblemaSaude[]; medicamentos: MedicamentoSaude[]; metricas: MetricaSaude[] }
+
 // ---- Escalas de triagem ----
 export interface FaixaEscala { ate: number; rotulo: string; cor: "verde" | "amarelo" | "laranja" | "vermelho" }
 export interface EscalaResumo { codigo: string; nome: string; sigla: string; construto: string; uso: string; tempo: string; fonte: string; itens: number; frequenciaSugerida: string; notaClinica: string; graficoMax: number; pontosDeCorte: number[]; porSubescala: boolean }
@@ -961,6 +968,16 @@ export const api = {
   apagarFormulario: (id: string) => request<void>(`/formularios/${id}`, { method: "DELETE" }),
   formularioPublico: (segredo: string, id: string) => request<{ id: string; nome: string; perguntas: PerguntaForm[] }>(`/diario-publico/${segredo}/formularios/${id}`),
   responderFormulario: (segredo: string, id: string, respostas: RespostasForm) => request<{ ok: boolean }>(`/diario-publico/${segredo}/formularios/${id}`, { method: "POST", body: JSON.stringify({ respostas }) }),
+  saudeDoPaciente: (pacienteId: string) => request<SaudeDoPacienteDados>(`/saude/${pacienteId}`),
+  tiposMetricaSaude: () => request<TipoMetricaSaude[]>("/saude/metricas"),
+  criarProblemaSaude: (pacienteId: string, d: { descricao: string; cid?: string | null }) => request<{ id: string }>(`/saude/${pacienteId}/problemas`, { method: "POST", body: JSON.stringify(d) }),
+  atualizarProblemaSaude: (pacienteId: string, id: string, d: Partial<{ descricao: string; cid: string | null; status: string }>) => request<{ ok: true }>(`/saude/${pacienteId}/problemas/${id}`, { method: "PUT", body: JSON.stringify(d) }),
+  removerProblemaSaude: (pacienteId: string, id: string) => request<{ ok: true }>(`/saude/${pacienteId}/problemas/${id}`, { method: "DELETE" }),
+  criarMedicamentoSaude: (pacienteId: string, d: { nome: string; dose?: string | null; posologia?: string | null; motivo?: string | null; inicio?: string | null }) => request<{ id: string }>(`/saude/${pacienteId}/medicamentos`, { method: "POST", body: JSON.stringify(d) }),
+  atualizarMedicamentoSaude: (pacienteId: string, id: string, d: Partial<{ status: string; fim: string | null }>) => request<{ ok: true }>(`/saude/${pacienteId}/medicamentos/${id}`, { method: "PUT", body: JSON.stringify(d) }),
+  removerMedicamentoSaude: (pacienteId: string, id: string) => request<{ ok: true }>(`/saude/${pacienteId}/medicamentos/${id}`, { method: "DELETE" }),
+  registrarMetricaSaude: (pacienteId: string, d: { tipo: string; valor: number; valor2?: number | null; data: string }) => request<{ id: string }>(`/saude/${pacienteId}/metricas`, { method: "POST", body: JSON.stringify(d) }),
+  removerMetricaSaude: (pacienteId: string, id: string) => request<{ ok: true }>(`/saude/${pacienteId}/metricas/${id}`, { method: "DELETE" }),
   catalogoEscalas: () => request<EscalaResumo[]>("/escalas/catalogo"),
   escalaCompleta: (codigo: string) => request<EscalaCompleta>(`/escalas/catalogo/${codigo}`),
   escalasDoPaciente: (pacienteId: string) => request<SolicitacaoEscala[]>(`/escalas/paciente/${pacienteId}`),
