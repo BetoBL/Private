@@ -1071,3 +1071,25 @@ model PedidoPaciente {
 
   @@index([pacienteId, criadoEm])
 }
+
+// Resultados de exames do paciente (importados de PDF/foto com conferência do médico, ou digitados).
+model ResultadoExame {
+  id             String    @id @default(uuid())
+  clinicaId      String
+  pacienteId     String
+  profissionalId String
+  data           DateTime  @db.Date // data da coleta ou do exame
+  laboratorio    String?
+  nome           String
+  tipo           String    @default("NUMERICO") // NUMERICO | LAUDO
+  valor          Float?
+  valorTexto     String?   // laudo ou resultado não numérico
+  unidade        String?
+  referencia     String?
+  fora           Boolean?  // fora da referência impressa no exame
+  origem         String    @default("IA") // IA | MANUAL
+  excluidaEm     DateTime?
+  criadoEm       DateTime  @default(now())
+
+  @@index([pacienteId, nome, data])
+}

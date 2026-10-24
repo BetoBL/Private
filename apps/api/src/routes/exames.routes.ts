@@ -2,6 +2,8 @@ import type { Request } from "express";
 import { Router } from "express";
 import { z } from "zod";
 import { buscarExames, exameDe, GRUPOS_EXAME, KITS } from "../lib/exames/catalogo";
+import { extrairExame, metricaDoResultado, nomeConfere } from "../lib/exames/extrair";
+import { metricaDe } from "../lib/saude/metricas";
 import { prisma } from "../lib/prisma";
 import { asyncHandler, validateBody } from "../lib/validate";
 
@@ -88,5 +90,78 @@ examesRouter.delete("/pedidos/:pacienteId/:id", asyncHandler(async (req, res) =>
   if (!(await pacienteDoUsuario(req, req.params.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
   const r = await prisma.pedidoPaciente.updateMany({ where: { id: req.params.id, pacienteId: req.params.pacienteId, clinicaId: me.clinicaId, excluidaEm: null }, data: { excluidaEm: new Date() } });
   if (!r.count) { res.status(404).json({ error: "Pedido não encontrado" }); return; }
+  res.json({ ok: true });
+}));
+
+// ---- importação de exames (PDF ou foto) por IA, sempre com conferência do médico ----
+const TIPOS_ARQUIVO = ["application/pdf", "image/png", "image/jpeg", "image/webp"] as const;
+const importarSchema = z.object({ arquivo: z.string().min(100).max(14_000_000), tipoMime: z.enum(TIPOS_ARQUIVO) });
+
+examesRouter.post("/importar/:pacienteId", validateBody(importarSchema), asyncHandler(async (req, res) => {
+  const me = u(req);
+  const p = await prisma.paciente.findFirst({ where: { id: req.params.pacienteId, clinicaId: me.clinicaId, ...(me.papel === "ADMIN" ? {} : { profissionalId: me.sub }) }, select: { nome: true, consentimentoTDIC: true } });
+  if (!p) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
+  if (!p.consentimentoTDIC) { res.status(409).json({ error: "Para ler o exame com IA, registre antes o consentimento do paciente para tecnologias de apoio (aba Dados)." }); return; }
+  let r;
+  try { r = await extrairExame(req.body.arquivo, req.body.tipoMime); } catch (e) {
+    console.error("[exames/importar]", e instanceof Error ? e.message : e);
+    res.status(502).json({ error: "Não foi possível ler este arquivo agora. Tente de novo ou digite os resultados." }); return;
+  }
+  res.json({ ...r, nomeConfere: nomeConfere(p.nome, r.nomeNoDocumento) });
+}));
+
+const resultadoSchema = z.object({
+  data: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  laboratorio: z.string().trim().max(200).nullable().optional(),
+  origem: z.enum(["IA", "MANUAL"]).default("IA"),
+  itens: z.array(z.object({
+    nome: z.string().trim().min(2).max(200), tipo: z.enum(["NUMERICO", "LAUDO"]), valor: z.number().finite().nullable().optional(), valorTexto: z.string().max(4000).nullable().optional(),
+    unidade: z.string().trim().max(30).nullable().optional(), referencia: z.string().trim().max(200).nullable().optional(), fora: z.boolean().nullable().optional(),
+  })).min(1).max(150),
+});
+
+examesRouter.get("/resultados/:pacienteId", asyncHandler(async (req, res) => {
+  const me = u(req);
+  if (!(await pacienteDoUsuario(req, req.params.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
+  const lista = await prisma.resultadoExame.findMany({ where: { pacienteId: req.params.pacienteId, clinicaId: me.clinicaId, excluidaEm: null }, orderBy: [{ data: "asc" }, { criadoEm: "asc" }] });
+  res.json(lista.map((r) => ({ id: r.id, data: r.data.toISOString().slice(0, 10), laboratorio: r.laboratorio, nome: r.nome, tipo: r.tipo, valor: r.valor, valorTexto: r.valorTexto, unidade: r.unidade, referencia: r.referencia, fora: r.fora })));
+}));
+
+examesRouter.post("/resultados/:pacienteId", validateBody(resultadoSchema), asyncHandler(async (req, res) => {
+  const me = u(req);
+  if (!(await pacienteDoUsuario(req, req.params.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
+  const data = new Date(`${req.body.data}T00:00:00.000Z`);
+  if (data.getTime() > Date.now() + 86_400_000) { res.status(400).json({ error: "A data do exame não pode estar no futuro." }); return; }
+  type Item = z.infer<typeof resultadoSchema>["itens"][number];
+  const comValor = (req.body.itens as Item[]).filter((i) => (i.tipo === "NUMERICO" ? i.valor != null || !!i.valorTexto?.trim() : !!i.valorTexto?.trim()));
+  if (!comValor.length) { res.status(400).json({ error: "Nenhum resultado com valor para salvar." }); return; }
+  // importar o mesmo exame duas vezes não repete os resultados (mesmo exame, mesma data e mesmo valor)
+  const jaSalvos = await prisma.resultadoExame.findMany({ where: { pacienteId: req.params.pacienteId, clinicaId: me.clinicaId, data, excluidaEm: null }, select: { nome: true, valor: true, valorTexto: true } });
+  const chave = (n: string, v: number | null | undefined, t: string | null | undefined) => `${n.toLowerCase()}|${v ?? ""}|${(t ?? "").trim()}`;
+  const existentes = new Set(jaSalvos.map((r) => chave(r.nome, r.valor, r.valorTexto)));
+  const itens = comValor.filter((i) => !existentes.has(chave(i.nome, i.valor, i.valorTexto)));
+  if (!itens.length) { res.status(200).json({ salvos: 0, metricas: 0 }); return; }
+  let metricas = 0;
+  await prisma.$transaction(async (tx) => {
+    await tx.resultadoExame.createMany({ data: itens.map((i) => ({ clinicaId: me.clinicaId, pacienteId: req.params.pacienteId, profissionalId: me.sub, data, laboratorio: req.body.laboratorio ?? null, nome: i.nome, tipo: i.tipo, valor: i.valor ?? null, valorTexto: i.valorTexto ?? null, unidade: i.unidade ?? null, referencia: i.referencia ?? null, fora: i.fora ?? null, origem: req.body.origem })) });
+    // o que já tem gráfico na aba Saúde entra também como medida, sem repetir a mesma medida no mesmo dia
+    for (const i of itens) {
+      const chave = i.tipo === "NUMERICO" && i.valor != null ? metricaDoResultado(i.nome, i.unidade ?? null) : null;
+      const m = chave ? metricaDe(chave) : undefined;
+      if (!chave || !m || i.valor == null || i.valor < m.min || i.valor > m.max) continue;
+      const ja = await tx.metricaPaciente.findFirst({ where: { pacienteId: req.params.pacienteId, tipo: chave, data, excluidaEm: null } });
+      if (ja) continue;
+      await tx.metricaPaciente.create({ data: { clinicaId: me.clinicaId, pacienteId: req.params.pacienteId, profissionalId: me.sub, tipo: chave, valor: i.valor, data, observacao: "Do exame importado" } });
+      metricas++;
+    }
+  });
+  res.status(201).json({ salvos: itens.length, metricas });
+}));
+
+examesRouter.delete("/resultados/:pacienteId/:id", asyncHandler(async (req, res) => {
+  const me = u(req);
+  if (!(await pacienteDoUsuario(req, req.params.pacienteId))) { res.status(404).json({ error: "Paciente não encontrado" }); return; }
+  const r = await prisma.resultadoExame.updateMany({ where: { id: req.params.id, pacienteId: req.params.pacienteId, clinicaId: me.clinicaId, excluidaEm: null }, data: { excluidaEm: new Date() } });
+  if (!r.count) { res.status(404).json({ error: "Resultado não encontrado" }); return; }
   res.json({ ok: true });
 }));

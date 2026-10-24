@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { ExamesDoPaciente } from "./ExamesDoPaciente";
 import { api, type MedicamentoSaude, type MetricaSaude, type ProblemaSaude, type SaudeDoPacienteDados, type TipoMetricaSaude } from "../lib/api";
 
 // Aba "Saúde" da ficha (pacote médico): problemas ativos, medicamentos em uso e métricas ao longo do tempo, com gráfico.
@@ -22,7 +23,7 @@ function Secao({ titulo, dica, acao, children }: { titulo: string; dica: string;
   );
 }
 
-function GraficoMetrica({ tipo, pontos }: { tipo: TipoMetricaSaude; pontos: MetricaSaude[] }) {
+export function GraficoMetrica({ tipo, pontos }: { tipo: TipoMetricaSaude; pontos: MetricaSaude[] }) {
   const L = 40, R = 12, T = 14, B = 26, W = 520, H = 170;
   const valores = pontos.flatMap((p) => [p.valor, ...(p.valor2 != null ? [p.valor2] : [])]);
   const faixa = tipo.faixa;
@@ -139,7 +140,9 @@ export function SaudeDoPaciente({ pacienteId }: { pacienteId: string }) {
         {suspensos.length > 0 && <><p className="mb-1 mt-4 text-xs font-bold uppercase tracking-wide text-clay">Suspensos</p><ul className="grid gap-2 opacity-70">{suspensos.map(linhaMed)}</ul></>}
       </Secao>
 
-      <Secao titulo="Medidas e exames" dica="Registre ao longo do tempo; o gráfico se monta conforme os valores entram. A faixa verde é só referência." acao={!formMetrica && <button className={botao} onClick={() => setFormMetrica({ tipo: tipos[0]?.chave ?? "PESO", valor: "", valor2: "", data: hojeIso() })}>Registrar medida</button>}>
+      <ExamesDoPaciente pacienteId={pacienteId} onSalvo={() => void carregar()} />
+
+      <Secao titulo="Medidas ao longo do tempo" dica="Registre ao longo do tempo; o gráfico se monta conforme os valores entram. A faixa verde é só referência." acao={!formMetrica && <button className={botao} onClick={() => setFormMetrica({ tipo: tipos[0]?.chave ?? "PESO", valor: "", valor2: "", data: hojeIso() })}>Registrar medida</button>}>
         {formMetrica && tipoForm && (
           <form className="mb-4 grid gap-2 rounded-xl bg-mist/50 p-3 sm:grid-cols-[1fr_7rem_7rem_9rem_auto]" onSubmit={(e) => { e.preventDefault(); void executar(() => api.registrarMetricaSaude(pacienteId, { tipo: formMetrica.tipo, valor: Number(formMetrica.valor.replace(",", ".")), valor2: tipoForm.duplo ? Number(formMetrica.valor2.replace(",", ".")) : null, data: formMetrica.data }), () => setFormMetrica({ ...formMetrica, valor: "", valor2: "" })); }}>
             <select className={campo} value={formMetrica.tipo} onChange={(e) => setFormMetrica({ ...formMetrica, tipo: e.target.value, valor: "", valor2: "" })}>{tipos.map((t) => <option key={t.chave} value={t.chave}>{t.rotulo} ({t.unidade})</option>)}</select>

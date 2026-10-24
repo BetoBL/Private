@@ -46,6 +46,7 @@ const app = express();
 app.use(cors());
 app.use(compression()); // listas de testes e resultados são grandes (motor de planilha)
 app.use("/modelos-laudo", express.json({ limit: "15mb" })); // laudo em Word enviado em base64
+app.use("/exames/importar", express.json({ limit: "20mb" })); // exame em PDF ou foto enviado em base64
 app.use(express.json({ limit: "4mb" })); // cadastros com logotipo/assinatura em data URL
 
 app.get("/health", (_req, res) => {

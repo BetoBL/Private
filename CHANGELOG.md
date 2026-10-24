@@ -1,5 +1,15 @@
 # Changelog
 
+## [2026-10-24] Importação de exames por IA (pacote médico, etapa D)
+
+**Ainda NÃO publicado.** Migration `resultados_exame` só local.
+- Na aba Saúde, **Importar exame**: o médico envia o PDF ou a foto (até 10 MB); a IA transcreve os resultados (valor, unidade, referência, se está alterado) e laudos (conclusão copiada); o médico **confere e edita cada linha** antes de salvar. Nada é salvo sem confirmação.
+- Segurança: só com o consentimento do paciente para tecnologias de apoio (como as outras IAs); compara o nome no documento com o do paciente e exige confirmação explícita se não bater; o arquivo vai para a IA e **não é guardado** pelo sistema (só os resultados conferidos); reimportar o mesmo exame não repete resultados.
+- Os resultados ficam agrupados por exame, com último valor, marca de alterado e gráfico da evolução. Glicose, hemoglobina glicada e LDL também entram nos gráficos de "Medidas ao longo do tempo" (sem repetir a mesma medida no dia).
+- API: POST `/exames/importar/:pacienteId`, GET/POST/DELETE `/exames/resultados/:pacienteId`. 2 testes novos; 200 testes da API passam.
+- Conferido com um exame de laboratório fictício em PDF: 8 de 8 resultados lidos corretamente e nome divergente detectado. Foto e laudo de imagem ainda não foram testados com documentos reais.
+
+
 ## [2026-10-23] Exames e pedidos médicos (pacote médico, etapa C)
 
 **Ainda NÃO publicado.** Migration `pedidos_medicos` só local.

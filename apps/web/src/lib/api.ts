@@ -476,6 +476,10 @@ export interface KitExame { chave: string; nome: string; especialidades: string[
 export interface ModeloPedidoSalvo { id: string; nome: string; tipo: TipoPedido; itens: ItemPedido[]; texto: string | null; compartilhado: boolean; meu: boolean }
 export interface PedidoSalvo { id: string; tipo: TipoPedido; itens: ItemPedido[]; texto: string | null; indicacao: string | null; criadoEm: string }
 
+export interface ItemLido { nome: string; tipo: "NUMERICO" | "LAUDO"; valor: number | null; valorTexto: string | null; unidade: string | null; referencia: string | null; fora: boolean | null }
+export interface ExameLido { nomeNoDocumento: string | null; dataExame: string | null; laboratorio: string | null; itens: ItemLido[]; nomeConfere: boolean | null }
+export interface ResultadoExameSalvo { id: string; data: string; laboratorio: string | null; nome: string; tipo: "NUMERICO" | "LAUDO"; valor: number | null; valorTexto: string | null; unidade: string | null; referencia: string | null; fora: boolean | null }
+
 // ---- Escalas de triagem ----
 export interface FaixaEscala { ate: number; rotulo: string; cor: "verde" | "amarelo" | "laranja" | "vermelho" }
 export interface EscalaResumo { codigo: string; nome: string; sigla: string; construto: string; uso: string; tempo: string; fonte: string; itens: number; frequenciaSugerida: string; notaClinica: string; graficoMax: number; pontosDeCorte: number[]; porSubescala: boolean }
@@ -996,6 +1000,10 @@ export const api = {
   pedidosDoPaciente: (pacienteId: string) => request<PedidoSalvo[]>(`/exames/pedidos/${pacienteId}`),
   registrarPedido: (pacienteId: string, d: { tipo: TipoPedido; itens: ItemPedido[]; texto?: string | null; indicacao?: string | null }) => request<{ id: string }>(`/exames/pedidos/${pacienteId}`, { method: "POST", body: JSON.stringify(d) }),
   removerPedido: (pacienteId: string, id: string) => request<{ ok: true }>(`/exames/pedidos/${pacienteId}/${id}`, { method: "DELETE" }),
+  importarExame: (pacienteId: string, d: { arquivo: string; tipoMime: string }) => request<ExameLido>(`/exames/importar/${pacienteId}`, { method: "POST", body: JSON.stringify(d) }),
+  resultadosDeExame: (pacienteId: string) => request<ResultadoExameSalvo[]>(`/exames/resultados/${pacienteId}`),
+  salvarResultadosDeExame: (pacienteId: string, d: { data: string; laboratorio?: string | null; origem: "IA" | "MANUAL"; itens: Array<{ nome: string; tipo: string; valor: number | null; valorTexto: string | null; unidade: string | null; referencia: string | null; fora: boolean | null }> }) => request<{ salvos: number; metricas: number }>(`/exames/resultados/${pacienteId}`, { method: "POST", body: JSON.stringify(d) }),
+  removerResultadoDeExame: (pacienteId: string, id: string) => request<{ ok: true }>(`/exames/resultados/${pacienteId}/${id}`, { method: "DELETE" }),
   catalogoEscalas: () => request<EscalaResumo[]>("/escalas/catalogo"),
   escalaCompleta: (codigo: string) => request<EscalaCompleta>(`/escalas/catalogo/${codigo}`),
   escalasDoPaciente: (pacienteId: string) => request<SolicitacaoEscala[]>(`/escalas/paciente/${pacienteId}`),
