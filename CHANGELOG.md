@@ -2,7 +2,7 @@
 
 ## [2026-10-24] Importação de exames por IA (pacote médico, etapa D)
 
-**Ainda NÃO publicado.** Migration `resultados_exame` só local.
+**Publicado em 24/10/2026.** Migration `resultados_exame` aplicada no Render.
 - Na aba Saúde, **Importar exame**: o médico envia o PDF ou a foto (até 10 MB); a IA transcreve os resultados (valor, unidade, referência, se está alterado) e laudos (conclusão copiada); o médico **confere e edita cada linha** antes de salvar. Nada é salvo sem confirmação.
 - Segurança: só com o consentimento do paciente para tecnologias de apoio (como as outras IAs); compara o nome no documento com o do paciente e exige confirmação explícita se não bater; o arquivo vai para a IA e **não é guardado** pelo sistema (só os resultados conferidos); reimportar o mesmo exame não repete resultados.
 - Os resultados ficam agrupados por exame, com último valor, marca de alterado e gráfico da evolução. Glicose, hemoglobina glicada e LDL também entram nos gráficos de "Medidas ao longo do tempo" (sem repetir a mesma medida no dia).
@@ -12,7 +12,7 @@
 
 ## [2026-10-23] Exames e pedidos médicos (pacote médico, etapa C)
 
-**Ainda NÃO publicado.** Migration `pedidos_medicos` só local.
+**Publicado em 24/10/2026.** Migration `pedidos_medicos` aplicada no Render.
 - **Catálogo de exames:** 2.873 procedimentos diagnósticos vigentes da Tabela 22 da TUSS (ANS), baixados do Sistema de Gestão de Terminologias da ANS em 23/10/2026 (`apps/api/src/data/exames-tuss.json`). Busca por parte do nome, sem acento, entendendo abreviações (ECG, TC, RM, US, MAPA, TCO) e filtro por tipo de exame.
 - **Kits por especialidade (sugestões iniciais, a validar com médicos):** check-up básico, cardiologia (avaliação inicial, arritmia e pressão, carótidas), diabetes, oftalmologia (avaliação de glaucoma), ginecologia, ortopedia e psiquiatria. Especialidades novas: oftalmologia, urologia, gastroenterologia.
 - **Aba Pedidos** na ficha: pedido de exames, pedido médico (texto) e indicação de medicação. O médico usa kit ou modelo gravado, busca exames, ajusta detalhe (ex.: "olhos, ambos"), registra no paciente, imprime ou copia o texto.
@@ -24,7 +24,7 @@
 
 ## [2026-10-23] Aba Saúde do paciente (pacote médico, etapa B)
 
-**Ainda NÃO publicado.** Migration `saude_do_paciente` só local.
+**Publicado em 24/10/2026.** Migration `saude_do_paciente` aplicada no Render.
 - Nova aba **Saúde** na ficha do paciente (módulo "saude", aparece para médicos): **problemas de saúde** (com CID opcional, marcar como resolvido/reativar), **medicamentos** (dose, como usar, para quê; suspender/retomar) e **medidas e exames** com gráfico por tipo que se monta conforme os valores entram, com faixa de referência verde.
 - Medidas: peso, cintura, pressão arterial (máxima e mínima), frequência cardíaca, saturação, temperatura, glicemia, hemoglobina glicada, LDL e sono. Valores fora do intervalo possível e pressão sem as duas medidas são recusados.
 - API `/saude/:pacienteId` (problemas, medicamentos, metricas), só o profissional responsável ou o administrador; remoção é lógica (`excluidaEm`).
@@ -33,7 +33,7 @@
 
 ## [2026-10-23] Pacote médico base e especialidade (etapa A)
 
-**Ainda NÃO publicado.** Migration `especialidade_medica` só local.
+**Publicado em 24/10/2026.** Migration `especialidade_medica` aplicada no Render.
 - Novo campo `Profissional.especialidadeMedica` (só para categoria Médico) e catálogo de especialidades (`lib/prontuario/especialidades.ts`): clínica geral, psiquiatria, cardiologia, endocrinologia, geriatria, pediatria, ginecologia, neurologia, dermatologia, ortopedia, medicina do esporte, estilo de vida, outra. Cada uma pode acrescentar modelos e módulos; por ora só psiquiatria tem camada própria (ainda não validada por médico).
 - Médico ganha modelos de evolução: Primeira consulta, Retorno e, na psiquiatria, Consulta psiquiátrica (exame do estado mental e risco). Módulos de escalas e "saúde" previstos para o médico (aba Saúde é a etapa B).
 - Dois modelos de anamnese para o paciente responder: Anamnese médica e Anamnese psiquiátrica.
